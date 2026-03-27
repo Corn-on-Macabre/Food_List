@@ -1,0 +1,84 @@
+# generated: 2026-03-27
+# last_updated: 2026-03-27
+# project: Food_List
+# project_key: NOKEY
+# tracking_system: file-system
+# story_location: _bmad-output/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Epic Status Transitions:
+#   - backlog → in-progress: Automatically when first story is created (via create-story)
+#   - in-progress → done: Manually when all stories reach 'done' status
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review (via Dev's code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when first story is created
+# - Stories are typically worked in order; SM creates next story after previous is 'done'
+# - Dev moves story to 'review', then runs code-review before 'done'
+# - Epics 4 and 5 are Growth Phase — deferred until MVP (Epics 1-3) is shipped
+
+generated: 2026-03-27
+last_updated: 2026-03-27 (story 1.1 created)
+project: Food_List
+project_key: NOKEY
+tracking_system: file-system
+story_location: _bmad-output/implementation-artifacts
+
+development_status:
+  # Epic 1: Interactive Restaurant Map (MVP)
+  epic-1: in-progress
+  1-1-project-setup-and-google-map-display: ready-for-dev
+  1-2-restaurant-data-loading-and-pin-display: backlog
+  1-3-pin-legend: backlog
+  1-4-user-geolocation-and-map-centering: backlog
+  1-5-responsive-layout: backlog
+  1-6-production-deployment: backlog
+  epic-1-retrospective: optional
+
+  # Epic 2: Restaurant Details & Navigation (MVP)
+  epic-2: backlog
+  2-1-pin-click-and-detail-card-display: backlog
+  2-2-google-maps-navigation-link: backlog
+  2-3-detail-card-dismissal: backlog
+  epic-2-retrospective: optional
+
+  # Epic 3: Smart Filtering (MVP)
+  epic-3: backlog
+  3-1-cuisine-type-filter: backlog
+  3-2-distance-filter: backlog
+  3-3-combined-filters-and-clear-all: backlog
+  epic-3-retrospective: optional
+
+  # Epic 4: Curator Dashboard (Growth Phase)
+  epic-4: backlog
+  4-1-curator-authentication-and-dashboard-route: backlog
+  4-2-add-restaurant-with-google-places-search: backlog
+  4-3-tier-assignment-and-promotion: backlog
+  4-4-notes-management: backlog
+  4-5-source-attribution-and-occasion-tags: backlog
+  4-6-bobbys-pick-featured-badge: backlog
+  epic-4-retrospective: optional
+
+  # Epic 5: Data Enrichment & Enhanced Details (Growth Phase)
+  epic-5: backlog
+  5-1-google-places-api-enrichment-pipeline: backlog
+  5-2-enhanced-detail-card-with-ratings-and-price: backlog
+  5-3-restaurant-photos-on-detail-card: backlog
+  epic-5-retrospective: optional
