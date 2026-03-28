@@ -1,9 +1,25 @@
-import { APIProvider, Map } from '@vis.gl/react-google-maps';
-import { useRestaurants } from './hooks';
+import { useEffect } from 'react';
+import { APIProvider, Map, useMap } from '@vis.gl/react-google-maps';
+import { useRestaurants, useGeolocation } from './hooks';
 import { RestaurantPin, PinLegend } from './components';
 import './index.css';
 
 const PHOENIX_CENTER = { lat: 33.4484, lng: -112.0740 };
+
+// Smoothly pans the map to the given coords using the native animated panTo.
+// Must be rendered as a child of <Map> to access the map instance via useMap().
+// NOTE: getCurrentPosition has no cancellation API. If the parent unmounts before
+// geolocation resolves, setCoords/setLoading fire on the unmounted component —
+// React 18 handles this as a no-op.
+function MapCenterer({ coords }: { coords: { lat: number; lng: number } }) {
+  const map = useMap();
+  useEffect(() => {
+    if (map) {
+      map.panTo(coords);
+    }
+  }, [map, coords]);
+  return null;
+}
 
 function App() {
   const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
@@ -28,6 +44,10 @@ function App() {
 
 function AppWithMap({ apiKey }: { apiKey: string }) {
   const { restaurants, loading, error } = useRestaurants();
+  // denied is exposed for Story 3.2 distance filter (hides control when geolocation is denied)
+  const { coords, loading: geoLoading } = useGeolocation();
+  // resolvedCenter: user coords if geolocation succeeded, else Phoenix default
+  const resolvedCenter = coords ?? PHOENIX_CENTER;
 
   return (
     <div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
@@ -41,6 +61,8 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           {restaurants.map(r => (
             <RestaurantPin key={r.id} restaurant={r} />
           ))}
+          {/* Smoothly pan to user location once geolocation resolves */}
+          {!geoLoading && coords && <MapCenterer coords={resolvedCenter} />}
         </Map>
       </APIProvider>
 

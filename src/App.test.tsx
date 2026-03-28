@@ -8,6 +8,12 @@ vi.mock('@vis.gl/react-google-maps', () => ({
   Map: ({ children }: { children?: React.ReactNode }) => <div data-testid="google-map">{children}</div>,
   AdvancedMarker: ({ children }: { children?: React.ReactNode }) => <div>{children}</div>,
   Pin: () => <div />,
+  useMap: () => null,
+}));
+
+// Stub useGeolocation so App tests are not coupled to geolocation hook internals
+vi.mock('./hooks/useGeolocation', () => ({
+  useGeolocation: () => ({ coords: null, loading: false, denied: false }),
 }));
 
 describe('App', () => {
