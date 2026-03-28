@@ -1,4 +1,6 @@
 import { APIProvider, Map } from '@vis.gl/react-google-maps';
+import { useRestaurants } from './hooks';
+import { RestaurantPin } from './components';
 import './index.css';
 
 const PHOENIX_CENTER = { lat: 33.4484, lng: -112.0740 };
@@ -21,15 +23,44 @@ function App() {
     );
   }
 
+  return <AppWithMap apiKey={apiKey} />;
+}
+
+function AppWithMap({ apiKey }: { apiKey: string }) {
+  const { restaurants, loading, error } = useRestaurants();
+
   return (
-    <APIProvider apiKey={apiKey}>
-      <Map
-        style={{ width: '100vw', height: '100vh' }}
-        defaultCenter={PHOENIX_CENTER}
-        defaultZoom={11}
-        mapId="food-list-map"
-      />
-    </APIProvider>
+    <div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
+      <APIProvider apiKey={apiKey}>
+        <Map
+          style={{ width: '100vw', height: '100vh' }}
+          defaultCenter={PHOENIX_CENTER}
+          defaultZoom={11}
+          mapId="food-list-map"
+        >
+          {restaurants.map(r => (
+            <RestaurantPin key={r.id} restaurant={r} />
+          ))}
+        </Map>
+      </APIProvider>
+
+      {loading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-white/60 pointer-events-none">
+          <div className="p-6 bg-white rounded shadow text-center">
+            <p className="text-gray-700 font-medium">Loading restaurants...</p>
+          </div>
+        </div>
+      )}
+
+      {error !== null && (
+        <div className="absolute inset-0 flex items-center justify-center bg-white/60">
+          <div className="p-6 bg-white rounded shadow text-center">
+            <h1 className="text-xl font-semibold text-red-600 mb-2">Data Error</h1>
+            <p className="text-gray-700">Could not load restaurant data. Please refresh the page.</p>
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
 

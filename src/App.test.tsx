@@ -5,12 +5,16 @@ import App from './App';
 // Mock @vis.gl/react-google-maps to avoid needing a real Maps API in tests
 vi.mock('@vis.gl/react-google-maps', () => ({
   APIProvider: ({ children }: { children: React.ReactNode }) => <>{children}</>,
-  Map: () => <div data-testid="google-map" />,
+  Map: ({ children }: { children?: React.ReactNode }) => <div data-testid="google-map">{children}</div>,
+  AdvancedMarker: ({ children }: { children?: React.ReactNode }) => <div>{children}</div>,
+  Pin: () => <div />,
 }));
 
 describe('App', () => {
   beforeEach(() => {
     vi.unstubAllEnvs();
+    // Prevent useRestaurants fetch from leaving dangling async state
+    vi.spyOn(globalThis, 'fetch').mockReturnValue(new Promise(() => {}));
   });
 
   it('shows error state when API key is missing (empty)', () => {
