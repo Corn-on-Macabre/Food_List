@@ -1,6 +1,6 @@
 import { APIProvider, Map } from '@vis.gl/react-google-maps';
 import { useRestaurants } from './hooks';
-import { RestaurantPin } from './components';
+import { RestaurantPin, PinLegend } from './components';
 import './index.css';
 
 const PHOENIX_CENTER = { lat: 33.4484, lng: -112.0740 };
@@ -44,6 +44,8 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
         </Map>
       </APIProvider>
 
+      <PinLegend />
+
       {loading && (
         <div className="absolute inset-0 flex items-center justify-center bg-white/60 pointer-events-none">
           <div className="p-6 bg-white rounded shadow text-center">
@@ -53,7 +55,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
       )}
 
       {error !== null && (
-        <div className="absolute inset-0 flex items-center justify-center bg-white/60">
+        <div className="absolute inset-0 z-20 flex items-center justify-center bg-white/60">
           <div className="p-6 bg-white rounded shadow text-center">
             <h1 className="text-xl font-semibold text-red-600 mb-2">Data Error</h1>
             <p className="text-gray-700">Could not load restaurant data. Please refresh the page.</p>

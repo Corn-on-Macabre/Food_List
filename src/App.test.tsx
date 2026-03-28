@@ -36,4 +36,10 @@ describe('App', () => {
     expect(screen.getByTestId('google-map')).toBeInTheDocument();
     expect(screen.queryByText('Configuration Error')).not.toBeInTheDocument();
   });
+
+  it('renders the pin legend when a real API key is provided', () => {
+    vi.stubEnv('VITE_GOOGLE_MAPS_API_KEY', 'AIza-real-key-123');
+    render(<App />);
+    expect(screen.getByRole('region', { name: 'Map Legend' })).toBeInTheDocument();
+  });
 });
