@@ -49,3 +49,54 @@ describe('App', () => {
     expect(screen.getByRole('region', { name: 'Map Legend' })).toBeInTheDocument();
   });
 });
+
+describe('Responsive layout', () => {
+  beforeEach(() => {
+    vi.unstubAllEnvs();
+    // Default: fetch never resolves so loading stays true (safe for most tests)
+    vi.spyOn(globalThis, 'fetch').mockReturnValue(new Promise(() => {}));
+  });
+
+  // C1 — Map container renders with full-viewport dimensions
+  it('map container fills full viewport', () => {
+    vi.stubEnv('VITE_GOOGLE_MAPS_API_KEY', 'AIza-real-key-123');
+    const { container } = render(<App />);
+    const mapWrapper = container.firstChild as HTMLElement;
+    expect(mapWrapper).toHaveStyle({ width: '100vw', height: '100vh' });
+  });
+
+  // C2 — PinLegend renders at bottom-left corner
+  it('pin legend is positioned at bottom-left corner', () => {
+    vi.stubEnv('VITE_GOOGLE_MAPS_API_KEY', 'AIza-real-key-123');
+    render(<App />);
+    const legend = screen.getByRole('region', { name: 'Map Legend' });
+    expect(legend.className).toMatch(/absolute/);
+    expect(legend.className).toMatch(/bottom-4/);
+    expect(legend.className).toMatch(/left-4/);
+  });
+
+  // C3 — Loading overlay is centered when data is loading
+  // Note: tests CSS class names/inline styles, not computed layout (jsdom limitation —
+  // actual viewport-width responsiveness requires a browser-based e2e test).
+  it('loading overlay is centered when data is loading', () => {
+    // beforeEach already mocks fetch to never resolve — useRestaurants stays loading:true
+    vi.stubEnv('VITE_GOOGLE_MAPS_API_KEY', 'AIza-real-key-123');
+    const { container } = render(<App />);
+    expect(screen.getByText('Loading restaurants...')).toBeInTheDocument();
+    const overlay = container.querySelector('.absolute.inset-0.flex.items-center.justify-center');
+    expect(overlay).toBeInTheDocument();
+  });
+
+  // C4 — Error overlay is centered when data fails
+  // Note: implicitly tests useRestaurants error path via controlled fetch rejection.
+  // If useRestaurants error contract changes, this test must be updated accordingly.
+  it('error overlay is centered when data fails', async () => {
+    vi.spyOn(globalThis, 'fetch').mockRejectedValue(new Error('Network error'));
+    vi.stubEnv('VITE_GOOGLE_MAPS_API_KEY', 'AIza-real-key-123');
+    render(<App />);
+    const errorText = await screen.findByText('Could not load restaurant data. Please refresh the page.');
+    const overlay = errorText.closest('.inset-0');
+    expect(overlay).not.toBeNull();
+    expect(overlay).toBeInTheDocument();
+  });
+});

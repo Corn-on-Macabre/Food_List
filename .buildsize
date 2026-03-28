@@ -1,0 +1,18 @@
+# NFR4 Bundle Size Audit — 2026-03-27
+# Captured from: npm run build (vite v8.0.3)
+# Requirement: total < 500 KB (excluding Google Maps API payload)
+
+dist/index.html              459 B
+dist/assets/index-*.css   12,043 B  (12.04 KB)
+dist/assets/index-*.js   224,158 B (224.15 KB)
+dist/restaurants.json      5,619 B   (5.62 KB)
+dist/favicon.svg           9,522 B   (9.52 KB — static asset, not app bundle)
+dist/icons.svg             5,031 B   (5.03 KB — static asset, not app bundle)
+
+App bundle total (HTML + CSS + JS + data):
+  459 + 12,043 + 224,158 + 5,619 = 242,279 B (242.28 KB)
+
+NFR4 STATUS: PASS — 242 KB / 500 KB cap (51.6% under limit, 257 KB headroom)
+Gzip total (Vite reported): ~74 KB
+
+Rerun to verify: npm run build && ls -la dist/ dist/assets/
