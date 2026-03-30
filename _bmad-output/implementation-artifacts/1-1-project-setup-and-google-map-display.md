@@ -1,6 +1,6 @@
 # Story 1.1: Project Setup & Google Map Display
 
-Status: ready-for-dev
+Status: in-progress
 
 ## Story
 
@@ -16,31 +16,31 @@ so that I have a visual canvas to explore restaurant locations.
 
 ## Tasks / Subtasks
 
-- [ ] Scaffold the project with Vite (AC: 1, 2)
-  - [ ] Run `npm create vite@latest . -- --template react-ts` in the project root (`/Users/rhunnicutt/Food_List`)
-  - [ ] Install dependencies: `npm install`
-  - [ ] Install `@vis.gl/react-google-maps`, `tailwindcss`, `@tailwindcss/vite`
-  - [ ] Configure Tailwind via `vite.config.ts` plugin (Tailwind v4 approach) or `tailwind.config.js` (v3 approach) — see Dev Notes for version guidance
-  - [ ] Add `import './index.css'` with `@tailwind base/components/utilities` directives to `src/index.css`
-- [ ] Configure environment variable (AC: 2)
-  - [ ] Create `.env` with `VITE_GOOGLE_MAPS_API_KEY=PLACEHOLDER_KEY`
-  - [ ] Add `.env` to `.gitignore`
-  - [ ] Add `.env.example` with the key name but no value
-- [ ] Define TypeScript data model (AC: 2)
-  - [ ] Create `src/types/restaurant.ts` with `Tier` type and `Restaurant` interface (see Dev Notes)
-  - [ ] Create `src/types/index.ts` re-exporting all types
-- [ ] Set up Google Maps rendering (AC: 1, 2)
-  - [ ] Replace boilerplate in `src/App.tsx` with `APIProvider` wrapping a `Map` component
-  - [ ] Set `defaultCenter={{ lat: 33.4484, lng: -112.0740 }}` and `defaultZoom={11}`
-  - [ ] Pass `mapId` prop (can be `"food-list-map"` — placeholder until Google Cloud Map ID is created)
-  - [ ] Load API key via `import.meta.env.VITE_GOOGLE_MAPS_API_KEY`
-- [ ] Error state for missing/failed API key (AC: 3)
-  - [ ] Detect missing API key (env var empty/undefined) and render a user-facing error message
-  - [ ] Wrap map render in an error boundary or conditional render for API load failure
-- [ ] Clean up Vite boilerplate (AC: 2)
-  - [ ] Remove default Vite counter component and CSS
-  - [ ] Set `index.html` title to "Food List"
-  - [ ] Set `src/main.tsx` to render `<App />` with `<React.StrictMode>`
+- [x] Scaffold the project with Vite (AC: 1, 2)
+  - [x] Run `npm create vite@latest . -- --template react-ts` in the project root (`/Users/rhunnicutt/Food_List`)
+  - [x] Install dependencies: `npm install`
+  - [x] Install `@vis.gl/react-google-maps`, `tailwindcss`, `@tailwindcss/vite`
+  - [x] Configure Tailwind via `vite.config.ts` plugin (Tailwind v4 approach) or `tailwind.config.js` (v3 approach) — see Dev Notes for version guidance
+  - [x] Add `import './index.css'` with `@tailwind base/components/utilities` directives to `src/index.css`
+- [x] Configure environment variable (AC: 2)
+  - [x] Create `.env` with `VITE_GOOGLE_MAPS_API_KEY=PLACEHOLDER_KEY`
+  - [x] Add `.env` to `.gitignore`
+  - [x] Add `.env.example` with the key name but no value
+- [x] Define TypeScript data model (AC: 2)
+  - [x] Create `src/types/restaurant.ts` with `Tier` type and `Restaurant` interface (see Dev Notes)
+  - [x] Create `src/types/index.ts` re-exporting all types
+- [x] Set up Google Maps rendering (AC: 1, 2)
+  - [x] Replace boilerplate in `src/App.tsx` with `APIProvider` wrapping a `Map` component
+  - [x] Set `defaultCenter={{ lat: 33.4484, lng: -112.0740 }}` and `defaultZoom={11}`
+  - [x] Pass `mapId` prop (can be `"food-list-map"` — placeholder until Google Cloud Map ID is created)
+  - [x] Load API key via `import.meta.env.VITE_GOOGLE_MAPS_API_KEY`
+- [x] Error state for missing/failed API key (AC: 3)
+  - [x] Detect missing API key (env var empty/undefined) and render a user-facing error message
+  - [x] Wrap map render in an error boundary or conditional render for API load failure
+- [x] Clean up Vite boilerplate (AC: 2)
+  - [x] Remove default Vite counter component and CSS
+  - [x] Set `index.html` title to "Food List"
+  - [x] Set `src/main.tsx` to render `<App />` with `<React.StrictMode>`
 
 ## Dev Notes
 
@@ -206,6 +206,30 @@ claude-sonnet-4-6
 
 ### Debug Log References
 
+None.
+
 ### Completion Notes List
 
+- Scaffolded via temp-scaffold pattern (non-interactive), then moved files to project root.
+- Used Tailwind v4 via `@tailwindcss/vite` plugin — no tailwind.config.js needed.
+- `@vis.gl/react-google-maps` v1.8.1 installed; `APIProvider` + `Map` in App.tsx.
+- Missing API key shows a styled error div (conditional render; no class ErrorBoundary needed per Dev Notes).
+- TypeScript strict mode confirmed via `tsc --noEmit` (0 errors). Build passes.
+- package name corrected from "temp-scaffold" to "food-list".
+
 ### File List
+
+- `/Users/rhunnicutt/Food_List/index.html` — created (title: "Food List")
+- `/Users/rhunnicutt/Food_List/package.json` — created
+- `/Users/rhunnicutt/Food_List/vite.config.ts` — created (Tailwind v4 plugin)
+- `/Users/rhunnicutt/Food_List/tsconfig.json` — created
+- `/Users/rhunnicutt/Food_List/tsconfig.app.json` — created
+- `/Users/rhunnicutt/Food_List/tsconfig.node.json` — created
+- `/Users/rhunnicutt/Food_List/.env` — created (PLACEHOLDER_KEY)
+- `/Users/rhunnicutt/Food_List/.env.example` — created
+- `/Users/rhunnicutt/Food_List/.gitignore` — created
+- `/Users/rhunnicutt/Food_List/src/index.css` — created (`@import "tailwindcss"`)
+- `/Users/rhunnicutt/Food_List/src/main.tsx` — created (StrictMode + App)
+- `/Users/rhunnicutt/Food_List/src/App.tsx` — created (APIProvider + Map)
+- `/Users/rhunnicutt/Food_List/src/types/restaurant.ts` — created
+- `/Users/rhunnicutt/Food_List/src/types/index.ts` — created

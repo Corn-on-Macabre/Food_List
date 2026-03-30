@@ -35,7 +35,7 @@
 # - Epics 4 and 5 are Growth Phase — deferred until MVP (Epics 1-3) is shipped
 
 generated: 2026-03-27
-last_updated: 2026-03-27 (story 1.1 created)
+last_updated: 2026-03-27 (story 1.6 done — all deployment artifacts created, build verified)
 project: Food_List
 project_key: NOKEY
 tracking_system: file-system
@@ -43,13 +43,13 @@ story_location: _bmad-output/implementation-artifacts
 
 development_status:
   # Epic 1: Interactive Restaurant Map (MVP)
-  epic-1: in-progress
-  1-1-project-setup-and-google-map-display: ready-for-dev
-  1-2-restaurant-data-loading-and-pin-display: backlog
-  1-3-pin-legend: backlog
-  1-4-user-geolocation-and-map-centering: backlog
-  1-5-responsive-layout: backlog
-  1-6-production-deployment: backlog
+  epic-1: done
+  1-1-project-setup-and-google-map-display: done
+  1-2-restaurant-data-loading-and-pin-display: done
+  1-3-pin-legend: done
+  1-4-user-geolocation-and-map-centering: done
+  1-5-responsive-layout: done
+  1-6-production-deployment: done
   epic-1-retrospective: optional
 
   # Epic 2: Restaurant Details & Navigation (MVP)
