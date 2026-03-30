@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
-import { APIProvider, Map, useMap } from '@vis.gl/react-google-maps';
+import { useState, useEffect } from 'react';
+import { APIProvider, Map, useMap, type MapMouseEvent } from '@vis.gl/react-google-maps';
 import { useRestaurants, useGeolocation } from './hooks';
-import { RestaurantPin, PinLegend } from './components';
+import { RestaurantPin, PinLegend, RestaurantCard } from './components';
+import type { Restaurant } from './types';
 import './index.css';
 
 const PHOENIX_CENTER = { lat: 33.4484, lng: -112.0740 };
@@ -49,6 +50,16 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
   // resolvedCenter: user coords if geolocation succeeded, else Phoenix default
   const resolvedCenter = coords ?? PHOENIX_CENTER;
 
+  const [selectedRestaurant, setSelectedRestaurant] = useState<Restaurant | null>(null);
+
+  function handleMapClick(event: MapMouseEvent) {
+    // Only dismiss when clicking empty map space — not on a place/pin
+    if (!selectedRestaurant) return;
+    if (!event.detail.placeId) {
+      setSelectedRestaurant(null);
+    }
+  }
+
   return (
     <div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
       <APIProvider apiKey={apiKey}>
@@ -57,6 +68,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           defaultCenter={PHOENIX_CENTER}
           defaultZoom={11}
           mapId="food-list-map"
+          onClick={handleMapClick}
         >
           {restaurants.map(r => (
             <RestaurantPin key={r.id} restaurant={r} />
@@ -67,6 +79,13 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
       </APIProvider>
 
       <PinLegend />
+
+      {selectedRestaurant && (
+        <RestaurantCard
+          restaurant={selectedRestaurant}
+          onDismiss={() => setSelectedRestaurant(null)}
+        />
+      )}
 
       {loading && (
         <div className="absolute inset-0 flex items-center justify-center bg-white/60 pointer-events-none">
