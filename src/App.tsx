@@ -4,6 +4,7 @@ import { useRestaurants, useGeolocation } from './hooks';
 import { RestaurantPin, PinLegend, RestaurantCard, FilterBar } from './components';
 import type { Restaurant } from './types';
 import type { FilterState } from './types/restaurant';
+import { haversineDistance } from './utils';
 import './index.css';
 
 const PHOENIX_CENTER = { lat: 33.4484, lng: -112.0740 };
@@ -48,16 +49,26 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
   const { restaurants, loading, error } = useRestaurants();
   // geoDenied used in Story 3.2 to hide/show distance control
   const { coords, loading: geoLoading, denied: geoDenied } = useGeolocation();
-  void geoDenied; // forward-compat: consumed by Story 3.2 DistanceFilter
   // resolvedCenter: user coords if geolocation succeeded, else Phoenix default
   const resolvedCenter = coords ?? PHOENIX_CENTER;
 
   const [selectedRestaurant, setSelectedRestaurant] = useState<Restaurant | null>(null);
   const [filters, setFilters] = useState<FilterState>({ cuisine: null, maxDistance: null });
 
+  // Derived: distance filter is suppressed when location is unavailable or denied (AC 5, 6, 7)
+  const effectiveMaxDistance = geoDenied || coords === null ? null : filters.maxDistance;
+
   const filteredRestaurants = useMemo(
-    () => restaurants.filter(r => !filters.cuisine || r.cuisine === filters.cuisine),
-    [restaurants, filters.cuisine]
+    () =>
+      restaurants.filter((r) => {
+        if (filters.cuisine && r.cuisine !== filters.cuisine) return false;
+        if (effectiveMaxDistance !== null && coords !== null) {
+          const dist = haversineDistance(coords.lat, coords.lng, r.lat, r.lng);
+          if (dist > effectiveMaxDistance) return false;
+        }
+        return true;
+      }),
+    [restaurants, filters.cuisine, effectiveMaxDistance, coords]
   );
 
   const cuisines = useMemo(
@@ -81,6 +92,10 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           cuisines={cuisines}
           activeCuisine={filters.cuisine}
           onCuisineChange={(cuisine) => setFilters(f => ({ ...f, cuisine }))}
+          userCoords={coords}
+          geoDenied={geoDenied}
+          activeDistance={effectiveMaxDistance}
+          onDistanceChange={(miles) => setFilters(f => ({ ...f, maxDistance: miles }))}
         />
       </div>
       <APIProvider apiKey={apiKey}>

@@ -49,7 +49,7 @@ describe("App — FilterBar integration smoke test (AC 3, 6)", () => {
 
   it("renders FilterBar cuisine group alongside the map", () => {
     render(<App />);
-    expect(screen.getByRole("group", { name: "Filter by cuisine" })).toBeInTheDocument();
+    expect(screen.getByRole("group", { name: "Filters" })).toBeInTheDocument();
     expect(screen.getByTestId("mock-map")).toBeInTheDocument();
   });
 
@@ -57,6 +57,6 @@ describe("App — FilterBar integration smoke test (AC 3, 6)", () => {
     render(<App />);
     // App renders without throwing — map and filter UI both present
     expect(screen.getByTestId("mock-map")).toBeInTheDocument();
-    expect(screen.getByRole("group", { name: "Filter by cuisine" })).toBeInTheDocument();
+    expect(screen.getByRole("group", { name: "Filters" })).toBeInTheDocument();
   });
 });

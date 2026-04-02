@@ -62,7 +62,7 @@ development_status:
   # Epic 3: Smart Filtering (MVP)
   epic-3: in-progress
   3-1-cuisine-type-filter: done
-  3-2-distance-filter: backlog
+  3-2-distance-filter: done
   3-3-combined-filters-and-clear-all: backlog
   epic-3-retrospective: optional
 
