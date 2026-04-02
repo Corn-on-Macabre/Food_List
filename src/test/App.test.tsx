@@ -39,3 +39,24 @@ describe("App — initial state (AC 2, 3)", () => {
     expect(screen.getByTestId("mock-map")).toBeInTheDocument();
   });
 });
+
+describe("App — FilterBar integration smoke test (AC 3, 6)", () => {
+  it("renders the FilterBar with an All chip when restaurants load", () => {
+    render(<App />);
+    // FilterBar is always rendered — the "All" chip should always be present
+    expect(screen.getByRole("button", { name: "All" })).toBeInTheDocument();
+  });
+
+  it("renders FilterBar cuisine group alongside the map", () => {
+    render(<App />);
+    expect(screen.getByRole("group", { name: "Filter by cuisine" })).toBeInTheDocument();
+    expect(screen.getByTestId("mock-map")).toBeInTheDocument();
+  });
+
+  it("renders without errors when useRestaurants returns two restaurants with different cuisines", () => {
+    render(<App />);
+    // App renders without throwing — map and filter UI both present
+    expect(screen.getByTestId("mock-map")).toBeInTheDocument();
+    expect(screen.getByRole("group", { name: "Filter by cuisine" })).toBeInTheDocument();
+  });
+});

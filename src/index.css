@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
 @theme {
   --font-display: 'Playfair Display SC', Georgia, serif;
   --font-sans: 'Karla', system-ui, sans-serif;
