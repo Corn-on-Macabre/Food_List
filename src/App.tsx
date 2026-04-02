@@ -76,6 +76,12 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
     [restaurants]
   );
 
+  const hasActiveFilters = filters.cuisine !== null || filters.maxDistance !== null;
+
+  function handleClearFilters() {
+    setFilters({ cuisine: null, maxDistance: null });
+  }
+
   function handleMapClick(event: MapMouseEvent) {
     // Only dismiss when clicking empty map space — not on a place/pin
     if (!selectedRestaurant) return;
@@ -96,6 +102,8 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           geoDenied={geoDenied}
           activeDistance={effectiveMaxDistance}
           onDistanceChange={(miles) => setFilters(f => ({ ...f, maxDistance: miles }))}
+          hasActiveFilters={hasActiveFilters}
+          onClearFilters={handleClearFilters}
         />
       </div>
       <APIProvider apiKey={apiKey}>

@@ -235,3 +235,47 @@ describe("App — Distance filter integration (AC 2, 5, 6, 8)", () => {
     expect(screen.getAllByTestId("mock-pin")).toHaveLength(3);
   });
 });
+
+describe("App — Clear Filters integration (AC 1, 2, 3, 4)", () => {
+  beforeEach(async () => {
+    const { useRestaurants, useGeolocation } = await import("../hooks");
+    vi.mocked(useRestaurants).mockReturnValue({
+      restaurants: mockRestaurants,
+      loading: false,
+      error: null,
+    });
+    vi.mocked(useGeolocation).mockReturnValue({
+      coords: null,
+      loading: false,
+      denied: false,
+    });
+  });
+
+  it("Clear Filters button absent when no filter active", () => {
+    render(<App />);
+    expect(screen.queryByRole("button", { name: "Clear all filters" })).not.toBeInTheDocument();
+  });
+
+  it("Clear Filters appears after cuisine chip clicked", () => {
+    render(<App />);
+    fireEvent.click(screen.getByRole("button", { name: "Japanese" }));
+    expect(screen.getByRole("button", { name: "Clear all filters" })).toBeInTheDocument();
+  });
+
+  it("clicking Clear Filters resets cuisine filter — All chip active, selected chip inactive", () => {
+    render(<App />);
+    fireEvent.click(screen.getByRole("button", { name: "Japanese" }));
+    expect(screen.getByRole("button", { name: "Japanese" })).toHaveAttribute("aria-pressed", "true");
+    fireEvent.click(screen.getByRole("button", { name: "Clear all filters" }));
+    expect(screen.getByRole("button", { name: "Japanese" })).toHaveAttribute("aria-pressed", "false");
+    expect(screen.getByRole("button", { name: "All" })).toHaveAttribute("aria-pressed", "true");
+  });
+
+  it("Clear Filters button disappears after clearing filters", () => {
+    render(<App />);
+    fireEvent.click(screen.getByRole("button", { name: "Japanese" }));
+    expect(screen.getByRole("button", { name: "Clear all filters" })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Clear all filters" }));
+    expect(screen.queryByRole("button", { name: "Clear all filters" })).not.toBeInTheDocument();
+  });
+});

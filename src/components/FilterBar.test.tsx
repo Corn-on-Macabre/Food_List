@@ -13,6 +13,8 @@ const baseProps = {
   geoDenied: false,
   activeDistance: null as number | null,
   onDistanceChange: vi.fn(),
+  hasActiveFilters: false,
+  onClearFilters: vi.fn(),
 };
 
 describe('FilterBar', () => {
@@ -289,6 +291,31 @@ describe('FilterBar', () => {
       );
       expect(screen.getByRole('button', { name: '10 mi' })).toHaveAttribute('aria-pressed', 'true');
       expect(screen.getByRole('button', { name: 'Any' })).toHaveAttribute('aria-pressed', 'false');
+    });
+  });
+
+  describe('Clear Filters button (AC 2, 3, 4)', () => {
+    it('Clear Filters button is not visible when no filters active', () => {
+      render(<FilterBar {...baseProps} hasActiveFilters={false} />);
+      expect(screen.queryByRole('button', { name: 'Clear all filters' })).not.toBeInTheDocument();
+    });
+
+    it('Clear Filters button is visible when hasActiveFilters is true', () => {
+      render(<FilterBar {...baseProps} hasActiveFilters={true} />);
+      expect(screen.getByRole('button', { name: 'Clear all filters' })).toBeInTheDocument();
+    });
+
+    it('clicking Clear Filters calls onClearFilters once', () => {
+      const onClearFilters = vi.fn();
+      render(<FilterBar {...baseProps} hasActiveFilters={true} onClearFilters={onClearFilters} />);
+      fireEvent.click(screen.getByRole('button', { name: 'Clear all filters' }));
+      expect(onClearFilters).toHaveBeenCalledTimes(1);
+    });
+
+    it("Clear Filters button has aria-label='Clear all filters'", () => {
+      render(<FilterBar {...baseProps} hasActiveFilters={true} />);
+      const btn = screen.getByRole('button', { name: 'Clear all filters' });
+      expect(btn).toHaveAttribute('aria-label', 'Clear all filters');
     });
   });
 });

@@ -60,10 +60,10 @@ development_status:
   epic-2-retrospective: optional
 
   # Epic 3: Smart Filtering (MVP)
-  epic-3: in-progress
+  epic-3: done
   3-1-cuisine-type-filter: done
   3-2-distance-filter: done
-  3-3-combined-filters-and-clear-all: backlog
+  3-3-combined-filters-and-clear-all: done
   epic-3-retrospective: optional
 
   # Epic 4: Curator Dashboard (Growth Phase)
