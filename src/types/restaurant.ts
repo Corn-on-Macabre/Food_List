@@ -11,6 +11,9 @@ export interface Restaurant {
   googleMapsUrl: string;
   source?: string;
   dateAdded: string;    // ISO date string YYYY-MM-DD
+  tags?: string[];      // Occasion/vibe tags (e.g., ["date night", "patio"])
+  featured?: boolean;   // Bobby's Pick badge
+  enrichedAt?: string;  // ISO date — set by enrichment pipeline (Epic 5)
 }
 
 export interface FilterState {

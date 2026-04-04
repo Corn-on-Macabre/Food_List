@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { APIProvider, Map, useMap, type MapMouseEvent } from '@vis.gl/react-google-maps';
 import { useRestaurants, useGeolocation } from './hooks';
-import { RestaurantPin, PinLegend, RestaurantCard } from './components';
+import { RestaurantPin, PinLegend, RestaurantCard, ProtectedRoute, AdminDashboard } from './components';
+import { AdminAuthProvider } from './contexts/AdminAuthContext';
 import type { Restaurant } from './types';
 import './index.css';
 
@@ -40,7 +42,22 @@ function App() {
     );
   }
 
-  return <AppWithMap apiKey={apiKey} />;
+  return (
+    <Routes>
+      <Route path="/" element={<AppWithMap apiKey={apiKey} />} />
+      <Route
+        path="/admin"
+        element={
+          <AdminAuthProvider>
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          </AdminAuthProvider>
+        }
+      />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  );
 }
 
 function AppWithMap({ apiKey }: { apiKey: string }) {
