@@ -2,7 +2,8 @@ import { useState, useEffect, useMemo } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { APIProvider, Map, useMap, type MapMouseEvent } from '@vis.gl/react-google-maps';
 import { useRestaurants, useGeolocation } from './hooks';
-import { RestaurantPin, PinLegend, RestaurantCard, FilterBar, ProtectedRoute, AdminDashboard } from './components';
+
+import { ClusteredPins, PinLegend, RestaurantCard, FilterBar, ProtectedRoute, AdminDashboard } from './components';
 import { AdminAuthProvider } from './contexts/AdminAuthContext';
 import type { Restaurant } from './types';
 import type { FilterState } from './types/restaurant';
@@ -133,9 +134,10 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           mapId="food-list-map"
           onClick={handleMapClick}
         >
-          {filteredRestaurants.map(r => (
-            <RestaurantPin key={r.id} restaurant={r} />
-          ))}
+          <ClusteredPins
+            restaurants={filteredRestaurants}
+            onRestaurantClick={setSelectedRestaurant}
+          />
           {/* Smoothly pan to user location once geolocation resolves */}
           {!geoLoading && coords && <MapCenterer coords={resolvedCenter} />}
         </Map>

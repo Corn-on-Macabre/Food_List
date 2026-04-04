@@ -1,4 +1,5 @@
 export { RestaurantPin } from './RestaurantPin';
+export { ClusteredPins } from './ClusteredPins';
 export { PinLegend } from './PinLegend';
 export { RestaurantCard } from './RestaurantCard';
 export { FilterBar } from './FilterBar';
