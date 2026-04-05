@@ -1,3 +1,12 @@
 export { RestaurantPin } from './RestaurantPin';
 export { PinLegend } from './PinLegend';
 export { RestaurantCard } from './RestaurantCard';
+export { AdminLogin } from './AdminLogin';
+export { ProtectedRoute } from './ProtectedRoute';
+export { AdminDashboard } from './AdminDashboard';
+export { RestaurantDraftForm } from './RestaurantDraftForm';
+export { PlacesSearchInput } from './PlacesSearchInput';
+export { AddRestaurantPanel } from './AddRestaurantPanel';
+export { TierBadge } from './TierBadge';
+export { BobbyPickBadge } from './BobbyPickBadge';
+export { SessionRestaurantCard } from './SessionRestaurantCard';
