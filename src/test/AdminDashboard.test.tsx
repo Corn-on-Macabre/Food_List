@@ -96,4 +96,56 @@ describe('AdminDashboard', () => {
     // Badge should now show Recommended
     expect(screen.getByTestId('tier-badge')).toHaveTextContent('Recommended');
   });
+
+  it('handleNotesChange sets restaurant.notes when notes is a non-empty string', async () => {
+    vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
+    sessionStorage.setItem(SESSION_KEY, '1');
+    renderDashboard();
+    act(() => {
+      fireEvent.click(screen.getByTestId('mock-add-panel'));
+    });
+    // Open note editor and type a note
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: /add note for pho 43/i }));
+    });
+    const textarea = screen.getByTestId('note-textarea');
+    await act(async () => {
+      fireEvent.change(textarea, { target: { value: 'try the bone marrow pho' } });
+    });
+    await act(async () => {
+      fireEvent.click(screen.getByTestId('save-note-btn'));
+    });
+    // Note should now be displayed
+    expect(screen.getByText('try the bone marrow pho')).toBeInTheDocument();
+  });
+
+  it('handleNotesChange removes restaurant.notes (sets to undefined) when notes is empty string', async () => {
+    vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
+    sessionStorage.setItem(SESSION_KEY, '1');
+    renderDashboard();
+    act(() => {
+      fireEvent.click(screen.getByTestId('mock-add-panel'));
+    });
+    // Add a note first
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: /add note for pho 43/i }));
+    });
+    await act(async () => {
+      fireEvent.change(screen.getByTestId('note-textarea'), { target: { value: 'some note' } });
+    });
+    await act(async () => {
+      fireEvent.click(screen.getByTestId('save-note-btn'));
+    });
+    expect(screen.getByText('some note')).toBeInTheDocument();
+    // Now delete it
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: /edit note for pho 43/i }));
+    });
+    await act(async () => {
+      fireEvent.click(screen.getByTestId('delete-note-btn'));
+    });
+    // Note should no longer be displayed, Add Note button should reappear
+    expect(screen.queryByText('some note')).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /add note for pho 43/i })).toBeInTheDocument();
+  });
 });
