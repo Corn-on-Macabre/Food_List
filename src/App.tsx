@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { APIProvider, Map, useMap, type MapMouseEvent } from '@vis.gl/react-google-maps';
 import { useRestaurants, useGeolocation } from './hooks';
-import { RestaurantPin, PinLegend, RestaurantCard, ProtectedRoute, AdminDashboard } from './components';
+import { RestaurantPin, PinLegend, RestaurantCard, FilterBar, ProtectedRoute, AdminDashboard } from './components';
 import { AdminAuthProvider } from './contexts/AdminAuthContext';
 import type { Restaurant } from './types';
+import type { FilterState } from './types/restaurant';
+import { haversineDistance } from './utils';
 import './index.css';
 
 const PHOENIX_CENTER = { lat: 33.4484, lng: -112.0740 };
@@ -64,12 +66,40 @@ function App() {
 
 function AppWithMap({ apiKey }: { apiKey: string }) {
   const { restaurants, loading, error } = useRestaurants();
-  // denied is exposed for Story 3.2 distance filter (hides control when geolocation is denied)
-  const { coords, loading: geoLoading } = useGeolocation();
+  // geoDenied used in Story 3.2 to hide/show distance control
+  const { coords, loading: geoLoading, denied: geoDenied } = useGeolocation();
   // resolvedCenter: user coords if geolocation succeeded, else Phoenix default
   const resolvedCenter = coords ?? PHOENIX_CENTER;
 
   const [selectedRestaurant, setSelectedRestaurant] = useState<Restaurant | null>(null);
+  const [filters, setFilters] = useState<FilterState>({ cuisine: null, maxDistance: null });
+
+  // Derived: distance filter is suppressed when location is unavailable or denied (AC 5, 6, 7)
+  const effectiveMaxDistance = geoDenied || coords === null ? null : filters.maxDistance;
+
+  const filteredRestaurants = useMemo(
+    () =>
+      restaurants.filter((r) => {
+        if (filters.cuisine && r.cuisine !== filters.cuisine) return false;
+        if (effectiveMaxDistance !== null && coords !== null) {
+          const dist = haversineDistance(coords.lat, coords.lng, r.lat, r.lng);
+          if (dist > effectiveMaxDistance) return false;
+        }
+        return true;
+      }),
+    [restaurants, filters.cuisine, effectiveMaxDistance, coords]
+  );
+
+  const cuisines = useMemo(
+    () => Array.from(new Set(restaurants.map(r => r.cuisine))).sort(),
+    [restaurants]
+  );
+
+  const hasActiveFilters = filters.cuisine !== null || filters.maxDistance !== null;
+
+  function handleClearFilters() {
+    setFilters({ cuisine: null, maxDistance: null });
+  }
 
   function handleMapClick(event: MapMouseEvent) {
     // Only dismiss when clicking empty map space — not on a place/pin
@@ -81,6 +111,20 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
 
   return (
     <div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
+      {/* TODO: change to top-[60px] when app header is implemented (Story 4.x) */}
+      <div className="absolute top-0 left-0 right-0 z-10 bg-[rgba(255,251,245,0.92)] backdrop-blur-sm border-b border-stone-200">
+        <FilterBar
+          cuisines={cuisines}
+          activeCuisine={filters.cuisine}
+          onCuisineChange={(cuisine) => setFilters(f => ({ ...f, cuisine }))}
+          userCoords={coords}
+          geoDenied={geoDenied}
+          activeDistance={effectiveMaxDistance}
+          onDistanceChange={(miles) => setFilters(f => ({ ...f, maxDistance: miles }))}
+          hasActiveFilters={hasActiveFilters}
+          onClearFilters={handleClearFilters}
+        />
+      </div>
       <APIProvider apiKey={apiKey}>
         <Map
           style={{ width: '100vw', height: '100vh' }}
@@ -89,7 +133,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           mapId="food-list-map"
           onClick={handleMapClick}
         >
-          {restaurants.map(r => (
+          {filteredRestaurants.map(r => (
             <RestaurantPin key={r.id} restaurant={r} />
           ))}
           {/* Smoothly pan to user location once geolocation resolves */}
