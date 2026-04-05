@@ -807,6 +807,7 @@ describe('SessionRestaurantCard — tag toggle (AC 10, 11)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={mockOnTagsChange}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.click(screen.getByTestId('tag-chip-patio'));
@@ -823,6 +824,7 @@ describe('SessionRestaurantCard — tag toggle (AC 10, 11)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={mockOnTagsChange}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.click(screen.getByTestId('tag-chip-patio'));
@@ -858,6 +860,7 @@ describe('SessionRestaurantCard — custom tag (AC 12)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={mockOnTagsChange}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.type(screen.getByTestId('session-custom-tag-input'), 'brunch spot');
@@ -875,6 +878,7 @@ describe('SessionRestaurantCard — custom tag (AC 12)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={mockOnTagsChange}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.type(screen.getByTestId('session-custom-tag-input'), 'brunch spot{Enter}');
