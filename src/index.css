@@ -1,1 +1,28 @@
 @import "tailwindcss";
+
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+@theme {
+  --font-display: 'Playfair Display SC', Georgia, serif;
+  --font-sans: 'Karla', system-ui, sans-serif;
+
+  --color-brand-bg: #FFFBF5;
+  --color-brand-surface: #FFFFFF;
+  --color-brand-surface-warm: #FFF8EE;
+  --color-brand-border: #E8E0D5;
+  --color-brand-border-light: #F0EBE3;
+  --color-brand-accent: #B45309;
+  --color-brand-cta: #D97706;
+  --color-brand-cta-hover: #B45309;
+
+  --color-tier-loved: #F59E0B;
+  --color-tier-loved-bg: #FEF3C7;
+  --color-tier-loved-text: #92400E;
+  --color-tier-recommended: #3B82F6;
+  --color-tier-recommended-bg: #DBEAFE;
+  --color-tier-recommended-text: #1E40AF;
+  --color-tier-radar: #10B981;
+  --color-tier-radar-bg: #D1FAE5;
+  --color-tier-radar-text: #065F46;
+}

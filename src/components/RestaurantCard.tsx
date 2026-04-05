@@ -1,0 +1,81 @@
+import type { Restaurant, Tier } from "../types";
+
+interface RestaurantCardProps {
+  restaurant: Restaurant;
+  onDismiss: () => void;
+}
+
+const TIER_LABELS: Record<Tier, string> = {
+  loved: "Loved",
+  recommended: "Recommended",
+  on_my_radar: "On My Radar",
+};
+
+const TIER_CLASSES: Record<Tier, string> = {
+  loved: "bg-amber-100 text-amber-800",
+  recommended: "bg-blue-100 text-blue-800",
+  on_my_radar: "bg-emerald-100 text-emerald-800",
+};
+
+// Guard against javascript: protocol injection — only allow http(s) URLs
+function getSafeHref(url: string): string {
+  return url.startsWith("http://") || url.startsWith("https://") ? url : "#";
+}
+
+export function RestaurantCard({ restaurant, onDismiss }: RestaurantCardProps) {
+  const tierClass = TIER_CLASSES[restaurant.tier] ?? "bg-gray-100 text-gray-800";
+  const tierLabel = TIER_LABELS[restaurant.tier] ?? restaurant.tier;
+
+  return (
+    <div
+      onClick={(e) => e.stopPropagation()}
+      className="fixed z-50 bg-white shadow-lg bottom-0 left-0 right-0 rounded-t-2xl border-t border-stone-100 max-h-[70vh] overflow-y-auto md:max-h-none md:overflow-y-auto md:bottom-auto md:top-[60px] md:left-auto md:right-0 md:w-[360px] md:h-[calc(100dvh-60px)] md:rounded-none md:border-t-0 md:border-l md:border-stone-100"
+    >
+      {/* Drag handle (mobile only) */}
+      <div className="flex items-center justify-between px-5 pt-4 pb-2">
+        <div className="mx-auto w-9 h-1 rounded-full bg-stone-200 md:hidden" />
+        <button
+          onClick={onDismiss}
+          aria-label="Close restaurant card"
+          className="ml-auto p-1.5 rounded-lg border border-stone-300 text-stone-500 bg-transparent hover:bg-stone-50 hover:text-stone-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200 transition-colors duration-150"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            className="w-4 h-4"
+          >
+            <path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
+          </svg>
+        </button>
+      </div>
+
+      <div className="px-5 pb-5">
+        <h2 className="font-display text-[22px] font-bold text-stone-900 leading-tight">
+          {restaurant.name}
+        </h2>
+
+        <span
+          className={`mt-1 inline-block rounded-full px-2 py-0.5 text-xs font-medium ${tierClass}`}
+        >
+          {tierLabel}
+        </span>
+
+        <p className="mt-2 text-sm text-stone-500">{restaurant.cuisine}</p>
+
+        {restaurant.notes && (
+          <p className="mt-2 text-sm text-stone-500 italic">{restaurant.notes}</p>
+        )}
+
+        <a
+          href={getSafeHref(restaurant.googleMapsUrl)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center w-full px-4 py-2 mt-4 rounded-md bg-amber-700 text-white text-sm font-medium hover:bg-amber-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200 transition-colors"
+        >
+          Open in Google Maps
+        </a>
+      </div>
+    </div>
+  );
+}
