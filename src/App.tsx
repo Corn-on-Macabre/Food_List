@@ -137,6 +137,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           <ClusteredPins
             restaurants={filteredRestaurants}
             onRestaurantClick={setSelectedRestaurant}
+            selectedRestaurantId={selectedRestaurant?.id ?? null}
           />
           {/* Smoothly pan to user location once geolocation resolves */}
           {!geoLoading && coords && <MapCenterer coords={resolvedCenter} />}

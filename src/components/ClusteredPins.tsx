@@ -7,9 +7,10 @@ import type { Restaurant } from '../types';
 interface ClusteredPinsProps {
   restaurants: Restaurant[];
   onRestaurantClick: (restaurant: Restaurant) => void;
+  selectedRestaurantId: string | null;
 }
 
-export function ClusteredPins({ restaurants, onRestaurantClick }: ClusteredPinsProps) {
+export function ClusteredPins({ restaurants, onRestaurantClick, selectedRestaurantId }: ClusteredPinsProps) {
   const map = useMap();
   const clustererRef = useRef<MarkerClusterer | null>(null);
   const markersRef = useRef<Map<string, google.maps.marker.AdvancedMarkerElement>>(new Map());
@@ -46,14 +47,21 @@ export function ClusteredPins({ restaurants, onRestaurantClick }: ClusteredPinsP
     <>
       {restaurants.map((r) => {
         const color = TIER_COLORS[r.tier];
+        const isSelected = r.id === selectedRestaurantId;
         return (
           <AdvancedMarker
             key={r.id}
             position={{ lat: r.lat, lng: r.lng }}
             ref={(marker) => setMarkerRef(marker, r.id)}
             onClick={() => onRestaurantClick(r)}
+            zIndex={isSelected ? 1 : 0}
           >
-            <Pin background={color} glyphColor="#FFFFFF" borderColor={color} />
+            <Pin
+              background={color}
+              glyphColor="#FFFFFF"
+              borderColor={isSelected ? '#FFFFFF' : color}
+              scale={isSelected ? 1.35 : 1}
+            />
           </AdvancedMarker>
         );
       })}
