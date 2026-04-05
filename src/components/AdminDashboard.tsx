@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useAdminAuth } from '../hooks';
 import { AddRestaurantPanel } from './AddRestaurantPanel';
-import type { Restaurant } from '../types';
+import { SessionRestaurantCard } from './SessionRestaurantCard';
+import type { Restaurant, Tier } from '../types';
 
 export function AdminDashboard() {
   const { logout } = useAdminAuth();
@@ -9,6 +10,12 @@ export function AdminDashboard() {
 
   function handleRestaurantAdded(restaurant: Restaurant) {
     setSessionRestaurants(prev => [restaurant, ...prev]);
+  }
+
+  function handleTierChange(id: string, newTier: Tier) {
+    setSessionRestaurants(prev =>
+      prev.map(r => r.id === id ? { ...r, tier: newTier } : r)
+    );
   }
 
   return (
@@ -38,12 +45,8 @@ export function AdminDashboard() {
             </h2>
             <ul className="space-y-2">
               {sessionRestaurants.map(r => (
-                <li
-                  key={r.id}
-                  className="bg-white border border-[#E8E0D5] rounded-lg p-3 font-sans text-sm text-stone-700"
-                >
-                  <span className="font-bold">{r.name}</span>
-                  <span className="text-stone-400 ml-2">{r.cuisine} · {r.tier}</span>
+                <li key={r.id}>
+                  <SessionRestaurantCard restaurant={r} onTierChange={handleTierChange} />
                 </li>
               ))}
             </ul>

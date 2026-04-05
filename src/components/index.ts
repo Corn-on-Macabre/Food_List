@@ -7,3 +7,5 @@ export { AdminDashboard } from './AdminDashboard';
 export { RestaurantDraftForm } from './RestaurantDraftForm';
 export { PlacesSearchInput } from './PlacesSearchInput';
 export { AddRestaurantPanel } from './AddRestaurantPanel';
+export { TierBadge } from './TierBadge';
+export { SessionRestaurantCard } from './SessionRestaurantCard';
