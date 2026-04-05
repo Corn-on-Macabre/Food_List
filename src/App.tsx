@@ -49,9 +49,11 @@ function App() {
         path="/admin"
         element={
           <AdminAuthProvider>
-            <ProtectedRoute>
-              <AdminDashboard />
-            </ProtectedRoute>
+            <APIProvider apiKey={apiKey}>
+              <ProtectedRoute>
+                <AdminDashboard />
+              </ProtectedRoute>
+            </APIProvider>
           </AdminAuthProvider>
         }
       />

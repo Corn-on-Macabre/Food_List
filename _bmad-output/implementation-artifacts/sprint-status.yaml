@@ -35,7 +35,7 @@
 # - Epics 4 and 5 are Growth Phase — deferred until MVP (Epics 1-3) is shipped
 
 generated: 2026-03-27
-last_updated: 2026-04-04 (story 4.1 done; epic-4 in-progress)
+last_updated: 2026-04-04 (story 4.2 done; story 4.3 backlog; epic-4 in-progress)
 project: Food_List
 project_key: NOKEY
 tracking_system: file-system
@@ -69,7 +69,7 @@ development_status:
   # Epic 4: Curator Dashboard (Growth Phase)
   epic-4: in-progress
   4-1-curator-authentication-and-dashboard-route: done
-  4-2-add-restaurant-with-google-places-search: backlog
+  4-2-add-restaurant-with-google-places-search: done
   4-3-tier-assignment-and-promotion: backlog
   4-4-notes-management: backlog
   4-5-source-attribution-and-occasion-tags: backlog

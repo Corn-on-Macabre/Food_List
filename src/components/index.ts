@@ -4,3 +4,6 @@ export { RestaurantCard } from './RestaurantCard';
 export { AdminLogin } from './AdminLogin';
 export { ProtectedRoute } from './ProtectedRoute';
 export { AdminDashboard } from './AdminDashboard';
+export { RestaurantDraftForm } from './RestaurantDraftForm';
+export { PlacesSearchInput } from './PlacesSearchInput';
+export { AddRestaurantPanel } from './AddRestaurantPanel';

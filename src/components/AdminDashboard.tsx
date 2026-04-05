@@ -1,7 +1,15 @@
+import { useState } from 'react';
 import { useAdminAuth } from '../hooks';
+import { AddRestaurantPanel } from './AddRestaurantPanel';
+import type { Restaurant } from '../types';
 
 export function AdminDashboard() {
   const { logout } = useAdminAuth();
+  const [sessionRestaurants, setSessionRestaurants] = useState<Restaurant[]>([]);
+
+  function handleRestaurantAdded(restaurant: Restaurant) {
+    setSessionRestaurants(prev => [restaurant, ...prev]);
+  }
 
   return (
     <div className="min-h-screen bg-[#FFFBF5]">
@@ -20,10 +28,27 @@ export function AdminDashboard() {
       </header>
 
       {/* Main content */}
-      <main className="pt-[60px] flex items-center justify-center min-h-screen">
-        <p className="font-sans text-sm text-stone-400">
-          Curator Dashboard — Restaurant management coming in Stories 4.2–4.6
-        </p>
+      <main className="pt-[60px] max-w-2xl mx-auto px-4 py-8">
+        <AddRestaurantPanel onRestaurantAdded={handleRestaurantAdded} />
+
+        {sessionRestaurants.length > 0 && (
+          <section className="mt-8">
+            <h2 className="font-display text-base text-stone-900 mb-3">
+              Added this session ({sessionRestaurants.length})
+            </h2>
+            <ul className="space-y-2">
+              {sessionRestaurants.map(r => (
+                <li
+                  key={r.id}
+                  className="bg-white border border-[#E8E0D5] rounded-lg p-3 font-sans text-sm text-stone-700"
+                >
+                  <span className="font-bold">{r.name}</span>
+                  <span className="text-stone-400 ml-2">{r.cuisine} · {r.tier}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
       </main>
     </div>
   );
