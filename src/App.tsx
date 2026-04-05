@@ -49,7 +49,7 @@ function App() {
         path="/admin"
         element={
           <AdminAuthProvider>
-            <APIProvider apiKey={apiKey}>
+            <APIProvider apiKey={apiKey} libraries={['places']}>
               <ProtectedRoute>
                 <AdminDashboard />
               </ProtectedRoute>
