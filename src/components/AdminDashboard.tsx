@@ -28,6 +28,26 @@ export function AdminDashboard() {
     );
   }
 
+  function handleSourceChange(id: string, source: string) {
+    setSessionRestaurants(prev =>
+      prev.map(r =>
+        r.id === id
+          ? { ...r, source: source.trim() || undefined }
+          : r
+      )
+    );
+  }
+
+  function handleTagsChange(id: string, tags: string[]) {
+    setSessionRestaurants(prev =>
+      prev.map(r =>
+        r.id === id
+          ? { ...r, tags: tags.length > 0 ? tags : undefined }
+          : r
+      )
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[#FFFBF5]">
       {/* Fixed header */}
@@ -56,7 +76,13 @@ export function AdminDashboard() {
             <ul className="space-y-2">
               {sessionRestaurants.map(r => (
                 <li key={r.id}>
-                  <SessionRestaurantCard restaurant={r} onTierChange={handleTierChange} onNotesChange={handleNotesChange} />
+                  <SessionRestaurantCard
+                    restaurant={r}
+                    onTierChange={handleTierChange}
+                    onNotesChange={handleNotesChange}
+                    onSourceChange={handleSourceChange}
+                    onTagsChange={handleTagsChange}
+                  />
                 </li>
               ))}
             </ul>

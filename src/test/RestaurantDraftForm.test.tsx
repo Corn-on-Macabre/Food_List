@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { RestaurantDraftForm } from '../components/RestaurantDraftForm';
 import type { PlaceDraft } from '../hooks/usePlaceDetails';
 import type { Restaurant } from '../types';
@@ -137,5 +138,109 @@ describe('RestaurantDraftForm', () => {
 
     const saved: Restaurant = onSave.mock.calls[0][0];
     expect(saved.id).toBe('pho-43');
+  });
+});
+
+// ─── Tags at add-time (Story 4.5) ─────────────────────────────────────────────
+
+describe('RestaurantDraftForm — tags field (AC 1, 2)', () => {
+  beforeEach(() => {
+    vi.setSystemTime(new Date('2026-04-04'));
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
+  it('renders four suggested tag chips below Source field', () => {
+    renderForm();
+    expect(screen.getByTestId('draft-tag-chip-date-night')).toBeInTheDocument();
+    expect(screen.getByTestId('draft-tag-chip-quick-lunch')).toBeInTheDocument();
+    expect(screen.getByTestId('draft-tag-chip-patio')).toBeInTheDocument();
+    expect(screen.getByTestId('draft-tag-chip-kid-friendly')).toBeInTheDocument();
+  });
+
+  it('clicking an inactive tag chip makes it active (aria-pressed true)', async () => {
+    const user = userEvent.setup();
+    renderForm();
+    const chip = screen.getByTestId('draft-tag-chip-patio');
+    expect(chip).toHaveAttribute('aria-pressed', 'false');
+    await user.click(chip);
+    expect(chip).toHaveAttribute('aria-pressed', 'true');
+  });
+
+  it('clicking an active tag chip makes it inactive (aria-pressed false)', async () => {
+    const user = userEvent.setup();
+    renderForm();
+    const chip = screen.getByTestId('draft-tag-chip-patio');
+    await user.click(chip); // activate
+    expect(chip).toHaveAttribute('aria-pressed', 'true');
+    await user.click(chip); // deactivate
+    expect(chip).toHaveAttribute('aria-pressed', 'false');
+  });
+
+  it('typing into custom tag input and clicking "Add" adds the custom tag as an active chip', async () => {
+    const user = userEvent.setup();
+    renderForm();
+    await user.type(screen.getByTestId('custom-tag-input'), 'brunch spot');
+    await user.click(screen.getByTestId('add-custom-tag-btn'));
+    // The custom tag doesn't get a suggested chip testid, but we can check via aria
+    // It should appear as an active button in the tags section
+    const chips = screen.getAllByRole('button', { name: /remove tag: brunch spot/i });
+    expect(chips.length).toBeGreaterThan(0);
+  });
+
+  it('pressing Enter in custom tag input adds the custom tag', async () => {
+    const user = userEvent.setup();
+    renderForm();
+    await user.type(screen.getByTestId('custom-tag-input'), 'brunch spot{Enter}');
+    const chips = screen.getAllByRole('button', { name: /remove tag: brunch spot/i });
+    expect(chips.length).toBeGreaterThan(0);
+  });
+
+  it('saved Restaurant includes tags array when tags are selected', () => {
+    const onSave = vi.fn();
+    renderForm(MOCK_DRAFT, onSave);
+    fireEvent.click(screen.getByTestId('draft-tag-chip-patio'));
+    fireEvent.change(screen.getByLabelText(/tier/i), { target: { value: 'loved' } });
+    fireEvent.click(screen.getByRole('button', { name: /save restaurant/i }));
+    const saved: Restaurant = onSave.mock.calls[0][0];
+    expect(saved.tags).toEqual(['patio']);
+  });
+
+  it('saved Restaurant omits tags field when no tags selected', () => {
+    const onSave = vi.fn();
+    renderForm(MOCK_DRAFT, onSave);
+    fireEvent.change(screen.getByLabelText(/tier/i), { target: { value: 'loved' } });
+    fireEvent.click(screen.getByRole('button', { name: /save restaurant/i }));
+    const saved: Restaurant = onSave.mock.calls[0][0];
+    expect(saved.tags).toBeUndefined();
+  });
+
+  it('add-custom-tag-btn is disabled when custom tag input is empty (F4)', () => {
+    renderForm();
+    expect(screen.getByTestId('add-custom-tag-btn')).toBeDisabled();
+  });
+
+  it('adding the same custom tag twice does not create a duplicate chip (F3)', async () => {
+    const user = userEvent.setup();
+    renderForm();
+    await user.type(screen.getByTestId('custom-tag-input'), 'brunch spot');
+    await user.click(screen.getByTestId('add-custom-tag-btn'));
+    // Try to add same tag again — input cleared after first add, so retype
+    await user.type(screen.getByTestId('custom-tag-input'), 'brunch spot');
+    await user.click(screen.getByTestId('add-custom-tag-btn'));
+    const chips = screen.getAllByRole('button', { name: /remove tag: brunch spot/i });
+    expect(chips).toHaveLength(1); // Only one chip, not two
+  });
+
+  it('source field still saves correctly (regression test)', () => {
+    const onSave = vi.fn();
+    renderForm(MOCK_DRAFT, onSave);
+    fireEvent.change(screen.getByLabelText(/source/i), { target: { value: 'TikTok @phxfoodie' } });
+    fireEvent.change(screen.getByLabelText(/tier/i), { target: { value: 'loved' } });
+    fireEvent.click(screen.getByRole('button', { name: /save restaurant/i }));
+    const saved: Restaurant = onSave.mock.calls[0][0];
+    expect(saved.source).toBe('TikTok @phxfoodie');
   });
 });

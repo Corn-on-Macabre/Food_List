@@ -3,6 +3,8 @@ import type { PlaceDraft } from '../hooks/usePlaceDetails';
 import type { Restaurant, Tier } from '../types';
 import { generateSlugId } from '../utils/generateSlugId';
 
+const SUGGESTED_TAGS = ['date night', 'quick lunch', 'patio', 'kid-friendly'];
+
 interface Props {
   initialDraft: PlaceDraft | null;
   onSave: (restaurant: Restaurant) => void;
@@ -20,6 +22,7 @@ interface FormFields {
   source: string;
   lat: string;
   lng: string;
+  tags: string[];
 }
 
 interface FormErrors {
@@ -61,9 +64,11 @@ export function RestaurantDraftForm({ initialDraft, onSave, onCancel, existingId
     source: '',
     lat: initialDraft?.lat?.toString() ?? '',
     lng: initialDraft?.lng?.toString() ?? '',
+    tags: [],
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
+  const [customTagInput, setCustomTagInput] = useState('');
 
   function update(key: keyof FormFields, value: string) {
     setFields(prev => ({ ...prev, [key]: value }));
@@ -111,6 +116,7 @@ export function RestaurantDraftForm({ initialDraft, onSave, onCancel, existingId
       dateAdded: getToday(),
       ...(fields.notes.trim() ? { notes: fields.notes.trim() } : {}),
       ...(fields.source.trim() ? { source: fields.source.trim() } : {}),
+      ...(fields.tags.length > 0 ? { tags: fields.tags } : {}),
     };
 
     onSave(restaurant);
@@ -277,6 +283,94 @@ export function RestaurantDraftForm({ initialDraft, onSave, onCancel, existingId
           className={INPUT_CLASS}
           aria-label="Source"
         />
+      </div>
+
+      {/* Tags */}
+      <div>
+        <label className={LABEL_CLASS}>Tags</label>
+        <div className="flex flex-wrap">
+          {SUGGESTED_TAGS.map(tag => {
+            const isActive = fields.tags.includes(tag);
+            return (
+              <button
+                key={tag}
+                type="button"
+                onClick={() =>
+                  setFields(prev => ({
+                    ...prev,
+                    tags: isActive
+                      ? prev.tags.filter(t => t !== tag)
+                      : [...prev.tags, tag],
+                  }))
+                }
+                className={
+                  isActive
+                    ? 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-amber-100 text-amber-800 border border-amber-300 mr-2 mb-2 transition-colors'
+                    : 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-stone-100 text-stone-500 border border-[#E8E0D5] mr-2 mb-2 transition-colors hover:bg-stone-200'
+                }
+                aria-pressed={isActive}
+                aria-label={`${isActive ? 'Remove' : 'Add'} tag: ${tag}`}
+                data-testid={`draft-tag-chip-${tag.replace(/\s+/g, '-')}`}
+              >
+                {tag}
+              </button>
+            );
+          })}
+          {/* Custom tags (user-added, not in SUGGESTED_TAGS) */}
+          {fields.tags
+            .filter(t => !SUGGESTED_TAGS.includes(t))
+            .map(tag => (
+              <button
+                key={tag}
+                type="button"
+                onClick={() =>
+                  setFields(prev => ({ ...prev, tags: prev.tags.filter(t => t !== tag) }))
+                }
+                className="inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-amber-100 text-amber-800 border border-amber-300 mr-2 mb-2 transition-colors"
+                aria-pressed={true}
+                aria-label={`Remove tag: ${tag}`}
+                data-testid={`draft-tag-chip-custom-${tag.replace(/\s+/g, '-')}`}
+              >
+                {tag} <span aria-hidden="true">✕</span>
+              </button>
+            ))}
+        </div>
+        <div className="flex gap-2 mt-1">
+          <input
+            type="text"
+            value={customTagInput}
+            onChange={e => setCustomTagInput(e.target.value)}
+            onKeyDown={e => {
+              if (e.key === 'Enter') {
+                e.preventDefault();
+                const trimmed = customTagInput.trim();
+                if (trimmed && !fields.tags.includes(trimmed)) {
+                  setFields(prev => ({ ...prev, tags: [...prev.tags, trimmed] }));
+                  setCustomTagInput('');
+                }
+              }
+            }}
+            placeholder="Custom tag..."
+            className={INPUT_CLASS}
+            aria-label="Custom tag input"
+            data-testid="custom-tag-input"
+          />
+          <button
+            type="button"
+            disabled={!customTagInput.trim()}
+            onClick={() => {
+              const trimmed = customTagInput.trim();
+              if (trimmed && !fields.tags.includes(trimmed)) {
+                setFields(prev => ({ ...prev, tags: [...prev.tags, trimmed] }));
+                setCustomTagInput('');
+              }
+            }}
+            className="border border-[#E8E0D5] rounded-lg px-3 py-1.5 font-sans text-sm font-bold text-stone-500 hover:bg-stone-50 disabled:opacity-40 disabled:cursor-not-allowed min-h-[44px]"
+            data-testid="add-custom-tag-btn"
+          >
+            Add
+          </button>
+        </div>
       </div>
 
       {/* Actions */}

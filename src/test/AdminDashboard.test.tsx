@@ -148,4 +148,86 @@ describe('AdminDashboard', () => {
     expect(screen.queryByText('some note')).not.toBeInTheDocument();
     expect(screen.getByRole('button', { name: /add note for pho 43/i })).toBeInTheDocument();
   });
+
+  it('handleSourceChange sets restaurant.source when source is a non-empty string', async () => {
+    vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
+    sessionStorage.setItem(SESSION_KEY, '1');
+    renderDashboard();
+    act(() => {
+      fireEvent.click(screen.getByTestId('mock-add-panel'));
+    });
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: /add source for pho 43/i }));
+    });
+    await act(async () => {
+      fireEvent.change(screen.getByTestId('source-input'), { target: { value: 'TikTok @phxfoodie' } });
+    });
+    await act(async () => {
+      fireEvent.click(screen.getByTestId('save-source-btn'));
+    });
+    expect(screen.getByText('TikTok @phxfoodie')).toBeInTheDocument();
+  });
+
+  it('handleSourceChange removes restaurant.source when source is empty string', async () => {
+    vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
+    sessionStorage.setItem(SESSION_KEY, '1');
+    renderDashboard();
+    act(() => {
+      fireEvent.click(screen.getByTestId('mock-add-panel'));
+    });
+    // Add source first
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: /add source for pho 43/i }));
+    });
+    await act(async () => {
+      fireEvent.change(screen.getByTestId('source-input'), { target: { value: 'TikTok' } });
+    });
+    await act(async () => {
+      fireEvent.click(screen.getByTestId('save-source-btn'));
+    });
+    expect(screen.getByText('TikTok')).toBeInTheDocument();
+    // Now remove it
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: /edit source for pho 43/i }));
+    });
+    await act(async () => {
+      fireEvent.click(screen.getByTestId('remove-source-btn'));
+    });
+    expect(screen.queryByText('TikTok')).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /add source for pho 43/i })).toBeInTheDocument();
+  });
+
+  it('handleTagsChange adds a tag to restaurant.tags — tag chip shows as active', async () => {
+    vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
+    sessionStorage.setItem(SESSION_KEY, '1');
+    renderDashboard();
+    act(() => {
+      fireEvent.click(screen.getByTestId('mock-add-panel'));
+    });
+    const patioChip = screen.getByTestId('tag-chip-patio');
+    expect(patioChip).toHaveAttribute('aria-pressed', 'false');
+    await act(async () => {
+      fireEvent.click(patioChip);
+    });
+    expect(screen.getByTestId('tag-chip-patio')).toHaveAttribute('aria-pressed', 'true');
+  });
+
+  it('handleTagsChange removes a tag from restaurant.tags — add then remove', async () => {
+    vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
+    sessionStorage.setItem(SESSION_KEY, '1');
+    renderDashboard();
+    act(() => {
+      fireEvent.click(screen.getByTestId('mock-add-panel'));
+    });
+    // Add tag
+    await act(async () => {
+      fireEvent.click(screen.getByTestId('tag-chip-patio'));
+    });
+    expect(screen.getByTestId('tag-chip-patio')).toHaveAttribute('aria-pressed', 'true');
+    // Remove tag
+    await act(async () => {
+      fireEvent.click(screen.getByTestId('tag-chip-patio'));
+    });
+    expect(screen.getByTestId('tag-chip-patio')).toHaveAttribute('aria-pressed', 'false');
+  });
 });
