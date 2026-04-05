@@ -48,6 +48,16 @@ export function AdminDashboard() {
     );
   }
 
+  function handleFeaturedChange(id: string, featured: boolean) {
+    setSessionRestaurants(prev =>
+      prev.map(r =>
+        r.id === id
+          ? { ...r, featured: featured ? true : undefined }
+          : r
+      )
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[#FFFBF5]">
       {/* Fixed header */}
@@ -82,6 +92,7 @@ export function AdminDashboard() {
                     onNotesChange={handleNotesChange}
                     onSourceChange={handleSourceChange}
                     onTagsChange={handleTagsChange}
+                    onFeaturedChange={handleFeaturedChange}
                   />
                 </li>
               ))}

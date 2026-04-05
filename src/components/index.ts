@@ -8,4 +8,5 @@ export { RestaurantDraftForm } from './RestaurantDraftForm';
 export { PlacesSearchInput } from './PlacesSearchInput';
 export { AddRestaurantPanel } from './AddRestaurantPanel';
 export { TierBadge } from './TierBadge';
+export { BobbyPickBadge } from './BobbyPickBadge';
 export { SessionRestaurantCard } from './SessionRestaurantCard';

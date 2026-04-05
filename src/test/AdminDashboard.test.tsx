@@ -230,4 +230,41 @@ describe('AdminDashboard', () => {
     });
     expect(screen.getByTestId('tag-chip-patio')).toHaveAttribute('aria-pressed', 'false');
   });
+
+  it("handleFeaturedChange sets restaurant.featured to true — toggle activates (AC 4)", async () => {
+    vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
+    sessionStorage.setItem(SESSION_KEY, '1');
+    renderDashboard();
+    act(() => {
+      fireEvent.click(screen.getByTestId('mock-add-panel'));
+    });
+    const toggle = screen.getByTestId('bobby-pick-toggle');
+    expect(toggle).toHaveAttribute('aria-pressed', 'false');
+    await act(async () => {
+      fireEvent.click(toggle);
+    });
+    expect(screen.getByTestId('bobby-pick-toggle')).toHaveAttribute('aria-pressed', 'true');
+    // BobbyPickBadge should now be visible
+    expect(screen.getByTestId('bobby-pick-badge')).toBeInTheDocument();
+  });
+
+  it("handleFeaturedChange sets restaurant.featured to undefined — toggle deactivates (AC 5)", async () => {
+    vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
+    sessionStorage.setItem(SESSION_KEY, '1');
+    renderDashboard();
+    act(() => {
+      fireEvent.click(screen.getByTestId('mock-add-panel'));
+    });
+    // Activate first
+    await act(async () => {
+      fireEvent.click(screen.getByTestId('bobby-pick-toggle'));
+    });
+    expect(screen.getByTestId('bobby-pick-badge')).toBeInTheDocument();
+    // Deactivate
+    await act(async () => {
+      fireEvent.click(screen.getByTestId('bobby-pick-toggle'));
+    });
+    expect(screen.getByTestId('bobby-pick-toggle')).toHaveAttribute('aria-pressed', 'false');
+    expect(screen.queryByTestId('bobby-pick-badge')).not.toBeInTheDocument();
+  });
 });

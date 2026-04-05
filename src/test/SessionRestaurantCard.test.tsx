@@ -24,6 +24,7 @@ describe('SessionRestaurantCard', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     expect(screen.getByTestId('session-restaurant-card')).toBeInTheDocument();
@@ -41,6 +42,7 @@ describe('SessionRestaurantCard', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     fireEvent.click(screen.getByRole('button', { name: /edit tier/i }));
@@ -61,6 +63,7 @@ describe('SessionRestaurantCard', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     fireEvent.click(screen.getByRole('button', { name: /edit tier/i }));
@@ -77,6 +80,7 @@ describe('SessionRestaurantCard', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     fireEvent.click(screen.getByRole('button', { name: /edit tier/i }));
@@ -96,6 +100,7 @@ describe('SessionRestaurantCard', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     fireEvent.click(screen.getByRole('button', { name: /edit tier/i }));
@@ -114,6 +119,7 @@ describe('SessionRestaurantCard', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     fireEvent.click(screen.getByRole('button', { name: /edit tier/i }));
@@ -131,6 +137,7 @@ describe('SessionRestaurantCard', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     fireEvent.click(screen.getByRole('button', { name: /edit tier/i }));
@@ -146,6 +153,7 @@ describe('SessionRestaurantCard', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     const editBtn = screen.getByRole('button', { name: /edit tier/i });
@@ -181,6 +189,7 @@ describe('SessionRestaurantCard — notes display (AC 1, 4)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     expect(screen.getByRole('button', { name: /add note for test bistro/i })).toBeInTheDocument();
@@ -196,6 +205,7 @@ describe('SessionRestaurantCard — notes display (AC 1, 4)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     expect(screen.getByText('cash only')).toBeInTheDocument();
@@ -214,6 +224,7 @@ describe('SessionRestaurantCard — Add Note flow (AC 2, 3, 8, 11)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add note for test bistro/i }));
@@ -233,6 +244,7 @@ describe('SessionRestaurantCard — Add Note flow (AC 2, 3, 8, 11)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add note for test bistro/i }));
@@ -251,6 +263,7 @@ describe('SessionRestaurantCard — Add Note flow (AC 2, 3, 8, 11)', () => {
         onNotesChange={mockOnNotesChange}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add note for test bistro/i }));
@@ -271,6 +284,7 @@ describe('SessionRestaurantCard — Add Note flow (AC 2, 3, 8, 11)', () => {
         onNotesChange={mockOnNotesChange}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add note for test bistro/i }));
@@ -289,6 +303,7 @@ describe('SessionRestaurantCard — Add Note flow (AC 2, 3, 8, 11)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add note for test bistro/i }));
@@ -304,6 +319,7 @@ describe('SessionRestaurantCard — Add Note flow (AC 2, 3, 8, 11)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add note for test bistro/i }));
@@ -319,6 +335,7 @@ describe('SessionRestaurantCard — Add Note flow (AC 2, 3, 8, 11)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add note for test bistro/i }));
@@ -337,6 +354,7 @@ describe('SessionRestaurantCard — Edit Note flow (AC 5, 6, 7)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /edit note for test bistro/i }));
@@ -356,6 +374,7 @@ describe('SessionRestaurantCard — Edit Note flow (AC 5, 6, 7)', () => {
         onNotesChange={mockOnNotesChange}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /edit note for test bistro/i }));
@@ -375,6 +394,7 @@ describe('SessionRestaurantCard — mutual exclusion (AC 2, 5)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     // Open tier edit
@@ -395,6 +415,7 @@ describe('SessionRestaurantCard — mutual exclusion (AC 2, 5)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     // Open note editor
@@ -434,6 +455,7 @@ describe('SessionRestaurantCard — source display (AC 3, 4)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     expect(screen.getByRole('button', { name: /add source for test bistro/i })).toBeInTheDocument();
@@ -449,6 +471,7 @@ describe('SessionRestaurantCard — source display (AC 3, 4)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     expect(screen.getByText('TikTok @phxfoodie')).toBeInTheDocument();
@@ -467,6 +490,7 @@ describe('SessionRestaurantCard — Add Source flow (AC 5, 6, 7, 16)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add source for test bistro/i }));
@@ -485,6 +509,7 @@ describe('SessionRestaurantCard — Add Source flow (AC 5, 6, 7, 16)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add source for test bistro/i }));
@@ -502,6 +527,7 @@ describe('SessionRestaurantCard — Add Source flow (AC 5, 6, 7, 16)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={mockOnSourceChange}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add source for test bistro/i }));
@@ -521,6 +547,7 @@ describe('SessionRestaurantCard — Add Source flow (AC 5, 6, 7, 16)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={mockOnSourceChange}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add source for test bistro/i }));
@@ -539,6 +566,7 @@ describe('SessionRestaurantCard — Add Source flow (AC 5, 6, 7, 16)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add source for test bistro/i }));
@@ -554,6 +582,7 @@ describe('SessionRestaurantCard — Add Source flow (AC 5, 6, 7, 16)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add source for test bistro/i }));
@@ -569,6 +598,7 @@ describe('SessionRestaurantCard — Add Source flow (AC 5, 6, 7, 16)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add source for test bistro/i }));
@@ -585,6 +615,7 @@ describe('SessionRestaurantCard — Add Source flow (AC 5, 6, 7, 16)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /edit source for test bistro/i }));
@@ -602,6 +633,7 @@ describe('SessionRestaurantCard — Edit Source flow (AC 5, 6, 7)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /edit source for test bistro/i }));
@@ -621,6 +653,7 @@ describe('SessionRestaurantCard — Edit Source flow (AC 5, 6, 7)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={mockOnSourceChange}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /edit source for test bistro/i }));
@@ -640,6 +673,7 @@ describe('SessionRestaurantCard — source mutual exclusion (AC 17)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /edit tier/i }));
@@ -658,6 +692,7 @@ describe('SessionRestaurantCard — source mutual exclusion (AC 17)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add note for test bistro/i }));
@@ -676,6 +711,7 @@ describe('SessionRestaurantCard — source mutual exclusion (AC 17)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add source for test bistro/i }));
@@ -694,6 +730,7 @@ describe('SessionRestaurantCard — source mutual exclusion (AC 17)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add source for test bistro/i }));
@@ -731,6 +768,7 @@ describe('SessionRestaurantCard — tags display (AC 8, 9)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     expect(screen.getByTestId('tag-chip-date-night')).toBeInTheDocument();
@@ -750,6 +788,7 @@ describe('SessionRestaurantCard — tags display (AC 8, 9)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     expect(screen.getByTestId('tag-chip-patio')).toHaveAttribute('aria-pressed', 'true');
@@ -799,6 +838,7 @@ describe('SessionRestaurantCard — tag toggle (AC 10, 11)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     expect(screen.getByTestId('tag-chip-patio')).toHaveAttribute('aria-pressed', 'true');
@@ -850,6 +890,7 @@ describe('SessionRestaurantCard — custom tag (AC 12)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     const input = screen.getByTestId('session-custom-tag-input') as HTMLInputElement;
@@ -867,6 +908,7 @@ describe('SessionRestaurantCard — custom tag (AC 12)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     await user.type(screen.getByTestId('session-custom-tag-input'), 'brunch spot');
@@ -883,6 +925,7 @@ describe('SessionRestaurantCard — custom tag (AC 12)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     expect(screen.getByTestId('session-custom-tag-input')).toBeInTheDocument();
@@ -896,8 +939,134 @@ describe('SessionRestaurantCard — custom tag (AC 12)', () => {
         onNotesChange={vi.fn()}
         onSourceChange={vi.fn()}
         onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
       />
     );
     expect(screen.getByTestId('tag-chip-date-night')).toBeInTheDocument();
+  });
+});
+
+// ─── Bobby's Pick toggle (Story 4.6) ─────────────────────────────────────────
+
+describe("SessionRestaurantCard — Bobby's Pick toggle", () => {
+  const mockFeaturedRestaurant: Restaurant = {
+    ...mockRestaurant,
+    featured: true,
+  };
+
+  it("renders toggle button with data-testid='bobby-pick-toggle'", () => {
+    render(
+      <SessionRestaurantCard
+        restaurant={mockRestaurant}
+        onTierChange={vi.fn()}
+        onNotesChange={vi.fn()}
+        onSourceChange={vi.fn()}
+        onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
+      />
+    );
+    expect(screen.getByTestId('bobby-pick-toggle')).toBeInTheDocument();
+  });
+
+  it("toggle has aria-pressed='false' when featured is undefined", () => {
+    render(
+      <SessionRestaurantCard
+        restaurant={mockRestaurant}
+        onTierChange={vi.fn()}
+        onNotesChange={vi.fn()}
+        onSourceChange={vi.fn()}
+        onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
+      />
+    );
+    expect(screen.getByTestId('bobby-pick-toggle')).toHaveAttribute('aria-pressed', 'false');
+  });
+
+  it("toggle has aria-pressed='true' when featured is true", () => {
+    render(
+      <SessionRestaurantCard
+        restaurant={mockFeaturedRestaurant}
+        onTierChange={vi.fn()}
+        onNotesChange={vi.fn()}
+        onSourceChange={vi.fn()}
+        onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
+      />
+    );
+    expect(screen.getByTestId('bobby-pick-toggle')).toHaveAttribute('aria-pressed', 'true');
+  });
+
+  it("clicking toggle when inactive calls onFeaturedChange with (id, true)", () => {
+    const onFeaturedChange = vi.fn();
+    render(
+      <SessionRestaurantCard
+        restaurant={mockRestaurant}
+        onTierChange={vi.fn()}
+        onNotesChange={vi.fn()}
+        onSourceChange={vi.fn()}
+        onTagsChange={vi.fn()}
+        onFeaturedChange={onFeaturedChange}
+      />
+    );
+    fireEvent.click(screen.getByTestId('bobby-pick-toggle'));
+    expect(onFeaturedChange).toHaveBeenCalledWith('test-resto', true);
+  });
+
+  it("clicking toggle when active calls onFeaturedChange with (id, false)", () => {
+    const onFeaturedChange = vi.fn();
+    render(
+      <SessionRestaurantCard
+        restaurant={mockFeaturedRestaurant}
+        onTierChange={vi.fn()}
+        onNotesChange={vi.fn()}
+        onSourceChange={vi.fn()}
+        onTagsChange={vi.fn()}
+        onFeaturedChange={onFeaturedChange}
+      />
+    );
+    fireEvent.click(screen.getByTestId('bobby-pick-toggle'));
+    expect(onFeaturedChange).toHaveBeenCalledWith('test-resto', false);
+  });
+
+  it("BobbyPickBadge is NOT rendered when featured is undefined", () => {
+    render(
+      <SessionRestaurantCard
+        restaurant={mockRestaurant}
+        onTierChange={vi.fn()}
+        onNotesChange={vi.fn()}
+        onSourceChange={vi.fn()}
+        onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
+      />
+    );
+    expect(screen.queryByTestId('bobby-pick-badge')).toBeNull();
+  });
+
+  it("BobbyPickBadge IS rendered when featured is true", () => {
+    render(
+      <SessionRestaurantCard
+        restaurant={mockFeaturedRestaurant}
+        onTierChange={vi.fn()}
+        onNotesChange={vi.fn()}
+        onSourceChange={vi.fn()}
+        onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
+      />
+    );
+    expect(screen.getByTestId('bobby-pick-badge')).toBeInTheDocument();
+  });
+
+  it("toggle button has min-h-[44px] class for mobile touch target", () => {
+    render(
+      <SessionRestaurantCard
+        restaurant={mockRestaurant}
+        onTierChange={vi.fn()}
+        onNotesChange={vi.fn()}
+        onSourceChange={vi.fn()}
+        onTagsChange={vi.fn()}
+        onFeaturedChange={vi.fn()}
+      />
+    );
+    expect(screen.getByTestId('bobby-pick-toggle')).toHaveClass('min-h-[44px]');
   });
 });

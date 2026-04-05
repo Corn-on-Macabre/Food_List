@@ -1,4 +1,5 @@
 import type { Restaurant, Tier } from "../types";
+import { BobbyPickBadge } from "./BobbyPickBadge";
 
 interface RestaurantCardProps {
   restaurant: Restaurant;
@@ -60,6 +61,8 @@ export function RestaurantCard({ restaurant, onDismiss }: RestaurantCardProps) {
         >
           {tierLabel}
         </span>
+
+        {restaurant.featured && <div className="mt-1"><BobbyPickBadge /></div>}
 
         <p className="mt-2 text-sm text-stone-500">{restaurant.cuisine}</p>
 

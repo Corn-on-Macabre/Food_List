@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { TierBadge } from './TierBadge';
+import { BobbyPickBadge } from './BobbyPickBadge';
 import type { Restaurant, Tier } from '../types';
 
 interface Props {
@@ -8,6 +9,7 @@ interface Props {
   onNotesChange: (id: string, notes: string) => void;
   onSourceChange: (id: string, source: string) => void;
   onTagsChange: (id: string, tags: string[]) => void;
+  onFeaturedChange: (id: string, featured: boolean) => void;
 }
 
 const TIER_OPTIONS: { value: Tier; label: string }[] = [
@@ -18,7 +20,7 @@ const TIER_OPTIONS: { value: Tier; label: string }[] = [
 
 const SUGGESTED_TAGS = ['date night', 'quick lunch', 'patio', 'kid-friendly'];
 
-export function SessionRestaurantCard({ restaurant, onTierChange, onNotesChange, onSourceChange, onTagsChange }: Props) {
+export function SessionRestaurantCard({ restaurant, onTierChange, onNotesChange, onSourceChange, onTagsChange, onFeaturedChange }: Props) {
   const [isEditing, setIsEditing] = useState(false);
   // selectedTier is synced to restaurant.tier at the moment Edit Tier is clicked (see onClick below).
   // This is safe because restaurant.tier only changes via handleTierChange in the parent,
@@ -103,6 +105,7 @@ export function SessionRestaurantCard({ restaurant, onTierChange, onNotesChange,
         <div className="flex items-center gap-2">
           <TierBadge tier={restaurant.tier} />
           <span className="font-bold">{restaurant.name}</span>
+          {restaurant.featured && <BobbyPickBadge />}
           <span className="text-stone-400">{restaurant.cuisine}</span>
           <button
             type="button"
@@ -423,6 +426,28 @@ export function SessionRestaurantCard({ restaurant, onTierChange, onNotesChange,
             Add
           </button>
         </div>
+      </div>
+
+      {/* Bobby's Pick toggle */}
+      <div className="mt-2 flex items-center">
+        <button
+          type="button"
+          // Invariant: restaurant.featured is always `true` or `undefined`, never `false`.
+          // AdminDashboard.handleFeaturedChange stores `featured ? true : undefined`.
+          // So `!restaurant.featured` is `true` when undefined (activate) and `false` when true (deactivate).
+          onClick={() => onFeaturedChange(restaurant.id, !restaurant.featured)}
+          aria-pressed={restaurant.featured === true}
+          aria-label={`Toggle Bobby's Pick for ${restaurant.name}`}
+          data-testid="bobby-pick-toggle"
+          className={
+            restaurant.featured
+              ? 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-amber-400 text-amber-900 border border-amber-500 transition-colors'
+              : 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-stone-100 text-stone-500 border border-[#E8E0D5] transition-colors hover:bg-stone-200'
+          }
+        >
+          <span aria-hidden="true" className="mr-1">★</span>
+          Bobby's Pick
+        </button>
       </div>
     </div>
   );
