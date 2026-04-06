@@ -64,7 +64,7 @@ describe('Responsive layout', () => {
     const { container } = render(<MemoryRouter><App /></MemoryRouter>);
 
     const mapWrapper = container.firstChild as HTMLElement;
-    expect(mapWrapper).toHaveStyle({ width: '100vw', height: '100vh' });
+    expect(mapWrapper).toHaveStyle({ width: '100%', height: '100%' });
   });
 
   // C2 — PinLegend renders at bottom-left corner
