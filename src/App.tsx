@@ -1,7 +1,10 @@
 import { useState, useEffect, useMemo } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { APIProvider, Map, useMap, type MapMouseEvent } from '@vis.gl/react-google-maps';
 import { useRestaurants, useGeolocation } from './hooks';
-import { RestaurantPin, PinLegend, RestaurantCard, FilterBar } from './components';
+
+import { ClusteredPins, PinLegend, RestaurantCard, FilterBar, ProtectedRoute, AdminDashboard } from './components';
+import { AdminAuthProvider } from './contexts/AdminAuthContext';
 import type { Restaurant } from './types';
 import type { FilterState } from './types/restaurant';
 import { haversineDistance } from './utils';
@@ -42,7 +45,24 @@ function App() {
     );
   }
 
-  return <AppWithMap apiKey={apiKey} />;
+  return (
+    <Routes>
+      <Route path="/" element={<AppWithMap apiKey={apiKey} />} />
+      <Route
+        path="/admin"
+        element={
+          <AdminAuthProvider>
+            <APIProvider apiKey={apiKey} libraries={['places']}>
+              <ProtectedRoute>
+                <AdminDashboard />
+              </ProtectedRoute>
+            </APIProvider>
+          </AdminAuthProvider>
+        }
+      />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  );
 }
 
 function AppWithMap({ apiKey }: { apiKey: string }) {
@@ -93,7 +113,8 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
   return (
     <div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
       {/* TODO: change to top-[60px] when app header is implemented (Story 4.x) */}
-      <div className="absolute top-0 left-0 right-0 z-10 bg-[rgba(255,251,245,0.92)] backdrop-blur-sm border-b border-stone-200">
+      {/* fixed keeps the bar anchored to the visual viewport on mobile (avoids iOS 100vh scroll bug) */}
+      <div className="fixed top-0 left-0 right-0 z-10 bg-[rgba(255,251,245,0.92)] backdrop-blur-sm border-b border-stone-200">
         <FilterBar
           cuisines={cuisines}
           activeCuisine={filters.cuisine}
@@ -114,9 +135,11 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           mapId="food-list-map"
           onClick={handleMapClick}
         >
-          {filteredRestaurants.map(r => (
-            <RestaurantPin key={r.id} restaurant={r} />
-          ))}
+          <ClusteredPins
+            restaurants={filteredRestaurants}
+            onRestaurantClick={setSelectedRestaurant}
+            selectedRestaurantId={selectedRestaurant?.id ?? null}
+          />
           {/* Smoothly pan to user location once geolocation resolves */}
           {!geoLoading && coords && <MapCenterer coords={resolvedCenter} />}
         </Map>

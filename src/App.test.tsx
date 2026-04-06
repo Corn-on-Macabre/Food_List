@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import App from './App';
 
 // Mock @vis.gl/react-google-maps to avoid needing a real Maps API in tests
@@ -25,27 +26,27 @@ describe('App', () => {
 
   it('shows error state when API key is missing (empty)', () => {
     vi.stubEnv('VITE_GOOGLE_MAPS_API_KEY', '');
-    render(<App />);
+    render(<MemoryRouter><App /></MemoryRouter>);
     expect(screen.getByText('Configuration Error')).toBeInTheDocument();
     expect(screen.getByText(/VITE_GOOGLE_MAPS_API_KEY/)).toBeInTheDocument();
   });
 
   it('shows error state when API key is PLACEHOLDER_KEY', () => {
     vi.stubEnv('VITE_GOOGLE_MAPS_API_KEY', 'PLACEHOLDER_KEY');
-    render(<App />);
+    render(<MemoryRouter><App /></MemoryRouter>);
     expect(screen.getByText('Configuration Error')).toBeInTheDocument();
   });
 
   it('renders the map when a real API key is provided', () => {
     vi.stubEnv('VITE_GOOGLE_MAPS_API_KEY', 'AIza-real-key-123');
-    render(<App />);
+    render(<MemoryRouter><App /></MemoryRouter>);
     expect(screen.getByTestId('google-map')).toBeInTheDocument();
     expect(screen.queryByText('Configuration Error')).not.toBeInTheDocument();
   });
 
   it('renders the pin legend when a real API key is provided', () => {
     vi.stubEnv('VITE_GOOGLE_MAPS_API_KEY', 'AIza-real-key-123');
-    render(<App />);
+    render(<MemoryRouter><App /></MemoryRouter>);
     expect(screen.getByRole('region', { name: 'Map Legend' })).toBeInTheDocument();
   });
 });
@@ -60,7 +61,8 @@ describe('Responsive layout', () => {
   // C1 — Map container renders with full-viewport dimensions
   it('map container fills full viewport', () => {
     vi.stubEnv('VITE_GOOGLE_MAPS_API_KEY', 'AIza-real-key-123');
-    const { container } = render(<App />);
+    const { container } = render(<MemoryRouter><App /></MemoryRouter>);
+
     const mapWrapper = container.firstChild as HTMLElement;
     expect(mapWrapper).toHaveStyle({ width: '100vw', height: '100vh' });
   });
@@ -68,9 +70,9 @@ describe('Responsive layout', () => {
   // C2 — PinLegend renders at bottom-left corner
   it('pin legend is positioned at bottom-left corner', () => {
     vi.stubEnv('VITE_GOOGLE_MAPS_API_KEY', 'AIza-real-key-123');
-    render(<App />);
+    render(<MemoryRouter><App /></MemoryRouter>);
     const legend = screen.getByRole('region', { name: 'Map Legend' });
-    expect(legend.className).toMatch(/absolute/);
+    expect(legend.className).toMatch(/fixed/);
     expect(legend.className).toMatch(/bottom-4/);
     expect(legend.className).toMatch(/left-4/);
   });
@@ -81,7 +83,8 @@ describe('Responsive layout', () => {
   it('loading overlay is centered when data is loading', () => {
     // beforeEach already mocks fetch to never resolve — useRestaurants stays loading:true
     vi.stubEnv('VITE_GOOGLE_MAPS_API_KEY', 'AIza-real-key-123');
-    const { container } = render(<App />);
+    const { container } = render(<MemoryRouter><App /></MemoryRouter>);
+
     expect(screen.getByText('Loading restaurants...')).toBeInTheDocument();
     const overlay = container.querySelector('.absolute.inset-0.flex.items-center.justify-center');
     expect(overlay).toBeInTheDocument();
@@ -93,7 +96,7 @@ describe('Responsive layout', () => {
   it('error overlay is centered when data fails', async () => {
     vi.spyOn(globalThis, 'fetch').mockRejectedValue(new Error('Network error'));
     vi.stubEnv('VITE_GOOGLE_MAPS_API_KEY', 'AIza-real-key-123');
-    render(<App />);
+    render(<MemoryRouter><App /></MemoryRouter>);
     const errorText = await screen.findByText('Could not load restaurant data. Please refresh the page.');
     const overlay = errorText.closest('.inset-0');
     expect(overlay).not.toBeNull();

@@ -124,6 +124,25 @@ describe("RestaurantCard", () => {
     });
   });
 
+  describe("Bobby's Pick badge (AC 9)", () => {
+    it("does not render BobbyPickBadge when featured is undefined", () => {
+      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} />);
+      expect(screen.queryByTestId('bobby-pick-badge')).not.toBeInTheDocument();
+    });
+
+    it("renders BobbyPickBadge when featured is true", () => {
+      const featuredRestaurant: Restaurant = { ...mockRestaurant, featured: true };
+      render(<RestaurantCard restaurant={featuredRestaurant} onDismiss={noop} />);
+      expect(screen.getByTestId('bobby-pick-badge')).toBeInTheDocument();
+    });
+
+    it("BobbyPickBadge displays \"Bobby's Pick\" text", () => {
+      const featuredRestaurant: Restaurant = { ...mockRestaurant, featured: true };
+      render(<RestaurantCard restaurant={featuredRestaurant} onDismiss={noop} />);
+      expect(screen.getByTestId('bobby-pick-badge')).toHaveTextContent("Bobby's Pick");
+    });
+  });
+
   describe("dismissal (AC 1, 4, 5)", () => {
     it("calls onDismiss when close button is clicked (AC 1)", () => {
       const onDismiss = vi.fn();

@@ -1,5 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
 import App from "../App";
 import React from "react";
 
@@ -28,14 +29,14 @@ vi.stubEnv("VITE_GOOGLE_MAPS_API_KEY", "test-key");
 
 describe("App — initial state (AC 2, 3)", () => {
   it("does not render RestaurantCard initially (no restaurant selected)", () => {
-    render(<App />);
+    render(<MemoryRouter><App /></MemoryRouter>);
     expect(
       screen.queryByRole("button", { name: "Close restaurant card" }),
     ).not.toBeInTheDocument();
   });
 
   it("renders the map container when API key is present", () => {
-    render(<App />);
+    render(<MemoryRouter><App /></MemoryRouter>);
     expect(screen.getByTestId("mock-map")).toBeInTheDocument();
   });
 });

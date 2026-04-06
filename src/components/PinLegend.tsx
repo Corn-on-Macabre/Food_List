@@ -12,7 +12,7 @@ export function PinLegend() {
     <div
       role="region"
       aria-label="Map Legend"
-      className="absolute bottom-4 left-4 bg-white rounded-lg shadow-md px-3 py-2 flex flex-col gap-1.5 z-10"
+      className="fixed bottom-4 left-4 bg-white rounded-lg shadow-md px-3 py-2 flex flex-col gap-1.5 z-10"
     >
       {TIER_ENTRIES.map(({ tier, label }) => (
         <div key={tier} className="flex items-center gap-2">
