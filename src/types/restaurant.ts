@@ -18,5 +18,6 @@ export interface Restaurant {
 
 export interface FilterState {
   cuisine: string | null;
+  tier: Tier | null;
   maxDistance: number | null;
 }
