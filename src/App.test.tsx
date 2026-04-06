@@ -72,7 +72,7 @@ describe('Responsive layout', () => {
     vi.stubEnv('VITE_GOOGLE_MAPS_API_KEY', 'AIza-real-key-123');
     render(<MemoryRouter><App /></MemoryRouter>);
     const legend = screen.getByRole('region', { name: 'Map Legend' });
-    expect(legend.className).toMatch(/absolute/);
+    expect(legend.className).toMatch(/fixed/);
     expect(legend.className).toMatch(/bottom-4/);
     expect(legend.className).toMatch(/left-4/);
   });

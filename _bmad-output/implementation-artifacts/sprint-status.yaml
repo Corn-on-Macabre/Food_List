@@ -50,6 +50,7 @@ development_status:
   1-4-user-geolocation-and-map-centering: done
   1-5-responsive-layout: done
   1-6-production-deployment: done
+  1-7-mobile-sticky-filter-bar: done
   epic-1-retrospective: optional
 
   # Epic 2: Restaurant Details & Navigation (MVP)
