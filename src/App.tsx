@@ -73,7 +73,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
   const resolvedCenter = coords ?? PHOENIX_CENTER;
 
   const [selectedRestaurant, setSelectedRestaurant] = useState<Restaurant | null>(null);
-  const [filters, setFilters] = useState<FilterState>({ cuisine: null, maxDistance: null });
+  const [filters, setFilters] = useState<FilterState>({ cuisine: null, tier: null, maxDistance: null });
 
   // Derived: distance filter is suppressed when location is unavailable or denied (AC 5, 6, 7)
   const effectiveMaxDistance = geoDenied || coords === null ? null : filters.maxDistance;
@@ -82,13 +82,14 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
     () =>
       restaurants.filter((r) => {
         if (filters.cuisine && r.cuisine !== filters.cuisine) return false;
+        if (filters.tier && r.tier !== filters.tier) return false;
         if (effectiveMaxDistance !== null && coords !== null) {
           const dist = haversineDistance(coords.lat, coords.lng, r.lat, r.lng);
           if (dist > effectiveMaxDistance) return false;
         }
         return true;
       }),
-    [restaurants, filters.cuisine, effectiveMaxDistance, coords]
+    [restaurants, filters.cuisine, filters.tier, effectiveMaxDistance, coords]
   );
 
   const cuisines = useMemo(
@@ -96,10 +97,10 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
     [restaurants]
   );
 
-  const hasActiveFilters = filters.cuisine !== null || filters.maxDistance !== null;
+  const hasActiveFilters = filters.cuisine !== null || filters.tier !== null || filters.maxDistance !== null;
 
   function handleClearFilters() {
-    setFilters({ cuisine: null, maxDistance: null });
+    setFilters({ cuisine: null, tier: null, maxDistance: null });
   }
 
   function handleMapClick(event: MapMouseEvent) {
@@ -119,6 +120,8 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           cuisines={cuisines}
           activeCuisine={filters.cuisine}
           onCuisineChange={(cuisine) => setFilters(f => ({ ...f, cuisine }))}
+          activeTier={filters.tier}
+          onTierChange={(tier) => setFilters(f => ({ ...f, tier }))}
           userCoords={coords}
           geoDenied={geoDenied}
           activeDistance={effectiveMaxDistance}

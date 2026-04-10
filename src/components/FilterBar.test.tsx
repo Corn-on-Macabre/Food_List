@@ -2,12 +2,16 @@ import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { FilterBar } from './FilterBar';
 
+import type { Tier } from '../types/restaurant';
+
 // Default props that satisfy all required FilterBar props.
 // userCoords: null suppresses the distance row so cuisine-only tests stay clean.
 const baseProps = {
   cuisines: [] as string[],
   activeCuisine: null as string | null,
   onCuisineChange: vi.fn(),
+  activeTier: null as Tier | null,
+  onTierChange: vi.fn(),
   userCoords: null as { lat: number; lng: number } | null,
   geoDenied: false,
   activeDistance: null as number | null,
@@ -20,14 +24,17 @@ describe('FilterBar', () => {
   describe('renders All chip when cuisines is empty (AC 7)', () => {
     it('renders the All chip even with an empty cuisines array', () => {
       render(<FilterBar {...baseProps} />);
-      expect(screen.getByRole('button', { name: 'All' })).toBeInTheDocument();
+      // Both cuisine row and tier row have an "All" chip
+      const allButtons = screen.getAllByRole('button', { name: 'All' });
+      expect(allButtons.length).toBeGreaterThanOrEqual(1);
     });
 
     it('renders no cuisine-specific chips when cuisines is empty', () => {
       render(<FilterBar {...baseProps} />);
-      // Only the "All" button should be present (distance row hidden because userCoords=null)
+      // 1 cuisine "All" + 4 tier chips (All, Loved It, Worth Recommending, Want to Go)
+      // distance row hidden because userCoords=null
       const buttons = screen.getAllByRole('button');
-      expect(buttons).toHaveLength(1);
+      expect(buttons).toHaveLength(5);
     });
   });
 
@@ -40,8 +47,8 @@ describe('FilterBar', () => {
         />,
       );
       const buttons = screen.getAllByRole('button');
-      // All + 3 cuisine chips (distance row hidden — userCoords=null)
-      expect(buttons).toHaveLength(4);
+      // 1 cuisine All + 3 cuisine chips + 4 tier chips (distance row hidden — userCoords=null)
+      expect(buttons).toHaveLength(8);
     });
 
     it('renders each cuisine label as a button', () => {
@@ -100,7 +107,8 @@ describe('FilterBar', () => {
           onCuisineChange={onCuisineChange}
         />,
       );
-      fireEvent.click(screen.getByRole('button', { name: 'All' }));
+      // The cuisine "All" is the first "All" button in the DOM
+      fireEvent.click(screen.getAllByRole('button', { name: 'All' })[0]);
       expect(onCuisineChange).toHaveBeenCalledWith(null);
       expect(onCuisineChange).toHaveBeenCalledTimes(1);
     });
@@ -133,7 +141,8 @@ describe('FilterBar', () => {
 
     it('All chip is active (amber) when activeCuisine is null', () => {
       render(<FilterBar {...baseProps} cuisines={['Vietnamese']} />);
-      const allChip = screen.getByRole('button', { name: 'All' });
+      // First "All" button is the cuisine row chip
+      const allChip = screen.getAllByRole('button', { name: 'All' })[0];
       expect(allChip.className).toContain('bg-amber-700');
     });
 
@@ -145,7 +154,8 @@ describe('FilterBar', () => {
           activeCuisine="Vietnamese"
         />,
       );
-      const allChip = screen.getByRole('button', { name: 'All' });
+      // First "All" button is the cuisine row chip
+      const allChip = screen.getAllByRole('button', { name: 'All' })[0];
       expect(allChip.className).toContain('bg-white');
     });
 
@@ -315,6 +325,64 @@ describe('FilterBar', () => {
       render(<FilterBar {...baseProps} hasActiveFilters={true} />);
       const btn = screen.getByRole('button', { name: 'Clear all filters' });
       expect(btn).toHaveAttribute('aria-label', 'Clear all filters');
+    });
+  });
+
+  // --- Tier row tests (Story 3.4) ---
+
+  describe('tier row renders all 4 chips (AC 1, 2)', () => {
+    it('renders All, Loved It, Worth Recommending, Want to Go chips', () => {
+      render(<FilterBar {...baseProps} />);
+      expect(screen.getByRole('button', { name: 'Loved It' })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: 'Worth Recommending' })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: 'Want to Go' })).toBeInTheDocument();
+      // "All" appears in both cuisine row and tier row
+      const allButtons = screen.getAllByRole('button', { name: 'All' });
+      expect(allButtons).toHaveLength(2);
+    });
+
+    it('tier "All" chip has aria-pressed="true" when activeTier is null (AC 3)', () => {
+      render(<FilterBar {...baseProps} activeTier={null} />);
+      // Tier All is the second "All" button in DOM
+      const tierAllChip = screen.getAllByRole('button', { name: 'All' })[1];
+      expect(tierAllChip).toHaveAttribute('aria-pressed', 'true');
+    });
+
+    it('"Loved It" chip has aria-pressed="false" when activeTier is null', () => {
+      render(<FilterBar {...baseProps} activeTier={null} />);
+      expect(screen.getByRole('button', { name: 'Loved It' })).toHaveAttribute('aria-pressed', 'false');
+    });
+  });
+
+  describe('tier chip click interactions (AC 4)', () => {
+    it('clicking "Loved It" calls onTierChange("loved")', () => {
+      const onTierChange = vi.fn();
+      render(<FilterBar {...baseProps} onTierChange={onTierChange} />);
+      fireEvent.click(screen.getByRole('button', { name: 'Loved It' }));
+      expect(onTierChange).toHaveBeenCalledWith('loved');
+      expect(onTierChange).toHaveBeenCalledTimes(1);
+    });
+
+    it('clicking active "Loved It" chip calls onTierChange(null) — toggle-off (AC 4)', () => {
+      const onTierChange = vi.fn();
+      render(<FilterBar {...baseProps} activeTier="loved" onTierChange={onTierChange} />);
+      fireEvent.click(screen.getByRole('button', { name: 'Loved It' }));
+      expect(onTierChange).toHaveBeenCalledWith(null);
+      expect(onTierChange).toHaveBeenCalledTimes(1);
+    });
+
+    it('"Loved It" chip has aria-pressed="true" when activeTier is "loved"', () => {
+      render(<FilterBar {...baseProps} activeTier="loved" />);
+      expect(screen.getByRole('button', { name: 'Loved It' })).toHaveAttribute('aria-pressed', 'true');
+    });
+
+    it('clicking tier "All" chip calls onTierChange(null)', () => {
+      const onTierChange = vi.fn();
+      render(<FilterBar {...baseProps} activeTier="loved" onTierChange={onTierChange} />);
+      // Tier All is the second "All" button in DOM
+      fireEvent.click(screen.getAllByRole('button', { name: 'All' })[1]);
+      expect(onTierChange).toHaveBeenCalledWith(null);
+      expect(onTierChange).toHaveBeenCalledTimes(1);
     });
   });
 });

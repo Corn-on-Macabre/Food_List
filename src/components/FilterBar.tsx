@@ -1,9 +1,13 @@
 import { DISTANCE_OPTIONS } from '../utils';
+import type { Tier } from '../types/restaurant';
 
 interface FilterBarProps {
   cuisines: string[];
   activeCuisine: string | null;
   onCuisineChange: (cuisine: string | null) => void;
+  // Story 3.4 additions:
+  activeTier: Tier | null;
+  onTierChange: (tier: Tier | null) => void;
   // Story 3.2 additions:
   userCoords: { lat: number; lng: number } | null;
   geoDenied: boolean;
@@ -18,6 +22,12 @@ interface FilterBarProps {
   onClearFilters: () => void;
 }
 
+const TIER_OPTIONS: { value: Tier; label: string }[] = [
+  { value: 'loved',       label: 'Loved It' },
+  { value: 'recommended', label: 'Worth Recommending' },
+  { value: 'on_my_radar', label: 'Want to Go' },
+];
+
 const chipBase =
   'rounded-full px-3 py-1 text-xs font-semibold font-sans whitespace-nowrap transition-colors duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600';
 const chipActive = 'bg-amber-700 text-white border border-amber-700';
@@ -27,6 +37,8 @@ export function FilterBar({
   cuisines,
   activeCuisine,
   onCuisineChange,
+  activeTier,
+  onTierChange,
   userCoords,
   geoDenied,
   activeDistance,
@@ -46,12 +58,20 @@ export function FilterBar({
     }
   };
 
+  const handleTierClick = (tier: Tier) => {
+    if (tier === activeTier) {
+      onTierChange(null);
+    } else {
+      onTierChange(tier);
+    }
+  };
+
   return (
     <div className="flex flex-col">
       {/* Filter chip controls — grouped for screen readers */}
       <div role="group" aria-label="Filters" className="flex flex-col">
         {/* Cuisine row */}
-        <div className="flex gap-2 overflow-x-auto px-4 py-2 scrollbar-hide">
+        <div role="group" aria-label="Filter by cuisine" className="flex gap-2 overflow-x-auto px-4 py-2 scrollbar-hide">
           <button
             className={`${chipBase} ${activeCuisine === null ? chipActive : chipInactive}`}
             aria-pressed={activeCuisine === null}
@@ -69,6 +89,29 @@ export function FilterBar({
                 onClick={() => handleCuisineClick(cuisine)}
               >
                 {cuisine}
+              </button>
+            );
+          })}
+        </div>
+        {/* Tier row — always visible */}
+        <div role="group" aria-label="Filter by list type" className="flex gap-2 overflow-x-auto px-4 pb-2 scrollbar-hide">
+          <button
+            className={`${chipBase} ${activeTier === null ? chipActive : chipInactive}`}
+            aria-pressed={activeTier === null}
+            onClick={() => onTierChange(null)}
+          >
+            All
+          </button>
+          {TIER_OPTIONS.map(({ value, label }) => {
+            const isActive = value === activeTier;
+            return (
+              <button
+                key={value}
+                className={`${chipBase} ${isActive ? chipActive : chipInactive}`}
+                aria-pressed={isActive}
+                onClick={() => handleTierClick(value)}
+              >
+                {label}
               </button>
             );
           })}
