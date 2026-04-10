@@ -14,6 +14,10 @@ export interface Restaurant {
   tags?: string[];      // Occasion/vibe tags (e.g., ["date night", "patio"])
   featured?: boolean;   // Bobby's Pick badge
   enrichedAt?: string;  // ISO date — set by enrichment pipeline (Epic 5)
+  rating?: number;             // Google Places rating (1.0–5.0)
+  userRatingCount?: number;    // Google Places total review count
+  priceLevel?: string;         // e.g. "PRICE_LEVEL_MODERATE"
+  photoRef?: string;           // Places photo resource name
 }
 
 export interface FilterState {
