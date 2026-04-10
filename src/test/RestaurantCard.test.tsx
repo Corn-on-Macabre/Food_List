@@ -28,6 +28,29 @@ const mockRestaurantNoNotes: Restaurant = {
   dateAdded: "2024-02-01",
 };
 
+const mockEnrichedRestaurant: Restaurant = {
+  ...mockRestaurant,
+  rating: 4.3,
+  userRatingCount: 287,
+  priceLevel: "PRICE_LEVEL_MODERATE",
+};
+
+const mockRatingOnlyRestaurant: Restaurant = {
+  ...mockRestaurant,
+  rating: 4.7,
+  userRatingCount: 1024,
+};
+
+const mockPriceOnlyRestaurant: Restaurant = {
+  ...mockRestaurant,
+  priceLevel: "PRICE_LEVEL_EXPENSIVE",
+};
+
+const mockRatingNoCountRestaurant: Restaurant = {
+  ...mockRestaurant,
+  rating: 3.9,
+};
+
 describe("RestaurantCard", () => {
   describe("Google Maps link (AC 1, 2, 3, 4)", () => {
     it("renders the 'Open in Google Maps' link", () => {
@@ -182,6 +205,116 @@ describe("RestaurantCard", () => {
       fireEvent.click(screen.getByRole("button", { name: "Close restaurant card" }));
       expect(onDismiss).toHaveBeenCalledTimes(1);
       expect(parentHandler).not.toHaveBeenCalled();
+    });
+  });
+
+  describe("Rating and price display (Story 5.2)", () => {
+    it("renders rating as '4.3' with star when rating is present (AC 1)", () => {
+      render(<RestaurantCard restaurant={mockEnrichedRestaurant} onDismiss={noop} />);
+      expect(screen.getByText("4.3", { exact: false })).toBeInTheDocument();
+      expect(screen.getByText("★")).toBeInTheDocument();
+    });
+
+    it("renders user rating count as '(287)' when userRatingCount is present (AC 1)", () => {
+      render(<RestaurantCard restaurant={mockEnrichedRestaurant} onDismiss={noop} />);
+      expect(screen.getByText("(287)")).toBeInTheDocument();
+    });
+
+    it('renders "$$" when priceLevel is PRICE_LEVEL_MODERATE (AC 2)', () => {
+      render(<RestaurantCard restaurant={mockEnrichedRestaurant} onDismiss={noop} />);
+      expect(screen.getByText("$$")).toBeInTheDocument();
+    });
+
+    it("renders both rating and price with separator when both exist (AC 1, 2)", () => {
+      render(<RestaurantCard restaurant={mockEnrichedRestaurant} onDismiss={noop} />);
+      expect(screen.getByText("4.3", { exact: false })).toBeInTheDocument();
+      expect(screen.getByText("$$")).toBeInTheDocument();
+      expect(screen.getByText("·")).toBeInTheDocument();
+    });
+
+    it("does not render rating/price row when neither rating nor priceLevel exists (AC 6)", () => {
+      render(<RestaurantCard restaurant={mockRestaurantNoNotes} onDismiss={noop} />);
+      expect(screen.queryByText("★")).not.toBeInTheDocument();
+      expect(screen.queryByText("·")).not.toBeInTheDocument();
+    });
+
+    it("renders only rating (no price section) when priceLevel is absent (AC 5)", () => {
+      render(<RestaurantCard restaurant={mockRatingOnlyRestaurant} onDismiss={noop} />);
+      expect(screen.getByText("4.7", { exact: false })).toBeInTheDocument();
+      expect(screen.getByText("★")).toBeInTheDocument();
+      expect(screen.getByText("(1,024)")).toBeInTheDocument();
+      expect(screen.queryByText("·")).not.toBeInTheDocument();
+    });
+
+    it("renders only price (no rating section) when rating is absent (AC 4)", () => {
+      render(<RestaurantCard restaurant={mockPriceOnlyRestaurant} onDismiss={noop} />);
+      expect(screen.getByText("$$$")).toBeInTheDocument();
+      expect(screen.queryByText("★")).not.toBeInTheDocument();
+      expect(screen.queryByText("·")).not.toBeInTheDocument();
+    });
+
+    it("renders rating without count when userRatingCount is absent (AC 3)", () => {
+      render(<RestaurantCard restaurant={mockRatingNoCountRestaurant} onDismiss={noop} />);
+      expect(screen.getByText("3.9", { exact: false })).toBeInTheDocument();
+      expect(screen.getByText("★")).toBeInTheDocument();
+      expect(screen.queryByText("(", { exact: false })).not.toBeInTheDocument();
+    });
+
+    it("does not render price for unknown priceLevel value like PRICE_LEVEL_FREE (AC 8)", () => {
+      const unknownPriceRestaurant: Restaurant = {
+        ...mockRestaurant,
+        priceLevel: "PRICE_LEVEL_FREE",
+      };
+      render(<RestaurantCard restaurant={unknownPriceRestaurant} onDismiss={noop} />);
+      expect(screen.queryByText("$")).not.toBeInTheDocument();
+      expect(screen.queryByText("Free")).not.toBeInTheDocument();
+    });
+
+    it("star character is rendered with amber color class (AC 7)", () => {
+      render(<RestaurantCard restaurant={mockEnrichedRestaurant} onDismiss={noop} />);
+      const star = screen.getByText("★");
+      expect(star.className).toContain("text-amber-500");
+    });
+  });
+
+  describe("Restaurant photo display (Story 5.3)", () => {
+    const mockRestaurantWithPhoto: Restaurant = {
+      ...mockRestaurant,
+      photoRef: "places/ChIJ123/photos/AUc456",
+    };
+
+    it("renders photo when photoRef is present (AC 1)", () => {
+      render(<RestaurantCard restaurant={mockRestaurantWithPhoto} onDismiss={noop} />);
+      const img = screen.getByRole("img", { name: "Pho 43" });
+      expect(img).toBeInTheDocument();
+      expect(img).toHaveAttribute(
+        "src",
+        expect.stringContaining("places/ChIJ123/photos/AUc456"),
+      );
+    });
+
+    it("does not render photo when photoRef is absent (AC 2)", () => {
+      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} />);
+      expect(screen.queryByRole("img")).not.toBeInTheDocument();
+    });
+
+    it("photo has correct alt text matching restaurant name (AC 4)", () => {
+      render(<RestaurantCard restaurant={mockRestaurantWithPhoto} onDismiss={noop} />);
+      const img = screen.getByRole("img", { name: "Pho 43" });
+      expect(img).toHaveAttribute("alt", "Pho 43");
+    });
+
+    it("photo has lazy loading attribute (AC 4)", () => {
+      render(<RestaurantCard restaurant={mockRestaurantWithPhoto} onDismiss={noop} />);
+      const img = screen.getByRole("img", { name: "Pho 43" });
+      expect(img).toHaveAttribute("loading", "lazy");
+    });
+
+    it("hides photo on load error (AC 3)", () => {
+      render(<RestaurantCard restaurant={mockRestaurantWithPhoto} onDismiss={noop} />);
+      const img = screen.getByRole("img", { name: "Pho 43" });
+      fireEvent.error(img);
+      expect(screen.queryByRole("img")).not.toBeInTheDocument();
     });
   });
 });
