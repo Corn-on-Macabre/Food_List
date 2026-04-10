@@ -35,7 +35,7 @@
 # - Epics 4 and 5 are Growth Phase — deferred until MVP (Epics 1-3) is shipped
 
 generated: 2026-03-27
-last_updated: 2026-04-10 (epic-3 done, epic-4 done, deployed to production)
+last_updated: 2026-04-10 (epic-5 done — all epics complete)
 project: Food_List
 project_key: NOKEY
 tracking_system: file-system
@@ -79,8 +79,8 @@ development_status:
   epic-4-retrospective: optional
 
   # Epic 5: Data Enrichment & Enhanced Details (Growth Phase)
-  epic-5: in-progress
-  5-1-google-places-api-enrichment-pipeline: ready-for-dev
-  5-2-enhanced-detail-card-with-ratings-and-price: ready-for-dev
-  5-3-restaurant-photos-on-detail-card: backlog
+  epic-5: done
+  5-1-google-places-api-enrichment-pipeline: done
+  5-2-enhanced-detail-card-with-ratings-and-price: done
+  5-3-restaurant-photos-on-detail-card: done
   epic-5-retrospective: optional

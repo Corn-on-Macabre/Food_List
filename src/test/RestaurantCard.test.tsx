@@ -276,4 +276,45 @@ describe("RestaurantCard", () => {
       expect(star.className).toContain("text-amber-500");
     });
   });
+
+  describe("Restaurant photo display (Story 5.3)", () => {
+    const mockRestaurantWithPhoto: Restaurant = {
+      ...mockRestaurant,
+      photoRef: "places/ChIJ123/photos/AUc456",
+    };
+
+    it("renders photo when photoRef is present (AC 1)", () => {
+      render(<RestaurantCard restaurant={mockRestaurantWithPhoto} onDismiss={noop} />);
+      const img = screen.getByRole("img", { name: "Pho 43" });
+      expect(img).toBeInTheDocument();
+      expect(img).toHaveAttribute(
+        "src",
+        expect.stringContaining("places/ChIJ123/photos/AUc456"),
+      );
+    });
+
+    it("does not render photo when photoRef is absent (AC 2)", () => {
+      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} />);
+      expect(screen.queryByRole("img")).not.toBeInTheDocument();
+    });
+
+    it("photo has correct alt text matching restaurant name (AC 4)", () => {
+      render(<RestaurantCard restaurant={mockRestaurantWithPhoto} onDismiss={noop} />);
+      const img = screen.getByRole("img", { name: "Pho 43" });
+      expect(img).toHaveAttribute("alt", "Pho 43");
+    });
+
+    it("photo has lazy loading attribute (AC 4)", () => {
+      render(<RestaurantCard restaurant={mockRestaurantWithPhoto} onDismiss={noop} />);
+      const img = screen.getByRole("img", { name: "Pho 43" });
+      expect(img).toHaveAttribute("loading", "lazy");
+    });
+
+    it("hides photo on load error (AC 3)", () => {
+      render(<RestaurantCard restaurant={mockRestaurantWithPhoto} onDismiss={noop} />);
+      const img = screen.getByRole("img", { name: "Pho 43" });
+      fireEvent.error(img);
+      expect(screen.queryByRole("img")).not.toBeInTheDocument();
+    });
+  });
 });

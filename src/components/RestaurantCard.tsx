@@ -1,3 +1,4 @@
+import { useState } from "react";
 import type { Restaurant, Tier } from "../types";
 import { formatPriceLevel } from "../utils/priceLevel";
 import { BobbyPickBadge } from "./BobbyPickBadge";
@@ -25,15 +26,31 @@ function getSafeHref(url: string): string {
 }
 
 export function RestaurantCard({ restaurant, onDismiss }: RestaurantCardProps) {
+  const [photoError, setPhotoError] = useState(false);
   const tierClass = TIER_CLASSES[restaurant.tier] ?? "bg-gray-100 text-gray-800";
   const tierLabel = TIER_LABELS[restaurant.tier] ?? restaurant.tier;
   const formattedPrice = formatPriceLevel(restaurant.priceLevel);
+
+  const photoUrl =
+    restaurant.photoRef && !photoError
+      ? `https://places.googleapis.com/v1/${restaurant.photoRef}/media?maxHeightPx=300&maxWidthPx=400&key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`
+      : undefined;
 
   return (
     <div
       onClick={(e) => e.stopPropagation()}
       className="fixed z-50 bg-white shadow-lg bottom-0 left-0 right-0 rounded-t-2xl border-t border-stone-100 max-h-[70vh] overflow-y-auto md:max-h-none md:overflow-y-auto md:bottom-auto md:top-[60px] md:left-auto md:right-0 md:w-[360px] md:h-[calc(100dvh-60px)] md:rounded-none md:border-t-0 md:border-l md:border-stone-100"
     >
+      {photoUrl && (
+        <img
+          src={photoUrl}
+          alt={restaurant.name}
+          loading="lazy"
+          onError={() => setPhotoError(true)}
+          className="w-full h-48 object-cover rounded-t-xl md:rounded-none"
+        />
+      )}
+
       {/* Drag handle (mobile only) */}
       <div className="flex items-center justify-between px-5 pt-4 pb-2">
         <div className="mx-auto w-9 h-1 rounded-full bg-stone-200 md:hidden" />
