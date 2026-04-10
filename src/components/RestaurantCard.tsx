@@ -1,4 +1,5 @@
 import type { Restaurant, Tier } from "../types";
+import { formatPriceLevel } from "../utils/priceLevel";
 import { BobbyPickBadge } from "./BobbyPickBadge";
 
 interface RestaurantCardProps {
@@ -26,6 +27,7 @@ function getSafeHref(url: string): string {
 export function RestaurantCard({ restaurant, onDismiss }: RestaurantCardProps) {
   const tierClass = TIER_CLASSES[restaurant.tier] ?? "bg-gray-100 text-gray-800";
   const tierLabel = TIER_LABELS[restaurant.tier] ?? restaurant.tier;
+  const formattedPrice = formatPriceLevel(restaurant.priceLevel);
 
   return (
     <div
@@ -63,6 +65,28 @@ export function RestaurantCard({ restaurant, onDismiss }: RestaurantCardProps) {
         </span>
 
         {restaurant.featured && <div className="mt-1"><BobbyPickBadge /></div>}
+
+        {(restaurant.rating != null || formattedPrice) && (
+          <div className="mt-2 flex items-center gap-2 text-sm">
+            {restaurant.rating != null && (
+              <span className="text-stone-700">
+                {restaurant.rating.toFixed(1)}{" "}
+                <span className="text-amber-500">★</span>
+                {restaurant.userRatingCount != null && (
+                  <span className="text-stone-400 ml-0.5">
+                    ({restaurant.userRatingCount.toLocaleString()})
+                  </span>
+                )}
+              </span>
+            )}
+            {restaurant.rating != null && formattedPrice && (
+              <span className="text-stone-300">·</span>
+            )}
+            {formattedPrice && (
+              <span className="text-stone-500 font-medium">{formattedPrice}</span>
+            )}
+          </div>
+        )}
 
         <p className="mt-2 text-sm text-stone-500">{restaurant.cuisine}</p>
 

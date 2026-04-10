@@ -81,6 +81,6 @@ development_status:
   # Epic 5: Data Enrichment & Enhanced Details (Growth Phase)
   epic-5: in-progress
   5-1-google-places-api-enrichment-pipeline: ready-for-dev
-  5-2-enhanced-detail-card-with-ratings-and-price: backlog
+  5-2-enhanced-detail-card-with-ratings-and-price: ready-for-dev
   5-3-restaurant-photos-on-detail-card: backlog
   epic-5-retrospective: optional
