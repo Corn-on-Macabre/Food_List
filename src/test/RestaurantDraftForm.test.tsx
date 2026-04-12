@@ -122,8 +122,22 @@ describe('RestaurantDraftForm', () => {
     expect(screen.getByText('-112.07')).toBeInTheDocument();
   });
 
-  it('renders lat/lng as number inputs in manual mode (initialDraft null)', () => {
+  it('renders address autocomplete in manual mode (initialDraft null)', () => {
     renderForm(null);
+    // Manual mode now shows AddressGeocodeInput with address autocomplete
+    const addressInput = screen.getByRole('combobox', { name: /address/i });
+    expect(addressInput).toBeInTheDocument();
+    expect(addressInput).toHaveAttribute('placeholder', 'Type an address to auto-fill coordinates...');
+    // Coordinate display shows "No address selected"
+    expect(screen.getByText(/no address selected/i)).toBeInTheDocument();
+    // "Edit coordinates manually" link is visible
+    expect(screen.getByRole('button', { name: /edit coordinates manually/i })).toBeInTheDocument();
+  });
+
+  it('shows lat/lng number inputs when "Edit coordinates manually" is clicked', async () => {
+    const user = userEvent.setup();
+    renderForm(null);
+    await user.click(screen.getByRole('button', { name: /edit coordinates manually/i }));
     const latInput = screen.getByLabelText(/latitude/i);
     const lngInput = screen.getByLabelText(/longitude/i);
     expect(latInput).toHaveAttribute('type', 'number');
