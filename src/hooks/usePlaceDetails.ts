@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { mapPlaceTypeToCuisine } from '../utils/mapPlaceType';
 
 export interface PlaceDraft {
@@ -22,15 +22,14 @@ export function usePlaceDetails(placeId: string | null): UsePlaceDetailsResult {
   const [placeDetails, setPlaceDetails] = useState<PlaceDraft | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  // Hidden div for PlacesService to attach to
-  const divRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!placeId) return;
 
-    // Wrap all logic in setTimeout so setState calls are async (satisfies react-hooks/set-state-in-effect)
-    const tid = setTimeout(() => {
-      if (typeof google === 'undefined' || !google?.maps?.places?.PlacesService) {
+    let cancelled = false;
+
+    const tid = setTimeout(async () => {
+      if (typeof google === 'undefined' || !google?.maps?.places?.Place) {
         setError('Places API unavailable');
         setLoading(false);
         return;
@@ -39,64 +38,64 @@ export function usePlaceDetails(placeId: string | null): UsePlaceDetailsResult {
       setLoading(true);
       setError(null);
 
-      // PlacesService requires a DOM element or Map instance
-      if (!divRef.current) {
-        divRef.current = document.createElement('div');
-      }
-
       try {
-        const service = new google.maps.places.PlacesService(divRef.current);
-        service.getDetails(
-          {
-            placeId,
-            fields: ['name', 'formatted_address', 'geometry', 'price_level', 'types', 'url', 'place_id'],
-          },
-          (
-            place: google.maps.places.PlaceResult | null,
-            status: google.maps.places.PlacesServiceStatus
-          ) => {
-            if (status === google.maps.places.PlacesServiceStatus.OK && place) {
-              const lat = place.geometry?.location?.lat();
-              const lng = place.geometry?.location?.lng();
+        // Use new Place API (replaces legacy PlacesService.getDetails)
+        const place = new google.maps.places.Place({ id: placeId });
+        await place.fetchFields({
+          fields: ['displayName', 'formattedAddress', 'location', 'priceLevel', 'types', 'googleMapsURI'],
+        });
 
-              if (lat === undefined || lng === undefined) {
-                setError('Place location data unavailable');
-                setPlaceDetails(null);
-                setLoading(false);
-                return;
-              }
+        if (cancelled) return;
 
-              const draft: PlaceDraft = {
-                name: place.name ?? '',
-                address: place.formatted_address ?? '',
-                lat,
-                lng,
-                priceLevel: place.price_level ?? null,
-                cuisine: mapPlaceTypeToCuisine(place.types ?? []),
-                googleMapsUrl: place.url ?? '',
-                placeId: place.place_id ?? placeId,
-              };
+        const lat = place.location?.lat();
+        const lng = place.location?.lng();
 
-              setPlaceDetails(draft);
-              setError(null);
-            } else {
-              setPlaceDetails(null);
-              setError(`Place details unavailable: ${status}`);
-            }
-            setLoading(false);
-          }
-        );
+        if (lat === undefined || lng === undefined) {
+          setError('Place location data unavailable');
+          setPlaceDetails(null);
+          setLoading(false);
+          return;
+        }
+
+        // Map priceLevel enum to numeric value
+        let priceLevelNum: number | null = null;
+        if (place.priceLevel !== undefined && place.priceLevel !== null) {
+          const priceLevelStr = String(place.priceLevel);
+          if (priceLevelStr.includes('INEXPENSIVE')) priceLevelNum = 1;
+          else if (priceLevelStr.includes('MODERATE')) priceLevelNum = 2;
+          else if (priceLevelStr.includes('EXPENSIVE') && !priceLevelStr.includes('VERY')) priceLevelNum = 3;
+          else if (priceLevelStr.includes('VERY_EXPENSIVE')) priceLevelNum = 4;
+        }
+
+        const draft: PlaceDraft = {
+          name: place.displayName ?? '',
+          address: place.formattedAddress ?? '',
+          lat,
+          lng,
+          priceLevel: priceLevelNum,
+          cuisine: mapPlaceTypeToCuisine(place.types ?? []),
+          googleMapsUrl: place.googleMapsURI ?? '',
+          placeId,
+        };
+
+        setPlaceDetails(draft);
+        setError(null);
       } catch {
-        setPlaceDetails(null);
-        setError('Places API unavailable');
-        setLoading(false);
+        if (!cancelled) {
+          setPlaceDetails(null);
+          setError('Places API unavailable');
+        }
       }
+      if (!cancelled) setLoading(false);
     }, 0);
 
-    return () => clearTimeout(tid);
+    return () => {
+      cancelled = true;
+      clearTimeout(tid);
+    };
   }, [placeId]);
 
-  // Derive null state when placeId is absent — avoids synchronous setState in effect body
+  // Derive null state when placeId is absent
   if (!placeId) {
     return { placeDetails: null, loading: false, error: null };
   }

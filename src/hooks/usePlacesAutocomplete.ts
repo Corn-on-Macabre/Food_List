@@ -40,7 +40,6 @@ export function usePlacesAutocomplete(
         // Use new AutocompleteSuggestion API (replaces legacy AutocompleteService)
         const { suggestions } = await google.maps.places.AutocompleteSuggestion.fetchAutocompleteSuggestions({
           input: query,
-          includedPrimaryTypes: ['restaurant', 'cafe', 'meal_takeaway', 'meal_delivery', 'bakery'],
         });
 
         const mapped: PlacePrediction[] = suggestions
