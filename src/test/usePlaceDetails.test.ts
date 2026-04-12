@@ -6,7 +6,8 @@ function setupGoogleMock(fetchFieldsImpl: ReturnType<typeof vi.fn>) {
   function PlaceMock(this: Record<string, unknown>, opts: { id: string }) {
     this.id = opts.id;
     const self = this;
-    this.fetchFields = (...args: unknown[]) => fetchFieldsImpl.apply(self, args);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    this.fetchFields = (...args: any[]) => (fetchFieldsImpl as any).apply(self, args);
   }
   vi.stubGlobal('google', {
     maps: {
