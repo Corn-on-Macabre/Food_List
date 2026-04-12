@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
-/* Lock the document to the viewport — prevents body-level scroll on mobile browsers.
-   The map handles its own pan/zoom; the app should never scroll like a normal page. */
+/* Lock the document to the viewport — map page needs no body scroll.
+   Admin page overrides this with overflow-auto on its own container. */
 html, body {
   height: 100%;
   overflow: hidden;
@@ -9,6 +9,7 @@ html, body {
 
 #root {
   height: 100%;
+  overflow: auto;
 }
 
 .scrollbar-hide::-webkit-scrollbar { display: none; }
