@@ -48,7 +48,7 @@ export function PlacesSearchInput({ onPlaceSelect, onManualAdd }: Props) {
       e.preventDefault();
       const selected = predictions[activeIndex];
       if (selected) {
-        handleSelect(selected.place_id);
+        handleSelect(selected.placeId);
       }
     }
   }
@@ -114,21 +114,21 @@ export function PlacesSearchInput({ onPlaceSelect, onManualAdd }: Props) {
         >
           {predictions.map((p, i) => (
             <div
-              key={p.place_id}
+              key={p.placeId}
               role="option"
               aria-selected={i === activeIndex}
               tabIndex={-1}
-              onClick={() => handleSelect(p.place_id)}
+              onClick={() => handleSelect(p.placeId)}
               onMouseEnter={() => setActiveIndex(i)}
               className={`px-3 py-2.5 cursor-pointer font-sans text-sm text-stone-900 transition-colors ${
                 i === activeIndex ? 'bg-[#FFF8EE]' : 'hover:bg-[#FFF8EE]'
               }`}
             >
               <span className="font-bold">
-                {p.structured_formatting.main_text}
+                {p.mainText}
               </span>
               <span className="text-stone-400 ml-1 text-xs">
-                {p.structured_formatting.secondary_text}
+                {p.secondaryText}
               </span>
             </div>
           ))}
