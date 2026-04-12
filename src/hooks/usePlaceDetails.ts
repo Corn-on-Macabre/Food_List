@@ -99,5 +99,7 @@ export function usePlaceDetails(placeId: string | null): UsePlaceDetailsResult {
   if (!placeId) {
     return { placeDetails: null, loading: false, error: null };
   }
-  return { placeDetails, loading, error };
+  // Derive loading=true when placeId is set but no result yet (avoids race with setTimeout)
+  const isLoading = loading || (!placeDetails && !error);
+  return { placeDetails, loading: isLoading, error };
 }

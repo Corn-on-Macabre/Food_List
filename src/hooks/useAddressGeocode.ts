@@ -65,5 +65,7 @@ export function useAddressGeocode(placeId: string | null) {
   }, [placeId]);
 
   if (!placeId) return NULL_RESULT;
-  return { result, loading, error };
+  // Derive loading=true when placeId is set but no result yet (avoids race with setTimeout)
+  const isLoading = loading || (!result && !error);
+  return { result, loading: isLoading, error };
 }
