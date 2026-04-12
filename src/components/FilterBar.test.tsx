@@ -16,6 +16,8 @@ const baseProps = {
   geoDenied: false,
   activeDistance: null as number | null,
   onDistanceChange: vi.fn(),
+  searchTerm: null as string | null,
+  onSearchChange: vi.fn(),
   hasActiveFilters: false,
   onClearFilters: vi.fn(),
 };

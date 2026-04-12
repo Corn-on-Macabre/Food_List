@@ -73,14 +73,16 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
   const resolvedCenter = coords ?? PHOENIX_CENTER;
 
   const [selectedRestaurant, setSelectedRestaurant] = useState<Restaurant | null>(null);
-  const [filters, setFilters] = useState<FilterState>({ cuisine: null, tier: null, maxDistance: null });
+  const [filters, setFilters] = useState<FilterState>({ cuisine: null, tier: null, maxDistance: null, searchTerm: null });
 
   // Derived: distance filter is suppressed when location is unavailable or denied (AC 5, 6, 7)
   const effectiveMaxDistance = geoDenied || coords === null ? null : filters.maxDistance;
 
   const filteredRestaurants = useMemo(
-    () =>
-      restaurants.filter((r) => {
+    () => {
+      const searchLower = filters.searchTerm?.toLowerCase() ?? null;
+      return restaurants.filter((r) => {
+        if (searchLower && !r.name.toLowerCase().includes(searchLower)) return false;
         if (filters.cuisine && r.cuisine !== filters.cuisine) return false;
         if (filters.tier && r.tier !== filters.tier) return false;
         if (effectiveMaxDistance !== null && coords !== null) {
@@ -88,8 +90,9 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           if (dist > effectiveMaxDistance) return false;
         }
         return true;
-      }),
-    [restaurants, filters.cuisine, filters.tier, effectiveMaxDistance, coords]
+      });
+    },
+    [restaurants, filters.searchTerm, filters.cuisine, filters.tier, effectiveMaxDistance, coords]
   );
 
   const cuisines = useMemo(
@@ -97,10 +100,10 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
     [restaurants]
   );
 
-  const hasActiveFilters = filters.cuisine !== null || filters.tier !== null || filters.maxDistance !== null;
+  const hasActiveFilters = filters.searchTerm !== null || filters.cuisine !== null || filters.tier !== null || filters.maxDistance !== null;
 
   function handleClearFilters() {
-    setFilters({ cuisine: null, tier: null, maxDistance: null });
+    setFilters({ cuisine: null, tier: null, maxDistance: null, searchTerm: null });
   }
 
   function handleMapClick(event: MapMouseEvent) {
@@ -126,6 +129,8 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           geoDenied={geoDenied}
           activeDistance={effectiveMaxDistance}
           onDistanceChange={(miles) => setFilters(f => ({ ...f, maxDistance: miles }))}
+          searchTerm={filters.searchTerm}
+          onSearchChange={(term) => setFilters(f => ({ ...f, searchTerm: term }))}
           hasActiveFilters={hasActiveFilters}
           onClearFilters={handleClearFilters}
         />

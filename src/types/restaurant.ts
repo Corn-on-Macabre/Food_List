@@ -24,4 +24,5 @@ export interface FilterState {
   cuisine: string | null;
   tier: Tier | null;
   maxDistance: number | null;
+  searchTerm: string | null;
 }

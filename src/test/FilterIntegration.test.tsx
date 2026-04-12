@@ -358,3 +358,92 @@ describe("App — Clear Filters integration (AC 1, 2, 3, 4)", () => {
     expect(screen.queryByRole("button", { name: "Clear all filters" })).not.toBeInTheDocument();
   });
 });
+
+// ─── Story 6.2: Search by restaurant name ──────────────────────────────────────
+
+describe("App — Search by restaurant name (Story 6.2)", () => {
+  beforeEach(async () => {
+    const { useRestaurants, useGeolocation } = await import("../hooks");
+    vi.mocked(useRestaurants).mockReturnValue({
+      restaurants: distanceRestaurants,
+      loading: false,
+      error: null,
+    });
+    vi.mocked(useGeolocation).mockReturnValue({
+      coords: null,
+      loading: false,
+      denied: false,
+    });
+  });
+
+  const getSearchInput = () => screen.getByRole("searchbox", { name: /search restaurants by name/i });
+
+  it("search input is rendered with correct placeholder (AC 1)", () => {
+    render(<MemoryRouter><App /></MemoryRouter>);
+    const input = getSearchInput();
+    expect(input).toBeInTheDocument();
+    expect(input).toHaveAttribute("placeholder", "Search restaurants...");
+  });
+
+  it("typing filters pins by name (AC 2)", () => {
+    render(<MemoryRouter><App /></MemoryRouter>);
+    expect(screen.getAllByTestId("mock-pin")).toHaveLength(3);
+    fireEvent.change(getSearchInput(), { target: { value: "Near" } });
+    expect(screen.getAllByTestId("mock-pin")).toHaveLength(1);
+  });
+
+  it("search is case-insensitive (AC 2)", () => {
+    render(<MemoryRouter><App /></MemoryRouter>);
+    fireEvent.change(getSearchInput(), { target: { value: "near place" } });
+    expect(screen.getAllByTestId("mock-pin")).toHaveLength(1);
+  });
+
+  it("search + cuisine combined — AND logic (AC 3)", () => {
+    render(<MemoryRouter><App /></MemoryRouter>);
+    fireEvent.change(getSearchInput(), { target: { value: "Place" } });
+    // "Place" matches all 3 (Near Place, Mid Place, Far Place)
+    expect(screen.getAllByTestId("mock-pin")).toHaveLength(3);
+    fireEvent.click(screen.getByRole("button", { name: "Japanese" }));
+    // Only Mid Place is Japanese
+    expect(screen.getAllByTestId("mock-pin")).toHaveLength(1);
+  });
+
+  it("search + tier combined — AND logic (AC 3)", () => {
+    render(<MemoryRouter><App /></MemoryRouter>);
+    fireEvent.change(getSearchInput(), { target: { value: "Place" } });
+    fireEvent.click(screen.getByRole("button", { name: "Loved It" }));
+    // Only Near Place is loved
+    expect(screen.getAllByTestId("mock-pin")).toHaveLength(1);
+  });
+
+  it("Clear Filters resets search term (AC 6)", () => {
+    render(<MemoryRouter><App /></MemoryRouter>);
+    fireEvent.change(getSearchInput(), { target: { value: "Near" } });
+    expect(screen.getAllByTestId("mock-pin")).toHaveLength(1);
+    fireEvent.click(screen.getByRole("button", { name: "Clear all filters" }));
+    expect(getSearchInput()).toHaveValue("");
+    expect(screen.getAllByTestId("mock-pin")).toHaveLength(3);
+  });
+
+  it("hasActiveFilters true when only search is active (AC 7)", () => {
+    render(<MemoryRouter><App /></MemoryRouter>);
+    expect(screen.queryByRole("button", { name: "Clear all filters" })).not.toBeInTheDocument();
+    fireEvent.change(getSearchInput(), { target: { value: "Near" } });
+    expect(screen.getByRole("button", { name: "Clear all filters" })).toBeInTheDocument();
+  });
+
+  it("Escape key clears search (AC 5)", () => {
+    render(<MemoryRouter><App /></MemoryRouter>);
+    fireEvent.change(getSearchInput(), { target: { value: "Near" } });
+    expect(screen.getAllByTestId("mock-pin")).toHaveLength(1);
+    fireEvent.keyDown(getSearchInput(), { key: "Escape" });
+    expect(getSearchInput()).toHaveValue("");
+    expect(screen.getAllByTestId("mock-pin")).toHaveLength(3);
+  });
+
+  it("search term matching no restaurants shows zero pins (AC 8)", () => {
+    render(<MemoryRouter><App /></MemoryRouter>);
+    fireEvent.change(getSearchInput(), { target: { value: "ZZZZZ" } });
+    expect(screen.queryAllByTestId("mock-pin")).toHaveLength(0);
+  });
+});
