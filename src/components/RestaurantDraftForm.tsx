@@ -2,6 +2,8 @@ import { useState } from 'react';
 import type { PlaceDraft } from '../hooks/usePlaceDetails';
 import type { Restaurant, Tier } from '../types';
 import { generateSlugId } from '../utils/generateSlugId';
+import { AddressGeocodeInput } from './AddressGeocodeInput';
+import { LABEL_CLASS, INPUT_CLASS, INPUT_ERROR_CLASS, ERROR_MSG_CLASS } from './formStyles';
 
 const SUGGESTED_TAGS = ['date night', 'quick lunch', 'patio', 'kid-friendly'];
 
@@ -40,12 +42,6 @@ const TIER_OPTIONS: { value: Tier; label: string }[] = [
   { value: 'on_my_radar', label: 'On My Radar' },
 ];
 
-const LABEL_CLASS = 'block font-sans text-[11px] font-bold uppercase tracking-[0.1em] text-stone-400 mb-1';
-const INPUT_CLASS =
-  'w-full border border-[#E8E0D5] rounded-lg p-3 font-sans text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-[#FDE68A]';
-const INPUT_ERROR_CLASS =
-  'w-full border border-red-400 rounded-lg p-3 font-sans text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-red-300';
-const ERROR_MSG_CLASS = 'text-red-600 text-xs font-sans mt-1';
 
 function getToday(): string {
   return new Date().toISOString().slice(0, 10);
@@ -156,58 +152,41 @@ export function RestaurantDraftForm({ initialDraft, onSave, onCancel, existingId
       </div>
 
       {/* Lat / Lng */}
-      <div className="flex gap-3">
-        <div className="flex-1">
-          <label htmlFor="draft-lat" className={LABEL_CLASS}>Latitude</label>
-          {isAutoFill ? (
-            <p
-              className="font-sans text-sm text-stone-700 py-3 px-3 bg-stone-50 border border-[#E8E0D5] rounded-lg"
-              data-testid="lat-display"
-            >
+      {isAutoFill ? (
+        <div className="flex gap-3">
+          <div className="flex-1">
+            <label className={LABEL_CLASS}>Latitude</label>
+            <p className="font-sans text-sm text-stone-700 py-3 px-3 bg-stone-50 border border-[#E8E0D5] rounded-lg" data-testid="lat-display">
               {initialDraft.lat}
             </p>
-          ) : (
-            <>
-              <input
-                id="draft-lat"
-                type="number"
-                step="any"
-                value={fields.lat}
-                onChange={e => update('lat', e.target.value)}
-                placeholder="33.4484"
-                className={errors.lat ? INPUT_ERROR_CLASS : INPUT_CLASS}
-                aria-label="Latitude"
-              />
-              {errors.lat && <p className={ERROR_MSG_CLASS}>{errors.lat}</p>}
-            </>
-          )}
-        </div>
-        <div className="flex-1">
-          <label htmlFor="draft-lng" className={LABEL_CLASS}>Longitude</label>
-          {isAutoFill ? (
-            <p
-              className="font-sans text-sm text-stone-700 py-3 px-3 bg-stone-50 border border-[#E8E0D5] rounded-lg"
-              data-testid="lng-display"
-            >
+          </div>
+          <div className="flex-1">
+            <label className={LABEL_CLASS}>Longitude</label>
+            <p className="font-sans text-sm text-stone-700 py-3 px-3 bg-stone-50 border border-[#E8E0D5] rounded-lg" data-testid="lng-display">
               {initialDraft.lng}
             </p>
-          ) : (
-            <>
-              <input
-                id="draft-lng"
-                type="number"
-                step="any"
-                value={fields.lng}
-                onChange={e => update('lng', e.target.value)}
-                placeholder="-112.0740"
-                className={errors.lng ? INPUT_ERROR_CLASS : INPUT_CLASS}
-                aria-label="Longitude"
-              />
-              {errors.lng && <p className={ERROR_MSG_CLASS}>{errors.lng}</p>}
-            </>
+          </div>
+        </div>
+      ) : (
+        <div>
+          <label className={LABEL_CLASS}>Location</label>
+          <AddressGeocodeInput
+            lat={fields.lat}
+            lng={fields.lng}
+            address={fields.address}
+            onCoordsResolved={(lat, lng, address) => {
+              setFields(prev => ({ ...prev, lat, lng, address }));
+              setErrors(prev => ({ ...prev, lat: undefined, lng: undefined }));
+            }}
+            onManualEdit={(field, value) => {
+              update(field, value);
+            }}
+          />
+          {(errors.lat || errors.lng) && (
+            <p className={ERROR_MSG_CLASS}>{errors.lat || errors.lng}</p>
           )}
         </div>
-      </div>
+      )}
 
       {/* Cuisine */}
       <div>
