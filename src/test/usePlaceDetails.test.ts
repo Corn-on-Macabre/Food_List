@@ -5,7 +5,8 @@ import { usePlaceDetails } from '../hooks/usePlaceDetails';
 function setupGoogleMock(fetchFieldsImpl: ReturnType<typeof vi.fn>) {
   function PlaceMock(this: Record<string, unknown>, opts: { id: string }) {
     this.id = opts.id;
-    this.fetchFields = fetchFieldsImpl.bind(this);
+    const self = this;
+    this.fetchFields = (...args: unknown[]) => fetchFieldsImpl.apply(self, args);
   }
   vi.stubGlobal('google', {
     maps: {
