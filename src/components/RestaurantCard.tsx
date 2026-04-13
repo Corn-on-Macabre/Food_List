@@ -33,7 +33,7 @@ export function RestaurantCard({ restaurant, onDismiss }: RestaurantCardProps) {
 
   const photoUrl =
     restaurant.photoRef && !photoError
-      ? `https://places.googleapis.com/v1/${restaurant.photoRef}/media?maxHeightPx=300&maxWidthPx=400&key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`
+      ? `https://places.googleapis.com/v1/${restaurant.photoRef}/media?maxHeightPx=600&maxWidthPx=800&key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`
       : undefined;
 
   return (
