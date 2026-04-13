@@ -7,6 +7,7 @@ const app = express();
 const PORT = parseInt(process.env.PORT || '3001', 10);
 const DATA_FILE = process.env.DATA_FILE || '/var/www/food-list/restaurants.json';
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY || '';
 
 if (!ADMIN_PASSWORD) {
   console.error('ADMIN_PASSWORD environment variable is required');
@@ -86,6 +87,48 @@ function validateRestaurant(body) {
   return errors;
 }
 
+// --- Enrichment (Google Places) ---
+const PHX_CENTER = { latitude: 33.4484, longitude: -112.0740 };
+const PHX_RADIUS_M = 50000;
+const ENRICH_FIELD_MASK = 'places.rating,places.userRatingCount,places.priceLevel,places.photos';
+
+async function enrichRestaurant(name) {
+  if (!GOOGLE_API_KEY) return null;
+  try {
+    const resp = await fetch('https://places.googleapis.com/v1/places:searchText', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Goog-Api-Key': GOOGLE_API_KEY,
+        'X-Goog-FieldMask': ENRICH_FIELD_MASK,
+      },
+      body: JSON.stringify({
+        textQuery: `${name} Phoenix AZ`,
+        maxResultCount: 1,
+        locationBias: {
+          circle: { center: PHX_CENTER, radius: PHX_RADIUS_M },
+        },
+      }),
+    });
+    if (!resp.ok) return null;
+    const data = await resp.json();
+    const place = data.places?.[0];
+    if (!place) return null;
+
+    const result = {};
+    if (typeof place.rating === 'number') result.rating = place.rating;
+    if (typeof place.userRatingCount === 'number') result.userRatingCount = place.userRatingCount;
+    if (place.priceLevel && place.priceLevel !== 'PRICE_LEVEL_UNSPECIFIED') result.priceLevel = place.priceLevel;
+    if (place.photos?.[0]?.name) result.photoRef = place.photos[0].name;
+    if (Object.keys(result).length > 0) {
+      result.enrichedAt = new Date().toISOString().slice(0, 10);
+    }
+    return Object.keys(result).length > 0 ? result : null;
+  } catch {
+    return null;
+  }
+}
+
 // --- Routes ---
 
 // Health check (no auth)
@@ -109,16 +152,31 @@ app.get('/api/restaurants', requireAuth, (_req, res) => {
 });
 
 // POST new restaurant
-app.post('/api/restaurants', requireAuth, (req, res) => {
+app.post('/api/restaurants', requireAuth, async (req, res) => {
   const errors = validateRestaurant(req.body);
   if (errors.length > 0) {
     return res.status(400).json({ error: 'Validation failed', details: errors });
   }
   try {
     const data = readData();
-    data.push(req.body);
+    const restaurant = { ...req.body };
+    data.push(restaurant);
     writeData(data);
-    res.status(201).json(req.body);
+
+    // Enrich asynchronously — don't block the response
+    enrichRestaurant(restaurant.name).then((fields) => {
+      if (fields) {
+        const fresh = readData();
+        const idx = fresh.findIndex((r) => r.id === restaurant.id);
+        if (idx !== -1) {
+          Object.assign(fresh[idx], fields);
+          writeData(fresh);
+          console.log(`Enriched "${restaurant.name}": ${Object.keys(fields).join(', ')}`);
+        }
+      }
+    }).catch(() => {});
+
+    res.status(201).json(restaurant);
   } catch (err) {
     res.status(500).json({ error: 'Failed to write data file', detail: err.message });
   }
