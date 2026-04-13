@@ -39,7 +39,7 @@ export function RestaurantCard({ restaurant, onDismiss }: RestaurantCardProps) {
   return (
     <div
       onClick={(e) => e.stopPropagation()}
-      className="fixed z-[5] bg-white shadow-lg bottom-0 left-0 right-0 rounded-t-2xl border-t border-stone-100 max-h-[70vh] overflow-y-auto md:max-h-none md:overflow-y-auto md:bottom-auto md:top-[60px] md:left-auto md:right-0 md:w-[360px] md:h-[calc(100dvh-60px)] md:rounded-none md:border-t-0 md:border-l md:border-stone-100"
+      className="fixed z-50 bg-white shadow-lg bottom-0 left-0 right-0 rounded-t-2xl border-t border-stone-100 max-h-[70vh] overflow-y-auto md:max-h-none md:overflow-y-auto md:bottom-auto md:top-[120px] md:left-auto md:right-0 md:w-[360px] md:h-[calc(100dvh-120px)] md:rounded-none md:border-t-0 md:border-l md:border-stone-100"
     >
       {photoUrl && (
         <img
