@@ -118,7 +118,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
     <div style={{ position: 'relative', width: '100%', height: '100%' }}>
       {/* TODO: change to top-[60px] when app header is implemented (Story 4.x) */}
       {/* fixed keeps the bar anchored to the visual viewport on mobile (avoids iOS 100vh scroll bug) */}
-      <div className="fixed top-0 left-0 right-0 z-10 bg-[rgba(255,251,245,0.92)] backdrop-blur-sm border-b border-stone-200">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-[rgba(255,251,245,0.92)] backdrop-blur-sm border-b border-stone-200">
         <FilterBar
           cuisines={cuisines}
           activeCuisine={filters.cuisine}
