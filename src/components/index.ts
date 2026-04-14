@@ -13,3 +13,5 @@ export { TierBadge } from './TierBadge';
 export { BobbyPickBadge } from './BobbyPickBadge';
 export { SessionRestaurantCard } from './SessionRestaurantCard';
 export { AddressGeocodeInput } from './AddressGeocodeInput';
+export { RestaurantListPanel } from './RestaurantListPanel';
+export { RestaurantListRow } from './RestaurantListRow';

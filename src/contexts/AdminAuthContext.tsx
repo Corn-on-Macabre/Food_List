@@ -7,6 +7,8 @@ interface AdminAuthContextValue {
   isAuthenticated: boolean;
   // isConfigured: false when VITE_ADMIN_PASSWORD is absent/empty at build time
   isConfigured: boolean;
+  /** The current admin password (empty string when not authenticated). */
+  password: string;
   login: (password: string) => boolean;
   logout: () => void;
 }
@@ -23,20 +25,28 @@ export function AdminAuthProvider({ children }: { children: React.ReactNode }) {
     return sessionStorage.getItem(SESSION_KEY) === '1';
   });
 
+  // Store the password so API calls can use it as a Bearer token
+  const [password, setPassword] = useState<string>(() => {
+    if (!envPassword) return '';
+    return sessionStorage.getItem(SESSION_KEY) === '1' ? envPassword : '';
+  });
+
   function login(password: string): boolean {
     if (!envPassword || password !== envPassword) return false;
     sessionStorage.setItem(SESSION_KEY, '1');
     setIsAuthenticated(true);
+    setPassword(password);
     return true;
   }
 
   function logout(): void {
     sessionStorage.removeItem(SESSION_KEY);
     setIsAuthenticated(false);
+    setPassword('');
   }
 
   return (
-    <AdminAuthContext.Provider value={{ isAuthenticated, isConfigured, login, logout }}>
+    <AdminAuthContext.Provider value={{ isAuthenticated, isConfigured, password, login, logout }}>
       {children}
     </AdminAuthContext.Provider>
   );
