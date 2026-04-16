@@ -28,6 +28,11 @@ export function RestaurantListPanel({
   const [activeTier, setActiveTier] = useState<Tier | null>(null);
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
+  const cuisines = useMemo(
+    () => Array.from(new Set(restaurants.map(r => r.cuisine))).sort(),
+    [restaurants]
+  );
+
   const filtered = useMemo(() => {
     let result = restaurants;
 
@@ -135,6 +140,7 @@ export function RestaurantListPanel({
               }
               onUpdate={onUpdate}
               onDelete={onDelete}
+              cuisines={cuisines}
             />
           ))}
         </div>

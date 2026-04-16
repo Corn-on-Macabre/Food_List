@@ -9,6 +9,7 @@ interface RestaurantListRowProps {
   onToggleExpand: () => void;
   onUpdate: (id: string, changes: Partial<Restaurant>) => Promise<void>;
   onDelete: (id: string) => Promise<void>;
+  cuisines: string[];
 }
 
 const TIER_OPTIONS: { value: Tier; label: string }[] = [
@@ -25,6 +26,7 @@ export function RestaurantListRow({
   onToggleExpand,
   onUpdate,
   onDelete,
+  cuisines,
 }: RestaurantListRowProps) {
   const [noteText, setNoteText] = useState(restaurant.notes ?? '');
   const [isEditingNotes, setIsEditingNotes] = useState(false);
@@ -32,6 +34,8 @@ export function RestaurantListRow({
   const [isEditingSource, setIsEditingSource] = useState(false);
   const [activeTags, setActiveTags] = useState<string[]>(restaurant.tags ?? []);
   const [customTagInput, setCustomTagInput] = useState('');
+  const [cuisineText, setCuisineText] = useState(restaurant.cuisine);
+  const [isEditingCuisine, setIsEditingCuisine] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
 
   function handleSaveNote() {
@@ -42,6 +46,19 @@ export function RestaurantListRow({
   function handleCancelNote() {
     setNoteText(restaurant.notes ?? '');
     setIsEditingNotes(false);
+  }
+
+  function handleSaveCuisine() {
+    const trimmed = cuisineText.trim();
+    if (trimmed && trimmed !== restaurant.cuisine) {
+      void onUpdate(restaurant.id, { cuisine: trimmed });
+    }
+    setIsEditingCuisine(false);
+  }
+
+  function handleCancelCuisine() {
+    setCuisineText(restaurant.cuisine);
+    setIsEditingCuisine(false);
   }
 
   function handleSaveSource() {
@@ -123,6 +140,70 @@ export function RestaurantListRow({
                 );
               })}
             </div>
+          </div>
+
+          {/* Cuisine */}
+          <div>
+            <p className="block font-sans text-[11px] font-bold uppercase tracking-[0.1em] text-stone-400 mb-1">Cuisine</p>
+            {!isEditingCuisine ? (
+              <div>
+                <p className="font-sans text-xs text-stone-600 leading-snug mb-1">
+                  {restaurant.cuisine}
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCuisineText(restaurant.cuisine);
+                    setIsEditingCuisine(true);
+                  }}
+                  className="font-sans text-xs text-stone-400 hover:text-stone-600 transition-colors min-h-[44px] px-2 inline-flex items-center"
+                  aria-label={`Edit cuisine for ${restaurant.name}`}
+                >
+                  Edit Cuisine
+                </button>
+              </div>
+            ) : (
+              <div>
+                <input
+                  type="text"
+                  list={`cuisine-options-${restaurant.id}`}
+                  value={cuisineText}
+                  onChange={e => setCuisineText(e.target.value)}
+                  placeholder="e.g. Desserts, Mexican, Thai"
+                  className="w-full border border-[#E8E0D5] rounded-lg p-3 font-sans text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-[#FDE68A] min-h-[44px]"
+                  autoFocus
+                  aria-label="Cuisine type"
+                  onKeyDown={e => {
+                    if (e.key === 'Enter') {
+                      e.preventDefault();
+                      if (cuisineText.trim()) handleSaveCuisine();
+                    }
+                  }}
+                />
+                <datalist id={`cuisine-options-${restaurant.id}`}>
+                  {cuisines.map(c => (
+                    <option key={c} value={c} />
+                  ))}
+                </datalist>
+                <div className="flex gap-2 mt-2 flex-wrap">
+                  <button
+                    type="button"
+                    disabled={!cuisineText.trim()}
+                    onClick={handleSaveCuisine}
+                    className="bg-[#D97706] hover:bg-[#B45309] text-white font-sans text-sm font-bold rounded-lg py-2.5 px-3 transition-colors disabled:opacity-40 disabled:cursor-not-allowed min-h-[44px]"
+                  >
+                    Save
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleCancelCuisine}
+                    className="border border-[#E8E0D5] rounded-lg px-3 py-2.5 font-sans text-sm font-bold text-stone-500 hover:bg-stone-50 min-h-[44px]"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Notes */}

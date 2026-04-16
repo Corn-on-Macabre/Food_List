@@ -202,6 +202,17 @@ app.put('/api/restaurants/:id', requireAuth, (req, res) => {
       });
     }
 
+    // Validate cuisine if provided
+    if (updates.cuisine !== undefined) {
+      if (typeof updates.cuisine !== 'string' || updates.cuisine.trim() === '') {
+        return res.status(400).json({
+          error: 'Validation failed',
+          details: ['Field "cuisine" must be a non-empty string'],
+        });
+      }
+      updates.cuisine = updates.cuisine.trim();
+    }
+
     data[index] = { ...data[index], ...updates };
     writeData(data);
     res.json(data[index]);
