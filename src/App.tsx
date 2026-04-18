@@ -46,22 +46,22 @@ function App() {
   }
 
   return (
-    <Routes>
-      <Route path="/" element={<AppWithMap apiKey={apiKey} />} />
-      <Route
-        path="/admin"
-        element={
-          <AdminAuthProvider>
+    <AdminAuthProvider>
+      <Routes>
+        <Route path="/" element={<AppWithMap apiKey={apiKey} />} />
+        <Route
+          path="/admin"
+          element={
             <APIProvider apiKey={apiKey} libraries={['places']}>
               <ProtectedRoute>
                 <AdminDashboard />
               </ProtectedRoute>
             </APIProvider>
-          </AdminAuthProvider>
-        }
-      />
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
+          }
+        />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </AdminAuthProvider>
   );
 }
 

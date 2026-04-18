@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useAdminAuth } from '../hooks';
 import { AddRestaurantPanel } from './AddRestaurantPanel';
 import { RestaurantListPanel } from './RestaurantListPanel';
@@ -123,13 +124,21 @@ export function AdminDashboard() {
         <span className="font-display text-xl font-bold text-stone-900">
           Food List — Curator Dashboard
         </span>
-        <button
-          onClick={logout}
-          aria-label="Sign out of curator dashboard"
-          className="border border-[#E8E0D5] rounded-lg px-3 py-1.5 font-sans text-sm font-bold text-stone-500 hover:bg-stone-50 hover:text-stone-700 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200"
-        >
-          Sign out
-        </button>
+        <div className="flex items-center gap-4">
+          <Link
+            to="/"
+            className="font-sans text-sm font-semibold text-amber-700 hover:text-amber-900 underline underline-offset-2 transition-colors duration-150"
+          >
+            &larr; Map
+          </Link>
+          <button
+            onClick={logout}
+            aria-label="Sign out of curator dashboard"
+            className="border border-[#E8E0D5] rounded-lg px-3 py-1.5 font-sans text-sm font-bold text-stone-500 hover:bg-stone-50 hover:text-stone-700 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200"
+          >
+            Sign out
+          </button>
+        </div>
       </header>
 
       {/* Tab bar */}
