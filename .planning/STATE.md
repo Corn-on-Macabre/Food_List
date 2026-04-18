@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-04-18)
 Phase: 1 of 2 (Admin/Map Nav Toggle)
 Plan: 0 of ? in current phase
 Status: Ready to plan
-Last activity: 2026-04-18 — Completed quick task 260418-m8x: Implement Phase 1: Admin/Map Nav Toggle
+Last activity: 2026-04-18 — Completed quick task 260418-mlp: Implement Phase 2: Sticky Mobile Filters
 
 Progress: [░░░░░░░░░░] 0%
 
@@ -77,6 +77,7 @@ Recent decisions affecting current work:
 | # | Description | Date | Commit | Directory |
 |---|-------------|------|--------|-----------|
 | 260418-m8x | Implement Phase 1: Admin/Map Nav Toggle | 2026-04-18 | 12dd532 | [260418-m8x-implement-phase-1-admin-map-nav-toggle](./quick/260418-m8x-implement-phase-1-admin-map-nav-toggle/) |
+| 260418-mlp | Implement Phase 2: Sticky Mobile Filters | 2026-04-18 | 0cb933b | [260418-mlp-implement-phase-2-sticky-mobile-filters](./quick/260418-mlp-implement-phase-2-sticky-mobile-filters/) |
 
 ## Deferred Items
 
