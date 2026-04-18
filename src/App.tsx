@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { APIProvider, Map, useMap, type MapMouseEvent } from '@vis.gl/react-google-maps';
 import { useRestaurants, useGeolocation } from './hooks';
@@ -100,6 +100,23 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
     [restaurants]
   );
 
+  // Dynamically measure the filter bar height so the map container can offset below it.
+  // ResizeObserver keeps the padding in sync when the bar resizes (e.g., distance row appearing).
+  const filterBarRef = useRef<HTMLDivElement>(null);
+  const [filterBarHeight, setFilterBarHeight] = useState(0);
+
+  useEffect(() => {
+    const el = filterBarRef.current;
+    if (!el) return;
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        setFilterBarHeight(entry.contentBoxSize[0].blockSize);
+      }
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   const hasActiveFilters = filters.searchTerm !== null || filters.cuisine !== null || filters.tier !== null || filters.maxDistance !== null;
 
   function handleClearFilters() {
@@ -115,10 +132,9 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
   }
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-      {/* TODO: change to top-[60px] when app header is implemented (Story 4.x) */}
+    <div style={{ position: 'relative', width: '100%', height: '100%', paddingTop: `${filterBarHeight}px` }}>
       {/* fixed keeps the bar anchored to the visual viewport on mobile (avoids iOS 100vh scroll bug) */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-[rgba(255,251,245,0.92)] backdrop-blur-sm border-b border-stone-200">
+      <div ref={filterBarRef} className="fixed top-0 left-0 right-0 z-50 bg-[rgba(255,251,245,0.92)] backdrop-blur-sm border-b border-stone-200">
         <FilterBar
           cuisines={cuisines}
           activeCuisine={filters.cuisine}
