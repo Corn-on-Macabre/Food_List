@@ -209,6 +209,10 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           {/* Pan to deep-linked restaurant once resolved */}
           {deepLinkCenter && <MapCenterer coords={deepLinkCenter} />}
         </Map>
+        {/* SubmissionForm rendered inside APIProvider so it can access google.maps.places */}
+        {showSubmissionForm && (
+          <SubmissionForm onClose={() => setShowSubmissionForm(false)} />
+        )}
       </APIProvider>
 
       <PinLegend />
@@ -240,10 +244,6 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
 
       {!authLoading && isAuthenticated && (
         <SuggestButton onClick={() => setShowSubmissionForm(true)} />
-      )}
-
-      {showSubmissionForm && (
-        <SubmissionForm onClose={() => setShowSubmissionForm(false)} />
       )}
 
       <Toast message={toastMessage} visible={toastVisible} onHide={() => setToastVisible(false)} />

@@ -1,11 +1,32 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { submitRestaurant, fetchMySubmissionsToday } from '../api/submissions';
+import { parseGoogleMapsUrl } from '../utils/parseGoogleMapsUrl';
+import { lookupPlaceFromUrl } from '../api/placesLookup';
 
 interface Props {
   onClose: () => void;
 }
 
 const DAILY_LIMIT = 5;
+
+/** Prefixes that identify a Google Maps URL in pasted text */
+const MAPS_URL_PREFIXES = [
+  'https://www.google.com/maps/',
+  'https://google.com/maps/',
+  'https://maps.google.com/',
+  'https://maps.app.goo.gl/',
+  'https://goo.gl/maps/',
+  'http://www.google.com/maps/',
+  'http://google.com/maps/',
+  'http://maps.google.com/',
+  'http://maps.app.goo.gl/',
+  'http://goo.gl/maps/',
+];
+
+function looksLikeGoogleMapsUrl(text: string): boolean {
+  const lower = text.trim().toLowerCase();
+  return MAPS_URL_PREFIXES.some((prefix) => lower.startsWith(prefix));
+}
 
 export function SubmissionForm({ onClose }: Props) {
   const [name, setName] = useState('');
@@ -16,6 +37,11 @@ export function SubmissionForm({ onClose }: Props) {
   const [error, setError] = useState<string | null>(null);
   const [rateLimited, setRateLimited] = useState(false);
   const [checkingLimit, setCheckingLimit] = useState(true);
+
+  // URL extraction state
+  const [extracting, setExtracting] = useState(false);
+  const [extractionMessage, setExtractionMessage] = useState<string | null>(null);
+  const extractionAbort = useRef(false);
 
   const overlayRef = useRef<HTMLDivElement>(null);
 
@@ -43,12 +69,71 @@ export function SubmissionForm({ onClose }: Props) {
     return () => clearTimeout(timer);
   }, [success, onClose]);
 
+  // Clear extraction message after a few seconds
+  useEffect(() => {
+    if (!extractionMessage) return;
+    const timer = setTimeout(() => setExtractionMessage(null), 4000);
+    return () => clearTimeout(timer);
+  }, [extractionMessage]);
+
   const handleOverlayClick = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
       if (e.target === overlayRef.current) onClose();
     },
     [onClose],
   );
+
+  async function handleUrlExtraction(pastedUrl: string): Promise<void> {
+    // Abort any previous extraction
+    extractionAbort.current = true;
+    // Reset for this extraction
+    extractionAbort.current = false;
+    setExtracting(true);
+    setExtractionMessage(null);
+
+    try {
+      const parsed = parseGoogleMapsUrl(pastedUrl.trim());
+      if (!parsed) {
+        setExtracting(false);
+        return;
+      }
+
+      const result = await lookupPlaceFromUrl(parsed);
+
+      if (extractionAbort.current) return;
+
+      if (result) {
+        // Pre-fill name only if the user hasn't typed one yet
+        if (!name.trim()) {
+          setName(result.name);
+        }
+        // Replace the URL in location with the extracted address
+        setLocation(result.address);
+        setExtractionMessage(null);
+      } else {
+        setExtractionMessage("Couldn't extract details automatically");
+      }
+    } catch {
+      if (!extractionAbort.current) {
+        setExtractionMessage("Couldn't extract details automatically");
+      }
+    } finally {
+      if (!extractionAbort.current) {
+        setExtracting(false);
+      }
+    }
+  }
+
+  function handleLocationPaste(e: React.ClipboardEvent<HTMLInputElement>): void {
+    const pasted = e.clipboardData.getData('text');
+    if (looksLikeGoogleMapsUrl(pasted)) {
+      // Let the paste happen normally (sets the input value), then trigger extraction
+      // Use setTimeout so the input value is updated first
+      setTimeout(() => {
+        void handleUrlExtraction(pasted);
+      }, 0);
+    }
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -161,9 +246,21 @@ export function SubmissionForm({ onClose }: Props) {
                 required
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
-                placeholder="e.g., 623 E Adams St, Phoenix"
+                onPaste={handleLocationPaste}
+                placeholder="e.g., 623 E Adams St, Phoenix — or paste a Google Maps link"
                 className="w-full rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 font-sans text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-amber-200 focus:border-amber-400 transition-colors duration-150"
               />
+              {/* Extraction status messages */}
+              {extracting && (
+                <p className="mt-1 font-sans text-xs text-amber-600">
+                  Extracting details...
+                </p>
+              )}
+              {extractionMessage && !extracting && (
+                <p className="mt-1 font-sans text-xs text-stone-500">
+                  {extractionMessage}
+                </p>
+              )}
             </div>
 
             <div>
