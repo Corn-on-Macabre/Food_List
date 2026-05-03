@@ -26,6 +26,8 @@ export function AdminDashboard() {
   const [pendingCount, setPendingCount] = useState(0);
   const [prefillName, setPrefillName] = useState<string | null>(null);
   const [prefillLocation, setPrefillLocation] = useState<string | null>(null);
+  const [prefillSuggestedBy, setPrefillSuggestedBy] = useState<string | null>(null);
+  const [prefillSuggestedByAvatar, setPrefillSuggestedByAvatar] = useState<string | null>(null);
 
   const loadRestaurants = useCallback(async () => {
     setLoading(true);
@@ -231,8 +233,13 @@ export function AdminDashboard() {
           <>
             <AddRestaurantPanel
               onRestaurantAdded={handleRestaurantAdded}
-              prefill={prefillName && prefillLocation ? { name: prefillName, location: prefillLocation } : null}
-              onPrefillConsumed={() => { setPrefillName(null); setPrefillLocation(null); }}
+              prefill={prefillName && prefillLocation ? {
+                name: prefillName,
+                location: prefillLocation,
+                suggestedBy: prefillSuggestedBy ?? undefined,
+                suggestedByAvatar: prefillSuggestedByAvatar ?? undefined,
+              } : null}
+              onPrefillConsumed={() => { setPrefillName(null); setPrefillLocation(null); setPrefillSuggestedBy(null); setPrefillSuggestedByAvatar(null); }}
             />
 
             {sessionRestaurants.length > 0 && (
@@ -272,6 +279,8 @@ export function AdminDashboard() {
             onApprove={(submission: Submission) => {
               setPrefillName(submission.restaurant_name);
               setPrefillLocation(submission.location);
+              setPrefillSuggestedBy(submission.user_display_name ?? null);
+              setPrefillSuggestedByAvatar(submission.user_avatar_url ?? null);
               setActiveTab('add');
             }}
             onCountChange={setPendingCount}

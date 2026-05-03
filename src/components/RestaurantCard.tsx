@@ -141,6 +141,26 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess }: Restau
 
         <p className="mt-2 text-sm text-stone-500">{restaurant.cuisine}</p>
 
+        {restaurant.suggested_by && (
+          <div className="mt-2 flex items-center gap-1.5">
+            {restaurant.suggested_by_avatar ? (
+              <img
+                src={restaurant.suggested_by_avatar}
+                alt=""
+                referrerPolicy="no-referrer"
+                className="w-6 h-6 rounded-full object-cover"
+              />
+            ) : (
+              <span className="flex items-center justify-center w-6 h-6 rounded-full bg-stone-200 text-stone-500 text-xs font-bold">
+                {restaurant.suggested_by.charAt(0).toUpperCase()}
+              </span>
+            )}
+            <span className="text-xs text-stone-400">
+              Suggested by {restaurant.suggested_by}
+            </span>
+          </div>
+        )}
+
         {restaurant.notes && (
           <p className="mt-2 text-sm text-stone-500 italic">{restaurant.notes}</p>
         )}

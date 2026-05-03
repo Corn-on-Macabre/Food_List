@@ -10,6 +10,8 @@ type PanelState = 'search' | 'loading-details' | 'draft' | 'manual' | 'success';
 export interface SubmissionPrefill {
   name: string;
   location: string;
+  suggestedBy?: string;
+  suggestedByAvatar?: string;
 }
 
 interface Props {
@@ -151,6 +153,8 @@ export function AddRestaurantPanel({ onRestaurantAdded, prefill, onPrefillConsum
           initialDraft={resolvedDraft}
           onSave={handleSave}
           onCancel={handleCancel}
+          suggestedBy={prefill?.suggestedBy}
+          suggestedByAvatar={prefill?.suggestedByAvatar}
         />
       )}
 

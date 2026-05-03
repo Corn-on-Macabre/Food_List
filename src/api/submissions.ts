@@ -8,6 +8,7 @@ export interface Submission {
   location: string;
   user_note: string | null;
   status: 'pending' | 'approved' | 'dismissed';
+  user_avatar_url: string | null;
   created_at: string;
 }
 
@@ -29,12 +30,17 @@ export async function submitRestaurant(data: SubmitData): Promise<Submission> {
     (metadata?.name as string) ??
     user.email ??
     'Anonymous';
+  const avatarUrl =
+    (metadata?.avatar_url as string) ??
+    (metadata?.picture as string) ??
+    null;
 
   const { data: row, error } = await supabase
     .from('submissions')
     .insert({
       user_id: user.id,
       user_display_name: displayName,
+      user_avatar_url: avatarUrl,
       restaurant_name: data.restaurant_name,
       location: data.location,
       user_note: data.user_note ?? null,

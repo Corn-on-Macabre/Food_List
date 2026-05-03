@@ -18,6 +18,8 @@ export interface Restaurant {
   userRatingCount?: number;    // Google Places total review count
   priceLevel?: string;         // e.g. "PRICE_LEVEL_MODERATE"
   photoRef?: string;           // Places photo resource name
+  suggested_by?: string;       // Display name of the user who suggested it
+  suggested_by_avatar?: string; // Avatar URL of the suggester
 }
 
 export interface FilterState {
