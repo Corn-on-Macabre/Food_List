@@ -673,3 +673,43 @@ So that I get a visual sense of the place before visiting.
 **Given** the photo URL fails to load (network error, expired URL)
 **When** the image fails
 **Then** the photo is hidden gracefully without breaking the card layout
+
+---
+
+## Epic 6: User-Facing Enhancements
+
+User-facing quality-of-life improvements that make bobby.menu more useful and shareable.
+
+### Story 6.3: Shareable Restaurant Links
+
+As a user,
+I want to share a direct link to a specific restaurant on bobby.menu,
+So that when I send it to a friend, they land directly on that restaurant with the pin selected and detail card open.
+
+**Acceptance Criteria:**
+
+**Given** a user is viewing a restaurant detail card
+**When** the user clicks a share/copy-link button
+**Then** a shareable URL is copied to the clipboard (e.g., `bobby.menu/r/pizzeria-bianco`)
+**And** a brief toast notification confirms the link was copied
+
+**Given** someone opens a shareable restaurant URL
+**When** the page loads
+**Then** the app centers the map on that restaurant's location
+**And** the restaurant's pin is selected
+**And** the detail card opens automatically
+
+**Given** someone opens a shareable URL with an invalid or unknown restaurant slug
+**When** the page loads
+**Then** the app falls back to the default map view (Phoenix metro center)
+**And** a brief toast or message indicates the restaurant was not found
+
+**Given** the user is on a mobile device with Web Share API support
+**When** the user taps the share button
+**Then** the native share sheet opens with the restaurant URL
+**And** the share includes the restaurant name as the title
+
+**Given** the shareable URL format
+**When** React Router processes the URL
+**Then** the route `/r/:slug` resolves to the main map view with the matching restaurant pre-selected
+**And** existing slug IDs from `generateSlugId` are used (no new ID scheme)
