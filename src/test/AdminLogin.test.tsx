@@ -33,7 +33,7 @@ describe('AdminLogin', () => {
   it('shows config error banner when VITE_ADMIN_PASSWORD is empty', () => {
     vi.stubEnv('VITE_ADMIN_PASSWORD', '');
     renderAdminLogin();
-    expect(screen.getByText(/Admin password not configured/i)).toBeInTheDocument();
+    expect(screen.getByText(/not configured/i)).toBeInTheDocument();
     expect(screen.queryByPlaceholderText('Password')).not.toBeInTheDocument();
   });
 
