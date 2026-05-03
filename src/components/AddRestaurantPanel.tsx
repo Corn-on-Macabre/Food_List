@@ -7,14 +7,38 @@ import { RestaurantDraftForm } from './RestaurantDraftForm';
 
 type PanelState = 'search' | 'loading-details' | 'draft' | 'manual' | 'success';
 
-interface Props {
-  onRestaurantAdded: (restaurant: Restaurant) => void;
+export interface SubmissionPrefill {
+  name: string;
+  location: string;
 }
 
-export function AddRestaurantPanel({ onRestaurantAdded }: Props) {
-  const [panelState, setPanelState] = useState<PanelState>('search');
+interface Props {
+  onRestaurantAdded: (restaurant: Restaurant) => void;
+  prefill?: SubmissionPrefill | null;
+  onPrefillConsumed?: () => void;
+}
+
+export function AddRestaurantPanel({ onRestaurantAdded, prefill, onPrefillConsumed }: Props) {
+  const [panelState, setPanelState] = useState<PanelState>(prefill ? 'manual' : 'search');
   const [selectedPlaceId, setSelectedPlaceId] = useState<string | null>(null);
   const [resolvedDraft, setResolvedDraft] = useState<PlaceDraft | null>(null);
+
+  // When prefill changes (from submission approval), jump to manual mode
+  useEffect(() => {
+    if (prefill) {
+      setPanelState('manual');
+      setResolvedDraft({
+        name: prefill.name,
+        address: prefill.location,
+        lat: 0,
+        lng: 0,
+        priceLevel: null,
+        cuisine: '',
+        googleMapsUrl: '',
+        placeId: '',
+      });
+    }
+  }, [prefill]);
 
   const { placeDetails, loading: detailsLoading, error: detailsError } = usePlaceDetails(selectedPlaceId);
 
@@ -46,20 +70,27 @@ export function AddRestaurantPanel({ onRestaurantAdded }: Props) {
     setPanelState('manual');
   }
 
+  function clearPrefill() {
+    if (onPrefillConsumed) onPrefillConsumed();
+  }
+
   function handleSave(restaurant: Restaurant) {
     onRestaurantAdded(restaurant);
+    clearPrefill();
     setPanelState('success');
   }
 
   function handleCancel() {
     setSelectedPlaceId(null);
     setResolvedDraft(null);
+    clearPrefill();
     setPanelState('search');
   }
 
   function handleAddAnother() {
     setSelectedPlaceId(null);
     setResolvedDraft(null);
+    clearPrefill();
     setPanelState('search');
   }
 
@@ -114,10 +145,10 @@ export function AddRestaurantPanel({ onRestaurantAdded }: Props) {
         />
       )}
 
-      {/* Manual state */}
+      {/* Manual state (resolvedDraft may contain prefill data from submissions) */}
       {panelState === 'manual' && (
         <RestaurantDraftForm
-          initialDraft={null}
+          initialDraft={resolvedDraft}
           onSave={handleSave}
           onCancel={handleCancel}
         />

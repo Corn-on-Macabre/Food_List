@@ -10,6 +10,8 @@ import {
   updateRestaurant,
   deleteRestaurant,
 } from '../api/restaurants';
+import { SubmissionsPanel } from './SubmissionsPanel';
+import type { Submission } from '../api/submissions';
 import type { Restaurant, Tier } from '../types';
 
 export function AdminDashboard() {
@@ -20,7 +22,10 @@ export function AdminDashboard() {
   const [error, setError] = useState<string | null>(null);
 
   const [sessionRestaurants, setSessionRestaurants] = useState<Restaurant[]>([]);
-  const [activeTab, setActiveTab] = useState<'add' | 'list'>('add');
+  const [activeTab, setActiveTab] = useState<'add' | 'list' | 'submissions'>('add');
+  const [pendingCount, setPendingCount] = useState(0);
+  const [prefillName, setPrefillName] = useState<string | null>(null);
+  const [prefillLocation, setPrefillLocation] = useState<string | null>(null);
 
   const loadRestaurants = useCallback(async () => {
     setLoading(true);
@@ -164,6 +169,16 @@ export function AdminDashboard() {
           >
             All Restaurants ({allRestaurants.length})
           </button>
+          <button
+            onClick={() => setActiveTab('submissions')}
+            className={`font-sans text-sm pb-1 transition-colors duration-150 ${
+              activeTab === 'submissions'
+                ? 'border-b-2 border-amber-700 text-stone-900 font-bold'
+                : 'text-stone-400 hover:text-stone-600'
+            }`}
+          >
+            Submissions{pendingCount > 0 ? ` (${pendingCount})` : ''}
+          </button>
         </div>
       </nav>
 
@@ -214,7 +229,11 @@ export function AdminDashboard() {
         {/* Tab content */}
         {!loading && !error && activeTab === 'add' && (
           <>
-            <AddRestaurantPanel onRestaurantAdded={handleRestaurantAdded} />
+            <AddRestaurantPanel
+              onRestaurantAdded={handleRestaurantAdded}
+              prefill={prefillName && prefillLocation ? { name: prefillName, location: prefillLocation } : null}
+              onPrefillConsumed={() => { setPrefillName(null); setPrefillLocation(null); }}
+            />
 
             {sessionRestaurants.length > 0 && (
               <section className="mt-8">
@@ -245,6 +264,17 @@ export function AdminDashboard() {
             restaurants={allRestaurants}
             onUpdate={handleUpdate}
             onDelete={handleDelete}
+          />
+        )}
+
+        {!loading && !error && activeTab === 'submissions' && (
+          <SubmissionsPanel
+            onApprove={(submission: Submission) => {
+              setPrefillName(submission.restaurant_name);
+              setPrefillLocation(submission.location);
+              setActiveTab('add');
+            }}
+            onCountChange={setPendingCount}
           />
         )}
       </main>

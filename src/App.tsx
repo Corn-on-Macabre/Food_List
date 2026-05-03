@@ -3,8 +3,8 @@ import { Routes, Route, Navigate, useParams } from 'react-router-dom';
 import { APIProvider, Map, useMap, type MapMouseEvent } from '@vis.gl/react-google-maps';
 import { useRestaurants, useGeolocation } from './hooks';
 
-import { ClusteredPins, PinLegend, RestaurantCard, FilterBar, ProtectedRoute, AdminDashboard, Toast } from './components';
-import { AuthProvider } from './contexts/AuthContext';
+import { ClusteredPins, PinLegend, RestaurantCard, FilterBar, ProtectedRoute, AdminDashboard, Toast, SuggestButton, SubmissionForm } from './components';
+import { useAuth, AuthProvider } from './contexts/AuthContext';
 import { AdminAuthProvider } from './contexts/AdminAuthContext';
 import type { Restaurant } from './types';
 import type { FilterState } from './types/restaurant';
@@ -79,6 +79,9 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
 
   const [selectedRestaurant, setSelectedRestaurant] = useState<Restaurant | null>(null);
   const [filters, setFilters] = useState<FilterState>({ cuisine: null, tier: null, maxDistance: null, searchTerm: null });
+
+  const { isAuthenticated, loading: authLoading } = useAuth();
+  const [showSubmissionForm, setShowSubmissionForm] = useState(false);
 
   const [toastMessage, setToastMessage] = useState('');
   const [toastVisible, setToastVisible] = useState(false);
@@ -233,6 +236,14 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
             <p className="text-gray-700">Could not load restaurant data. Please refresh the page.</p>
           </div>
         </div>
+      )}
+
+      {!authLoading && isAuthenticated && (
+        <SuggestButton onClick={() => setShowSubmissionForm(true)} />
+      )}
+
+      {showSubmissionForm && (
+        <SubmissionForm onClose={() => setShowSubmissionForm(false)} />
       )}
 
       <Toast message={toastMessage} visible={toastVisible} onHide={() => setToastVisible(false)} />
