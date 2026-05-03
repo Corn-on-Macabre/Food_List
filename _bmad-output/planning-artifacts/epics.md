@@ -713,3 +713,242 @@ So that when I send it to a friend, they land directly on that restaurant with t
 **When** React Router processes the URL
 **Then** the route `/r/:slug` resolves to the main map view with the matching restaurant pre-selected
 **And** existing slug IDs from `generateSlugId` are used (no new ID scheme)
+
+---
+
+## Epic 7: Google OAuth + Supabase Migration
+
+Replace password-based admin auth with Google OAuth and migrate from static JSON to Supabase Postgres. This is the foundation for all future features requiring auth, persistent storage, or user identity.
+**FRs covered:** FR31, FR32, FR33, FR34, FR35
+
+### Story 7.1: Supabase Project Setup & Restaurant Data Migration
+
+As a developer,
+I want bobby.menu's restaurant data stored in a Supabase Postgres table,
+So that the app has a real database supporting auth, queries, and future features.
+
+**Acceptance Criteria:**
+
+**Given** a new Supabase project is created
+**When** the project is configured
+**Then** the Supabase URL and anon key are stored as `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` environment variables
+**And** a `.env.example` is updated with the new variables
+
+**Given** the current `Restaurant` TypeScript interface
+**When** the `restaurants` table is created in Supabase
+**Then** the schema matches all fields from the `Restaurant` type: id (text PK), name, tier, cuisine, lat, lng, notes, googleMapsUrl, source, dateAdded, tags (text[]), featured (boolean), enrichedAt, rating, userRatingCount, priceLevel, photoRef
+**And** row-level security is enabled: public read for all, authenticated write for admin only
+
+**Given** the existing `public/restaurants.json` file
+**When** a migration script is run
+**Then** all restaurant records are imported into the Supabase `restaurants` table
+**And** no data is lost or transformed incorrectly
+**And** the JSON file is kept as a seed/fallback
+
+**Given** the Supabase `restaurants` table is populated
+**When** the `useRestaurants` hook fetches data
+**Then** it reads from Supabase instead of the static JSON file
+**And** the public map renders identically to the current experience
+**And** filtering, search, and deep links continue to work
+
+### Story 7.2: Google OAuth for Admin
+
+As Bobby (the curator),
+I want to log into the admin dashboard with my Google account,
+So that I don't need to remember or type a password.
+
+**Acceptance Criteria:**
+
+**Given** Google OAuth is configured as a provider in Supabase Auth
+**When** a user navigates to `/admin`
+**Then** a "Sign in with Google" button is displayed instead of a password form
+
+**Given** Bobby clicks "Sign in with Google"
+**When** the Google OAuth popup completes successfully
+**Then** Supabase creates a session for the authenticated user
+**And** the admin dashboard is displayed
+
+**Given** the authenticated user's email matches the admin allowlist (environment variable)
+**When** the session is checked by `ProtectedRoute`
+**Then** access to the admin dashboard is granted
+
+**Given** the authenticated user's email does NOT match the admin allowlist
+**When** the session is checked by `ProtectedRoute`
+**Then** access is denied with a message: "You don't have admin access"
+**And** the user can sign out and try a different account
+
+**Given** the admin is authenticated
+**When** the admin closes the browser and returns later
+**Then** the Supabase session persists (no re-login required until session expires)
+
+**Given** the migration is complete
+**When** the old environment variables are checked
+**Then** `VITE_ADMIN_PASSWORD` and `ADMIN_PASSWORD` are no longer required
+**And** the `AdminAuthContext` uses Supabase session instead of `sessionStorage`
+
+### Story 7.3: Migrate Restaurant CRUD to Supabase
+
+As Bobby (the curator),
+I want the admin dashboard to read and write restaurants via Supabase,
+So that data changes persist in the database instead of a JSON file.
+
+**Acceptance Criteria:**
+
+**Given** the admin is authenticated on the dashboard
+**When** the admin adds a new restaurant via Google Places search
+**Then** the restaurant is inserted into the Supabase `restaurants` table
+**And** it appears on the public map immediately (no deploy required)
+
+**Given** the admin edits a restaurant (tier, notes, tags, featured)
+**When** the changes are saved
+**Then** the Supabase record is updated
+**And** the public map reflects the changes on next data fetch
+
+**Given** the admin deletes a restaurant
+**When** the deletion is confirmed
+**Then** the record is removed from the Supabase `restaurants` table
+**And** the pin disappears from the public map
+
+**Given** the Google Places enrichment pipeline runs
+**When** enrichment data is written
+**Then** it updates the corresponding Supabase record (not a JSON file)
+
+**Given** all CRUD operations work via Supabase
+**When** the Express `server/index.js` is evaluated
+**Then** it can be retired if no other endpoints remain
+**Or** it is kept only for server-side operations that can't run from the client (e.g., Places API proxy)
+
+---
+
+## Epic 8: Community Submissions
+
+Let visitors suggest restaurants that Bobby can review and approve. Requires Google sign-in for submissions (prevents spam, gives attribution). Depends on Epic 7.
+**FRs covered:** FR36, FR37, FR38, FR39, FR40
+
+### Story 8.1: Google Sign-in for Visitors
+
+As a visitor to bobby.menu,
+I want to optionally sign in with Google,
+So that I can submit restaurant recommendations.
+
+**Acceptance Criteria:**
+
+**Given** the public map is displayed
+**When** the visitor views the page
+**Then** a subtle "Sign in" button is visible (e.g., top-right corner or in a menu)
+**And** the map is fully functional without signing in
+
+**Given** a visitor clicks "Sign in"
+**When** the Google OAuth popup completes
+**Then** Supabase creates a user session
+**And** a record is created in the `users` table (google_id, name, email, avatar, date_joined)
+**And** the visitor's avatar and name are displayed in place of the sign-in button
+
+**Given** a signed-in visitor
+**When** they click their avatar/name
+**Then** a dropdown or menu appears with "Sign out" option
+**And** signing out clears the session and returns to anonymous browsing
+
+**Given** the visitor is not signed in
+**When** they browse the map, filter, search, and view restaurant cards
+**Then** all public features work identically to the anonymous experience
+
+### Story 8.2: Submission Form & Review Queue
+
+As a signed-in user,
+I want to submit a restaurant recommendation via a simple form,
+So that Bobby can consider adding it to the map.
+
+**Acceptance Criteria:**
+
+**Given** a signed-in user is viewing the map
+**When** they click a "Suggest a Restaurant" button
+**Then** a submission form opens with fields: restaurant name, location/address, why you recommend it
+
+**Given** the user fills out the form and submits
+**When** the submission is saved
+**Then** a record is inserted into the Supabase `submissions` table with status `pending`
+**And** the record includes the user's ID, name, and submission timestamp
+**And** a confirmation message is shown: "Thanks! Bobby will review your suggestion."
+
+**Given** a user who is not signed in
+**When** they try to access the submission form
+**Then** they are prompted to sign in with Google first
+
+**Given** row-level security on the `submissions` table
+**When** a user queries submissions
+**Then** they can only see their own submissions
+**And** only the admin can see all submissions and update status
+
+**Given** Bobby is on the admin dashboard
+**When** he views the "Submissions" tab
+**Then** all pending submissions are listed with: restaurant name, location, user note, submitted by, date
+**And** each submission has "Approve" and "Dismiss" actions
+
+**Given** Bobby approves a submission
+**When** the approval is confirmed
+**Then** a new restaurant record is created (Bobby assigns tier and adds notes)
+**And** the submission status changes to `approved`
+**And** the restaurant appears on the public map
+
+**Given** Bobby dismisses a submission
+**When** the dismissal is confirmed
+**Then** the submission status changes to `dismissed`
+**And** no restaurant record is created
+
+**Given** a user has submitted 5 restaurants today
+**When** they try to submit another
+**Then** the submission is blocked with a message: "You've reached today's limit. Try again tomorrow."
+
+### Story 8.3: URL-Based Submission with Auto-Extraction
+
+As a signed-in user,
+I want to paste a Google Maps link and have restaurant details auto-filled,
+So that submitting a recommendation is fast and accurate.
+
+**Acceptance Criteria:**
+
+**Given** the submission form is open
+**When** the user pastes a Google Maps URL into the location field
+**Then** the system parses the URL to extract the place ID or coordinates
+**And** calls the Google Places API to retrieve: name, address, lat/lng, cuisine, rating, price level, photo
+
+**Given** the Places API returns data successfully
+**When** the auto-extraction completes
+**Then** the form fields are pre-populated with the extracted data
+**And** the user can review, edit, and add their personal recommendation note before submitting
+
+**Given** the URL cannot be parsed or the Places API fails
+**When** auto-extraction fails
+**Then** the form falls back to manual entry mode
+**And** the user is informed: "Couldn't extract details automatically. Please fill in the form manually."
+
+**Given** a valid Google Maps URL format
+**When** the URL is analyzed
+**Then** the system handles common formats: `google.com/maps/place/...`, `maps.app.goo.gl/...`, `goo.gl/maps/...`
+
+### Story 8.4: "Suggested By" Attribution on Detail Cards
+
+As a visitor viewing the map,
+I want to see who suggested a community-submitted restaurant,
+So that recommendations feel personal and trustworthy.
+
+**Acceptance Criteria:**
+
+**Given** a restaurant was added via community submission
+**When** the detail card is displayed
+**Then** a "Suggested by [Name]" line appears below the cuisine type
+**And** the submitter's Google avatar is displayed as a small thumbnail
+
+**Given** a restaurant was added by Bobby (curator-added)
+**When** the detail card is displayed
+**Then** no "Suggested by" attribution is shown
+
+**Given** the `suggested_by` field on the restaurant record
+**When** a submission is approved
+**Then** the submitter's name is stored in the restaurant's `suggested_by` field
+**And** their avatar URL is stored in `suggested_by_avatar`
+
+**Given** a restaurant has "Suggested by" attribution
+**When** the user clicks on the attribution
+**Then** nothing happens (no user profiles for MVP — attribution is display-only)
