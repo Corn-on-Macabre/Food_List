@@ -1,9 +1,9 @@
-import { useState, useEffect, useMemo, useRef } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { Routes, Route, Navigate, useParams } from 'react-router-dom';
 import { APIProvider, Map, useMap, type MapMouseEvent } from '@vis.gl/react-google-maps';
 import { useRestaurants, useGeolocation } from './hooks';
 
-import { ClusteredPins, PinLegend, RestaurantCard, FilterBar, ProtectedRoute, AdminDashboard } from './components';
+import { ClusteredPins, PinLegend, RestaurantCard, FilterBar, ProtectedRoute, AdminDashboard, Toast } from './components';
 import { AdminAuthProvider } from './contexts/AdminAuthContext';
 import type { Restaurant } from './types';
 import type { FilterState } from './types/restaurant';
@@ -59,6 +59,7 @@ function App() {
             </APIProvider>
           }
         />
+        <Route path="/r/:slug" element={<AppWithMap apiKey={apiKey} />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </AdminAuthProvider>
@@ -66,6 +67,7 @@ function App() {
 }
 
 function AppWithMap({ apiKey }: { apiKey: string }) {
+  const { slug } = useParams<{ slug?: string }>();
   const { restaurants, loading, error } = useRestaurants();
   // geoDenied used in Story 3.2 to hide/show distance control
   const { coords, loading: geoLoading, denied: geoDenied } = useGeolocation();
@@ -74,6 +76,38 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
 
   const [selectedRestaurant, setSelectedRestaurant] = useState<Restaurant | null>(null);
   const [filters, setFilters] = useState<FilterState>({ cuisine: null, tier: null, maxDistance: null, searchTerm: null });
+
+  const [toastMessage, setToastMessage] = useState('');
+  const [toastVisible, setToastVisible] = useState(false);
+
+  const showToast = useCallback((message: string) => {
+    setToastMessage(message);
+    setToastVisible(true);
+  }, []);
+
+  const deepLinkProcessed = useRef(false);
+  const [deepLinkCenter, setDeepLinkCenter] = useState<{ lat: number; lng: number } | null>(null);
+
+  // Deep link resolution: when restaurants finish loading and a slug is present, select that restaurant
+  useEffect(() => {
+    if (!slug || restaurants.length === 0 || deepLinkProcessed.current) return;
+    deepLinkProcessed.current = true;
+    const found = restaurants.find((r) => r.id === slug);
+    if (found) {
+      setSelectedRestaurant(found);
+      setDeepLinkCenter({ lat: found.lat, lng: found.lng });
+    } else {
+      showToast('Restaurant not found');
+    }
+  }, [slug, restaurants, showToast]);
+
+  // URL sync: update browser URL when selectedRestaurant changes
+  useEffect(() => {
+    const path = selectedRestaurant ? `/r/${selectedRestaurant.id}` : '/';
+    if (window.location.pathname !== path) {
+      window.history.replaceState(null, '', path);
+    }
+  }, [selectedRestaurant]);
 
   // Derived: distance filter is suppressed when location is unavailable or denied (AC 5, 6, 7)
   const effectiveMaxDistance = geoDenied || coords === null ? null : filters.maxDistance;
@@ -166,6 +200,8 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           />
           {/* Smoothly pan to user location once geolocation resolves */}
           {!geoLoading && coords && <MapCenterer coords={resolvedCenter} />}
+          {/* Pan to deep-linked restaurant once resolved */}
+          {deepLinkCenter && <MapCenterer coords={deepLinkCenter} />}
         </Map>
       </APIProvider>
 
@@ -175,6 +211,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
         <RestaurantCard
           restaurant={selectedRestaurant}
           onDismiss={() => setSelectedRestaurant(null)}
+          onShareSuccess={() => showToast('Link copied!')}
         />
       )}
 
@@ -194,6 +231,8 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           </div>
         </div>
       )}
+
+      <Toast message={toastMessage} visible={toastVisible} onHide={() => setToastVisible(false)} />
     </div>
   );
 }

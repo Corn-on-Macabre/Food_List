@@ -54,31 +54,31 @@ const mockRatingNoCountRestaurant: Restaurant = {
 describe("RestaurantCard", () => {
   describe("Google Maps link (AC 1, 2, 3, 4)", () => {
     it("renders the 'Open in Google Maps' link", () => {
-      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       const link = screen.getByRole("link", { name: "Open in Google Maps" });
       expect(link).toBeInTheDocument();
     });
 
     it("sets href to restaurant.googleMapsUrl exactly (AC 4)", () => {
-      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       const link = screen.getByRole("link", { name: "Open in Google Maps" });
       expect(link).toHaveAttribute("href", mockRestaurant.googleMapsUrl);
     });
 
     it("opens in a new tab via target='_blank' (AC 2)", () => {
-      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       const link = screen.getByRole("link", { name: "Open in Google Maps" });
       expect(link).toHaveAttribute("target", "_blank");
     });
 
     it("has rel='noopener noreferrer' for security (AC 3)", () => {
-      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       const link = screen.getByRole("link", { name: "Open in Google Maps" });
       expect(link).toHaveAttribute("rel", "noopener noreferrer");
     });
 
     it("uses the correct googleMapsUrl for a different restaurant (AC 4)", () => {
-      render(<RestaurantCard restaurant={mockRestaurantNoNotes} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockRestaurantNoNotes} onDismiss={noop} onShareSuccess={noop} />);
       const link = screen.getByRole("link", { name: "Open in Google Maps" });
       expect(link).toHaveAttribute(
         "href",
@@ -91,7 +91,7 @@ describe("RestaurantCard", () => {
         ...mockRestaurant,
         googleMapsUrl: "javascript:alert(document.cookie)",
       };
-      render(<RestaurantCard restaurant={maliciousRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={maliciousRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       const link = screen.getByRole("link", { name: "Open in Google Maps" });
       expect(link).toHaveAttribute("href", "#");
     });
@@ -99,27 +99,27 @@ describe("RestaurantCard", () => {
 
   describe("card content", () => {
     it("renders the restaurant name", () => {
-      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       expect(screen.getByText("Pho 43")).toBeInTheDocument();
     });
 
     it("renders the cuisine type", () => {
-      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       expect(screen.getByText("Vietnamese")).toBeInTheDocument();
     });
 
     it("renders the tier badge", () => {
-      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       expect(screen.getByText("Loved")).toBeInTheDocument();
     });
 
     it("renders notes when present", () => {
-      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       expect(screen.getByText("Best pho in Phoenix")).toBeInTheDocument();
     });
 
     it("does not render notes section when notes is absent", () => {
-      render(<RestaurantCard restaurant={mockRestaurantNoNotes} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockRestaurantNoNotes} onDismiss={noop} onShareSuccess={noop} />);
       expect(
         screen.queryByText("Best pho in Phoenix"),
       ).not.toBeInTheDocument();
@@ -128,20 +128,20 @@ describe("RestaurantCard", () => {
 
   describe("link styling (AC 5)", () => {
     it("link has amber CTA class — not blue (blue is reserved for Recommended tier)", () => {
-      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       const link = screen.getByRole("link", { name: "Open in Google Maps" });
       expect(link.className).toContain("bg-amber-700");
       expect(link.className).not.toContain("bg-blue");
     });
 
     it("link has w-full for full-width tap target on mobile", () => {
-      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       const link = screen.getByRole("link", { name: "Open in Google Maps" });
       expect(link.className).toContain("w-full");
     });
 
     it("link has focus-visible ring classes for keyboard accessibility", () => {
-      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       const link = screen.getByRole("link", { name: "Open in Google Maps" });
       expect(link.className).toContain("focus-visible:ring-2");
     });
@@ -149,19 +149,19 @@ describe("RestaurantCard", () => {
 
   describe("Bobby's Pick badge (AC 9)", () => {
     it("does not render BobbyPickBadge when featured is undefined", () => {
-      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       expect(screen.queryByTestId('bobby-pick-badge')).not.toBeInTheDocument();
     });
 
     it("renders BobbyPickBadge when featured is true", () => {
       const featuredRestaurant: Restaurant = { ...mockRestaurant, featured: true };
-      render(<RestaurantCard restaurant={featuredRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={featuredRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       expect(screen.getByTestId('bobby-pick-badge')).toBeInTheDocument();
     });
 
     it("BobbyPickBadge displays \"Bobby's Pick\" text", () => {
       const featuredRestaurant: Restaurant = { ...mockRestaurant, featured: true };
-      render(<RestaurantCard restaurant={featuredRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={featuredRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       expect(screen.getByTestId('bobby-pick-badge')).toHaveTextContent("Bobby's Pick");
     });
   });
@@ -169,13 +169,13 @@ describe("RestaurantCard", () => {
   describe("dismissal (AC 1, 4, 5)", () => {
     it("calls onDismiss when close button is clicked (AC 1)", () => {
       const onDismiss = vi.fn();
-      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={onDismiss} />);
+      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={onDismiss} onShareSuccess={noop} />);
       fireEvent.click(screen.getByRole("button", { name: "Close restaurant card" }));
       expect(onDismiss).toHaveBeenCalledTimes(1);
     });
 
     it("close button has aria-label for screen readers (AC 4)", () => {
-      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       expect(
         screen.getByRole("button", { name: "Close restaurant card" }),
       ).toBeInTheDocument();
@@ -185,7 +185,7 @@ describe("RestaurantCard", () => {
       const parentHandler = vi.fn();
       render(
         <div onClick={parentHandler}>
-          <RestaurantCard restaurant={mockRestaurant} onDismiss={noop} />
+          <RestaurantCard restaurant={mockRestaurant} onDismiss={noop} onShareSuccess={noop} />
         </div>,
       );
       const card = screen.getByRole("button", { name: "Close restaurant card" }).closest(".fixed");
@@ -199,7 +199,7 @@ describe("RestaurantCard", () => {
       const parentHandler = vi.fn();
       render(
         <div onClick={parentHandler}>
-          <RestaurantCard restaurant={mockRestaurant} onDismiss={onDismiss} />
+          <RestaurantCard restaurant={mockRestaurant} onDismiss={onDismiss} onShareSuccess={noop} />
         </div>,
       );
       fireEvent.click(screen.getByRole("button", { name: "Close restaurant card" }));
@@ -210,36 +210,36 @@ describe("RestaurantCard", () => {
 
   describe("Rating and price display (Story 5.2)", () => {
     it("renders rating as '4.3' with star when rating is present (AC 1)", () => {
-      render(<RestaurantCard restaurant={mockEnrichedRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockEnrichedRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       expect(screen.getByText("4.3", { exact: false })).toBeInTheDocument();
       expect(screen.getByText("★")).toBeInTheDocument();
     });
 
     it("renders user rating count as '(287)' when userRatingCount is present (AC 1)", () => {
-      render(<RestaurantCard restaurant={mockEnrichedRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockEnrichedRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       expect(screen.getByText("(287)")).toBeInTheDocument();
     });
 
     it('renders "$$" when priceLevel is PRICE_LEVEL_MODERATE (AC 2)', () => {
-      render(<RestaurantCard restaurant={mockEnrichedRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockEnrichedRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       expect(screen.getByText("$$")).toBeInTheDocument();
     });
 
     it("renders both rating and price with separator when both exist (AC 1, 2)", () => {
-      render(<RestaurantCard restaurant={mockEnrichedRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockEnrichedRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       expect(screen.getByText("4.3", { exact: false })).toBeInTheDocument();
       expect(screen.getByText("$$")).toBeInTheDocument();
       expect(screen.getByText("·")).toBeInTheDocument();
     });
 
     it("does not render rating/price row when neither rating nor priceLevel exists (AC 6)", () => {
-      render(<RestaurantCard restaurant={mockRestaurantNoNotes} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockRestaurantNoNotes} onDismiss={noop} onShareSuccess={noop} />);
       expect(screen.queryByText("★")).not.toBeInTheDocument();
       expect(screen.queryByText("·")).not.toBeInTheDocument();
     });
 
     it("renders only rating (no price section) when priceLevel is absent (AC 5)", () => {
-      render(<RestaurantCard restaurant={mockRatingOnlyRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockRatingOnlyRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       expect(screen.getByText("4.7", { exact: false })).toBeInTheDocument();
       expect(screen.getByText("★")).toBeInTheDocument();
       expect(screen.getByText("(1,024)")).toBeInTheDocument();
@@ -247,14 +247,14 @@ describe("RestaurantCard", () => {
     });
 
     it("renders only price (no rating section) when rating is absent (AC 4)", () => {
-      render(<RestaurantCard restaurant={mockPriceOnlyRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockPriceOnlyRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       expect(screen.getByText("$$$")).toBeInTheDocument();
       expect(screen.queryByText("★")).not.toBeInTheDocument();
       expect(screen.queryByText("·")).not.toBeInTheDocument();
     });
 
     it("renders rating without count when userRatingCount is absent (AC 3)", () => {
-      render(<RestaurantCard restaurant={mockRatingNoCountRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockRatingNoCountRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       expect(screen.getByText("3.9", { exact: false })).toBeInTheDocument();
       expect(screen.getByText("★")).toBeInTheDocument();
       expect(screen.queryByText("(", { exact: false })).not.toBeInTheDocument();
@@ -265,13 +265,13 @@ describe("RestaurantCard", () => {
         ...mockRestaurant,
         priceLevel: "PRICE_LEVEL_FREE",
       };
-      render(<RestaurantCard restaurant={unknownPriceRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={unknownPriceRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       expect(screen.queryByText("$")).not.toBeInTheDocument();
       expect(screen.queryByText("Free")).not.toBeInTheDocument();
     });
 
     it("star character is rendered with amber color class (AC 7)", () => {
-      render(<RestaurantCard restaurant={mockEnrichedRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockEnrichedRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       const star = screen.getByText("★");
       expect(star.className).toContain("text-amber-500");
     });
@@ -284,7 +284,7 @@ describe("RestaurantCard", () => {
     };
 
     it("renders photo when photoRef is present (AC 1)", () => {
-      render(<RestaurantCard restaurant={mockRestaurantWithPhoto} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockRestaurantWithPhoto} onDismiss={noop} onShareSuccess={noop} />);
       const img = screen.getByRole("img", { name: "Pho 43" });
       expect(img).toBeInTheDocument();
       expect(img).toHaveAttribute(
@@ -294,24 +294,24 @@ describe("RestaurantCard", () => {
     });
 
     it("does not render photo when photoRef is absent (AC 2)", () => {
-      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} onShareSuccess={noop} />);
       expect(screen.queryByRole("img")).not.toBeInTheDocument();
     });
 
     it("photo has correct alt text matching restaurant name (AC 4)", () => {
-      render(<RestaurantCard restaurant={mockRestaurantWithPhoto} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockRestaurantWithPhoto} onDismiss={noop} onShareSuccess={noop} />);
       const img = screen.getByRole("img", { name: "Pho 43" });
       expect(img).toHaveAttribute("alt", "Pho 43");
     });
 
     it("photo has lazy loading attribute (AC 4)", () => {
-      render(<RestaurantCard restaurant={mockRestaurantWithPhoto} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockRestaurantWithPhoto} onDismiss={noop} onShareSuccess={noop} />);
       const img = screen.getByRole("img", { name: "Pho 43" });
       expect(img).toHaveAttribute("loading", "lazy");
     });
 
     it("hides photo on load error (AC 3)", () => {
-      render(<RestaurantCard restaurant={mockRestaurantWithPhoto} onDismiss={noop} />);
+      render(<RestaurantCard restaurant={mockRestaurantWithPhoto} onDismiss={noop} onShareSuccess={noop} />);
       const img = screen.getByRole("img", { name: "Pho 43" });
       fireEvent.error(img);
       expect(screen.queryByRole("img")).not.toBeInTheDocument();
