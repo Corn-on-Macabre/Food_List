@@ -1,7 +1,14 @@
 import { useState, useEffect } from 'react';
 
+export interface PlacePrediction {
+  placeId: string;
+  mainText: string;
+  secondaryText: string;
+  description: string;
+}
+
 interface UsePlacesAutocompleteResult {
-  predictions: google.maps.places.AutocompletePrediction[];
+  predictions: PlacePrediction[];
   loading: boolean;
   error: string | null;
 }
@@ -10,7 +17,7 @@ export function usePlacesAutocomplete(
   query: string,
   debounceMs: number = 300
 ): UsePlacesAutocompleteResult {
-  const [predictions, setPredictions] = useState<google.maps.places.AutocompletePrediction[]>([]);
+  const [predictions, setPredictions] = useState<PlacePrediction[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -18,9 +25,8 @@ export function usePlacesAutocomplete(
     // Skip API call for empty/short queries — state cleared via derived values below
     if (!query || query.length < 2) return;
 
-    const timerId = setTimeout(() => {
-      // Check API availability inside the timer (async context — not flagged by lint rule)
-      if (typeof google === 'undefined' || !google?.maps?.places?.AutocompleteService) {
+    const timerId = setTimeout(async () => {
+      if (typeof google === 'undefined' || !google?.maps?.places) {
         setPredictions([]);
         setError('Places API unavailable');
         setLoading(false);
@@ -31,28 +37,29 @@ export function usePlacesAutocomplete(
       setError(null);
 
       try {
-        const service = new google.maps.places.AutocompleteService();
-        service.getPlacePredictions(
-          { input: query, types: ['restaurant', 'food'] },
-          (
-            results: google.maps.places.AutocompletePrediction[] | null,
-            status: google.maps.places.PlacesServiceStatus
-          ) => {
-            if (status === google.maps.places.PlacesServiceStatus.OK && results) {
-              setPredictions(results);
-              setError(null);
-            } else {
-              setPredictions([]);
-              setError(`Places search returned: ${status}`);
-            }
-            setLoading(false);
-          }
-        );
+        // Use new AutocompleteSuggestion API (replaces legacy AutocompleteService)
+        const { suggestions } = await google.maps.places.AutocompleteSuggestion.fetchAutocompleteSuggestions({
+          input: query,
+        });
+
+        const mapped: PlacePrediction[] = suggestions
+          .filter((s): s is typeof s & { placePrediction: NonNullable<typeof s.placePrediction> } =>
+            s.placePrediction !== null && s.placePrediction !== undefined
+          )
+          .map(s => ({
+            placeId: s.placePrediction.placeId ?? '',
+            mainText: s.placePrediction.mainText?.text ?? '',
+            secondaryText: s.placePrediction.secondaryText?.text ?? '',
+            description: s.placePrediction.text?.text ?? '',
+          }));
+
+        setPredictions(mapped);
+        setError(null);
       } catch {
         setPredictions([]);
         setError('Places API unavailable');
-        setLoading(false);
       }
+      setLoading(false);
     }, debounceMs);
 
     return () => clearTimeout(timerId);

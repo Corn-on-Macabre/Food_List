@@ -11,20 +11,16 @@ import { usePlacesAutocomplete } from '../hooks/usePlacesAutocomplete';
 
 const MOCK_PREDICTIONS = [
   {
-    place_id: 'abc123',
+    placeId: 'abc123',
     description: 'Pho 43, Phoenix, AZ',
-    structured_formatting: {
-      main_text: 'Pho 43',
-      secondary_text: 'Phoenix, AZ',
-    },
+    mainText: 'Pho 43',
+    secondaryText: 'Phoenix, AZ',
   },
   {
-    place_id: 'def456',
+    placeId: 'def456',
     description: "J&G Steakhouse, Scottsdale, AZ",
-    structured_formatting: {
-      main_text: "J&G Steakhouse",
-      secondary_text: 'Scottsdale, AZ',
-    },
+    mainText: "J&G Steakhouse",
+    secondaryText: 'Scottsdale, AZ',
   },
 ];
 
@@ -47,7 +43,7 @@ describe('PlacesSearchInput', () => {
 
   it('renders predictions dropdown when predictions exist', () => {
     mockUsePlacesAutocomplete.mockReturnValue({
-      predictions: MOCK_PREDICTIONS as google.maps.places.AutocompletePrediction[],
+      predictions: MOCK_PREDICTIONS,
       loading: false,
       error: null,
     });
@@ -62,7 +58,7 @@ describe('PlacesSearchInput', () => {
 
   it('calls onPlaceSelect with placeId when prediction is clicked', () => {
     mockUsePlacesAutocomplete.mockReturnValue({
-      predictions: MOCK_PREDICTIONS as google.maps.places.AutocompletePrediction[],
+      predictions: MOCK_PREDICTIONS,
       loading: false,
       error: null,
     });
@@ -91,7 +87,7 @@ describe('PlacesSearchInput', () => {
 
   it('closes dropdown on Escape key', () => {
     mockUsePlacesAutocomplete.mockReturnValue({
-      predictions: MOCK_PREDICTIONS as google.maps.places.AutocompletePrediction[],
+      predictions: MOCK_PREDICTIONS,
       loading: false,
       error: null,
     });

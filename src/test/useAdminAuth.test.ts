@@ -1,12 +1,15 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
 import React from 'react';
+import { AuthProvider } from '../../src/contexts/AuthContext';
 import { AdminAuthProvider, useAdminAuth } from '../../src/contexts/AdminAuthContext';
 
 const SESSION_KEY = 'food-list-admin-auth';
 
 const wrapper = ({ children }: { children: React.ReactNode }) =>
-  React.createElement(AdminAuthProvider, null, children);
+  React.createElement(AuthProvider, null,
+    React.createElement(AdminAuthProvider, null, children)
+  );
 
 beforeEach(() => {
   sessionStorage.clear();

@@ -1,8 +1,22 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { render, screen, fireEvent, act } from '@testing-library/react';
+import { render, screen, fireEvent, act, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { AuthProvider } from '../contexts/AuthContext';
 import { AdminAuthProvider } from '../contexts/AdminAuthContext';
 import type { Restaurant } from '../types';
+
+// Mock the API module — all calls resolve immediately
+vi.mock('../api/restaurants', () => ({
+  fetchAllRestaurants: vi.fn(() => Promise.resolve([])),
+  addRestaurant: vi.fn(() => Promise.resolve({})),
+  updateRestaurant: vi.fn(() => Promise.resolve({})),
+  deleteRestaurant: vi.fn(() => Promise.resolve()),
+}));
+
+// Mock RestaurantListPanel (built by another agent, not under test here)
+vi.mock('../components/RestaurantListPanel', () => ({
+  RestaurantListPanel: () => <div data-testid="mock-list-panel">List Panel</div>,
+}));
 
 // Mock AddRestaurantPanel so we can trigger onRestaurantAdded programmatically
 vi.mock('../components/AddRestaurantPanel', () => ({
@@ -39,50 +53,57 @@ afterEach(() => {
   vi.unstubAllEnvs();
 });
 
-function renderDashboard() {
-  return render(
-    <AdminAuthProvider>
-      <MemoryRouter>
-        <AdminDashboard />
-      </MemoryRouter>
-    </AdminAuthProvider>
+async function renderDashboard() {
+  const result = render(
+    <AuthProvider>
+      <AdminAuthProvider>
+        <MemoryRouter>
+          <AdminDashboard />
+        </MemoryRouter>
+      </AdminAuthProvider>
+    </AuthProvider>
   );
+  // Wait for the API fetch to resolve and loading state to clear
+  await waitFor(() => {
+    expect(screen.queryByText('Loading restaurants...')).not.toBeInTheDocument();
+  });
+  return result;
 }
 
 describe('AdminDashboard', () => {
-  it('renders the dashboard header and placeholder content', () => {
+  it('renders the dashboard header and placeholder content', async () => {
     vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
     sessionStorage.setItem(SESSION_KEY, '1');
-    renderDashboard();
+    await renderDashboard();
     expect(screen.getByText(/Food List — Curator Dashboard/i)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /sign out/i })).toBeInTheDocument();
   });
 
-  it('sign out button clears sessionStorage and calls logout', () => {
+  it('sign out button clears sessionStorage and calls logout', async () => {
     vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
     sessionStorage.setItem(SESSION_KEY, '1');
-    renderDashboard();
+    await renderDashboard();
     expect(sessionStorage.getItem(SESSION_KEY)).toBe('1');
     fireEvent.click(screen.getByRole('button', { name: /sign out/i }));
     expect(sessionStorage.getItem(SESSION_KEY)).toBeNull();
   });
 
-  it('after a restaurant is added, the session list renders a SessionRestaurantCard', () => {
+  it('after a restaurant is added, the session list renders a SessionRestaurantCard', async () => {
     vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
     sessionStorage.setItem(SESSION_KEY, '1');
-    renderDashboard();
-    act(() => {
+    await renderDashboard();
+    await act(async () => {
       fireEvent.click(screen.getByTestId('mock-add-panel'));
     });
     expect(screen.getByTestId('session-restaurant-card')).toBeInTheDocument();
     expect(screen.getByText('Pho 43')).toBeInTheDocument();
   });
 
-  it('triggering handleTierChange on a session restaurant updates the tier displayed', () => {
+  it('triggering handleTierChange on a session restaurant updates the tier displayed', async () => {
     vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
     sessionStorage.setItem(SESSION_KEY, '1');
-    renderDashboard();
-    act(() => {
+    await renderDashboard();
+    await act(async () => {
       fireEvent.click(screen.getByTestId('mock-add-panel'));
     });
     // Restaurant is added with tier 'loved'
@@ -92,7 +113,9 @@ describe('AdminDashboard', () => {
     // Change to recommended
     const select = screen.getByRole('combobox', { name: /select tier/i });
     fireEvent.change(select, { target: { value: 'recommended' } });
-    fireEvent.click(screen.getByRole('button', { name: /apply tier change/i }));
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: /apply tier change/i }));
+    });
     // Badge should now show Recommended
     expect(screen.getByTestId('tier-badge')).toHaveTextContent('Recommended');
   });
@@ -100,8 +123,8 @@ describe('AdminDashboard', () => {
   it('handleNotesChange sets restaurant.notes when notes is a non-empty string', async () => {
     vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
     sessionStorage.setItem(SESSION_KEY, '1');
-    renderDashboard();
-    act(() => {
+    await renderDashboard();
+    await act(async () => {
       fireEvent.click(screen.getByTestId('mock-add-panel'));
     });
     // Open note editor and type a note
@@ -122,8 +145,8 @@ describe('AdminDashboard', () => {
   it('handleNotesChange removes restaurant.notes (sets to undefined) when notes is empty string', async () => {
     vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
     sessionStorage.setItem(SESSION_KEY, '1');
-    renderDashboard();
-    act(() => {
+    await renderDashboard();
+    await act(async () => {
       fireEvent.click(screen.getByTestId('mock-add-panel'));
     });
     // Add a note first
@@ -152,8 +175,8 @@ describe('AdminDashboard', () => {
   it('handleSourceChange sets restaurant.source when source is a non-empty string', async () => {
     vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
     sessionStorage.setItem(SESSION_KEY, '1');
-    renderDashboard();
-    act(() => {
+    await renderDashboard();
+    await act(async () => {
       fireEvent.click(screen.getByTestId('mock-add-panel'));
     });
     await act(async () => {
@@ -171,8 +194,8 @@ describe('AdminDashboard', () => {
   it('handleSourceChange removes restaurant.source when source is empty string', async () => {
     vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
     sessionStorage.setItem(SESSION_KEY, '1');
-    renderDashboard();
-    act(() => {
+    await renderDashboard();
+    await act(async () => {
       fireEvent.click(screen.getByTestId('mock-add-panel'));
     });
     // Add source first
@@ -200,8 +223,8 @@ describe('AdminDashboard', () => {
   it('handleTagsChange adds a tag to restaurant.tags — tag chip shows as active', async () => {
     vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
     sessionStorage.setItem(SESSION_KEY, '1');
-    renderDashboard();
-    act(() => {
+    await renderDashboard();
+    await act(async () => {
       fireEvent.click(screen.getByTestId('mock-add-panel'));
     });
     const patioChip = screen.getByTestId('tag-chip-patio');
@@ -215,8 +238,8 @@ describe('AdminDashboard', () => {
   it('handleTagsChange removes a tag from restaurant.tags — add then remove', async () => {
     vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
     sessionStorage.setItem(SESSION_KEY, '1');
-    renderDashboard();
-    act(() => {
+    await renderDashboard();
+    await act(async () => {
       fireEvent.click(screen.getByTestId('mock-add-panel'));
     });
     // Add tag
@@ -234,8 +257,8 @@ describe('AdminDashboard', () => {
   it("handleFeaturedChange sets restaurant.featured to true — toggle activates (AC 4)", async () => {
     vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
     sessionStorage.setItem(SESSION_KEY, '1');
-    renderDashboard();
-    act(() => {
+    await renderDashboard();
+    await act(async () => {
       fireEvent.click(screen.getByTestId('mock-add-panel'));
     });
     const toggle = screen.getByTestId('bobby-pick-toggle');
@@ -251,8 +274,8 @@ describe('AdminDashboard', () => {
   it("handleFeaturedChange sets restaurant.featured to undefined — toggle deactivates (AC 5)", async () => {
     vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
     sessionStorage.setItem(SESSION_KEY, '1');
-    renderDashboard();
-    act(() => {
+    await renderDashboard();
+    await act(async () => {
       fireEvent.click(screen.getByTestId('mock-add-panel'));
     });
     // Activate first

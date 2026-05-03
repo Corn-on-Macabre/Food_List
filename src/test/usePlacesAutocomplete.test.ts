@@ -2,32 +2,21 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
 import { usePlacesAutocomplete } from '../hooks/usePlacesAutocomplete';
 
-const MOCK_PREDICTION = {
-  place_id: 'abc123',
-  description: 'Pho 43, Phoenix, AZ',
-  structured_formatting: {
-    main_text: 'Pho 43',
-    secondary_text: 'Phoenix, AZ',
-    main_text_matched_substrings: [],
+const MOCK_SUGGESTION = {
+  placePrediction: {
+    placeId: 'abc123',
+    text: { text: 'Pho 43, Phoenix, AZ' },
+    mainText: { text: 'Pho 43' },
+    secondaryText: { text: 'Phoenix, AZ' },
   },
-  matched_substrings: [],
-  terms: [],
-  types: ['restaurant'],
 };
 
-function setupGoogleMock(getPlacePredictions: ReturnType<typeof vi.fn>) {
-  // Must use a regular function (not arrow) so it can be called with `new`
-  function AutocompleteServiceMock(this: Record<string, unknown>) {
-    this.getPlacePredictions = getPlacePredictions;
-  }
+function setupGoogleMock(fetchFn: ReturnType<typeof vi.fn>) {
   vi.stubGlobal('google', {
     maps: {
       places: {
-        AutocompleteService: AutocompleteServiceMock,
-        PlacesServiceStatus: {
-          OK: 'OK',
-          ZERO_RESULTS: 'ZERO_RESULTS',
-          NOT_FOUND: 'NOT_FOUND',
+        AutocompleteSuggestion: {
+          fetchAutocompleteSuggestions: fetchFn,
         },
       },
     },
@@ -35,12 +24,12 @@ function setupGoogleMock(getPlacePredictions: ReturnType<typeof vi.fn>) {
 }
 
 describe('usePlacesAutocomplete', () => {
-  let mockGetPlacePredictions: ReturnType<typeof vi.fn>;
+  let mockFetch: ReturnType<typeof vi.fn>;
 
   beforeEach(() => {
     vi.useFakeTimers();
-    mockGetPlacePredictions = vi.fn();
-    setupGoogleMock(mockGetPlacePredictions);
+    mockFetch = vi.fn();
+    setupGoogleMock(mockFetch);
   });
 
   afterEach(() => {
@@ -53,74 +42,67 @@ describe('usePlacesAutocomplete', () => {
     expect(result.current.predictions).toEqual([]);
     expect(result.current.loading).toBe(false);
     expect(result.current.error).toBeNull();
-    expect(mockGetPlacePredictions).not.toHaveBeenCalled();
+    expect(mockFetch).not.toHaveBeenCalled();
   });
 
   it('returns empty predictions for single character (less than 2 chars)', () => {
     const { result } = renderHook(() => usePlacesAutocomplete('P', 300));
     act(() => { vi.advanceTimersByTime(300); });
-    expect(mockGetPlacePredictions).not.toHaveBeenCalled();
+    expect(mockFetch).not.toHaveBeenCalled();
     expect(result.current.predictions).toEqual([]);
   });
 
   it('debounces API call — no call made until 300ms after last keystroke', async () => {
+    mockFetch.mockResolvedValue({ suggestions: [MOCK_SUGGESTION] });
+
     const { rerender } = renderHook(
       ({ query }: { query: string }) => usePlacesAutocomplete(query, 300),
       { initialProps: { query: 'Ph' } }
     );
     // Advance only 200ms — no call yet
     await act(async () => { vi.advanceTimersByTime(200); });
-    expect(mockGetPlacePredictions).not.toHaveBeenCalled();
+    expect(mockFetch).not.toHaveBeenCalled();
 
     // Update query — resets timer
     await act(async () => { rerender({ query: 'Pho' }); });
-    // Only 0ms elapsed since rerender — still no call
-    expect(mockGetPlacePredictions).not.toHaveBeenCalled();
+    expect(mockFetch).not.toHaveBeenCalled();
 
     // Advance full 300ms after last rerender
     await act(async () => { vi.advanceTimersByTime(300); });
-    expect(mockGetPlacePredictions).toHaveBeenCalledTimes(1);
-    expect(mockGetPlacePredictions).toHaveBeenCalledWith(
-      expect.objectContaining({ input: 'Pho' }),
-      expect.any(Function)
+    expect(mockFetch).toHaveBeenCalledTimes(1);
+    expect(mockFetch).toHaveBeenCalledWith(
+      expect.objectContaining({ input: 'Pho' })
     );
   });
 
   it('returns predictions array on successful API response', async () => {
-    mockGetPlacePredictions.mockImplementation(
-      (_req: unknown, cb: (preds: typeof MOCK_PREDICTION[] | null, status: string) => void) => {
-        cb([MOCK_PREDICTION], 'OK');
-      }
-    );
+    mockFetch.mockResolvedValue({ suggestions: [MOCK_SUGGESTION] });
 
     const { result } = renderHook(() => usePlacesAutocomplete('Pho', 300));
     await act(async () => { vi.advanceTimersByTime(300); });
 
     expect(result.current.predictions).toHaveLength(1);
-    expect(result.current.predictions[0].place_id).toBe('abc123');
+    expect(result.current.predictions[0].placeId).toBe('abc123');
+    expect(result.current.predictions[0].mainText).toBe('Pho 43');
     expect(result.current.loading).toBe(false);
     expect(result.current.error).toBeNull();
   });
 
-  it('sets error state when AutocompleteService returns ZERO_RESULTS status', () => {
-    mockGetPlacePredictions.mockImplementation(
-      (_req: unknown, cb: (preds: null, status: string) => void) => {
-        cb(null, 'ZERO_RESULTS');
-      }
-    );
+  it('sets error state when API rejects', async () => {
+    mockFetch.mockRejectedValue(new Error('API error'));
 
     const { result } = renderHook(() => usePlacesAutocomplete('xyznotfound', 300));
-    act(() => { vi.advanceTimersByTime(300); });
+    await act(async () => { vi.advanceTimersByTime(300); });
 
     expect(result.current.predictions).toEqual([]);
     expect(result.current.error).not.toBeNull();
   });
 
-  it('sets error state when google.maps is not available', () => {
+  it('sets error state when google.maps is not available', async () => {
     vi.stubGlobal('google', undefined);
 
     const { result } = renderHook(() => usePlacesAutocomplete('Pho', 300));
-    act(() => { vi.advanceTimersByTime(300); });
+    await act(async () => { vi.advanceTimersByTime(300); });
 
     expect(result.current.error).toBe('Places API unavailable');
     expect(result.current.predictions).toEqual([]);

@@ -1,9 +1,10 @@
-import { useState, useEffect, useMemo } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { Routes, Route, Navigate, useParams } from 'react-router-dom';
 import { APIProvider, Map, useMap, type MapMouseEvent } from '@vis.gl/react-google-maps';
 import { useRestaurants, useGeolocation } from './hooks';
 
-import { ClusteredPins, PinLegend, RestaurantCard, FilterBar, ProtectedRoute, AdminDashboard } from './components';
+import { ClusteredPins, PinLegend, RestaurantCard, FilterBar, ProtectedRoute, AdminDashboard, Toast, SuggestButton, SubmissionForm } from './components';
+import { useAuth, AuthProvider } from './contexts/AuthContext';
 import { AdminAuthProvider } from './contexts/AdminAuthContext';
 import type { Restaurant } from './types';
 import type { FilterState } from './types/restaurant';
@@ -46,26 +47,30 @@ function App() {
   }
 
   return (
-    <Routes>
-      <Route path="/" element={<AppWithMap apiKey={apiKey} />} />
-      <Route
-        path="/admin"
-        element={
-          <AdminAuthProvider>
+    <AuthProvider>
+    <AdminAuthProvider>
+      <Routes>
+        <Route path="/" element={<AppWithMap apiKey={apiKey} />} />
+        <Route
+          path="/admin"
+          element={
             <APIProvider apiKey={apiKey} libraries={['places']}>
               <ProtectedRoute>
                 <AdminDashboard />
               </ProtectedRoute>
             </APIProvider>
-          </AdminAuthProvider>
-        }
-      />
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
+          }
+        />
+        <Route path="/r/:slug" element={<AppWithMap apiKey={apiKey} />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </AdminAuthProvider>
+    </AuthProvider>
   );
 }
 
 function AppWithMap({ apiKey }: { apiKey: string }) {
+  const { slug } = useParams<{ slug?: string }>();
   const { restaurants, loading, error } = useRestaurants();
   // geoDenied used in Story 3.2 to hide/show distance control
   const { coords, loading: geoLoading, denied: geoDenied } = useGeolocation();
@@ -74,6 +79,41 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
 
   const [selectedRestaurant, setSelectedRestaurant] = useState<Restaurant | null>(null);
   const [filters, setFilters] = useState<FilterState>({ cuisine: null, tier: null, maxDistance: null, searchTerm: null });
+
+  const { isAuthenticated, loading: authLoading } = useAuth();
+  const [showSubmissionForm, setShowSubmissionForm] = useState(false);
+
+  const [toastMessage, setToastMessage] = useState('');
+  const [toastVisible, setToastVisible] = useState(false);
+
+  const showToast = useCallback((message: string) => {
+    setToastMessage(message);
+    setToastVisible(true);
+  }, []);
+
+  const deepLinkProcessed = useRef(false);
+  const [deepLinkCenter, setDeepLinkCenter] = useState<{ lat: number; lng: number } | null>(null);
+
+  // Deep link resolution: when restaurants finish loading and a slug is present, select that restaurant
+  useEffect(() => {
+    if (!slug || restaurants.length === 0 || deepLinkProcessed.current) return;
+    deepLinkProcessed.current = true;
+    const found = restaurants.find((r) => r.id === slug);
+    if (found) {
+      setSelectedRestaurant(found);
+      setDeepLinkCenter({ lat: found.lat, lng: found.lng });
+    } else {
+      showToast('Restaurant not found');
+    }
+  }, [slug, restaurants, showToast]);
+
+  // URL sync: update browser URL when selectedRestaurant changes
+  useEffect(() => {
+    const path = selectedRestaurant ? `/r/${selectedRestaurant.id}` : '/';
+    if (window.location.pathname !== path) {
+      window.history.replaceState(null, '', path);
+    }
+  }, [selectedRestaurant]);
 
   // Derived: distance filter is suppressed when location is unavailable or denied (AC 5, 6, 7)
   const effectiveMaxDistance = geoDenied || coords === null ? null : filters.maxDistance;
@@ -100,6 +140,23 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
     [restaurants]
   );
 
+  // Dynamically measure the filter bar height so the map container can offset below it.
+  // ResizeObserver keeps the padding in sync when the bar resizes (e.g., distance row appearing).
+  const filterBarRef = useRef<HTMLDivElement>(null);
+  const [filterBarHeight, setFilterBarHeight] = useState(0);
+
+  useEffect(() => {
+    const el = filterBarRef.current;
+    if (!el) return;
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        setFilterBarHeight(entry.contentBoxSize[0].blockSize);
+      }
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   const hasActiveFilters = filters.searchTerm !== null || filters.cuisine !== null || filters.tier !== null || filters.maxDistance !== null;
 
   function handleClearFilters() {
@@ -115,10 +172,9 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
   }
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-      {/* TODO: change to top-[60px] when app header is implemented (Story 4.x) */}
+    <div style={{ position: 'relative', width: '100%', height: '100%', paddingTop: `${filterBarHeight}px` }}>
       {/* fixed keeps the bar anchored to the visual viewport on mobile (avoids iOS 100vh scroll bug) */}
-      <div className="fixed top-0 left-0 right-0 z-10 bg-[rgba(255,251,245,0.92)] backdrop-blur-sm border-b border-stone-200">
+      <div ref={filterBarRef} className="fixed top-0 left-0 right-0 z-50 bg-[rgba(255,251,245,0.92)] backdrop-blur-sm border-b border-stone-200">
         <FilterBar
           cuisines={cuisines}
           activeCuisine={filters.cuisine}
@@ -150,7 +206,13 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           />
           {/* Smoothly pan to user location once geolocation resolves */}
           {!geoLoading && coords && <MapCenterer coords={resolvedCenter} />}
+          {/* Pan to deep-linked restaurant once resolved */}
+          {deepLinkCenter && <MapCenterer coords={deepLinkCenter} />}
         </Map>
+        {/* SubmissionForm rendered inside APIProvider so it can access google.maps.places */}
+        {showSubmissionForm && (
+          <SubmissionForm onClose={() => setShowSubmissionForm(false)} />
+        )}
       </APIProvider>
 
       <PinLegend />
@@ -159,6 +221,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
         <RestaurantCard
           restaurant={selectedRestaurant}
           onDismiss={() => setSelectedRestaurant(null)}
+          onShareSuccess={() => showToast('Link copied!')}
         />
       )}
 
@@ -178,6 +241,12 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           </div>
         </div>
       )}
+
+      {!authLoading && isAuthenticated && (
+        <SuggestButton onClick={() => setShowSubmissionForm(true)} />
+      )}
+
+      <Toast message={toastMessage} visible={toastVisible} onHide={() => setToastVisible(false)} />
     </div>
   );
 }

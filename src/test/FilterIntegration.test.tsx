@@ -47,6 +47,7 @@ vi.mock("@vis.gl/react-google-maps", () => {
 vi.mock("../hooks", () => ({
   useRestaurants: vi.fn(() => ({ restaurants: [], loading: false, error: null })),
   useGeolocation: vi.fn(() => ({ coords: null, loading: false, denied: false })),
+  useAdminAuth: () => ({ isAuthenticated: false, isConfigured: false, isAdmin: false, userEmail: null, password: '', login: () => false, loginWithGoogle: () => Promise.resolve(), logout: () => {}, loading: false }),
 }));
 
 vi.stubEnv("VITE_GOOGLE_MAPS_API_KEY", "test-key");

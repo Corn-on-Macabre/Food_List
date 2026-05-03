@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { AuthProvider } from '../../src/contexts/AuthContext';
 import { AdminAuthProvider } from '../../src/contexts/AdminAuthContext';
 import { AdminLogin } from '../components/AdminLogin';
 
@@ -14,11 +15,13 @@ afterEach(() => {
 
 function renderAdminLogin() {
   return render(
-    <AdminAuthProvider>
-      <MemoryRouter>
-        <AdminLogin />
-      </MemoryRouter>
-    </AdminAuthProvider>
+    <AuthProvider>
+      <AdminAuthProvider>
+        <MemoryRouter>
+          <AdminLogin />
+        </MemoryRouter>
+      </AdminAuthProvider>
+    </AuthProvider>
   );
 }
 
@@ -33,7 +36,7 @@ describe('AdminLogin', () => {
   it('shows config error banner when VITE_ADMIN_PASSWORD is empty', () => {
     vi.stubEnv('VITE_ADMIN_PASSWORD', '');
     renderAdminLogin();
-    expect(screen.getByText(/Admin password not configured/i)).toBeInTheDocument();
+    expect(screen.getByText(/not configured/i)).toBeInTheDocument();
     expect(screen.queryByPlaceholderText('Password')).not.toBeInTheDocument();
   });
 

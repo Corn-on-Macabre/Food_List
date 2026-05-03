@@ -4,6 +4,16 @@ import { FilterBar } from './FilterBar';
 
 import type { Tier } from '../types/restaurant';
 
+// Mock UserMenu to avoid AuthContext dependency in unit tests
+vi.mock('./UserMenu', () => ({
+  UserMenu: () => null,
+}));
+
+// Mock useAdminAuth — FilterBar only reads isAuthenticated for the admin link
+vi.mock('../hooks', () => ({
+  useAdminAuth: () => ({ isAuthenticated: false }),
+}));
+
 // Default props that satisfy all required FilterBar props.
 // userCoords: null suppresses the distance row so cuisine-only tests stay clean.
 const baseProps = {
