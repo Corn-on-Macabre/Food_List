@@ -31,8 +31,9 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess }: Restau
 
   async function handleShare(): Promise<void> {
     const url = `${window.location.origin}/r/${restaurant.id}`;
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     try {
-      if (navigator.share) {
+      if (isMobile && navigator.share) {
         await navigator.share({ title: restaurant.name, url });
       } else {
         await navigator.clipboard.writeText(url);
