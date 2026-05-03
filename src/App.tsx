@@ -4,6 +4,7 @@ import { APIProvider, Map, useMap, type MapMouseEvent } from '@vis.gl/react-goog
 import { useRestaurants, useGeolocation } from './hooks';
 
 import { ClusteredPins, PinLegend, RestaurantCard, FilterBar, ProtectedRoute, AdminDashboard, Toast } from './components';
+import { AuthProvider } from './contexts/AuthContext';
 import { AdminAuthProvider } from './contexts/AdminAuthContext';
 import type { Restaurant } from './types';
 import type { FilterState } from './types/restaurant';
@@ -46,6 +47,7 @@ function App() {
   }
 
   return (
+    <AuthProvider>
     <AdminAuthProvider>
       <Routes>
         <Route path="/" element={<AppWithMap apiKey={apiKey} />} />
@@ -63,6 +65,7 @@ function App() {
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </AdminAuthProvider>
+    </AuthProvider>
   );
 }
 

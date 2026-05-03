@@ -16,3 +16,4 @@ export { AddressGeocodeInput } from './AddressGeocodeInput';
 export { RestaurantListPanel } from './RestaurantListPanel';
 export { RestaurantListRow } from './RestaurantListRow';
 export { Toast } from './Toast';
+export { UserMenu } from './UserMenu';

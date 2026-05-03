@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { AuthProvider } from '../../src/contexts/AuthContext';
 import { AdminAuthProvider } from '../../src/contexts/AdminAuthContext';
 import { AdminLogin } from '../components/AdminLogin';
 
@@ -14,11 +15,13 @@ afterEach(() => {
 
 function renderAdminLogin() {
   return render(
-    <AdminAuthProvider>
-      <MemoryRouter>
-        <AdminLogin />
-      </MemoryRouter>
-    </AdminAuthProvider>
+    <AuthProvider>
+      <AdminAuthProvider>
+        <MemoryRouter>
+          <AdminLogin />
+        </MemoryRouter>
+      </AdminAuthProvider>
+    </AuthProvider>
   );
 }
 

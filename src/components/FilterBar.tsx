@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { DISTANCE_OPTIONS } from '../utils';
 import { useAdminAuth } from '../hooks';
+import { UserMenu } from './UserMenu';
 import type { Tier } from '../types/restaurant';
 
 interface FilterBarProps {
@@ -77,17 +78,18 @@ export function FilterBar({
 
   return (
     <div className="flex flex-col">
-      {/* Admin nav link — visible only when authenticated (NAV-01, NAV-04, D-08/D-09) */}
-      {isAuthenticated && (
-        <div className="flex justify-end px-4 pt-2">
+      {/* Top bar: Admin link (when admin-authenticated) + User menu (always) */}
+      <div className="flex items-center justify-end gap-3 px-4 pt-2">
+        {isAuthenticated && (
           <Link
             to="/admin"
             className="font-sans text-xs font-semibold text-amber-700 hover:text-amber-900 underline underline-offset-2 transition-colors duration-150"
           >
             Admin &rarr;
           </Link>
-        </div>
-      )}
+        )}
+        <UserMenu />
+      </div>
       {/* Filter controls — search + chips grouped for screen readers (F4 fix) */}
       <div role="group" aria-label="Filters" className="flex flex-col">
         {/* Search input */}
