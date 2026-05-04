@@ -191,7 +191,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           onClearFilters={handleClearFilters}
         />
       </div>
-      <APIProvider apiKey={apiKey}>
+      <APIProvider apiKey={apiKey} libraries={['places']}>
         <Map
           style={{ width: '100%', height: '100%' }}
           defaultCenter={PHOENIX_CENTER}
