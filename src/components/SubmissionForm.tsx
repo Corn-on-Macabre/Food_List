@@ -1,32 +1,13 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { submitRestaurant, fetchMySubmissionsToday } from '../api/submissions';
-import { parseGoogleMapsUrl } from '../utils/parseGoogleMapsUrl';
-import { lookupPlaceFromUrl } from '../api/placesLookup';
+import { usePlacesAutocomplete } from '../hooks/usePlacesAutocomplete';
+import { usePlaceDetails } from '../hooks/usePlaceDetails';
 
 interface Props {
   onClose: () => void;
 }
 
 const DAILY_LIMIT = 5;
-
-/** Prefixes that identify a Google Maps URL in pasted text */
-const MAPS_URL_PREFIXES = [
-  'https://www.google.com/maps/',
-  'https://google.com/maps/',
-  'https://maps.google.com/',
-  'https://maps.app.goo.gl/',
-  'https://goo.gl/maps/',
-  'http://www.google.com/maps/',
-  'http://google.com/maps/',
-  'http://maps.google.com/',
-  'http://maps.app.goo.gl/',
-  'http://goo.gl/maps/',
-];
-
-function looksLikeGoogleMapsUrl(text: string): boolean {
-  const lower = text.trim().toLowerCase();
-  return MAPS_URL_PREFIXES.some((prefix) => lower.startsWith(prefix));
-}
 
 export function SubmissionForm({ onClose }: Props) {
   const [name, setName] = useState('');
@@ -38,10 +19,25 @@ export function SubmissionForm({ onClose }: Props) {
   const [rateLimited, setRateLimited] = useState(false);
   const [checkingLimit, setCheckingLimit] = useState(true);
 
-  // URL extraction state
-  const [extracting, setExtracting] = useState(false);
-  const [extractionMessage, setExtractionMessage] = useState<string | null>(null);
-  const extractionAbort = useRef(false);
+  // Places autocomplete state
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedPlaceId, setSelectedPlaceId] = useState<string | null>(null);
+  const [showDropdown, setShowDropdown] = useState(true);
+  const [activeIndex, setActiveIndex] = useState(-1);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const { predictions, loading: autocompleteLoading } = usePlacesAutocomplete(searchQuery, 300);
+  const { placeDetails } = usePlaceDetails(selectedPlaceId);
+
+  // When place details resolve, auto-fill name + location
+  useEffect(() => {
+    if (!placeDetails) return;
+    setName(placeDetails.name);
+    setLocation(placeDetails.address);
+    setSearchQuery(placeDetails.name);
+    setShowDropdown(false);
+    setSelectedPlaceId(null);
+  }, [placeDetails]);
 
   const overlayRef = useRef<HTMLDivElement>(null);
 
@@ -69,13 +65,6 @@ export function SubmissionForm({ onClose }: Props) {
     return () => clearTimeout(timer);
   }, [success, onClose]);
 
-  // Clear extraction message after a few seconds
-  useEffect(() => {
-    if (!extractionMessage) return;
-    const timer = setTimeout(() => setExtractionMessage(null), 4000);
-    return () => clearTimeout(timer);
-  }, [extractionMessage]);
-
   const handleOverlayClick = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
       if (e.target === overlayRef.current) onClose();
@@ -83,57 +72,47 @@ export function SubmissionForm({ onClose }: Props) {
     [onClose],
   );
 
-  async function handleUrlExtraction(pastedUrl: string): Promise<void> {
-    // Abort any previous extraction
-    extractionAbort.current = true;
-    // Reset for this extraction
-    extractionAbort.current = false;
-    setExtracting(true);
-    setExtractionMessage(null);
+  const isDropdownOpen = showDropdown && predictions.length > 0 && searchQuery.length >= 2;
 
-    try {
-      const parsed = parseGoogleMapsUrl(pastedUrl.trim());
-      if (!parsed) {
-        setExtracting(false);
-        return;
-      }
+  function handleSearchChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setSearchQuery(e.target.value);
+    setShowDropdown(true);
+    setActiveIndex(-1);
+  }
 
-      const result = await lookupPlaceFromUrl(parsed);
+  function handlePlaceSelect(placeId: string) {
+    setSelectedPlaceId(placeId);
+    setShowDropdown(false);
+    setActiveIndex(-1);
+  }
 
-      if (extractionAbort.current) return;
-
-      if (result) {
-        // Pre-fill name only if the user hasn't typed one yet
-        if (!name.trim()) {
-          setName(result.name);
-        }
-        // Replace the URL in location with the extracted address
-        setLocation(result.address);
-        setExtractionMessage(null);
-      } else {
-        setExtractionMessage("Couldn't extract details automatically");
-      }
-    } catch {
-      if (!extractionAbort.current) {
-        setExtractionMessage("Couldn't extract details automatically");
-      }
-    } finally {
-      if (!extractionAbort.current) {
-        setExtracting(false);
-      }
+  function handleSearchKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key === 'Escape') {
+      setShowDropdown(false);
+      setActiveIndex(-1);
+      return;
+    }
+    if (!isDropdownOpen) return;
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setActiveIndex(prev => Math.min(prev + 1, predictions.length - 1));
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setActiveIndex(prev => Math.max(prev - 1, 0));
+    } else if (e.key === 'Enter' && activeIndex >= 0) {
+      e.preventDefault();
+      const selected = predictions[activeIndex];
+      if (selected) handlePlaceSelect(selected.placeId);
     }
   }
 
-  function handleLocationPaste(e: React.ClipboardEvent<HTMLInputElement>): void {
-    const pasted = e.clipboardData.getData('text');
-    if (looksLikeGoogleMapsUrl(pasted)) {
-      // Let the paste happen normally (sets the input value), then trigger extraction
-      // Use setTimeout so the input value is updated first
-      setTimeout(() => {
-        void handleUrlExtraction(pasted);
-      }, 0);
+  // Scroll active dropdown item into view
+  useEffect(() => {
+    if (activeIndex >= 0 && dropdownRef.current) {
+      const items = dropdownRef.current.querySelectorAll('[role="option"]');
+      items[activeIndex]?.scrollIntoView({ block: 'nearest' });
     }
-  }
+  }, [activeIndex]);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -221,19 +200,67 @@ export function SubmissionForm({ onClose }: Props) {
         {/* Form */}
         {!checkingLimit && !rateLimited && !success && (
           <form onSubmit={(e) => { void handleSubmit(e); }} className="space-y-4">
-            <div>
-              <label htmlFor="sub-name" className="block font-sans text-sm font-medium text-stone-700 mb-1">
+            <div className="relative">
+              <label htmlFor="sub-search" className="block font-sans text-sm font-medium text-stone-700 mb-1">
                 Restaurant name <span className="text-red-500">*</span>
               </label>
-              <input
-                id="sub-name"
-                type="text"
-                required
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="e.g., Pizzeria Bianco"
-                className="w-full rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 font-sans text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-amber-200 focus:border-amber-400 transition-colors duration-150"
-              />
+              <div className="relative">
+                <input
+                  id="sub-search"
+                  role="combobox"
+                  aria-autocomplete="list"
+                  aria-expanded={isDropdownOpen}
+                  aria-controls="sub-places-listbox"
+                  type="text"
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                  onKeyDown={handleSearchKeyDown}
+                  placeholder="Search for a restaurant..."
+                  className="w-full rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 font-sans text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-amber-200 focus:border-amber-400 transition-colors duration-150 pr-9"
+                />
+                {autocompleteLoading && (
+                  <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                    <svg className="animate-spin h-4 w-4 text-amber-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                    </svg>
+                  </div>
+                )}
+              </div>
+
+              {isDropdownOpen && (
+                <div
+                  id="sub-places-listbox"
+                  ref={dropdownRef}
+                  role="listbox"
+                  aria-label="Restaurant suggestions"
+                  className="absolute z-50 w-full mt-1 bg-white border border-[#E8E0D5] rounded-xl shadow-lg overflow-hidden max-h-48 overflow-y-auto"
+                >
+                  {predictions.map((p, i) => (
+                    <div
+                      key={p.placeId}
+                      role="option"
+                      aria-selected={i === activeIndex}
+                      tabIndex={-1}
+                      onClick={() => handlePlaceSelect(p.placeId)}
+                      onMouseEnter={() => setActiveIndex(i)}
+                      className={`px-3 py-2.5 cursor-pointer font-sans text-sm text-stone-900 transition-colors ${
+                        i === activeIndex ? 'bg-[#FFF8EE]' : 'hover:bg-[#FFF8EE]'
+                      }`}
+                    >
+                      <span className="font-bold">{p.mainText}</span>
+                      <span className="text-stone-400 ml-1 text-xs">{p.secondaryText}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Show selected name below search if it differs from query */}
+              {name && name !== searchQuery && (
+                <p className="mt-1 font-sans text-xs text-amber-700">
+                  Selected: {name}
+                </p>
+              )}
             </div>
 
             <div>
@@ -246,21 +273,9 @@ export function SubmissionForm({ onClose }: Props) {
                 required
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
-                onPaste={handleLocationPaste}
-                placeholder="e.g., 623 E Adams St, Phoenix — or paste a Google Maps link"
+                placeholder="Auto-filled from search, or enter manually"
                 className="w-full rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 font-sans text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-amber-200 focus:border-amber-400 transition-colors duration-150"
               />
-              {/* Extraction status messages */}
-              {extracting && (
-                <p className="mt-1 font-sans text-xs text-amber-600">
-                  Extracting details...
-                </p>
-              )}
-              {extractionMessage && !extracting && (
-                <p className="mt-1 font-sans text-xs text-stone-500">
-                  {extractionMessage}
-                </p>
-              )}
             </div>
 
             <div>
