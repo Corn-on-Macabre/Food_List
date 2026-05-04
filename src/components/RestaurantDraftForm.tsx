@@ -12,6 +12,8 @@ interface Props {
   onSave: (restaurant: Restaurant) => void;
   onCancel: () => void;
   existingIds?: string[];
+  suggestedBy?: string;
+  suggestedByAvatar?: string;
 }
 
 interface FormFields {
@@ -47,7 +49,7 @@ function getToday(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
-export function RestaurantDraftForm({ initialDraft, onSave, onCancel, existingIds = [] }: Props) {
+export function RestaurantDraftForm({ initialDraft, onSave, onCancel, existingIds = [], suggestedBy, suggestedByAvatar }: Props) {
   const isAutoFill = initialDraft !== null;
 
   const [fields, setFields] = useState<FormFields>({
@@ -113,6 +115,8 @@ export function RestaurantDraftForm({ initialDraft, onSave, onCancel, existingId
       ...(fields.notes.trim() ? { notes: fields.notes.trim() } : {}),
       ...(fields.source.trim() ? { source: fields.source.trim() } : {}),
       ...(fields.tags.length > 0 ? { tags: fields.tags } : {}),
+      ...(suggestedBy ? { suggested_by: suggestedBy } : {}),
+      ...(suggestedByAvatar ? { suggested_by_avatar: suggestedByAvatar } : {}),
     };
 
     onSave(restaurant);

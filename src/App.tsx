@@ -3,7 +3,8 @@ import { Routes, Route, Navigate, useParams } from 'react-router-dom';
 import { APIProvider, Map, useMap, type MapMouseEvent } from '@vis.gl/react-google-maps';
 import { useRestaurants, useGeolocation } from './hooks';
 
-import { ClusteredPins, PinLegend, RestaurantCard, FilterBar, ProtectedRoute, AdminDashboard, Toast } from './components';
+import { ClusteredPins, PinLegend, RestaurantCard, FilterBar, ProtectedRoute, AdminDashboard, Toast, SuggestButton, SubmissionForm } from './components';
+import { useAuth, AuthProvider } from './contexts/AuthContext';
 import { AdminAuthProvider } from './contexts/AdminAuthContext';
 import type { Restaurant } from './types';
 import type { FilterState } from './types/restaurant';
@@ -46,6 +47,7 @@ function App() {
   }
 
   return (
+    <AuthProvider>
     <AdminAuthProvider>
       <Routes>
         <Route path="/" element={<AppWithMap apiKey={apiKey} />} />
@@ -63,6 +65,7 @@ function App() {
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </AdminAuthProvider>
+    </AuthProvider>
   );
 }
 
@@ -76,6 +79,9 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
 
   const [selectedRestaurant, setSelectedRestaurant] = useState<Restaurant | null>(null);
   const [filters, setFilters] = useState<FilterState>({ cuisine: null, tier: null, maxDistance: null, searchTerm: null });
+
+  const { isAuthenticated, loading: authLoading } = useAuth();
+  const [showSubmissionForm, setShowSubmissionForm] = useState(false);
 
   const [toastMessage, setToastMessage] = useState('');
   const [toastVisible, setToastVisible] = useState(false);
@@ -203,6 +209,10 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           {/* Pan to deep-linked restaurant once resolved */}
           {deepLinkCenter && <MapCenterer coords={deepLinkCenter} />}
         </Map>
+        {/* SubmissionForm rendered inside APIProvider so it can access google.maps.places */}
+        {showSubmissionForm && (
+          <SubmissionForm onClose={() => setShowSubmissionForm(false)} />
+        )}
       </APIProvider>
 
       <PinLegend />
@@ -230,6 +240,10 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
             <p className="text-gray-700">Could not load restaurant data. Please refresh the page.</p>
           </div>
         </div>
+      )}
+
+      {!authLoading && isAuthenticated && (
+        <SuggestButton onClick={() => setShowSubmissionForm(true)} />
       )}
 
       <Toast message={toastMessage} visible={toastVisible} onHide={() => setToastVisible(false)} />

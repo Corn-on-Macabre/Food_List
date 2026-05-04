@@ -93,16 +93,16 @@ development_status:
   epic-6-retrospective: optional
 
   # Epic 7: Google OAuth + Supabase Migration
-  epic-7: in-progress
-  7-1-supabase-project-setup-and-restaurant-data-migration: review
-  7-2-google-oauth-for-admin: backlog
-  7-3-migrate-restaurant-crud-to-supabase: backlog
+  epic-7: done
+  7-1-supabase-project-setup-and-restaurant-data-migration: done
+  7-2-google-oauth-for-admin: done
+  7-3-migrate-restaurant-crud-to-supabase: done
   epic-7-retrospective: optional
 
   # Epic 8: Community Submissions (depends on Epic 7)
-  epic-8: backlog
-  8-1-google-sign-in-for-visitors: backlog
-  8-2-submission-form-and-review-queue: backlog
-  8-3-url-based-submission-with-auto-extraction: backlog
-  8-4-suggested-by-attribution-on-detail-cards: backlog
+  epic-8: done
+  8-1-google-sign-in-for-visitors: done
+  8-2-submission-form-and-review-queue: done
+  8-3-url-based-submission-with-auto-extraction: done
+  8-4-suggested-by-attribution-on-detail-cards: done
   epic-8-retrospective: optional

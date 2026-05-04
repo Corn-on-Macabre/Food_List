@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, fireEvent, act, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { AuthProvider } from '../contexts/AuthContext';
 import { AdminAuthProvider } from '../contexts/AdminAuthContext';
 import type { Restaurant } from '../types';
 
@@ -54,11 +55,13 @@ afterEach(() => {
 
 async function renderDashboard() {
   const result = render(
-    <AdminAuthProvider>
-      <MemoryRouter>
-        <AdminDashboard />
-      </MemoryRouter>
-    </AdminAuthProvider>
+    <AuthProvider>
+      <AdminAuthProvider>
+        <MemoryRouter>
+          <AdminDashboard />
+        </MemoryRouter>
+      </AdminAuthProvider>
+    </AuthProvider>
   );
   // Wait for the API fetch to resolve and loading state to clear
   await waitFor(() => {

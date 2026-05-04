@@ -1,9 +1,8 @@
 /* eslint-disable react-refresh/only-export-components -- standard context pattern: provider + hook co-located in one file */
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState } from 'react';
+import { useAuth } from './AuthContext';
 import { supabase, supabaseConfigured } from '../lib/supabase';
-import type { Session } from '@supabase/supabase-js';
 
-const ADMIN_EMAIL = import.meta.env.VITE_ADMIN_EMAIL ?? 'bobbyhunnicutt@gmail.com';
 const SESSION_KEY = 'food-list-admin-auth';
 
 interface AdminAuthContextValue {
@@ -22,30 +21,13 @@ interface AdminAuthContextValue {
 const AdminAuthContext = createContext<AdminAuthContextValue | null>(null);
 
 export function AdminAuthProvider({ children }: { children: React.ReactNode }) {
+  const auth = useAuth();
   const envPassword = import.meta.env.VITE_ADMIN_PASSWORD;
 
-  // Supabase session state
-  const [session, setSession] = useState<Session | null>(null);
-  const [loading, setLoading] = useState(supabaseConfigured);
-
-  useEffect(() => {
-    if (!supabaseConfigured) return;
-
-    supabase.auth.getSession().then(({ data: { session: s } }) => {
-      setSession(s);
-      setLoading(false);
-    });
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, s) => {
-      setSession(s);
-    });
-
-    return () => subscription.unsubscribe();
-  }, []);
-
-  const userEmail = session?.user?.email ?? null;
-  const isAdmin = userEmail?.toLowerCase() === ADMIN_EMAIL.toLowerCase();
-  const supabaseAuthenticated = supabaseConfigured && session !== null && isAdmin;
+  // Supabase auth state comes from AuthContext — no duplicate subscription
+  const userEmail = auth.user?.email ?? null;
+  const isAdmin = auth.isAdmin;
+  const supabaseAuthenticated = supabaseConfigured && auth.isAuthenticated && isAdmin;
 
   // Legacy password auth (fallback when Supabase not configured)
   const isConfigured = supabaseConfigured || Boolean(envPassword);
@@ -72,6 +54,7 @@ export function AdminAuthProvider({ children }: { children: React.ReactNode }) {
 
   async function loginWithGoogle(): Promise<void> {
     if (!supabaseConfigured) return;
+    // Admin login redirects back to /admin (unlike visitor sign-in which redirects to /)
     await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
@@ -85,14 +68,12 @@ export function AdminAuthProvider({ children }: { children: React.ReactNode }) {
     sessionStorage.removeItem(SESSION_KEY);
     setPasswordAuthed(false);
     setPassword('');
-    // Clear Supabase session
-    if (supabaseConfigured) {
-      supabase.auth.signOut();
-    }
+    // Clear Supabase session via AuthContext
+    auth.signOut();
   }
 
   return (
-    <AdminAuthContext.Provider value={{ isAuthenticated, isConfigured, isAdmin, userEmail, password, login, loginWithGoogle, logout, loading }}>
+    <AdminAuthContext.Provider value={{ isAuthenticated, isConfigured, isAdmin, userEmail, password, login, loginWithGoogle, logout, loading: auth.loading }}>
       {children}
     </AdminAuthContext.Provider>
   );
