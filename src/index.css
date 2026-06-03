@@ -15,6 +15,14 @@ html, body {
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
+@keyframes deep-link-ping {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+.deep-link-ping {
+  animation: deep-link-ping 1.8s ease-out infinite;
+}
+
 @theme {
   --font-display: 'Playfair Display SC', Georgia, serif;
   --font-sans: 'Karla', system-ui, sans-serif;

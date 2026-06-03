@@ -8,9 +8,10 @@ interface ClusteredPinsProps {
   restaurants: Restaurant[];
   onRestaurantClick: (restaurant: Restaurant) => void;
   selectedRestaurantId: string | null;
+  deepLinkedId: string | null;
 }
 
-export function ClusteredPins({ restaurants, onRestaurantClick, selectedRestaurantId }: ClusteredPinsProps) {
+export function ClusteredPins({ restaurants, onRestaurantClick, selectedRestaurantId, deepLinkedId }: ClusteredPinsProps) {
   const map = useMap();
   const clustererRef = useRef<MarkerClusterer | null>(null);
   const markersRef = useRef<Map<string, google.maps.marker.AdvancedMarkerElement>>(new Map());
@@ -48,6 +49,7 @@ export function ClusteredPins({ restaurants, onRestaurantClick, selectedRestaura
       {restaurants.map((r) => {
         const color = TIER_COLORS[r.tier];
         const isSelected = r.id === selectedRestaurantId;
+        const isDeepLinked = r.id === deepLinkedId && isSelected;
         return (
           <AdvancedMarker
             key={r.id}
@@ -56,12 +58,27 @@ export function ClusteredPins({ restaurants, onRestaurantClick, selectedRestaura
             onClick={() => onRestaurantClick(r)}
             zIndex={isSelected ? 1 : 0}
           >
-            <Pin
-              background={color}
-              glyphColor="#FFFFFF"
-              borderColor={isSelected ? '#FFFFFF' : color}
-              scale={isSelected ? 1.35 : 1}
-            />
+            {isDeepLinked ? (
+              <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div
+                  className="deep-link-ping"
+                  style={{ position: 'absolute', width: 36, height: 36, borderRadius: '50%', backgroundColor: color }}
+                />
+                <Pin
+                  background={color}
+                  glyphColor="#FFFFFF"
+                  borderColor="#FFFFFF"
+                  scale={1.35}
+                />
+              </div>
+            ) : (
+              <Pin
+                background={color}
+                glyphColor="#FFFFFF"
+                borderColor={isSelected ? '#FFFFFF' : color}
+                scale={isSelected ? 1.35 : 1}
+              />
+            )}
           </AdvancedMarker>
         );
       })}

@@ -206,6 +206,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
             restaurants={filteredRestaurants}
             onRestaurantClick={setSelectedRestaurant}
             selectedRestaurantId={selectedRestaurant?.id ?? null}
+            deepLinkedId={slug ?? null}
           />
           {/* Smoothly pan to user location once geolocation resolves */}
           {!geoLoading && coords && <MapCenterer coords={resolvedCenter} />}
