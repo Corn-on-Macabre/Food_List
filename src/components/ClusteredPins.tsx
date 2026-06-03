@@ -59,17 +59,22 @@ export function ClusteredPins({ restaurants, onRestaurantClick, selectedRestaura
             zIndex={isSelected ? 1 : 0}
           >
             {isDeepLinked ? (
-              <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ position: 'relative', width: 40, height: 50, display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
+                {/* Pulsing ring behind the pin */}
                 <div
                   className="deep-link-ping"
-                  style={{ position: 'absolute', width: 36, height: 36, borderRadius: '50%', backgroundColor: color }}
+                  style={{ position: 'absolute', top: 4, width: 32, height: 32, borderRadius: '50%', backgroundColor: color }}
                 />
-                <Pin
-                  background={color}
-                  glyphColor="#FFFFFF"
-                  borderColor="#FFFFFF"
-                  scale={1.35}
-                />
+                {/* Custom teardrop pin */}
+                <svg width="40" height="50" viewBox="0 0 40 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M20 0C9 0 0 9 0 20c0 15 20 30 20 30s20-15 20-30C40 9 31 0 20 0z"
+                    fill={color}
+                    stroke="#FFFFFF"
+                    strokeWidth="3"
+                  />
+                  <circle cx="20" cy="19" r="7" fill="#FFFFFF" />
+                </svg>
               </div>
             ) : (
               <Pin
