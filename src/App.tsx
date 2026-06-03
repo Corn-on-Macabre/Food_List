@@ -18,13 +18,16 @@ const PHOENIX_CENTER = { lat: 33.4484, lng: -112.0740 };
 // NOTE: getCurrentPosition has no cancellation API. If the parent unmounts before
 // geolocation resolves, setCoords/setLoading fire on the unmounted component —
 // React 18 handles this as a no-op.
-function MapCenterer({ coords }: { coords: { lat: number; lng: number } }) {
+function MapCenterer({ coords, zoom }: { coords: { lat: number; lng: number }; zoom?: number }) {
   const map = useMap();
   useEffect(() => {
     if (map) {
       map.panTo(coords);
+      if (zoom != null) {
+        map.setZoom(zoom);
+      }
     }
-  }, [map, coords]);
+  }, [map, coords, zoom]);
   return null;
 }
 
@@ -207,7 +210,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           {/* Smoothly pan to user location once geolocation resolves */}
           {!geoLoading && coords && <MapCenterer coords={resolvedCenter} />}
           {/* Pan to deep-linked restaurant once resolved */}
-          {deepLinkCenter && <MapCenterer coords={deepLinkCenter} />}
+          {deepLinkCenter && <MapCenterer coords={deepLinkCenter} zoom={15} />}
         </Map>
         {/* SubmissionForm rendered inside APIProvider so it can access google.maps.places */}
         {showSubmissionForm && (
@@ -222,6 +225,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           restaurant={selectedRestaurant}
           onDismiss={() => setSelectedRestaurant(null)}
           onShareSuccess={() => showToast('Link copied!')}
+          filterBarHeight={filterBarHeight}
         />
       )}
 

@@ -7,6 +7,7 @@ interface RestaurantCardProps {
   restaurant: Restaurant;
   onDismiss: () => void;
   onShareSuccess: () => void;
+  filterBarHeight: number;
 }
 
 const TIER_LABELS: Record<Tier, string> = {
@@ -26,7 +27,7 @@ function getSafeHref(url: string): string {
   return url.startsWith("http://") || url.startsWith("https://") ? url : "#";
 }
 
-export function RestaurantCard({ restaurant, onDismiss, onShareSuccess }: RestaurantCardProps) {
+export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBarHeight }: RestaurantCardProps) {
   const [photoError, setPhotoError] = useState(false);
 
   async function handleShare(): Promise<void> {
@@ -58,7 +59,7 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess }: Restau
       className="fixed z-40 bg-white shadow-lg bottom-0 left-0 right-0 rounded-t-2xl border-t border-stone-100 max-h-[70vh] overflow-y-auto md:max-h-none md:overflow-y-auto md:bottom-auto md:top-0 md:left-auto md:right-0 md:w-[360px] md:h-dvh md:rounded-none md:border-t-0 md:border-l md:border-stone-100"
     >
       {/* Spacer to push content below the fixed filter bar on desktop */}
-      <div className="hidden md:block md:h-[120px] md:shrink-0" />
+      <div className="hidden md:block md:shrink-0" style={{ height: filterBarHeight }} />
       {photoUrl && (
         <img
           src={photoUrl}
