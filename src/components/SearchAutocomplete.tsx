@@ -32,10 +32,12 @@ export function SearchAutocomplete({
   restaurants,
   onRestaurantSelect,
 }: SearchAutocompleteProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [focused, setFocused] = useState(false);
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
+  const [dismissed, setDismissed] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
+  const blurTimeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   const matches = useMemo(() => {
     if (!searchTerm) return [];
@@ -45,10 +47,11 @@ export function SearchAutocomplete({
       .slice(0, 7);
   }, [searchTerm, restaurants]);
 
-  // Reset highlight when matches change
+  // Reset highlight and un-dismiss when search term changes
   useEffect(() => {
     setHighlightedIndex(-1);
-  }, [matches]);
+    setDismissed(false);
+  }, [searchTerm]);
 
   // Scroll highlighted item into view
   useEffect(() => {
@@ -58,11 +61,11 @@ export function SearchAutocomplete({
     }
   }, [highlightedIndex]);
 
-  const showDropdown = isOpen && matches.length > 0;
+  const showDropdown = focused && !dismissed && matches.length > 0;
 
   function handleSelect(restaurant: Restaurant) {
     onRestaurantSelect(restaurant);
-    setIsOpen(false);
+    setDismissed(true);
     setHighlightedIndex(-1);
     inputRef.current?.blur();
   }
@@ -70,9 +73,7 @@ export function SearchAutocomplete({
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === 'ArrowDown') {
       e.preventDefault();
-      if (!isOpen && matches.length > 0) {
-        setIsOpen(true);
-      }
+      if (dismissed) setDismissed(false);
       setHighlightedIndex(prev =>
         prev < matches.length - 1 ? prev + 1 : 0
       );
@@ -87,7 +88,7 @@ export function SearchAutocomplete({
         handleSelect(matches[highlightedIndex]);
       }
     } else if (e.key === 'Escape') {
-      setIsOpen(false);
+      setDismissed(true);
       setHighlightedIndex(-1);
       onSearchChange(null);
       inputRef.current?.blur();
@@ -118,16 +119,13 @@ export function SearchAutocomplete({
         value={searchTerm ?? ''}
         onChange={(e) => {
           onSearchChange(e.target.value || null);
-          setIsOpen(true);
         }}
         onFocus={() => {
-          if (searchTerm && matches.length > 0) {
-            setIsOpen(true);
-          }
+          clearTimeout(blurTimeoutRef.current);
+          setFocused(true);
         }}
         onBlur={() => {
-          // Delay to allow onMouseDown on match items to fire first
-          setTimeout(() => setIsOpen(false), 150);
+          blurTimeoutRef.current = setTimeout(() => setFocused(false), 200);
         }}
         onKeyDown={handleKeyDown}
         className="w-full pl-9 pr-8 py-2 text-xs font-sans bg-white border border-[#E8E0D5] rounded-full focus:outline-none focus:ring-2 focus:ring-[#FDE68A] placeholder:text-stone-400 [&::-webkit-search-cancel-button]:appearance-none"
@@ -138,7 +136,7 @@ export function SearchAutocomplete({
           aria-label="Clear search"
           onClick={() => {
             onSearchChange(null);
-            setIsOpen(false);
+            setDismissed(true);
             setHighlightedIndex(-1);
           }}
           className="absolute right-1 top-1/2 -translate-y-1/2 p-2 text-stone-400 hover:text-stone-600"
