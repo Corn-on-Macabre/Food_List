@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import { DISTANCE_OPTIONS } from '../utils';
 import { useAdminAuth } from '../hooks';
 import { UserMenu } from './UserMenu';
-import type { Tier } from '../types/restaurant';
+import { SearchAutocomplete } from './SearchAutocomplete';
+import type { Restaurant, Tier } from '../types/restaurant';
 
 interface FilterBarProps {
   cuisines: string[];
@@ -20,6 +21,9 @@ interface FilterBarProps {
   // Story 6.2 additions:
   searchTerm: string | null;
   onSearchChange: (term: string | null) => void;
+  // Autocomplete additions:
+  restaurants: Restaurant[];
+  onRestaurantSelect: (restaurant: Restaurant) => void;
   // Story 3.3 additions:
   // hasActiveFilters uses filters.maxDistance (user intent), not effectiveMaxDistance.
   // This allows Clear Filters to appear even when location is unavailable and the distance
@@ -51,6 +55,8 @@ export function FilterBar({
   onDistanceChange,
   searchTerm,
   onSearchChange,
+  restaurants,
+  onRestaurantSelect,
   hasActiveFilters,
   onClearFilters,
 }: FilterBarProps) {
@@ -92,45 +98,13 @@ export function FilterBar({
       </div>
       {/* Filter controls — search + chips grouped for screen readers (F4 fix) */}
       <div role="group" aria-label="Filters" className="flex flex-col">
-        {/* Search input */}
-        <div className="relative mx-4 mt-2">
-          <svg
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-amber-600 pointer-events-none"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-          <input
-            type="search"
-            role="searchbox"
-            aria-label="Search restaurants by name"
-            placeholder="Search restaurants..."
-            value={searchTerm ?? ''}
-            onChange={(e) => onSearchChange(e.target.value || null)}
-            onKeyDown={(e) => {
-              if (e.key === 'Escape') {
-                onSearchChange(null);
-                e.currentTarget.blur();
-              }
-            }}
-            className="w-full pl-9 pr-8 py-2 text-xs font-sans bg-white border border-[#E8E0D5] rounded-full focus:outline-none focus:ring-2 focus:ring-[#FDE68A] placeholder:text-stone-400 [&::-webkit-search-cancel-button]:appearance-none"
-          />
-          {searchTerm !== null && (
-            <button
-              type="button"
-              aria-label="Clear search"
-              onClick={() => onSearchChange(null)}
-              className="absolute right-1 top-1/2 -translate-y-1/2 p-2 text-stone-400 hover:text-stone-600"
-            >
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          )}
-        </div>
+        {/* Search with autocomplete */}
+        <SearchAutocomplete
+          searchTerm={searchTerm}
+          onSearchChange={onSearchChange}
+          restaurants={restaurants}
+          onRestaurantSelect={onRestaurantSelect}
+        />
         {/* Cuisine row */}
         <div role="group" aria-label="Filter by cuisine" className="flex gap-2 overflow-x-auto px-4 py-2 scrollbar-hide">
           <button

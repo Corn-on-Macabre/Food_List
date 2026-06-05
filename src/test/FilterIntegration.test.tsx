@@ -377,7 +377,7 @@ describe("App — Search by restaurant name (Story 6.2)", () => {
     });
   });
 
-  const getSearchInput = () => screen.getByRole("searchbox", { name: /search restaurants by name/i });
+  const getSearchInput = () => screen.getByRole("combobox", { name: /search restaurants by name/i });
 
   it("search input is rendered with correct placeholder (AC 1)", () => {
     render(<MemoryRouter><App /></MemoryRouter>);

@@ -3,6 +3,7 @@ export { ClusteredPins } from './ClusteredPins';
 export { PinLegend } from './PinLegend';
 export { RestaurantCard } from './RestaurantCard';
 export { FilterBar } from './FilterBar';
+export { SearchAutocomplete } from './SearchAutocomplete';
 export { AdminLogin } from './AdminLogin';
 export { ProtectedRoute } from './ProtectedRoute';
 export { AdminDashboard } from './AdminDashboard';
