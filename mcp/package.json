@@ -1,7 +1,7 @@
 {
-  "name": "food-list-mcp",
+  "name": "bobby-menu-mcp",
   "version": "1.0.0",
-  "description": "MCP server for Food List restaurant data",
+  "description": "MCP server for bobby.menu restaurant data",
   "type": "module",
   "main": "dist/server.js",
   "scripts": {

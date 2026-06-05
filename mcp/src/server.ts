@@ -4,7 +4,7 @@ import { z } from 'zod';
 import { loadData, searchRestaurants, filterRestaurants, nearbyRestaurants, getStats } from './tools.js';
 
 const server = new McpServer({
-  name: 'food-list',
+  name: 'bobby-menu',
   version: '1.0.0',
 });
 
@@ -12,7 +12,7 @@ const server = new McpServer({
 
 server.tool(
   'search_restaurants',
-  'Search Bobby\'s restaurant list by name. Returns matching restaurants with cuisine, tier, notes, and Google Maps link.',
+  'Search bobby.menu restaurant list by name. Returns matching restaurants with cuisine, tier, notes, and Google Maps link.',
   {
     query: z.string().describe('Restaurant name to search for (partial match, case-insensitive)'),
     limit: z.number().optional().default(10).describe('Max results to return (default 10)'),
@@ -24,7 +24,7 @@ server.tool(
 
 server.tool(
   'filter_restaurants',
-  'Filter Bobby\'s restaurant list by cuisine type and/or tier (loved, recommended, on_my_radar).',
+  'Filter bobby.menu restaurant list by cuisine type and/or tier (loved, recommended, on_my_radar).',
   {
     cuisine: z.string().optional().describe('Cuisine type (e.g., "Mexican", "Korean", "Italian")'),
     tier: z.enum(['loved', 'recommended', 'on_my_radar']).optional().describe('Curator confidence tier'),
@@ -37,7 +37,7 @@ server.tool(
 
 server.tool(
   'nearby_restaurants',
-  'Find restaurants from Bobby\'s list near a location. Provide latitude/longitude coordinates. Results sorted by distance.',
+  'Find restaurants from bobby.menu near a location. Provide latitude/longitude coordinates. Results sorted by distance.',
   {
     lat: z.number().describe('Latitude of the location'),
     lng: z.number().describe('Longitude of the location'),

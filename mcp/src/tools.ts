@@ -184,7 +184,7 @@ export function getStats(): string {
     .join('\n');
 
   return [
-    `Bobby's Food List — ${restaurants.length} restaurants`,
+    `bobby.menu — ${restaurants.length} restaurants`,
     '',
     'By tier:',
     `  Loved: ${tierCounts['loved'] || 0}`,
