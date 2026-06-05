@@ -97,6 +97,17 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
   const deepLinkProcessed = useRef(false);
   const [deepLinkCenter, setDeepLinkCenter] = useState<{ lat: number; lng: number } | null>(null);
 
+  // Autocomplete selection: pan to restaurant and open detail card
+  const [panTarget, setPanTarget] = useState<{ lat: number; lng: number; key: number } | null>(null);
+  const panKeyRef = useRef(0);
+
+  const handleAutocompleteSelect = useCallback((restaurant: Restaurant) => {
+    setSelectedRestaurant(restaurant);
+    panKeyRef.current += 1;
+    setPanTarget({ lat: restaurant.lat, lng: restaurant.lng, key: panKeyRef.current });
+    setFilters(f => ({ ...f, searchTerm: null }));
+  }, []);
+
   // Deep link resolution: when restaurants finish loading and a slug is present, select that restaurant
   useEffect(() => {
     if (!slug || restaurants.length === 0 || deepLinkProcessed.current) return;
@@ -190,6 +201,8 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           onDistanceChange={(miles) => setFilters(f => ({ ...f, maxDistance: miles }))}
           searchTerm={filters.searchTerm}
           onSearchChange={(term) => setFilters(f => ({ ...f, searchTerm: term }))}
+          restaurants={restaurants}
+          onRestaurantSelect={handleAutocompleteSelect}
           hasActiveFilters={hasActiveFilters}
           onClearFilters={handleClearFilters}
         />
@@ -212,6 +225,8 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           {!geoLoading && coords && <MapCenterer coords={resolvedCenter} />}
           {/* Pan to deep-linked restaurant once resolved */}
           {deepLinkCenter && <MapCenterer coords={deepLinkCenter} zoom={15} />}
+          {/* Pan to autocomplete-selected restaurant */}
+          {panTarget && <MapCenterer key={panTarget.key} coords={panTarget} zoom={15} />}
         </Map>
         {/* SubmissionForm rendered inside APIProvider so it can access google.maps.places */}
         {showSubmissionForm && (
