@@ -8,7 +8,7 @@ Map-based restaurant curation SPA for the Phoenix metro area. Single curator (Rh
 - Tailwind CSS v4 (via `@tailwindcss/vite` plugin)
 - `@vis.gl/react-google-maps` — the ONLY Google Maps library (not `@react-google-maps/api`, not `google-maps-react`)
 - Static `public/restaurants.json` as data layer (no database for MVP)
-- Deployed via Nginx on VPS with `rsync` of `dist/`
+- Deployed via Nginx on VPS: `rsync -avz --delete dist/ food-list-vps:/var/www/food-list/` (target is the root, NOT a `dist/` subdirectory)
 
 ## Project Root
 `/Users/rhunnicutt/Food_List` — this IS the project root. Do NOT create nested subdirectories for app code.
@@ -58,7 +58,7 @@ A map-based restaurant curation SPA for the Phoenix metro area. Single curator (
 - **Maps library:** `@vis.gl/react-google-maps` only — no `@react-google-maps/api` or alternatives
 - **No database:** Static JSON data layer for MVP
 - **Styling:** Tailwind utility classes only — no custom CSS except `src/index.css` directives
-- **Deployment:** rsync of `dist/` to VPS, Nginx serves static files
+- **Deployment:** `rsync -avz --delete dist/ food-list-vps:/var/www/food-list/` — target is the SERVER ROOT, not a `dist/` subdirectory
 - **Tier colors:** Fixed — Loved=#F59E0B, Recommended=#3B82F6, On My Radar=#10B981
 <!-- GSD:project-end -->
 
@@ -130,7 +130,7 @@ A map-based restaurant curation SPA for the Phoenix metro area. Single curator (
 - Valid Google Maps API key
 - Node.js 20-alpine Docker container (or equivalent)
 - Nginx web server with SSL/TLS (HTTPS only)
-- Static file serving for SPA from `/var/www/food-list/dist`
+- Static file serving for SPA from `/var/www/food-list/` (NOT `/var/www/food-list/dist/`)
 - Express API server on port 3001 (behind Nginx proxy)
 - `restaurants.json` writable at `/var/www/food-list/restaurants.json`
 - VPS with Nginx and rsync capability (current: `food-list-vps:/var/www/food-list/`)
