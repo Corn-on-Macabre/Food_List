@@ -154,7 +154,7 @@ export function SearchAutocomplete({
           id="search-matches"
           role="listbox"
           aria-label="Matching restaurants"
-          className="absolute left-0 right-0 mt-1 z-50 bg-white border border-[#E8E0D5] rounded-xl shadow-lg max-h-[280px] overflow-y-auto"
+          className="absolute left-0 right-0 mt-1 z-[100] bg-white border border-[#E8E0D5] rounded-xl shadow-lg max-h-[280px] overflow-y-auto"
         >
           {matches.map((restaurant, index) => (
             <li
