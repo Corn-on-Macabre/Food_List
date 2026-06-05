@@ -8,7 +8,7 @@ interface SearchAutocompleteProps {
   onRestaurantSelect: (restaurant: Restaurant) => void;
 }
 
-function highlightMatch(name: string, term: string): JSX.Element {
+function highlightMatch(name: string, term: string): React.JSX.Element {
   const lower = name.toLowerCase();
   const idx = lower.indexOf(term.toLowerCase());
   if (idx === -1) return <>{name}</>;

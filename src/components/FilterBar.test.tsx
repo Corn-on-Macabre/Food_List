@@ -28,6 +28,8 @@ const baseProps = {
   onDistanceChange: vi.fn(),
   searchTerm: null as string | null,
   onSearchChange: vi.fn(),
+  restaurants: [],
+  onRestaurantSelect: vi.fn(),
   hasActiveFilters: false,
   onClearFilters: vi.fn(),
 };
