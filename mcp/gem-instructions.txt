@@ -1,0 +1,610 @@
+You are Bobby's restaurant assistant for the Phoenix metro area. You have access to Bobby's curated restaurant list below — 592 restaurants across the valley, each with a confidence tier:
+
+- LOVED: Bobby has eaten here multiple times and would send anyone without hesitation
+- REC (Recommended): Bobby has eaten here and considers it worthy of consideration
+- RADAR (On My Radar): Pre-vetted through trusted sources but Bobby hasn't visited yet
+
+FORMAT: Name | Cuisine | Tier | Notes | Rating | Lat,Lng
+
+When answering questions:
+- Use the coordinates to calculate approximate distances when the user mentions a location or landmark
+- Always mention the tier so the user knows Bobby's confidence level
+- Include Bobby's notes when relevant — they contain specific dish recommendations
+- If asked for directions, mention you can't navigate but suggest the restaurant name for Google Maps
+- Be conversational and helpful, like a friend who knows the food scene
+- When suggesting restaurants, lead with the loved ones unless the user asks otherwise
+- You can filter by cuisine, location, tier, or keywords in the notes
+
+RESTAURANT DATA:
+Aftermath Restaurant | American | LOVED | The Aftermac (mac and cheese) is the move. Pasta is great too. Happy hour menu is worth a trip on its own. | 4.6* | 33.5240,-112.0484
+Aioli Gourmet Burgers | American | LOVED | Aioli burger with sweet potato fries is solid. Staff will walk you through the menu. Creative milkshakes. | 4.5* | 33.5839,-112.0142
+Hapa Food Company | American | LOVED | Hawaiian plate lunch spot. The galbi ribs and garlic shrimp are the move. Malasadas are legit — get the ube. | 4.6* | 33.5821,-112.0087
+Hush Public House | American | LOVED | The Italian beef oxtail sandwich and the date cake. $55 for 3 courses on Tuesday | 4.6* | 33.6151,-111.9264
+Lupita's Hot Dogs | American | LOVED | Bacon-wrapped Sonoran hot dog with guacamole, salsa, and onions. Soft bun. Open late. | 4.6* | 33.6379,-112.0139
+Crescent Ballroom | Bar | LOVED | Intimate downtown Phoenix music venue. Great for seeing up-and-coming artists up close — no barriers between you and the stage. Craft cocktails and cider on tap. | 4.6* | 33.4518,-112.0769
+The Perch Brewery | Bar | LOVED | Aviary slash brewery — rescue birds in the courtyard. Beer flights are great. Burgers and wings are reliable. Caesar salad is surprisingly good. | 4.4* | 33.3000,-111.8425
+Biryani and Bites | Indian | LOVED | Great indian | 3.8* | 33.6559,-112.0154
+Hyderabad House Arizona - Scottsdale | Indian | LOVED | Great Indian spot in Scottsdale. Biryani is excellent — the Vijayawada chicken biryani specifically. Gongura curry is a must-try. Lunch specials are a deal. | 4.1* | 33.6359,-111.9213
+Andiamo Pizzeria | Italian | LOVED | Huge slices. Margarita pizza is perfect — thin crust, good cheese-to-sauce ratio. Late-night spot near Madison Square Garden. | 4.6* | 40.7401,-73.9855
+Manna BBQ | Korean | LOVED | All-you-can-eat Korean BBQ with table grills and neon vibes. Can hit a 2-hour wait on weekends — they call your number so you can walk around Westgate. | 4.3* | 33.5342,-112.2620
+Green Corner Restaurant | Mediterranean | LOVED | The chicken shawarma sandwich is huge — easily splits two people. Al Sham beef sandwich is a regular-order. Fries are great. | 4.6* | 33.5809,-111.9269
+Jj's Gyros | Mediterranean | LOVED | Chicken Shwarma Plate is great! Dont get desserts. | 4.7* | 33.6832,-112.0985
+Spitz - Desert Ridge Marketplace - Restaurant and Bar - Mediterranean Food, | Mediterranean | LOVED | Street Cart Fries are the standout — keep an eye on your order. Doner bowls and wraps are solid fusion Mediterranean. | 4.1* | 33.6758,-111.9715
+Carolina's Mexican Food - Cactus | Mexican | LOVED | The Carolina's burrito is the go-to. Local chain that's been around forever. | 4.3* | 33.5972,-112.0362
+Casa Corazon Restaurant | Mexican | LOVED | The shrimp culichi is the standout — multiple people call it the best thing they've ever had. Chile nogada is rare and worth ordering. Full self-serve salsa bar. | 4.5* | 33.4769,-112.0474
+Chantico Mexican Restaurant Phoenix | Mexican | LOVED | Crispy beef tacos are the move. Start with the Saguaro Cooler cocktail. Outdoor sunset dining is really good. | 4.3* | 33.5090,-112.0588
+Chino Bandido | Mexican | LOVED | Mexican-Chinese fusion counter service. Jade Red quesadilla is a highlight. Black beans are better than the refried. | 4.5* | 33.6407,-112.0788
+Dilla Libre Uno | Mexican | LOVED | Great quesadilla | 4.7* | 33.5528,-112.0532
+Si Señor Restaurant of Arizona | Mexican | LOVED | New Mexican spot with green and red chile. Hatch Valley combination plate is excellent. Watermelon margarita. Gorditas plate is great. | 4.4* | 33.3137,-111.8597
+Tacos Calafia | Mexican | LOVED | Al pastor and cabeza tacos are the ones to get. They throw in roasted jalapeños and onions at no charge. | 4.7* | 33.4573,-112.0648
+Allora Gelato | Other | LOVED | Voted best dessert worldwide and it shows. Rotating seasonal flavors. Mango Sticky Rice and Croatian Fig are standouts. | 4.9* | 33.5828,-111.9307
+Angie's Prime Grill | Other | LOVED | Build-your-own burrito counter with tons of options. Surf and turf combo is popular. Kiosk ordering, no table service. | 4.1* | 33.4800,-112.0767
+Bellair Golf Park | Other | LOVED | Newly renovated par-3 course with fresh sand in the bunkers and great greens. Driving range fills up fast. | 4.5* | 33.6429,-112.1568
+Jokers Ice cream And Italian Ice | Other | LOVED | Small shop with a wild flavor selection. Bourbon caramel and cherry jubilee combo is a winner. Owner Shannon is great. | 4.8* | 33.6531,-112.1003
+Quik Burrito | Other | LOVED | Great breakfast burrito. Special chipotle sauce is great. Strawberry horchata | 4.4* | 33.8650,-112.1340
+Volanti Restaurant & Lounge | Other | LOVED | Airport restaurant with runway views — sit outside if you can. Reuben is great. $100 burger is a thing. Great for layovers. | 4.5* | 33.6214,-111.9161
+Glai Baan | Thai | LOVED | Amazing food. Get a reservation. Get the dumplings | 4.7* | 33.4873,-112.0309
+Thai Coconut | Thai | LOVED | Underrated family Thai. Pad Woon Sen, papaya salad, and yellow curry are all solid. Small place, popular for takeout. | 4.6* | 33.5855,-111.9276
+Thai E-San | Thai | LOVED | Solid neighborhood Thai. Pad Thai and spicy basil dish are both great. Thai tea is excellent. | 4.6* | 33.4952,-112.0822
+Born & Bred, Scottsdale | American | REC | Pizza looks insane. Chicken Caesar wrap at lunch. Their ranch dressing is amazing | 4.4* | 33.5275,-111.9245
+Chelsea's Kitchen | American | REC | Canal-side patio in an old house conversion. Cornbread is moist, tacos are flavorful. Dog-friendly heated patio. Grilled steak has great char. | 4.6* | 33.5112,-111.9956
+Four Peaks Brewing Company | American | REC | Airport Four Peaks location. Jalapeño cheeseburger is solid. Enchiladas are good. Outlets at the tables. | 3.4* | 33.4371,-112.0020
+Fry Bread House | American | REC | James Beard award winner. Native American food. | 4.6* | 33.5037,-112.0822
+Geordie's at Wrigley Mansion | American | REC | Insane views of Phoenix. Go at sunset | 4.6* | 33.5234,-112.0269
+Girl & The Goat | American | REC | Call ahead, order the full goat experience. Very Cool. TONS of food, bring a group. | 4.7* | 41.8841,-87.6479
+HULA'S Modern Tiki Uptown | American | REC | Solid happy hour | 4.6* | 33.5117,-112.0653
+Hopdoddy Burger Bar | American | REC | Good burgers and shakes | 4.5* | 33.5083,-112.0375
+Matt's Bar and Grill | American | REC | Featured on DDD. Matt's Big Breakfast — great downtown Phoenix breakfast spot. Chicken sausage is good. Big team-service vibe, always friendly. | 4.5* | 33.4573,-112.0722
+Original Hamburger Works | American | REC | Burgers cooked over charcoal | 4.6* | 33.4798,-112.0912
+Palma | American | REC | Asian food. Chili garlic noodles. Potato scallion waffle. Lots of great stuff. | 4.3* | 33.4579,-112.0709
+Paradise Valley Burger Company | American | REC | Featured on DDD. The Booze Burger is the move — beer-battered patty, not greasy. French toast fries are sweet and wild. | 4.6* | 33.6281,-111.8915
+Señor Bob's Hot Dogs | American | REC | Good hotdogs. Better fry's. Honey mustard is really good. Big portions | 4.7* | 34.8634,-111.7959
+Sift Bake Shop Mystic | American | REC | 41.3539,-71.9713
+Soul Cafe | American | REC | Steak and eggs are great. Banana bread is a highlight. Patio has a grotto vibe. Gets a wait on weekends. | 4.5* | 33.6982,-111.9154
+Steak 44 | American | REC | Awesome steaks | 4.7* | 33.5114,-111.9860
+Ted's Hot Dogs | American | REC | Charcoal-grilled dogs from a Buffalo original that's been around since 1927. Line forms fast. Epic side portions. Worth checking out the shakes. | 4.5* | 33.4070,-111.9096
+The Porch | American | REC | Mozzarella sticks are a go-to. Good pub food, extensive menu. Happy hour is okay — nothing special on pricing. | 4.3* | 33.4948,-111.9946
+The Stand Arcadia Burger Shoppe | American | REC | Drive thru only. The fries were good and crispy. GREAT dipping sauce. Would of liked to try a shake or lemonade | 4.5* | 33.4954,-112.0052
+Toulouse Petit Kitchen & Lounge | American | REC | Delicious. French onion soup. Desserts were amazing | 4.3* | 33.4406,-112.0733
+Flaming Pig | BBQ | REC | Solid filipino food | 4.2* | 33.4766,-112.2231
+Little Miss BBQ-University | BBQ | REC | Central Texas-style BBQ. Brisket is the star — tender and smoky. They only make a set amount per day and close when it's gone. Get there early. | 4.8* | 33.4216,-111.9892
+Liz Modern Asian | BBQ | REC | Michelin-quality Chinese-Asian in Scottsdale. Shrimp noodles and orange chicken are the go-to. Restaurant week lunch special is a steal at $22/person for 7 courses. | 4.6* | 33.6251,-111.9236
+Uncle Biff's California Killer Cookies | Bakery | REC | Walk in and they hand you a free sample. Classic homemade-style cookies — chocolate chip, holiday flavors, the works. Tastes like grandma's kitchen but in a strip mall. | 4.8* | 33.5284,-112.0646
+Harvey's Wineburger | Bar | REC | Great dive bar, no windows. More parking in the back. French Fries are great. | 4.5* | 33.5080,-112.0480
+Kitsune Brewing Company | Bar | REC | Tan tan beer. So good | 4.9* | 33.6394,-112.0107
+Lylo Swim Club | Bar | REC | Adult dole whip. Chips and salsa. Creamy | 4* | 33.5096,-112.0797
+Pemberton PHX | Bar | REC | Very hip spot. Want to try the pasta food truck. Lots of great seating. Food trucks and cocktail trucks. Great spot to meet freinds | 4.6* | 33.4608,-112.0708
+Rewined Beer And Wine Bar | Bar | REC | Amazing 90's themed bar. Incredible interior. Insane beer selection | 4.7* | 33.4870,-112.0307
+UnderTow | Bar | REC | Fully immersive tiki bar built to look like the underbelly of an old-world ship — inside Century Grand in Phoenix. Cocktail menu is serious. One of the best tiki bars in the countr | 4.7* | 33.4955,-112.0030
+Flo's | Chinese | REC | Really good Chinese food | 4.5* | 33.6211,-111.8740
+Katy's Dumplings - Westmont | Chinese | REC | Great beef noodle soup | 4.5* | 41.8124,-87.9748
+Wong's Restaurant | Chinese | REC | Great Chinese food. Been there a long time. Friend rice with the BBQ pork. Orange chicken | 4.5* | 33.4367,-112.0567
+Le Relais de l’Entrecôte | French | REC | Fixed menu only — salad, then steak frites. That's it. The secret green pepper sauce is the whole point. They bring you half first, then keep the rest warm on a hot plate for secon | 4.2* | 48.8664,2.3316
+Namaste Indian Restaurant | Indian | REC | Family-owned Indian spot. Chicken makhani and chicken tikka masala are well done. Lamb vindaloo is lean and properly portioned. Spice levels run hot — worth flagging if sensitive. | 4.5* | 33.6763,-111.9240
+Fat Olives | Italian | REC | Featured on DDD. Great neopolitin pizza. Got the lasagna and the pizza with calibrian Chiles. | 4.6* | 35.2052,-111.6147
+Guido's Chicago Meats & Deli | Italian | REC | Meatball sub was great. Chicken cutlet caprese sandwich - add prosciutto | 4.7* | 33.5854,-111.9244
+My Slice of the Pie Pizzeria | Italian | REC | Al pastor and carne asada pizza. Lots of pizza with Mexican influence | 4.6* | 33.4957,-112.0010
+Throne Brewing & Pizza Kitchen | Italian | REC | Very good mac and cheese. Not a bad place to meet before a Suns game. | 4.1* | 33.4632,-112.0745
+Trevor's Liquor | Italian | REC | Really awesome liquor store with patio. | 4.5* | 33.4945,-112.0038
+Ziggys Magic Pizza Shop | Italian | REC | Pizza shop with hidden pinball arcade. Has small parking lot | 4.5* | 33.4511,-112.0798
+Mensho Tokyo SF | Japanese | REC | Wagyu Ramen | 4.7* | 33.5222,-112.0642
+Nippon Curry featuring Hinoya Curry | Japanese | REC | Great Curry. Pork Katsu | 4.7* | 33.5213,-112.0706
+Ramen Kagawa | Japanese | REC | Really nice Japanese curry | 4.3* | 33.4500,-112.0753
+Yutaka Japanese Restaurant | Japanese | REC | Spicy miso ramen is the reliable order. Tonkatsu ramen is also solid. Small spot — come before the dinner rush. | 4.6* | 33.6392,-112.0632
+Two Hands Seoul fresh corn dogs | Korean | REC | Korean corn dogs you can customize. Most are around $5-6. Add cheese if you want. The tater tots are worth getting as a side. | 4* | 33.4669,-112.2798
+AZ Kabob House | Mediterranean | REC | Persian family-owned spot. Koobideh kebab and baghali polo with lamb are excellent. Lamb gyro plate is solid and portions are generous. | 4.6* | 33.6583,-111.9317
+Ajo Al's Mexican Cafe | Mexican | REC | Family-owned since 1986 in the Biltmore neighborhood. Queso dip and fajitas are the move. Dog-friendly patio. Chimichanga with grilled steak and chicken is great. | 4.4* | 33.5113,-112.0473
+Aunt Chiladas Squaw Peak | Mexican | REC | Long-standing Mexican spot in a hacienda-style building. Mini chimis are great. Flour tortilla chips. Outdoor bar and live music on weekends. | 4.4* | 33.5452,-112.0431
+Call Her Martina | Mexican | REC | Elote is great, drinks are good. Bit pricey - but thats the general area. | 4.6* | 33.5009,-111.9284
+El Encanto Dos | Mexican | REC | Outdoor patio is really nice. Good for a relaxed dinner. Pollo fundido is worth trying. | 4.3* | 33.8001,-112.0586
+El Güero Canelo Restaurant | Mexican | REC | Sonoran hot dogs — bacon-wrapped, sold out of a strip-mall spot. Reviews are mixed on consistency. | 3.8* | 33.4224,-112.2042
+Elmer's Tacos | Mexican | REC | Best bean and cheese burrito | 4.6* | 33.3090,-111.8411
+Gadzooks Enchiladas and Soup | Mexican | REC | Build-your-own enchiladas and tacos, Chipotle-style but way better quality. Festival tacos come with the 50/50 corn-flour tortillas — get those. The medley of fresh ingredients act | 4.5* | 33.4871,-112.0646
+Gallo Blanco | Mexican | REC | Barbacoa Tacos. Al Pastor Tacos. Chelada. Key Lime Tart. | 4.6* | 33.4560,-112.0608
+Hamburguesas Y Cervezas | Mexican | REC | Mexican inspired hamburgers. Would recommend the al pastor wings. $4 margaritas on happy hours | 4.8* | 33.4583,-112.0754
+Jacky's Mexican Food | Mexican | REC | Menudo and pozole are solid for brunch. The salsa is excellent — reportedly drinkable. Horchata is smooth. | 4.3* | 33.4617,-112.3375
+Jalapeño Inferno, Pinnacle Peak | Mexican | REC | Flour tortilla chips | 4.3* | 33.7007,-111.9234
+Los Taquitos | Mexican | REC | Long-running family spot. The pozole hits and the breakfast burritos are legit. Chicken fajitas are a go-to. The vegetarian taco meal is a sneaky good option. | 4.5* | 33.4343,-111.9969
+Otro Cafe | Mexican | REC | Cafe de olla | 4.6* | 33.5253,-112.0645
+República Empanada Restaurant | Mexican | REC | Great empanadas. Awesome margarita. Small place, can get real busy. | 4.6* | 33.4131,-111.8260
+Richardson's Restaurant | Mexican | REC | Great new Mexican food | 4.4* | 33.5304,-112.0470
+Salsitas tacos al carbon | Mexican | REC | Birria tacos are solid. Horchata is great at this location specifically. | 4.6* | 33.4951,-112.2029
+Taco Chelo | Mexican | REC | Fish tacos with pickled onion and cream sauce are the standout. Fresh tortillas and beans. Roosevelt Row taqueria with craft cocktails. | 4.5* | 33.4585,-112.0673
+Tortas CM | Mexican | REC | Chicken torta is the move — chicken cooked with vegetables so the flavor soaks in. Specialty sauces include spicy ketchup. Parking can be tricky. | 4.6* | 33.6131,-112.1854
+Barrio Café | Other | REC | Featured on Triple D and it earns it. Not typical Mexican — creative and bold. Guacamole is great. Halibut is a regular recommendation. | 4.5* | 33.4788,-112.0479
+Dessert in Desert | Other | REC | Asian-inspired desserts in North Scottsdale. Egg waffles with ice cream and fish cones with custard. Taro ice cream is next level. Tornado potatoes are a must. | 4.9* | 33.6523,-111.9246
+La Taqueria | Other | REC | Carne Asada Burrito. Super. Dorado Style. Side of Salsa Roja. Horchata. They accept credit cards now. | 4.6* | 33.4371,-112.0705
+Lake Pleasant Brewing Company | Other | REC | Worth the drive. German beers are the specialty and always clean. Good rotating food trucks. | 4.9* | 33.6769,-112.1017
+Monroe's Hot Chicken | Other | REC | Best chicken sandwich in downtown Phoenix according to multiple people. Craft sodas are good. Near the Suns arena. Parking is rough — walk or light rail. | 4.4* | 33.4470,-112.0748
+Mystic Market East | Other | REC | 41.3483,-71.9560
+Neighborly Public House | Other | REC | Cornbread was great. Nice patio | 4.5* | 33.5180,-112.0655
+Taco Boy's | Other | REC | Great taco spot. $2.69 per taco. 1lb meat and 15 tortillas was $30. Great salsa bar. Got the Barbacoa | 4.6* | 33.4590,-112.0655
+Tacos Chiwas Chandler | Other | REC | Chihuahua-style tacos with a corn-flour hybrid tortilla you won't find anywhere else in the valley. Go for the gorditas. The meat comes in actual chunks — not the usual mystery shr | 4.6* | 33.3376,-111.8599
+Valley Wings | Other | REC | Total hole-in-the-wall. Mango habanero wings and the buffalo loaded fries are the move. The Kool-Aid is somehow also great. Ask for extra sauce. | 4.6* | 33.6262,-112.1003
+Captain Scott's Lobster Dock | Seafood | REC | Lobster rolls at a take-out window with picnic table seating. Fish and chips get serious praise. Fried scallops are great. | 4.5* | 41.3475,-72.0979
+Chula Seafood Uptown | Seafood | REC | Good seafood. Cool atmosphere, not fancy. Fish tacos are huge. The salmon is crispy. AJs is next door for dessert | 4.3* | 33.5103,-112.0721
+Bánh Mì Bistro Vietnamese Eatery | Vietnamese | REC | Good Bahn mi sandwich. Nice bread | 4.7* | 33.6408,-112.1106
+Slanted Rice Vietnamese Bistro | Vietnamese | REC | Featured on DDD. Sweet pork crispy wonton spring roll is great. Soups are fresh and well-made. | 4.3* | 33.5275,-111.9245
+40th Street Cafe | American | RADAR | Local mom and pop diner that's been around 31 years. Short stack pancakes, turkey sandwich, good throwback pricing. | 4.6* | 33.6272,-111.9953
+50 Shades of Rosé | American | RADAR | Does themed pop-up bars — currently doing a Grinch Christmas setup. Reservations recommended for the pop-up events. | 4.2* | 33.5013,-111.9212
+AGourmet Fine Sandwiches | American | RADAR | Italian sandwich from tiktok | 4.8* | 33.6372,-112.3576
+AZ Chimney Cakes | American | RADAR | Chimney cone desserts — cinnamon sugar cone with Bavarian cream is the move. Near a movie theater. | 4.6* | 33.4356,-111.8638
+Aimee's Swine House | American | RADAR | Johnny Cakes are the thing to get here. Unique takes on breakfast items. Small local spot. | 4.4* | 33.6402,-112.0467
+Aloha Kitchen | American | RADAR | Hawaiian plate lunch spot that's been around since the 90s. Kalbi plate and the poke are the highlights. Jr Special is the go-to order. | 4.6* | 33.3607,-111.8597
+Angel's Trumpet Ale House | American | RADAR | They dry their wings in rice flour | 4.6* | 33.4571,-112.0715
+Arizona Sandwich Co. & Catering - 1221 W. Warner Rd. | American | RADAR | Arizona Sandwich Co. location in Gilbert. The Sparky and the ATC are the standouts. Mixed reviews on this specific location. | 4.3* | 33.3340,-111.9597
+Arizona Sandwich Co. & Catering - 24th St. | American | RADAR | Local sandwich chain with a cult following. Blended horchata with oat milk is a thing here. Gluten free options available. | 4.5* | 33.4449,-112.0305
+Arizona Sandwich Co. & Catering - 52nd/University | American | RADAR | The Sparky is the signature move. Breakfast sandwiches are also solid. Kiosk ordering, easy lunch spot near ASU. | 4.3* | 33.4215,-111.9692
+Bobby D's Restaurant & Lounge | American | RADAR | Neighborhood bar and grill. Grilled wings for 25 cents during NFL games. Been open 20+ years. Friendly spot. | 4.5* | 33.5827,-112.0519
+Brick & Barley - A Neighborhood Bar & Grill | American | RADAR | Whitney wings | 4.3* | 33.3778,-111.9371
+Burger & More | American | RADAR | Pastrami sandwich | 4.3* | 33.4802,-112.1333
+Burger Rush | American | RADAR | The Ortega burger is the one. Also a steak sandwich that reviewers keep coming back for. Solid value. | 3.7* | 33.4910,-112.0734
+CAPS Sports Grill | American | RADAR | Hot honey house wings are the standout. Thin crust pizza with sweet sauce is also solid. Good sports bar. | 4.5* | 33.6761,-112.0969
+CC's on Central | American | RADAR | Want to go. Praline French toast. Shrimp etouffe. Some good looking chicken wings | 4.1* | 33.4788,-112.0742
+Cajun Breakfast Joint | American | RADAR | Cajun and Creole spot. Bone-in chicken and waffles, and the shrimp and grits are the standouts. People with Southern and Haitian backgrounds are calling it legit. | 4.9* | 33.4788,-112.0742
+Campbell's | American | RADAR | Green chili eggs | 4.6* | 33.6966,-112.2546
+Captain Bill's Submarine | American | RADAR | Nostalgic sub shop covered in stickers, feels like 1981. Italian sub on sourdough toasted is the call. Roast beef with cheese sauce also gets love. | 4.6* | 33.5837,-112.1337
+Chicago Hamburger Co | American | RADAR | Chicago-style comfort food. The sliders and garlic fries are the move. Counter service, no frills, all Chicago decor. Old school milkshakes. | 4.7* | 33.4948,-112.0000
+Cinnabon Swirl | American | RADAR | Cinnabon meets Carvel soft serve. The Bonini is the thing — soft serve swirled with cinnamon roll pieces. Nostalgic NYC dessert vibes according to one New Yorker. | 4* | 33.7086,-112.2707
+Convenient Corner Market Deli | American | RADAR | 24-hour corner store with a deli in the back. The pastrami sandwich is legit — one reviewer literally stopped mid-bite to review it. Ruben is also solid but pricey. | 4.2* | 33.5946,-111.8806
+Corridors Cafe | American | RADAR | Hidden inside an office building. Breakfast sandwich with bacon, eggs, and cheese on a croissant is a good order. Lemon Chicken and Rice soup gets love. | 4.8* | 33.6992,-112.1068
+Crazy Otto's Diner | American | RADAR | pancakes. huge portions | 4.2* | 33.6256,-112.1340
+Culture Clash Greek Yogurt | American | RADAR | Greek yogurt bar | 4.9* | 33.3199,-111.7550
+Detroit Coney Grill | American | RADAR | Downtown Phoenix cheap eats institution. Triple burger is $5.45. Coneys with chili are the classic move — eat fast or the chili makes them soggy. Cheesy chili tots are also great. | 4.4* | 33.4495,-112.0743
+Dodo Bird Kitchen and Cocktails | American | RADAR | $20 Steak Fries on Monday | 4.4* | 33.4794,-111.9108
+Dominick's Steakhouse | American | RADAR | 45-day dry aged rib eye is the reason to come. Outdoor dining under the night sky with a pool. Special occasion territory. | 4.7* | 33.6234,-111.9250
+Eat Up Drive In | American | RADAR | Drive-in burger spot. Chicken tenders and shakes are popular. Old school fast food vibes. | 4.1* | 33.4948,-111.9950
+El Caprichoso Hot Dogs | American | RADAR | The Titanic hot dog is the one to get. Also known for the Ruffles hot dog with chips on top. Loaded fries and nachos available. | 4.6* | 33.4795,-112.1349
+Elbows Mac N' Cheese | American | RADAR | Mac and cheese pizza and truffle fries are the standouts. Buffalo mac is also excellent. Counter order, they bring it to you. | 4* | 33.2819,-111.7886
+Essence Bakery Cafe | American | RADAR | French-style bakery cafe. Best macarons in Phoenix. The Gruyère croissants are a must. Pot pies and quiche too. | 4.4* | 33.4955,-111.9986
+FEZ | American | RADAR | Feta Fries are a must-start. FEZ Burger and Curry Chicken are the go-tos. Curry scrambled eggs at brunch are excellent. | 4.5* | 33.4597,-112.0743
+Fire At Will | American | RADAR | $18 burger | 4.4* | 33.5837,-111.9761
+Frank's Deli | American | RADAR | Get 'The Tony' | 4.8* | 33.5120,-112.1086
+Funky Jacks Burros Percherones | American | RADAR | Sonoran-style burritos from a food truck. Tortilla is slightly grilled so it doesn't get soaked. Try the standard one first. | 4.1* | 33.4468,-112.0475
+Glaze Donuts AZ | American | RADAR | Cronuts | 4.9* | 33.7972,-111.9775
+Green New American Vegetarian | American | RADAR | All vegan comfort food. The buffalo wings and ranch are the standout. Po boy and cheesesteak sandwich also popular. | 4.7* | 33.4701,-112.0654
+Halo-Halo Kitchen | American | RADAR | Filipino food with karaoke on weekends. The go-to for Filipino food in AZ according to regulars. Authentic and comforting. | 4.3* | 33.5667,-112.1359
+Hapa Food Company | American | RADAR | Great looking Hawaiian food. Has malasadas | 4.6* | 33.5821,-112.0087
+Hatch It: Green Chile Burgers & Tacos | American | RADAR | Green chile Santa Fe Burger is the must-order. Also the pork burrito and red posole. Hatch green chile is the theme throughout. | 4.6* | 33.5163,-112.0822
+Haven Burgers | American | RADAR | Pastrami | 4.6* | 33.4155,-111.8183
+Haymaker Thunderbird | American | RADAR | Family-owned breakfast and brunch spot. The Haymaker Benedict gets called out. Get there early on weekends — 20 minute wait is common. | 4.3* | 33.6103,-112.2465
+Hoosier Cafe | American | RADAR | Huge pork tenderloin | 4.6* | 33.3347,-111.8459
+Hope's Artisan Bread | American | RADAR | Really good sour dough | 4.7* | 33.4892,-112.3488
+Houston TX Hot Chicken | American | RADAR | 33.5095,-112.0409
+Hānai Coffee + Cocktails | American | RADAR | Upscale-ish coffee shop that's not what it looks like from outside. Good drinks and rotating menu. Good spot to hang out. | 4.3* | 33.3929,-112.1366
+Joe's Diner | American | RADAR | Breakfast. Get the pancakes | 4.5* | 33.5027,-112.0821
+Joe's Tacos | American | RADAR | Toasted shell tacos are the move — al pastor and carne asada. Also a cactus taco. Melon fresca is worth getting. | 4.4* | 33.6398,-112.0722
+Johnny's Burgers & Dogs | American | RADAR | Local mom and pop burger spot. Double cheeseburger and the chicken sandwich both get love. Fry sauce. Fresh and made to order. | 4.6* | 33.3948,-111.9084
+Knuckle Sandwiches | American | RADAR | The Cuban sandwich hits. Also get the German potato salad — cold. Turkey cranberry sandwich is solid too. | 4.5* | 33.4370,-111.7210
+LON’s at The Hermosa Inn | American | RADAR | Where my parents go for their anniversary | 4.6* | 33.5183,-112.0050
+LaMar's Donuts and Coffee | American | RADAR | Fresh donuts daily. Large portions compared to other spots. Rainbow Donuts branding at this location. | 4.6* | 33.4655,-112.0524
+Laura's Burgers and More | American | RADAR | Chorizo burger | 4.7* | 33.4356,-112.3487
+Lenny's Burger Shop | American | RADAR | Retro 50s diner with made-fresh burgers and malts. Everything is made to order so expect a wait. Good throwback vibe. | 4.1* | 33.4763,-112.0742
+Leo's Island BBQ | American | RADAR | Hawaiian BBQ plate lunch spot. Spam Musubi, Kahlua pork plate, and manapua are the things to get. Good mac salad, big portions. | 4.6* | 33.6370,-112.2241
+Luci's at the Orchard | American | RADAR | Amazing patio | 4.5* | 33.5407,-112.0567
+Lucky Boy | American | RADAR | Old school counter service burger joint open since 1951. The 3/4 lb fire-grilled burger. Simple, classic menu. | 4.6* | 33.4881,-112.0479
+Lukes Of Chicago | American | RADAR | Italian Beef | 4.4* | 33.4949,-112.0471
+Lutong Bahay Filipino-Asian Restaurant & Mini Mart | American | RADAR | Filipino restaurant and mini mart. The lumpia is apparently worth going back for the next day — someone bought 50 more. Lechon is also on point. Small and clean. | 4* | 33.5707,-112.1526
+MacAlpine's Diner & Soda Fountain | American | RADAR | Try the phosphate soda. Old time diner | 4.6* | 33.4733,-112.0648
+Mamma Toledo's The Pie Hole | American | RADAR | Chicken pot pie and hand pies are the main draws. Quiche and loaded burritos too. Old school cozy pie shop vibe. | 4.6* | 33.6264,-112.0664
+Mendocino Farms | American | RADAR | Creative gourmet sandwiches with seasonal ingredients. The chicken pesto caprese is a winner. Busy at dinner — online order might run long. | 4.2* | 33.5650,-111.9255
+Mercer's Restaurant | American | RADAR | Corn beef hash | 4.6* | 33.5087,-112.0276
+Miracle Mile Deli | American | RADAR | The Combo sandwich — pastrami and corn beef on an onion bun — is the classic order. Straw sandwich with kraut and cheese also gets love. NY-style deli in Phoenix. | 4.6* | 33.5017,-112.0472
+Moku Hawaiian Grill | American | RADAR | Great looking Hawaiian food with dole whip ice cream | 4.5* | 33.3204,-111.9915
+Morning Kick | American | RADAR | Known for breakfast burritos. Started as a food truck at the Gilbert farmers market. Cute little spot with game stations for kids. | 4.7* | 33.2343,-111.7228
+Mr. Pickle's Sandwich Shop | American | RADAR | Italian on sourdough is the move. Regional chain, multiple valley locations. Fresh bread and meat. | 4.3* | 33.3770,-112.1843
+Mrs White's Golden Rule Cafe | American | RADAR | Soul food institution since the 1960s. Fried chicken with greens and cornbread. Fried catfish melts. Real mac and cheese with sharp cheddar. Kool-Aid is on the menu. | 4.2* | 33.4474,-112.0633
+Ms. Martha's Caribbean Kitchen | American | RADAR | Best carribean food | 4.6* | 33.5540,-112.0982
+My Mother's Restaurant | American | RADAR | Homestyle American. Grilled pork chop and the pasta with garlic bread. Pies. Been in the neighborhood a long time. | 4.6* | 33.4961,-112.1003
+NY Slicers Deli | American | RADAR | NY Hot Rachel sandwich | 4.6* | 33.4571,-112.1512
+NYC Bagels | American | RADAR | Bagels and bialys. People mention the eggs Benedict and corned beef hash for a full breakfast situation. | 4.1* | 33.4810,-112.0178
+Nogales Hot Dogs | American | RADAR | Sonoran hot dogs — bacon-wrapped, loaded with toppings. Cash or expect fees. Quesadillas too. | 4.2* | 33.4662,-112.1182
+Nogales Hot Dogs no.2 | American | RADAR | Sonoran hot dogs from a food tent. Bacon-wrapped with generous toppings and add-ons. Champurrado available on cold nights. | 4.7* | 33.4950,-112.0459
+Ocotillo | American | RADAR | Locally sourced American fare in a big industrial space. Grilled chicken wings to start, ribeye and ribs for the table. | 4.4* | 33.4854,-112.0692
+Original Golden Skone | American | RADAR | Fry bread sandwiches — kind of like a soft bready taco. The beef and bean skone topped with salsa, lettuce, and cheese is the one. Cherry and Nutella for dessert. | 4.9* | 33.2514,-111.5617
+Phila Deli AZ | American | RADAR | Mom and pop sub spot. Owner breaks down the whole menu for you. The Italian sub and Philly cheesesteak are the anchors. | 4.6* | 33.6695,-112.1848
+Philly Steaks & Burgers Co. | American | RADAR | The Sonoran Philly is the order. Sweet potato fries are great. French Dip is also solid. Local spot that doesn't try to be anything it's not. | 4.7* | 33.4591,-112.2028
+Phoenix Dining | American | RADAR | Lemongrass wings. Thai tea. Has ramen? | 4.5* | 33.4484,-112.0749
+Prep & Pastry | American | RADAR | Rose chai latte is excellent. Brunch spot with a Yelp waitlist — expect a wait on weekends. | 4.3* | 33.5002,-111.9289
+Proof Bread | American | RADAR | Apparently very good bread shop | 4.9* | 33.4582,-112.0779
+Randy’s Donuts | American | RADAR | LA donut chain | 3.9* | 33.5205,-112.0648
+Rocket Burger & Subs | American | RADAR | Burgers and 100s of different sodas. Huge selection of hard-to-find bottled sodas — buy 3 get 1 free. Chicken burger gets called out. | 4.6* | 33.5958,-112.1345
+Rough Rider | American | RADAR | Date night spot | 4.7* | 33.4589,-112.0735
+Seven Brothers Burgers | American | RADAR | Hawaiian burgers | 4.8* | 33.7087,-112.2355
+Sourdough & Co. | American | RADAR | Bread is made in-house, which makes a difference. Brisket sandwich and garlic pesto turkey are solid. Clam chowder in a bread bowl is the move if you want soup. Fresh and consisten | 4.4* | 33.4672,-112.3393
+SugarJam The Southern Kitchen | American | RADAR | Southern brunch spot. Chicken and French toast combo is the signature. Lobster with creole shrimp. DJ on weekends — expect a wait. | 4.5* | 33.6222,-111.9041
+Tarbell's | American | RADAR | Upscale Mark Tarbell spot. Mr. Fish (usually sea bass) and the Hamachi Crudo are the signatures. Beef carpaccio is excellent. Be prepared to pay — and they will charge you for extr | 4.6* | 33.5091,-112.0124
+Texaz Grill | American | RADAR | Texas-themed steakhouse that's been around 40 years. Brisket sandwich gets highlighted. Prime rib is the thing on special nights — call ahead. | 4.5* | 33.5239,-112.0471
+The Eleanor | American | RADAR | Eggs Benedict and the Reuben Patty Melt are standouts. Short rib hash worth ordering. Good Scottsdale brunch. | 4.7* | 33.4850,-111.9085
+The Farish House | American | RADAR | French and Mediterranean in a historic redbrick cottage. The bouillabaisse and filet are both excellent. Gin cocktails are standouts. | 4.7* | 33.4572,-112.0702
+The Hidden House | American | RADAR | Fine dining in a secluded house with cocktails. The cocktail list is serious — about 40 options. Good date spot. | 4.6* | 33.3031,-111.8435
+The House Brasserie | American | RADAR | Old Town Scottsdale cottage vibes. Scallops and filet get the highest marks. Cocktails are well-made. Great for a date night. | 4.5* | 33.4933,-111.9312
+The Other Q Bar and Grill | American | RADAR | Known for the fish fry on Fridays. Cobb salad gets mentioned a lot too. Rustic hunting-themed dive with pool tables in the back. | 4.3* | 33.6756,-112.1004
+The Sandwich Spot (Phoenix) | American | RADAR | 29 different sandwiches, sourdough bread is the move. #16 on sourdough gets mentioned. Big portions, good for a hearty lunch. | 4.8* | 33.5378,-112.0551
+The Stand | American | RADAR | Local burger stand. Standard Burger and the Arcadia are the go-tos. Chocolate milkshake is excellent. Drive-up only, no seating. | 4.5* | 33.4954,-112.0052
+Then Burger | American | RADAR | Birria burger and a flight of complimentary sauces. The elote is an app worth getting. | 4.3* | 33.5386,-112.2576
+Tony's Cafe | American | RADAR | Down to earth sw cuisine. Cheese crisp. Red Chile burrito | 4.7* | 33.5681,-112.0660
+Twist Hot Chicken | American | RADAR | From scratch hot chicken. The twisted hot chicken sandwich at hot level is the one to get. Multiple heat levels available. | 4.3* | 33.3487,-111.9578
+UNiQ Burger | American | RADAR | 100% vegan smash burgers that fool meat eaters. Chicken ranch wrap might be better than the burgers. Fries are impossible to resist. A little pricey but quality is obvious. | 4.9* | 33.4666,-111.9142
+Vovomeena | American | RADAR | Brunch spot people drive two hours for the pancakes. Blueberry pancakes are the headline. Mexican Benedict on a sope is also a thing. Order before you get a table. | 4.6* | 33.4654,-112.0821
+Wally Burger | American | RADAR | Superhero-themed burger spot with arcade games playing Marvel and DC movies. Chili cheese fries are a solid value. Fun for kids, food is decent. | 4.6* | 33.5792,-112.1528
+Zookz Sandwiches | American | RADAR | Rounded toasted sandwiches unlike anything else. The #22 has poached eggs, bacon, ham, and cheddar. Like an adult uncrustable. | 4.7* | 33.5097,-112.0718
+eegee's | American | RADAR | Tucson original now in PHX. The eegee slushie is the whole point — orange dream is the flavor to get. Fries with ranch are a must. | 3.9* | 33.6395,-112.1194
+ollie vaughn's | American | RADAR | Bakery and breakfast place | 4.6* | 33.4660,-112.0488
+Middle Eastern Bakery and Deli | BBQ | RADAR | Hummus, house bread, and various kebabs are the move. Kibbee balls and grape leaves made with pine nuts. Good baklava too. | 4.7* | 33.4835,-112.0480
+Phat Turtle KC BBQ & Billiards | BBQ | RADAR | KC-style BBQ in Cave Creek. Brisket sandwich and pulled pork are the move. Pool tables, sports bar atmosphere. | 4.3* | 33.7660,-111.9827
+Pork on a Fork BBQ and Catering Deer Valley | BBQ | RADAR | Pulled pork, brisket, and pulled chicken bowls. Mac and cheese is a solid side. Friendly staff, good portion sizes. | 4.4* | 33.6832,-112.0923
+Trapp Haus BBQ | BBQ | RADAR | Unique take on BBQ — beans made with a sausage base, strawberry jelly-inspired sauce. Fun paintings and outdoor seating. Can get a long wait. | 4.1* | 33.4585,-112.0671
+Bagelfeld | Bakery | RADAR | AZ Style Bagels | 4.5* | 33.4810,-112.0178
+Banham's Cheesecake | Bakery | RADAR | Cookie butter cheesecake is the move. Supposed to rival New York-level cheesecake. Worth the drive from anywhere in the valley. | 4.9* | 33.4956,-112.0201
+Bongiorno Bagels | Bakery | RADAR | NY-style bagels. The morning medic (Taylor ham, egg, cheese on a kaiser roll) is the move. Proper cream cheese amounts, bagels sliced the right way. | 4.8* | 33.2930,-111.7890
+Chin Up Donuts | Bakery | RADAR | Deep fried cinnamon roll | 4.7* | 33.4929,-111.9297
+Creampuff | Bakery | RADAR | Creme brulee donut | 4.5* | 33.4429,-112.0721
+Holsum Bakery Inc. | Bakery | RADAR | Wholesale bakery and distribution center — not really a retail spot. | 4.4* | 33.4426,-112.1097
+Hot Bagels&Deli | Bakery | RADAR | Legit NY-style bagels. Everything bagel with jalapeño cream cheese is a solid order. Also known for breakfast burritos. | 4.4* | 33.7992,-112.1309
+Hunnie Butter | Bakery | RADAR | Bakery in the East Valley. The cheesecake something gets highlighted. Custom cakes too. Often has a line. | 4.8* | 33.5059,-112.0567
+JJ's Deli | Bakery | RADAR | Great looking sandwich place. Suggested to try Santa fe Chicken | 4.6* | 33.6993,-111.9231
+JL Patisserie | Bakery | RADAR | Best Bakery in PHX | 4.7* | 33.4236,-112.0300
+La Purisima Bakery 3 | Bakery | RADAR | Best tortillas in town according to regulars. Green pork tamales are full of flavor. Conchas are solid. The cream horn is a sleeper hit. | 4.7* | 33.6551,-112.0817
+Mary's Mountain Cookies | Bakery | RADAR | Cookie shop where you can try before you commit. Peanut butter is a safe call. 8-pack to go. | 4.6* | 33.5534,-112.2699
+Suss Pastries | Bakery | RADAR | The pop tarts and honey pecan cookie are the signatures. Cheesecake is one of the better ones in Phoenix. Tiny spot hidden in Orangewood Estates — owner greets you at the door. | 5* | 33.5163,-112.0821
+Yonutz Donuts and Ice Cream - Desert Ridge Phoenix | Bakery | RADAR | Ice cream stuffed donuts. Biscoff milkshake gets major love. Pricey but the concept is unique. | 4.4* | 33.6781,-111.9748
+mochidot donuts | Bakery | RADAR | Great looking donuts. Try strawberry | 4.8* | 33.5098,-112.0610
+BARCOA Agaveria | Bar | RADAR | Tequila and mezcal bar downtown PHX. Massive agave selection — even their well stuff is good. Food truck out front with solid tacos. $7 beer and shot at happy hour. | 4.5* | 33.4578,-112.0746
+Dick's Hideaway | Bar | RADAR | Carne asada fries. Carne adovado | 4.7* | 33.5241,-112.0479
+Edelweiss Biergarten | Bar | RADAR | German beer garden with a big patio and accordion music. Pretzel bites, original brat dinner, and apple strudel are all great. Oktoberfest vibes. | 4.4* | 33.6400,-112.0253
+Garden Bar Phx | Bar | RADAR | Seasonal cocktails - make a reservation. Small | 4.8* | 33.4576,-112.0817
+Gracie's Tax Bar | Bar | RADAR | Chopped cheese and pickle fries look great | 4.6* | 33.4564,-112.0824
+J T's Bar & Grill | Bar | RADAR | Supposed to be great wings. Get 'the works' | 4.7* | 33.4942,-111.9766
+Killer Whale Sex Club | Bar | RADAR | Don't let the name scare you. Creative cocktails, great bartenders, cool aesthetic. Industry night on Mondays with discounted drinks. | 4.3* | 33.4585,-112.0665
+Larry's Cocktails | Bar | RADAR | Dive bar with pool tables inside and on the patio. Low beer prices at happy hour. Good stop on the way to Cave Creek. | 4.6* | 33.6688,-112.0302
+Level 1 Arcade Bar | Bar | RADAR | Barcade | 4.5* | 33.4155,-111.8333
+Luxe Bar | Bar | RADAR | Hand dipped ice cream | 3.8* | 33.5008,-111.9220
+Paradise Lounge | Bar | RADAR | Neighborhood bar with table games and a patio. TETRIS TOTS are a thing here. Good for a few hours with friends. | 4.6* | 33.5987,-111.9857
+Pinnacle Brewing Company | Bar | RADAR | Scottsdale brewery doing more traditional styles — Czech Amber Lager and Dark Lager are the sleepers. Beerded Barbecue food truck on-site daily. Big patio. | 4.7* | 33.6219,-111.9047
+Sidelines Grill | Bar | RADAR | Good chicken wings | 4.3* | 33.2624,-111.8604
+Six Byrd Cider Taproom & Kitchen | Bar | RADAR | Cider and board games | 4.9* | 33.4945,-112.0034
+Sunny's Lounge (Say Less) | Bar | RADAR | Craft cocktail menu that punches above its weight for what looks like a dive bar. Guac & Roll cocktail is the signature move. Small patio. | 4.7* | 33.4947,-112.0235
+Tell Your Friends | Bar | RADAR | Upscale cocktail bar with live entertainment. Oysters and steak for dinner if you want to commit. Happy hour is great — reportedly $15 on a $40 scotch drink. Glam vibe that actuall | 4.1* | 33.6511,-111.9245
+The Bar (Gilbert) | Bar | RADAR | Pulp Fiction mural on the wall. Royale with Cheese burger and chicken satay are good. $1 wings on Wednesdays with karaoke. | 4.3* | 33.3566,-111.7900
+The Dirty Drummer | Bar | RADAR | Great wings | 4.5* | 33.4737,-111.9862
+The Golden Pineapple Craft Lounge | Bar | RADAR | Locally sourced bar food with a rotating menu. Navajo fry bread tostada is a standout. Good Bloody Mary and creative cocktails. | 4.4* | 33.3999,-111.9401
+The Green Woodpecker | Bar | RADAR | Potato tacos are perfectly spicy. Al pastor burrito is also a standout. Pool table, good beer selection. | 4.4* | 33.4833,-112.0750
+The Starving Artist | Bar | RADAR | Upscale dive bar | 4.5* | 33.4952,-112.0348
+The Stetson Social | Bar | RADAR | Neighborhood bar with solid burgers and a good Saturday brunch 10am-2pm. Fish specials rotate — barramundi when they have it. Pastrami burger is the main draw. | 4.2* | 33.7087,-112.2351
+The Wandering Tortoise | Bar | RADAR | Dog-friendly craft beer bar on Indian School. 41 taps with stuff from all over. Food truck on site 7 days a week. Good for watching sports. | 4.7* | 33.4945,-112.0291
+The Womack | Bar | RADAR | Cocktail bar | 4.4* | 33.5218,-112.0647
+Tia Carmen | Bar | RADAR | The ambiance of Tia Carmen is intentional in its efforts to honor the Southwest region and Mexico. As you walk through the large wooden doors, you're greeted by a down-to-earth vib | 4.3* | 33.6839,-111.9656
+Walter Where?House | Bar | RADAR | Art gallery and music venue with a bar. Sound system is on point. Cool place to catch a show — A-Trak has played here. Multiple spots to hang out throughout the space. | 4.9* | 33.4559,-112.1049
+Balkan Bakery | Cafe | RADAR | Eastern European bakery. Beef burek is flaky and juicy. Cevapi in pita with onions. The keks torta and tiramisu are worth grabbing on the way out. | 4.8* | 33.6393,-112.0572
+Being Bar | Cafe | RADAR | Functional drinks spot — mushroom chai coffee, cacao-based cocktails, non-alcoholic creative drinks. Cool concept, run by a guy named Josh who actually explains everything. | 4.9* | 33.6118,-112.0141
+Berdena's | Cafe | RADAR | Breakfast burrito | 4.7* | 33.5163,-112.0555
+Cactus Blossom Coffee | Cafe | RADAR | Coffee shop inside a game store — you can browse while you wait. Salted maple latte and the espresso lemonade are the orders. Americano with raspberry and rose syrup is also solid. | 5* | 33.5784,-112.1520
+Cafe Mollie | Cafe | RADAR | Bahn mi burritos and Pho coffee and ube latte | 4.5* | 33.5249,-112.0468
+Caffio Espresso Bar | Cafe | RADAR | Coffee shop with plant shop. Onyx iced latte | 4.7* | 33.4549,-112.0871
+Desert Donuts | Cafe | RADAR | Made to order cake donuts | 4.7* | 33.8000,-112.1279
+Duck Donuts | Cafe | RADAR | Fresh-made donuts with tons of flavor combinations. French Toast and Turtle get the most love. Iced mocha is good if you want coffee too. | 4.6* | 33.4429,-112.0721
+Duck and Decanter | Cafe | RADAR | Sandwich and wine shop. Packed on Sundays with live music. Large sandwich menu. | 4.6* | 33.5076,-112.0449
+Luanas Coffee and Beer | Cafe | RADAR | Interesting coffee bar, beer, food, lord voldemort | 4.7* | 33.4808,-112.0917
+Mark's Cafe | Cafe | RADAR | Hotel cafe at a Marriott with a breakfast buffet and a weekend Bloody Mary bar. Views are solid. Good for a quick breakfast. | 4.6* | 33.4033,-111.9712
+Mis Raices Cafe | Cafe | RADAR | Latino-owned coffee shop. Cafe de olla is excellent. The Gansito Latte and Maria Latte (cookie-inspired with cajeta cold foam) are the drinks to get. | 4.7* | 33.4574,-112.0900
+New Penny Cafe | Cafe | RADAR | Great looking breakfast burrito | 4.4* | 33.4535,-112.3050
+ONYX Ice Cream | Cafe | RADAR | Ube soft serve | 4.9* | 33.5221,-112.0647
+Shaghf Cafe | Cafe | RADAR | Cookie bowl looks insane | 4.6* | 33.4155,-111.9180
+Sonson's Pasty Co. | Cafe | RADAR | Cornish pasties — savory thick pastry pockets. The lamb and mint pasty and Tandoori curry wings are both worth trying. Late night, pool and darts. | 4.5* | 33.3363,-111.8219
+Suspiros Glendale | Cafe | RADAR | Mexican cake spot. Tres leches is the signature — people drive across town for it. Carrot cake and piña colada slice are also worth getting. | 4.8* | 33.5705,-112.1527
+The Great Gadsby Bakery | Cafe | RADAR | English bakery with legit pastries. Pain au chocolat, green apple lattice croissant, banoffee pie, and the salted caramel brownie. Authentic English Sausage Roll. | 4.7* | 33.3306,-111.7918
+Tres Leches Café | Cafe | RADAR | Stuffed conchas | 4.2* | 33.4660,-112.0541
+Valentine | Cafe | RADAR | Sonoran pretzel | 4.5* | 33.4959,-112.0839
+aFlourshop | Cafe | RADAR | Pistachio crookie | 4.6* | 33.4570,-112.0651
+China Chili | Chinese | RADAR | Chinese food. Peking duck with rolls looks great. Get the wonton soup | 4.5* | 33.4858,-112.0691
+Chou's Kitchen | Chinese | RADAR | Northern Chinese in Chandler. Handmade dumplings and noodles — you can watch them make it. Soup dumplings are the reason to go. Gets a long wait. | 4.4* | 33.3188,-111.8605
+Dragon Bowl | Chinese | RADAR | Huge portions of Chinese food at old school prices. Cashew chicken, General Tso's, Kung Pao beef with fried rice all mentioned. Wonton soup is lighter on flavor. | 4.3* | 33.6561,-112.0627
+George Yang’s Chinese Cuisine | Chinese | RADAR | Crab puffs are some of the best around — stuffed with real crab. Hot and sour soup is excellent. Kung Pao steak is solid. Reliable Chinese in a wood-paneled, relaxed space. | 4.4* | 33.5249,-112.0480
+Great Wall Cuisine | Chinese | RADAR | Best dim sum | 4.2* | 33.5110,-112.1334
+Hao Hao chinese restaurant | Chinese | RADAR | Chinese spot that people drive 60 miles for. Hot garlic chicken is the lunch special pick. Huge portions and good prices. | 4.5* | 33.5540,-111.8818
+Happy Bao's | Chinese | RADAR | Beef noodle soup | 4.5* | 33.4136,-111.8762
+Khải Hoàn Restaurant | Chinese | RADAR | Old-school Vietnamese spot people have been going to for decades. Pho #2 and the Crisp Rice Noodle #45 are the orders. Fresh herbs, egg rolls are incredible. Best-priced pho in the | 4.6* | 33.4142,-111.9126
+Liyuen | Chinese | RADAR | Supposedly best chinese food in PHX | 4.5* | 33.4330,-112.0828
+Lychee Kitchen | Chinese | RADAR | Hot and sour soup might be the best in the valley. Chinese spot in a strip mall. Solid lunch. | 4.4* | 33.6987,-112.1005
+New Garden Restaurant | Chinese | RADAR | Around since the 40s | 4.3* | 33.4393,-112.0736
+Stellar 66 Chinese restaurant and bar | Chinese | RADAR | Peking Duck | 4.1* | 33.3772,-111.7922
+Uncle Panda Dumpling & Noodle House | Chinese | RADAR | Handmade dumplings and noodles in Ahwatukee. The Xiao Long Bao and beef noodle soup get the most love. Pork with chives and shrimp dumplings are standout. | 4.4* | 33.3058,-111.9925
+Sottise | French | RADAR | Great looking cocktails and french food. In a old house | 4.5* | 33.4596,-112.0709
+The Mick Brasserie + Bar | French | RADAR | French brasserie. The pate melt is getting called the highlight. Great for a date night — beautifully presented food. | 4.8* | 33.5749,-111.9055
+Aja Catering | Indian | RADAR | Suggested by Jignesh | 4.8* | 33.3706,-111.9634
+City of Spice | Indian | RADAR | Best Indian food | 4.7* | 33.6399,-112.0194
+Curries Indian Cuisine and Bar | Indian | RADAR | Indian restaurant and bar in north Scottsdale. Mixed reviews on authenticity but gets high marks from the non-Indian food crowd. | 4.9* | 33.5853,-111.8348
+Dosa Place - Kerala Kitchen | Indian | RADAR | South Indian (Kerala) cuisine, which is genuinely hard to find. The Mysore Dosa and Gobi Manchurian both get mentioned. Wheat chapati and garlic naan too. | 4.3* | 33.6384,-112.1355
+Feringhee Modern Indian Cuisine | Indian | RADAR | Fancy Indian food | 4.4* | 33.2972,-111.9016
+Guru Palace | Indian | RADAR | Northern Indian with a lunch buffet. Known for the mutton biryani. Taj Mahal murals and floor cushions. | 4.2* | 33.3815,-111.7872
+Maya's Kitchen Indian Cuisine | Indian | RADAR | Small Indian spot. Daal makhani and coconut curry chicken get highlighted. Free complimentary chai while you wait. | 4.9* | 33.6410,-112.0188
+Persian Room Fine Dining | Indian | RADAR | Authentic Persian in Scottsdale. House-made bread is a standout touch. The Soltani dish gets mentioned. Huge portions. | 4.4* | 33.6412,-111.9258
+Raj & Rani's Indian Kitchen | Indian | RADAR | Home-style Punjabi. Tarka dal and butter chicken are solid. Malai kofta is apparently the best version around here. Order medium spice — it runs hot. | 4.4* | 33.6388,-111.9808
+Tabla Indian Restaurant - Phoenix, AZ | Indian | RADAR | South Indian style — different from the typical valley Indian spots. Gongura Chicken Curry is the standout. Kadai Chicken is good too. | 4.7* | 33.7114,-112.1114
+Andreoli Italian Grocer | Italian | RADAR | Real Italian deli and restaurant in a hidden location. Grilled calamari, pancetta sandwich, and air-dried beef salad. You have to know it's there. | 4.7* | 33.5692,-111.8896
+Anzio's Italian Restaurant | Italian | RADAR | old fashion italian | 4.5* | 33.5986,-112.1203
+BRODY'S ITALIAN (Formerly Nick's Italian) | Italian | RADAR | Homemade pasta and pizza dough. Calamari to start, then anything on the pasta menu. Big portions, worth the drive. | 4.3* | 33.5851,-111.9785
+Ballpark Pizza & Subs | Italian | RADAR | Philly cheese steak sub is a must try. Wings and thin crust pizza also great. Baseball-themed neighborhood spot. | 4.7* | 33.6096,-112.2226
+By The Bucket Gilbert | Italian | RADAR | Pasta in a bucket. Tuesday special is $7 and feeds two people easily. Garlic bread is huge. | 4.8* | 33.3337,-111.8065
+CIBO | Italian | RADAR | Italian in a 1913 bungalow in downtown PHX. Wood-fired pizza. The potato and sausage pizza gets singled out. Pizza Polpettine with ricotta-filled crust. | 4.6* | 33.4550,-112.0799
+Caffe Boa | Italian | RADAR | Italian bistro in Ahwatukee with a big patio. Lobster bisque gets called the highlight. Voodoo Penne and Chianti Braised Beef. Chicago tavern-style thin crust too. | 4.5* | 33.3476,-111.9760
+Campo Italian Bistro & Bar | Italian | RADAR | Supposed to be a good cheap happy hour. $5 cocktails | 4.2* | 33.5568,-111.8992
+Casey Jones Grill | Italian | RADAR | Good place to watch a Packers game | 4.5* | 33.6410,-112.0205
+Corleone's Philly Steaks & Pizza | Italian | RADAR | 2 for 1 on Tuesday. Get American cheese | 4.4* | 33.5104,-112.0468
+Crisp Premium Pizza | Italian | RADAR | Square pizza imported with Italian ingredients. On the salty side. Worth it for NY-style crispy squares. | 4.6* | 33.4981,-111.9282
+Crust Brothers Pizza | Italian | RADAR | Thin crispy pizza — the edges are the best part. Chicken wings and dipping sauce are also a hit. Vegan cheese available. | 4.7* | 33.5841,-111.9233
+Curry N Crust | Italian | RADAR | Indian-style pizza in Tempe. Curry tacos are the move. Paneer with jalapeños is a must-try. Genuinely creative menu. | 4.4* | 33.4344,-111.9256
+Doda's Pizza | Italian | RADAR | NY style pizza | 4.8* | 33.6393,-112.2146
+Fabio On Fire | Pizzeria Italiana | Italian | RADAR | Flour and ingredients sourced directly from Italy, yeast passed down for generations. The bread is exceptional. | 4.5* | 33.6697,-112.2393
+First & Last | Italian | RADAR | Menu changes monthly. Focaccia sandwiches | 4.5* | 33.4591,-112.0776
+Goldie's Sports Cafe | Italian | RADAR | Apparently really good chicken tenders and ranch | 4.3* | 33.5741,-111.8620
+Humble Bistro | Italian | RADAR | Italian in downtown Phoenix. Chicken parmigiana and pizza both get mentioned. Fast service. | 4.7* | 33.4470,-112.0706
+Il Forno Bello Pizzeria | Italian | RADAR | Run by the guy that worked at Pizzeria Bianco for like 32 years. | 4.6* | 33.4516,-111.7635
+Isabella's Kitchen | Italian | RADAR | Italian restaurant with a view of a golf course. Butchers pizza and lasagna are the standouts. Garage doors open up for patio dining. | 4.5* | 33.6760,-111.8966
+K O'Donnell's Sports Bar & Grill | Italian | RADAR | Wedge salad with salmon is the go-to. Wings, breakfast sausage, and homestyle potatoes also solid. Good sports bar vibe. | 4.5* | 33.6203,-111.8982
+La Grande Orange Grocery & Pizzeria | Italian | RADAR | Tuna melt | 4.5* | 33.5022,-111.9957
+La Locanda Ristorante Italiano | Italian | RADAR | Pasta ala vodka | 4.4* | 33.4958,-111.9330
+Lamp Pizzeria | Italian | RADAR | Wood fired pizza. Long wait | 4.7* | 33.7001,-111.8887
+Mamma Lucy | Italian | RADAR | The pasta apparently beats what people had in Italy — that's the claim. Service is warm and people keep coming back. | 4.7* | 33.6398,-111.9443
+Michelina's Italian Restaurant | Italian | RADAR | Family-run Sicilian spot. Napoli salad is unique. Swordfish and veal piccata style are standouts. Hidden gem vibes. | 4.8* | 33.5818,-112.0112
+Mora Italian | Italian | RADAR | Elevated Italian osteria by Scott Conant. Chef's tasting menu is a good deal. Do reservations. Free valet. | 4.4* | 33.5199,-112.0646
+Nello's Ahwatukee | Italian | RADAR | Some great looking pizza. Has Chicago deep dish | 4.6* | 33.3313,-111.9827
+Osteria Mia | Italian | RADAR | Italian spot with a patio. The orecchiette gets called out as outstanding. Above average pasta. | 4.3* | 33.7153,-112.1138
+Pizza By Napoli | Italian | RADAR | Been around for 30+ years. Classic Italian spot with calzones and crispy wings. Family recipe pizza. | 4.5* | 33.6091,-112.1333
+Pizza To The Rescue | Italian | RADAR | Pizza and puppies. Chicken Parm with pasta on a fajita plate looked great | 4.9* | 33.4945,-112.0257
+Pomo Pizzeria Napoletana | Italian | RADAR | Real Neapolitan pizza, as close to Napoli as you'll find in Arizona. Gelato is reportedly among the best in the state. Small inside, can get busy. | 4.5* | 33.4560,-112.0723
+Red Devil Italian Restaurant & Pizzeria | Italian | RADAR | NY-style pizza done right — crispy bottom, chewy edge, great sauce. Wings are always crispy. Been a valley staple for years. | 4.4* | 33.4660,-112.0157
+Rinaldi's Italian Deli | Italian | RADAR | Meatball sub is the move — perfectly seasoned, great sauce, fresh bread. Italian combo sandwich has been a staple for 30+ years. Classic deli spot in Scottsdale. | 4.5* | 33.6345,-111.9243
+Romanelli's Italian Deli | Italian | RADAR | Italian sub and Italian grocer | 4.8* | 33.5671,-112.1333
+Saint Pasta | Italian | RADAR | NY style cutlet and homemade pasta. No modifications accepted. Death row meal vibes according to reviewers. | 4.4* | 33.4601,-112.0752
+Sophia's Kitchen | Italian | RADAR | Downtown Phoenix brunch counter. Espresso martini is supposedly one of the best. Get here before 9am on weekends or expect a wait. | 4.3* | 33.4804,-112.0675
+Stumpy's Pizza & Subs | Italian | RADAR | Slice of New York-style pizza in Phoenix, family-run for 25+ years. Pepperoni slice is the classic order. Meat lovers and lasagna also solid. | 4.7* | 33.5528,-112.0534
+The Attic Ale House | Italian | RADAR | Bavarian platter appetizer is the standout. Mountain views from the patio, good draft beer selection including Ska on tap. | 4.6* | 33.4946,-111.9895
+The Genuine | Italian | RADAR | Wood fire pizza and good cocktails in a stylish neighborhood bar. Bocce ball and DJs. Good brunch too. | 4.4* | 33.5244,-112.0470
+The Parlor Pizzeria | Italian | RADAR | Wood-fired pizza with a perfectly charred crust. Bone marrow appetizer is excellent. Heirloom Margherita and roasted olives are standouts. | 4.7* | 33.5096,-112.0405
+The Pizza Shack | Italian | RADAR | Neighborhood pizza joint. White out pizza is the one to get. Small local vibe. | 4.3* | 33.4825,-112.0481
+The Rosticceria | Italian | RADAR | 33.6025,-111.9781
+Tomaso's on Camelback | Italian | RADAR | Italian since 1977. Meatballs look good. | 4.6* | 33.5096,-112.0120
+Tratto | Italian | RADAR | Italian by Chris Bianco. Shared by NYT | 4.6* | 33.5076,-112.0370
+Trevor's Liquor | Italian | RADAR | 8.3 Pizza | 4.5* | 33.4945,-112.0038
+Trevor's Liquor | Italian | RADAR | Wood-fired pizza out of a liquor store. Trevor's combo is the move. Cocktail Summer Daze is the fan favorite. | 4.5* | 33.4945,-112.0038
+Via Della Slice Shop | Italian | RADAR | Best NY-style pizza in AZ according to people who've made the rounds. The Phoenix, pepperoni, and smoky potato slices. Vodka slice is a fan favorite. | 4.7* | 33.4510,-112.0804
+Vicinos Local Italian | Italian | RADAR | Hearty Italian-American. Tavern-style round pizza, described as thin crust with crispy edge. Large portions. | 4.5* | 33.5861,-111.8347
+Yopaulys New York Pizza Co | Italian | RADAR | Legit NY-style thin crust slices. Good sauce and cheese ratio. Foldable. Add garlic if you're into it. | 4.6* | 33.3213,-111.9131
+Azusa Ramen & Sushi | Japanese | RADAR | Veggie rolls and gyoza both get called out as perfect. No host — it's open seating. Open Tuesdays. | 4.6* | 33.3949,-111.9408
+Clever Ramen | Japanese | RADAR | Quick ramen shop. By the people who did Clever Koi | 4* | 33.4975,-112.0740
+Dragon Flame Chinese Grill | Japanese | RADAR | North Chinese food. https://www.tiktok.com/t/ZTd3Rdbar/?k=1 | 4.6* | 33.4166,-111.9255
+Full Moon Izakaya | Japanese | RADAR | Happy hour and reverse happy hour. Ramen is solid, sushi is good too. Crispy rice is legitimately crispy. Sapporo on tap. Baby octopus is fried perfectly. | 4.5* | 33.5512,-112.0571
+Hachi Ramen | Japanese | RADAR | People drive from Casa Grande for this. Spicy miso ramen is the go-to. Ask for extra chashu pork. Can be a wait on weekend nights. Presentation is impressive. | 4.5* | 33.3329,-111.9478
+Hana Japanese Eatery | Japanese | RADAR | Japanese | 4.5* | 33.5174,-112.0829
+Hornbill Sushi & Asian Fusion | Japanese | RADAR | The chicken katsu curry is what to get — crispy chicken, rich curry sauce. Sushi and Asian fusion in a cozy setting. | 4.8* | 33.6407,-112.0473
+Kodo Sushi Sake | Japanese | RADAR | Fresh nigiri on black sushi rice. Spicy edamame might be the best in the valley. Salmon is the standout nigiri. | 4.7* | 33.6222,-111.8977
+Mensho Ramen | Japanese | RADAR | GKO or Classic Toripaitan are the go-to bowls. Rich, deeply layered broth. Get the enoki chips and matcha pudding on the side. | 4.7* | 33.5222,-112.0642
+Nami Korean Kitchen & Sushi | Japanese | RADAR | Want to try the rose Tteokbokki | 4.8* | 33.6634,-112.0298
+Origami Ramen Bar | Japanese | RADAR | Manga-themed ramen spot. Chicken ramen gets called outstanding. Tablet ordering keeps things moving. Pork katsu also on point. | 4.3* | 33.3212,-111.9795
+Ramen Dozo | Japanese | RADAR | Hidden gem ramen in Tempe. $13 tonkotsu is one of the best deals in the valley. Miso and tonkotsu are the go-tos. Gyoza is solid too. | 4.7* | 33.3916,-111.9083
+SEOUL BBQ & SUSHI | Japanese | RADAR | Korean BBQ with tabletop grills. AYCE option available. Cold noodles are a sleeper hit. Fun for groups. | 4.4* | 33.5871,-112.1158
+Shio Ramen & Crudo | Japanese | RADAR | $12 ramen for lunch | 4.8* | 33.4643,-111.9258
+Silverlake Ramen | Japanese | RADAR | Tsukumen Ramen. Style of ramen where you did the noodles in the side sauce | 4* | 33.4224,-111.9254
+SoSoBa Phoenix | Japanese | RADAR | Fusion noodle spot open late. BBQ pork buns and ramen both get love. Creative cocktails. Good for late night. | 4.2* | 33.4588,-112.0771
+Sushi Sen Scottsdale | Japanese | RADAR | Solid Japanese spot in Scottsdale. Known for the okonomiyaki, katsu don, and eel — apparently one of the few places in AZ doing okonomiyaki. Reserve if coming with 4+ after 6pm. | 4.4* | 33.5394,-111.9245
+Sushi Sonora | Japanese | RADAR | Mexican sushi spot. Tuesday buy 2 get 1 free roll deal. Big rolls, lots of sauce options. Burger looks good | 4.2* | 33.4657,-112.1367
+Sushino Mexican Roll | Japanese | RADAR | Mexican-Japanese fusion rolls. The Cielo mar y Tierra roll and the carnívoro roll are fan favorites. Waffle fries are apparently some of the best around. | 4.8* | 33.4709,-112.0648
+T Swirl Crepe | Japanese | RADAR | Japanese-style crepes. Self-serve ordering kiosks inside. The Angus short rib crepe is one of the more interesting options. Mango crepe is huge and stuffed. | 4.3* | 33.4653,-112.0076
+Tampopo Ramen | Japanese | RADAR | Small ramen spot, always busy. Tonkotsu broth is the reason to go — light but full of flavor. Come early with a big group. Try the appetizers. | 4.5* | 33.3938,-111.9086
+Baragi | Korean | RADAR | Korean spot that's only been open a bit but people are already going back multiple times a week. Comes with tons of banchan side dishes. Affordable and authentic. | 4.9* | 33.5865,-111.8388
+Caribbean Cuisine | Korean | RADAR | Ox tail looks bomb | 4.5* | 33.5252,-112.2026
+Pocha 54 Korean Tapas | Korean | RADAR | Korean tapas | 4.8* | 33.6757,-111.9650
+Topnotch Island Flavor Kitchen 🇯🇲 | Korean | RADAR | Jamaican food | 4.8* | 33.6390,-112.0313
+Bowl of Greens Healthy Kitchen | Mediterranean | RADAR | Caesar salad | 4.5* | 33.4537,-112.0736
+CAVA | Mediterranean | RADAR | Like Chipotle but for Mediterranean food. Try the chicken. Get the pita chips | 4.6* | 33.5087,-112.0458
+Caroun Restaurant Mediterranean Cuisine | Mediterranean | RADAR | Iraqi chicken shawarma getting called the best ever. Also the beef tikkah. Bonus: robots bring dishes to the table. | 4.5* | 33.6532,-112.0984
+De Babel | Mediterranean | RADAR | Ranked third in the nation for Mediterranean in 2024. Shawarma is the main event — juicy, well-seasoned. Get the fries extra crispy. Huge portions, bring people. The Tractor lemona | 4.8* | 33.6196,-111.8923
+Different Pointe of View | Mediterranean | RADAR | Best view in Phoenix. Food is OK, better for drinks | 4.5* | 33.5917,-112.0633
+Haji-Baba | Mediterranean | RADAR | Chicken Sharma plate | 4.6* | 33.4143,-111.9134
+MidEast Eats | Mediterranean | RADAR | Family-run Mediterranean. Shakshuka and kefta are the things to get — not just the standard gyro. The woman at the counter will walk you through the menu. | 4.9* | 33.6561,-112.0625
+My Spot Mediterranean Grill | Mediterranean | RADAR | Kosher Mediterranean spot. Shawarma is the move — perfectly seasoned and tender. First-time falafel? This is where to try it. Friendly staff, fresh fries. | 4.8* | 33.6395,-112.0473
+Pita Valley | Mediterranean | RADAR | Lebanese food. Zatar wrap | 4.8* | 33.4215,-111.9083
+Princess Pita Mediterranean Restaurant and Market - Mesa | Mediterranean | RADAR | Baklava and Turkish coffee | 4.7* | 33.4083,-111.8878
+Saba's Mediterranean Kitchen | Mediterranean | RADAR | Mediterranean spot that's been around for decades. Known for the homemade spinach pie and chicken shawarma. Big portions. | 4.7* | 33.6399,-111.9782
+Achiote | Mexican | RADAR | Venezuelan and Mexican fusion | 4.9* | 33.3194,-111.8080
+Alebrijes Cafe & Grill | Mexican | RADAR | Dulce de leches french toast | 4.4* | 33.5077,-112.3592
+Alma Scottsdale | Mexican | RADAR | Lobster quesadilla. Plantain chips. Christmas margaritas. Looks good | 4.4* | 33.5397,-111.9246
+Analilia’s Riquezas | Mexican | RADAR | Quesabirria tacos with consome are the reason to come. Consomé is reportedly the best in the valley — flavorful without needing lime or cilantro. Loaded nachos also solid. | 4.6* | 33.5814,-112.2427
+Angelina's Fry Bread | Mexican | RADAR | Native fry bread spot. Half green pork, half green shredded beef is the move. Everything hand made to order. | 4.4* | 33.5682,-112.1709
+Asadero Norte De Sonora | Mexican | RADAR | Some great looking tortas. Horchata. Ask for charro frijoles. Red salsa spicy | 4.6* | 33.4501,-112.0479
+Asi Es La Vida Restaurant | Mexican | RADAR | Regional Mexican specialties in a bright pink building. Feels like eating at grandma's. Menu is pricey and portions are small — go for the experience. | 4.7* | 33.4895,-112.0305
+Bitz-ee Mama's | Mexican | RADAR | Classic Mexican-American breakfast spot. Chorizo skillet is big and delicious — ask for refried beans added. Red chili con carne is fresh, not from a can. | 4.3* | 33.5394,-112.1835
+Carbón & Salt Taco Shop | Mexican | RADAR | The al pastor and asada sincronizada are getting people hooked. $2 street taco Tuesday. Good toppings bar. | 4.7* | 33.6266,-112.1002
+Casa Reynoso | Mexican | RADAR | Great looking Mexican. Bean and cheese burrito enchilada style looks great | 4.5* | 33.3948,-111.9411
+Chilaquiles Modern Kitchen | Mexican | RADAR | Mexican brunch. Build your own chilaquiles | 4.1* | 33.3936,-111.8498
+Chilte | Mexican | RADAR | https://www.mashed.com/1258354/best-restaurants-usa-try-2023/ | 4.5* | 33.4528,-112.0845
+Chispa's Fast & Fresh | Mexican | RADAR | Drive-through Mexican. Birria tacos on Tuesday and Wednesday are the move. Breakfast burritos are solid any time of day — chorizo and egg hits. Drive-thru is convenient. | 4.4* | 33.4808,-111.9070
+Choon Burritos | Mexican | RADAR | Burritos on handmade flour tortillas. Also has gorditas. The spot for Mexicans and Californians who know what they're looking for. | 4.2* | 33.4964,-112.1671
+Cocina Adamex | Mexican | RADAR | Family owned restaurant. Hand made tortilla | 4.2* | 33.4540,-112.0829
+Cocina Madrigal Tacos + Tequila | Mexican | RADAR | Apparently some world class Mexican food. Currently operating out of a temporary food truck setup while the main location rebuilds. Homemade tortillas. | 4.7* | 33.4088,-112.0480
+Comedor Guadalajara | Mexican | RADAR | Chilaquiles and albondigas soup are both solid. Long-running family spot — been around decades. Entrance is kind of hidden. | 4.5* | 33.4294,-112.0742
+Condesa Phoenix | Mexican | RADAR | This used to be the restaurant at Crescent Ballroom | 4.6* | 33.4501,-112.0742
+El Caprichoso Sonoran Hotdogs | Mexican | RADAR | The Titanic hot dog and the Ruffles hotdog are the regulars' picks. They also do loaded fries and nachos. Prices creeping up. | 4.6* | 33.4795,-112.1349
+El Chapo Hot Dogs | Mexican | RADAR | Obregón-style Sonoran hot dogs wrapped in bacon with cheese, mayo, and ketchup. The Mexican burger is also a serious contender — green chili, ham, bacon, cheese. Underrated spot. | 4.5* | 33.5232,-112.1164
+El Fogón Taqueria | Mexican | RADAR | Good variety of street tacos — pastor, carne asada, barbacoa, al carbon. Food court location in Chandler Fashion Center. | 4.8* | 33.3043,-112.0554
+El Jacal Mexican Restaurant | Mexican | RADAR | Goat birria and chorizo burro both get mentioned. The quesa birria de res too. Chilaquiles rojos look solid. Homey spot, good prices. | 4.4* | 33.4796,-112.0131
+El Norteño | Mexican | RADAR | Mexican pizza. Breakfast burrito | 4.6* | 33.4589,-112.0828
+El Pollo Supremo | Mexican | RADAR | Cash-only hole in the wall. Achiote-seasoned roasted chicken with warm tortillas, fresh salsa, and beans. $10.50. That's it. | 4.7* | 33.4216,-111.9429
+El Rinconcito Del D.F. | Mexican | RADAR | Tinga tostadas with the house salsa are the standout. Green chilaquiles also get major love. Two taco combo is a solid quick lunch. | 4.4* | 33.5662,-112.0563
+El Zaguan Bistro | Mexican | RADAR | The al pastor taco is what's turning heads here. Small restaurant, but jackfruit and nopalito taco options make it a rare find for vegetarians too. | 4.8* | 33.4495,-112.0743
+Emilio’s Tacos & Hotdogs | Mexican | RADAR | A sunny yellow-and-hot pink exterior, a flashing neon open sign and glowing window frames, and bright Loteria-inspired artwork hint at the explosion of flavors on deck at Emilio's  | 2.7* | 33.4514,-112.1144
+Espiritu Mesa | Mexican | RADAR | Mexican inspired cocktails | 4.6* | 33.4149,-111.8351
+Estilo Azteca | Mexican | RADAR | Mexican breakfast and brunch spot. Horchata and this sandwich thing called 'pambazo' | 4.6* | 33.5830,-112.1697
+Fuego at The Clarendon | Mexican | RADAR | Rooftop Mexican at the Clarendon hotel. Chile relleno is solid. Live music outside most nights. Happy hour available. | 4.5* | 33.4913,-112.0792
+Gil's Taste of Taos | Mexican | RADAR | New Mexican food | 4.6* | 33.6395,-112.0475
+IncaMex | Mexican | RADAR | Peruvian food | 4.9* | 33.3783,-111.8609
+Indian Village | Mexican | RADAR | Frybread taco is a must — light and fluffy fry bread with great toppings. Navajo taco is the signature. Guacamole is some of the best around. Gift shop attached with native jewelry | 4.7* | 33.8325,-111.9347
+Juanderful Tacos | Mexican | RADAR | Known for homemade tortillas. The meats are solid and quesadillas are meaty. Cash preferred to avoid card fees. | 4.5* | 33.5097,-112.1382
+Julio's Too | Mexican | RADAR | Carne asada tacos are the safe bet. Warm chips and fresh salsa with every order. Solid quick bite, nothing fancy. | 4.5* | 33.5020,-111.9230
+LOVECRAFT // Ale House. Bottle Shop. New Mexican Smoke Kitchen. | Mexican | RADAR | Speakeasy-style spot with New Mexican smoked meats and a rooftop patio. The meatloaf and shepherd's pie are standouts. Good craft beer selection. | 4.6* | 33.5973,-112.0141
+La Casa DeLa Poblanita | Mexican | RADAR | The Cemita sandwich looks amazing | 4.5* | 33.4933,-112.2210
+La Fonda Del Sol | Mexican | RADAR | The queso with beef appetizer gets called best ever. Asada plate and green chile tamales are solid. Weekday lunch buffet. | 4.3* | 33.5743,-111.8622
+La Pasadita Hot Dogs | Mexican | RADAR | Sonoran hot dogs plus quesabirria. Tacos too. Quick service, variety of toppings. | 4.1* | 33.4953,-112.2201
+La Piñata Mexican Food Restaurant | Mexican | RADAR | Old school Mexican food. Enchiladas with a lovely sauce are the move. Refried beans are the perfect side. Cheap and generous portions. | 4.6* | 33.5174,-112.0821
+LaCo Smashburgers & Tacos | Mexican | RADAR | People are driving 45 minutes for these smash burgers. Crispy edges, right sauce ratios — one guy called it a 10/10 on a random Tuesday lunch. Tequila and scotch selection too. | 4.5* | 33.6187,-111.9251
+Las Glorias Grill | Mexican | RADAR | Strip mall spot that's nicer inside than it looks. Shrimp enchiladas are a highlight. They bring hot bean dip with the chips and salsa. | 4.5* | 33.5525,-112.0991
+Leo’s Tacos & Burritos | Mexican | RADAR | Birria burger | 4.7* | 33.4636,-112.2804
+Los Cuatro Nietos AZ | Mexican | RADAR | Family-run spot, Alberto and his wife are super welcoming. Birria tacos and the homemade salsa verde are the things people rave about. Menudo is also on point. | 4.8* | 33.4311,-112.0646
+Los Reyes De La Torta | Mexican | RADAR | This thriving enterprise produces those giant Mexican sammies known as tortas. These are the Godzillas of the sandwich world, and could easily kick any ciabatta's butt, then go on  | 4.4* | 33.5708,-112.0657
+Los Taquitos | Mexican | RADAR | Long-running family Mexican spot. Pozole is what people talk about. Chicken fajitas and the chile relleno are solid. Carne asada quesadilla too. | 4.5* | 33.4343,-111.9969
+Mariscos Playa Hermosa | Mexican | RADAR | Some great looking Mexican seafood | 4.4* | 33.4576,-112.0473
+Mi Pueblo Mexican Food | Mexican | RADAR | The carne asada fries are supposedly life-ruining — fresh crispy fries, well seasoned meat, loaded with toppings. Also try the zombie salsa. | 4.5* | 33.5741,-112.1257
+Miel De Agave | Mexican | RADAR | Canta y no llores | 4.8* | 33.4559,-112.0721
+Okay Maguey | Mexican | RADAR | Mexico City traditional cuisine — enchiladas suizas and verdes both mentioned. Owner is passionate about the menu. Hidden gem energy. | 4.7* | 33.5960,-111.9806
+Oscar's Taco Shop | Mexican | RADAR | Breakfast burrito | 4.1* | 33.5951,-112.0137
+PHX Burrito House | Mexican | RADAR | Green chile pork burrito is the signature. Carne asada burrito with rice and beans also excellent. Melrose District staple. | 4.4* | 33.4964,-112.0840
+Papi Gordo's | Mexican | RADAR | Birria tacos and the Korean taco both get shoutouts. Good house margaritas. Solid portion sizes. | 4.2* | 33.4946,-112.0033
+Plaza Bonita Mexican Restaurant | Mexican | RADAR | Classic local Mexican chain. Shredded chicken tinga burrito and good thin chips. Nothing groundbreaking but solid and consistent. | 4.3* | 33.7978,-112.1208
+Popo's Fiesta Del Sol | Mexican | RADAR | Happy hour margaritas are $7 from 3-6pm. Rolled quesadillas are a standout. Chips come out of the fryer hot. Machaca taco is good. Classic Tex-Mex cantina that does the basics righ | 4.5* | 33.4953,-112.2021
+Presidio Cocina Mexicana | Mexican | RADAR | Mexican brunch. No paid gave it a 9.2 | 4.6* | 33.4703,-112.0656
+Pueblo | Mexican | RADAR | Plant store with coffee | 4.8* | 33.4550,-112.0871
+Que Suave Taco Shop | Mexican | RADAR | Great looking breakfast burrito. | 4.6* | 33.4051,-112.0991
+Random AF Taqueria | Mexican | RADAR | Birria grilled cheese and birria egg rolls are the standout orders. Food truck situation — located inside a party store. Birria tacos with consomé are solid. Horchata is great. | 4.6* | 33.4761,-112.0126
+Recreo | Mexican | RADAR | Cool outdoor area. Food looks interesting. Dole whip | 4.2* | 33.3031,-111.8424
+Revolución Tacos + Cantina | Mexican | RADAR | Speakeasy taco spot tucked in an alley off Central, easy access from the light rail. Quesadilla is the move — better than the tacos. $5 beers, big outdoor seating area. | 4.7* | 33.4589,-112.0735
+Rita's Mexican Food & Mariscos | Mexican | RADAR | Old school Mexican food joint. Shrimp quesadilla with big tender shrimp gets mentioned a lot. Seafood-heavy menu alongside the classics. | 4.3* | 33.4644,-112.1348
+Rito's Mexican Food | Mexican | RADAR | Green Chile burrito enchilada style | 4.6* | 33.4580,-112.0519
+Rito’s Burritos- Glendale | Mexican | RADAR | Green Chile burrito is made from scratch. Get enchilada style | 4.4* | 33.5452,-112.1691
+Rosita's Place | Mexican | RADAR | Old school Phoenix Mexican since the 80s. Plato mixto is the classic order. Chile relleno and chimichangas are solid. | 4.4* | 33.4660,-112.0324
+Santo Arcadia | Mexican | RADAR | Birria dumplings. Short rib | 4.7* | 33.4880,-111.9860
+Señor Muertos Mexican Pizza | Mexican | RADAR | Mexican pizza spot. Al pastor with pineapple and the elote pizza get the most love. Vegan cheese gets high marks here too. | 4.6* | 33.5246,-112.1097
+Susie's Mexican Cafe and Lounge | Mexican | RADAR | Longtime local Mexican spot. The #7 with green sauce is what people order. Menudo is legit. House margaritas are huge. | 4.4* | 33.4218,-111.8866
+TAQUERIA LOS NORTEÑOS | Mexican | RADAR | Family-owned Mexican spot. Machaca chimichanga and tacos both mentioned. Straightforward counter service. | 4.6* | 33.6443,-112.0314
+TEG Torta Shop - Tortas El Güero | Mexican | RADAR | 4.6* | 33.4754,-112.0481
+Taco Guild | Mexican | RADAR | Set inside a restored old church with stained glass windows and vaulted ceilings — the space is wild. Sustainable Mexican fare, great habanero salsa. Strong drinks. Craft beer and  | 4.5* | 33.4878,-112.0657
+Taco Night & Tequila | Mexican | RADAR | Al pastor tacos and breakfast molcajete both get mentioned. Friendly service, solid value. | 4.3* | 33.5814,-112.1264
+Tacos Chiwas | Mexican | RADAR | Family-owned Chihuahuan-style tacos. Al pastor, pollo, and the Chiwas beef taco are the orders. Also has a location in the airport. | 4.5* | 33.4949,-112.0594
+Tacos El Paisa | Mexican | RADAR | Chorizo and the Gordita are the best two items. Birria ramen also gets love. Breakfast burritos are solid. | 4.3* | 33.3931,-111.8036
+Tacos El Paisa - Chandler | Mexican | RADAR | Flautas are reportedly the best in the valley. Tripas taco and huarache de carne asada are standouts. Carne asada torta is huge. | 4.4* | 33.3192,-111.8419
+Tacos El Rojo PHX | Mexican | RADAR | Hidden gem taco spot. The papa loca and al pastor are the standouts. Handmade tortillas. | 4.6* | 33.5246,-112.1792
+Tacos Huicho | Mexican | RADAR | El pastor tacos and the Jamaica drink look incredible | 4.4* | 33.4726,-112.0394
+Tacos Jalisco | Mexican | RADAR | Birria, asada, and lengua taco platter is the move. Menu prices have gone up — worth confirming before you go. | 4.6* | 33.4801,-112.0166
+Tacos Sahuaro | Mexican | RADAR | Authentic taqueria with hand-made corn tortillas. The quesabirria tacos are crispy and good. Carne asada has real flavor. Been around 20+ years. | 4.5* | 33.4738,-112.0132
+Taqueria Chicali Mexican Grill | Mexican | RADAR | What used to be a gas station. Angus beef cooked with just salt — simple and delicious. Great corn tortillas that don't fall apart. Good salsa bar. | 4.5* | 33.4949,-112.2264
+Taqueria El Fundador | Mexican | RADAR | People claim it's the best birria tacos in Phoenix. Been around 20 years. Quesobirria is the move, beans and rice taste homemade. | 4.2* | 33.4511,-112.1300
+Taqueria Mi Casita | Mexican | RADAR | Giant street tacos. Authentic vibe, really friendly owner named Jaime who apparently sings through the restaurant. | 4.6* | 33.3359,-111.8609
+Tatemados Tacos al Carbon | Mexican | RADAR | Tacos look fire | 4.6* | 33.4742,-112.0649
+The Beach House | Mexican | RADAR | Shrimp burrito | 4.7* | 33.5090,-112.0670
+The Original Blue Adobe Grille | Mexican | RADAR | New Mexico Southwestern vibe. The chorizo stuffed chicken with that sauce is what people are coming back for. Reservations recommended. | 4.6* | 33.4184,-111.8404
+The Taco Spot - North Phoenix | Mexican | RADAR | Birria and carne asada burritos — both big and filling. Tablet ordering at the tables. Mixed reviews on the birria specifically. | 4.5* | 33.6407,-112.0798
+The Yori Hot Dogs | Mexican | RADAR | Sonoran hot dogs | 4.4* | 33.4013,-111.8559
+Tortas Paquime | Mexican | RADAR | Tortas are the move — carne asada torta is an 8/10. Homemade chips are excellent. Fresh, not frozen fries. | 4.2* | 33.4653,-112.0264
+Xolo | Mexican | RADAR | Chips and souiza to start. Chipotle chicken enchiladas with the house sauce are over the top. Chile relleno is cooked right. Local spot that feels like you're eating somewhere only | 4.5* | 33.6061,-112.0664
+la bamba mexican grill restaurant | Mexican | RADAR | Everything made fresh to order including chips and guacamole. Six taco combo is the move. Small place, mostly eat-and-go. Aguas frescas are great. | 4.6* | 33.6092,-112.3205
+Shawarma Factory | Middle Eastern | RADAR | Chicken shawarma wraps near ASU. Been around a while. Solid shawarma, though portions have apparently shrunk recently. | 4.2* | 33.4246,-111.9348
+AZ Lemonade Stand | Other | RADAR | Local lemonade brand. Prickly pear and mango are the flavors to grab. Sold in jars — people take home a case. | 4.7* | 33.5673,-112.0636
+Ace of wingz | Other | RADAR | Funnel cake fries. | 4.5* | 33.5551,-112.1006
+American Way Pasta | Other | RADAR | Cacio e pepe in the cheese wheel. Housemade pasta. Looks unassuming from the outside, turns out to be elegant inside. | 4.7* | 33.3483,-111.9830
+Arreburro Burritos+Quesadillas | Other | RADAR | Stretchy homemade tortillas are the main thing here. Barbacoa burrito is a 10/10 according to regulars. Asado rojo quesadilla is the standout — rich and flavorful. Everything runs  | 4.7* | 33.4235,-112.2373
+At My Place Cafe | Other | RADAR | Filipino breakfast spot. Sisig and longsilog are the moves. Owner Lisa comes out and chats with you. Very cozy. | 4.5* | 33.3073,-111.8995
+AzHanna Hibachi | Other | RADAR | Food truck hibachi. Huge portions, fresh, spicy — the fried rice alone is worth it. Great value. | 4.3* | 33.4943,-112.1599
+Bad Jimmy's | Other | RADAR | Smash burgers. LA burg. On Mondays the have dry rub wings... | 4.3* | 33.4557,-112.0720
+Bad Jimmy's Uptown | Other | RADAR | Retro vibe smash burgers — red neon, 80s music, skylight. Waffle fries are great. Lettuce wrap instead of a bun is available. One of the better burger spots in Uptown. | 4.4* | 33.5256,-112.0647
+Ben Brothers Market | Other | RADAR | Corner store with a Chinese kitchen inside. Buffalo chicken wings and the egg rolls are better than most actual Chinese restaurants. Been around since 1988. Shrimp fried rice is th | 4.5* | 33.4512,-112.0457
+Board & Brew - Tempe | Other | RADAR | California-style sandwich spot near ASU. Turkey Club on sourdough gets high marks. Chill surf vibes, beer selection. | 4.9* | 33.4175,-111.9260
+Bro Bro's BBQ | Other | RADAR | BBQ in a dive bar. Owner used to work at little miss bbq | 4.9* | 33.6001,-111.9842
+Brunch & Sip | Other | RADAR | From the owners of Los chicken and waffles, and Monroe's hot chicken. Pancakes are fluffy and legit. Lobster with creole shrimp. Expect a long wait on weekends. | 4.3* | 33.4954,-112.0014
+California Burger & Breakfast Company | Other | RADAR | Diner that does everything — burgers, fish and chips, Sonoran dogs, Mexican food. Zucchini fries are made in-house and worth ordering. Hot wings are huge and meaty. | 4.5* | 33.4668,-112.1711
+Cerreta Candy Company | Other | RADAR | Local chocolate and candy shop with tours. Good for groups and birthdays. Locally owned, been around forever. | 4.7* | 33.5383,-112.1745
+Cornish Pasty Co | Other | RADAR | British pasties — basically a thick empanada filled with savory stuff. The lamb and mint pasty gets called out. Also the Tandoori curry wings. Late night spot, open until 2am. | 4.5* | 33.4503,-112.0742
+Crazy Mike's Wings - Glendale, AZ | Other | RADAR | Wings | 4.5* | 33.6398,-112.1739
+Cubanitas Kitchen | Other | RADAR | Cuban food | 4.7* | 33.5388,-112.1816
+Culinary Gangster AZ | Other | RADAR | Gyro Burger and the PB&J Hamburger are the things to get. Mushroom Burger also solid. Small place with a great vibe. | 4.8* | 33.6214,-111.8964
+Dave's Hot Chicken | Other | RADAR | Hot chicken chain. Reaper heat level is no joke. Staff is reportedly great at this location. | 4.7* | 33.6399,-112.0670
+Desert Drinks & Exotics | Other | RADAR | Foreign sodas and snack place | 4* | 33.4659,-112.0409
+Dingle Berries Coffee, Tea & Juice | Other | RADAR | Shakshuka is a standout — people keep coming back for it. Seasonal soup is excellent. Good brunch spot with indoor/outdoor seating. | 4.9* | 33.6987,-112.1005
+Don Cafe | Other | RADAR | Coffee bar inside the Arizona Latino Arts & Cultural Center. Try the Cairo. Orange coffee and the Perth drink are standouts. | 5* | 33.4492,-112.0717
+Dulceria La Bonita Wholesale | Other | RADAR | Bulk Mexican candy and party supply store. Piñatas, candy, chips — like Costco but for Mexican party goods. Great prices. | 4.5* | 33.4734,-112.1332
+El Chullo Peruvian Restaurant & Bar | Other | RADAR | The lomo saltado here is supposedly the best version in the valley — multiple people who've been to Peru say it's that good. Make a reservation, it gets busy. Pisco sour is solid t | 4.6* | 33.5007,-112.0828
+El Chullo Peruvian Restaurant & Bar | Other | RADAR | Pisco sour, Lomo saltado | 4.6* | 33.5007,-112.0828
+El Super Taco | Other | RADAR | Shrimp taco is the standout when they have it. Asada burrito is solid and filling. Salsa bar is the move. Quality has fluctuated but on a good day it hits. | 4.8* | 33.6191,-112.0312
+Grocery Station | Other | RADAR | Safeway deli. Known for the fried chicken being fresh in the morning. Basic grocery store deli situation. | 4.2* | 33.4662,-112.0675
+Guanaquito Restaurant | Other | RADAR | Papusas | 4.4* | 33.4660,-112.0503
+Gus's World Famous Fried Chicken | Other | RADAR | The fried chicken and catfish both get called out. Van Buren location downtown Phoenix. Spicy, crispy, and tender. | 4.6* | 33.4512,-112.0785
+Gus's World Famous fried chicken downtown Phoenix | Other | RADAR | Spicy fried chicken chain on Van Buren downtown. Catfish is also excellent. Crispy, tender, and juicy. | 4.6* | 33.4512,-112.0785
+Highland Food Hub | Other | RADAR | Food hall | 4.6* | 33.5061,-112.0837
+INDIBAR | Other | RADAR | Upscale Indian with Michelin-level ambition. Vegetarian chef's tasting menu is a thing. Raji papdi chaat is incredible. Full wine list. Beautiful space, on the expensive side. | 4.7* | 33.5296,-111.9276
+Iced Out Ice Cream | Other | RADAR | Asian/Hispanic Ice Cream | 4.4* | 33.5824,-112.2059
+Jalapeños Sonora Grill | Other | RADAR | Yelp's #6 taco spot in the US. The Sonoran taco is the one to get. Solid salsa bar with pico, cabbage, carrots, lime, and atolía. Aqua fresca is also good. | 4.8* | 33.6238,-112.1863
+Kabob Grill N Go | Other | RADAR | Pork ribs with rice | 4.9* | 33.4834,-112.0479
+Kris' Fresh Frybread | Other | RADAR | Native American frybread spot. Green chili wamich and red chili wamich are both solid. The O'odham taco is worth trying. Owner/chef greets everyone who walks in. | 4.7* | 33.5662,-112.0733
+L A Milk Depot | Other | RADAR | Bobbettes Salsa | 4.7* | 33.4668,-111.8965
+La Chona Burger Restaurant | Other | RADAR | The Chona burger is what people are raving about. Small family-run spot in Mesa. Made fresh daily. | 4.6* | 33.3988,-111.8584
+La Tiendita Colombian Restaurant | Other | RADAR | Colombia's national dish: Bandeja Paisa | 4.4* | 33.4154,-111.8426
+Little Pickle | Other | RADAR | NY Deli | 3.9* | 33.5087,-112.0276
+Loco Style Grindz | Other | RADAR | Hawaiian food | 4.5* | 33.4578,-112.0722
+Lumsum Thai Cuisine | Other | RADAR | Authentic Isaan Thai. The boat noodles and crispy pork are standouts. Live traditional instrument on weekends. Anything with the dipping sauce is a must. | 4.8* | 33.6212,-111.8990
+Main Burger | Other | RADAR | Green chile burger is what to get. Quick, fresh, and the staff actually comes by to check on you. | 4.3* | 33.4148,-111.8364
+Malegria Latin cafe | Other | RADAR | Latin cafe with a walk-up patio. Fish tacos are the thing people come back for. Abuelita mocha is solid. Pastelitos and chilaquiles are also crowd favorites. | 4.8* | 33.4550,-112.0871
+Maritza's Pupusas | Other | RADAR | Salvadoran spot in Queen Creek. Hot, fresh pupusas made to order. People drive for these. | 4.6* | 33.2492,-111.5825
+Mercado Y Carniceria El Rancho | Other | RADAR | Mexican market and butcher. The burritos are apparently the move — someone said they'd kiss the cook. Fresh meat and produce. Prices are a bit higher than a regular grocery store. | 4.4* | 33.5711,-112.0806
+Miss Dessert | Mesa | Other | RADAR | Hong Kong style dessert and boba. The Mega Fruit Tea is the move. Ask for half sweet level. | 4.3* | 33.4803,-112.0907
+Mister Pio | Other | RADAR | Peruvian roast chicken | 4.8* | 33.4805,-111.9842
+Mr. Fries Man Peoria | Other | RADAR | Loaded fries concept — steak, shrimp, chicken all available. Breakfast fries are a thing. Quality seems to travel well on delivery. | 4.6* | 33.6716,-112.2373
+Novel Ice Cream | Other | RADAR | Donut ice cream | 4.9* | 33.4553,-112.0868
+Novel Ice Cream | Other | RADAR | Ice cream with AZ dairy only | 4.9* | 33.4553,-112.0868
+Oliver's Modern American | Other | RADAR | Rigatoni and short ribs are both solid. Good happy hour, patio seating available. Worth the stop in Scottsdale. | 4.7* | 33.4848,-111.9083
+PHXNQRA WINGS | Other | RADAR | Order ahead online — 45 minute wait is normal and worth it. Lemon garlic with pineapple is the sleeper sauce. Mac and cheese has insane flavor. Parmesan fries are also solid. | 4.6* | 33.5827,-112.0510
+PYRO | Other | RADAR | Fried rice and garlic noodles. Gyoza | 4.5* | 33.5102,-111.9880
+Pepper Lunch | Other | RADAR | Japanese quick teppanyaki food. | 4.8* | 33.7825,-112.1224
+Persepshen | Other | RADAR | Full from scratch kitchen | 4.5* | 33.5062,-112.0741
+Pinches Tacos Al Carbon (AZ) | Other | RADAR | Taco tijuana style is the move. Fresh, quick, and there's a condiment bar. In the same plaza as La Purisma bakery. | 4.7* | 33.6551,-112.0810
+Raspa2 Jalisco | Other | RADAR | Mexican snack spot attached to Tacos Jalisco. The mangonada gets big love. Elotes, aguas frescas, flans. | 4.4* | 33.4832,-111.9352
+Reathrey Sekong | Other | RADAR | Authentic Cambodian food. Loa lak beef is what Cory ate | 4.8* | 33.4949,-112.0536
+RoRo Dogs | Other | RADAR | Gourmet hot dogs on Roosevelt Row. Locally sourced ingredients, fresh buns. Chicago style and chili cheese dogs but also creative stuff. Owners are super into it. | 4.9* | 33.4588,-112.0670
+Schreiner's Fine Sausage | Other | RADAR | Supposed to be great chorizo | 4.9* | 33.4895,-112.0649
+Scoopwell's Dough Bar | Other | RADAR | Cookie dough ice cream bar. Get the toffee bourbon flavor in a donut. Usually a line but they move fast. | 4.9* | 33.4579,-112.0722
+Seydi’s Pupuseria & Grill | Other | RADAR | Fresh pupusas with house hot sauce and horchata. Tamales are also worth trying. | 4.5* | 33.6271,-112.0250
+Shamrock Foodservice Warehouse | Other | RADAR | Restaurant supply store | 4.4* | 33.4957,-112.1122
+Sidewinder | Other | RADAR | Dive bar with solid bar food. Known for the Not So Sonoran hotdog and the rodeo burger. Good patio with misters, dogs welcome. | 4.4* | 33.4589,-112.0610
+Soup & Sausage Bistro | Other | RADAR | Ukranian food | 4.7* | 33.6068,-112.0657
+Sweeties Candy of Arizona | Other | RADAR | Candy store | 4.7* | 33.3336,-111.8608
+TAIWAN MAMA Flagship Store | Other | RADAR | Taiwanese spot. Popcorn chicken and braised pork belly are the must-orders. The braised beef noodles also get love. Tomato fried eggs is a classic Taiwanese dish they do well. | 4.3* | 33.6558,-112.0622
+Ta'Carbon Mexican Grill | Other | RADAR | Authentic Mexican street tacos with meats cooked over wood charcoal. Loaded salsa bar. Carne asada taco and the taco hazz. Always packed with locals. | 4.6* | 33.4817,-112.1513
+Taco Papi | Other | RADAR | Carne asada tacos and the quesaburria tacos are the ones to get. Salsa bar available. Tiny walk-up spot with authentic decor. Margaritas took a few reminders to arrive. | 4.7* | 33.6206,-111.8963
+Taco Viva | Other | RADAR | Tijuana-style tacos. Al pastor gets called out as cooked to perfection. Drive-thru available on Indian School. | 4.7* | 33.4948,-112.0207
+Tacos Tijuana | Other | RADAR | Quesabirria tacos are what people come for. Authentic street taco spot. Outdoor seating area. | 4.3* | 33.6378,-112.1658
+Taste My City | Other | RADAR | Chicago BBQ | 4.6* | 33.4952,-112.2911
+Tasty pot 味鼎小火锅 | Other | RADAR | Hot pot spot. Sa Cha flavor gets highlighted. Can get packed — 10-15 min wait on busy nights. | 4.3* | 33.6372,-112.1998
+Tempe Eats Food Hall & Bar | Other | RADAR | Fish Pop - fish and chips. English dude said they are amazing | 4* | 33.3924,-111.9382
+The Ends | Other | RADAR | Bison rib eye | 4.6* | 33.4995,-111.9272
+The Farm at South Mountain | Other | RADAR | Farm setting with tree-shaded picnic tables. Japanese sweet potato is a must. French toast is also a good pick. | 4.6* | 33.3907,-112.0134
+The Garfield Phoenix | Other | RADAR | Horchatta. Burrito. | 4.8* | 33.4589,-112.0610
+The Hermosa Inn | Other | RADAR | Boutique hotel brunch spot in Paradise Valley. Outdoor patio with fountain. More of a special occasion place. | 4.7* | 33.5183,-112.0049
+The Meat Market | Other | RADAR | Premium local butcher. Grass-fed beef, aged cuts, thick ribeyes. Staff knows their stuff. If you're doing carnivore this is your spot. | 4.6* | 33.4371,-112.0707
+Theos Kitchen To Go | Other | RADAR | Food truck with some of the best chicken wings in Arizona — the BBQ sauce is the thing. Chicken sandwich is also well seasoned. Generous portions. | 4.9* | 33.4078,-111.9519
+Tikka N Taco | Other | RADAR | Mexican-Indian fusion. Shrimp coconut curry and the paneer biryani are the standouts. Tamarind sauce with samosas is a must. The shrimp tacos use fresh ingredients and it shows. | 4.9* | 33.5858,-112.0991
+Topo Arizona | Other | RADAR | Brisket burrito. Elote bowl | 4.6* | 33.3552,-111.7895
+UNOS TACOS Y BIRRIA | Other | RADAR | The birria taco special with consomé is the move here. $13.49 gets you in. Watch out for add-on costs. | 4.4* | 33.4814,-112.2211
+Vecina | Other | RADAR | Pork belly tacos | 4.8* | 33.4887,-111.9603
+Welcome Diner | Other | RADAR | Tiny 1945 diner with counter seating. Welcome burger and pancakes are the go-tos. Street parking only. | 4.5* | 33.4555,-112.0607
+Well Seasoned | Other | RADAR | Bayou bowl looks good | 3.9* | 33.4980,-111.9232
+Wingz And Thingz | Other | RADAR | Soul food wings spot in Avondale. Came up on TikTok. Wings and collard greens get the love. Owner is hands-on. | 4.2* | 33.4351,-112.3245
+valley ice cream shop LLC | Other | RADAR | Mexican dessert | 4.9* | 33.4727,-112.0482
+Island Sensation Cuisine | Seafood | RADAR | Authentic Caribbean — oxtails with peas and rice, curry goat, ackee and saltfish. Real island flavors. Worth the wait. | 4.5* | 33.4952,-112.0633
+Knock Kneed Lobster | Seafood | RADAR | Phoenix's oldest restaurant. Classic fish and chips, broiled cod, fried shrimp. Has been around since the 1940s. Casual seafood spot that keeps it simple. | 4.3* | 33.4484,-112.0127
+Pappadeaux Seafood Kitchen | Seafood | RADAR | Cajun seafood chain but a good one. The etouffee, oysters, and tagliatelle pasta get called out. Key lime pie is legit. Full bar. | 4.6* | 33.5878,-112.1159
+Salt Cellar Restaurant | Seafood | RADAR | Underground seafood | 4.4* | 33.4543,-111.9096
+Apsara Asian Restaurant | Thai | RADAR | Cambodian food out in Avondale. People are going nuts for it. Known for being a genuine flavor bomb — the kind of place that makes you mad you waited this long. | 4.6* | 33.4928,-112.2853
+Chick-A-Dee | Thai | RADAR | Thai street food | 4.7* | 33.4800,-112.0766
+LeDu Thai | Thai | RADAR | The Hat-Yai fried chicken and pad thai get both praised and criticized. Mixed reviews but fans are loyal. | 4.6* | 33.4582,-112.0671
+Lom Wong | Thai | RADAR | Elevated Thai with mostly family recipes. The Arai Kodai experience is a set tasting. Make a reservation. | 4.6* | 33.4602,-112.0704
+Sala Thai Restaurant | Thai | RADAR | Pad Kee Mao is the dish to get — one reviewer said it's their favorite version across the whole country. Massive authentic Thai menu. Very consistent. | 4.4* | 33.5857,-112.0140
+Soi 4 Bangkok Eatery | Thai | RADAR | Thai spot with chicken wings, papaya salad, and coconut soup. Pineapple rice is a thing too. Modern take on Bangkok classics. | 4.4* | 33.5663,-111.9246
+Thai On Demand | Thai | RADAR | People are calling this the best Thai in the valley after trying 7+ other spots on DoorDash. The crispy curry chicken noodle dish and pork belly dishes are the standouts. | 4.5* | 33.5692,-111.8901
+Thai Rama | Thai | RADAR | Been open 30+ years and people have been coming for decades. Spicy garlic chicken is the signature dish. Mango sticky rice for dessert. Consistently good, reasonable prices. | 4.6* | 33.5092,-112.0887
+Thai Recipe Bistro | Thai | RADAR | Fresh shrimp rolls and pot stickers are solid starters. Seafood Pad Thai and orange chicken are the main event. Generous portions. | 4.7* | 33.4726,-112.0656
+Da Vàng Restaurant | Vietnamese | RADAR | Best pho in Arizona according to a lot of people. Huge portions, no upcharge to substitute. Spring rolls are legit — rice paper doesn't fall apart. Small parking lot. | 4.5* | 33.5038,-112.1004
+Pho 43 | Vietnamese | RADAR | Supposedly the best pho in AZ. People have been going for 10+ years. Hours are limited, closes around 5pm. | 4.7* | 33.4795,-112.1522
+Phở Tan Thanh | Vietnamese | RADAR | Vietnamese spot doing all the classics — pho, bun, com tam, chao. The Pho Bo Vien gets called out specifically. Family has been going for 7+ years. | 4.5* | 33.5102,-112.0958
+Phở Thành Restaurant | Vietnamese | RADAR | Best pho in phx has a dessert place next door | 4.4* | 33.5102,-112.0958
+Rice Paper Vietnamese Restaurant | Vietnamese | RADAR | Modern Vietnamese spot. Pho tai with extra steak, Buddha spring rolls, and the Saigon Salad. Broth is the real deal. Great banh mi too. | 4.3* | 33.4727,-112.0648
+Tea Light Café | Vietnamese | RADAR | Vietnamese spot with a tea focus. Pork chops are reportedly some of the best around — tender, paired with crunchy cabbage. Banh mi chicken sandwich is well assembled. Lunch special | 4.5* | 33.6581,-111.9329
+Đồng Quê Restaurant | Vietnamese | RADAR | Home-style Vietnamese with live music on weekends. Counter order, small vibe. | 3.9* | 33.5968,-112.2184
