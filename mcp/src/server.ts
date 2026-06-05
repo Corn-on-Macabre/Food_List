@@ -62,7 +62,7 @@ server.resource(
 
 // --- Start ---
 
-loadData();
+await loadData();
 
 const transport = new StdioServerTransport();
 await server.connect(transport);

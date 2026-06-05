@@ -1,5 +1,4 @@
 import fs from 'node:fs';
-import path from 'node:path';
 
 interface Restaurant {
   id: string;
@@ -22,11 +21,20 @@ interface Restaurant {
 
 let restaurants: Restaurant[] = [];
 
-export function loadData(): void {
-  const dataPath = process.env.FOOD_LIST_DATA
-    || path.resolve(import.meta.dirname, '../../public/restaurants.json');
-  const raw = fs.readFileSync(dataPath, 'utf-8');
-  restaurants = JSON.parse(raw) as Restaurant[];
+const DATA_URL = 'https://bobby.menu/restaurants.json';
+
+export async function loadData(): Promise<void> {
+  // Local file override for dev, otherwise fetch from live site
+  const localPath = process.env.FOOD_LIST_DATA;
+  if (localPath) {
+    const raw = fs.readFileSync(localPath, 'utf-8');
+    restaurants = JSON.parse(raw) as Restaurant[];
+    return;
+  }
+
+  const resp = await fetch(DATA_URL);
+  if (!resp.ok) throw new Error(`Failed to fetch restaurant data: ${resp.status}`);
+  restaurants = (await resp.json()) as Restaurant[];
 }
 
 // --- Haversine distance (miles) ---
