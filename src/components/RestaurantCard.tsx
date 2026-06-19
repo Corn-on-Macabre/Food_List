@@ -142,6 +142,16 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
 
         <p className="mt-2 text-sm text-stone-500">{restaurant.cuisine}</p>
 
+        {restaurant.tags && restaurant.tags.length > 0 && (
+          <div className="mt-2 flex flex-wrap gap-1.5">
+            {restaurant.tags.map((tag) => (
+              <span key={tag} className="inline-block rounded-full bg-stone-100 px-2 py-0.5 text-xs text-stone-500">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+
         {restaurant.suggested_by && (
           <div className="mt-2 flex items-center gap-1.5">
             {restaurant.suggested_by_avatar ? (
@@ -166,7 +176,18 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
           <p className="mt-2 text-sm text-stone-500 italic">{restaurant.notes}</p>
         )}
 
-        <a
+        {restaurant.source && !restaurant.suggested_by && (
+          <p className="mt-2 text-xs text-stone-400">
+            Source: {restaurant.source}
+          </p>
+        )}
+        {restaurant.source && restaurant.suggested_by && (
+          <p className="mt-1 text-xs text-stone-400">
+            via {restaurant.source}
+          </p>
+        )}
+
+        <
           href={getSafeHref(restaurant.googleMapsUrl)}
           target="_blank"
           rel="noopener noreferrer"
