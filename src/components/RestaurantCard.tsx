@@ -187,7 +187,7 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
           </p>
         )}
 
-        <
+        <a
           href={getSafeHref(restaurant.googleMapsUrl)}
           target="_blank"
           rel="noopener noreferrer"
