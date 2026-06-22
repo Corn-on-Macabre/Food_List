@@ -10822,5 +10822,393 @@
     "priceLevel": "PRICE_LEVEL_MODERATE",
     "photoRef": "places/ChIJ6QqutGRT5okRHuUam6Yjnuo/photos/AaVGc3kTBXO24tgLT35iZniHHWufsTJmiTHJtSQq5DpfE_cXOiso7YbvlmXNIiL_bbR3lyhKUaeFRdFTpnQ69r4Khqv5S6P2peX_yYmorxAUd7AOjtg0SmZTfQbXUna2NFErN5hao-YSKDhMEcj4bL54Z0mb5Bu7BC0HuLdUCcFynra7CL0d3ChFaC27ESdCRhKO5eKuVmBr7MCpG274FB88QA5e_neRB_Vro5_z8Rw20Z4Lg4xQanbW1a97ViN6nqYl9D_OfXoa_waVGqX9pM8zOch3d-YHkQKFVnwbVWfVEJqKoStn1Yc9mgZzQ8s-3C4vpltsxRsAdMZYm_8GweTw1Jygt9WikDDUnkkN5ItmWAIzv9jT_Po68OzdR7k2lYYJLWPIGLzSaBoD6aoqWzGfybRfqyfNgdBGmT-xJlJOw2SxVTASAvLmmM6qc6xwn3n5",
     "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "station-8-bbq-wichita",
+    "name": "Station 8 BBQ",
+    "cuisine": "BBQ",
+    "lat": 37.6872,
+    "lng": -97.3301,
+    "googleMapsUrl": "https://www.google.com/maps/place/Station+8+BBQ/",
+    "notes": "Locals say it beats Kansas City BBQ. That's a bold claim in Kansas, and they back it up.",
+    "tags": [
+      "must-try",
+      "quick lunch"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.9,
+    "userRatingCount": 897,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJBQqzdLPjuocRCsC2zDBy0JY/photos/AaVGc3m5EzIaUpi4pHFRuN6THWPwA5lrrp8hfE-8GfkYpzhQwcy7e2wzbQdwJWOJnvsLSHErINWwisd4uIyNBBimtyczWNBv7B6CppiuvVg6TagjcRLneoHqhupbZhFjIkn4JXX28k103mKYXL2S-IYAnGOnqLYYeuUyd4kHYFmi454TCbnWoLOU0nzgkGbw1E7n0O1Nrj6x6JjOo6ItP8IhSU40bQn1UZwVSTIEkT8PXtJndMUUM-gWkG_Pld299rU4sdCqOi3jv--SQvmTygO9FA6PflP6SAiocYZj3uskTp2P6w5JvKnYc_tyeQ-Eg-AW2NL8y43ikl8cS68h_n8qmilw0M7ebPBKMQySemzAuNu61GNY7vhtHuyF4f0lIP9hxS93e_Nq13uK_w2VMK6LugnIgAyqifpE9gjz5w_F25Y",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "hog-wild-pit-bbq-wichita",
+    "name": "Hog Wild Pit Bar-B-Q",
+    "cuisine": "BBQ",
+    "lat": 37.694,
+    "lng": -97.347,
+    "googleMapsUrl": "https://www.google.com/maps/place/Hog+Wild+Pit+Bar-B-Q/",
+    "notes": "Closes at 2pm because they sell out. Get there early.",
+    "tags": [
+      "quick lunch"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.4,
+    "userRatingCount": 1412,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJweAmgSHhuocRmS2N-v72yM8/photos/AaVGc3lBcakSQEa8cCAvqeUCZ81XRVN6vvk05El4m7ETCtERBQky00axLHWHePO2NdF2pwuIIYrfn3QkPAoevvoC3kx7Yg6DDU95GWFO5WPwj53-bZjs6dY4eZcxOgir2qw-FiqQ3C-whoS-x6Ye00doBdLZ8-hb17eYRHLk7vjJnQfoWObcbxW2E600hDF0ZHbtqkMnX3L5NK-mkADNZIi2RiIXYDpz6f7rH0Vk150zqMWOFYZIcWVD8jB3Go-9mOvDwh1hK5-L5yON__ORhCDafGj6_befT5O8E_bDKWTA2hQkomaG13iJs3tChGIexGlqCBQM8cypIrMXGuvIIMV4ongFLaCNJSSDoy4-faBAvtZaeWUHNzmHgTutIE7axfcm0V4N-XZ-jMwKXrv84A6p_JuuSj7d3112mMXZMVco6VTmzYJz",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "sweet-willys-bbq-wichita",
+    "name": "Sweet Willy's BBQ",
+    "cuisine": "BBQ",
+    "lat": 37.685,
+    "lng": -97.28,
+    "googleMapsUrl": "https://www.google.com/maps/place/Sweet+Willy's+BBQ/",
+    "notes": "More creative than most Wichita BBQ. Tasty and different.",
+    "tags": [
+      "quick lunch"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 1,
+    "userRatingCount": 1,
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "bite-me-bbq-wichita",
+    "name": "Bite Me BBQ",
+    "cuisine": "BBQ",
+    "lat": 37.693,
+    "lng": -97.338,
+    "googleMapsUrl": "https://www.google.com/maps/place/Bite+Me+BBQ/",
+    "notes": "Great name, great BBQ. Competition-style smoked meats.",
+    "tags": [
+      "quick lunch"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.5,
+    "userRatingCount": 2942,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJKZaZIMDjuocRKlq7AdIjnoE/photos/AaVGc3lDHSHVda5H6wg-CYgGHYA-AWmqF6klkrEkbKWRpN4ixtGBvJavUEgmsVOzvcIRToxGTcGP8s1xAx3t-qqtzoJuXkh4yTUoXWWIbAEGWd2H1oVXP1k0Pkd-_HJ4u7l2cCBVfzIpJOyYGT9w2m5xrAfM6qdl8tygPsasb5zsAln35ifir07aZWEOE0tgFP6zL_yDeRsCzdldeR2pYOVBVCf1lspyk0M1oyUSQopOlJn8lBOKpcIe7H2LiXdVQwC2B-oYI3z4DwcEoHP-8bEZLwb9U4SIaO79FuRlyRYQKW3_pkoGG0oMX2ub5zB2AKbjsVM9geV0QlY613Fd1v14IjiXz1R_od8y56cE14o7WdYATZF8-zvLUs93pQUS83_phcoKbKktSwO7JG63sQ9E-rg4q7htVaaa8N2OWkH0092zbQ",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "busters-burger-joint-wichita",
+    "name": "Buster's Burger Joint",
+    "cuisine": "American",
+    "lat": 37.688,
+    "lng": -97.336,
+    "googleMapsUrl": "https://www.google.com/maps/place/Buster's+Burger+Joint/",
+    "notes": "Local favorite for burgers. Fresh ground beef, creative toppings.",
+    "tags": [
+      "quick lunch"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.8,
+    "userRatingCount": 621,
+    "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+    "photoRef": "places/ChIJoQHSJ7PluocRNWUVTrmY8c8/photos/AaVGc3kFyQrucBzNswzTV25RUv1OEtPNlvDpEG2oCN3Mi0ougLNWBoJYdkN2qZBFStSELWy2uWHiExKuEFHF4s6mIir71tSQ5y2mEURIE8oX_0gs39bJjjb0022QNU9wQOglWj83eAKGqK49Xb-_2R54h_8ueW_TfyYlmzVmiQrSlckeAwy4449q8eoyr7ICsa4eci56zkefuKyAUv4p7zWWlinMbPAm13HZqZrgyhRrI8YXizLJbVGctgXFgS9sPcf4pRHPQ-YO8DjJ9qw6RLmyLyryJHyXoSYa_vy5nFjzCzOfd1hHWRr3msLSL9I3p0ALkzeMgcsi1lVvVyOsRn-3rjt2cJvCAUZaxQngGYua3c6aH9loFZUy-xbeyXsumWEoZqVuSSGiy_mRGJOr7ITsbs1_O49KhMeaqbe5ysPBUDeUJ-w8",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "dempseys-burger-pub-wichita",
+    "name": "Dempsey's Burger Pub",
+    "cuisine": "American",
+    "lat": 37.686,
+    "lng": -97.338,
+    "googleMapsUrl": "https://www.google.com/maps/place/Dempsey's+Burger+Pub/",
+    "notes": "Craft beer and smash burgers. Good pub vibe.",
+    "tags": [
+      "quick lunch",
+      "team dinner"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.5,
+    "userRatingCount": 2303,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJUUmv9WzjuocRTV72LGfvQaA/photos/AaVGc3m0YDFQW7FOq9Qd39GDNaV8N6PBxniARPaSHX8BgEmQUJeqji003A1UxtlYflmcgAn7PzeyYZKToojy8FT5muIIaP6dnZB4qts4XyZuIOSfzLpYad9DxurnYPrl1rsQgKPrw6scnwlbMZDLLQ-2tPZYXWtglUBpjy3gkxTO4Zz7cGkk4jGL5PONuwbYhxfCL6t5cM3UIqZlL5QqC_yGSh3smKTPgjX0S8oNLP8xdxFuZX3znqQU7Te0oW5SxDrgZLiDqQbWM074m5_GyfcU0qX-PnfBYjFvcTN0ycX3QDxYYFweFV92Kd_c_d8mqrGcVKF4KF2QvYmVERTWIy2JkpOsSxb5uzPIdKMI-jMF0Y5q1BYdkSumU2uh9jjdcAu880h8_9ouGgACp9W4JJoZncvDi4rgLVjFFgs8n0suhEBytqN7",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "public-wichita",
+    "name": "Public",
+    "cuisine": "American",
+    "lat": 37.687,
+    "lng": -97.337,
+    "googleMapsUrl": "https://www.google.com/maps/place/Public+Wichita/",
+    "notes": "One of Wichita's top-rated overall. New American with elevated comfort food.",
+    "tags": [
+      "team dinner",
+      "date night",
+      "must-try"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.4,
+    "userRatingCount": 1548,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJN0mwYZXjuocRGCfGnlaN0GY/photos/AaVGc3mpVVE-Y4L8PiKMa9XNIq-LcTKFg7u8s4IRIK4upNjycIssW4AbFjNelblgfuDclevc6OGPpTXPaf8MPgAANmz_rDu7Sk5qDZkayjFMUaNeHU9qEvbn36cpgOqLCR6Qp2PW5SuahoV6BQ_RkVfU2nuUhZ7C9ImbifQFinm-T4QqoRB-ejpCtTpHOLUWnk0outov941llqlMGKUcVumhlKnWi4PvLcbqJnGNPpJ_KfOSGgN3M2kuZ4vOaJ5KaG7fQTlMav7TEY0S5hACIMlCciNd0dDW0V8WnuHFIZ7kPD3NLcu87LVEd02XkZ8Xv41nMLUNEzAPTTbRspjAeTNRy9awzX0QFxWgispteqVsOCg2KbmdEE0BHcNkFAOlOHFJpg5HOSOpVopccAu3HRwGEKf-GCdrgC4CfBE_m0pnpAE91g",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "6s-steakhouse-wichita",
+    "name": "6S Steakhouse",
+    "cuisine": "Steakhouse",
+    "lat": 37.685,
+    "lng": -97.335,
+    "googleMapsUrl": "https://www.google.com/maps/place/6S+Steakhouse/",
+    "notes": "Fine dining with live music. Top-quality steaks in a classy setting.",
+    "tags": [
+      "team dinner",
+      "date night"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.4,
+    "userRatingCount": 1106,
+    "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+    "photoRef": "places/ChIJe-uidEDguocR19OYIz6_Cgk/photos/AaVGc3kKWhe8O14bhb-zh-0-pn6EzzVa1F3IVRNpg0dYaBJFJWYKZPIfgbA9XdhCOKfWQS4A5K0cOT0ZK0p0N_q_ipD8MOM-iAUWGpCvU2GOYBelX1ONAKJOnRQQ9uPo_N2ErDvsgMWsA56u7wrzCcetj03r-thXPauSTO8TF_NXft6YbgorMuTrFW0OUPqssU2nVO9NsY1OgspTRLVO5EIZ5ulBnsWWTPvJo2kZjOlw50UBHURYhcxdCQiSQhNwE03q8IKcZtHA6KiqMBtFlm8eoLS2pa8gEQyGMcMWFY5_UOkO9O8FjeFyVr6ayrFvqFe2XhC7IYZFNC7d1ihbuEEiLMFkerXPoP61RvzvMZUpJ5CeEFK2hnOX7PJLUvoEpZCVtLcy1j0ugc4jHikaZXEuPMgMksJnrz3kw6jsYp9k1V_i955k",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "siena-tuscan-steakhouse-wichita",
+    "name": "Siena Tuscan Steakhouse",
+    "cuisine": "Steakhouse",
+    "lat": 37.692,
+    "lng": -97.331,
+    "googleMapsUrl": "https://www.google.com/maps/place/Siena+Tuscan+Steakhouse/",
+    "notes": "Tuscan flavors meet American steakhouse. Great wine list.",
+    "tags": [
+      "team dinner"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.3,
+    "userRatingCount": 629,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJn_ZQHurjuocR4TywVO03bgc/photos/AaVGc3nVnHZRSWOGYSWyzlxulu3IMSqfkzsQ5_2B3OX9Ka-d84OlVVcP3b4Q11utT1iwCdFZu16OKr7Kk4yCG5uRbo_3R3kJsFBX-N_xWURADNlipMHfbFvgrEyiBZAV_hbBFSxZvVBc8tfc40nDIPizEyTfYxl2Pnei3A4MXwuL1SyE-pHevMMK-HivSwYYuBQEaihA2FISoudDKg0cM1rxenBxW5S-UamaMBr45rtTaRAh_45z9q5y_zH3fp-rwNEfB_8FViQc8HQSoVClqvXYYF7VY_CGAwY_2UFNOvNeYaW3WCsDpXrSA5Z90RSEMmYJ3Evw9EIFmeB_a0PGu3YxZ_MM64mLmlLjDNBzA3VEgc_7sG_Ib9HE2Y9dj31wzFo6mTKucRxv6XnDsp4x_eHtXaIGmrhTYxIUoXoDNLzqnQkpjqY",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "puerto-vallarta-wichita",
+    "name": "Puerto Vallarta Mexican Restaurant",
+    "cuisine": "Mexican",
+    "lat": 37.695,
+    "lng": -97.35,
+    "googleMapsUrl": "https://www.google.com/maps/place/Puerto+Vallarta+Mexican+Restaurant/",
+    "notes": "Very flavorful authentic Mexican. Generous portions.",
+    "tags": [
+      "quick lunch"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.6,
+    "userRatingCount": 757,
+    "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+    "photoRef": "places/ChIJ4U-WKqjfuocRCLazpJ4AxK4/photos/AaVGc3kE3lg0Bda0U4gs1mHHSwvVNVUfo8z4fvwTC747hbsipilSOiVxnCv8TMszw08ir2osbmOGKvEsnXbWBDuWOnQerveeZ6P_lKVBVUZQcm0Jt2y8Th0eGm7K-mSlfJif7-Pd71ThLi0Wwfwk7BUkK-QFK3f2lVfREdNgGLyhL115EInsyrWSsp6SCLigCHkh6SO43PSx6_NJDyAzMnKeAd4dbJwGQyXB9unSPPBmJ6Oa2-lJX6l8sj1hGqOnHyOT_OhDYCGk1F5u5L-Qi-bvGOKWA124hvTLiV6vn43Qa8XX7BnNIp3YJJaorzC_VtDq30juDNV9RJplhjMQ96kLOPOpxtmYMjmqSJcnKB-swFQi5vWwVLGpHL_4iRw4yAHGoGjB8TIhW39J2wqaVPmYVDHNgok3MPe4i05IpxJ_KAs",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "sabor-latin-bar-wichita",
+    "name": "Sabor Latin Bar & Grill",
+    "cuisine": "Latin",
+    "lat": 37.6865,
+    "lng": -97.334,
+    "googleMapsUrl": "https://www.google.com/maps/place/Sabor+Latin+Bar+%26+Grill/",
+    "notes": "Top-rated on Yelp. Latin fusion with great cocktails.",
+    "tags": [
+      "team dinner",
+      "date night"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.6,
+    "userRatingCount": 1681,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJ4cufdb_juocRIWwpFttzlJM/photos/AaVGc3kyu21aKwQSJAz-Rwn-Vyo31U6imHY69Wh0niD4PAG78gjSs5hW6j-T4DDwhQIHM2u9k75yCjkCDHdPcKmS9MUiS0DZCViUgK60NjsEgc6Q5MI6oegntDD5k8A5vYtunNtqm2CJ3yLvGdgz3q2Tr8-xOkPrTLQ59BCv5oB8GSG0Bnv1usULHc7V47s5Au0lRG2FHCqXPYmvs6iP7gEoVxM_jbKWSUfM_vuEMU4Kq-sg1XakuRjm35dlVkTYZ1hbJlW9KobXPoNnD4wQSq9esMowIcgo9pgqL_fyh-ADHSiZGCHEtDnsiwlV4AdXUuhDDmhmdAweTQJqu2HS3zz0-UQZO7T_PN5iKF056gIFCF5n0fIeKwSqUnz4Z_ZsoR1ovK2Pocz2A6jgyc9XOQJPYNlIZb2MPck6k09gyp38w9VI-mQ",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "abuelos-wichita",
+    "name": "Abuelo's Mexican Restaurant",
+    "cuisine": "Mexican",
+    "lat": 37.684,
+    "lng": -97.251,
+    "googleMapsUrl": "https://www.google.com/maps/place/Abuelo's+Mexican+Restaurant/",
+    "notes": "Festive atmosphere. Made-from-scratch Mexican with good margaritas.",
+    "tags": [
+      "team dinner"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.4,
+    "userRatingCount": 3002,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJ3yBVj7zguocR9OYrRh8xId4/photos/AaVGc3mB_UG-uQSRuzdInkfaYp2B1TG6CH_wCvXsB4TKbNztXP6nNA5TZ_O7TPjADUERTIazRnSLaYs2s5JlhCEg1B6pz_FjYdelCJ2N7vCG64kqSspmIWXc0n6f5hj9MCm2nlgNF9VVLZm3ZDvRYk6hH-4ZQDbY6tdxNccz5nWLcxvlGYXM5UXx-Rr1QIbxegyNeIffnXbwLfl5TqyqGi4VPV3WV45pSmlLx_sv55_efZuM78B0gefjNcMADwMbf25tri8oLxO48D1Wk9qG7kIOBQgQeK8ikWZEGvhRKbFAllSl3OjNaDqosA4EcTqINqUV_zRfvK4eaXdR5dJGQleE0ORWWz-LSQ2HTnno3I_WsiomH6JgTAEZVjELMsy07g9zpGBGRyiKUL-bSXdbLsSTWYae7pIJbOF6JKONBecOKBMJm6On",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "little-vietnam-kitchen-wichita",
+    "name": "Little Vietnam Kitchen",
+    "cuisine": "Vietnamese",
+    "lat": 37.68,
+    "lng": -97.315,
+    "googleMapsUrl": "https://www.google.com/maps/place/Little+Vietnam+Kitchen/",
+    "notes": "Hidden gem. Goes beyond pho — dumplings, skillets, and baguette combos.",
+    "tags": [
+      "quick lunch",
+      "must-try"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.6,
+    "userRatingCount": 315,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJy7Vqm57kuocRbDTjpIaqDsw/photos/AaVGc3n5WmS178dKQI4-xNbD2X8XdRX5MnfKyvvWG17t1w-BRkM83bZ_ateiZM7gDikjnAUHI37vNUTvNJEZqWyVj6Ey7kDN2QVDtuKwtSwtJiSPaskKfJ1HwBAHD6reO9grAFhJZkAPTA0274mSanJp_Ui0RAgo1Uttc1XPSAfJI6j7bxfS0aSTjuZVQUDeaOX-pwg2-vLHu0aRzKh3qjAA9y4QlbPmyePeU3aODbIEJB1gbyT5Y_WsewrMM02V4-GP8lQfgVaqylKhPl28Ke3R9h8ADn_EO71yIxjTU0TwMtMvIDiZWqNwQGobtp2BHvQ3tf4zQCc5h1kysOkXm1Mx6cUvdq3dpTnq69mmG21_DLBgEBfPK93JsuxXPRExwkpyjKvBySRSfilkQ6496FC73kgFaQ5Bk4arUvAPFzjUzb3KiYM",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "yokohama-ramen-wichita",
+    "name": "Yokohama Ramen Joint",
+    "cuisine": "Japanese",
+    "lat": 37.687,
+    "lng": -97.335,
+    "googleMapsUrl": "https://www.google.com/maps/place/Yokohama+Ramen+Joint/",
+    "notes": "Wichita's go-to for ramen and noodle dishes.",
+    "tags": [
+      "quick lunch"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.4,
+    "userRatingCount": 1987,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJNUt_3uDjuocRVYV7XEQExoQ/photos/AaVGc3nYDvteqz9B4OAn2b0q8AKNKI2BaRdrvxWyDAo5pnyhi4_c_p_S3ULZNHfEFJwbsn0y5qQWP8AYNEfx0iJPBANergg879UIXyF-86JCWsNjtCFHdZ2l7ktVxdZIgn8IOSfRyZf6yXc-KCHSfxqTpTB5o4jPDdKSDVPBYBY_xJsGlmt-bl4we5z5aNI_-MZhgYCW3PTyZcZuUzppyOTVkZsdIPGtHiIy90z5kD3dzhSDKiA9D3ZGfEFl6BsUcK0ECj20Qjl3n6XwQVwdAW50PcBYhxaicsVpbBo38BPGXu0LQWUGtXUXz8RR36_340sNp959qsaeys6K3TqdQQegX1yxyJLKt-lsAEXKUVlFmFU3qLltkRaxaQz7sYU42czUzGh8dH8cOVZgikPvTqamideMzLQetjigbN9VzsTfJWZ8-w",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "lemongrass-taste-vietnam-wichita",
+    "name": "New Lemongrass Taste of Vietnam",
+    "cuisine": "Vietnamese",
+    "lat": 37.692,
+    "lng": -97.31,
+    "googleMapsUrl": "https://www.google.com/maps/place/New+Lemongrass+Taste+of+Vietnam/",
+    "notes": "Authentic Vietnamese flavors. Solid pho and vermicelli bowls.",
+    "tags": [
+      "quick lunch"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 3.9,
+    "userRatingCount": 471,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJ7wipC7_juocRtMEME8Uuprw/photos/AaVGc3mdvOLlBI8T4tfAcF3mwaZAuv-tWA2YwoLloj-a5_FyByUDV1T2w8LEauy5BaSSyk8AOjlwJnZ32Qs9nD_SNdYj5SzVNleAA5LapKx0byAIfjqYrRQ762j269wBWGTxH7qgnw3xz7LlDujo0FXha6EEOlH_XPDgfpizNX1sB1K8GDDkQDDlbffOq5YTtL4poeF1gc0ggzTaeZiECWzbgByxgU1IBPgMzAhAI_Mbabkr4RCOFA6zTaqQl_lukseVSJZDkYF-ht_Nd2aTJzVjZ46kEqws_t1BFmw9vw3AIdzQGQ6M4N6F3kyz2Q2F6qId68RB2WJZ0DaRN8wtgbf44OcS_6pGVZHTjnbftEPEC9JZmzDgHkDR5ATuP1kJNdTzMBr-x_U8WEFLkJccOehIYjnLDVwjwSCQNdrverFr-LGZFeo",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "piatto-neapolitan-wichita",
+    "name": "Piatto Neapolitan Pizzeria",
+    "cuisine": "Pizza",
+    "lat": 37.6855,
+    "lng": -97.3345,
+    "googleMapsUrl": "https://www.google.com/maps/place/Piatto+Neapolitan+Pizzeria/",
+    "notes": "Authentic Neapolitan pizza. Simple ingredients, proper technique.",
+    "tags": [
+      "quick lunch",
+      "date night"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.6,
+    "userRatingCount": 938,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJW67WWJjjuocRfs1Y-8QulOs/photos/AaVGc3lA6t_uZypXVxjk2RGeJdDSdrqdZv6Dm1B7n07RaMTbuXVaXVdkU1pB8Vdl0BlUSESFrszwHUx-aBfusrsyHnHOUEfH0TbG6_ddQikROVDiWO6kgnhUnNzC8TwsnNzIhwL69Mpugcgc2V8nA93MQb94qYO-YpspPC5XRj-SE8p0Qjx7MLIGrx2B4Ha23u90BrN4MAOT9SSznrDUur-I04ILjpAqrc-yDs_LybLHxz7wgh6dIekMWXDmuzFi5HyAiTWBw6zkLwSbC2T-yAfNBOeGzg_4Z-3vcyF4gtX9kmaqZ6TNdVxstMOduorfjq4NQMsAK4RmhZBC_jFhTBXdE4e2qXXvtMM-fDFdjy3GAKTsYFXYYAbe4EEipuqbqyPHcPuWR8cU2es2myB2Xd-1nGBgbTR2beqWxxtCJFZUFNNWhg",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "the-depot-pizza-wichita",
+    "name": "The Depot Pizza & Taps",
+    "cuisine": "Pizza",
+    "lat": 37.6862,
+    "lng": -97.3355,
+    "googleMapsUrl": "https://www.google.com/maps/place/The+Depot+Pizza+%26+Taps/",
+    "notes": "Pizza and craft beer. Perfect combo for a casual team outing.",
+    "tags": [
+      "team dinner"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.5,
+    "userRatingCount": 741,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJI7vM97zjuocR9uFBv0XHL1s/photos/AaVGc3mlMTjX0qg3XqLulNKwaUyversoKPWm_RVVwkqVko9H2OOiXUfMiw1jfOJGCRa-1NbkW-RsNUqrsjC_CNkfjMonmMov_ZUJSIxM9UcyTIF2EHSIi3v8vOKfKMuOAu61uOgFQj0O639436gWsae-Ge_-oGpVpA1skQopi8wYXDXePz0445hLSyXmbEcjiovTuVc4_AK8i_GDJ6hQY7UD8T6IIcl10OEQ-BzVljTHojnjoOyVGzg4etNcNBWqYT0ZKI4yWdiz37SNz4O7h_gtg1LwqMxbdPe_k2Zw_AdenHocdFvzXz9gFZLjDj4C235qfN1ud0LtvrmnuzsOS4-BIdUjlGG7jUbb0rfJHE1BHWoA6FmDT-TE3CZuRv8PO1rsp__XIoSfL20c-M6PSVJYcWDNbskQw1dkmOujsNRbmbW7CkVLhxWytQ1FslnE8kPF",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "the-monarch-wichita",
+    "name": "The Monarch",
+    "cuisine": "American",
+    "lat": 37.6875,
+    "lng": -97.3365,
+    "googleMapsUrl": "https://www.google.com/maps/place/The+Monarch/",
+    "notes": "One of Wichita's best. Seasonal menu, craft cocktails, great atmosphere.",
+    "tags": [
+      "date night",
+      "must-try"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.5,
+    "userRatingCount": 3306,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJ_cPt0ODjuocRCFsksB9eUb4/photos/AaVGc3kK7lliWiRYPSFqy7qF1pUm9hgCt6gZrabR0qDQPoDH2A8BVsqQIGui3H1f0If1jmVx9j4K_co3bo0nk9OcfapLxVk4rWJVaYvgxhz46YdDXZfMxziozpoNI-Rv-QXMEU2T4TGGOFQdEP-TCpqucXWUk9FYWFycAsNeJEiv4swXFRIarKrnjFT91DvFKBpXig61s0ctaq-q7Ww5FAe7G3AQtWjL4LGZoZw1RoXHGy3H2hQDkWM5u5kEw--RaPmDetYC5Edymy8Ev76Rt0zoMSrgJZOiTxZ02mQyG8fcPnTFyQhGi1-tT5sjFsJERVpI1NATwOUhYi_chTz1he814GLQ83wgv6M0_jRYpltO3sQTOw9G4mhAYdi9rtMJIhH5EvEjl8j7-mbZGtrMAWTpqS7vPz-vzIsDun2T2I9iNG2McQ",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "the-belmont-wichita",
+    "name": "The Belmont",
+    "cuisine": "American",
+    "lat": 37.6845,
+    "lng": -97.3325,
+    "googleMapsUrl": "https://www.google.com/maps/place/The+Belmont/",
+    "notes": "Top-rated on Yelp. Upscale American with a strong cocktail program.",
+    "tags": [
+      "date night",
+      "team dinner"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.7,
+    "userRatingCount": 850,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJZeYX1eHjuocRkt40LThuOWo/photos/AaVGc3nOq27SCrYXKdMVrH7fg-ucsgM0dgXED5o-dvT1PPrOxWUVaAdLcXkecwtj8powtrfAS1GftmhoPAM-qnQy7wAJmxOr19G9gOA0H4WIMc0LZkwnZHNhYNa0CXL_Z6TTnBfWrln0d_xr_5RqzNuUD3_9xQdFHJhWrf64y4RAAj4snD8KGFQ3NTiUxKYZ7pmZGg28rd0R33EM3godj23YkFqiiIEFP5Egj6yB2oVwmXd7GyqdWn1h6-Tc2uVTEHWg7BHvRQdEVwGYe7sHlbGA2EmgVOqHRzxsVzzZsYdBX-tqiKGE4kO9cjPdFecZhMAri7gLRCPaD1MDsOBK092X94FWPvfE6O20V0vqZS4u5jm5TYuC_WVeI_4uvWwqYDfa8vwBC41K9Wz0qajhUl8LMCod9c0ofOeakTKOJm5UfMZSu_XhAMeNfwSUBnznpDfX",
+    "enrichedAt": "2026-06-22"
   }
 ]
