@@ -88,12 +88,15 @@ function validateRestaurant(body) {
 }
 
 // --- Enrichment (Google Places) ---
-const PHX_CENTER = { latitude: 33.4484, longitude: -112.0740 };
-const PHX_RADIUS_M = 50000;
+const DEFAULT_CENTER = { latitude: 33.4484, longitude: -112.0740 };
+const ENRICH_RADIUS_M = 50000;
 const ENRICH_FIELD_MASK = 'places.rating,places.userRatingCount,places.priceLevel,places.photos';
 
-async function enrichRestaurant(name) {
+async function enrichRestaurant(name, lat, lng) {
   if (!GOOGLE_API_KEY) return null;
+  const center = (typeof lat === 'number' && typeof lng === 'number')
+    ? { latitude: lat, longitude: lng }
+    : DEFAULT_CENTER;
   try {
     const resp = await fetch('https://places.googleapis.com/v1/places:searchText', {
       method: 'POST',
@@ -103,10 +106,10 @@ async function enrichRestaurant(name) {
         'X-Goog-FieldMask': ENRICH_FIELD_MASK,
       },
       body: JSON.stringify({
-        textQuery: `${name} Phoenix AZ`,
+        textQuery: name,
         maxResultCount: 1,
         locationBias: {
-          circle: { center: PHX_CENTER, radius: PHX_RADIUS_M },
+          circle: { center, radius: ENRICH_RADIUS_M },
         },
       }),
     });
@@ -164,7 +167,7 @@ app.post('/api/restaurants', requireAuth, async (req, res) => {
     writeData(data);
 
     // Enrich asynchronously — don't block the response
-    enrichRestaurant(restaurant.name).then((fields) => {
+    enrichRestaurant(restaurant.name, restaurant.lat, restaurant.lng).then((fields) => {
       if (fields) {
         const fresh = readData();
         const idx = fresh.findIndex((r) => r.id === restaurant.id);

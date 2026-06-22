@@ -23,14 +23,17 @@ if (!API_KEY) {
 const FORCE = process.argv.includes('--force');
 const DRY_RUN = process.argv.includes('--dry-run');
 const DELAY_MS = 200;
-const PHX_CENTER = { latitude: 33.4484, longitude: -112.0740 };
-const PHX_RADIUS_M = 50000;
+const DEFAULT_CENTER = { latitude: 33.4484, longitude: -112.0740 };
+const ENRICH_RADIUS_M = 50000;
 const FIELD_MASK = 'places.rating,places.userRatingCount,places.priceLevel,places.photos';
 
 const JSON_PATH = path.join(ROOT, 'public/restaurants.json');
 const restaurants = JSON.parse(fs.readFileSync(JSON_PATH, 'utf8'));
 
-async function enrichRestaurant(name) {
+async function enrichRestaurant(name, lat, lng) {
+  const center = (typeof lat === 'number' && typeof lng === 'number')
+    ? { latitude: lat, longitude: lng }
+    : DEFAULT_CENTER;
   const resp = await fetch('https://places.googleapis.com/v1/places:searchText', {
     method: 'POST',
     headers: {
@@ -39,10 +42,10 @@ async function enrichRestaurant(name) {
       'X-Goog-FieldMask': FIELD_MASK,
     },
     body: JSON.stringify({
-      textQuery: `${name} Phoenix AZ`,
+      textQuery: name,
       maxResultCount: 1,
       locationBias: {
-        circle: { center: PHX_CENTER, radius: PHX_RADIUS_M },
+        circle: { center, radius: ENRICH_RADIUS_M },
       },
     }),
   });
@@ -85,7 +88,7 @@ async function main() {
     process.stdout.write(`${idx} Enriching "${r.name}"...`);
 
     try {
-      const fields = await enrichRestaurant(r.name);
+      const fields = await enrichRestaurant(r.name, r.lat, r.lng);
 
       if (!fields || Object.keys(fields).length === 0) {
         console.log(' (no data returned)');
