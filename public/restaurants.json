@@ -10119,5 +10119,708 @@
     "priceLevel": "PRICE_LEVEL_MODERATE",
     "photoRef": "places/ChIJn10Lo9QFTIYRL93oFFYae3s/photos/AaVGc3ldrgPucaN6kmehFQgoOBTVPaZaSr4WglYKoKpdBgNkcH5hSailObo_AHYh6F_4dGDobeICyh5tPBDnAeFCiSThasKzPNvrLRjlZaxnc_Ge2XSQwGmykOfvxgz6GKZK5_qAZxaJNuNBsT6k_mj4NeeiIGpyZdjg9ghQzDECWQgPofqKq0r130FnRiBuvhtPkpHeUrEA8XGnJCCRwVPmXwd8NAujp7GcXVFBwjQnUjENZdvoxw8hhXquRU2K3S0afffOOb4oICWke3RNr1EfU3_-x_bvA4h2xW6-5ypgHGhCaPaevksENp83-z6Z7-R-8DJ7o-PKbC9g8_smDHfjAHPp0iEuUU-JPc6GZWpKnKk6Ozrecjqo7zeRMrsmud7gMygxEEPXlAfvZ_dlRm8bJqFwlrFT1ceSbc98IcikTRd11A",
     "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "uncle-bubs-bbq-westmont",
+    "name": "Uncle Bub's BBQ",
+    "cuisine": "BBQ",
+    "lat": 41.7959,
+    "lng": -87.9756,
+    "googleMapsUrl": "https://www.google.com/maps/place/Uncle+Bub's+BBQ/",
+    "notes": "Westmont. Award-winning BBQ pit. Ribs and pulled pork are the standouts.",
+    "tags": [
+      "team dinner",
+      "must-try"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.4,
+    "userRatingCount": 1839,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJO6cBe1dODogR_MWKa1M_XZo/photos/AaVGc3myeuZCPhjKwz7xqArHH_su5RB7LaO8wwL4EAThkF-s3czg3z1Bf46dSzfd-Kwyah61UEbEq28oMtkgc5uG4AtV9gpKh1ymSbqZo5z212rgLnMeJKHBSSZNUvyUaF8zJu92_MXI7nvETY6PP0hfo9VUPt8RUDN3GeflK4bKWvfDXk-jXTqFaGKuAEgy8GGE-OiceAwunXE4F3Ra_MOn87qyWi3zC0060au0TO_RKkC7bp7Zx0dRLx8U92LQUC8bH_wVg4Sy3WyibMunjnBNkeN6ShdWuoXQ6q98piDmRy88EeHwFCeleVJpvGlsoSb0uB4jL_TVGIA0WicHlMtvPyuTw5zRaSmodPzOauRuBGO0jqIRnOHS29Qy3rqt-e7vlXngh8iTspXcS-Z_DhktD0cCh_hzJ8gi1ZhOChNcLz_RvuCN",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "q-bbq-la-grange",
+    "name": "Q-BBQ",
+    "cuisine": "BBQ",
+    "lat": 41.805,
+    "lng": -87.869,
+    "googleMapsUrl": "https://www.google.com/maps/place/Q-BBQ/",
+    "notes": "La Grange. Brisket, pulled pork, and smoked wings. Solid sides.",
+    "tags": [
+      "quick lunch"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.2,
+    "userRatingCount": 997,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJhZYdKvJJDogRv2l2GQkRkM0/photos/AaVGc3lm8qPlGt1fx49wGgCM8M1ALabc-Gq4iQaeBuPXlCZ0GTe3YUkrdNQ95mB8fSs3u7uh6RHCW_lfXN4smmV9wWYcHfngrPUGZxS2UVwyGnAWpkYhCqhWanf0FpZsnYPOUNEHw5wuR29VNgiQrwT2DQRU0Cfzu1as1sDP8WDA29CY-M--PKgMIWc2dHX6wPFBp5gDwclrhyvo-ckmpY4ESr4lC7lEagp0TbgfBnRyrZuhKrj8RLzI-7a5sp5B4hprsurTTetK8EKHpPNTm_A5mvA64UBJg_O6U1dn203KsPWmzknMbHbWlCbEoslCp6LfluTv8xG75kE6DNAlZdJfTSWUhkMoJLPftqNAo74ogUYCJnv-yY7SOnYW2kPDgdgsRTZrsOPLdvROkhkrO30vGtJySY9Y4OvPPZNN3RazXRwnRro",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "gia-mia-lombard",
+    "name": "Gia Mia",
+    "cuisine": "Italian",
+    "lat": 41.88,
+    "lng": -88.0078,
+    "googleMapsUrl": "https://www.google.com/maps/place/Gia+Mia/",
+    "notes": "Lombard. Neapolitan-style pizza and handmade pasta. Cozy spot.",
+    "tags": [
+      "date night",
+      "team dinner"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.5,
+    "userRatingCount": 919,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJJy9LSLhXDogRmGcHfacaSqs/photos/AaVGc3kSFOLR5CUI4hHsukwKLPmdF3_wJHkgrqemC9W-hfSioQ_POTZv1Ag8_WobL-6BEt3DejsWdwDeQuIvk58cmZG-nkqZUCRlCgo_dgTEjCUN50RGSxgNLdkD-4o2X9paYXyh8DEjKSU9jMflJyl-Ag4KBSafgDMDLj0tdLBInaMAKLFFPiYbET8G6xFShWkE02GF7vHCAeDZUWSQSezJa1SgvcSwWfOqs4fiATKX9gZKxZ6Aw0_cImitD4F7zV7HxQlzGdVIlVkBFSdefEZoL_na-2T-vyPaLJNfiwqKt_p2n2w_J6Oq0b6mUzgJ8ftPY-JBH8Mv02mVQGoJpOh87WcX5yOlTMbgKd3I1PrNdt9bYBOJ_jYBcFSb9IMJitENcrIyRg1rN4yCFdFvM7xYSFm5ToHmPlTB6g_6qKuLuuUE_fHS",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "antico-posto-oak-brook",
+    "name": "Antico Posto",
+    "cuisine": "Italian",
+    "lat": 41.8497,
+    "lng": -87.9503,
+    "googleMapsUrl": "https://www.google.com/maps/place/Antico+Posto/",
+    "notes": "Oak Brook. Lettuce Entertain You's Italian trattoria. Wood-fired pizzas and pastas.",
+    "tags": [
+      "team dinner"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.6,
+    "userRatingCount": 2844,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJOT4v_mhMDogRPuiJnrdlJrM/photos/AaVGc3k4uThNDjrwMNRWXlIztd9bSbXH77JQvGviPojwqSqENGGhUEvNn3FRF9moo5ne5gk-G-FCoK1zQNG39i0yPb8HrG1qJOQWiDxAThosZqeikE5rq1PlWJGg6qcmbK7qvYrSnz16EAIKwdcpQenUVAIw8VXQXuK3iMGp-y_LNUPVXbCFgyQKlgeZLYf6ZDjm20yogpB9cXEQyiL9DtYseTqRRwEC6WRvSfX63f-mZdFXGvN3LT1Kz9GwXuEJlGUMNq2o7EhvZcD_n5qOJOArA0ONN_ZmAqN1b2EBotx2C_Ff9ivi9BTc842sKZ1Y1riqXL1lCwSmh43scK8NZmAQDj1-cJLQQHHSvC0HZXsAtrknXH1RAus4A5ybm1jkLzLU8rXoTno2fhG4gBCeRNNQAkJ9WN3pSdeCuGrz3su9x4a0L-Fb",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "labriola-oak-brook",
+    "name": "Labriola Ristorante",
+    "cuisine": "Italian",
+    "lat": 41.851,
+    "lng": -87.953,
+    "googleMapsUrl": "https://www.google.com/maps/place/Labriola+Ristorante/",
+    "notes": "Oak Brook Center. Chicago-style Italian with a bakery. Great bread program.",
+    "tags": [
+      "team dinner"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.3,
+    "userRatingCount": 3029,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJu7CcKMBNDogRa8OgD7yUPjo/photos/AaVGc3k6jr_sluNGx2zKxruS6vfI6IhMzT1fmrk1w7aqvjupCK8rFv5CyH40s76JVvl0LID-y30iDpUgp3WDqkQM6jmlAi8sIrjjElTihwhrbJuWDp-qMP9mqpjBu9OA2q2VBFbIILJjVfysDSADX-GAvBmjlAkiYIUKDl5l3g3Xdnk2Kb_Dv6xYV8cCF8DOeKQnBDR2Zz5L3ivAOvgvFkdyykF_8s4rPRiw_Tb-DydsFPCjadq-CLVf50BZgtvLgN3gmMby9yLdIS4bLayOxZ7_SSWIMq8Elnuq5GrPhK6IZPKBrIDSKX9DUU6UOormmfxfDvA2EZsOzmj-rHgOca6t8KYDdcXjvtSQJjlv8jhAkgW7vB2Tk7yi1-i3Iqys9aPS1oti8TQGpUMxUQwwVW9X8eGXyaT44InilbxVwxdJtsVRjvYN",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "harry-carays-lombard",
+    "name": "Harry Caray's Italian Steakhouse",
+    "cuisine": "Steakhouse",
+    "lat": 41.874,
+    "lng": -88.014,
+    "googleMapsUrl": "https://www.google.com/maps/place/Harry+Caray's+Italian+Steakhouse/",
+    "notes": "Lombard. Prime aged steaks and classic Italian in a sports-themed setting.",
+    "tags": [
+      "team dinner",
+      "must-try"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.2,
+    "userRatingCount": 840,
+    "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+    "photoRef": "places/ChIJvyFDcPRNDogRCC9nR9q57vE/photos/AaVGc3mzBWjte3vBL1odwE5NHFGSPFE-XID1WRftsk93LtN5C5XQ4OFC8FIWzHguiNMo3V1pOMn_Gc1PKsnQOhELlxuCxvUivvVmZRWLNkWHECGW2TyHQmwm-BBvm02bQfhArPeDQdrV9EKYrBLy1HUXousHjbHQWhpmpZEBz8UL9XwG5A-g50xUx0EAHfU8_f68ZfDTBgyxnSfin05f9l1ucilkZJsWySo8NaeTs23p28oNvNbI6hYzkae4t3esv3uU8LvpWV1P19Am4ZvMpdz0NBCHiy5P3sKWr0TuV9Kv0wvyIV44rouz0wdHPaOEM_a5EPd0grBpGMOIc5kc6M6MMeC-PV6EG1jTfwvHXWY0krv8yU5R3pKz6LxWypHDl6Gl7Wo0mxsjDKk6T9S1tezttzhUsiWKrehSp9tGisqbZIM",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "wildfire-oak-brook",
+    "name": "Wildfire",
+    "cuisine": "American",
+    "lat": 41.849,
+    "lng": -87.952,
+    "googleMapsUrl": "https://www.google.com/maps/place/Wildfire/",
+    "notes": "Oak Brook. Wood-fired steaks, chops, and seafood. Upscale but not stuffy.",
+    "tags": [
+      "team dinner"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.5,
+    "userRatingCount": 4097,
+    "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+    "photoRef": "places/ChIJp1nTBWlMDogRtKFXI6VEIW0/photos/AaVGc3nWA9fxar4V_unauPcNBw8pei0KcYaMp5zk2LhgX9H-_Mv0D6Patz1UTeDAPqLMMolX9fPh6BEnqhOU61GOdAhB_4doi5jBEZJaDyb6W1XHCXcftnrL1A1NWmZM3op9Zjnl3tv11XCQq5LF87UOHfvvSSxTJY3ew_tr7Ep7OCCvi8bdmMEN355WwO8wrHZmyzpUyn5GPY2tuunGW0mdlyFiNP5yjlx4DUErEKZYrgw0LoopcbIzmmEUcFHKAobD3LuFTdvDZPHO7P22wA7fGUkRI_7NoYGwAAAexqUDnM-AxJJB-vOQ3KXxsOs431MDtwlteFiP69gfOKgjN8a0DCNY9zGdy3eEiMoPB2NaBS0G_VPnSXo3s0ZgYgRqixCM1AxhCrdK0YxgDPTvMHgpF7jDYlRalx2foDuCF4UQ1FfzamRVDSXsdgphRKTfTg",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "perrys-steakhouse-oak-brook",
+    "name": "Perry's Steakhouse & Grille",
+    "cuisine": "Steakhouse",
+    "lat": 41.8485,
+    "lng": -87.951,
+    "googleMapsUrl": "https://www.google.com/maps/place/Perry's+Steakhouse+%26+Grille/",
+    "notes": "Oak Brook. Famous pork chop Fridays. Texas-based chain with polished service.",
+    "tags": [
+      "team dinner"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.4,
+    "userRatingCount": 2595,
+    "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+    "photoRef": "places/ChIJ0aeDJ2pMDogRIss1eUdkglw/photos/AaVGc3kbc3JrYcxw5XpZA3OgE-0xclWDXS2in8_B00P5npEVhEV9nNThkhIYlcLZknS-ANzJh1Ycputd0eLnR-3UPIghghlpCDvl3FiLr_cgkjRCuQLDKxzUOkjh8P9Z5QnvOFQo3w9PvFcIp8Q8OPeahW5W-jrmZDKW5A2t6r5Jyjx-hxFxvVQ7FGA0cWDxbK3KRnZO0IDUmwPnY4nYZKZv_ZvTyxQ5SQTExeekUySnkuqBmwuRQtZqePc3xNkDxx20L_LO31SuIFvtfZfIqU9sNW05MXk8GZQkxX6oP5rIHhf2kKzhcLEtxgIC0F9cE5OCjbjIV6QsmuP9uL_Fxn7S9dkPf0ixD4ujS_OGAakJMPlc5B8hpf7Mug6k_mqWShJylTTfxKnBa-rQMb44vPY9uhc2ko2m7sVGyJQjMo_W2gPUg_MS",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "kitakata-ramen-lombard",
+    "name": "Kitakata Ramen Ban Nai",
+    "cuisine": "Japanese",
+    "lat": 41.876,
+    "lng": -88.008,
+    "googleMapsUrl": "https://www.google.com/maps/place/Kitakata+Ramen+Ban+Nai/",
+    "notes": "Lombard. Authentic Japanese ramen with house-made noodles. Feels like Tokyo.",
+    "tags": [
+      "quick lunch",
+      "must-try"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.4,
+    "userRatingCount": 392,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJve3Nw6lTDogR8os3UBvjUho/photos/AaVGc3m7gdxCIXcAfqmZiuRG17cupuRx5ZxgBD4_0UWd4oBR3ErpMgLjy-njQPzvF7000VkPYctd3jB1VcpoO-4jd-KFBREpjmeRWsO0Uzahr6QreZaatuoAabswvPCB_A8LxL_S36gRE74MdOEybqYD-Ejm3KJV0bQoMDb6I-6U9_Beb0NV3vKMoxw0pWE9p_9y4j6qSxKW_Ih93Lfg7KPl3_idymNNJ-61X5gwSeBHPXQteoeecNrJn3yfDzH5NSlh4eZpzq4el7TdwB1Ox9AH74jOY1zVUWy2XyxUx6PwcdD5rsksE2u-M5TblJLFd_dGIsGFDCoAVR_AoKrD2LSYoIchGWDyJVBqP144Ol7ACBRDwz4Rfc8nwa6TGSamwTV7BhlZnT3OZr8cpK5ZSbCrD6-xhJxGb5OB3eh-JGISXFZEwq-h50VeVWp40XqBcw",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "kizuna-sushi-glen-ellyn",
+    "name": "Kizuna Sushi Bistro",
+    "cuisine": "Japanese",
+    "lat": 41.877,
+    "lng": -88.067,
+    "googleMapsUrl": "https://www.google.com/maps/place/Kizuna+Sushi+Bistro/",
+    "notes": "Glen Ellyn. Neighborhood sushi spot since 2018. Fresh fish, creative rolls.",
+    "tags": [
+      "date night"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.7,
+    "userRatingCount": 532,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJoT1n8GBSDogRIWER02L0DAE/photos/AaVGc3mwPSLK3m_tzrlUSxU_o8jbrf6I_xde_G_0E0KeL94pXz8T75Xw8WxxMq_UJf78Hrmk2OXRQK8ltK0cgurXFvYX_-Pgvc-tlarUozTAZvC7MSaCQCM9yMyefMU062MYlsBMyebDydJ2R6NOHDSRB1eM5wwpBNHSIyWuhwbR2aDqow3YRy2hnT8XghE8R2YTh_Bc70eNwMHl5X3Nev2d2ssuILUHV9By9ngA_CAC65Wuzci3ie_0eAjp4MSZSs9X3YlIG9w6SyUCJ03npZsoiSk1NmBnSTqRtsBaQZwR7fsF8vcGg0jOYanQhlmsE_uzMrZcq2uiz16MsFNKSJghEwkfQ7pEcK5A93N9BWeWQ8neccAOt-E92vAW80yL9nPW27Bq1M9krO72lxs2-br37jFvGyCcjtNY5UIC4zbP77AvEchp",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "roka-akor-oak-brook",
+    "name": "Roka Akor",
+    "cuisine": "Japanese",
+    "lat": 41.85,
+    "lng": -87.954,
+    "googleMapsUrl": "https://www.google.com/maps/place/Roka+Akor/",
+    "notes": "Oak Brook. Upscale Japanese robata and sushi. Premium wagyu and sake selection.",
+    "tags": [
+      "date night"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.5,
+    "userRatingCount": 1427,
+    "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+    "photoRef": "places/ChIJ3zc9z2lMDogRXg2xaod2sY4/photos/AaVGc3mZLqpb3jbY6McTzzEXQi1ECuAwYQ4ICu5h2uGjPT24EBKhd8EYfm2rSX0bo5kmI43lZNrDZURadrd6kUr0z9VgdVwWQ_mrtbE6F7ILVjui8q04xULINU8EuMXd-k_UGkI6l9jkkdcb0NRsVN79WrEHfHX1zA3CjMlyp3NqIAyJ1tuqr_F2e2OSZsVrv9KqOyzjn00QutlOB4FnhcFi-BIZexNW2qZgdjw0vmVPbFfd1aiVjCN4-gDSg3tdK5snNMQMAEPD6KYrAT2GmL_6EqqItn_5Md72jShQjLcfvevTTxj_hf7v1sgazLfLCo8GJHha063HVg1zJYCXo6a1vGCiTMTd_LP4d4h9uW69nDqRJgsztRMGOTBCPg4OSaBiA329M5EPRbpdKhC9lNDBkKGRACN3vdSRX3GMdpKZkwE",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "thai-kitchen-lombard",
+    "name": "Thai Kitchen",
+    "cuisine": "Thai",
+    "lat": 41.879,
+    "lng": -88.01,
+    "googleMapsUrl": "https://www.google.com/maps/place/Thai+Kitchen+Lombard/",
+    "notes": "Lombard. Reliable Thai classics — pad thai, curries, and Thai iced tea.",
+    "tags": [
+      "quick lunch"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.5,
+    "userRatingCount": 280,
+    "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+    "photoRef": "places/ChIJhyc08JhSDogRGbCbYIcL8nI/photos/AaVGc3ly-QGVm0IHWFlRamTA8gcW-QJd0KQTLPWPKWKzpesbMHvimkruGQZe8X6drCSyRREv_bu9OaO_ySBGTfFWlgWjh12szf9n5jJZml3Z4Af-IX5lPbpyEjqEc_Z66mcMxIPyS8teMDpFRASEUopRLJiYu_jni5ML_zHWb78_zPFsA2jbPReXCyU3_ms8ogWW6cCxejlSgHn66_9zNyJvItJYz-im5Q4v6TlvUOTDB80QjpCPR70TqGINzpaKYa2KaVoui5hGI-C7O5olCJbK2aFJ8_rCCxIeMqOMa12iRBiDaXYwaxGRogzUCDotgPr3moFjdvMLtiqYfVtK5IWakJ_HEtLNBCkz4-UJENNXreEKYVE5FavluBWkOQnxnzfDbIek9mqa7LURYV5T7UmSjyWLkUD1RDt_AW5Q-OuEGi5ZJb5G",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "ancho-agave-lombard",
+    "name": "Ancho & Agave",
+    "cuisine": "Mexican",
+    "lat": 41.878,
+    "lng": -88.005,
+    "googleMapsUrl": "https://www.google.com/maps/place/Ancho+%26+Agave/",
+    "notes": "Lombard. Modern Mexican with a great tequila and mezcal bar.",
+    "tags": [
+      "team dinner",
+      "date night"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.1,
+    "userRatingCount": 524,
+    "photoRef": "places/ChIJR8u21NtNDogRIkyjKINpz04/photos/AaVGc3mu7It-ZoFtSsTQ05XKmOF6NED0p-YBuVBrvnilH58AKfEeqREu9BWZ-hBRPxh7gdOsGwEUetVU5tURy9G77MlMNc-M-6Z-vcS_s0pJ5TU_O86h4MMfGMvN3XEC_7k9Jt4-Dg53hGj59LlQaQD4WrJU9g2OpVuc2UjbaVGGQOxWH9zamK-J-jzWS4RRopl7ocy3SyD6U4CAco_fLLodvEzZV5Ek8Ec4faSYFcQWIRz5d2e7TAz__k1xycobMzYWAZasQqHNiqCMY-G16KDfubSj49WsAXvcJDDgzeNg5QQ0aP9QBkkonDfyJHO_2IhadVCPkmR0iO5vCGSB-dzTMj-NrsYZGTgS3ce6OyCzTPcIuibS5EsWydLMMRXxWRDoePg_rWv8MV8QQC2AxbbzMQImryqOIgB7OH1kbgmZDc85Nw",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "taqueria-los-sombreros-lombard",
+    "name": "Taqueria Los Sombreros",
+    "cuisine": "Mexican",
+    "lat": 41.872,
+    "lng": -88.006,
+    "googleMapsUrl": "https://www.google.com/maps/place/Taqueria+Los+Sombreros/",
+    "notes": "Lombard. Authentic street tacos, burritos, and tortas at great prices.",
+    "tags": [
+      "quick lunch"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.3,
+    "userRatingCount": 271,
+    "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+    "photoRef": "places/ChIJcVMLL3RTDogRNt27i3XVjgU/photos/AaVGc3kuocOQPeW68ca9qwZ4uxbah_O926TqizDfLA4Noxvc1rr2f5yb2JiZln837HZFZ75HJj1MT-_y9fT03miE80-RDzcdsdMgy5ZlgTlYAxMrtmmKLfLd8Oz-NjPYKVSejNilXL9HY5ofuqhkp2yf5JmeODTIxY49pEXzsDe8Xh54iV71lc4hjjykUZeU_tRzxF2xbf9H-zVh1PZmia6voRgFNJQBfLA4572vH4CWUpnjw12V-wH9WS2J5bBxLc5PylLOW9A_XcGjO7whxRsK1BzaIEDbWU73r6nCa3A2A-CVWEtCPZh7FiY0ilO_VvgUU9U-9kbNyexYUK_VGRR3ReODFBk3IlQe_xv0HMD0wck_PlZOSnWz2YCUwQ5xGgw54DRh-Hd1CUePtFzhWDmSaJXAeud3Agnkc1LY3dQuv_huCA",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "weber-grill-lombard",
+    "name": "Weber Grill Restaurant",
+    "cuisine": "American",
+    "lat": 41.873,
+    "lng": -88.009,
+    "googleMapsUrl": "https://www.google.com/maps/place/Weber+Grill+Restaurant/",
+    "notes": "Lombard. Everything cooked on Weber charcoal kettles. Steaks, ribs, burgers.",
+    "tags": [
+      "team dinner"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.3,
+    "userRatingCount": 2758,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJZ6GlRpVNDogRJUhwFoAFx8Q/photos/AaVGc3mG1DFBzyPchKp4LIrCuwGs2LGtmKGdxL3O4QLXd-z_T0kdmO_kxUhnR7PBtk93gK_K_enCLUnqWu3OuONb9rxF0P22RtfWSsU66cdB99luoHt9KwtJXxe6XJ7ilm37Dz9_xUd4wlVzSw0Yd12GTFjNZlT3s9kjxQ7i0QrP524Vj25MX1JXfiDa2Plt9gV4nawKCt-b5K0QlO3euZuDF73JRn1WIeAMDOI7I0nAtHj-WxjDz_tKFCLte9gRibYKytKd8cxaMUtfabL_wHoHxsESTaO3PqEjj6DLj7xtx5Asv32tlsli20LH0jziHKq68drn7d9U_cNuzgK92zfROIBp7TBwCAHFom06CuFshsspZVKcLtMYCkLhTf9aChXqmB5wzLZ9BtL2oCfDUisMav4snEycQVfN-8pbbjFc7iCASw",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "giordanos-lombard",
+    "name": "Giordano's",
+    "cuisine": "Pizza",
+    "lat": 41.881,
+    "lng": -88.012,
+    "googleMapsUrl": "https://www.google.com/maps/place/Giordano's/",
+    "notes": "Lombard. Chicago deep dish stuffed pizza. Tourist or not, it's the real deal.",
+    "tags": [
+      "team dinner",
+      "must-try"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.5,
+    "userRatingCount": 25857,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJh3i0BqYsDogR6yp0y6TFlOQ/photos/AaVGc3msMDPDn-85DstKqpDxIuy0Pg3paOXShAETXtNYNm2tijE4YfAMQtziODav6vaImoQh4paHK2mbR94ufVZCGDCqklz1pOvQDt7GAli9pCgaKa3eJ_YjA6oiQgF55J2tUkYytYXaDcLrWw-EL_BOFHzuRHJ_l9-aE5mqR76DsRevorjDH5txw7kkiRKlF5a2xLGsOgEB711adQDjuUHyDpExL_z-yEuimg4OipLhw6dngNxPAHDONTA88JmV-qAERBwFI93gMU7bKusyKUAwkqsECSYtBkOHhQxSjKptHJRgnTetMJZ-FVntP1bE7loXvjf9nvpwdxE0PQRts70sdNc4dS5bZE-7nkMPNbMK2UlXYymXlwOF02lK6j6gd3bKHpX3szn-yGzB0yR-bemvX-V400YLpdZ_tzRx1lWp0v95WtLOXTnEt_dsUOtzbNRv",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "fry-the-coop-elmhurst",
+    "name": "Fry the Coop",
+    "cuisine": "Southern",
+    "lat": 41.8994,
+    "lng": -87.9403,
+    "googleMapsUrl": "https://www.google.com/maps/place/Fry+the+Coop/",
+    "notes": "Elmhurst. Nashville hot chicken with heat levels from 'no spice' to 'reaper.'",
+    "tags": [
+      "quick lunch"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.6,
+    "userRatingCount": 2610,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJK1ecuZezD4gRxKlk9CUfcmA/photos/AaVGc3nEiw6zlDW8662nSZ6EQKMSMof7rYz9WZpvM2oSwar517SOizIoUdms4YmSBvpXr5xPpJDPVQlO9UsTsb138dXOdbGdh9MC174PeU9SH1BtQ8szW7BFGIH7MWi3SZPQiH5zzfmnWx48-KjNFiVIRPjUf5VfxtwxFEu_XfkkNWKhnMVE9jW9Yodlr8MLg6M-qUyTz5c3-EyJQ6_SZYvvi6ZOE1V1Kpbp8O-7Fl3czlHirBuXwvkaEE9TyYVTOi7LNPSaAUIaEzW5VILox7WPLnITmBkFhgpF4Vp5Zn5QDc4ffJsKiiKV2csXb51KRlJAmZXjjZ9DoGLSLpYSOcPc5B8mQsATKsHQ2oFwHwDrcz85TzkKFjt-2ucX8xLMaxX8j0MnCdQ-qr2vhTfVhiFa3VX2VubDxdZqqdZftY_M3DW9ohWS",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "rude-rooster-lombard",
+    "name": "Rude Rooster",
+    "cuisine": "American",
+    "lat": 41.877,
+    "lng": -88.005,
+    "googleMapsUrl": "https://www.google.com/maps/place/Rude+Rooster/",
+    "notes": "Lombard. Fried chicken sandwiches and tenders. Casual counter-service.",
+    "tags": [
+      "quick lunch"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.4,
+    "userRatingCount": 237,
+    "photoRef": "places/ChIJA2rWrJBTDogR5juLcjcxdnI/photos/AaVGc3kGjEr1OHSlTTTYRPuIarRYUcYS1HTqMDrLuBTafOanBW5bIuF2mAkN2uU0Kdp1KPsQrwz6btUGi-ZU_s3QCxgW5X5BQd9fyqgo4NQjGQ7Izw5RN_6-rQI8jTHW0DDODnWAkyaoWa1qJpjPlktCyXqr-L1BHTyywZ_2rGwA00afBXdZ6gFX08-nMb8pC1A-ILZzHsXz7EIqCW61Idc7vQfqIlvhZDeZ0K5kSmyXRSsxn0mR4U7AEiMatCovx4qn68JbDmsftKOgRrGNAGD9-mLVA3OiZY7RXQab9dAn3yGZH5hymBZT_FOiHwEhHvahXiaC6hXkoiMqMA6x15PYhMrOL_lAFDk14cvj1V3RwLfsQG760qxGwlIMYU7c4kWwTnATHaniUTo4pvFGbmQpPzLttpc-yh_XD-lZfymhrrqEtwVdcCdey-JduycLtZPe",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "republic-bloomfield-ct",
+    "name": "Republic",
+    "cuisine": "American",
+    "lat": 41.826,
+    "lng": -72.738,
+    "googleMapsUrl": "https://www.google.com/maps/place/Republic+Bloomfield/",
+    "notes": "Bloomfield gastropub. Inventive American — bacon-wrapped dates, miso-maple salmon, craft beer.",
+    "tags": [
+      "team dinner"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.5,
+    "userRatingCount": 995,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJT7Mwweeq54kRAmi0a9AUrhA/photos/AaVGc3lzddMpBG3uIKec3-kjQ5i633ssyUlqh8YD8ZSaHLCZHf6dSfYYPlISWWDU3P613Os5rQpG10y7kf7Iz0cNDU03hxMkay3UWfPVK_zDUNrrM4TqcUbRbVyjOt9CFcUO5TiNjoKXsRNTGIoCFSvgLmrUVKhr2meQallP03UrgnIMl6xX0DRXdsjfpxCj54oaiDzF1Zgjid6n9zPm4dO8uJFmc6J6zQT099qlsLy1RURi0D5SD7nEf9pJX37iUxWCiIAsfUhTX96jVPGkE8_HaNoK3HdIjzxSczg3T9oLBjm3blVTQZedAuDOllmfjNnc8bW8uxwbUT11_BokDkeuT_MR96zRxv1w6lOMfa5-HGg80ogeNotJkZ6Arnpa37BqBze5a8Q_0Jr7hm0wg3MU_UmEev3dMxV7Ct1hTPPZsYBClUTk",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "taste-778-bloomfield-ct",
+    "name": "Taste 778",
+    "cuisine": "American",
+    "lat": 41.824,
+    "lng": -72.735,
+    "googleMapsUrl": "https://www.google.com/maps/place/Taste+778/",
+    "notes": "Bloomfield. Cozy spot for a laid-back dinner or quick bite.",
+    "tags": [
+      "quick lunch"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 3.4,
+    "userRatingCount": 187,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJd-ZlGCdV5okRhnMVKMgHOME/photos/AaVGc3lVWvt4v0dZxR_s7sZWEfNtWwgmQ0c_PA3howRtsio1dLcMfautFDiBdLc7ioflw0-FJOrJSq067ctcnXQ_Xd0N2kaOiolwBomVEZ-8Voxy-EVnGK5yT6Pp0y0cv4R2Bb2D6AnA8ja07tvD8ze7EaV2Hg3dPip421lOBiNGi_kZZET0vS_d0znkpyxlU-sNGtQSUToW5_b0Fu9bpz2CKvfjUuch0jThJhPHN-7JuRPpqPY_feMyzH7qNzQzAcaRVlnwXKn8RU05rt-KzhO_c_EzgtxiZz-wIT-TrWfHBJrWlgL667laxSXMicOp6Br2Aki3Ori7NvPs8PSHKrMthqlWxHx9jepSuxEjR69mm_EiHEEY2SEJUjNghGdFGMx-Crewch7FKOFKZyC8x78J1HOGZY4pmf-3IxLSLovhmRd879s",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "naatiya-bloomfield-ct",
+    "name": "Naatiya Restaurant",
+    "cuisine": "Indian",
+    "lat": 41.825,
+    "lng": -72.737,
+    "googleMapsUrl": "https://www.google.com/maps/place/Naatiya+Restaurant/",
+    "notes": "Bloomfield. South Indian — masala dosas and chutneys are the highlights.",
+    "tags": [
+      "quick lunch"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.3,
+    "userRatingCount": 1165,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJkwk9r-iq54kRmai_MgqZMd8/photos/AaVGc3m3CSjJB1eeTlCqdsmtzNJwua-YjFJ9rDiZbFzjQPPwIQBDP_dRNAmSv1Vh-t7XWxNVUXeFRo6EvXWHYIfQN-qVFLDjgtC0bD3lfNqttc3OTmDbffv6Wri-od2ECKBWVuoHjrGCX7wOaSNBakxbGy0iTcPedCNLi6I8IKJf8cv1CuaiVXvWBLPIOcVL_fsxfy5JXEJ-CXZJGnRza8hixuiiI9_AmtFO536Wu-pFuFMcj8cBU4gbXrYa6OL8qWQov_cNaSoASlcgig6IJw6r0tXrGX2AnWtFPKdiirUiQM8m2rIsQqOI4qbod-fp7EBQFYg3eKHirB7A5DEmPYJ_w_C4LzT0NyWVbioThIHOVL36MiKw6_edbaw7ZPRfVjerbHdr1je5ryxmsbUyyfCPCxR_8N17DtkmTI1kgpOuZMVHDQk0",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "pasticceria-italia-bloomfield-ct",
+    "name": "Pasticceria Italia",
+    "cuisine": "Italian",
+    "lat": 41.823,
+    "lng": -72.734,
+    "googleMapsUrl": "https://www.google.com/maps/place/Pasticceria+Italia/",
+    "notes": "Bloomfield. Authentic Italian bakery. Creamy cannoli and flaky pastries.",
+    "tags": [
+      "quick lunch"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.2,
+    "userRatingCount": 132,
+    "photoRef": "places/ChIJoV5VoFEc54kR1U8xm0ytl8k/photos/AaVGc3lk5c4chXjXwAYGkJfl-gqI-w8OcoF5LeflQRHZ-Io3nQmO_ZxLlHE3ANGI_D-cNcS6Rgscsg9pAp3ROf_kzSqo6RrtL2JTvzivf2W45Lb49qbBqnkuFc7qTq3afVdxOoU8uutgJGhVJ2BOMugQcn5yDVQf0sFnjyoollBNi6N_1-9kUPYAPmkctYNgDegJMiyEKjc8NZJgubE6K6Pyj6u3x-kyOr0jydAvEC9-w_x5tMdXgtIBJeFUsmIN4H4uA1Ln5fzcHAiF-qqgtd-Y1MJ3jyZ6MZgDrfva7ba9eEN0pQqisy9HX_yFXpri_Ll9yOvv5cKg2QCGZcmbBGhTztWDe1FDaBZh_7U2VHueeTdLRfThOA2aE12fvqFfDWbUxHxL4j91_9qqsATtSir0X2Ryfk4Ol39Y6HJIsvBHnyUwHKeR",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "flemings-west-hartford-ct",
+    "name": "Fleming's Prime Steakhouse",
+    "cuisine": "Steakhouse",
+    "lat": 41.762,
+    "lng": -72.742,
+    "googleMapsUrl": "https://www.google.com/maps/place/Fleming's+Prime+Steakhouse/",
+    "notes": "West Hartford. Prime steaks, exceptional wine list, handcrafted cocktails.",
+    "tags": [
+      "team dinner"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.5,
+    "userRatingCount": 1174,
+    "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
+    "photoRef": "places/ChIJA-aF1O2s54kRHjCa2kD5wxI/photos/AaVGc3mRNbfQda14km95L6tp1cEjl-qMlyu6TT2RvCJQ7MJPcjcsISTHdwn3aFlGAfOoQ_DLI4YCgSgSHiST0P0ufdNvxd7I4Feh7qoaoBkVG8Uuupg0N6HqUMXYR6-AiDNi1di2xzdITFQWHPZ6UP670w51jQRs1hx3RifAWogE1n6n9so-BmXkLjolkQ9IArXShcLQAEEABwEfpcucJJTmYXrf5eAFh_NXuk9G3O224Lqt3kbm3vIS6xIFIEXc4K1amgc0HV8L8-4XB-Dj2stWoEPjhW_CF3mJC1JKK-iYftAd_tfBcFO-Uq74PpFqYNP8IM9Nda8COl12th3z7tKthRlDw9ZbBEOEbkMNpmkWLzuEG5HlYuDB033KWfjxgUw-qBTxXYcQ47kdwZVR57wVoRy0ZZTPl6O0MsPRFqnjmFwbAQ",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "maxs-oyster-bar-west-hartford-ct",
+    "name": "Max's Oyster Bar",
+    "cuisine": "Seafood",
+    "lat": 41.766,
+    "lng": -72.741,
+    "googleMapsUrl": "https://www.google.com/maps/place/Max's+Oyster+Bar/",
+    "notes": "West Hartford. Bi-coastal oysters, extensive raw bar. Multiple Reader's Choice awards.",
+    "tags": [
+      "team dinner",
+      "must-try"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.5,
+    "userRatingCount": 1747,
+    "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+    "photoRef": "places/ChIJs1c8Gu2s54kR3IJmhqTebug/photos/AaVGc3lPhOvaY_IeZPOA5tVeva1KILu4j2Z49wWQCSslmu_deSN2AhNncCRjlKr1GimcAmub72qoxKmDIHz1fIVoLpZMFUCF2X57BvJW3W_w1YFKO_nndsaGHIMFfV0UiRjKUOzojaGeNc0pxeSY5Xbdx1R_WEcyy1HI5XyccHIGx3mHuthRaWReWNkW2zXgtZy4J04hzVk-aWGu8ZtOA5Hy4FGybIoW7_MFPB9qIddGQ_FyWuQxslbL3NAeSP2CkIMy7fUPE3boDNiKHggAspBzfqyXFPskg2OE1_AW2GlGVfJRP1Tvhy0EofnLC4b-dXzHANZ5gCSbWnxAD6DY3AF-HooDXfetU8AOhUKDPMF10ld5RfAb4ZbrsIhyfDkuLibS77tC9B18sLIjN9hwrxikXd1IljR2tUj-kJ0cswPpeRNkXw2p",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "j-gilberts-glastonbury-ct",
+    "name": "J. Gilbert's Wood-Fired Steaks",
+    "cuisine": "Steakhouse",
+    "lat": 41.714,
+    "lng": -72.608,
+    "googleMapsUrl": "https://www.google.com/maps/place/J.+Gilbert's/",
+    "notes": "Glastonbury. Wood-fired Prime steaks and award-winning crab cakes. OpenTable Diners Choice.",
+    "tags": [
+      "team dinner"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.7,
+    "userRatingCount": 2496,
+    "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+    "photoRef": "places/ChIJG_-FKCxS5okRiA-RTExWF4g/photos/AaVGc3k2GUI3PH00q-i3zZ4XMM_uvw_NNNKV93KGeneiNkdl1hSTm1XCxB4KoElM68AzEjxxOjbBxTBpArtstKEEUrMhTK8pPU-tPjf7EQdfeXRgbbbjetvAkbB19hygx-t0rGuA2kVsXBpRlZZ1wk0dopiqPUquRXggFu6e5VPep2XzjtBAov-GfLZ0dp9sbigo6F1FTBnfBHPgnO4XoY2tLopapHr1qKA1OsimiIWiLMcGrda17-B9j6gOweFO26LmmwHClrvQwIuLaQsOAHUnJHhGCA9kzRNHOsAACs9nbUuBgz4mcWKfU7nQWrU35_Pwhv5A59z4oV2Nz4n8ALKjPWQMZHThbgYWlRRGbQfWBBMxykThvKWd6BUMtQuGvzueuubylx1ZILVyGC1OMLdlwVhnvyGcKFHiOauyrXQiuwja83Wz",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "feng-chophouse-hartford-ct",
+    "name": "Feng Chophouse",
+    "cuisine": "Steakhouse",
+    "lat": 41.767,
+    "lng": -72.673,
+    "googleMapsUrl": "https://www.google.com/maps/place/Feng+Chophouse/",
+    "notes": "Downtown Hartford. Fine dining with modern casual vibe. Asian-influenced steaks.",
+    "tags": [
+      "date night"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.4,
+    "userRatingCount": 833,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJJbh5sGRT5okROkha3YkaJ3w/photos/AaVGc3k2c6_m8NNpEQtslSGp-coISdDZihVpxrJ6sMLCXZm_9YhRjTDz6znl7z3t6C3YwNwkcrRHGCiT8VlmIVkK_EgFMB-Kf1NQ_bWykINWqS9-LO2KJgNGOmyAz8Id6dyaF4qu0Ln5rZCxvdsqpdxQSy1OM-LNEjZG2aAjxzbxk0tSZm1L2zQZxAw6NomYnFQ6JW0SSBQKUf499YDd9Y4ae8WJq-NhBl7TqLEhgbD5G0h6awN4lqcAviYo0tdBnTcMFk5a8cdA1qfmXRnNxLsV7KwLfX1d2s_1JhOXwVvNJWZ4A6ffb458A5HHqiTGhF3VBTI50f8QL7528q2rkHoGdCqH3-UZ0TgbJD0PvqsK_HdawQ8iBlISpdoMkz0x3EdKTkYSeOMKQD_WsQIGsiJBPz43QVKT6rHRD2h84tQ4hWGWCw",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "sichuan-alley-west-hartford-ct",
+    "name": "Sichuan Alley Bistro",
+    "cuisine": "Chinese",
+    "lat": 41.768,
+    "lng": -72.715,
+    "googleMapsUrl": "https://www.google.com/maps/place/Sichuan+Alley+Bistro/",
+    "notes": "West Hartford. Authentic Sichuan — chili chicken, mapo tofu, pork dumplings.",
+    "tags": [
+      "quick lunch",
+      "must-try"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.6,
+    "userRatingCount": 214,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJhfkk6E2t54kRZ_8QEiMCs-Q/photos/AaVGc3lKYpUHOpQBiAivvB1eBYgRuHtFT7pelfaL34JAK5B1hBD57Vlkzh8fxfSXvoLP9k1QOPdQpJPNOJ1P5aREBRYM-58aKunMHJX9K4bKY0ctFTAflZMyD0bVih4zs3kHEOYH5Tluj6sk5vGw9MFAe6FaJ-aV8PiBYeZeYQLjUBdpknHObM9DcNhcjoYRohMDTH74FwgIRXWXBsDttFUbfRgftSw62AAnPTgQ8DO-2pf2EuAjKZXXuYltx9-Gkr8bWVGiRmBv3ygTDl1aMI5XVhWJvwp7gIzTLkWFmgZLjllN6zYNAQuwo7OnxpI48eUuc8MMQS6-1ULfro_YB129s7witC_3Z96o_v-ZKmleVoTTOoXyR813Pf82mLVjI6j5sITx2pKHv8GULwzfyZFVv1ZGFKd8tmpo0SKmHc0tq8gigtGH",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "tangiers-west-hartford-ct",
+    "name": "Tangiers",
+    "cuisine": "Middle Eastern",
+    "lat": 41.77,
+    "lng": -72.72,
+    "googleMapsUrl": "https://www.google.com/maps/place/Tangiers/",
+    "notes": "Hartford/West Hartford line. Market and grill. Kebabs and chicken curry over rice pilaf.",
+    "tags": [
+      "quick lunch"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "photoRef": "places/ChIJLRNM8FyHCw0ReuG0v3HFv3Y/photos/AaVGc3lhmEn73MGHxfmquTEqSO-M9JlJu7eOPDiCtCLa1a0RbvlTwfHAXmqPz_truT8O-RUrkfX3j16Z1fdJ2eUdIGa-MJmVUNjOD0-EyIoUY0H-a5YzOuNSFfKu6jimjixWIIeU_ID8sLeEGMuhAY70OUdFGcsx49iEVKSz0fGrjBUJU82WfHYx-zwrUs6nftYXOUYN-sqk5zIzYntKw7p6JCnIKtEpDrpDTIY_AHnuH5PCzh-SLKlEwNrMi8bbb-z6laeZlQ9aDqdRoT1to9nVf4T7EhLFUWD-ZGvm4_dcyV8gWTfeagwRguQPSJ4nrw2EA6hAI8Apdz_iuKmlHOfmDTgvY8YIVmI_TcqgSjV9WOvxb_LbWuIMbPsrBj6vIcfKCCMTrY8JZB6AiLDNpvlmW82jJtn3FKzGQWyGCzLex7A",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "pond-house-cafe-hartford-ct",
+    "name": "Pond House Cafe",
+    "cuisine": "American",
+    "lat": 41.775,
+    "lng": -72.713,
+    "googleMapsUrl": "https://www.google.com/maps/place/Pond+House+Cafe/",
+    "notes": "Hartford. On the pond in Elizabeth Park. Eclectic comfort food, seasonal menu.",
+    "tags": [
+      "date night",
+      "patio"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.5,
+    "userRatingCount": 1085,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJmQiZA6ms54kRFk4ZtGuPl0U/photos/AaVGc3kTkmeO5aEFiKobJT5LDMtCvGLpKcb3-polAxBUYnY5G32L1EtUW0HdHc3CTgZNg1w4S4zRvhB_NX66rbwVMP-b0VJj05bxgy5G3Lbyj1ST-vZ3EgeUgPVI59rOWl3CV9Es_E8mlI7v4sEr1LDe6l50HEAK2IkLlutLmuFx8Kk-cmuOa7YzEJY6WlAbX0waTbi1hmV1I8lqU1TGHlLS_WThZn2v8_rjhYGZxFobrk84aNj_qQlr-SumgQ4ZSPTODF_J7wsRebzhXn0rUOc3Q8h0CeyMCd2aaQP9vIEuHemfqfYcCq4QqLwg21HrSvF8PBc1ocJxm8Mp3TAtZvogRn9IEFLZdcwMlw78G6fyJUTQz5LcojSe-nwmdyxgCW-txUiAODwCWrdQia7Xmsz6ooLJIdW-6o_xMFwNAW05YxhsUBf9",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "story-and-soil-hartford-ct",
+    "name": "Story and Soil",
+    "cuisine": "Cafe",
+    "lat": 41.764,
+    "lng": -72.68,
+    "googleMapsUrl": "https://www.google.com/maps/place/Story+and+Soil/",
+    "notes": "Hartford. Global 'Top 100' coffee shop. Great cortados and smoked salmon toast.",
+    "tags": [
+      "quick lunch"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.5,
+    "userRatingCount": 568,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJ62iE3UJT5okR4f0HTJMYgp0/photos/AaVGc3nnZ3nVQt3Yxapa5Y_niteQ5Pm2F1k-QnYV5XPECyVoQu2ryG8tUu6xM-bo-wGCvo1ILKlAIt7PiaNKICaale0iRKXZsrzIFtWHFgyZv-uflLyiKhK4NtCa3UbYgJ5EnsC4KEJn4Iaba-IWn6iSRd37Z6gSSfcjFiYqFFycSuoeVctP8KyZT2QZ1rs3U-5kbQ3THa3_hGEXaa-quE_PVj47pPfInAE7Lfv_q4hHFOY8Z2ks26sB1EKMKPdKqH4XpIf8GyuANzc1dZVgcj7HA-hxnRB5ieRZ4Zf8sMqDVH-ZnX_9nWLwjn52CzSODcTo7Il3ohHcN9RSijo9nzpzXoXwpRZTpKgiC5tZgUuq1Y6WF8vvnZJgzQRi-Nqzd5wukONnJTjoQV_wIGR7wme4LKAQybtzS-vcSAPDWyVIN_75a85H",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "spicy-green-bean-hartford-ct",
+    "name": "The Spicy Green Bean",
+    "cuisine": "American",
+    "lat": 41.763,
+    "lng": -72.685,
+    "googleMapsUrl": "https://www.google.com/maps/place/The+Spicy+Green+Bean/",
+    "notes": "Hartford. Breakfast that expanded to dinner. Korean steak sandwich is a sleeper hit.",
+    "tags": [
+      "quick lunch"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.4,
+    "userRatingCount": 827,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJ_e0P7VxS5okRhBEsSnVI-L0/photos/AaVGc3kzheV1lS5WyFL2KxEjw1sAqxStUZCRKlgfXZSUey6PPSJ_a8UtzRb9t7Pn9GYlDVv2OZIjveLK6Dh1Ul5nkxka0uLiveb3HeWgWPJQDPZnF_yEuAZa2Btqs7D1t9-6F7lJUtwtho0A7PE1kQhpLHHQOIHv31Jzavr-Fy2J4OYH2hYgUZ59WHTbnx8-SbMHYEHLHYOezM8TxgwTGut1rKzKQsZ6tuCLVnJU-IfUrXZjcd04j1NOuV2hb6HvewaJ4QRMrPDeflBjcENu6PDRzuPvSvaILe80y9Qx8tWifJCzOGl42boRs7DpxGpXtBOp-vhsPE3RHBOgVhxbBGEIpOCdFtUg4_3jdDVmUgSc4OPKc1O7lfxADhfiRNDVBsKgpW2RMq2tlF_5AdRUviHgE20y-PTMhjwy-A5ByfNmw2HZ_zo",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "max-burger-west-hartford-ct",
+    "name": "Max Burger",
+    "cuisine": "American",
+    "lat": 41.765,
+    "lng": -72.743,
+    "googleMapsUrl": "https://www.google.com/maps/place/Max+Burger/",
+    "notes": "West Hartford. Korean BBQ burger and complimentary seasoned fries.",
+    "tags": [
+      "quick lunch"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.4,
+    "userRatingCount": 1856,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJOWQHEO6s54kRaN8aromAIE0/photos/AaVGc3lqd4VNeJYmTK3JoL_tVT0U-MT2iStkRlP0FQFxggdtupVz_JKCtnMxU7LtZO-jrnZw0BHj1ljvCnoaWBqEO-vs87uQbAnsG7UES0UyZrLyRtLqLHeFEC30GMNGzwdakYwx94ltRjuaJTN_UDM2hMeLjlSX2Vm3M95DyK36odpZ9v8707f-X5lgB9zMBcgER713G6rNeAnj3uBjLsckYftlbEu7NfbKXc1n-PyHL6ntVIhqctf1S0MllPLFEdLtJSW3kOMVJwRDEKR6kSJ_62UUyvJ_IN5tfxBjOBExZJYI1DL1TR9Agyg-G25oeB6Iq2kxsBlIzniH5fN3uXjoQieQWEKwZZB2JjM1NljQXl9Hm1K-WSG4emqi2H27H2sSQh-PKT0OpzrIL_i7zy_i0R-87Yz4N1Qe6xuSBzfoQs1HdnT5",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "tavern-in-the-square-west-hartford-ct",
+    "name": "Tavern in The Square",
+    "cuisine": "American",
+    "lat": 41.764,
+    "lng": -72.74,
+    "googleMapsUrl": "https://www.google.com/maps/place/Tavern+in+The+Square/",
+    "notes": "West Hartford. New England pub. Picante burgers, Nashville hot chicken sandwiches.",
+    "tags": [
+      "team dinner"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4,
+    "userRatingCount": 452,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJY-eZb5et54kRJQemYnF18EE/photos/AaVGc3n3ABI_V4f3vp4WxSLSHLTxc3aSF7pab6Enj5QZqoQCfxDPnlF8fvtUPltIu2vDDr3CmUuIaTSw4ohTDVxQWqZbVQsLZ3ke_uGXj2I6r3sWsQqdb3o5Ehz0r9kthanxYtkrF-wUbRDEz0hV2y4vSgW2QvG7cMVnAfG2PowzE2-eRHOG_EjoI2n_ihwExYge_Kzjn5X_XTZ1j0tKznLCSmXDCZ4G0GzyXITBC4z_hMVvjmARtniR6c7FwG71pL2vSUHZYuMmVR8L6N7ro4vM33PkcA38YGxfWaSZQnBylNXm3BrMsW2H0auixW3gY8J0c40vvZn8ejAbsLGTmEj1ECNkkFBVZJQPdRx9VeiTGV0mW3d-Zt6rWGaQfma-HAeq_hJFtCYOy-cb-VnHtxjQ2YuCjpZlJUJbhfZBRsmg9Gf9Gw",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "joeys-pizza-pie-west-hartford-ct",
+    "name": "Joey's Pizza Pie",
+    "cuisine": "Pizza",
+    "lat": 41.762,
+    "lng": -72.738,
+    "googleMapsUrl": "https://www.google.com/maps/place/Joey's+Pizza+Pie/",
+    "notes": "West Hartford. Indie pizza — pepperoni, buffalo chicken calzone, cheesesteak grinders.",
+    "tags": [
+      "quick lunch"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.4,
+    "userRatingCount": 590,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJyY1LwcOs54kRTdlekEVZzgo/photos/AaVGc3kTELVQrp7LWseCCd4oVrnHnIYWAiktHdYID6um7qf5jzN7NGm_iIe00zsSgfYk_V886B_5t_5tpPRqLjGszaGxDWMOKqOolwmPLjm9oIX5AlewiyBi_1FesLmiwVbij_p1teI7MjjZ50M-iI4x6CIJx4BzzGE67IlRveyLsGBBetoSJmfIRHZQ4PG12sRZlNXS7Dimad1ktM37skZI-9NmXvFVjXHr0825_pu7Ch-SdZGBMJNg8r9Is8kR7zoG3xheufH9wMltJpSTa7Lyoi40Yad6LevI6OOkBJUWtrQg_RG1U-gCmvnBA64i3VXUmg5HaWoeWFGKw3g3yGfghBn7gGFKw84PPdoqpEGQlO82BInTTmYEbMGZ8vHstNPPo8rK2Y7nGhJdjAXBBMSSJBLBBOooCfmUSTCmHYX2ffmekw",
+    "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "dhaba-wala-hartford-ct",
+    "name": "Dhaba Wala Indian Kitchen",
+    "cuisine": "Indian",
+    "lat": 41.766,
+    "lng": -72.681,
+    "googleMapsUrl": "https://www.google.com/maps/place/Dhaba+Wala+Indian+Kitchen/",
+    "notes": "Hartford. Dhaba-style Indian street food. Flavorful and affordable.",
+    "tags": [
+      "quick lunch"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.5,
+    "userRatingCount": 2076,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJ6QqutGRT5okRHuUam6Yjnuo/photos/AaVGc3kTBXO24tgLT35iZniHHWufsTJmiTHJtSQq5DpfE_cXOiso7YbvlmXNIiL_bbR3lyhKUaeFRdFTpnQ69r4Khqv5S6P2peX_yYmorxAUd7AOjtg0SmZTfQbXUna2NFErN5hao-YSKDhMEcj4bL54Z0mb5Bu7BC0HuLdUCcFynra7CL0d3ChFaC27ESdCRhKO5eKuVmBr7MCpG274FB88QA5e_neRB_Vro5_z8Rw20Z4Lg4xQanbW1a97ViN6nqYl9D_OfXoa_waVGqX9pM8zOch3d-YHkQKFVnwbVWfVEJqKoStn1Yc9mgZzQ8s-3C4vpltsxRsAdMZYm_8GweTw1Jygt9WikDDUnkkN5ItmWAIzv9jT_Po68OzdR7k2lYYJLWPIGLzSaBoD6aoqWzGfybRfqyfNgdBGmT-xJlJOw2SxVTASAvLmmM6qc6xwn3n5",
+    "enrichedAt": "2026-06-22"
   }
 ]
