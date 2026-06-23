@@ -11210,5 +11210,371 @@
     "priceLevel": "PRICE_LEVEL_MODERATE",
     "photoRef": "places/ChIJZeYX1eHjuocRkt40LThuOWo/photos/AaVGc3nOq27SCrYXKdMVrH7fg-ucsgM0dgXED5o-dvT1PPrOxWUVaAdLcXkecwtj8powtrfAS1GftmhoPAM-qnQy7wAJmxOr19G9gOA0H4WIMc0LZkwnZHNhYNa0CXL_Z6TTnBfWrln0d_xr_5RqzNuUD3_9xQdFHJhWrf64y4RAAj4snD8KGFQ3NTiUxKYZ7pmZGg28rd0R33EM3godj23YkFqiiIEFP5Egj6yB2oVwmXd7GyqdWn1h6-Tc2uVTEHWg7BHvRQdEVwGYe7sHlbGA2EmgVOqHRzxsVzzZsYdBX-tqiKGE4kO9cjPdFecZhMAri7gLRCPaD1MDsOBK092X94FWPvfE6O20V0vqZS4u5jm5TYuC_WVeI_4uvWwqYDfa8vwBC41K9Wz0qajhUl8LMCod9c0ofOeakTKOJm5UfMZSu_XhAMeNfwSUBnznpDfX",
     "enrichedAt": "2026-06-22"
+  },
+  {
+    "id": "shipwrights-daughter-mystic-ct",
+    "name": "The Shipwright's Daughter",
+    "cuisine": "Seafood",
+    "lat": 41.354420499999996,
+    "lng": -71.96747959999999,
+    "notes": "James Beard Award-winning chef. NYT top dining destination. Sustainably sourced seafood, seasonal menu.",
+    "tags": [
+      "date night",
+      "must-try"
+    ],
+    "googleMapsUrl": "https://maps.google.com/?cid=13500501233335419699&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-23",
+    "source": "web research",
+    "rating": 4.5,
+    "userRatingCount": 783,
+    "photoRef": "places/ChIJsTtp9OAL5okRM0OuzldqW7s/photos/AaVGc3kEsWXJf3dCwrPvKdimX2b0wbb1mVQrB3HhFYUCI81VrxD7CdHdfZvxS0o-N3ZStoaoXd6dR05PTCN5ff8tB28ouOkwOwafU4cLVuhmsdfFn8mYxL60DMwvQGtbiUPSpI27icDBF93VEZEATz5LlKnx40uUo-h0_w6h2uIpEfEw-gR02Hs6LbPMkngOjpi9i35oOUOJpyPmaz6et1FW8tQUK7oqkXFKX4ZISdA8RfzGrTVjPheRwcf064hbB46knJlvceF5XjceEusY8h86VkjeAB9T3Mx3zqnhkZdtlpG4V-poUbIEYraqw33WIk1fN7TS2LHThuFWQaPS9BnnAvvQoVsBrk59W-84_fKgWJYWUf5iUe--icT2hNKGSn-dOQUwhzs6vf6CPW1g7Rlc3Y03Zt3RFAdpC6Lzzf4XehvcSgQ",
+    "enrichedAt": "2026-06-23"
+  },
+  {
+    "id": "rocks-21-mystic-ct",
+    "name": "Rocks 21",
+    "cuisine": "Seafood",
+    "lat": 41.350949,
+    "lng": -71.959576,
+    "notes": "Waterfront views. Lobster nachos and fisherman's platter with local bay scallops.",
+    "tags": [
+      "team dinner",
+      "patio"
+    ],
+    "googleMapsUrl": "https://maps.google.com/?cid=16590439582239627886&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-23",
+    "source": "web research",
+    "rating": 4,
+    "userRatingCount": 673,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJ6x2oby3i5YkRbhr5buYUPeY/photos/AaVGc3kc1XT9Rrqn5cptwhtT9uv708tUNUCjMF5Tn7ZHUWkanaR2VZ9abXiQutTwBbFsrwXXZA_iNzjzpfvZHkb13jK2iD-Bb0mXfdtIW_oD0S7eiNY5DPhvdXQZHAt2IpsoH7Y23eWEuBxB9LopwTfGO29ZZ9nP9R7MSJJBxdfT_1cpAD2wYjpXKUuqA2dxv5XsSHb1Sdq9PilI3xasJxzTzsGw6q9UhEK7FhgyyFpPRoBV9sMbraR_hX4zeLo6PXexNfZdzBJVBR60FN0bgg1vUxEJCuBfV1oA2H34_EWV8kqYn95eiAfUWOTbdWWOfsR534GFxBn10OHI85tfnN2XxXDPMAEVPn4Lqu3Q5uYAFxEeNYSSeaDO_5F_1UYboHJtMHKKojR37wR0vjATpkSzDcPdJ8hcTd--MecYkZEleDo03hNt",
+    "enrichedAt": "2026-06-23"
+  },
+  {
+    "id": "mystic-pizza-ct",
+    "name": "Mystic Pizza",
+    "cuisine": "Pizza",
+    "lat": 41.3546966,
+    "lng": -71.97172250000001,
+    "notes": "Yes, THAT Mystic Pizza from the Julia Roberts movie. Iconic. The pizza is actually good.",
+    "tags": [
+      "quick lunch",
+      "must-try"
+    ],
+    "googleMapsUrl": "https://maps.google.com/?cid=14344987122627161449&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-23",
+    "source": "web research",
+    "rating": 4.4,
+    "userRatingCount": 7639,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJRSnBAB8K5okRaa2-98ihE8c/photos/AaVGc3kGuYMWbGYMvZe1ovvBtQ_j9X621Sh7B02oYnUrmM81dD2kI41WuhF49Cnf-EW1IuVC8IduK8yi82UyCxxU4idBBkQf0mAJD_SufVMwNDmDhuGNDmIfLNeSY0oCvfsBiP9-vo7OkVlEeDQT_F8gbpyjBqB1rohhSZDLX-gGEXq4bE3Q9_-jf0ER1Xhnu8GJ__YLMQAkNp1G8teKNUbjOErSeL4VgXL2LO-LS9vxXGJkZ83xxsQosADhRzX0A7VfRpYNwUqHknc-Ns9GA1V7HqXx7pBXJT6NhQkkY_yoq03BQ2S_7TyGmrLGr99j2KhrRHexkRAd97CGcVAZNzHhycql_qyKIIeLitesTLwjDhDdA5Q6D_Na9ltXj2LB3G4RJ1eJOtLFUz9xqkiOUPXAWf6VDHzAx8Vob_Aw-FIg6K5jOVvAD1yAy5avaMSvIA",
+    "enrichedAt": "2026-06-23"
+  },
+  {
+    "id": "sea-swirl-mystic-ct",
+    "name": "Sea Swirl",
+    "cuisine": "Seafood",
+    "lat": 41.349444399999996,
+    "lng": -71.9586111,
+    "notes": "Seasonal clam shack, 50+ years family-owned. Famous fried clams and sunset views over Mystic River.",
+    "tags": [
+      "quick lunch",
+      "must-try"
+    ],
+    "googleMapsUrl": "https://maps.google.com/?cid=10824336369728828031&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-23",
+    "source": "web research",
+    "rating": 4.3,
+    "userRatingCount": 801,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJyVkXEgIK5okRfzIHF5TEN5Y/photos/AaVGc3kKfBBDNvY3QQ5q4mSzyVl58EC-Z-m2iLRxF09d8E_6Tly_uhlnwZ4y_JlCjGkF0u4v6egeuJ5yMdi0nu0vWSolUgS4ADLgC5IKLacLnkqVT9C-a54zX0epLZppqnqWf35D-gfs_Y8_VP3MFJvWvskRJbKrk8dOmcdvOzwvneJtnSpiKRiaLW_pTAlumtPZLPW7BrWwF7gakkzfkXUK985H4pmMAIdx_CYe4aTsHUYoBcUIYEsBlu3u7_pHylKTeJUn54GGLxnGs5uYFDQMOQtByozHsynn8klZj4W3r5e-0BhpRsgv56ZiNq9Kw4ubB7qB2yFBkBG14wOqI3imc8A10pyAwj4qEcRZMMlpy499F3pOrJLmmhmT5RfZyFMwIxP1YnTIbputo8xjbEoCDhOTcsgHbvmtG96K25tx1dWa5w",
+    "enrichedAt": "2026-06-23"
+  },
+  {
+    "id": "seaview-snack-bar-mystic-ct",
+    "name": "Seaview Snack Bar",
+    "cuisine": "Seafood",
+    "lat": 41.366181,
+    "lng": -71.962762,
+    "notes": "Classic sea shack. Fried clam platters and lobster rolls with sweet mayo and claw meat.",
+    "tags": [
+      "quick lunch"
+    ],
+    "googleMapsUrl": "https://maps.google.com/?cid=11909875661478630458&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-23",
+    "source": "web research",
+    "rating": 4.4,
+    "userRatingCount": 1876,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJeWpd-nIK5okROhSBGdBgSKU/photos/AaVGc3mgcbhxflXbvJ1YqT2BxSkFbJ2biQbqi_MuCYHNDqyENUQbKC1f1zfdFv948ISRyW63ewaW0FZsGCFEQZUSZaq6F_dErlZP5_KxFaXQIoAkjdwGNbHxz0S1rz5lDhxuvOnlIdzXWf1UDbbsUx7BmQyAx1DcwASsedQxK75ozdK_Rl_wlABHWa4owVRgFQxQ-SnFWzJay7iyY6zO-1hJ3n5GnWytJkd257CymjSWwEtQNOzKd0qLknaHJKAyu3df-xz0xqkiKOSA7MjQxYfTbPFj-A_fv-B29r_8f0mu2Q77Vl2dT2Lf7VgJ1scUgkUgkc648ovVvQM69CRP_EII0CCNVATFuvqn2d3KxNKItzCEeUWsExLj7erS7fOVCFmVBNKk7CYqCnNWwoOBQjhMapao06HrsSZZIgCN4tF7wEfYWsw4u5Ap_suFSaAYxQ",
+    "enrichedAt": "2026-06-23"
+  },
+  {
+    "id": "mystic-fish-camp-ct",
+    "name": "Mystic Fish Camp",
+    "cuisine": "Seafood",
+    "lat": 41.354472,
+    "lng": -71.96821299999999,
+    "notes": "Local seafood with imaginative comfort food twists. Nautical-inspired decor, daily specials.",
+    "tags": [
+      "team dinner"
+    ],
+    "googleMapsUrl": "https://maps.google.com/?cid=16946475974708722403&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-23",
+    "source": "web research",
+    "rating": 4.6,
+    "userRatingCount": 215,
+    "photoRef": "places/ChIJlWu1Ds8L5okR43o02xz6Les/photos/AaVGc3mObYXF0Lcp2TMLeiD1yg48KcrfyOtQyVoAUiC0Z2ZQK5b4wdfIunsdBJCs6rJo97mmWAQzZle-H4C4Dz1jcvUhYLhmy6UfohH3hrHYdT3KWhDrLOx7tv9AJI5rYBDn7buh_Cs_AGDw5Hn-2MZKAcXIhr_bUlj6FkURFLO-uDB2l2MeTX4cbVYsOj2x5LsSkevUZpALJUQF2qPgo5Oo1w_U9iXjfYjZBkZ_MMHBMvOR-5XVzLeff7OkH_1CORkA3poAHNvwndtCbQPwnPIF_hWxFJuUpAqVPMeDGuL8MJfybl_FffQDkM3jI1S1MD90Rb3jv0s9GAElE4bZQKbH2fY8acPUt57vAY6L5kvs1A_PJxK_HMBaexhAs0qOZ1DWMqytp_LjhvLWKfkWmSNYHjDPNJO3U2yYN59YFe9HBPYF8q1vVCSTJWymKQjPZhrf",
+    "enrichedAt": "2026-06-23"
+  },
+  {
+    "id": "the-mariner-mystic-ct",
+    "name": "The Mariner",
+    "cuisine": "Seafood",
+    "lat": 41.3545515,
+    "lng": -71.96981810000001,
+    "notes": "Classic seafood and steak. CT-style lobster rolls with warm butter on toasted split-top buns.",
+    "tags": [
+      "team dinner"
+    ],
+    "googleMapsUrl": "https://maps.google.com/?cid=484117422298815723&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-23",
+    "source": "web research",
+    "rating": 4.4,
+    "userRatingCount": 1619,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJiaIRaaUJ5okR69yyCTvutwY/photos/AaVGc3mxoa0vDse0gvNeFQw0U4OgJ11B95OWRJyid0UjLN8o4Igs-3kdsd9E3vrjdMUBv_tGy16HWv8uBGkQC0u4D5YtDPMk5JNNnvkkTCLQ49Qg_QDWQpqJuENGluMZZrrJ_I5epaTJDC1gl1WcQRyfMwWIFROUaAdvZ5jiQ5Rg_K73OqydnQ3aDZGoSLfKUSBznTqX10hbeHhIWlPWd80nBH4r8bTEwqZlVxc0jL0Yieitwln9ItDbpiQeok1O5YznHbGu_XAfKeLcouJyBAlMzhlNNDxADJRVOpmV_bxGclEvlq2AFli5dGh1nOLXkLHl8Cof5jA6A7-xuu-HFf6y-gQ7LAwQMt_7Ef34rzXJBBfCwnZouhWquzBcGwzSNp4gnX1HcfqXiOy46S25sZOuneG90ALqKTWY7m19zwdpxe8gGixCAj255drOphuy_A",
+    "enrichedAt": "2026-06-23"
+  },
+  {
+    "id": "la-luna-ristorante-new-london-ct",
+    "name": "La Luna Ristorante",
+    "cuisine": "Italian",
+    "lat": 41.3564253,
+    "lng": -72.0978964,
+    "notes": "Downtown. Italian-American with creative cooking. Great happy hour Mon-Fri with free appetizer.",
+    "tags": [
+      "team dinner",
+      "date night"
+    ],
+    "googleMapsUrl": "https://maps.google.com/?cid=10362771025501932071&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-23",
+    "source": "web research",
+    "rating": 4.1,
+    "userRatingCount": 304,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJ9-kYe2EO5okRJ8rA51f1z48/photos/AaVGc3m1Gi9iG6mXRkknArGoaxxPf_qy6PI1ND0QJEYLfX-7cD4_qvf7ArjU5VO-_LyZU3BkUDTDH3MQW5355sCCP2kvFMQHddAZCtRobiFgpjD8eKnAKfmMai_0E5jaOEBK171f1FlGE_WVIqJ5j2AD6IrQw3csvTpG4QvNX8ihN3afajwhUPhcuyob0P6XuvD1bOpoEPFdchDWYklPSxt04q_JTiI4OmGebYaMqyHc4AMvXOq509PiHN6tnCCGdehRMruDroB-4wxqS3nTUTBpKTzzkWzadeipRPkYJbwPT0uc3ftR9jonFodN-XUPglK_edQzBTluAeWQi5j_f31CysVKrU30YTgpcQcCpcMsfjaH68G8mlXIbT-5odtqMeGewqQ1LJIX3KlBfzut9cMOFbo6_5HY4NC9ASu-TmphQyA4RNesIfh21pT6U7v-3QN_",
+    "enrichedAt": "2026-06-23"
+  },
+  {
+    "id": "on-the-waterfront-new-london-ct",
+    "name": "On The Waterfront",
+    "cuisine": "Seafood",
+    "lat": 41.3345227,
+    "lng": -72.0976184,
+    "notes": "Family-run. Thames River views from every seat. Outdoor patio in summer.",
+    "tags": [
+      "team dinner",
+      "patio"
+    ],
+    "googleMapsUrl": "https://maps.google.com/?cid=6307660674243943324&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-23",
+    "source": "web research",
+    "rating": 4.6,
+    "userRatingCount": 1860,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJCQvY71QO5okRnNsCvPZPiVc/photos/AaVGc3lGha1sEmPvkr-bFL0UooxSlvXPL7vLNyQ88VMPTFQun3dmlnUW_AB2rDl3R_W8qkfmZSBc7BzYsgp9mrd2oIY1NXfpzju3nFCiGvckHC3tobuSk66Kvkd-EcVoIfGV6zbitPeFwgGOFldK2jdnjJzgG95xSeKZfD1H_-mauemKzzSFRaPDxMKeP1KMALzOVcY9ZzjnLmxzwcMWQjc9yrIMdnmfToac-MGXrGt70YwCzAFssLLGAnShAikWNlXcqBz9qhJa4MH-wPxwlbNkP9fU2orebiAkkJK8J-hlARiQUGywx9w-H5FA4sQGg33f8F1B73_c7Z_bHp8rzfF518Y5LJ6M5vL5TP3ka4553Geg95ubVis3mvOcogzHKWuXDEUD-f4d_potW7ETp_o3qkl1achIgXvmhr4uOG2iHVcmLseHj6SwkGri9vaSMire",
+    "enrichedAt": "2026-06-23"
+  },
+  {
+    "id": "social-bar-kitchen-new-london-ct",
+    "name": "The Social Bar + Kitchen",
+    "cuisine": "American",
+    "lat": 41.351749,
+    "lng": -72.09634,
+    "notes": "50 craft beers on draft — largest selection in SE Connecticut. Handcrafted burgers and cocktails.",
+    "tags": [
+      "team dinner",
+      "quick lunch"
+    ],
+    "googleMapsUrl": "https://maps.google.com/?cid=9718825597085213190&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-23",
+    "source": "web research",
+    "rating": 4.2,
+    "userRatingCount": 916,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJ8Rrkd2AO5okRBuI8VGM04IY/photos/AaVGc3kkCaWGjhayoV4t_kseyLT3vNUbi-bWHyZjDgaAmPDeTGJ5ge2ycB77F69cfgaGFGJQR7mUHqbTQ-LG4Nh-JUZyIqm6QNZP_mSzoqPQZouf-ZNpfhlttY3yY2cJQ0pi6DkHzMj4Kui1CktwVBctoh5g2piPrYYuQVv5Zdcdm1fWXknf04PK8e0Nw60sNmgZTDvRKeRZiIoR7QT6Neq9VVRgiuZuf-rfSkzkLS1VF1vzNyJpzkvJsWCdekyHFcRqO2-pBjhUt2P7JHjw9MQqAT8RWLqH1XaeQxbi8xqJx3JpRvmfaKlWnenU9iXrTL0k-z2m82MN7wgng4Cg5Vrt05-Vx43gVsOrnMI5WGwk5wTpftQC5B4Fuh1RH9SGL6dCftXweKPWq1JOuC0_8bNzncYC4Aq5Ai-OQH2wkwWqVDg",
+    "enrichedAt": "2026-06-23"
+  },
+  {
+    "id": "thames-landing-oyster-bar-new-london-ct",
+    "name": "Thames Landing Oyster Bar",
+    "cuisine": "Seafood",
+    "lat": 41.353879899999995,
+    "lng": -72.0935363,
+    "notes": "State Street. Raw bar and fresh oysters. New London's waterfront gem.",
+    "tags": [
+      "date night"
+    ],
+    "googleMapsUrl": "https://maps.google.com/?cid=12229498615454323007&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-23",
+    "source": "web research",
+    "rating": 4.3,
+    "userRatingCount": 239,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJZfGJ3HEP5okRP1FJMzLot6k/photos/AaVGc3n93D--OYC0BNUSisx71k4nJW8RIcA0jOuh1ge4ujVIx-C5t3RXjoC8jRvMpNrJX38rxM3AIcQM6fA4dG2Ydyi6VVXq_z5LiT4PcQBQqn8JKQYw-PH7yq4mba66NiCe_ScbqVs762spZPpGF7zTXHqbXzm3mpPgwotPIN-BQG9l_dAhH_4rMDhdAaWu2MFSCR89Bn7irV9FvczwYeksvCEwOQ2rwVlHbP4iKs58VJS4JOYgei9hAfUci1gHU6aoQfsm8QdchgcvrRk_xWgLqVjJmGwsFza8x95O4JA67H1Yrf6Y0NwtaX5aC3_xqRK2sOBaJON33QhCuApFYDSZQRVbmT2xZe8NXWN5C5Ilb8bZaqQS7zPaVCcPyZouISRfRkfBiqMqnWy1rzpW-SipGkmrdGKFgJbaL07ALwltefc",
+    "enrichedAt": "2026-06-23"
+  },
+  {
+    "id": "fisherman-restaurant-groton-ct",
+    "name": "Fisherman Restaurant",
+    "cuisine": "Seafood",
+    "lat": 41.3212133,
+    "lng": -72.0007585,
+    "notes": "Groton shoreline. Diverse menu with fabulous fish and chips. Water views from every seat.",
+    "tags": [
+      "team dinner"
+    ],
+    "googleMapsUrl": "https://maps.google.com/?cid=10389877111083189998&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-23",
+    "source": "web research",
+    "rating": 4.4,
+    "userRatingCount": 1003,
+    "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+    "photoRef": "places/ChIJZZVv5gAJ5okR7kYTQi9CMJA/photos/AaVGc3kKVoJQS0LBB2d76KchqdJVr9hI_wW7j6AlEeNJNZ0AlvzX0a_TL1H6oGIhyjWzgUVPIoSvIipet4Du2mPRTnpn7QzuLmg4dRF4zFYP0c1gd87oFlVUdQ3w4ARJ-79mwnf59NM_HYr6WGM_9I8zRtqt8ktwRmAEVbWn_lGtFSnnvAWxYWdEVpxtH_eb5r8tWCZEdCZuLxt7Ls47jxKuytKZoHbCi5g7hA-CsOtFm357doAHHpq-OZcebx4IMW9A52dovfTC4qhzhWizLnMfqpztTFf8GgVlumBpNn0YRrqKiM0UD6UFPIIhxHai5M-JYTPAnUBPHU0j7Ji-jJY1C4NWDvE1Q0Wrt36F-Gakq1-dChNC3LPR5fc0UjtYkGUYkwbqPwYeUnezvtfQX8YBDKVBvCfL32CCxQ5OIk71HZF2-Op7",
+    "enrichedAt": "2026-06-23"
+  },
+  {
+    "id": "canggio-norwich-ct",
+    "name": "Canggio Restaurant",
+    "cuisine": "Italian",
+    "lat": 41.5364445,
+    "lng": -72.0907501,
+    "notes": "Top-rated in Norwich. Upscale Italian with fresh pasta.",
+    "tags": [
+      "date night",
+      "team dinner"
+    ],
+    "googleMapsUrl": "https://maps.google.com/?cid=2211682278673360489&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-23",
+    "source": "web research",
+    "rating": 4.7,
+    "userRatingCount": 662,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJm7E2c3dx5okRaSZagFB5sR4/photos/AaVGc3kY1ryeptRhBdT5ydyL79u4qIYauoMZMbLNa2Pt6VpkWnclB0UMOVPrq5pE7_ak8fQKf2d60I9Zdu6TpdyqrPHH1xEyAm4-mn_oajFlT4_99FR0XNq6Bm-tmP49yC5AIA75hYpZscJ7F0pDodqZ_B9TJ2Kfego6I3rNf-I2qPPPSm5LThKTObbmdOoiGft7PceZGlN1g6XjcwL5iu6AMswNTLOESaVU0FiqfNpQjcORNzq7rK91tqSY4l-8lm6eNeMnrN4vMnFCzLbrruZN9QeKbIdbYmtQ7i8hS583UeopNjAKT8E_3rCbhH65jvs-8F4ePxTZvl9M43vihcmSAvlAKXt_inecGHMKTGSjU2YaNQ9E4L-uqMf3D2nM6grKKCSIkowXTHFgNoNaI-7ZXI38bozXgy12F_U-xbXseD1OsM4",
+    "enrichedAt": "2026-06-23"
+  },
+  {
+    "id": "fat-cat-grill-norwich-ct",
+    "name": "Fat Cat Grill",
+    "cuisine": "American",
+    "lat": 41.521774199999996,
+    "lng": -72.0919952,
+    "notes": "Best burgers and BBQ in Norwich. Famous BBQ Burger plus lobster alfredo and chicken parm.",
+    "tags": [
+      "quick lunch"
+    ],
+    "googleMapsUrl": "https://maps.google.com/?cid=6772227250651710890&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-23",
+    "source": "web research",
+    "rating": 4.2,
+    "userRatingCount": 824,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJ7w88htRz5okRqsVQvc3I-10/photos/AaVGc3lodvlnySLEurGFO5yqznVAxrlcfgb34GMcMIrQTnF2n0SU5bWxIdr40uWcRr0dtjOAYrulyO432nwZN8byHo4L4gD2sJRz_cIdlwkEN3VVaHCzTFNB7N0u43hXUGuxEUep2I413-RYwHMhExF2NpED6eosM-OAdqazBMEiEEW8HPvo4RitjwYYFI8hxApo61MHVINL9xVeJ9E4vKyVYXr4xz38Qamil4NERYTay6RlS0LWm32ycKmdmdIWRtvLIIG2FM9dHFXyBMxmUq6CvfcK43xgoaFuPhEjn7R-MIiQY5tdSbod3Ywg3_iBoOtBhyzbweo0eb_sSa4cprI4vq_ElLSl9TJYc5Mgdbk9QKIIhQAAFxUSklA66h-dpohgJGsLHEPwRxpJfzMf-3LwJBSz5v4NdV-Ag4QIgZQ6Gl_4OWzUWdGvdwUB6KP3RQFV",
+    "enrichedAt": "2026-06-23"
+  },
+  {
+    "id": "these-guys-brewing-norwich-ct",
+    "name": "These Guys Brewing Company",
+    "cuisine": "American",
+    "lat": 41.5226045,
+    "lng": -72.0804419,
+    "notes": "Norwich brewpub. House-brewed beers with solid pub food.",
+    "tags": [
+      "team dinner"
+    ],
+    "googleMapsUrl": "https://maps.google.com/?cid=8694404957114914135&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-23",
+    "source": "web research",
+    "rating": 4.5,
+    "userRatingCount": 1124,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJMbsoEGFx5okRV9U6Wj67qHg/photos/AaVGc3ng9qPjdrtNMK4ZQu0ooVg4oXHejBVcFQkghVoL0nxN5m81nlWctxRb1Ok-bpwpvjnrtkBTDmNFzZtajpKp1RBjIKyNhPsiSbVl81hsWk8qogpbIQIqtQFr1lA8ZzLtWRnsTIO7AyhKQKDxTNwL2bpR56PZgOS60h9quPRDJuwZfMso8dX43o2q_xbOQd5YmxMpBLg8T01AIYuxtVWxKq0dgQIQfSVz7AlLxX026xSGHCoZ-QV9F_U-sURkUbszZL6b8epQoS6j4ZEt_kNU_dbalutjG3FYBwf_My9bmh4cQojSvr0TkEEPTOB0AaHmKB1QHHZ0mQG0qKWxSrbcakVILDXFG7Xt-EPbKa4QrpCTPLcN_yNEuW3UI6Pbwu8qnRUkD9wTMvSs8qRiQVk4aJcKSwWVfKFj23_Ch8_qx4-pb2a8",
+    "enrichedAt": "2026-06-23"
+  },
+  {
+    "id": "prime-82-norwich-ct",
+    "name": "Prime 82",
+    "cuisine": "Steakhouse",
+    "lat": 41.555803999999995,
+    "lng": -72.1071912,
+    "notes": "Norwich steakhouse. Premium cuts in a polished setting.",
+    "tags": [
+      "team dinner"
+    ],
+    "googleMapsUrl": "https://maps.google.com/?cid=8341262681155662906&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-23",
+    "source": "web research",
+    "rating": 4.1,
+    "userRatingCount": 744,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJyfVn3bpx5okROnSB8DYewnM/photos/AaVGc3kJb1GhjhNYN9iGugR1k5Q-UHiL8rvpKcRVGq8AkG0ata3mgeNukC950Nnt5po_7RM4VQWWbsNjP9yjkaQjNYzONBSsLG3KCC1yvrNnpbow75qHJ_B6m-uDWaFhLUB2S-TUlh3Q1kJ-h96wxNTeRAgq-rbCzQl6ncyX5DvRYBI2jt6MVJuNewGrTuaYwtZ6i8_HZCiUsWLscNlWd9V9vhclb2852FD-9w2RgihJqmyIESd4YKyzdKXsLNOCFvPs5VfvmoC3kCDrOsoYkzRZphRDx4YlYgvA0MOmUld_pzhQjC0Qq9wG_vhjfdYc22bseI8RZ1C1f34YTFf4yfBoY512C62lS3aSFIhLTq95TDDf879JHUZNXxS6LGHcc5rhMfeMGUlNBvA_wuB8nKVzDCAJJTnZ6m_l5T-0jZU_-MBMAlC58PLk-VwHctmt6ZVm",
+    "enrichedAt": "2026-06-23"
+  },
+  {
+    "id": "ocean-pizza-waterford-ct",
+    "name": "Ocean Pizza",
+    "cuisine": "Pizza",
+    "lat": 41.3454605,
+    "lng": -72.1073871,
+    "notes": "Waterford. Many options, consistently delicious pizza.",
+    "tags": [
+      "quick lunch"
+    ],
+    "googleMapsUrl": "https://maps.google.com/?cid=3462909342698444139&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-23",
+    "source": "web research",
+    "rating": 4.5,
+    "userRatingCount": 1477,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJa7MRPkUO5okRaxXsLLO5DjA/photos/AaVGc3kJEoPpAE0JOJ3BoaS8hzZVPdob8CJgNNf1ITNVDz1Mxx0Eww7mtvFZnGyC-t_HGDC_lyCACJ2fqHynYmBGmge8kpWX_jcgNeo06_13LRgeDn2uaI9yq5Y1oeOMUyQr8Dr5SF7wCybFtr835m9x0YPWXw-PG12XMUCwmUMA3AV2MMpCJfFiOk8TPnSC5eoYAxiQ1Yhv98sfEdsgJHTpujzFr11QAL2wG7bBC32xp08HczjyXLo_gk6_4XeMKOluREKdzuxRIrJeDB8fdmAT_uWoM3lUAYlRH5ODZ7sR9xfE4-1u3MQdznXLtZRvb_58UOEzKr2r-4TQDOwZ9RHwCXwIuFWNAwN_TbUIwbRVbY0Jah7QkYiHwSyLRhQ86LzEQDYVX8h0a95NdYjq1jat9fucEdjTzqXHQfxbtXlxelX2bJIk",
+    "enrichedAt": "2026-06-23"
+  },
+  {
+    "id": "farm-italy-mohegan-sun-ct",
+    "name": "The Farm Italy Restaurant & Bar",
+    "cuisine": "Italian",
+    "lat": 40.872131,
+    "lng": -73.4253438,
+    "notes": "Inside Mohegan Sun. Nominated Best Italian in CT. Handcrafted pasta, premium steaks, vibrant vibe.",
+    "tags": [
+      "team dinner",
+      "date night"
+    ],
+    "googleMapsUrl": "https://maps.google.com/?cid=13878272417433567271&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-23",
+    "source": "web research",
+    "rating": 4.3,
+    "userRatingCount": 711,
+    "photoRef": "places/ChIJ65K03w0n6IkRJ8A6wTuHmcA/photos/AaVGc3lX6batEJU82ruuZ6jMfj2GdDAJ_HBflOVynRz1SPq_kOIiXEkMIWnNOxN1Itu3qj-OzTCO_UKhI24x2pvT0s7uuzbITo0EUmUrICuQUb8B8rpkvt5IOtofJstI6V9odUZeX86Odgur9ZTC5BOZs76QAkBsUrHEQLqL3DEkMw1d7vPFA2iPEWBWxkSLufQ0UvixvK7zocHIgmJAU4IoYgGR-zwPxzWf39brHUCGxqyx1pORVl6_u2kvUiq1oZ6WUgGb21Dpy_5ZY5hr2ObtKWciCSSS24LL8H8i2ANHGXLkxBzKzVPZWRk0t165FpwRJJmLdiZEf_yedqlDLNG0f9Ou89yRnO6oWKglLAMHZHhJrWqAUhuaEXygh1L5l0AHrOR7c_rmXHi8tRo21Q5Vpx-QQfNxj-i7WHkZx_jUomQ22A",
+    "enrichedAt": "2026-06-23"
   }
 ]
