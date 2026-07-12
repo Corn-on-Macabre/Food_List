@@ -106,3 +106,13 @@ development_status:
   8-3-url-based-submission-with-auto-extraction: done
   8-4-suggested-by-attribution-on-detail-cards: done
   epic-8-retrospective: optional
+
+  # Epic 9: Multi-City Support + PWA Polish
+  epic-9: done
+  9-1-metro-region-registry-and-type-updates: done
+  9-2-backfill-city-for-existing-restaurants: done
+  9-3-city-selector-ui-and-map-recentering: done
+  9-4-admin-dashboard-city-field: done
+  9-5-pwa-wiring: done
+  9-6-city-url-routing: done
+  epic-9-retrospective: optional

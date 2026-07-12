@@ -14,6 +14,7 @@ const mockRestaurant: Restaurant = {
   lng: -112.074,
   notes: "Best pho in Phoenix",
   googleMapsUrl: "https://www.google.com/maps/place/Pho+43/@33.4484,-112.074",
+  city: "phoenix",
   dateAdded: "2024-01-15",
 };
 
@@ -25,6 +26,7 @@ const mockRestaurantNoNotes: Restaurant = {
   lat: 33.5,
   lng: -112.1,
   googleMapsUrl: "https://maps.google.com/?cid=9876543210",
+  city: "phoenix",
   dateAdded: "2024-02-01",
 };
 

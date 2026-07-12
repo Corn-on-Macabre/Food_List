@@ -12,6 +12,7 @@ const mockRestaurant: Restaurant = {
   lat: 33.4484,
   lng: -112.074,
   googleMapsUrl: 'https://maps.google.com/?cid=1',
+  city: 'phoenix',
   dateAdded: '2026-04-04',
 };
 
@@ -172,6 +173,7 @@ const mockRestaurantNoNotes: Restaurant = {
   lat: 33.4484,
   lng: -112.074,
   googleMapsUrl: 'https://maps.google.com/?cid=1',
+  city: 'phoenix',
   dateAdded: '2026-04-04',
 };
 
@@ -438,6 +440,7 @@ const mockRestaurantNoSource: Restaurant = {
   lat: 33.4484,
   lng: -112.074,
   googleMapsUrl: 'https://maps.google.com/?cid=1',
+  city: 'phoenix',
   dateAdded: '2026-04-04',
 };
 
@@ -751,6 +754,7 @@ const mockRestaurantNoTags: Restaurant = {
   lat: 33.4484,
   lng: -112.074,
   googleMapsUrl: 'https://maps.google.com/?cid=1',
+  city: 'phoenix',
   dateAdded: '2026-04-04',
 };
 

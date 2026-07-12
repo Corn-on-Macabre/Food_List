@@ -2,7 +2,9 @@ import { useState } from 'react';
 import type { PlaceDraft } from '../hooks/usePlaceDetails';
 import type { Restaurant, Tier } from '../types';
 import { generateSlugId } from '../utils/generateSlugId';
+import { haversineDistance } from '../utils/distance';
 import { AddressGeocodeInput } from './AddressGeocodeInput';
+import { METRO_REGIONS, DEFAULT_METRO_ID } from '../constants/metros';
 import { LABEL_CLASS, INPUT_CLASS, INPUT_ERROR_CLASS, ERROR_MSG_CLASS } from './formStyles';
 
 const SUGGESTED_TAGS = ['date night', 'quick lunch', 'patio', 'kid-friendly'];
@@ -16,11 +18,22 @@ interface Props {
   suggestedByAvatar?: string;
 }
 
+function detectCity(lat: number, lng: number): string {
+  let bestId = DEFAULT_METRO_ID;
+  let bestDist = Infinity;
+  for (const m of METRO_REGIONS) {
+    const d = haversineDistance(lat, lng, m.center.lat, m.center.lng);
+    if (d < bestDist) { bestId = m.id; bestDist = d; }
+  }
+  return bestId;
+}
+
 interface FormFields {
   name: string;
   address: string;
   cuisine: string;
   tier: Tier | '';
+  city: string;
   googleMapsUrl: string;
   notes: string;
   source: string;
@@ -33,6 +46,7 @@ interface FormErrors {
   name?: string;
   cuisine?: string;
   tier?: string;
+  city?: string;
   googleMapsUrl?: string;
   lat?: string;
   lng?: string;
@@ -52,17 +66,25 @@ function getToday(): string {
 export function RestaurantDraftForm({ initialDraft, onSave, onCancel, existingIds = [], suggestedBy, suggestedByAvatar }: Props) {
   const isAutoFill = initialDraft !== null;
 
-  const [fields, setFields] = useState<FormFields>({
-    name: initialDraft?.name ?? '',
-    address: initialDraft?.address ?? '',
-    cuisine: initialDraft?.cuisine ?? '',
-    tier: '',
-    googleMapsUrl: initialDraft?.googleMapsUrl ?? '',
-    notes: '',
-    source: '',
-    lat: initialDraft?.lat?.toString() ?? '',
-    lng: initialDraft?.lng?.toString() ?? '',
-    tags: [],
+  const [fields, setFields] = useState<FormFields>(() => {
+    const lat = initialDraft?.lat?.toString() ?? '';
+    const lng = initialDraft?.lng?.toString() ?? '';
+    const city = (initialDraft?.lat != null && initialDraft?.lng != null)
+      ? detectCity(initialDraft.lat, initialDraft.lng)
+      : DEFAULT_METRO_ID;
+    return {
+      name: initialDraft?.name ?? '',
+      address: initialDraft?.address ?? '',
+      cuisine: initialDraft?.cuisine ?? '',
+      tier: '',
+      city,
+      googleMapsUrl: initialDraft?.googleMapsUrl ?? '',
+      notes: '',
+      source: '',
+      lat,
+      lng,
+      tags: [],
+    };
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -81,6 +103,7 @@ export function RestaurantDraftForm({ initialDraft, onSave, onCancel, existingId
     if (!fields.name.trim()) errs.name = 'Name is required';
     if (!fields.cuisine.trim()) errs.cuisine = 'Cuisine is required';
     if (!fields.tier) errs.tier = 'Tier is required';
+    if (!fields.city) errs.city = 'City is required';
     if (!fields.googleMapsUrl.trim()) errs.googleMapsUrl = 'Google Maps URL is required';
     if (!fields.lat || isNaN(Number(fields.lat))) errs.lat = 'Latitude is required';
     if (!fields.lng || isNaN(Number(fields.lng))) errs.lng = 'Longitude is required';
@@ -108,6 +131,7 @@ export function RestaurantDraftForm({ initialDraft, onSave, onCancel, existingId
       name: fields.name.trim(),
       tier: fields.tier as Tier,
       cuisine: fields.cuisine.trim(),
+      city: fields.city,
       lat: Number(fields.lat),
       lng: Number(fields.lng),
       googleMapsUrl: fields.googleMapsUrl.trim(),
@@ -179,7 +203,8 @@ export function RestaurantDraftForm({ initialDraft, onSave, onCancel, existingId
             lng={fields.lng}
             address={fields.address}
             onCoordsResolved={(lat, lng, address) => {
-              setFields(prev => ({ ...prev, lat, lng, address }));
+              const city = detectCity(parseFloat(lat), parseFloat(lng));
+              setFields(prev => ({ ...prev, lat, lng, address, city }));
               setErrors(prev => ({ ...prev, lat: undefined, lng: undefined }));
             }}
             onManualEdit={(field, value) => {
@@ -223,6 +248,23 @@ export function RestaurantDraftForm({ initialDraft, onSave, onCancel, existingId
           ))}
         </select>
         {errors.tier && <p className={ERROR_MSG_CLASS}>{errors.tier}</p>}
+      </div>
+
+      {/* City */}
+      <div>
+        <label htmlFor="draft-city" className={LABEL_CLASS}>City</label>
+        <select
+          id="draft-city"
+          value={fields.city}
+          onChange={e => update('city', e.target.value)}
+          className={`${errors.city ? INPUT_ERROR_CLASS : INPUT_CLASS} bg-white`}
+          aria-label="City"
+        >
+          {METRO_REGIONS.slice().sort((a, b) => a.label.localeCompare(b.label)).map(m => (
+            <option key={m.id} value={m.id}>{m.label}</option>
+          ))}
+        </select>
+        {errors.city && <p className={ERROR_MSG_CLASS}>{errors.city}</p>}
       </div>
 
       {/* Google Maps URL */}

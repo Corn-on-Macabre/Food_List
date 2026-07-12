@@ -32,7 +32,8 @@ vi.mock('../components/AddRestaurantPanel', () => ({
           lat: 33.48,
           lng: -112.07,
           googleMapsUrl: 'https://maps.google.com/?cid=12345',
-          dateAdded: '2026-04-04',
+          city: 'phoenix',
+        dateAdded: '2026-04-04',
         })
       }
     >

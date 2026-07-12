@@ -35,6 +35,7 @@ const makeRestaurant = (tier: Restaurant['tier']): Restaurant => ({
   lat: 33.4484,
   lng: -112.074,
   googleMapsUrl: 'https://maps.google.com/?q=test',
+  city: 'phoenix',
   dateAdded: '2026-01-01',
 });
 

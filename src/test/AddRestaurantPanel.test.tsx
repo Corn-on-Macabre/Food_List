@@ -35,6 +35,7 @@ vi.mock('../components/RestaurantDraftForm', () => ({
         lat: 33.48,
         lng: -112.07,
         googleMapsUrl: 'https://maps.google.com/?cid=12345',
+        city: 'phoenix',
         dateAdded: '2026-04-04',
       })}>Save</button>
       <button onClick={onCancel}>Cancel</button>

@@ -12,6 +12,7 @@ const mockRestaurants: Restaurant[] = [
     lat: 33.4484,
     lng: -112.074,
     googleMapsUrl: 'https://maps.google.com/?q=Tacos+El+Patron',
+    city: 'phoenix',
     dateAdded: '2026-01-15',
   },
   {
@@ -22,6 +23,7 @@ const mockRestaurants: Restaurant[] = [
     lat: 33.4942,
     lng: -112.0267,
     googleMapsUrl: 'https://maps.google.com/?q=Ramen+House',
+    city: 'phoenix',
     dateAdded: '2026-02-01',
   },
 ];
