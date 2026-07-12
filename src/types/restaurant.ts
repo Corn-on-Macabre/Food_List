@@ -5,6 +5,7 @@ export interface Restaurant {
   name: string;
   tier: Tier;
   cuisine: string;
+  city: string;         // Metro region id (e.g., "phoenix", "dallas")
   lat: number;
   lng: number;
   notes?: string;
@@ -23,6 +24,7 @@ export interface Restaurant {
 }
 
 export interface FilterState {
+  city: string | null;
   cuisine: string | null;
   tier: Tier | null;
   maxDistance: number | null;

@@ -3,33 +3,26 @@ import { DISTANCE_OPTIONS } from '../utils';
 import { useAdminAuth } from '../hooks';
 import { UserMenu } from './UserMenu';
 import { SearchAutocomplete } from './SearchAutocomplete';
+import { METRO_REGIONS } from '../constants/metros';
 import type { Restaurant, Tier } from '../types/restaurant';
 
 interface FilterBarProps {
   cuisines: string[];
   activeCuisine: string | null;
   onCuisineChange: (cuisine: string | null) => void;
-  // Story 3.4 additions:
   activeTier: Tier | null;
   onTierChange: (tier: Tier | null) => void;
-  // Story 3.2 additions:
-  userCoords: { lat: number; lng: number } | null;
-  geoDenied: boolean;
-  // activeDistance: effectiveMaxDistance (null when geoDenied/no-coords) — chip visually resets to "Any"
   activeDistance: number | null;
   onDistanceChange: (miles: number | null) => void;
-  // Story 6.2 additions:
   searchTerm: string | null;
   onSearchChange: (term: string | null) => void;
-  // Autocomplete additions:
   restaurants: Restaurant[];
   onRestaurantSelect: (restaurant: Restaurant) => void;
-  // Story 3.3 additions:
-  // hasActiveFilters uses filters.maxDistance (user intent), not effectiveMaxDistance.
-  // This allows Clear Filters to appear even when location is unavailable and the distance
-  // row is hidden — clearing is always safe and reflects the user's stated intent.
   hasActiveFilters: boolean;
   onClearFilters: () => void;
+  activeCity: string;
+  onCityChange: (cityId: string) => void;
+  showDistance: boolean;
 }
 
 const TIER_OPTIONS: { value: Tier; label: string }[] = [
@@ -49,8 +42,6 @@ export function FilterBar({
   onCuisineChange,
   activeTier,
   onTierChange,
-  userCoords,
-  geoDenied,
   activeDistance,
   onDistanceChange,
   searchTerm,
@@ -59,6 +50,9 @@ export function FilterBar({
   onRestaurantSelect,
   hasActiveFilters,
   onClearFilters,
+  activeCity,
+  onCityChange,
+  showDistance,
 }: FilterBarProps) {
   const { isAuthenticated } = useAdminAuth();
 
@@ -98,6 +92,21 @@ export function FilterBar({
       </div>
       {/* Filter controls — search + chips grouped for screen readers (F4 fix) */}
       <div role="group" aria-label="Filters" className="flex flex-col">
+        {/* City selector + Search */}
+        <div className="flex items-center gap-2 px-4 pt-2">
+          <select
+            value={activeCity}
+            onChange={(e) => onCityChange(e.target.value)}
+            aria-label="Select city"
+            className="rounded-lg border border-[#E8E0D5] bg-white px-2.5 py-1.5 font-sans text-sm font-semibold text-stone-800 focus:outline-none focus:ring-2 focus:ring-amber-200 focus:border-amber-400 transition-colors duration-150 cursor-pointer shrink-0"
+          >
+            {METRO_REGIONS.slice().sort((a, b) => a.label.localeCompare(b.label)).map((metro) => (
+              <option key={metro.id} value={metro.id}>
+                {metro.label}
+              </option>
+            ))}
+          </select>
+        </div>
         {/* Search with autocomplete */}
         <SearchAutocomplete
           searchTerm={searchTerm}
@@ -151,8 +160,8 @@ export function FilterBar({
             );
           })}
         </div>
-        {/* Distance row — only when coords available and not denied */}
-        {!geoDenied && userCoords !== null && (
+        {/* Distance row — only when coords available, not denied, and viewing nearest city */}
+        {showDistance && (
           <div
             role="group"
             aria-label="Filter by distance"

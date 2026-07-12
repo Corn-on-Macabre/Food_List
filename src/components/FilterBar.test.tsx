@@ -22,8 +22,6 @@ const baseProps = {
   onCuisineChange: vi.fn(),
   activeTier: null as Tier | null,
   onTierChange: vi.fn(),
-  userCoords: null as { lat: number; lng: number } | null,
-  geoDenied: false,
   activeDistance: null as number | null,
   onDistanceChange: vi.fn(),
   searchTerm: null as string | null,
@@ -32,6 +30,9 @@ const baseProps = {
   onRestaurantSelect: vi.fn(),
   hasActiveFilters: false,
   onClearFilters: vi.fn(),
+  activeCity: 'phoenix',
+  onCityChange: vi.fn(),
+  showDistance: false,
 };
 
 describe('FilterBar', () => {
@@ -200,41 +201,25 @@ describe('FilterBar', () => {
 
   // --- Distance row tests (Story 3.2) ---
 
-  const coordsPhoenix = { lat: 33.4484, lng: -112.074 };
-
   describe('distance row visibility (AC 1, 5, 6)', () => {
-    it('distance row is hidden when geoDenied is true (AC 5)', () => {
+    it('distance row is hidden when showDistance is false', () => {
       render(
         <FilterBar
           {...baseProps}
           cuisines={['Vietnamese']}
-          userCoords={coordsPhoenix}
-          geoDenied={true}
+          showDistance={false}
         />,
       );
       expect(screen.queryByRole('button', { name: 'Any' })).not.toBeInTheDocument();
       expect(screen.queryByRole('button', { name: '5 mi' })).not.toBeInTheDocument();
     });
 
-    it('distance row is hidden when userCoords is null (AC 6)', () => {
-      render(
-        <FilterBar
-          {...baseProps}
-          cuisines={['Vietnamese']}
-          userCoords={null}
-          geoDenied={false}
-        />,
-      );
-      expect(screen.queryByRole('button', { name: 'Any' })).not.toBeInTheDocument();
-    });
-
-    it('distance row renders Any + 4 preset chips when coords are available (AC 1)', () => {
+    it('distance row renders Any + 4 preset chips when showDistance is true (AC 1)', () => {
       render(
         <FilterBar
           {...baseProps}
           cuisines={[]}
-          userCoords={coordsPhoenix}
-          geoDenied={false}
+          showDistance={true}
         />,
       );
       expect(screen.getByRole('button', { name: 'Any' })).toBeInTheDocument();
@@ -252,7 +237,7 @@ describe('FilterBar', () => {
         <FilterBar
           {...baseProps}
           cuisines={[]}
-          userCoords={coordsPhoenix}
+          showDistance={true}
           onDistanceChange={onDistanceChange}
         />,
       );
@@ -267,7 +252,7 @@ describe('FilterBar', () => {
         <FilterBar
           {...baseProps}
           cuisines={[]}
-          userCoords={coordsPhoenix}
+          showDistance={true}
           activeDistance={10}
           onDistanceChange={onDistanceChange}
         />,
@@ -282,7 +267,7 @@ describe('FilterBar', () => {
         <FilterBar
           {...baseProps}
           cuisines={[]}
-          userCoords={coordsPhoenix}
+          showDistance={true}
           activeDistance={5}
           onDistanceChange={onDistanceChange}
         />,
@@ -296,7 +281,7 @@ describe('FilterBar', () => {
         <FilterBar
           {...baseProps}
           cuisines={[]}
-          userCoords={coordsPhoenix}
+          showDistance={true}
           activeDistance={null}
         />,
       );
@@ -308,7 +293,7 @@ describe('FilterBar', () => {
         <FilterBar
           {...baseProps}
           cuisines={[]}
-          userCoords={coordsPhoenix}
+          showDistance={true}
           activeDistance={10}
         />,
       );

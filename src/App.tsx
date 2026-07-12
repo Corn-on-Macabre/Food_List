@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
-import { Routes, Route, Navigate, useParams } from 'react-router-dom';
+import { Routes, Route, Navigate, useParams, useNavigate } from 'react-router-dom';
 import { APIProvider, Map, useMap, type MapMouseEvent } from '@vis.gl/react-google-maps';
 import { useRestaurants, useGeolocation } from './hooks';
 
@@ -9,9 +9,27 @@ import { AdminAuthProvider } from './contexts/AdminAuthContext';
 import type { Restaurant } from './types';
 import type { FilterState } from './types/restaurant';
 import { haversineDistance } from './utils';
+import { METRO_REGIONS, DEFAULT_METRO_ID } from './constants/metros';
 import './index.css';
 
-const PHOENIX_CENTER = { lat: 33.4484, lng: -112.0740 };
+function findNearestMetro(lat: number, lng: number): string {
+  let bestId = DEFAULT_METRO_ID;
+  let bestDist = Infinity;
+  for (const metro of METRO_REGIONS) {
+    const dist = haversineDistance(lat, lng, metro.center.lat, metro.center.lng);
+    if (dist < bestDist) {
+      bestId = metro.id;
+      bestDist = dist;
+    }
+  }
+  return bestId;
+}
+
+function getMetro(id: string) {
+  return METRO_REGIONS.find((m) => m.id === id);
+}
+
+const DEFAULT_METRO = getMetro(DEFAULT_METRO_ID)!;
 
 // Smoothly pans the map to the given coords using the native animated panTo.
 // Must be rendered as a child of <Map> to access the map instance via useMap().
@@ -22,7 +40,7 @@ function MapCenterer({ coords, zoom }: { coords: { lat: number; lng: number }; z
   const map = useMap();
   useEffect(() => {
     if (map) {
-      map.panTo(coords);
+      map.setCenter(coords);
       if (zoom != null) {
         map.setZoom(zoom);
       }
@@ -54,6 +72,7 @@ function App() {
     <AdminAuthProvider>
       <Routes>
         <Route path="/" element={<AppWithMap apiKey={apiKey} />} />
+        <Route path="/city/:cityId" element={<AppWithMap apiKey={apiKey} />} />
         <Route
           path="/admin"
           element={
@@ -73,15 +92,32 @@ function App() {
 }
 
 function AppWithMap({ apiKey }: { apiKey: string }) {
-  const { slug } = useParams<{ slug?: string }>();
+  const { slug, cityId: urlCityId } = useParams<{ slug?: string; cityId?: string }>();
+  const navigate = useNavigate();
   const { restaurants, loading, error } = useRestaurants();
-  // geoDenied used in Story 3.2 to hide/show distance control
   const { coords, loading: geoLoading, denied: geoDenied } = useGeolocation();
-  // resolvedCenter: user coords if geolocation succeeded, else Phoenix default
-  const resolvedCenter = coords ?? PHOENIX_CENTER;
 
+  // Resolve initial city: URL param > default (will be updated by geolocation)
+  const initialCity = (urlCityId && getMetro(urlCityId)) ? urlCityId : DEFAULT_METRO_ID;
   const [selectedRestaurant, setSelectedRestaurant] = useState<Restaurant | null>(null);
-  const [filters, setFilters] = useState<FilterState>({ cuisine: null, tier: null, maxDistance: null, searchTerm: null });
+  const [filters, setFilters] = useState<FilterState>({ city: initialCity, cuisine: null, tier: null, maxDistance: null, searchTerm: null });
+
+  // Resolve city from geolocation once (only if no URL city was specified)
+  const geoResolved = useRef(false);
+  useEffect(() => {
+    if (geoResolved.current || geoLoading || !coords || urlCityId) return;
+    geoResolved.current = true;
+    const nearest = findNearestMetro(coords.lat, coords.lng);
+    setFilters((f) => ({ ...f, city: nearest }));
+  }, [coords, geoLoading, urlCityId]);
+
+  // The user's nearest metro (for deciding whether to show distance filter)
+  const userNearestMetro = useMemo(
+    () => (coords ? findNearestMetro(coords.lat, coords.lng) : null),
+    [coords],
+  );
+
+  const activeMetro = getMetro(filters.city ?? DEFAULT_METRO_ID) ?? DEFAULT_METRO;
 
   const { isAuthenticated, loading: authLoading } = useAuth();
   const [showSubmissionForm, setShowSubmissionForm] = useState(false);
@@ -116,26 +152,44 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
     if (found) {
       setSelectedRestaurant(found);
       setDeepLinkCenter({ lat: found.lat, lng: found.lng });
+      // Auto-select the restaurant's city
+      if (found.city) {
+        setFilters((f) => ({ ...f, city: found.city }));
+      }
     } else {
       showToast('Restaurant not found');
     }
   }, [slug, restaurants, showToast]);
 
-  // URL sync: update browser URL when selectedRestaurant changes
+  // URL sync: update browser URL when selectedRestaurant or city changes
   useEffect(() => {
-    const path = selectedRestaurant ? `/r/${selectedRestaurant.id}` : '/';
+    let path: string;
+    if (selectedRestaurant) {
+      path = `/r/${selectedRestaurant.id}`;
+    } else if (filters.city && filters.city !== DEFAULT_METRO_ID) {
+      path = `/city/${filters.city}`;
+    } else {
+      path = '/';
+    }
     if (window.location.pathname !== path) {
       window.history.replaceState(null, '', path);
     }
-  }, [selectedRestaurant]);
+  }, [selectedRestaurant, filters.city]);
 
-  // Derived: distance filter is suppressed when location is unavailable or denied (AC 5, 6, 7)
-  const effectiveMaxDistance = geoDenied || coords === null ? null : filters.maxDistance;
+  // Distance filter: only active when viewing user's nearest city and coords available
+  const showDistance = !geoDenied && coords !== null && userNearestMetro === filters.city;
+  const effectiveMaxDistance = showDistance ? filters.maxDistance : null;
+
+  // Restaurants in the selected city
+  const cityRestaurants = useMemo(
+    () => restaurants.filter((r) => r.city === filters.city),
+    [restaurants, filters.city],
+  );
 
   const filteredRestaurants = useMemo(
     () => {
       const searchLower = filters.searchTerm?.toLowerCase() ?? null;
-      return restaurants.filter((r) => {
+      return cityRestaurants.filter((r) => {
         if (searchLower && !r.name.toLowerCase().includes(searchLower)) return false;
         if (filters.cuisine && r.cuisine !== filters.cuisine) return false;
         if (filters.tier && r.tier !== filters.tier) return false;
@@ -146,12 +200,13 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
         return true;
       });
     },
-    [restaurants, filters.searchTerm, filters.cuisine, filters.tier, effectiveMaxDistance, coords]
+    [cityRestaurants, filters.searchTerm, filters.cuisine, filters.tier, effectiveMaxDistance, coords],
   );
 
+  // Cuisines scoped to selected city
   const cuisines = useMemo(
-    () => Array.from(new Set(restaurants.map(r => r.cuisine))).sort(),
-    [restaurants]
+    () => Array.from(new Set(cityRestaurants.map(r => r.cuisine))).sort(),
+    [cityRestaurants],
   );
 
   // Dynamically measure the filter bar height so the map container can offset below it.
@@ -174,8 +229,19 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
   const hasActiveFilters = filters.searchTerm !== null || filters.cuisine !== null || filters.tier !== null || filters.maxDistance !== null;
 
   function handleClearFilters() {
-    setFilters({ cuisine: null, tier: null, maxDistance: null, searchTerm: null });
+    setFilters((f) => ({ ...f, cuisine: null, tier: null, maxDistance: null, searchTerm: null }));
   }
+
+  const handleCityChange = useCallback((cityId: string) => {
+    setFilters((f) => {
+      // Auto-clear cuisine if it doesn't exist in the new city
+      const newCityCuisines = new Set(restaurants.filter((r) => r.city === cityId).map((r) => r.cuisine));
+      const cuisine = f.cuisine && newCityCuisines.has(f.cuisine) ? f.cuisine : null;
+      return { ...f, city: cityId, cuisine, maxDistance: null, searchTerm: null };
+    });
+    setSelectedRestaurant(null);
+    navigate(cityId === DEFAULT_METRO_ID ? '/' : `/city/${cityId}`, { replace: true });
+  }, [restaurants, navigate]);
 
   function handleMapClick(event: MapMouseEvent) {
     // Only dismiss when clicking empty map space — not on a place/pin
@@ -195,23 +261,24 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           onCuisineChange={(cuisine) => setFilters(f => ({ ...f, cuisine }))}
           activeTier={filters.tier}
           onTierChange={(tier) => setFilters(f => ({ ...f, tier }))}
-          userCoords={coords}
-          geoDenied={geoDenied}
           activeDistance={effectiveMaxDistance}
           onDistanceChange={(miles) => setFilters(f => ({ ...f, maxDistance: miles }))}
           searchTerm={filters.searchTerm}
           onSearchChange={(term) => setFilters(f => ({ ...f, searchTerm: term }))}
-          restaurants={restaurants}
+          restaurants={cityRestaurants}
           onRestaurantSelect={handleAutocompleteSelect}
           hasActiveFilters={hasActiveFilters}
           onClearFilters={handleClearFilters}
+          activeCity={filters.city ?? DEFAULT_METRO_ID}
+          onCityChange={handleCityChange}
+          showDistance={showDistance}
         />
       </div>
       <APIProvider apiKey={apiKey}>
         <Map
           style={{ width: '100%', height: '100%' }}
-          defaultCenter={PHOENIX_CENTER}
-          defaultZoom={11}
+          defaultCenter={activeMetro.center}
+          defaultZoom={activeMetro.zoom}
           mapId="food-list-map"
           onClick={handleMapClick}
         >
@@ -221,8 +288,8 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
             selectedRestaurantId={selectedRestaurant?.id ?? null}
             deepLinkedId={slug ?? null}
           />
-          {/* Smoothly pan to user location once geolocation resolves */}
-          {!geoLoading && coords && <MapCenterer coords={resolvedCenter} />}
+          {/* Jump to selected city center */}
+          <MapCenterer coords={activeMetro.center} zoom={activeMetro.zoom} />
           {/* Pan to deep-linked restaurant once resolved */}
           {deepLinkCenter && <MapCenterer coords={deepLinkCenter} zoom={15} />}
           {/* Pan to autocomplete-selected restaurant */}

@@ -86,9 +86,9 @@ development_status:
   epic-5-retrospective: optional
 
   # Epic 6: User-Facing Enhancements
-  epic-6: in-progress
-  6-1-auto-populate-restaurant-details-from-address-input: ready-for-dev
-  6-2-search-by-restaurant-name: ready-for-dev
+  epic-6: done
+  6-1-auto-populate-restaurant-details-from-address-input: done
+  6-2-search-by-restaurant-name: done
   6-3-shareable-restaurant-links: done
   epic-6-retrospective: optional
 
@@ -106,3 +106,13 @@ development_status:
   8-3-url-based-submission-with-auto-extraction: done
   8-4-suggested-by-attribution-on-detail-cards: done
   epic-8-retrospective: optional
+
+  # Epic 9: Multi-City Support + PWA Polish
+  epic-9: done
+  9-1-metro-region-registry-and-type-updates: done
+  9-2-backfill-city-for-existing-restaurants: done
+  9-3-city-selector-ui-and-map-recentering: done
+  9-4-admin-dashboard-city-field: done
+  9-5-pwa-wiring: done
+  9-6-city-url-routing: done
+  epic-9-retrospective: optional

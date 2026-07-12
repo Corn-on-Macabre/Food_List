@@ -2,6 +2,8 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { submitRestaurant, fetchMySubmissionsToday } from '../api/submissions';
 import { usePlacesAutocomplete } from '../hooks/usePlacesAutocomplete';
 import { usePlaceDetails } from '../hooks/usePlaceDetails';
+import { parseGoogleMapsUrl } from '../utils/parseGoogleMapsUrl';
+import { lookupPlaceFromUrl } from '../api/placesLookup';
 
 interface Props {
   onClose: () => void;
@@ -24,9 +26,15 @@ export function SubmissionForm({ onClose }: Props) {
   const [selectedPlaceId, setSelectedPlaceId] = useState<string | null>(null);
   const [showDropdown, setShowDropdown] = useState(true);
   const [activeIndex, setActiveIndex] = useState(-1);
+  const [urlLookupLoading, setUrlLookupLoading] = useState(false);
+  const [urlLookupFailed, setUrlLookupFailed] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const { predictions, loading: autocompleteLoading } = usePlacesAutocomplete(searchQuery, 300);
+  // Suppress autocomplete while doing a URL lookup
+  const { predictions, loading: autocompleteLoading } = usePlacesAutocomplete(
+    urlLookupLoading ? '' : searchQuery,
+    300,
+  );
   const { placeDetails } = usePlaceDetails(selectedPlaceId);
 
   // When place details resolve, auto-fill name + location
@@ -72,12 +80,47 @@ export function SubmissionForm({ onClose }: Props) {
     [onClose],
   );
 
-  const isDropdownOpen = showDropdown && predictions.length > 0 && searchQuery.length >= 2;
+  const isDropdownOpen = showDropdown && predictions.length > 0 && searchQuery.length >= 2 && !urlLookupLoading;
+
+  async function handleUrlLookup(url: string) {
+    const parsed = parseGoogleMapsUrl(url);
+    if (!parsed) return false;
+
+    setUrlLookupLoading(true);
+    setUrlLookupFailed(false);
+    setShowDropdown(false);
+
+    const result = await lookupPlaceFromUrl(parsed);
+    setUrlLookupLoading(false);
+
+    if (result) {
+      setName(result.name);
+      setLocation(result.address);
+      setSearchQuery(result.name);
+      return true;
+    }
+
+    // URL was valid Google Maps but lookup failed — fall back to manual
+    setUrlLookupFailed(true);
+    setSearchQuery('');
+    return false;
+  }
 
   function handleSearchChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setSearchQuery(e.target.value);
+    const value = e.target.value;
+    setSearchQuery(value);
     setShowDropdown(true);
     setActiveIndex(-1);
+    setUrlLookupFailed(false);
+  }
+
+  function handlePaste(e: React.ClipboardEvent<HTMLInputElement>) {
+    const pasted = e.clipboardData.getData('text').trim();
+    if (parseGoogleMapsUrl(pasted)) {
+      e.preventDefault();
+      setSearchQuery(pasted);
+      void handleUrlLookup(pasted);
+    }
   }
 
   function handlePlaceSelect(placeId: string) {
@@ -215,10 +258,11 @@ export function SubmissionForm({ onClose }: Props) {
                   value={searchQuery}
                   onChange={handleSearchChange}
                   onKeyDown={handleSearchKeyDown}
-                  placeholder="Search for a restaurant..."
+                  onPaste={handlePaste}
+                  placeholder="Search or paste a Google Maps link..."
                   className="w-full rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 font-sans text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-amber-200 focus:border-amber-400 transition-colors duration-150 pr-9"
                 />
-                {autocompleteLoading && (
+                {(autocompleteLoading || urlLookupLoading) && (
                   <div className="absolute right-3 top-1/2 -translate-y-1/2">
                     <svg className="animate-spin h-4 w-4 text-amber-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
@@ -259,6 +303,12 @@ export function SubmissionForm({ onClose }: Props) {
               {name && name !== searchQuery && (
                 <p className="mt-1 font-sans text-xs text-amber-700">
                   Selected: {name}
+                </p>
+              )}
+
+              {urlLookupFailed && (
+                <p className="mt-1 font-sans text-xs text-stone-500">
+                  Couldn't extract details automatically. Please search or fill in manually.
                 </p>
               )}
             </div>

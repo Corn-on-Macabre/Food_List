@@ -14,6 +14,7 @@ const mockRestaurants: Restaurant[] = [
     lat: 33.44,
     lng: -112.07,
     googleMapsUrl: "https://maps.google.com/?q=tokyo-ramen",
+    city: "phoenix",
     dateAdded: "2024-01-01",
   },
   {
@@ -24,6 +25,7 @@ const mockRestaurants: Restaurant[] = [
     lat: 33.5,
     lng: -112.1,
     googleMapsUrl: "https://maps.google.com/?q=tacos",
+    city: "phoenix",
     dateAdded: "2024-01-02",
   },
 ];
@@ -122,6 +124,7 @@ const distanceRestaurants: import("../types").Restaurant[] = [
     lat: 33.4919,
     lng: -112.074,
     googleMapsUrl: "https://maps.google.com/",
+    city: "phoenix",
     dateAdded: "2024-01-01",
   },
   {
@@ -132,6 +135,7 @@ const distanceRestaurants: import("../types").Restaurant[] = [
     lat: 33.4484,
     lng: -111.9534,
     googleMapsUrl: "https://maps.google.com/",
+    city: "phoenix",
     dateAdded: "2024-01-01",
   },
   {
@@ -142,6 +146,7 @@ const distanceRestaurants: import("../types").Restaurant[] = [
     lat: 33.2148,
     lng: -112.074,
     googleMapsUrl: "https://maps.google.com/",
+    city: "phoenix",
     dateAdded: "2024-01-01",
   },
 ];
