@@ -41,9 +41,9 @@ vi.mock("@vis.gl/react-google-maps", () => {
   }) => React.createElement("div", { "data-testid": "mock-map" }, children);
   const AdvancedMarker = ({ children }: { children?: React.ReactNode; [key: string]: unknown }) =>
     React.createElement("div", { "data-testid": "mock-pin" }, children);
-  const Pin = () => null;
   const useMap = () => null;
-  return { APIProvider, Map, AdvancedMarker, Pin, useMap };
+  const AdvancedMarkerAnchorPoint = { CENTER: ['50%', '50%'] };
+  return { APIProvider, Map, AdvancedMarker, AdvancedMarkerAnchorPoint, useMap };
 });
 
 vi.mock("../hooks", () => ({

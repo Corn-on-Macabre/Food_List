@@ -5,7 +5,7 @@ import { generateSlugId } from '../utils/generateSlugId';
 import { haversineDistance } from '../utils/distance';
 import { AddressGeocodeInput } from './AddressGeocodeInput';
 import { METRO_REGIONS, DEFAULT_METRO_ID } from '../constants/metros';
-import { LABEL_CLASS, INPUT_CLASS, INPUT_ERROR_CLASS, ERROR_MSG_CLASS } from './formStyles';
+import { LABEL_CLASS, INPUT_CLASS, INPUT_ERROR_CLASS, ERROR_MSG_CLASS, BTN_PRIMARY, BTN_SECONDARY } from './styles';
 
 const SUGGESTED_TAGS = ['date night', 'quick lunch', 'patio', 'kid-friendly'];
 
@@ -184,13 +184,13 @@ export function RestaurantDraftForm({ initialDraft, onSave, onCancel, existingId
         <div className="flex gap-3">
           <div className="flex-1">
             <label className={LABEL_CLASS}>Latitude</label>
-            <p className="font-sans text-sm text-stone-700 py-3 px-3 bg-stone-50 border border-[#E8E0D5] rounded-lg" data-testid="lat-display">
+            <p className="font-sans text-sm text-stone-700 py-3 px-3 bg-stone-50 border border-brand-border rounded-lg" data-testid="lat-display">
               {initialDraft.lat}
             </p>
           </div>
           <div className="flex-1">
             <label className={LABEL_CLASS}>Longitude</label>
-            <p className="font-sans text-sm text-stone-700 py-3 px-3 bg-stone-50 border border-[#E8E0D5] rounded-lg" data-testid="lng-display">
+            <p className="font-sans text-sm text-stone-700 py-3 px-3 bg-stone-50 border border-brand-border rounded-lg" data-testid="lng-display">
               {initialDraft.lng}
             </p>
           </div>
@@ -331,7 +331,7 @@ export function RestaurantDraftForm({ initialDraft, onSave, onCancel, existingId
                 className={
                   isActive
                     ? 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-amber-100 text-amber-800 border border-amber-300 mr-2 mb-2 transition-colors'
-                    : 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-stone-100 text-stone-500 border border-[#E8E0D5] mr-2 mb-2 transition-colors hover:bg-stone-200'
+                    : 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-stone-100 text-stone-500 border border-brand-border mr-2 mb-2 transition-colors hover:bg-stone-200'
                 }
                 aria-pressed={isActive}
                 aria-label={`${isActive ? 'Remove' : 'Add'} tag: ${tag}`}
@@ -390,7 +390,7 @@ export function RestaurantDraftForm({ initialDraft, onSave, onCancel, existingId
                 setCustomTagInput('');
               }
             }}
-            className="border border-[#E8E0D5] rounded-lg px-3 py-1.5 font-sans text-sm font-bold text-stone-500 hover:bg-stone-50 disabled:opacity-40 disabled:cursor-not-allowed min-h-[44px]"
+            className={`${BTN_SECONDARY} px-3 py-1.5 min-h-[44px] disabled:opacity-40 disabled:cursor-not-allowed`}
             data-testid="add-custom-tag-btn"
           >
             Add
@@ -403,14 +403,14 @@ export function RestaurantDraftForm({ initialDraft, onSave, onCancel, existingId
         <button
           type="submit"
           disabled={!isTierSelected}
-          className="flex-1 bg-[#D97706] hover:bg-[#B45309] text-white font-sans text-sm font-bold rounded-lg py-2.5 px-4 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+          className={`${BTN_PRIMARY} flex-1 py-2.5 px-4`}
         >
           Save Restaurant
         </button>
         <button
           type="button"
           onClick={onCancel}
-          className="border border-[#E8E0D5] rounded-lg px-3 py-1.5 font-sans text-sm font-bold text-stone-500 hover:bg-stone-50"
+          className={`${BTN_SECONDARY} px-3 py-1.5`}
         >
           Cancel
         </button>

@@ -10,7 +10,7 @@ export function ProtectedRoute({ children }: ProtectedRouteProps) {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#FFFBF5] flex items-center justify-center p-4">
+      <div className="min-h-screen bg-brand-bg flex items-center justify-center p-4">
         <p className="text-stone-500 font-sans text-sm">Loading...</p>
       </div>
     );
@@ -19,8 +19,8 @@ export function ProtectedRoute({ children }: ProtectedRouteProps) {
   // Signed in with Google but not an admin
   if (userEmail && !isAdmin) {
     return (
-      <div className="min-h-screen bg-[#FFFBF5] flex items-center justify-center p-4">
-        <div className="w-full max-w-sm bg-white rounded-xl border border-[#E8E0D5] shadow-lg p-8 text-center">
+      <div className="min-h-screen bg-brand-bg flex items-center justify-center p-4">
+        <div className="w-full max-w-sm bg-white rounded-xl border border-brand-border shadow-lg p-8 text-center">
           <h1 className="font-display text-2xl font-bold text-stone-900 mb-2">Access Denied</h1>
           <p className="font-sans text-sm text-stone-500 mb-4">
             {userEmail} doesn&apos;t have admin access.
@@ -28,7 +28,7 @@ export function ProtectedRoute({ children }: ProtectedRouteProps) {
           <button
             type="button"
             onClick={logout}
-            className="w-full bg-[#B45309] hover:bg-[#92400E] text-white font-sans text-sm font-bold rounded-lg py-2.5 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600"
+            className="w-full bg-brand-cta hover:bg-brand-cta-hover text-white font-sans text-sm font-bold rounded-lg py-2.5 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-focus"
           >
             Sign out and try another account
           </button>

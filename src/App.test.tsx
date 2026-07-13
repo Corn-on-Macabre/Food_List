@@ -85,7 +85,7 @@ describe('Responsive layout', () => {
     vi.stubEnv('VITE_GOOGLE_MAPS_API_KEY', 'AIza-real-key-123');
     const { container } = render(<MemoryRouter><App /></MemoryRouter>);
 
-    expect(screen.getByText('Loading restaurants...')).toBeInTheDocument();
+    expect(screen.getByText('setting the table…')).toBeInTheDocument();
     const overlay = container.querySelector('.absolute.inset-0.flex.items-center.justify-center');
     expect(overlay).toBeInTheDocument();
   });
@@ -97,7 +97,7 @@ describe('Responsive layout', () => {
     vi.spyOn(globalThis, 'fetch').mockRejectedValue(new Error('Network error'));
     vi.stubEnv('VITE_GOOGLE_MAPS_API_KEY', 'AIza-real-key-123');
     render(<MemoryRouter><App /></MemoryRouter>);
-    const errorText = await screen.findByText('Could not load restaurant data. Please refresh the page.');
+    const errorText = await screen.findByText("Couldn't load the list. Give the page a refresh.");
     const overlay = errorText.closest('.inset-0');
     expect(overlay).not.toBeNull();
     expect(overlay).toBeInTheDocument();

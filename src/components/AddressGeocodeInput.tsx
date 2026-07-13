@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useAddressAutocomplete } from '../hooks/useAddressAutocomplete';
 import { useAddressGeocode } from '../hooks/useAddressGeocode';
-import { LABEL_CLASS, INPUT_CLASS } from './formStyles';
+import { LABEL_CLASS, INPUT_CLASS } from './styles';
 
 interface AddressGeocodeInputProps {
   lat: string;
@@ -220,7 +220,7 @@ export function AddressGeocodeInput({
             ref={listRef}
             role="listbox"
             aria-label="Address suggestions"
-            className="absolute z-50 w-full mt-1 bg-white border border-[#E8E0D5] rounded-xl shadow-lg overflow-hidden"
+            className="absolute z-50 w-full mt-1 bg-white border border-brand-border rounded-xl shadow-lg overflow-hidden"
           >
             {predictions.map((p, i) => (
               <div
@@ -231,7 +231,7 @@ export function AddressGeocodeInput({
                 onClick={() => handleSelect(p.placeId, p.description)}
                 onMouseEnter={() => setActiveIndex(i)}
                 className={`px-3 py-2.5 cursor-pointer font-sans text-sm text-stone-900 transition-colors ${
-                  i === activeIndex ? 'bg-[#FFF8EE]' : 'hover:bg-[#FFF8EE]'
+                  i === activeIndex ? 'bg-brand-surface-warm' : 'hover:bg-brand-surface-warm'
                 }`}
               >
                 <span className="font-bold">
@@ -249,11 +249,11 @@ export function AddressGeocodeInput({
       {/* Coordinate display */}
       <div className="mt-2">
         {hasCoords ? (
-          <p className="font-sans text-sm text-stone-700 py-3 px-3 bg-stone-50 border border-[#E8E0D5] rounded-lg">
+          <p className="font-sans text-sm text-stone-700 py-3 px-3 bg-stone-50 border border-brand-border rounded-lg">
             {lat}, {lng}
           </p>
         ) : (
-          <p className="font-sans text-sm text-stone-400 py-3 px-3 bg-stone-50 border border-[#E8E0D5] rounded-lg">
+          <p className="font-sans text-sm text-stone-400 py-3 px-3 bg-stone-50 border border-brand-border rounded-lg">
             No address selected
           </p>
         )}

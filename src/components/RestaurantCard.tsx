@@ -1,7 +1,9 @@
 import { useState } from "react";
-import type { Restaurant, Tier } from "../types";
+import type { Restaurant } from "../types";
 import { formatPriceLevel } from "../utils/priceLevel";
 import { BobbyPickBadge } from "./BobbyPickBadge";
+import { TierBadge } from "./TierBadge";
+import { BTN_ICON, BTN_PRIMARY } from "./styles";
 
 interface RestaurantCardProps {
   restaurant: Restaurant;
@@ -9,18 +11,6 @@ interface RestaurantCardProps {
   onShareSuccess: () => void;
   filterBarHeight: number;
 }
-
-const TIER_LABELS: Record<Tier, string> = {
-  loved: "Loved",
-  recommended: "Recommended",
-  on_my_radar: "On My Radar",
-};
-
-const TIER_CLASSES: Record<Tier, string> = {
-  loved: "bg-amber-100 text-amber-800",
-  recommended: "bg-blue-100 text-blue-800",
-  on_my_radar: "bg-emerald-100 text-emerald-800",
-};
 
 // Guard against javascript: protocol injection — only allow http(s) URLs
 function getSafeHref(url: string): string {
@@ -44,8 +34,6 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
       // User cancelled share sheet or clipboard failed — ignore
     }
   }
-  const tierClass = TIER_CLASSES[restaurant.tier] ?? "bg-gray-100 text-gray-800";
-  const tierLabel = TIER_LABELS[restaurant.tier] ?? restaurant.tier;
   const formattedPrice = formatPriceLevel(restaurant.priceLevel);
 
   const photoUrl =
@@ -56,7 +44,7 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
   return (
     <div
       onClick={(e) => e.stopPropagation()}
-      className="fixed z-40 bg-white shadow-lg bottom-0 left-0 right-0 rounded-t-2xl border-t border-stone-100 max-h-[70vh] overflow-y-auto md:max-h-none md:overflow-y-auto md:bottom-auto md:top-0 md:left-auto md:right-0 md:w-[360px] md:h-dvh md:rounded-none md:border-t-0 md:border-l md:border-stone-100"
+      className="fixed z-40 bg-white shadow-lg animate-card-in md:animate-panel-in motion-reduce:animate-none bottom-0 left-0 right-0 rounded-t-2xl border-t border-brand-border-light max-h-[70vh] overflow-y-auto md:max-h-none md:overflow-y-auto md:bottom-auto md:top-0 md:left-auto md:right-0 md:w-[360px] md:h-dvh md:rounded-none md:border-t-0 md:border-l md:border-brand-border-light"
     >
       {/* Spacer to push content below the fixed filter bar on desktop */}
       <div className="hidden md:block md:shrink-0" style={{ height: filterBarHeight }} />
@@ -77,7 +65,7 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
           <button
             onClick={handleShare}
             aria-label="Share restaurant"
-            className="p-1.5 rounded-lg border border-stone-300 text-stone-500 bg-transparent hover:bg-stone-50 hover:text-amber-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200 transition-colors duration-150"
+            className={`${BTN_ICON} hover:text-brand-accent`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +79,7 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
           <button
             onClick={onDismiss}
             aria-label="Close restaurant card"
-            className="p-1.5 rounded-lg border border-stone-300 text-stone-500 bg-transparent hover:bg-stone-50 hover:text-stone-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200 transition-colors duration-150"
+            className={BTN_ICON}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -110,11 +98,9 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
           {restaurant.name}
         </h2>
 
-        <span
-          className={`mt-1 inline-block rounded-full px-2 py-0.5 text-xs font-medium ${tierClass}`}
-        >
-          {tierLabel}
-        </span>
+        <div className="mt-1">
+          <TierBadge tier={restaurant.tier} />
+        </div>
 
         {restaurant.featured && <div className="mt-1"><BobbyPickBadge /></div>}
 
@@ -173,7 +159,20 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
         )}
 
         {restaurant.notes && (
-          <p className="mt-2 text-sm text-stone-500 italic">{restaurant.notes}</p>
+          <div className="mt-3 pt-3 border-t border-brand-border-light">
+            <p className="text-sm text-stone-500 italic leading-relaxed">
+              <span
+                aria-hidden="true"
+                className="font-display text-2xl text-brand-chip/50 leading-none align-[-0.3em] mr-1"
+              >
+                &ldquo;
+              </span>
+              {restaurant.notes}
+            </p>
+            <p className="mt-1 font-sans text-[11px] font-bold uppercase tracking-[0.1em] text-stone-400">
+              &mdash; Bobby
+            </p>
+          </div>
         )}
 
         {restaurant.source && !restaurant.suggested_by && (
@@ -191,7 +190,7 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
           href={getSafeHref(restaurant.googleMapsUrl)}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center w-full px-4 py-2 mt-4 rounded-md bg-amber-700 text-white text-sm font-medium hover:bg-amber-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200 transition-colors"
+          className={`${BTN_PRIMARY} w-full px-4 py-2.5 mt-4`}
         >
           Open in Google Maps
         </a>

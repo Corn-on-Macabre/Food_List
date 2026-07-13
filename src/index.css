@@ -33,8 +33,13 @@ html, body {
   --color-brand-border: #E8E0D5;
   --color-brand-border-light: #F0EBE3;
   --color-brand-accent: #B45309;
-  --color-brand-cta: #D97706;
-  --color-brand-cta-hover: #B45309;
+  --color-brand-accent-hover: #92400E;
+  /* WCAG AA: #B45309 on white = 4.6:1 (DESIGN.md updated recommendation) */
+  --color-brand-cta: #B45309;
+  --color-brand-cta-hover: #92400E;
+  /* Active filter chips keep amber-600 per DESIGN.md chip spec (12px bold) */
+  --color-brand-chip: #D97706;
+  --color-brand-focus: #FDE68A;
 
   --color-tier-loved: #F59E0B;
   --color-tier-loved-bg: #FEF3C7;
@@ -45,4 +50,21 @@ html, body {
   --color-tier-radar: #10B981;
   --color-tier-radar-bg: #D1FAE5;
   --color-tier-radar-text: #065F46;
+
+  --animate-card-in: card-in 0.25s ease-out both;
+  --animate-panel-in: panel-in 0.25s ease-out both;
+  --animate-fade-in: fade-in 0.2s ease-out both;
+
+  @keyframes card-in {
+    from { transform: translateY(24px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes panel-in {
+    from { transform: translateX(32px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
 }

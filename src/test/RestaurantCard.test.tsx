@@ -132,7 +132,7 @@ describe("RestaurantCard", () => {
     it("link has amber CTA class — not blue (blue is reserved for Recommended tier)", () => {
       render(<RestaurantCard restaurant={mockRestaurant} onDismiss={noop} onShareSuccess={noop} filterBarHeight={120} />);
       const link = screen.getByRole("link", { name: "Open in Google Maps" });
-      expect(link.className).toContain("bg-amber-700");
+      expect(link.className).toContain("bg-brand-cta");
       expect(link.className).not.toContain("bg-blue");
     });
 

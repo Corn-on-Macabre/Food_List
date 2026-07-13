@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { TierBadge } from './TierBadge';
 import { BobbyPickBadge } from './BobbyPickBadge';
 import type { Restaurant, Tier } from '../types/restaurant';
+import { BTN_PRIMARY, INPUT_CLASS, LABEL_CLASS } from './styles';
 
 interface RestaurantListRowProps {
   restaurant: Restaurant;
@@ -89,12 +90,12 @@ export function RestaurantListRow({
   }
 
   return (
-    <div className="bg-white border border-[#E8E0D5] rounded-lg font-sans text-sm text-stone-700">
+    <div className="bg-white border border-brand-border rounded-lg font-sans text-sm text-stone-700">
       {/* Compact row */}
       <button
         type="button"
         onClick={onToggleExpand}
-        className="w-full flex items-center gap-2 p-3 cursor-pointer hover:bg-[#FFF8EE] rounded-lg min-h-[44px] text-left"
+        className="w-full flex items-center gap-2 p-3 cursor-pointer hover:bg-brand-surface-warm rounded-lg min-h-[44px] text-left"
         aria-expanded={expanded}
         aria-label={`${expanded ? 'Collapse' : 'Expand'} ${restaurant.name}`}
       >
@@ -115,10 +116,10 @@ export function RestaurantListRow({
 
       {/* Expanded editor */}
       {expanded && (
-        <div className="px-3 pb-3 pt-1 border-t border-[#E8E0D5] space-y-4">
+        <div className="px-3 pb-3 pt-1 border-t border-brand-border space-y-4">
           {/* Tier selector */}
           <div>
-            <p className="block font-sans text-[11px] font-bold uppercase tracking-[0.1em] text-stone-400 mb-1">Tier</p>
+            <p className={LABEL_CLASS}>Tier</p>
             <div className="flex gap-2 flex-wrap">
               {TIER_OPTIONS.map(({ value, label }) => {
                 const isActive = value === restaurant.tier;
@@ -129,8 +130,8 @@ export function RestaurantListRow({
                     onClick={() => void onUpdate(restaurant.id, { tier: value })}
                     className={
                       isActive
-                        ? 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-amber-700 text-white border border-amber-700 transition-colors'
-                        : 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-white text-stone-500 border border-[#E8E0D5] transition-colors hover:bg-stone-50'
+                        ? 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-brand-chip text-white border border-brand-chip transition-colors'
+                        : 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-white text-stone-500 border border-brand-border transition-colors hover:bg-stone-50'
                     }
                     aria-pressed={isActive}
                     aria-label={`Set tier to ${label}`}
@@ -144,7 +145,7 @@ export function RestaurantListRow({
 
           {/* Cuisine */}
           <div>
-            <p className="block font-sans text-[11px] font-bold uppercase tracking-[0.1em] text-stone-400 mb-1">Cuisine</p>
+            <p className={LABEL_CLASS}>Cuisine</p>
             {!isEditingCuisine ? (
               <div>
                 <p className="font-sans text-xs text-stone-600 leading-snug mb-1">
@@ -170,7 +171,7 @@ export function RestaurantListRow({
                   value={cuisineText}
                   onChange={e => setCuisineText(e.target.value)}
                   placeholder="e.g. Desserts, Mexican, Thai"
-                  className="w-full border border-[#E8E0D5] rounded-lg p-3 font-sans text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-[#FDE68A] min-h-[44px]"
+                  className={`${INPUT_CLASS} min-h-[44px]`}
                   autoFocus
                   aria-label="Cuisine type"
                   onKeyDown={e => {
@@ -190,14 +191,14 @@ export function RestaurantListRow({
                     type="button"
                     disabled={!cuisineText.trim()}
                     onClick={handleSaveCuisine}
-                    className="bg-[#D97706] hover:bg-[#B45309] text-white font-sans text-sm font-bold rounded-lg py-2.5 px-3 transition-colors disabled:opacity-40 disabled:cursor-not-allowed min-h-[44px]"
+                    className={`${BTN_PRIMARY} py-2.5 px-3 min-h-[44px]`}
                   >
                     Save
                   </button>
                   <button
                     type="button"
                     onClick={handleCancelCuisine}
-                    className="border border-[#E8E0D5] rounded-lg px-3 py-2.5 font-sans text-sm font-bold text-stone-500 hover:bg-stone-50 min-h-[44px]"
+                    className="border border-brand-border rounded-lg px-3 py-2.5 font-sans text-sm font-bold text-stone-500 hover:bg-stone-50 min-h-[44px]"
                   >
                     Cancel
                   </button>
@@ -208,7 +209,7 @@ export function RestaurantListRow({
 
           {/* Notes */}
           <div>
-            <p className="block font-sans text-[11px] font-bold uppercase tracking-[0.1em] text-stone-400 mb-1">Notes</p>
+            <p className={LABEL_CLASS}>Notes</p>
             {!isEditingNotes ? (
               <div>
                 {restaurant.notes && (
@@ -235,7 +236,7 @@ export function RestaurantListRow({
                   value={noteText}
                   onChange={e => setNoteText(e.target.value)}
                   placeholder="Add a note, e.g. 'try the bone marrow pho'"
-                  className="w-full border border-[#E8E0D5] rounded-lg p-3 font-sans text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-[#FDE68A] min-h-[80px]"
+                  className={`${INPUT_CLASS} min-h-[80px]`}
                   autoFocus
                   aria-label="Restaurant note"
                 />
@@ -244,14 +245,14 @@ export function RestaurantListRow({
                     type="button"
                     disabled={!noteText.trim()}
                     onClick={handleSaveNote}
-                    className="bg-[#D97706] hover:bg-[#B45309] text-white font-sans text-sm font-bold rounded-lg py-2.5 px-3 transition-colors disabled:opacity-40 disabled:cursor-not-allowed min-h-[44px]"
+                    className={`${BTN_PRIMARY} py-2.5 px-3 min-h-[44px]`}
                   >
                     Save
                   </button>
                   <button
                     type="button"
                     onClick={handleCancelNote}
-                    className="border border-[#E8E0D5] rounded-lg px-3 py-2.5 font-sans text-sm font-bold text-stone-500 hover:bg-stone-50 min-h-[44px]"
+                    className="border border-brand-border rounded-lg px-3 py-2.5 font-sans text-sm font-bold text-stone-500 hover:bg-stone-50 min-h-[44px]"
                   >
                     Cancel
                   </button>
@@ -262,7 +263,7 @@ export function RestaurantListRow({
 
           {/* Source */}
           <div>
-            <p className="block font-sans text-[11px] font-bold uppercase tracking-[0.1em] text-stone-400 mb-1">Source</p>
+            <p className={LABEL_CLASS}>Source</p>
             {!isEditingSource ? (
               <div>
                 {restaurant.source && (
@@ -289,7 +290,7 @@ export function RestaurantListRow({
                   value={sourceText}
                   onChange={e => setSourceText(e.target.value)}
                   placeholder="e.g. TikTok @phxfoodie, friend Dave"
-                  className="w-full border border-[#E8E0D5] rounded-lg p-3 font-sans text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-[#FDE68A] min-h-[44px]"
+                  className={`${INPUT_CLASS} min-h-[44px]`}
                   autoFocus
                   aria-label="Source attribution"
                   onKeyDown={e => {
@@ -304,14 +305,14 @@ export function RestaurantListRow({
                     type="button"
                     disabled={!sourceText.trim()}
                     onClick={handleSaveSource}
-                    className="bg-[#D97706] hover:bg-[#B45309] text-white font-sans text-sm font-bold rounded-lg py-2.5 px-3 transition-colors disabled:opacity-40 disabled:cursor-not-allowed min-h-[44px]"
+                    className={`${BTN_PRIMARY} py-2.5 px-3 min-h-[44px]`}
                   >
                     Save
                   </button>
                   <button
                     type="button"
                     onClick={handleCancelSource}
-                    className="border border-[#E8E0D5] rounded-lg px-3 py-2.5 font-sans text-sm font-bold text-stone-500 hover:bg-stone-50 min-h-[44px]"
+                    className="border border-brand-border rounded-lg px-3 py-2.5 font-sans text-sm font-bold text-stone-500 hover:bg-stone-50 min-h-[44px]"
                   >
                     Cancel
                   </button>
@@ -322,7 +323,7 @@ export function RestaurantListRow({
 
           {/* Tags */}
           <div>
-            <p className="block font-sans text-[11px] font-bold uppercase tracking-[0.1em] text-stone-400 mb-1">Tags</p>
+            <p className={LABEL_CLASS}>Tags</p>
             <div className="flex flex-wrap gap-1">
               {SUGGESTED_TAGS.map(tag => {
                 const isActive = activeTags.includes(tag);
@@ -334,7 +335,7 @@ export function RestaurantListRow({
                     className={
                       isActive
                         ? 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-amber-100 text-amber-800 border border-amber-300 transition-colors'
-                        : 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-stone-100 text-stone-500 border border-[#E8E0D5] transition-colors hover:bg-stone-200'
+                        : 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-stone-100 text-stone-500 border border-brand-border transition-colors hover:bg-stone-200'
                     }
                     aria-pressed={isActive}
                     aria-label={`${isActive ? 'Remove' : 'Add'} tag: ${tag}`}
@@ -370,14 +371,14 @@ export function RestaurantListRow({
                   }
                 }}
                 placeholder="Custom tag..."
-                className="flex-1 border border-[#E8E0D5] rounded-lg p-2 font-sans text-xs text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-[#FDE68A] min-h-[44px]"
+                className="flex-1 border border-brand-border rounded-lg p-2 font-sans text-xs text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-focus min-h-[44px]"
                 aria-label="Custom tag input"
               />
               <button
                 type="button"
                 disabled={!customTagInput.trim()}
                 onClick={handleAddCustomTag}
-                className="border border-[#E8E0D5] rounded-lg px-3 py-1.5 font-sans text-xs font-bold text-stone-500 hover:bg-stone-50 disabled:opacity-40 disabled:cursor-not-allowed min-h-[44px]"
+                className="border border-brand-border rounded-lg px-3 py-1.5 font-sans text-xs font-bold text-stone-500 hover:bg-stone-50 disabled:opacity-40 disabled:cursor-not-allowed min-h-[44px]"
               >
                 Add
               </button>
@@ -394,7 +395,7 @@ export function RestaurantListRow({
               className={
                 restaurant.featured
                   ? 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-amber-400 text-amber-900 border border-amber-500 transition-colors'
-                  : 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-stone-100 text-stone-500 border border-[#E8E0D5] transition-colors hover:bg-stone-200'
+                  : 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-stone-100 text-stone-500 border border-brand-border transition-colors hover:bg-stone-200'
               }
             >
               <span aria-hidden="true" className="mr-1">&#9733;</span>
@@ -429,7 +430,7 @@ export function RestaurantListRow({
                 <button
                   type="button"
                   onClick={() => setConfirmDelete(false)}
-                  className="border border-[#E8E0D5] rounded-lg px-3 py-2 font-sans text-xs font-bold text-stone-500 hover:bg-stone-50 min-h-[44px]"
+                  className="border border-brand-border rounded-lg px-3 py-2 font-sans text-xs font-bold text-stone-500 hover:bg-stone-50 min-h-[44px]"
                 >
                   Cancel
                 </button>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useAdminAuth } from '../hooks';
 import { supabaseConfigured } from '../lib/supabase';
+import { INPUT_CLASS } from './styles';
 
 export function AdminLogin() {
   const { login, loginWithGoogle, isConfigured, loading } = useAdminAuth();
@@ -19,15 +20,15 @@ export function AdminLogin() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#FFFBF5] flex items-center justify-center p-4">
+      <div className="min-h-screen bg-brand-bg flex items-center justify-center p-4">
         <p className="text-stone-500 font-sans text-sm">Loading...</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#FFFBF5] flex items-center justify-center p-4">
-      <div className="w-full max-w-sm bg-white rounded-xl border border-[#E8E0D5] shadow-lg p-8">
+    <div className="min-h-screen bg-brand-bg flex items-center justify-center p-4">
+      <div className="w-full max-w-sm bg-white rounded-xl border border-brand-border shadow-lg p-8">
         <h1 className="font-display text-2xl font-bold text-stone-900 text-center mb-1">
           bobby.menu
         </h1>
@@ -47,7 +48,7 @@ export function AdminLogin() {
             <button
               type="button"
               onClick={loginWithGoogle}
-              className="w-full flex items-center justify-center gap-3 bg-white border border-[#E8E0D5] hover:bg-stone-50 text-stone-700 font-sans text-sm font-medium rounded-lg py-2.5 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 mb-3"
+              className="w-full flex items-center justify-center gap-3 bg-white border border-brand-border hover:bg-stone-50 text-stone-700 font-sans text-sm font-medium rounded-lg py-2.5 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 mb-3"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24">
                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
@@ -77,7 +78,7 @@ export function AdminLogin() {
               value={password}
               onChange={e => setPassword(e.target.value)}
               placeholder="Password"
-              className="w-full border border-[#E8E0D5] rounded-lg p-3 font-sans text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-amber-600 mb-3"
+              className={`${INPUT_CLASS} mb-3`}
             />
             {error && (
               <p role="alert" className="text-red-600 text-sm font-sans mb-3">
@@ -86,7 +87,7 @@ export function AdminLogin() {
             )}
             <button
               type="submit"
-              className="w-full bg-[#B45309] hover:bg-[#92400E] text-white font-sans text-sm font-bold rounded-lg py-2.5 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600"
+              className="w-full bg-brand-cta hover:bg-brand-cta-hover text-white font-sans text-sm font-bold rounded-lg py-2.5 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600"
             >
               Sign in
             </button>

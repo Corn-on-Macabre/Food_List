@@ -338,4 +338,9 @@ Add font variables in `src/index.css`:
 
 ---
 
-*Last updated: 2026-03-29 — /design-consultation (gstack)*
+*Last updated: 2026-07-13 — UI overhaul: system fully implemented. CTA base is #B45309
+(the WCAG "updated recommendation" above); active filter chips keep #D97706 per the chip
+spec. All tokens live in `src/index.css` `@theme`; shared component classes live in
+`src/components/styles.ts`. Map tile style instructions: `deploy/map-style-console-setup.md`.*
+
+*Previously: 2026-03-29 — /design-consultation (gstack)*

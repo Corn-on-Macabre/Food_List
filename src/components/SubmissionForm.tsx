@@ -4,6 +4,7 @@ import { usePlacesAutocomplete } from '../hooks/usePlacesAutocomplete';
 import { usePlaceDetails } from '../hooks/usePlaceDetails';
 import { parseGoogleMapsUrl } from '../utils/parseGoogleMapsUrl';
 import { lookupPlaceFromUrl } from '../api/placesLookup';
+import { BTN_PRIMARY } from './styles';
 
 interface Props {
   onClose: () => void;
@@ -181,7 +182,7 @@ export function SubmissionForm({ onClose }: Props) {
       onClick={handleOverlayClick}
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4"
     >
-      <div className="bg-[#FFFBF5] rounded-xl shadow-xl border border-[#E8E0D5] w-full max-w-md p-6 relative">
+      <div className="bg-brand-bg rounded-xl shadow-xl border border-brand-border w-full max-w-md p-6 relative animate-fade-in motion-reduce:animate-none">
         {/* Close button */}
         <button
           type="button"
@@ -222,7 +223,7 @@ export function SubmissionForm({ onClose }: Props) {
             <div className="flex items-center justify-center gap-2 mb-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-[#B45309]"
+                className="h-5 w-5 text-brand-accent"
                 viewBox="0 0 20 20"
                 fill="currentColor"
                 aria-hidden="true"
@@ -233,7 +234,7 @@ export function SubmissionForm({ onClose }: Props) {
                   clipRule="evenodd"
                 />
               </svg>
-              <p className="font-sans text-sm font-bold text-[#B45309]">
+              <p className="font-sans text-sm font-bold text-brand-accent">
                 Thanks! Bobby will review your suggestion.
               </p>
             </div>
@@ -260,7 +261,7 @@ export function SubmissionForm({ onClose }: Props) {
                   onKeyDown={handleSearchKeyDown}
                   onPaste={handlePaste}
                   placeholder="Search or paste a Google Maps link..."
-                  className="w-full rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 font-sans text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-amber-200 focus:border-amber-400 transition-colors duration-150 pr-9"
+                  className="w-full rounded-lg border border-brand-border bg-white px-3 py-2 font-sans text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-focus focus:border-amber-400 transition-colors duration-150 pr-9"
                 />
                 {(autocompleteLoading || urlLookupLoading) && (
                   <div className="absolute right-3 top-1/2 -translate-y-1/2">
@@ -278,7 +279,7 @@ export function SubmissionForm({ onClose }: Props) {
                   ref={dropdownRef}
                   role="listbox"
                   aria-label="Restaurant suggestions"
-                  className="absolute z-50 w-full mt-1 bg-white border border-[#E8E0D5] rounded-xl shadow-lg overflow-hidden max-h-48 overflow-y-auto"
+                  className="absolute z-50 w-full mt-1 bg-white border border-brand-border rounded-xl shadow-lg overflow-hidden max-h-48 overflow-y-auto"
                 >
                   {predictions.map((p, i) => (
                     <div
@@ -289,7 +290,7 @@ export function SubmissionForm({ onClose }: Props) {
                       onClick={() => handlePlaceSelect(p.placeId)}
                       onMouseEnter={() => setActiveIndex(i)}
                       className={`px-3 py-2.5 cursor-pointer font-sans text-sm text-stone-900 transition-colors ${
-                        i === activeIndex ? 'bg-[#FFF8EE]' : 'hover:bg-[#FFF8EE]'
+                        i === activeIndex ? 'bg-brand-surface-warm' : 'hover:bg-brand-surface-warm'
                       }`}
                     >
                       <span className="font-bold">{p.mainText}</span>
@@ -324,7 +325,7 @@ export function SubmissionForm({ onClose }: Props) {
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
                 placeholder="Auto-filled from search, or enter manually"
-                className="w-full rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 font-sans text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-amber-200 focus:border-amber-400 transition-colors duration-150"
+                className="w-full rounded-lg border border-brand-border bg-white px-3 py-2 font-sans text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-focus focus:border-amber-400 transition-colors duration-150"
               />
             </div>
 
@@ -338,7 +339,7 @@ export function SubmissionForm({ onClose }: Props) {
                 onChange={(e) => setNote(e.target.value)}
                 rows={3}
                 placeholder="What makes this place special?"
-                className="w-full rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 font-sans text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-amber-200 focus:border-amber-400 transition-colors duration-150 resize-none"
+                className="w-full rounded-lg border border-brand-border bg-white px-3 py-2 font-sans text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-focus focus:border-amber-400 transition-colors duration-150 resize-none"
               />
             </div>
 
@@ -349,7 +350,7 @@ export function SubmissionForm({ onClose }: Props) {
             <button
               type="submit"
               disabled={submitting || !name.trim() || !location.trim()}
-              className="w-full bg-[#D97706] text-white font-sans text-sm font-bold rounded-lg px-4 py-2.5 hover:bg-amber-700 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              className={`${BTN_PRIMARY} w-full px-4 py-2.5`}
             >
               {submitting ? 'Submitting...' : 'Submit Suggestion'}
             </button>

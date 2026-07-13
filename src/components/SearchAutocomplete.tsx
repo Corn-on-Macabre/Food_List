@@ -96,7 +96,7 @@ export function SearchAutocomplete({
   }
 
   return (
-    <div className="relative mx-4 mt-2">
+    <div className="relative">
       <svg
         className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-amber-600 pointer-events-none"
         fill="none"
@@ -128,7 +128,7 @@ export function SearchAutocomplete({
           blurTimeoutRef.current = setTimeout(() => setFocused(false), 200);
         }}
         onKeyDown={handleKeyDown}
-        className="w-full pl-9 pr-8 py-2 text-xs font-sans bg-white border border-[#E8E0D5] rounded-full focus:outline-none focus:ring-2 focus:ring-[#FDE68A] placeholder:text-stone-400 [&::-webkit-search-cancel-button]:appearance-none"
+        className="w-full pl-9 pr-8 py-2 text-xs font-sans bg-white border border-brand-border rounded-full focus:outline-none focus:ring-2 focus:ring-brand-focus placeholder:text-stone-400 [&::-webkit-search-cancel-button]:appearance-none"
       />
       {searchTerm !== null && (
         <button
@@ -152,7 +152,7 @@ export function SearchAutocomplete({
           id="search-matches"
           role="listbox"
           aria-label="Matching restaurants"
-          className="absolute left-0 right-0 mt-1 z-[100] bg-white border border-[#E8E0D5] rounded-xl shadow-lg max-h-[280px] overflow-y-auto"
+          className="absolute left-0 right-0 mt-1 z-[100] bg-white border border-brand-border rounded-xl shadow-lg max-h-[280px] overflow-y-auto"
         >
           {matches.map((restaurant, index) => (
             <li
