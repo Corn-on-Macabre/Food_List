@@ -75,7 +75,7 @@ export function PlacesSearchInput({ onPlaceSelect, onManualAdd }: Props) {
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
           placeholder="Search restaurant name and location..."
-          className="w-full border border-[#E8E0D5] rounded-lg p-3 font-sans text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-[#FDE68A] pr-10"
+          className="w-full border border-brand-border rounded-lg p-3 font-sans text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-focus pr-10"
         />
 
         {/* Loading spinner */}
@@ -110,7 +110,7 @@ export function PlacesSearchInput({ onPlaceSelect, onManualAdd }: Props) {
           ref={listRef}
           role="listbox"
           aria-label="Restaurant suggestions"
-          className="absolute z-50 w-full mt-1 bg-white border border-[#E8E0D5] rounded-xl shadow-lg overflow-hidden"
+          className="absolute z-50 w-full mt-1 bg-white border border-brand-border rounded-xl shadow-lg overflow-hidden"
         >
           {predictions.map((p, i) => (
             <div

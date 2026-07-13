@@ -139,7 +139,7 @@ describe('FilterBar', () => {
         />,
       );
       const activeChip = screen.getByRole('button', { name: 'Vietnamese' });
-      expect(activeChip.className).toContain('bg-amber-700');
+      expect(activeChip.className).toContain('bg-brand-chip');
     });
 
     it('inactive chip has white styling class', () => {
@@ -158,7 +158,7 @@ describe('FilterBar', () => {
       render(<FilterBar {...baseProps} cuisines={['Vietnamese']} />);
       // First "All" button is the cuisine row chip
       const allChip = screen.getAllByRole('button', { name: 'All' })[0];
-      expect(allChip.className).toContain('bg-amber-700');
+      expect(allChip.className).toContain('bg-brand-chip');
     });
 
     it('All chip is inactive (white) when a cuisine is active', () => {

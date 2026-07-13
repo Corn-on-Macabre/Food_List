@@ -44,7 +44,7 @@ export function UserMenu() {
       <button
         type="button"
         onClick={() => setDropdownOpen((prev) => !prev)}
-        className="flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 rounded-full"
+        className="flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta rounded-full"
         aria-label="User menu"
         aria-expanded={dropdownOpen}
       >

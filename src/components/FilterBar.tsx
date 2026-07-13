@@ -4,6 +4,7 @@ import { useAdminAuth } from '../hooks';
 import { UserMenu } from './UserMenu';
 import { SearchAutocomplete } from './SearchAutocomplete';
 import { METRO_REGIONS } from '../constants/metros';
+import { CHIP_BASE as chipBase, CHIP_ACTIVE as chipActive, CHIP_INACTIVE as chipInactive } from './styles';
 import type { Restaurant, Tier } from '../types/restaurant';
 
 interface FilterBarProps {
@@ -30,11 +31,6 @@ const TIER_OPTIONS: { value: Tier; label: string }[] = [
   { value: 'recommended', label: 'Worth Recommending' },
   { value: 'on_my_radar', label: 'Want to Go' },
 ];
-
-const chipBase =
-  'rounded-full px-3 py-1 text-xs font-semibold font-sans whitespace-nowrap transition-colors duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600';
-const chipActive = 'bg-amber-700 text-white border border-amber-700';
-const chipInactive = 'bg-white text-stone-500 border border-[#E8E0D5] [border-width:1.5px]';
 
 export function FilterBar({
   cuisines,
@@ -83,7 +79,7 @@ export function FilterBar({
         {isAuthenticated && (
           <Link
             to="/admin"
-            className="font-sans text-xs font-semibold text-amber-700 hover:text-amber-900 underline underline-offset-2 transition-colors duration-150"
+            className="font-sans text-xs font-semibold text-brand-accent hover:text-brand-accent-hover underline underline-offset-2 transition-colors duration-150"
           >
             Admin &rarr;
           </Link>
@@ -98,7 +94,7 @@ export function FilterBar({
             value={activeCity}
             onChange={(e) => onCityChange(e.target.value)}
             aria-label="Select city"
-            className="rounded-full border border-[#E8E0D5] [border-width:1.5px] bg-white px-3 py-1 font-sans text-xs font-semibold text-stone-800 focus:outline-none focus:ring-2 focus:ring-amber-200 focus:border-amber-400 transition-colors duration-150 cursor-pointer shrink-0 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2378716c%22%20stroke-width%3D%222.5%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_0.5rem_center] pr-6"
+            className="rounded-full border-[1.5px] border-brand-border bg-white px-3 py-1 font-sans text-xs font-semibold text-stone-800 focus:outline-none focus:ring-2 focus:ring-brand-focus focus:border-amber-400 transition-colors duration-150 cursor-pointer shrink-0 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2378716c%22%20stroke-width%3D%222.5%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_0.5rem_center] pr-6"
           >
             {METRO_REGIONS.slice().sort((a, b) => a.label.localeCompare(b.label)).map((metro) => (
               <option key={metro.id} value={metro.id}>
@@ -193,11 +189,11 @@ export function FilterBar({
       </div>
       {/* Clear Filters — outside filter controls group; sibling in accessibility tree */}
       {hasActiveFilters && (
-        <div className="flex justify-end px-4 pb-2 pt-1 border-t border-stone-100">
+        <div className="flex justify-end px-4 pb-2 pt-1 border-t border-brand-border-light">
           <button
             onClick={onClearFilters}
             aria-label="Clear all filters"
-            className="text-xs font-sans font-semibold text-amber-700 hover:text-amber-900 underline underline-offset-2 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 rounded"
+            className="text-xs font-sans font-semibold text-brand-accent hover:text-brand-accent-hover underline underline-offset-2 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta rounded"
           >
             Clear Filters
           </button>

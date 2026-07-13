@@ -9,6 +9,7 @@ import { AdminAuthProvider } from './contexts/AdminAuthContext';
 import type { Restaurant } from './types';
 import type { FilterState } from './types/restaurant';
 import { haversineDistance } from './utils';
+import { FROSTED_BAR } from './components/styles';
 import { METRO_REGIONS, DEFAULT_METRO_ID } from './constants/metros';
 import './index.css';
 
@@ -254,7 +255,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%', paddingTop: `${filterBarHeight}px` }}>
       {/* fixed keeps the bar anchored to the visual viewport on mobile (avoids iOS 100vh scroll bug) */}
-      <div ref={filterBarRef} className="fixed top-0 left-0 right-0 z-50 bg-[rgba(255,251,245,0.92)] backdrop-blur-sm border-b border-stone-200 overflow-visible">
+      <div ref={filterBarRef} className={`fixed top-0 left-0 right-0 z-50 overflow-visible ${FROSTED_BAR}`}>
         <FilterBar
           cuisines={cuisines}
           activeCuisine={filters.cuisine}
