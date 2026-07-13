@@ -4,7 +4,16 @@ One-time manual step. The app already passes `mapId="food-list-map"` (src/App.ts
 no code change is needed — publishing a cloud style bound to that map ID restyles the
 tiles in production and dev simultaneously.
 
-## Steps
+## Fast path — JSON (preferred)
+
+The Create Style dialog has a **JSON** tab (new Google Maps styling JSON format).
+Paste the contents of [`deploy/map-style.json`](./map-style.json) there, confirm the
+preview shifts to warm paper tones, click **Customize**, name the style
+`bobby-menu-warm-paper`, then **Save → Publish** and continue at step 7 below
+(bind to the `food-list-map` map ID). If the editor rejects an individual rule,
+delete just that rule — none depend on each other.
+
+## Manual editor steps (fallback)
 
 1. Go to [console.cloud.google.com](https://console.cloud.google.com) and select the
    project that owns `VITE_GOOGLE_MAPS_API_KEY`.
