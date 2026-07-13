@@ -5,7 +5,7 @@ import { generateSlugId } from '../utils/generateSlugId';
 import { haversineDistance } from '../utils/distance';
 import { AddressGeocodeInput } from './AddressGeocodeInput';
 import { METRO_REGIONS, DEFAULT_METRO_ID } from '../constants/metros';
-import { LABEL_CLASS, INPUT_CLASS, INPUT_ERROR_CLASS, ERROR_MSG_CLASS } from './formStyles';
+import { LABEL_CLASS, INPUT_CLASS, INPUT_ERROR_CLASS, ERROR_MSG_CLASS } from './styles';
 
 const SUGGESTED_TAGS = ['date night', 'quick lunch', 'patio', 'kid-friendly'];
 

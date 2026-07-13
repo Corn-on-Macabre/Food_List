@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useAddressAutocomplete } from '../hooks/useAddressAutocomplete';
 import { useAddressGeocode } from '../hooks/useAddressGeocode';
-import { LABEL_CLASS, INPUT_CLASS } from './formStyles';
+import { LABEL_CLASS, INPUT_CLASS } from './styles';
 
 interface AddressGeocodeInputProps {
   lat: string;
