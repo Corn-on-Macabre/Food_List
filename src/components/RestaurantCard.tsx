@@ -159,7 +159,20 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
         )}
 
         {restaurant.notes && (
-          <p className="mt-2 text-sm text-stone-500 italic">{restaurant.notes}</p>
+          <div className="mt-3 pt-3 border-t border-brand-border-light">
+            <p className="text-sm text-stone-500 italic leading-relaxed">
+              <span
+                aria-hidden="true"
+                className="font-display text-2xl text-brand-chip/50 leading-none align-[-0.3em] mr-1"
+              >
+                &ldquo;
+              </span>
+              {restaurant.notes}
+            </p>
+            <p className="mt-1 font-sans text-[11px] font-bold uppercase tracking-[0.1em] text-stone-400">
+              &mdash; Bobby
+            </p>
+          </div>
         )}
 
         {restaurant.source && !restaurant.suggested_by && (

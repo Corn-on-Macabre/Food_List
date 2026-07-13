@@ -304,6 +304,21 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
 
       <PinLegend />
 
+      {!loading && hasActiveFilters && filteredRestaurants.length === 0 && (
+        <div
+          className={`${CARD_SURFACE} absolute left-1/2 -translate-x-1/2 z-10 shadow-md px-4 py-3 flex items-center gap-3 animate-fade-in motion-reduce:animate-none whitespace-nowrap`}
+          style={{ top: filterBarHeight + 16 }}
+        >
+          <p className="font-sans text-sm text-stone-500">No spots match &mdash; try clearing a filter.</p>
+          <button
+            onClick={handleClearFilters}
+            className="font-sans text-sm font-semibold text-brand-accent hover:text-brand-accent-hover underline underline-offset-2 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta rounded"
+          >
+            Clear filters
+          </button>
+        </div>
+      )}
+
       {selectedRestaurant && (
         <RestaurantCard
           key={selectedRestaurant.id}
