@@ -182,7 +182,7 @@ export function SubmissionForm({ onClose }: Props) {
       onClick={handleOverlayClick}
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4"
     >
-      <div className="bg-brand-bg rounded-xl shadow-xl border border-brand-border w-full max-w-md p-6 relative">
+      <div className="bg-brand-bg rounded-xl shadow-xl border border-brand-border w-full max-w-md p-6 relative animate-fade-in motion-reduce:animate-none">
         {/* Close button */}
         <button
           type="button"

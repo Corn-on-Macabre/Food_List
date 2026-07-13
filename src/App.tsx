@@ -306,6 +306,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
 
       {selectedRestaurant && (
         <RestaurantCard
+          key={selectedRestaurant.id}
           restaurant={selectedRestaurant}
           onDismiss={() => setSelectedRestaurant(null)}
           onShareSuccess={() => showToast('Link copied!')}

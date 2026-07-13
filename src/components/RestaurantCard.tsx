@@ -44,7 +44,7 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
   return (
     <div
       onClick={(e) => e.stopPropagation()}
-      className="fixed z-40 bg-white shadow-lg bottom-0 left-0 right-0 rounded-t-2xl border-t border-brand-border-light max-h-[70vh] overflow-y-auto md:max-h-none md:overflow-y-auto md:bottom-auto md:top-0 md:left-auto md:right-0 md:w-[360px] md:h-dvh md:rounded-none md:border-t-0 md:border-l md:border-brand-border-light"
+      className="fixed z-40 bg-white shadow-lg animate-card-in md:animate-panel-in motion-reduce:animate-none bottom-0 left-0 right-0 rounded-t-2xl border-t border-brand-border-light max-h-[70vh] overflow-y-auto md:max-h-none md:overflow-y-auto md:bottom-auto md:top-0 md:left-auto md:right-0 md:w-[360px] md:h-dvh md:rounded-none md:border-t-0 md:border-l md:border-brand-border-light"
     >
       {/* Spacer to push content below the fixed filter bar on desktop */}
       <div className="hidden md:block md:shrink-0" style={{ height: filterBarHeight }} />
