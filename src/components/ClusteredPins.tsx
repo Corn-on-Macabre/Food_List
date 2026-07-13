@@ -1,8 +1,26 @@
 import { useEffect, useRef, useCallback } from 'react';
-import { AdvancedMarker, Pin, useMap } from '@vis.gl/react-google-maps';
-import { MarkerClusterer } from '@googlemaps/markerclusterer';
+import { AdvancedMarker, AdvancedMarkerAnchorPoint, useMap } from '@vis.gl/react-google-maps';
+import { MarkerClusterer, type Renderer } from '@googlemaps/markerclusterer';
 import { TIER_COLORS } from '../constants/tierColors';
+import { TierDot } from './RestaurantPin';
 import type { Restaurant } from '../types';
+
+// Brand cluster bubbles: amber circle with cream ring and Karla count,
+// replacing the library's default blue circles.
+const clusterRenderer: Renderer = {
+  render: ({ count, position }) => {
+    const div = document.createElement('div');
+    div.className =
+      'flex items-center justify-center rounded-full bg-brand-cta text-white font-sans font-bold border-[3px] border-brand-bg shadow-[0_2px_6px_rgba(0,0,0,0.28)] ' +
+      (count < 10 ? 'w-9 h-9 text-xs' : count < 50 ? 'w-10 h-10 text-sm' : 'w-11 h-11 text-sm');
+    div.textContent = String(count);
+    return new google.maps.marker.AdvancedMarkerElement({
+      position,
+      content: div,
+      zIndex: 1_000_000 + count,
+    });
+  },
+};
 
 interface ClusteredPinsProps {
   restaurants: Restaurant[];
@@ -19,7 +37,7 @@ export function ClusteredPins({ restaurants, onRestaurantClick, selectedRestaura
   // Initialize clusterer once the map is ready
   useEffect(() => {
     if (!map) return;
-    clustererRef.current = new MarkerClusterer({ map });
+    clustererRef.current = new MarkerClusterer({ map, renderer: clusterRenderer });
     return () => {
       clustererRef.current?.clearMarkers();
       clustererRef.current = null;
@@ -57,6 +75,7 @@ export function ClusteredPins({ restaurants, onRestaurantClick, selectedRestaura
             ref={(marker) => setMarkerRef(marker, r.id)}
             onClick={() => onRestaurantClick(r)}
             zIndex={isSelected ? 1 : 0}
+            anchorPoint={isDeepLinked ? undefined : AdvancedMarkerAnchorPoint.CENTER}
           >
             {isDeepLinked ? (
               <div style={{ position: 'relative', width: 40, height: 50, display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
@@ -77,12 +96,7 @@ export function ClusteredPins({ restaurants, onRestaurantClick, selectedRestaura
                 </svg>
               </div>
             ) : (
-              <Pin
-                background={color}
-                glyphColor="#FFFFFF"
-                borderColor={isSelected ? '#FFFFFF' : color}
-                scale={isSelected ? 1.35 : 1}
-              />
+              <TierDot color={color} selected={isSelected} />
             )}
           </AdvancedMarker>
         );
