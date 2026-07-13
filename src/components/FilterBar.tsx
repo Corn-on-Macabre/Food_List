@@ -92,13 +92,13 @@ export function FilterBar({
       </div>
       {/* Filter controls — search + chips grouped for screen readers (F4 fix) */}
       <div role="group" aria-label="Filters" className="flex flex-col">
-        {/* City selector + Search */}
-        <div className="flex items-center gap-2 px-4 pt-2">
+        {/* City selector + Search — inline row */}
+        <div className="flex items-center gap-2 px-4 pt-2 pb-1">
           <select
             value={activeCity}
             onChange={(e) => onCityChange(e.target.value)}
             aria-label="Select city"
-            className="rounded-lg border border-[#E8E0D5] bg-white px-2.5 py-1.5 font-sans text-sm font-semibold text-stone-800 focus:outline-none focus:ring-2 focus:ring-amber-200 focus:border-amber-400 transition-colors duration-150 cursor-pointer shrink-0"
+            className="rounded-full border border-[#E8E0D5] [border-width:1.5px] bg-white px-3 py-1 font-sans text-xs font-semibold text-stone-800 focus:outline-none focus:ring-2 focus:ring-amber-200 focus:border-amber-400 transition-colors duration-150 cursor-pointer shrink-0 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2378716c%22%20stroke-width%3D%222.5%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_0.5rem_center] pr-6"
           >
             {METRO_REGIONS.slice().sort((a, b) => a.label.localeCompare(b.label)).map((metro) => (
               <option key={metro.id} value={metro.id}>
@@ -106,14 +106,15 @@ export function FilterBar({
               </option>
             ))}
           </select>
+          <div className="flex-1 min-w-0">
+            <SearchAutocomplete
+              searchTerm={searchTerm}
+              onSearchChange={onSearchChange}
+              restaurants={restaurants}
+              onRestaurantSelect={onRestaurantSelect}
+            />
+          </div>
         </div>
-        {/* Search with autocomplete */}
-        <SearchAutocomplete
-          searchTerm={searchTerm}
-          onSearchChange={onSearchChange}
-          restaurants={restaurants}
-          onRestaurantSelect={onRestaurantSelect}
-        />
         {/* Cuisine row */}
         <div role="group" aria-label="Filter by cuisine" className="flex gap-2 overflow-x-auto px-4 py-2 scrollbar-hide">
           <button
