@@ -74,8 +74,17 @@ export function FilterBar({
 
   return (
     <div className="flex flex-col">
-      {/* Top bar: Admin link (when admin-authenticated) + User menu (always) */}
-      <div className="flex items-center justify-end gap-3 px-4 pt-2">
+      {/* Top bar: wordmark + Admin link (when admin-authenticated) + User menu (always) */}
+      <div className="flex items-center justify-between gap-3 px-4 pt-2">
+        <div className="flex items-baseline gap-2 min-w-0">
+          <span className="font-display text-xl font-bold text-stone-900 tracking-[-0.01em] whitespace-nowrap">
+            bobby.menu
+          </span>
+          <span className="hidden sm:inline font-sans text-xs italic text-stone-400 truncate">
+            a friend's list of places worth eating
+          </span>
+        </div>
+        <div className="flex items-center gap-3 shrink-0">
         {isAuthenticated && (
           <Link
             to="/admin"
@@ -85,6 +94,7 @@ export function FilterBar({
           </Link>
         )}
         <UserMenu />
+        </div>
       </div>
       {/* Filter controls — search + chips grouped for screen readers (F4 fix) */}
       <div role="group" aria-label="Filters" className="flex flex-col">

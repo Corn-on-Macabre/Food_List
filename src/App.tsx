@@ -9,7 +9,7 @@ import { AdminAuthProvider } from './contexts/AdminAuthContext';
 import type { Restaurant } from './types';
 import type { FilterState } from './types/restaurant';
 import { haversineDistance } from './utils';
-import { FROSTED_BAR } from './components/styles';
+import { FROSTED_BAR, CARD_SURFACE } from './components/styles';
 import { METRO_REGIONS, DEFAULT_METRO_ID } from './constants/metros';
 import './index.css';
 
@@ -55,13 +55,13 @@ function App() {
 
   if (!apiKey || apiKey === 'PLACEHOLDER_KEY') {
     return (
-      <div className="flex items-center justify-center w-screen h-screen bg-gray-100">
-        <div className="p-6 bg-white rounded shadow text-center">
-          <h1 className="text-xl font-semibold text-red-600 mb-2">Configuration Error</h1>
-          <p className="text-gray-700">
+      <div className="flex items-center justify-center w-screen h-screen bg-brand-bg">
+        <div className={`${CARD_SURFACE} p-6 shadow-lg text-center max-w-md`}>
+          <h1 className="font-display text-xl font-bold text-stone-900 mb-2">Configuration Error</h1>
+          <p className="font-sans text-sm text-stone-500">
             Google Maps API key is not configured. Set{' '}
-            <code className="bg-gray-100 px-1 rounded text-sm">VITE_GOOGLE_MAPS_API_KEY</code>{' '}
-            in your <code className="bg-gray-100 px-1 rounded text-sm">.env</code> file and restart the dev server.
+            <code className="bg-brand-surface-warm px-1 rounded text-sm">VITE_GOOGLE_MAPS_API_KEY</code>{' '}
+            in your <code className="bg-brand-surface-warm px-1 rounded text-sm">.env</code> file and restart the dev server.
           </p>
         </div>
       </div>
@@ -314,18 +314,19 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
       )}
 
       {loading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-white/60 pointer-events-none">
-          <div className="p-6 bg-white rounded shadow text-center">
-            <p className="text-gray-700 font-medium">Loading restaurants...</p>
+        <div className="absolute inset-0 z-20 flex items-center justify-center bg-brand-bg/70 backdrop-blur-[2px] pointer-events-none">
+          <div className="text-center">
+            <p className="font-display text-2xl font-bold text-stone-900 animate-pulse">bobby.menu</p>
+            <p className="font-sans text-sm text-stone-500 mt-1">setting the table&hellip;</p>
           </div>
         </div>
       )}
 
       {error !== null && (
-        <div className="absolute inset-0 z-20 flex items-center justify-center bg-white/60">
-          <div className="p-6 bg-white rounded shadow text-center">
-            <h1 className="text-xl font-semibold text-red-600 mb-2">Data Error</h1>
-            <p className="text-gray-700">Could not load restaurant data. Please refresh the page.</p>
+        <div className="absolute inset-0 z-20 flex items-center justify-center bg-brand-bg/70 backdrop-blur-[2px]">
+          <div className={`${CARD_SURFACE} p-6 shadow-lg text-center max-w-sm`}>
+            <h1 className="font-display text-xl font-bold text-stone-900 mb-2">Well, this is awkward</h1>
+            <p className="font-sans text-sm text-stone-500">Couldn't load the list. Give the page a refresh.</p>
           </div>
         </div>
       )}
