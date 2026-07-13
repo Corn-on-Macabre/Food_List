@@ -4,6 +4,7 @@ import type { PlaceDraft } from '../hooks/usePlaceDetails';
 import { usePlaceDetails } from '../hooks/usePlaceDetails';
 import { PlacesSearchInput } from './PlacesSearchInput';
 import { RestaurantDraftForm } from './RestaurantDraftForm';
+import { BTN_SECONDARY } from './styles';
 
 type PanelState = 'search' | 'loading-details' | 'draft' | 'manual' | 'success';
 
@@ -106,7 +107,7 @@ export function AddRestaurantPanel({ onRestaurantAdded, prefill, onPrefillConsum
   }, [panelState]);
 
   return (
-    <section className="bg-white border border-[#E8E0D5] rounded-xl p-5">
+    <section className="bg-white border border-brand-border rounded-xl p-5">
       <h2 className="font-display text-base font-bold text-stone-900 mb-4">Add Restaurant</h2>
 
       {/* Search state */}
@@ -165,7 +166,7 @@ export function AddRestaurantPanel({ onRestaurantAdded, prefill, onPrefillConsum
             {/* Checkmark icon */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-[#B45309]"
+              className="h-5 w-5 text-brand-accent"
               viewBox="0 0 20 20"
               fill="currentColor"
               aria-hidden="true"
@@ -176,7 +177,7 @@ export function AddRestaurantPanel({ onRestaurantAdded, prefill, onPrefillConsum
                 clipRule="evenodd"
               />
             </svg>
-            <p className="font-sans text-sm font-bold text-[#B45309]">
+            <p className="font-sans text-sm font-bold text-brand-accent">
               Restaurant added successfully.
             </p>
           </div>
@@ -184,7 +185,7 @@ export function AddRestaurantPanel({ onRestaurantAdded, prefill, onPrefillConsum
             type="button"
             onClick={handleAddAnother}
             aria-label="Add another restaurant"
-            className="border border-[#E8E0D5] rounded-lg px-3 py-1.5 font-sans text-sm font-bold text-stone-500 hover:bg-stone-50"
+            className={`${BTN_SECONDARY} px-3 py-1.5`}
           >
             Add Another
           </button>

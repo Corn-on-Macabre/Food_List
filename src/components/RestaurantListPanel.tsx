@@ -16,8 +16,8 @@ const TIER_OPTIONS: { value: Tier; label: string }[] = [
 
 const chipBase =
   'rounded-full px-3 py-1 text-xs font-semibold font-sans whitespace-nowrap transition-colors duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 min-h-[44px] inline-flex items-center';
-const chipActive = 'bg-amber-700 text-white border border-amber-700';
-const chipInactive = 'bg-white text-stone-500 border border-[#E8E0D5] [border-width:1.5px]';
+const chipActive = 'bg-brand-chip text-white border border-brand-chip';
+const chipInactive = 'bg-white text-stone-500 border border-brand-border [border-width:1.5px]';
 
 export function RestaurantListPanel({
   restaurants,
@@ -53,7 +53,7 @@ export function RestaurantListPanel({
   }
 
   return (
-    <div className="flex flex-col gap-3 bg-[#FFFBF5] p-4">
+    <div className="flex flex-col gap-3 bg-brand-bg p-4">
       {/* Search bar */}
       <div className="relative">
         <svg
@@ -78,7 +78,7 @@ export function RestaurantListPanel({
               e.currentTarget.blur();
             }
           }}
-          className="w-full pl-9 pr-8 py-2 text-xs font-sans bg-white border border-[#E8E0D5] rounded-full focus:outline-none focus:ring-2 focus:ring-[#FDE68A] placeholder:text-stone-400 [&::-webkit-search-cancel-button]:appearance-none"
+          className="w-full pl-9 pr-8 py-2 text-xs font-sans bg-white border border-brand-border rounded-full focus:outline-none focus:ring-2 focus:ring-brand-focus placeholder:text-stone-400 [&::-webkit-search-cancel-button]:appearance-none"
         />
         {searchTerm && (
           <button

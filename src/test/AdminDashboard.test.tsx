@@ -76,7 +76,8 @@ describe('AdminDashboard', () => {
     vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
     sessionStorage.setItem(SESSION_KEY, '1');
     await renderDashboard();
-    expect(screen.getByText(/Food List — Curator Dashboard/i)).toBeInTheDocument();
+    expect(screen.getByText(/bobby\.menu/i)).toBeInTheDocument();
+    expect(screen.getByText(/Curator Dashboard/i)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /sign out/i })).toBeInTheDocument();
   });
 

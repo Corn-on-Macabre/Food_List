@@ -121,7 +121,7 @@ export function PlacesSearchInput({ onPlaceSelect, onManualAdd }: Props) {
               onClick={() => handleSelect(p.placeId)}
               onMouseEnter={() => setActiveIndex(i)}
               className={`px-3 py-2.5 cursor-pointer font-sans text-sm text-stone-900 transition-colors ${
-                i === activeIndex ? 'bg-[#FFF8EE]' : 'hover:bg-[#FFF8EE]'
+                i === activeIndex ? 'bg-brand-surface-warm' : 'hover:bg-brand-surface-warm'
               }`}
             >
               <span className="font-bold">
@@ -145,7 +145,7 @@ export function PlacesSearchInput({ onPlaceSelect, onManualAdd }: Props) {
             type="button"
             onClick={onManualAdd}
             aria-label="Add manually"
-            className="font-sans text-xs font-bold text-amber-700 hover:text-amber-900 underline"
+            className="font-sans text-xs font-bold text-brand-accent hover:text-brand-accent-hover underline"
           >
             Add Manually
           </button>

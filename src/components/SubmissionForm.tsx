@@ -290,7 +290,7 @@ export function SubmissionForm({ onClose }: Props) {
                       onClick={() => handlePlaceSelect(p.placeId)}
                       onMouseEnter={() => setActiveIndex(i)}
                       className={`px-3 py-2.5 cursor-pointer font-sans text-sm text-stone-900 transition-colors ${
-                        i === activeIndex ? 'bg-[#FFF8EE]' : 'hover:bg-[#FFF8EE]'
+                        i === activeIndex ? 'bg-brand-surface-warm' : 'hover:bg-brand-surface-warm'
                       }`}
                     >
                       <span className="font-bold">{p.mainText}</span>

@@ -4,6 +4,7 @@ import {
   updateSubmissionStatus,
 } from '../api/submissions';
 import type { Submission } from '../api/submissions';
+import { BTN_PRIMARY } from './styles';
 
 interface Props {
   onApprove: (submission: Submission) => void;
@@ -67,7 +68,7 @@ export function SubmissionsPanel({ onApprove, onCountChange }: Props) {
     return (
       <div className="flex items-center justify-center py-16">
         <svg
-          className="animate-spin h-8 w-8 text-[#D97706]"
+          className="animate-spin h-8 w-8 text-brand-cta"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -86,7 +87,7 @@ export function SubmissionsPanel({ onApprove, onCountChange }: Props) {
         <p className="font-sans text-sm text-red-700 mb-3">{error}</p>
         <button
           onClick={() => { void load(); }}
-          className="bg-[#D97706] text-white font-sans text-sm font-bold rounded-lg px-4 py-2 hover:bg-amber-700 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200"
+          className={`${BTN_PRIMARY} px-4 py-2`}
         >
           Retry
         </button>
@@ -96,7 +97,7 @@ export function SubmissionsPanel({ onApprove, onCountChange }: Props) {
 
   if (submissions.length === 0) {
     return (
-      <div className="bg-white border border-[#E8E0D5] rounded-xl p-6 text-center">
+      <div className="bg-white border border-brand-border rounded-xl p-6 text-center">
         <p className="font-sans text-sm text-stone-500">No pending submissions</p>
       </div>
     );
@@ -113,7 +114,7 @@ export function SubmissionsPanel({ onApprove, onCountChange }: Props) {
       {submissions.map((s) => (
         <div
           key={s.id}
-          className="bg-white border border-[#E8E0D5] rounded-xl p-4"
+          className="bg-white border border-brand-border rounded-xl p-4"
         >
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0 flex-1">
@@ -137,14 +138,14 @@ export function SubmissionsPanel({ onApprove, onCountChange }: Props) {
             <button
               type="button"
               onClick={() => { void handleApprove(s); }}
-              className="bg-[#D97706] text-white font-sans text-xs font-bold rounded-lg px-3 py-1.5 hover:bg-amber-700 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200"
+              className={`${BTN_PRIMARY} px-3 py-1.5`}
             >
               Approve
             </button>
             <button
               type="button"
               onClick={() => { void handleDismiss(s.id); }}
-              className="border border-[#E8E0D5] rounded-lg px-3 py-1.5 font-sans text-xs font-bold text-stone-500 hover:bg-stone-50 hover:text-stone-700 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200"
+              className="border border-brand-border rounded-lg px-3 py-1.5 font-sans text-xs font-bold text-stone-500 hover:bg-stone-50 hover:text-stone-700 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-focus"
             >
               Dismiss
             </button>

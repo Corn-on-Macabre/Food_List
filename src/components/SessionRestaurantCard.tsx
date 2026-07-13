@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { TierBadge } from './TierBadge';
 import { BobbyPickBadge } from './BobbyPickBadge';
 import type { Restaurant, Tier } from '../types';
+import { BTN_PRIMARY, INPUT_CLASS } from './styles';
 
 interface Props {
   restaurant: Restaurant;
@@ -98,7 +99,7 @@ export function SessionRestaurantCard({ restaurant, onTierChange, onNotesChange,
   return (
     <div
       data-testid="session-restaurant-card"
-      className="bg-white border border-[#E8E0D5] rounded-lg p-3 font-sans text-sm text-stone-700"
+      className="bg-white border border-brand-border rounded-lg p-3 font-sans text-sm text-stone-700"
     >
       {/* Tier row — always visible (tier edit or display) */}
       {!isEditing ? (
@@ -134,7 +135,7 @@ export function SessionRestaurantCard({ restaurant, onTierChange, onNotesChange,
           <select
             value={selectedTier}
             onChange={e => setSelectedTier(e.target.value as Tier)}
-            className="border border-[#E8E0D5] rounded-lg px-2 font-sans text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#FDE68A] min-h-[44px]"
+            className="border border-brand-border rounded-lg px-2 font-sans text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-brand-focus min-h-[44px]"
             aria-label="Select tier"
           >
             {TIER_OPTIONS.map(opt => (
@@ -144,7 +145,7 @@ export function SessionRestaurantCard({ restaurant, onTierChange, onNotesChange,
           <button
             type="button"
             onClick={handleApply}
-            className="bg-[#D97706] hover:bg-[#B45309] text-white font-sans text-sm font-bold rounded-lg py-2.5 px-3 transition-colors min-h-[44px]"
+            className={`${BTN_PRIMARY} py-2.5 px-3 min-h-[44px]`}
             aria-label="Apply tier change"
           >
             ✓ Apply
@@ -152,7 +153,7 @@ export function SessionRestaurantCard({ restaurant, onTierChange, onNotesChange,
           <button
             type="button"
             onClick={handleCancel}
-            className="border border-[#E8E0D5] rounded-lg px-3 py-2.5 font-sans text-sm font-bold text-stone-500 hover:bg-stone-50 min-h-[44px]"
+            className="border border-brand-border rounded-lg px-3 py-2.5 font-sans text-sm font-bold text-stone-500 hover:bg-stone-50 min-h-[44px]"
             aria-label="Cancel tier change"
           >
             ✕ Cancel
@@ -226,7 +227,7 @@ export function SessionRestaurantCard({ restaurant, onTierChange, onNotesChange,
             value={noteText}
             onChange={e => setNoteText(e.target.value)}
             placeholder="Add a note, e.g. 'try the bone marrow pho'"
-            className="w-full border border-[#E8E0D5] rounded-lg p-3 font-sans text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-[#FDE68A] min-h-[80px]"
+            className={`${INPUT_CLASS} min-h-[80px]`}
             autoFocus
             aria-label="Restaurant note"
             data-testid="note-textarea"
@@ -236,7 +237,7 @@ export function SessionRestaurantCard({ restaurant, onTierChange, onNotesChange,
               type="button"
               disabled={!noteText.trim()}
               onClick={handleSaveNote}
-              className="bg-[#D97706] hover:bg-[#B45309] text-white font-sans text-sm font-bold rounded-lg py-2.5 px-3 transition-colors disabled:opacity-40 disabled:cursor-not-allowed min-h-[44px]"
+              className={`${BTN_PRIMARY} py-2.5 px-3 min-h-[44px]`}
               data-testid="save-note-btn"
             >
               Save Note
@@ -255,7 +256,7 @@ export function SessionRestaurantCard({ restaurant, onTierChange, onNotesChange,
             <button
               type="button"
               onClick={handleCancelNote}
-              className="border border-[#E8E0D5] rounded-lg px-3 py-2.5 font-sans text-sm font-bold text-stone-500 hover:bg-stone-50 min-h-[44px]"
+              className="border border-brand-border rounded-lg px-3 py-2.5 font-sans text-sm font-bold text-stone-500 hover:bg-stone-50 min-h-[44px]"
               data-testid="cancel-note-btn"
             >
               Cancel
@@ -314,7 +315,7 @@ export function SessionRestaurantCard({ restaurant, onTierChange, onNotesChange,
             value={sourceText}
             onChange={e => setSourceText(e.target.value)}
             placeholder="e.g. TikTok @phxfoodie, friend Dave"
-            className="w-full border border-[#E8E0D5] rounded-lg p-3 font-sans text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-[#FDE68A] min-h-[44px]"
+            className={`${INPUT_CLASS} min-h-[44px]`}
             autoFocus
             aria-label="Source attribution"
             data-testid="source-input"
@@ -330,7 +331,7 @@ export function SessionRestaurantCard({ restaurant, onTierChange, onNotesChange,
               type="button"
               disabled={!sourceText.trim()}
               onClick={handleSaveSource}
-              className="bg-[#D97706] hover:bg-[#B45309] text-white font-sans text-sm font-bold rounded-lg py-2.5 px-3 transition-colors disabled:opacity-40 disabled:cursor-not-allowed min-h-[44px]"
+              className={`${BTN_PRIMARY} py-2.5 px-3 min-h-[44px]`}
               data-testid="save-source-btn"
             >
               Save
@@ -349,7 +350,7 @@ export function SessionRestaurantCard({ restaurant, onTierChange, onNotesChange,
             <button
               type="button"
               onClick={handleCancelSource}
-              className="border border-[#E8E0D5] rounded-lg px-3 py-2.5 font-sans text-sm font-bold text-stone-500 hover:bg-stone-50 min-h-[44px]"
+              className="border border-brand-border rounded-lg px-3 py-2.5 font-sans text-sm font-bold text-stone-500 hover:bg-stone-50 min-h-[44px]"
               data-testid="cancel-source-btn"
             >
               Cancel
@@ -372,7 +373,7 @@ export function SessionRestaurantCard({ restaurant, onTierChange, onNotesChange,
                 className={
                   isActive
                     ? 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-amber-100 text-amber-800 border border-amber-300 transition-colors'
-                    : 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-stone-100 text-stone-500 border border-[#E8E0D5] transition-colors hover:bg-stone-200'
+                    : 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-stone-100 text-stone-500 border border-brand-border transition-colors hover:bg-stone-200'
                 }
                 aria-pressed={isActive}
                 aria-label={`${isActive ? 'Remove' : 'Add'} tag: ${tag}`}
@@ -412,7 +413,7 @@ export function SessionRestaurantCard({ restaurant, onTierChange, onNotesChange,
               }
             }}
             placeholder="Custom tag..."
-            className="flex-1 border border-[#E8E0D5] rounded-lg p-2 font-sans text-xs text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-[#FDE68A] min-h-[44px]"
+            className="flex-1 border border-brand-border rounded-lg p-2 font-sans text-xs text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-focus min-h-[44px]"
             aria-label="Custom tag input"
             data-testid="session-custom-tag-input"
           />
@@ -420,7 +421,7 @@ export function SessionRestaurantCard({ restaurant, onTierChange, onNotesChange,
             type="button"
             disabled={!customTagInput.trim()}
             onClick={handleAddCustomTag}
-            className="border border-[#E8E0D5] rounded-lg px-3 py-1.5 font-sans text-xs font-bold text-stone-500 hover:bg-stone-50 disabled:opacity-40 disabled:cursor-not-allowed min-h-[44px]"
+            className="border border-brand-border rounded-lg px-3 py-1.5 font-sans text-xs font-bold text-stone-500 hover:bg-stone-50 disabled:opacity-40 disabled:cursor-not-allowed min-h-[44px]"
             data-testid="session-add-custom-tag-btn"
           >
             Add
@@ -442,7 +443,7 @@ export function SessionRestaurantCard({ restaurant, onTierChange, onNotesChange,
           className={
             restaurant.featured
               ? 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-amber-400 text-amber-900 border border-amber-500 transition-colors'
-              : 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-stone-100 text-stone-500 border border-[#E8E0D5] transition-colors hover:bg-stone-200'
+              : 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-stone-100 text-stone-500 border border-brand-border transition-colors hover:bg-stone-200'
           }
         >
           <span aria-hidden="true" className="mr-1">★</span>

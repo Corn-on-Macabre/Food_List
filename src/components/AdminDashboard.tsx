@@ -13,6 +13,7 @@ import {
 import { SubmissionsPanel } from './SubmissionsPanel';
 import type { Submission } from '../api/submissions';
 import type { Restaurant, Tier } from '../types';
+import { BTN_PRIMARY, BTN_SECONDARY } from './styles';
 
 export function AdminDashboard() {
   const { logout, password } = useAdminAuth();
@@ -125,23 +126,26 @@ export function AdminDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FFFBF5]">
+    <div className="min-h-screen bg-brand-bg">
       {/* Fixed header */}
-      <header className="fixed top-0 left-0 right-0 h-[60px] bg-[#FFFBF5] border-b border-[#E8E0D5] shadow-sm flex items-center justify-between px-5 z-50">
-        <span className="font-display text-xl font-bold text-stone-900">
-          Food List — Curator Dashboard
+      <header className="fixed top-0 left-0 right-0 h-[60px] bg-brand-bg border-b border-brand-border shadow-sm flex items-center justify-between px-5 z-50">
+        <span className="flex items-baseline gap-2 min-w-0">
+          <span className="font-display text-xl font-bold text-stone-900 whitespace-nowrap">bobby.menu</span>
+          <span className="hidden sm:inline font-sans text-[11px] font-bold uppercase tracking-[0.1em] text-stone-400 truncate">
+            Curator Dashboard
+          </span>
         </span>
         <div className="flex items-center gap-4">
           <Link
             to="/"
-            className="font-sans text-sm font-semibold text-amber-700 hover:text-amber-900 underline underline-offset-2 transition-colors duration-150"
+            className="font-sans text-sm font-semibold text-brand-accent hover:text-brand-accent-hover underline underline-offset-2 transition-colors duration-150"
           >
             &larr; Map
           </Link>
           <button
             onClick={logout}
             aria-label="Sign out of curator dashboard"
-            className="border border-[#E8E0D5] rounded-lg px-3 py-1.5 font-sans text-sm font-bold text-stone-500 hover:bg-stone-50 hover:text-stone-700 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200"
+            className={`${BTN_SECONDARY} px-3 py-1.5`}
           >
             Sign out
           </button>
@@ -149,13 +153,13 @@ export function AdminDashboard() {
       </header>
 
       {/* Tab bar */}
-      <nav className="fixed top-[60px] left-0 right-0 bg-[#FFFBF5] z-40">
-        <div className="max-w-2xl mx-auto flex gap-6 px-4 py-3 border-b border-[#E8E0D5]">
+      <nav className="fixed top-[60px] left-0 right-0 bg-brand-bg z-40">
+        <div className="max-w-2xl mx-auto flex gap-6 px-4 py-3 border-b border-brand-border">
           <button
             onClick={() => setActiveTab('add')}
             className={`font-sans text-sm pb-1 transition-colors duration-150 ${
               activeTab === 'add'
-                ? 'border-b-2 border-amber-700 text-stone-900 font-bold'
+                ? 'border-b-2 border-brand-cta text-stone-900 font-bold'
                 : 'text-stone-400 hover:text-stone-600'
             }`}
           >
@@ -165,7 +169,7 @@ export function AdminDashboard() {
             onClick={() => setActiveTab('list')}
             className={`font-sans text-sm pb-1 transition-colors duration-150 ${
               activeTab === 'list'
-                ? 'border-b-2 border-amber-700 text-stone-900 font-bold'
+                ? 'border-b-2 border-brand-cta text-stone-900 font-bold'
                 : 'text-stone-400 hover:text-stone-600'
             }`}
           >
@@ -175,7 +179,7 @@ export function AdminDashboard() {
             onClick={() => setActiveTab('submissions')}
             className={`font-sans text-sm pb-1 transition-colors duration-150 ${
               activeTab === 'submissions'
-                ? 'border-b-2 border-amber-700 text-stone-900 font-bold'
+                ? 'border-b-2 border-brand-cta text-stone-900 font-bold'
                 : 'text-stone-400 hover:text-stone-600'
             }`}
           >
@@ -190,7 +194,7 @@ export function AdminDashboard() {
         {loading && (
           <div className="flex items-center justify-center py-16">
             <svg
-              className="animate-spin h-8 w-8 text-[#D97706]"
+              className="animate-spin h-8 w-8 text-brand-cta"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -221,7 +225,7 @@ export function AdminDashboard() {
             <p className="font-sans text-sm text-red-700 mb-3">{error}</p>
             <button
               onClick={() => void loadRestaurants()}
-              className="bg-[#D97706] text-white font-sans text-sm font-bold rounded-lg px-4 py-2 hover:bg-amber-700 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200"
+              className={`${BTN_PRIMARY} px-4 py-2`}
             >
               Retry
             </button>
