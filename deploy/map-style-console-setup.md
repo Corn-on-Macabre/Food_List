@@ -1,8 +1,11 @@
 # Google Cloud Console — "warm paper" map style setup
 
-One-time manual step. The app already passes `mapId="food-list-map"` (src/App.tsx), so
-no code change is needed — publishing a cloud style bound to that map ID restyles the
-tiles in production and dev simultaneously.
+One-time manual step, completed 2026-07-13. The registered map ID is
+**`f1de4e716bd1afb992c78c8e`** (display name "food-list-map", vector, tilt/rotation off),
+wired into `src/App.tsx` as the `mapId` prop. The published style `bobby-menu-warm-paper`
+(JSON: [`deploy/map-style.json`](./map-style.json)) is associated with that map ID, which
+restyles the tiles in production and dev simultaneously. Note: the `mapId` prop must be
+the hex Map ID, not the display name.
 
 ## Fast path — JSON (preferred)
 

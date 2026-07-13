@@ -280,7 +280,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           style={{ width: '100%', height: '100%' }}
           defaultCenter={activeMetro.center}
           defaultZoom={activeMetro.zoom}
-          mapId="food-list-map"
+          mapId="f1de4e716bd1afb992c78c8e"
           onClick={handleMapClick}
         >
           <ClusteredPins
