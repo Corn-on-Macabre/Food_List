@@ -25844,7 +25844,7 @@
     "id": "pinches-tacos-al-carbon-az",
     "name": "Pinches Tacos Al Carbon (AZ)",
     "tier": "on_my_radar",
-    "cuisine": "Other",
+    "cuisine": "Mexican",
     "lat": 33.655087,
     "lng": -112.080992,
     "googleMapsUrl": "https://www.google.com/maps/place/Pinches+Tacos+Al+Carbon+(AZ)/data=!4m2!3m1!1s0x872b6ff4710b0e51:0xd010c0ffaf1f8d6f",
@@ -25853,7 +25853,7 @@
     "userRatingCount": 378,
     "photoRef": "places/ChIJUQ4LcfRvK4cRb40fr__AENA/photos/AWCwydgt_1T1owLC2jJY2D5cQ9q_MAQMXIGE2ZuxCkKDoJMZowJMRRXjNotxA-fiCzv8wPptJLoxieUP4PkMwAJjjf9sc_tKPHSM7mWUe-gX2lv0O7OfFz231H8sWOYsB20WXGuZLSR8ctHbqcHFx8u6KBkos0Vi5Jt0AGJjrTxEnYq33SH-MQZrZKrxdzeXZTTfDSgPqc-m3FOBYSrJKYMPBgHMQiimYfmBGlrB0SaBG2FyE_oNR_2FESrufK_HZVsnvFOXrx-JS08D1OnFYhA2iReUVutYzG9ZcGIACbL-0gxg3tB54YrH89lj0kzqfHUhBNvbxUWKKJkhRBCYVSsRe3tL2iHQK1kzz2qMmWZ8hzZqXbq3oXE0dlD8nogPPkTm_-p3KviGKE8jo3zlr4HU2JCdFkZkibCWVcgAy6RhDKKi0w",
     "enrichedAt": "2026-07-18",
-    "notes": "Taco tijuana style is the move. Fresh, quick, and there's a condiment bar. In the same plaza as La Purisma bakery.",
+    "notes": "Taco tijuana style is the move. Fresh, quick, and there's a condiment bar. In the same plaza as La Purisma bakery. Try the carne asada burrito mixed with the green Chile, add beans.",
     "city": "phoenix",
     "googlePlaceId": "ChIJUQ4LcfRvK4cRb40fr__AENA",
     "address": "520 W Union Hills Dr #102, Phoenix, AZ 85027, USA",
@@ -61750,8 +61750,8 @@
   {
     "id": "mrs-white-s-golden-rule-cafe",
     "name": "Mrs White's Golden Rule Cafe",
-    "tier": "on_my_radar",
-    "cuisine": "American",
+    "tier": "recommended",
+    "cuisine": "Soul food",
     "lat": 33.4473732,
     "lng": -112.0632985,
     "googleMapsUrl": "https://www.google.com/maps/place/Mrs+White's+Golden+Rule+Cafe/data=!4m2!3m1!1s0x872b121dbcec1083:0xe0e71d19f20c6bda",
@@ -68629,7 +68629,7 @@
       "quick lunch",
       "must-try"
     ],
-    "tier": "on_my_radar",
+    "tier": "loved",
     "dateAdded": "2026-06-22",
     "source": "web research",
     "rating": 4.4,
@@ -76077,5 +76077,2546 @@
         "Sunday: 12:00 – 9:00 PM"
       ]
     }
+  },
+  {
+    "id": "babas-burgers-birds",
+    "name": "Baba's Burgers & Birds",
+    "tier": "on_my_radar",
+    "cuisine": "American",
+    "lat": 33.6695229,
+    "lng": -112.2398807,
+    "notes": "Chicken sandwiches and a burgers look awesome. Inside a brewery",
+    "googleMapsUrl": "https://maps.google.com/?cid=4731926008616736732&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA&hl=en-US&source=apiv3",
+    "dateAdded": "2026-06-30",
+    "featured": false,
+    "city": "phoenix",
+    "rating": 4.7,
+    "userRatingCount": 201,
+    "photoRef": "places/ChIJWXu9nzxdK4cR3FcIT6Itq0E/photos/AWCwydhgcaosb8_QTOhhha2exL-txc7p5QyQrv-uzNebyq1yMUWRJ-Ev92haE-khjWZ9b_YnoPXU-Wg7XjSvHFlljcidZPIs9cT493h0CiY__7N3SYLrZMd8YpTumWFnx4RoKSMdpFiSOX8h66uBYSHtrusNWzozlbYN_m4lGSS-KbNtYDgiFmCw-JdtpjRoN8bt8gCSr3kqVuoo6m6s_ZAAASttGtXtUab1kJfi8qleQgOpGMarHx4VpD0N_yYU-GT5po0se0UqNzwUR2gja4USnoNSHdLJieajzlH83hfE_OobLiSnaxxreTRBhSQRjAf1SyKBsPQrio6E3WUCqw53TA4PKww5HZfs53tkEl52bZQf1G6ByX1keSkLBI4Q8tEjZdomfViLq5W51d0-zHEFk3mNjVx8Y5cO2MzUOoQbROdfoBC5z5WSGc-9LAkzY1rp",
+    "googlePlaceId": "ChIJWXu9nzxdK4cR3FcIT6Itq0E",
+    "address": "8279 W Lake Pleasant Pkwy #109, Peoria, AZ 85382, USA",
+    "website": "https://babasburgersbirds0817.s4shops.com/",
+    "phone": "(602) 637-7471",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 19,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 22,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: Closed",
+        "Tuesday: 11:00 AM – 9:00 PM",
+        "Wednesday: 11:00 AM – 9:00 PM",
+        "Thursday: 11:00 AM – 9:00 PM",
+        "Friday: 11:00 AM – 10:00 PM",
+        "Saturday: 11:00 AM – 10:00 PM",
+        "Sunday: 11:00 AM – 7:00 PM"
+      ]
+    },
+    "enrichedAt": "2026-07-18"
+  },
+  {
+    "id": "brusters-real-ice-cream",
+    "name": "Bruster's Real Ice Cream",
+    "tier": "recommended",
+    "cuisine": "Ice Cream",
+    "lat": 33.6546659,
+    "lng": -111.9793358,
+    "notes": "Great spot for ice cream",
+    "googleMapsUrl": "https://maps.google.com/?cid=3839074310551966430&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA&hl=en-US&source=apiv3",
+    "dateAdded": "2026-06-21",
+    "tags": [
+      "kid-friendly"
+    ],
+    "featured": false,
+    "city": "phoenix",
+    "rating": 4.8,
+    "userRatingCount": 241,
+    "photoRef": "places/ChIJAf57kdlxK4cR3hLHwr4hRzU/photos/AWCwydjqfBchwfjSw79m4PmmaBiQ1V5rgj9-vEULeZ0VV7jba_RSqwlTdfITjrWo71TogB7cjAeCT22NqJNmJ4u_FggX5cu6U9WEwcC4uKnsneulNkKBGENS8OOhzRLFgGpYtkMtokqEgNjkFhXvBBEstJzOJtbiQqVeCM0Ilxwd1gfhd4UOZO0VlkHiD8Y_oqSV0gAQoxMnazBEqlCpn5glWN3t9gcAmPedm1PFwP24mPI90GHB9Jcj1IXBVC3Ie2wY2TG7y3WntkC2WYW9GB-Adcut-N5koaF8fDTMf5Lc-yo8MTjKv03h-_rT1ma0hOYtp-YjA8JYnLmQ3qngQQcIjAeoe2lZ2tCYBCo1JJFrOJ0Th5E4CjwvBZ12jbXgPsP5ZTsCJmkgZrVbzqO60n0ux_WJq-GPVktTP68MOUsXyttHpElBVUUHtqCVkiJMOw",
+    "googlePlaceId": "ChIJAf57kdlxK4cR3hLHwr4hRzU",
+    "address": "4731 E Union Hills Dr #118, Phoenix, AZ 85050, USA",
+    "website": "https://brusters.com/locations/NorthPhoenix/439",
+    "phone": "(480) 500-5502",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 1,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 1,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 23,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 23,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: 11:00 AM – 10:00 PM",
+        "Tuesday: 11:00 AM – 10:00 PM",
+        "Wednesday: 11:00 AM – 10:00 PM",
+        "Thursday: 11:00 AM – 10:00 PM",
+        "Friday: 11:00 AM – 11:00 PM",
+        "Saturday: 11:00 AM – 11:00 PM",
+        "Sunday: 11:00 AM – 10:00 PM"
+      ]
+    },
+    "enrichedAt": "2026-07-18"
+  },
+  {
+    "id": "chern-thai-artisanal-cafe",
+    "name": "Chern Thai Artisanal Cafe",
+    "tier": "on_my_radar",
+    "cuisine": "Thai",
+    "lat": 33.6227,
+    "lng": -111.8970889,
+    "googleMapsUrl": "https://maps.google.com/?cid=213735162515308135&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA&hl=en-US&source=apiv3",
+    "dateAdded": "2026-05-17",
+    "featured": false,
+    "city": "phoenix",
+    "rating": 4.6,
+    "userRatingCount": 526,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJpYwojbZ1K4cRZz68df9W9wI/photos/AWCwydhhnze_5HL2Upg8-Tb5_eFZsBPXDXT7737lWD_LyDT37rjNGdCrBNByVsK5a6mEkv2fHXm_DXJQaBiVqI0qLyb5KMbgYDFKebzCTAqAM_eNawTTl1PvKko-SB6dLMbLNJcGNSdaf-CsjOgalzKFVR2kWUZQklyZGYC4PxiQzDpp1yYYBoTo3LUxbxNNxT-Sa-RzC_OJiJmi2p2R0UxGE-pqZu-4Uz2mbIBEujM4mMwdrf78E1Jw90xkCY34PnpKs5XZtyTfekH2HRZIcIqeHmFYYjp73xr1W1sf7Kny9POTb3YU3scPOtmt0tvobvw_pGxqsk0EEJP1fH41cuD4GE1AHRxt99vPc0woMX6C0xW3Cz_sqc3O2ai7DbWAAM-WH13Ejg7cXWGjQJl7lioc-nsxoYnD5HGtw8ND4TiJD6ibd0tvk01jt9tZc7JFUL2u",
+    "googlePlaceId": "ChIJpYwojbZ1K4cRZz68df9W9wI",
+    "address": "15050 N Northsight Blvd #107, Scottsdale, AZ 85260, USA",
+    "website": "https://chernthaicafeaz.com/",
+    "phone": "(480) 659-4008",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 12,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 1,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 1,
+            "hour": 14,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 1,
+            "hour": 16,
+            "minute": 30
+          },
+          "close": {
+            "day": 1,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 14,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 16,
+            "minute": 30
+          },
+          "close": {
+            "day": 2,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 14,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 16,
+            "minute": 30
+          },
+          "close": {
+            "day": 3,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 14,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 16,
+            "minute": 30
+          },
+          "close": {
+            "day": 4,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 14,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 16,
+            "minute": 30
+          },
+          "close": {
+            "day": 5,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 12,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 21,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: 11:00 AM – 2:30 PM, 4:30 – 9:00 PM",
+        "Tuesday: 11:00 AM – 2:30 PM, 4:30 – 9:00 PM",
+        "Wednesday: 11:00 AM – 2:30 PM, 4:30 – 9:00 PM",
+        "Thursday: 11:00 AM – 2:30 PM, 4:30 – 9:00 PM",
+        "Friday: 11:00 AM – 2:30 PM, 4:30 – 9:00 PM",
+        "Saturday: 12:00 – 9:00 PM",
+        "Sunday: 12:00 – 9:00 PM"
+      ]
+    },
+    "enrichedAt": "2026-07-18"
+  },
+  {
+    "id": "dakshin-indian-restaurant",
+    "name": "Dakshin, Indian Restaurant",
+    "tier": "on_my_radar",
+    "cuisine": "Indian",
+    "lat": 33.6778818,
+    "lng": -111.9788059,
+    "googleMapsUrl": "https://maps.google.com/?cid=10798187039633544160&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA&hl=en-US&source=apiv3",
+    "source": "Jignesh Patel",
+    "dateAdded": "2026-06-16",
+    "featured": false,
+    "city": "phoenix",
+    "rating": 4.7,
+    "userRatingCount": 141,
+    "photoRef": "places/ChIJkbUtYndxK4cR4JOVu-bd2pU/photos/AWCwydhUIfJ6LcH4qKSvd95U_D4lWaIUJQjuw-XLfcquPCTh6BPZZiKZI3Y7pF7c33m9dgilD_s1DHV14qk-lpzoAH7r6vKkg493f2adeHHTxLBA5YxRSbu_A2zA6TLTOxnjoDOAt3d7MM_T4gZlFY8HZiwD88Rs9ar7nDit__R9zBVxmgOWXQrvyoXpXXqWq0CMs198W0xF0UbqzGcXOZhGnf-scbqDwbs69J6JoBNu9qDa-L7WG4tdufhJvtLwTz4EW8V1Xq15SrGXHeIM3Cbv0zW5JHnoGMf9xpN10eUrS7-VoRkudS0j_xD5Zug9ALJZAzcijxzkzA0If5TS91SrHpegEfUFJeSq5kTQCyVXRC5hhRXNLyTHt2K3yR1ghdO8Yj6ZH7G0HVi2lQwfXFZeOFw9autP8cVC4eQ2w0cR3eRQgJ1zub2pzl0rsWyVqV6b",
+    "googlePlaceId": "ChIJkbUtYndxK4cR4JOVu-bd2pU",
+    "address": "21050 N Tatum Blvd Ste 116, Phoenix, AZ 85050, USA",
+    "website": "https://www.dakshinaz.com/",
+    "phone": "(480) 257-3181",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 14,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 0,
+            "hour": 17,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 11,
+            "minute": 30
+          },
+          "close": {
+            "day": 2,
+            "hour": 14,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 17,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 11,
+            "minute": 30
+          },
+          "close": {
+            "day": 3,
+            "hour": 14,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 17,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 11,
+            "minute": 30
+          },
+          "close": {
+            "day": 4,
+            "hour": 14,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 17,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 12,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 14,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 17,
+            "minute": 30
+          },
+          "close": {
+            "day": 5,
+            "hour": 23,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 11,
+            "minute": 30
+          },
+          "close": {
+            "day": 6,
+            "hour": 14,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 17,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 23,
+            "minute": 30
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: Closed",
+        "Tuesday: 11:30 AM – 2:30 PM, 5:00 – 10:00 PM",
+        "Wednesday: 11:30 AM – 2:30 PM, 5:00 – 10:00 PM",
+        "Thursday: 11:30 AM – 2:30 PM, 5:00 – 10:00 PM",
+        "Friday: 12:00 – 2:30 PM, 5:30 – 11:30 PM",
+        "Saturday: 11:30 AM – 2:30 PM, 5:00 – 11:30 PM",
+        "Sunday: 11:00 AM – 2:30 PM, 5:00 – 9:00 PM"
+      ]
+    },
+    "enrichedAt": "2026-07-18"
+  },
+  {
+    "id": "eggroll-xpress",
+    "name": "Eggroll Xpress",
+    "tier": "on_my_radar",
+    "cuisine": "American",
+    "lat": 33.3479597,
+    "lng": -111.9105728,
+    "notes": "Eggrolls from a bunch of different countries? It's fried food, can't be that bad.",
+    "googleMapsUrl": "https://maps.google.com/?cid=2712022501131284793&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA&hl=en-US&source=apiv3",
+    "dateAdded": "2026-06-03",
+    "featured": false,
+    "city": "phoenix",
+    "rating": 4.9,
+    "userRatingCount": 50,
+    "photoRef": "places/ChIJBWMHxKgHK4cROfHLihgKoyU/photos/AWCwydgEJrXS8MDg2zeVZ7JpIvp-poWug6ZaoCOqxB_uWPah1vmbNBIogo8J_7AVLAVGoMXDJpLvxKuWjQdNQs6ZYWS_dxQGC_d_7jo5yC1Ju_PrxcA4VIsa3lfhkPdNOWkVZ96x1K0JwP2Q4hzlmhb4WriopFVa6hfiosGitekdDIGjbAao4J-XZ9qURHnudfdFggxGFTCmaZcmog-Z7UUJq2qnI7eeJYRzc1IcLa-M6f-gU0CMsCHUUI6Mhvhi6n4NVeiF4yukdwjmqaJCNUrrJEvyW_Ucfqur6c98VenfTqij_e2VAF74nzaUoXT9j1xRTMAXx2eMNb9jhHn8aePkeVe08EdJ9xgDEeWmZIwGUQO2G3PHRs5pUMO01W_RJgaoURoGgdueJ7fcLNoDskgI_JuiwBG1wwIz7StgeW3vXLLYrx5xkSuulyZQ1gHAuiI1",
+    "googlePlaceId": "ChIJBWMHxKgHK4cROfHLihgKoyU",
+    "address": "1805 E Elliot Rd #106, Tempe, AZ 85284, USA",
+    "website": "https://eggroll-xpress.com/",
+    "phone": "(480) 300-5297",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 1,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 1,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 22,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: 11:00 AM – 9:00 PM",
+        "Tuesday: 11:00 AM – 9:00 PM",
+        "Wednesday: 11:00 AM – 9:00 PM",
+        "Thursday: 11:00 AM – 10:00 PM",
+        "Friday: 11:00 AM – 10:00 PM",
+        "Saturday: 11:00 AM – 10:00 PM",
+        "Sunday: 11:00 AM – 9:00 PM"
+      ]
+    },
+    "enrichedAt": "2026-07-18"
+  },
+  {
+    "id": "funky-fridas",
+    "name": "Funky Frida's",
+    "tier": "on_my_radar",
+    "cuisine": "Mexican",
+    "lat": 33.494903,
+    "lng": -111.9754061,
+    "googleMapsUrl": "https://maps.google.com/?cid=14249092095180878196&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA&hl=en-US&source=apiv3",
+    "dateAdded": "2026-05-09",
+    "featured": false,
+    "city": "phoenix",
+    "rating": 4.4,
+    "userRatingCount": 117,
+    "photoRef": "places/ChIJydiBL9gNK4cRdDEVAcTxvsU/photos/AWCwydik3fhe0mxqkvCVXjlIkBuViyw7Unbr_YCgZlcOaRYCKCfYPcGEqP6D6Xl9R9K-JQZvaVwvwaS7NDNecjQD7Cf9F4jC7ioEGl5QhMiK5EcxuX8MqQ67ws9-T95VfOJgtQTvEvAlpUXWjedfFyLmjo_ppppnEtVQN1EBGqzKGYAR0IgK_sWVyO3E1SOsoWKkwjTCF4K9IY1H_6ZF6k5B5Nsf8UMOQAY9HAhn-i6cXRoiKYqnPg1A37n7jzoLoUg95nMkztVvj4I6E-vMIv7ueM8xYKOBij9CvOOdMB2FhaapHsAKMkphLneg8RkwZUYd8r5GDOqjtjjWudEPq38Dt4o2gi6d5kKMAQg7aeuosi09oDeMBRMhwkAptH6Aqgg60p6yFyzqdWROM3S7rqR-KzYQ4-gVC0yMGD1hJDwClLFnMRzzTNNDxzI3nqLy9Q",
+    "googlePlaceId": "ChIJydiBL9gNK4cRdDEVAcTxvsU",
+    "address": "4910 E Indian School Rd, Phoenix, AZ 85018, USA",
+    "website": "https://www.funky-fridas.com/",
+    "phone": "(602) 661-2632",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 9,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 22,
+            "minute": 1
+          }
+        },
+        {
+          "open": {
+            "day": 1,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 1,
+            "hour": 22,
+            "minute": 1
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 22,
+            "minute": 1
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 22,
+            "minute": 1
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 22,
+            "minute": 1
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 22,
+            "minute": 1
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 9,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 22,
+            "minute": 1
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: 11:00 AM – 10:01 PM",
+        "Tuesday: 11:00 AM – 10:01 PM",
+        "Wednesday: 11:00 AM – 10:01 PM",
+        "Thursday: 11:00 AM – 10:01 PM",
+        "Friday: 11:00 AM – 10:01 PM",
+        "Saturday: 9:00 AM – 10:01 PM",
+        "Sunday: 9:00 AM – 10:01 PM"
+      ]
+    },
+    "enrichedAt": "2026-07-18"
+  },
+  {
+    "id": "giovannas-pizza",
+    "name": "Giovanna's Pizza",
+    "tier": "on_my_radar",
+    "cuisine": "Pizza",
+    "lat": 33.5736317,
+    "lng": -111.862033,
+    "notes": "Chicken Parmesan pizza slice looks great",
+    "googleMapsUrl": "https://maps.google.com/?cid=13264320123231188774&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA&hl=en-US&source=apiv3",
+    "dateAdded": "2026-06-02",
+    "featured": false,
+    "city": "phoenix",
+    "rating": 4.8,
+    "userRatingCount": 168,
+    "photoRef": "places/ChIJW-p0JwB1K4cRJrdC7N9UFLg/photos/AWCwydgnKTeH3FIvT2DBdahckEiWYiKuzqBKhS98BieN0S41ow8MnNSeY13s9nuEF9OjWRDZ8QTnCq43i0jFrkrp9rzcQF6N_Li279lxOWFWthp0cWblakwDEc_x2HE-ewX0PnGwAkD0jcKmg-3A9wlobRWyzCrWWfhwTe9_ITAmESQMU6oysgDh2XHeUySD-M5qgRTvHuVVsiSu0fv7zDZ5Z2ppKIrR1It78V1YdNR0i0MAEucx8kG1MixiMkaZ0qwwTPZvg5cJw8CPH6xz9W8TZQAmIdYI_5IyHZPoHbkw_DOW6Jy_1iDLWqmvvN9BHOYxPfGfdymm2BaCkHBoJW_q4YlLCD8Rz2ITz31vohIBpojlbIzKjyzO7otwDV3rOX5MVDz7dguDsidzg5O8jO_4u5joyv3_cZdJxs7Q7G36yoYwRfyb_2mvSFV3CB50HKPx",
+    "googlePlaceId": "ChIJW-p0JwB1K4cRJrdC7N9UFLg",
+    "address": "10135 E Vía Linda Ste C113, Scottsdale, AZ 85258, USA",
+    "website": "https://giovannapizza.wixsite.com/giovanna",
+    "phone": "(480) 361-7725",
+    "businessStatus": "CLOSED_TEMPORARILY",
+    "enrichedAt": "2026-07-18"
+  },
+  {
+    "id": "hechalou-tea-house-jelly-phoenix",
+    "name": "Hechalou Tea House & Jelly -Phoenix",
+    "tier": "on_my_radar",
+    "cuisine": "Other",
+    "lat": 33.6386637,
+    "lng": -112.1499027,
+    "googleMapsUrl": "https://maps.google.com/?cid=12320954960114783183&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA&hl=en-US&source=apiv3",
+    "dateAdded": "2026-05-09",
+    "featured": false,
+    "city": "phoenix",
+    "rating": 4.7,
+    "userRatingCount": 88,
+    "photoRef": "places/ChIJgTcgNnlpK4cRz5M6y0HT_Ko/photos/AWCwydhTG5kxsebL5IyG4L2gmPAPe_aQQCRux_zhTK4bCLYLUdhosYP57Pfh6FilajNgW09isrQByuD9tA5DatnfG5wtJoUJ4mxss9G4Orb-5lkGQPViAZNwu3nF-Wp-28DFBeZvxZrOsIcDgMTEmh3JxVcs0cESf_25tmw7IvcIBVmboCwy1_xlwrT6JLJSbi0X2saprK3RshFkLJJ5lCVtS7ePdel_jnRCdjpNEklxwk4G9lSrH8cawGCqTnr4ISaQLArFObKl_LbG6_pH6eh4oXuyF9OCKCOzume3QaUMm5NS3W2MnyCb82hWiPhtWKwh-G61uIk8GPKv9Ww8lYbm55U1Cqzx-5_vG0AQEAMwgUD2zauNVmcBl6PjPzVlixlOgtKvQ3-GJzkJpk9vJplMdl8Ib1mc9iUnF1x_Z4zMtsJi_kLAHgcKblH6rtP0_XFD",
+    "googlePlaceId": "ChIJgTcgNnlpK4cRz5M6y0HT_Ko",
+    "address": "4215 W Bell Rd, Phoenix, AZ 85053, USA",
+    "website": "https://pos.chowbus.com/online-ordering/store/Ho-Jia-Foods-x-HECHALOU/23003",
+    "phone": "(480) 868-9660",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 20,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 1,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 1,
+            "hour": 20,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 20,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 20,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 20,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 20,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 20,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: 11:00 AM – 8:00 PM",
+        "Tuesday: 11:00 AM – 8:00 PM",
+        "Wednesday: 11:00 AM – 8:00 PM",
+        "Thursday: 11:00 AM – 8:00 PM",
+        "Friday: 11:00 AM – 8:00 PM",
+        "Saturday: 11:00 AM – 8:00 PM",
+        "Sunday: 11:00 AM – 8:00 PM"
+      ]
+    },
+    "enrichedAt": "2026-07-18"
+  },
+  {
+    "id": "heritage-kitchen-cocktails",
+    "name": "Heritage Kitchen + Cocktails",
+    "tier": "on_my_radar",
+    "cuisine": "American",
+    "lat": 33.6385866,
+    "lng": -111.8629137,
+    "notes": "Chicken Caesar pizza sandwich looks delicious",
+    "googleMapsUrl": "https://maps.google.com/?cid=14489699352552419260&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA&hl=en-US&source=apiv3",
+    "dateAdded": "2026-06-16",
+    "featured": false,
+    "city": "phoenix",
+    "rating": 4.7,
+    "userRatingCount": 106,
+    "photoRef": "places/ChIJYfzNYjR1K4cRvC8Ym8rAFck/photos/AWCwydhVc0jDtav12lf7Z23y7aFHCeRSeetyIydiCViRcv5wNxu02KwGYZ2EJ5jxqFZ1TLTg1syunhdJ_w3sCVaqGo9h0GcezRWkbyesrhkR7EnLuQU1q-6JhAqUpW1pZb59SN8hviMUYDFj87G_HMICPIGuPiqq4U6pLBKYbdbfFtJKibK1YsTIKHbQT8jV8l9I8GjzQ3ND6Ppm2gXwulZT-O5EZl4d0984pO8q3ES6A3sfZqHo00pPsx5rdOHNkwo_jWR8Xjdc_1hU53REtba2-OjkSH1iYMfdJufJpxa43SGrS16tQ9fxXLSIaNmjlyfVUBPMCAC2pgvmCZ0S-SkPQYu0F0I0aq_pY0_s-3bf6tP5npK9H1lwtZpFfFckdakOyqlhyUm60u1eDI5LCElZX0pW6EfHmlFhM2TaMfUH6aeuWXxp1y1Q6cC39DehuSFy",
+    "googlePlaceId": "ChIJYfzNYjR1K4cRvC8Ym8rAFck",
+    "address": "10121 E Bell Rd Ste 150, Scottsdale, AZ 85260, USA",
+    "website": "http://heritagescottsdale.com/",
+    "phone": "(480) 630-3232",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 15,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 15,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 15,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 15,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 15,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 15,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 22,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: Closed",
+        "Tuesday: 3:00 – 9:00 PM",
+        "Wednesday: 3:00 – 9:00 PM",
+        "Thursday: 3:00 – 9:00 PM",
+        "Friday: 3:00 – 10:00 PM",
+        "Saturday: 3:00 – 10:00 PM",
+        "Sunday: 3:00 – 9:00 PM"
+      ]
+    },
+    "enrichedAt": "2026-07-18"
+  },
+  {
+    "id": "hotdogs-501",
+    "name": "Hotdogs 501",
+    "tier": "on_my_radar",
+    "cuisine": "Mexican",
+    "lat": 32.236313,
+    "lng": -110.9782554,
+    "notes": "Great looking sonoran hotdogs",
+    "googleMapsUrl": "https://maps.google.com/?cid=15157234457118667377&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA&hl=en-US&source=apiv3",
+    "dateAdded": "2026-06-11",
+    "featured": false,
+    "city": "phoenix",
+    "rating": 4.9,
+    "userRatingCount": 169,
+    "photoRef": "places/ChIJY19xiXNx1oYRcXLeqW5QWdI/photos/AWCwydjYV99q-6PDKMkDyUh2h6Y9ZHzKdvZkEeqWMGSMsmsSeNfAE0TJQFFjaOCrvBs6sDO1Lnn5MIoqGDkPA8rv1VM1v4UjbuO0GRvBOV4yxkBg730mZfbOA-QJALO5XLbZpNwcPoKeatm5Myip4hafVw9mTytEIJzoz9liCAOCjb8n0jtI5IVFvFYUi_nyiTIJ9-aSIICKMd9GE4asd3ck2A8cxjVhbeXtLk0u5slt-M3FdzqJQQp1zOfef8_xpWIZ5vcRSaI39SrqWY_Y_CjE95dxD_gDZJGGSyDqTuo7q0g-LmAyJEvZDeakGHhyRimtBC0HyC_G3rAMHenIbVEwf9iteUaRofBZLL72GGREsZ1qPNTYUu8sR5CXJHBYdYdJNQrYLxd_kpj0PFSuHKQETj5CC7c44JTeEcEFR9wAxZPfOD6V1q4KkP9hdgmLuw",
+    "googlePlaceId": "ChIJY19xiXNx1oYRcXLeqW5QWdI",
+    "address": "1111 N Main Ave, Tucson, AZ 85705, USA",
+    "businessStatus": "CLOSED_TEMPORARILY",
+    "enrichedAt": "2026-07-18"
+  },
+  {
+    "id": "itlu-pure-indian-vegeterian",
+    "name": "ITLU Pure Indian Vegeterian",
+    "tier": "on_my_radar",
+    "cuisine": "Indian",
+    "lat": 33.2766511,
+    "lng": -111.8740924,
+    "notes": "Great vegetarian Indian food",
+    "googleMapsUrl": "https://maps.google.com/?cid=14089290298594020965&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA&hl=en-US&source=apiv3",
+    "source": "Jignesh Patel",
+    "dateAdded": "2026-06-16",
+    "featured": false,
+    "city": "phoenix",
+    "rating": 4.4,
+    "userRatingCount": 267,
+    "photoRef": "places/ChIJ-_eGi0MBK4cRZc4N2eA2h8M/photos/AWCwydioZM57Z088DeH2uwe244RIeVmqoAvaTLbctch4KPwJMwWdUJ97eaxpaaBv8r5hnMDCMsiHF2K1lk4VJaQtrUP8azObI8BqM1m-u9SxrabB333VoUFLNYIhw4kay_15TOkX2kHJgZpCqPYiAuYXYZFMGT9Ho1g6T_1ugFyjr_bzZq0N8EPrY6cXL6j5dvWNcNERcv0UqvVLiLUEdRf8Jjbhc-wBAlUud1H5_84znk2LtRpOgmjc340p6biRcW_Mb4rK_d8L_R6H9Ue0FmADIiXTA8nl6qp-WnMuxo2kPnwcY0g5-BZHCI_8EI6umDWzB4lsP1dU8cNi0p0kcLMFWmrYUItEVMPP9QfV_2QsyEVTrdRpYVGxj918kHNWB5gnZBgdNkl2jvotDxIUKtrFNzEU1SeZRPBtzemvk4cQxo3pAsJ97i9KO13-eh1R-Xaf",
+    "googlePlaceId": "ChIJ-_eGi0MBK4cRZc4N2eA2h8M",
+    "address": "1890 W Germann Rd #1, Chandler, AZ 85286, USA",
+    "website": "https://itlu.us/?utm_source=google",
+    "phone": "(480) 487-2123",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 8,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 11,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 0,
+            "hour": 11,
+            "minute": 30
+          },
+          "close": {
+            "day": 0,
+            "hour": 15,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 0,
+            "hour": 17,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 11,
+            "minute": 30
+          },
+          "close": {
+            "day": 2,
+            "hour": 14,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 17,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 11,
+            "minute": 30
+          },
+          "close": {
+            "day": 3,
+            "hour": 14,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 17,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 11,
+            "minute": 30
+          },
+          "close": {
+            "day": 4,
+            "hour": 14,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 17,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 9,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 11,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 11,
+            "minute": 30
+          },
+          "close": {
+            "day": 5,
+            "hour": 15,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 17,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 8,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 11,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 11,
+            "minute": 30
+          },
+          "close": {
+            "day": 6,
+            "hour": 15,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 17,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 22,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: Closed",
+        "Tuesday: 11:30 AM – 2:30 PM, 5:00 – 10:00 PM",
+        "Wednesday: 11:30 AM – 2:30 PM, 5:00 – 10:00 PM",
+        "Thursday: 11:30 AM – 2:30 PM, 5:00 – 10:00 PM",
+        "Friday: 9:00 – 11:00 AM, 11:30 AM – 3:00 PM, 5:00 – 10:00 PM",
+        "Saturday: 8:00 – 11:00 AM, 11:30 AM – 3:00 PM, 5:00 – 10:00 PM",
+        "Sunday: 8:00 – 11:00 AM, 11:30 AM – 3:00 PM, 5:00 – 10:00 PM"
+      ]
+    },
+    "enrichedAt": "2026-07-18"
+  },
+  {
+    "id": "kagawa-guys",
+    "name": "Kagawa guys",
+    "tier": "on_my_radar",
+    "cuisine": "Japanese",
+    "lat": 33.3631531,
+    "lng": -111.8791159,
+    "notes": "Japanese omelette restaurant",
+    "googleMapsUrl": "https://maps.google.com/?cid=8370958108781387599&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA&hl=en-US&source=apiv3",
+    "dateAdded": "2026-06-15",
+    "featured": false,
+    "city": "phoenix",
+    "rating": 4.6,
+    "userRatingCount": 46,
+    "photoRef": "places/ChIJa6JgAx0HK4cRTx-XdwyeK3Q/photos/AWCwydhjbEUs65kBdXEbTVY1SpBXDahUDbjcodKJlPetgrSTb-i-bjqfqntk39i6ql8vB8TlhETF5OH7DkqdqebAKbV8ZOX311AD2EikMBY1VyOfQyOe6iLnyLyZS5OzXkxQcxsyibzbUBGmSP2ffrSCBk-npZU9hncI7K0A-rdIOUS__NKVV9Wln9Y39Llqxu8LS898e-PCh-l65PydBQal1LnU7Z3FHC7dij7KZeH9sSqlYCyVQSWxlXGrCXU5GibHezQg8PGzXXH_R9kL8NjRUmhYCxkeJigwgr3PHWAyexsqEPLS0yD4g0T1w83Xf7d1TTyli5fSYWKfMSp-YObd0g_kUPXGuTp7HGJiE0-v_zh8pNNSjy6BXiGYZd1Tn0uo89ijQ_Obt6B7gOkN7Tu8pi91MXGT6lEDzttY89aFTbz24wqiXXZdQlConbxewn1o",
+    "googlePlaceId": "ChIJa6JgAx0HK4cRTx-XdwyeK3Q",
+    "address": "2121 W Guadalupe Rd #6, Mesa, AZ 85202, USA",
+    "website": "https://kagawaguysmesa.my.canva.site/",
+    "phone": "(480) 219-5709",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 17,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 17,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 17,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 17,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 17,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 17,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 21,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: Closed",
+        "Tuesday: 5:00 – 9:00 PM",
+        "Wednesday: 5:00 – 9:00 PM",
+        "Thursday: 5:00 – 9:00 PM",
+        "Friday: 5:00 – 9:00 PM",
+        "Saturday: 5:00 – 9:00 PM",
+        "Sunday: 5:00 – 9:00 PM"
+      ]
+    },
+    "enrichedAt": "2026-07-18"
+  },
+  {
+    "id": "lets-toast",
+    "name": "Let’s Toast",
+    "tier": "on_my_radar",
+    "cuisine": "Korean",
+    "lat": 33.5104721,
+    "lng": -112.0718374,
+    "notes": "Breakfast sandwich place using Korean toast looks awesome.",
+    "googleMapsUrl": "https://maps.google.com/?cid=9081057353708336353&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA&hl=en-US&source=apiv3",
+    "dateAdded": "2026-05-15",
+    "featured": false,
+    "city": "phoenix",
+    "rating": 4.7,
+    "userRatingCount": 138,
+    "photoRef": "places/ChIJqeu7aAATK4cR4fS7uIxlBn4/photos/AWCwydiMKPA9GMAOSwcDCBjI-RRoiLpE_3HFYaa-UcFjJPkHE5tJ7z_qLw_wuG5VU0yyIi_p1C9_mvDNauX95vjdPN1sb5y1HhzztdOIr3sDx6DT_RVF3zLLO2TFF29jRHtSv1IvoG7iyy2qb0GzL80vkKjlcoCvqkIahN8uQFVkMPa71Y3njOAEYaTsXQAHCkUB7vkg5DMeRSM9aNsxhsN3qRMpax3VBx759lVy6I7fu9hAudu3_AXm0OYLDuYhJA17xDfCY2e8o0ewraxc79a3d43CdTN8NadIiGoo-QGhHjYniG_6ludodLYM4O_aHnTYBTtnKHVSQiNo1_A8OCxLunraUj6H8RXD4qEzK-74p4nUTlaPFkOMAi1PrEexObRlQCBozQa3a0VL-JhlyKARBPB9jhp-5UgaYsLr_DGWuI_4y2JGFJJq9X7pTjZabg",
+    "googlePlaceId": "ChIJqeu7aAATK4cR4fS7uIxlBn4",
+    "address": "100 E Camelback Rd Ste 164, Phoenix, AZ 85012, USA",
+    "website": "https://letstoastofficial.com/",
+    "phone": "(623) 349-4155",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 8,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 18,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 8,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 15,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 8,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 15,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 8,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 15,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 8,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 15,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 8,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 18,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: Closed",
+        "Tuesday: 8:00 AM – 3:00 PM",
+        "Wednesday: 8:00 AM – 3:00 PM",
+        "Thursday: 8:00 AM – 3:00 PM",
+        "Friday: 8:00 AM – 3:00 PM",
+        "Saturday: 8:00 AM – 6:00 PM",
+        "Sunday: 8:00 AM – 6:00 PM"
+      ]
+    },
+    "enrichedAt": "2026-07-18"
+  },
+  {
+    "id": "los-kikis-birrieria-y-taqueria",
+    "name": "Los Kikis Birrieria y Taqueria",
+    "tier": "on_my_radar",
+    "cuisine": "Mexican",
+    "lat": 33.4728159,
+    "lng": -112.0125726,
+    "googleMapsUrl": "https://maps.google.com/?cid=15332382988556634401&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA&hl=en-US&source=apiv3",
+    "dateAdded": "2026-07-05",
+    "featured": false,
+    "city": "phoenix",
+    "rating": 4.9,
+    "userRatingCount": 94,
+    "photoRef": "places/ChIJd0IIGRUNK4cRIQkp-ReRx9Q/photos/AWCwydhWsm428qy9HBY0MT2h_YpTmcu17BKpUnfop2-lyPzntKmSrmiffCFFU3jHuVLwfgkVvxqcey_zJVrc6HGDtzrf4qOaBvpU3gdVas4-62S42SJ8I8bItwf6u15LvMe5cAVM6ht52iJzHy4CdWUusAExuTui2t7ZFG1YPBilvAX6KJmXAAMfulgy-3N3wY0jr9gr54wiYL3x35lYX_4_izgr9sm6V5-eFNl_oZdD0eEPkDh7w44fGZAthgdOl_ZIIDNjBrP8lhu7Aa1WaxRCv_DuW6YwR6APUG9jnSyHyQd75ZxK5o0uRhYrn6U9rB1UxxuhU1jq7zVxyJQPMU_8WwQ3CtREjecRl224qEk39u25k5hTbiVPZAmj4-fTMsAefgQ81EbT5iYGq39MbSRTAdHWxAsbahEEeogPWNE39CqsQm85fzGMx8WxoEPcX6vK",
+    "googlePlaceId": "ChIJd0IIGRUNK4cRIQkp-ReRx9Q",
+    "address": "3201 E Oak St, Phoenix, AZ 85008, USA",
+    "phone": "(602) 320-1411",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 8,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 1,
+            "hour": 10,
+            "minute": 0
+          },
+          "close": {
+            "day": 1,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 10,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 10,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 10,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 10,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 8,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 22,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: 10:00 AM – 9:00 PM",
+        "Tuesday: 10:00 AM – 9:00 PM",
+        "Wednesday: 10:00 AM – 9:00 PM",
+        "Thursday: 10:00 AM – 9:00 PM",
+        "Friday: 10:00 AM – 10:00 PM",
+        "Saturday: 8:00 AM – 10:00 PM",
+        "Sunday: 8:00 AM – 9:00 PM"
+      ]
+    },
+    "enrichedAt": "2026-07-18"
+  },
+  {
+    "id": "mexipho-mexican-vietnamese-fusion",
+    "name": "MexiPHO - Mexican Vietnamese Fusion",
+    "tier": "recommended",
+    "cuisine": "Mexican",
+    "lat": 41.7216545,
+    "lng": -72.6138243,
+    "notes": "Love fusion food. The PHOrito with chicken and Vietnamese toppings was great.",
+    "googleMapsUrl": "https://maps.google.com/?cid=15400354502850172755&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA&hl=en-US&source=apiv3",
+    "dateAdded": "2026-07-13",
+    "featured": false,
+    "city": "hartford",
+    "rating": 4.6,
+    "userRatingCount": 690,
+    "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+    "photoRef": "places/ChIJ3YOijoBR5okRU9d4ZdMMudU/photos/AWCwydjFooL2Km8BBoJdb_W3n7SlRK9WjHZ6REfF9jzKUEn4RZoAIGx4l4GrSEl8vppyvQuBqPPV0yXz5cgyH8Yx5k2ZsqOrpmS6a33Er4bFNUuMD_bWJoEaNDpyocplbyti1scamfqnptlYIfY-NNHRrMWw16aU8BE2rOBPstI43RmOPqG48XgAxE05y76A8yYuXaBNN4OHk-Rplhuer2phzONe1xY-Zrs5XMn_Cirs42XZ4hxXuLPkmMgrlGbY1fnywDWGSB4cmUkNXI8hPMqJgoeE-Tf17ZQ-C7H9V5jV3xnR3UjqXNN49XiLb5w5TwKuG8WJFiOf99SQEt9xkT8kGLkA6kL9Wa493SzZRwL33c8g64Gkc1gKQ04VM0Hfbu2jPbIt22Q8439o9VipV4z2w457TJkYHxvMOfYDJ7WxdlCuwA",
+    "googlePlaceId": "ChIJ3YOijoBR5okRU9d4ZdMMudU",
+    "address": "2872 Main St, Glastonbury, CT 06033, USA",
+    "website": "http://mexipho.com/",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 1,
+            "hour": 10,
+            "minute": 45
+          },
+          "close": {
+            "day": 1,
+            "hour": 20,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 10,
+            "minute": 45
+          },
+          "close": {
+            "day": 2,
+            "hour": 20,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 10,
+            "minute": 45
+          },
+          "close": {
+            "day": 3,
+            "hour": 20,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 10,
+            "minute": 45
+          },
+          "close": {
+            "day": 4,
+            "hour": 20,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 10,
+            "minute": 45
+          },
+          "close": {
+            "day": 5,
+            "hour": 20,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 10,
+            "minute": 45
+          },
+          "close": {
+            "day": 6,
+            "hour": 20,
+            "minute": 30
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: 10:45 AM – 8:30 PM",
+        "Tuesday: 10:45 AM – 8:30 PM",
+        "Wednesday: 10:45 AM – 8:30 PM",
+        "Thursday: 10:45 AM – 8:30 PM",
+        "Friday: 10:45 AM – 8:30 PM",
+        "Saturday: 10:45 AM – 8:30 PM",
+        "Sunday: Closed"
+      ]
+    },
+    "enrichedAt": "2026-07-18"
+  },
+  {
+    "id": "qamaria-yemeni-coffee-co",
+    "name": "Qamaria Yemeni Coffee Co.",
+    "tier": "on_my_radar",
+    "cuisine": "Cafe",
+    "lat": 33.6386949,
+    "lng": -112.1510088,
+    "notes": "Yemeni inspired coffee",
+    "googleMapsUrl": "https://maps.google.com/?cid=17718924838625112590&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA&hl=en-US&source=apiv3",
+    "dateAdded": "2026-06-05",
+    "featured": false,
+    "city": "phoenix",
+    "rating": 4.9,
+    "userRatingCount": 153,
+    "photoRef": "places/ChIJHzS0Gi9pK4cRDnIYCENE5vU/photos/AWCwydiJy2Dj5-VKcpVrs-LWsOGKpC4rDliDeBg4T2Ou_iFQe_WH8aiGVV3ouOeb1mvIZDJydelrlHsYtdAJw9tI0z9MHZzu-BcgKZQtaoucEmU1w5_r6s1IHdzc61OQNpaBzBv14c2JklEzwQjg0LQmFRxizBcJ5fHIAYDiNI5Yy0sNPKjn9QZHjVLQk25-Sp_ARw-FC00ao0GwJXu3U2IcRS1vUUL6bBJh4DjsII5HAkH95Yt61JBw3EW71cfC2HiM6l66EcSX3hkR5uyHIJ_ww8s2g9naEGqxHM4cv7mjwu0-icBtVd3ppup_-sXMCsyCRmJI_r7DE_0V37eq2HGrwztSD3rqiZE8J8BcJ3t_-vHgC2mj_j0Go9hLHajoggacX8Tt8m76eBxsndeGio1hG2X0mNQfS02De5sGLuJNqb6s9meRjFKtVPMXowhHVw",
+    "googlePlaceId": "ChIJHzS0Gi9pK4cRDnIYCENE5vU",
+    "address": "4251 W Bell Rd, Phoenix, AZ 85053, USA",
+    "website": "https://www.qamariacoffee.com/",
+    "phone": "(480) 590-2271",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 8,
+            "minute": 0
+          },
+          "close": {
+            "day": 1,
+            "hour": 0,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 1,
+            "hour": 8,
+            "minute": 0
+          },
+          "close": {
+            "day": 1,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 8,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 8,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 8,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 8,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 0,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 8,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 0,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: 8:00 AM – 10:00 PM",
+        "Tuesday: 8:00 AM – 10:00 PM",
+        "Wednesday: 8:00 AM – 10:00 PM",
+        "Thursday: 8:00 AM – 10:00 PM",
+        "Friday: 8:00 AM – 12:00 AM",
+        "Saturday: 8:00 AM – 12:00 AM",
+        "Sunday: 8:00 AM – 12:00 AM"
+      ]
+    },
+    "enrichedAt": "2026-07-18"
+  },
+  {
+    "id": "rodeo-goat",
+    "name": "Rodeo Goat",
+    "tier": "loved",
+    "cuisine": "Bar",
+    "lat": 32.7972052,
+    "lng": -96.8239149,
+    "notes": "Incredible burgers - come hungry.",
+    "googleMapsUrl": "https://maps.google.com/?cid=4514212626990944752&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA&hl=en-US&source=apiv3",
+    "dateAdded": "2026-06-22",
+    "featured": false,
+    "city": "phoenix",
+    "rating": 4.6,
+    "userRatingCount": 8580,
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "photoRef": "places/ChIJ3aaOA06ZToYR8NFgiHe0pT4/photos/AWCwydhfD5FzpU63b5QVZzca2c_VLBpvsJj9v-Y3eejBJO9-ZTyeuhwp2GFWTJzMtpm2T5ktHm6yD8A5e156qyJXUSKQoJ-wpk5XEvjGrxOB4_rbZMcIIH_B8S6p7F2TjokzdOyaGyOUpOjUcLr0d14Fa0u1ffqfjjbxlrWKrLTk-aI7lgqZaFT9WikZ3IuoEW1dZlheL5BP1wiWOVg5eqekHvuGUsT2XpoGWybVI1M4tGAhPVDauDWtCsf2GAAmABvbwRCCUWTUAVHt3t5XxigdcJxj5Ifro3tve9UZyp_IlVpkbjSDTnxYF3bm3yYugp5cOOAowgg0m2kI2SHYtaDMOC1Cid2yreQrm9EoLGwNoY72cn5cIsp8oQMH6T4-pWOcdJUIzt-guA28d8yR5drtfSAxNUOS4mG4UgO88ptKuCyFooNM",
+    "googlePlaceId": "ChIJ3aaOA06ZToYR8NFgiHe0pT4",
+    "address": "1926 Market Center Blvd, Dallas, TX 75207, USA",
+    "website": "http://rodeogoat.com/dallas/",
+    "phone": "(214) 741-4628",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 1,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 1,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 23,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 23,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: 11:00 AM – 10:00 PM",
+        "Tuesday: 11:00 AM – 10:00 PM",
+        "Wednesday: 11:00 AM – 10:00 PM",
+        "Thursday: 11:00 AM – 10:00 PM",
+        "Friday: 11:00 AM – 11:00 PM",
+        "Saturday: 11:00 AM – 11:00 PM",
+        "Sunday: 11:00 AM – 10:00 PM"
+      ]
+    },
+    "enrichedAt": "2026-07-18"
+  },
+  {
+    "id": "shaka-dogs",
+    "name": "Shaka Dogs",
+    "tier": "on_my_radar",
+    "cuisine": "Hawaiian",
+    "lat": 33.455265,
+    "lng": -112.0867521,
+    "notes": "Hawaiian hot dogs",
+    "googleMapsUrl": "https://maps.google.com/?cid=16359743146280827624&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA&hl=en-US&source=apiv3",
+    "dateAdded": "2026-06-30",
+    "featured": false,
+    "city": "phoenix",
+    "rating": 4.6,
+    "userRatingCount": 43,
+    "photoRef": "places/ChIJtwvoA3YTK4cR6DqzwrZ7CeM/photos/AWCwydh5R2O9GBYzLpZcsbCRUtwtdo-s_P7aUfvwHx4dNHy2-utQ-YlFr4fxaHwgCPVEwyfbCrMtkGkq-4Wv2xwD4SuLLS2K4-pbxKpE8ZVtcXWXVabL1JYrEbIwElDslldT9ZSwFB8mq7qXk5-AZ4NR-p_r2khf9iWkKi44t9zS3chbkLmRTGmoOwRO7VVNVoud_AY6ZEon3GV_2EbmDqx1Nrztz-FJ1HdRYbQCH-eblhDfayeLO89V3vClf2UnREKEvCL0A3jDj8XwznWZJ5t_yXk54lutOfKsg4Xi1jwsHKFS0LMVkHxfv3Aud9_zsXzlVHEHyuJfenF4hPWZVyCPgqnPap_NHAkyG_onLMG2A-zNpMzuLeaIZCtKczw0X8FHigfpFpY_V5_jpsASDXhKz4bOrwF03iGKIa9WnLzBsK3ZCCGsJAHU93cRNgfhKg",
+    "googlePlaceId": "ChIJtwvoA3YTK4cR6DqzwrZ7CeM",
+    "address": "1028 Grand Ave #5, Phoenix, AZ 85007, USA",
+    "phone": "(480) 248-7861",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 12,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 17,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 23,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 23,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 23,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 23,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 23,
+            "minute": 30
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: Closed",
+        "Tuesday: 11:00 AM – 11:30 PM",
+        "Wednesday: 11:00 AM – 11:30 PM",
+        "Thursday: 11:00 AM – 11:30 PM",
+        "Friday: 11:00 AM – 11:30 PM",
+        "Saturday: 11:00 AM – 11:30 PM",
+        "Sunday: 12:00 – 5:00 PM"
+      ]
+    },
+    "enrichedAt": "2026-07-18"
+  },
+  {
+    "id": "sulbing-",
+    "name": "Sulbing (설빙 - 코리안 디저트 카페)",
+    "tier": "on_my_radar",
+    "cuisine": "Korean",
+    "lat": 33.3760016,
+    "lng": -111.9199246,
+    "notes": "Korean dessert cafe",
+    "googleMapsUrl": "https://maps.google.com/?cid=12569020481974114835&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA&hl=en-US&source=apiv3",
+    "dateAdded": "2026-06-16",
+    "featured": false,
+    "city": "phoenix",
+    "rating": 4.3,
+    "userRatingCount": 36,
+    "photoRef": "places/ChIJYUe2awAHK4cRExqt6oghbq4/photos/AWCwydjPm2n6uYuW32sXN6ugbfVJLQsnDwMf624OfJ9qQlGmaaY03cP1jLT3Qk49K_bNlmrcQLxIsHHeahv8yOX330huHXNtEsBhivMsGFKiJQBf-QarzgjN0D3CuHuv8glZN_KGslsJqN1RJBVi7Ehg0cYMbYOrq-QKD0tRp8LnRdU9M8TJwMt689pcVGPx9hR2F3vfqgfgr9XDVLKcdQwUCBmTaacOU1pE3qeUg3h3f9AlxgPptlaWC0-psvfSHk7n1xwuyjm2Pw0RQUcspLMOhlCqZRSU6U8cAypNcbGISKwnLCaPDmQhEKUNLJDmLNBZ5d1QhCJKfFOHogXh8r12HLTeqBaftxfLE5jo6mxRyJ--8G25ekWbXh4SrFQhmAJgrF3X4AEbk-__J4aSIcGddd1AzvkBvg7YDRPLMd7P3XxlutuJvw-zopR1z1Yp5g",
+    "googlePlaceId": "ChIJYUe2awAHK4cRExqt6oghbq4",
+    "address": "5350 S Lakeshore Dr, Tempe, AZ 85283, USA",
+    "phone": "(480) 366-4066",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 1,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 1,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 0,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 0,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: 11:00 AM – 10:00 PM",
+        "Tuesday: 11:00 AM – 10:00 PM",
+        "Wednesday: 11:00 AM – 10:00 PM",
+        "Thursday: 11:00 AM – 10:00 PM",
+        "Friday: 11:00 AM – 12:00 AM",
+        "Saturday: 11:00 AM – 12:00 AM",
+        "Sunday: 11:00 AM – 10:00 PM"
+      ]
+    },
+    "enrichedAt": "2026-07-18"
+  },
+  {
+    "id": "the-canal-club",
+    "name": "The Canal Club",
+    "tier": "on_my_radar",
+    "cuisine": "Cuban",
+    "lat": 33.508855,
+    "lng": -111.924906,
+    "notes": "Recommended by Teresa Garcia. She vouches for their Cuban food.",
+    "googleMapsUrl": "https://maps.google.com/?cid=13083809042493018138&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA&hl=en-US&source=apiv3",
+    "source": "Teresa Garcia",
+    "dateAdded": "2026-05-04",
+    "featured": false,
+    "city": "phoenix",
+    "rating": 4.4,
+    "userRatingCount": 1061,
+    "priceLevel": "PRICE_LEVEL_EXPENSIVE",
+    "photoRef": "places/ChIJa2vSf6ELK4cRGhDXzgAHk7U/photos/AWCwydjtih6w8gzkluqfVp4uFy1joYTIHa6EeR9FjieCNy60OIq_eYyTBBpombzVr8ZdKxKG3JTlPcOtVhaMlL3HNBmtSIN9n0lyP_uWxk1BbW4Fj4csfpAXcTtuDYpp6ytu_yzja_m_ZEiJCAcloSIGKVzvEucJzjKT1lhgjGXnkqOWtDnyuo3I6twDyJ6Ew6cd7e8bJHwxO3-BOZtcu_7_UOuyFIkSnkbCguKeWcLoARB6zrcjiMIykCKZrOB7uMiY7sn-i6lnC3HFlxG47GDDqkdMIfn08aa2qXmzOL5_AqrOYzDRVWPFFZyRY0TkUl2cb2d6sAHdzMnE-THOMhyCCzk1XP33iVE7hCzY2PKZ0pDolebZfDEmVesy5usYtCXCdNYBEfOSJvSUegjcPtaYEqH5apWKVk5YEks4EJjspi8SGw2ED0I2i8tn4lh1ZA",
+    "googlePlaceId": "ChIJa2vSf6ELK4cRGhDXzgAHk7U",
+    "address": "4925 N Scottsdale Rd, Scottsdale, AZ 85251, USA",
+    "website": "https://www.thecanalclubaz.com/",
+    "phone": "(480) 424-6095",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 7,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 1,
+            "hour": 7,
+            "minute": 0
+          },
+          "close": {
+            "day": 1,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 7,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 7,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 7,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 7,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 7,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 22,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: 7:00 AM – 10:00 PM",
+        "Tuesday: 7:00 AM – 10:00 PM",
+        "Wednesday: 7:00 AM – 10:00 PM",
+        "Thursday: 7:00 AM – 10:00 PM",
+        "Friday: 7:00 AM – 10:00 PM",
+        "Saturday: 7:00 AM – 10:00 PM",
+        "Sunday: 7:00 AM – 10:00 PM"
+      ]
+    },
+    "enrichedAt": "2026-07-18"
+  },
+  {
+    "id": "tropic-thunder",
+    "name": "Tropic Thunder",
+    "tier": "on_my_radar",
+    "cuisine": "Bar",
+    "lat": 33.4592,
+    "lng": -112.0716232,
+    "notes": "Really cool decorations, rum focused drinks, divey feel. Tiki themed",
+    "googleMapsUrl": "https://maps.google.com/?cid=17876175800619437463&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA&hl=en-US&source=apiv3",
+    "dateAdded": "2026-05-25",
+    "featured": false,
+    "city": "phoenix",
+    "rating": 4.8,
+    "userRatingCount": 40,
+    "photoRef": "places/ChIJzbU5_Z0TK4cRlw1bui3vFPg/photos/AWCwydgLII__8G3r2vA3eKem0ZkLKnEEF1wR3t6M9M0QrIzeaG7whusKCzvXZkm_zO9D6zzxQj4ET4Hsh5LnwOS5u6aDWx4lTZfFEIalkxsNEzjWHfD7b67nYHwXzUPLfqlH9lP7IMNzRuRs2kI0ykLWeWnIh5ZEUCB0hW1DN6Tqr8ATG2RhjsEBxScCTGDgA4sri-_lDgSSgCQ-zrsupK8lzHUJi4hOtDl2KcBp2EmflBaESvdQ04ij4kGzMy86vXYffaFVUacox3Tobu5e5HTEq4Vpu8PwK96drVu6rXQxLssjJxNFT94msFUPkr7vnbZrK5Z2I2euJSsRp2j7tT6a2I7GJq-XWxQ9VWxGBsPRwZJYG7OX1cChoznAmQ35pypUaTr0BifMEQDPT66Ah_7ppeAFAFzGH4IhXEyiiCQ2rBjEWbv0AVkl4AwRXxFhBAAv",
+    "googlePlaceId": "ChIJzbU5_Z0TK4cRlw1bui3vFPg",
+    "address": "1014 N 2nd St, Phoenix, AZ 85004, USA",
+    "phone": "(480) 264-3065",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 16,
+            "minute": 0
+          },
+          "close": {
+            "day": 1,
+            "hour": 1,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 1,
+            "hour": 16,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 1,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 16,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 1,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 16,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 1,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 16,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 1,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 16,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 1,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 16,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 1,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: 4:00 PM – 1:00 AM",
+        "Tuesday: 4:00 PM – 1:00 AM",
+        "Wednesday: 4:00 PM – 1:00 AM",
+        "Thursday: 4:00 PM – 1:00 AM",
+        "Friday: 4:00 PM – 1:00 AM",
+        "Saturday: 4:00 PM – 1:00 AM",
+        "Sunday: 4:00 PM – 1:00 AM"
+      ]
+    },
+    "enrichedAt": "2026-07-18"
+  },
+  {
+    "id": "warrens-supper-club",
+    "name": "Warren's Supper Club",
+    "tier": "on_my_radar",
+    "cuisine": "American",
+    "lat": 33.3212721,
+    "lng": -111.9706109,
+    "googleMapsUrl": "https://maps.google.com/?cid=9724663698001900582&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA&hl=en-US&source=apiv3",
+    "dateAdded": "2026-06-10",
+    "featured": false,
+    "city": "phoenix",
+    "rating": 4.4,
+    "userRatingCount": 297,
+    "photoRef": "places/ChIJS4gZxSYFK4cRJjSKHxzy9IY/photos/AWCwydhUNL1GcJ7t_MSI_vghiU8ZuIFxrREv6AQ7N2gEVDNEuvE9HDpgNFyqE0y3OC1MYuvm26x4QtmTfEabqi-0gEOdH-NWJthOorH-xeE22XepLos27WPyCk_GBSE1SMARDRbcG61o5BVeauPn2Y4leyN1Y4LTuWZbUJvHQPWaJWe5rt17T29xFKw3-Ona5XUVACOzNOlr_Vfp1q5QQQQdz2nUxUz1dK7qf8z_3sPIOmtOFv0W8vNhW3zM3LPXBQHVFSILOPKmmTe_ofeTCOZb5Am2X0S9Ep5fNjY5AUyDm-rpZi2lFauCxWZjtmzN345JBFdgTtyiUJJhL16nC36HXlX9Ev217XdUsJhnS3wt-GoSYttfJdxgSH6GdqmFaHH_oaTxf8D96uRgZLkQJpGF5i4cDS0FJr5PRW0JJvoO647kbmvo-1MyY6syE6IC0rai",
+    "googlePlaceId": "ChIJS4gZxSYFK4cRJjSKHxzy9IY",
+    "address": "1040 N 54th St, Chandler, AZ 85226, USA",
+    "website": "https://www.warrenssupperclub.com/",
+    "phone": "(480) 753-1040",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 10,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 16,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 16,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 16,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 0,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 16,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 0,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: Closed",
+        "Tuesday: Closed",
+        "Wednesday: 4:00 – 9:00 PM",
+        "Thursday: 4:00 – 9:00 PM",
+        "Friday: 4:00 PM – 12:00 AM",
+        "Saturday: 4:00 PM – 12:00 AM",
+        "Sunday: 10:00 AM – 10:00 PM"
+      ]
+    },
+    "enrichedAt": "2026-07-18"
   }
 ]
