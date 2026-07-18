@@ -16,6 +16,8 @@ import {
   CITY_TIMEZONES,
   fetchPlacePhotos,
   fetchPhotoThumb,
+  deleteRow,
+  enrichRestaurant,
 } from './data.js';
 
 const TIERS = VALID_TIERS;
@@ -164,8 +166,10 @@ const locationInputs = {
 
 function buildServer(authed) {
   const writeToolNote = authed
-    ? ' Write tools are available: use log_visit after eating somewhere (promote the tier, note what was good), ' +
-      'update_restaurant for direct edits, and add_restaurant for new finds.'
+    ? ' Write tools are available: log_visit after eating somewhere (promote the tier, note what was good — appends a dated line), ' +
+      'update_restaurant for direct edits (its clear param removes fields like a mistaken lastVisited), add_restaurant for new finds, ' +
+      'list_photo_options/set_photo to choose the card photo visually, refresh_enrichment to re-pull Google data, ' +
+      'and delete_restaurant (permanent — confirm with the curator first).'
     : '';
   const server = new McpServer(
     { name: 'Bobby.Menu', version: '1.0.0' },
@@ -372,19 +376,32 @@ function registerWriteTools(server) {
       title: 'Update a restaurant',
       description:
         'Directly edit fields on a restaurant. notes/tags/dishes REPLACE the existing values — ' +
-        'for after-a-meal updates that should accumulate, use log_visit instead.',
+        'for after-a-meal updates that should accumulate, use log_visit instead. ' +
+        'Use clear to remove optional fields entirely (e.g. a mistaken lastVisited).',
       inputSchema: {
         id: z.string().describe('Slug id of the restaurant to edit'),
+        name: z.string().min(1).optional(),
         tier: z.enum(TIERS).optional(),
         cuisine: z.string().min(1).optional(),
+        city: z.enum(Object.keys(METRO_CENTERS)).optional(),
+        lat: z.number().min(-90).max(90).optional(),
+        lng: z.number().min(-180).max(180).optional(),
+        featured: z.boolean().optional().describe("Bobby's Pick badge on the map"),
         notes: z.string().optional().describe('Replaces existing notes entirely'),
         tags: z.array(z.string()).optional().describe('Replaces existing tags entirely'),
         dishes: z.array(z.string()).optional().describe('Replaces existing dishes entirely'),
+        website: z.string().url().optional(),
+        phone: z.string().optional(),
+        clear: z
+          .array(z.enum(['lastVisited', 'notes', 'tags', 'dishes', 'website', 'phone', 'featured', 'source']))
+          .optional()
+          .describe('Optional fields to remove entirely (set to null)'),
       },
     },
-    async ({ id, ...updates }) => {
+    async ({ id, clear, ...updates }) => {
       if (updates.cuisine !== undefined) updates.cuisine = updates.cuisine.trim();
       const fields = Object.fromEntries(Object.entries(updates).filter(([, v]) => v !== undefined));
+      for (const f of clear ?? []) fields[f] = null;
       if (Object.keys(fields).length === 0) return json({ error: 'No fields to update' });
       const updated = await updateRow(id, fields);
       if (!updated) return json({ error: `No restaurant with id '${id}'` });
@@ -498,6 +515,49 @@ function registerWriteTools(server) {
       }
       await updateRow(id, { photoRef: refs[photo_index] });
       return json({ updated: id, photo_index, note: 'Card photo updated — live on the map immediately' });
+    }
+  );
+
+  server.registerTool(
+    'delete_restaurant',
+    {
+      title: 'Delete a restaurant',
+      description:
+        'PERMANENTLY delete a restaurant from the list. Not reversible (nightly backups exist, but ' +
+        'treat this as destructive). Confirm the exact restaurant with the curator before calling.',
+      inputSchema: {
+        id: z.string().describe('Slug id of the restaurant to delete'),
+        confirm: z.literal(true).describe('Must be true — acknowledges this is permanent'),
+      },
+    },
+    async ({ id }) => {
+      const data = await getAll();
+      const r = data.find((x) => x.id === id);
+      if (!r) return json({ error: `No restaurant with id '${id}'` });
+      await deleteRow(id);
+      return json({ deleted: id, name: r.name, note: 'Removed from the list and map immediately' });
+    }
+  );
+
+  server.registerTool(
+    'refresh_enrichment',
+    {
+      title: 'Refresh Google data',
+      description:
+        'Re-pull rating, hours, address, phone, website, price, photo and business status from ' +
+        'Google Places for this restaurant. Use after moving a pin or when data looks stale.',
+      inputSchema: {
+        id: z.string().describe('Slug id of the restaurant'),
+      },
+    },
+    async ({ id }) => {
+      const data = await getAll();
+      const r = data.find((x) => x.id === id);
+      if (!r) return json({ error: `No restaurant with id '${id}'` });
+      const result = await enrichRestaurant(r.name, r.lat, r.lng, 2000);
+      if (!result) return json({ error: 'Google Places returned no match near the pin' });
+      const updated = await updateRow(id, result.fields);
+      return json({ updated: fullResult(updated) });
     }
   );
 }

@@ -28,6 +28,11 @@ dashboard uses) additionally get:
 | `add_restaurant` | Add a new place (name + coords + cuisine + tier); rating/price/photo/hours enrich automatically in the background. |
 | `list_photo_options` | Shows the place's Google photos as numbered inline images so you can pick the card cover visually. |
 | `set_photo` | Applies a numbered photo from list_photo_options as the card cover. |
+| `delete_restaurant` | Permanently removes a place (requires an explicit confirm flag). |
+| `refresh_enrichment` | Re-pulls rating/hours/address/photo/status from Google Places on demand. |
+
+`update_restaurant` also accepts a `clear` list to remove optional fields entirely
+(e.g. a mistaken `lastVisited`), plus name/city/lat/lng/featured/website/phone edits.
 
 Unauthenticated clients silently get the read-only set — so the same URL is safe to hand out.
 
