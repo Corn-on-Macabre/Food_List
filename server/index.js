@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import fs from 'node:fs';
 import path from 'node:path';
+import { createMcpHandler, methodNotAllowed } from './mcp.js';
 
 const app = express();
 const PORT = parseInt(process.env.PORT || '3001', 10);
@@ -14,7 +15,7 @@ if (!ADMIN_PASSWORD) {
   process.exit(1);
 }
 
-app.use(cors());
+app.use(cors({ exposedHeaders: ['Mcp-Session-Id'] }));
 app.use(express.json());
 
 // --- Auth middleware ---
@@ -239,6 +240,11 @@ app.delete('/api/restaurants/:id', requireAuth, (req, res) => {
     res.status(500).json({ error: 'Failed to write data file', detail: err.message });
   }
 });
+
+// --- MCP (read-only, no auth — same data as public /restaurants.json) ---
+app.post('/mcp', createMcpHandler(readData));
+app.get('/mcp', methodNotAllowed);
+app.delete('/mcp', methodNotAllowed);
 
 // --- Start ---
 app.listen(PORT, () => {
