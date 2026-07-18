@@ -7,6 +7,7 @@
     "dev": "node --watch index.js"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.112.3",
     "@modelcontextprotocol/sdk": "^1.29.0",
     "cors": "^2.8.5",
     "express": "^4.21.0",

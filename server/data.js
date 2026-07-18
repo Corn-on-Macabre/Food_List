@@ -34,6 +34,25 @@ export function writeData(data) {
 // --- Validation ---
 export const VALID_TIERS = ['loved', 'recommended', 'on_my_radar'];
 
+// Keep in sync with src/constants/tags.ts
+export const TAG_VOCABULARY = [
+  'must-try',
+  'date night',
+  'team dinner',
+  'quick lunch',
+  'breakfast',
+  'brunch',
+  'coffee',
+  'dessert',
+  'late night',
+  'drinks',
+  'patio',
+  'kid friendly',
+  'casual',
+  'special occasion',
+  'takeout',
+];
+
 export const REQUIRED_FIELDS = {
   id: 'string',
   name: 'string',

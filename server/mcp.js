@@ -9,6 +9,7 @@ import {
   generateUniqueSlugId,
   enrichInBackground,
   haversineDistance,
+  TAG_VOCABULARY,
 } from './data.js';
 
 const TIERS = VALID_TIERS;
@@ -80,7 +81,7 @@ function json(data) {
   return { content: [{ type: 'text', text: JSON.stringify(data, null, 2) }] };
 }
 
-function applyFilters(data, { query, cuisine, tier, near_lat, near_lng, max_distance_miles, min_rating, price_level, open_now }) {
+function applyFilters(data, { query, cuisine, tier, city, tags, near_lat, near_lng, max_distance_miles, min_rating, price_level, open_now }) {
   let results = data;
 
   if (query) {
@@ -88,7 +89,9 @@ function applyFilters(data, { query, cuisine, tier, near_lat, near_lng, max_dist
     results = results.filter((r) =>
       r.name.toLowerCase().includes(q) ||
       r.cuisine.toLowerCase().includes(q) ||
-      (r.notes && r.notes.toLowerCase().includes(q))
+      (r.notes && r.notes.toLowerCase().includes(q)) ||
+      (r.dishes && r.dishes.some((d) => d.toLowerCase().includes(q))) ||
+      (r.tags && r.tags.some((t) => t.toLowerCase().includes(q)))
     );
   }
   if (cuisine) {
@@ -97,6 +100,13 @@ function applyFilters(data, { query, cuisine, tier, near_lat, near_lng, max_dist
   }
   if (tier) {
     results = results.filter((r) => r.tier === tier);
+  }
+  if (city) {
+    const ct = city.toLowerCase();
+    results = results.filter((r) => (r.city ?? '').toLowerCase() === ct);
+  }
+  if (tags?.length) {
+    results = results.filter((r) => r.tags && tags.every((t) => r.tags.includes(t)));
   }
   if (min_rating !== undefined) {
     results = results.filter((r) => typeof r.rating === 'number' && r.rating >= min_rating);
@@ -141,7 +151,8 @@ function buildServer(authed) {
     { name: 'Bobby.Menu', version: '1.0.0' },
     {
       instructions:
-        "Bobby's personal curated list of Phoenix-metro restaurants. Every restaurant has a tier: " +
+        "Bobby's personal curated restaurant list — mostly Phoenix metro, plus trips (dallas, chicago, "  +
+        "se-connecticut, wichita, hartford — filter with city). Every restaurant has a tier: " +
         "'loved' (personal favorites), 'recommended' (solid picks), or 'on_my_radar' (want to try, not yet vetted). " +
         'Ratings and price levels come from Google Places. Use search_restaurants for filtered lookups, ' +
         'pick_random for "what should I eat tonight" (both support open_now for "open right now", using Phoenix time), ' +
@@ -162,6 +173,8 @@ function buildServer(authed) {
         query: z.string().optional().describe('Free-text match against name, cuisine, and notes'),
         cuisine: z.string().optional().describe("Exact cuisine, e.g. 'Korean' (see list_cuisines)"),
         tier: z.enum(TIERS).optional(),
+        city: z.string().optional().describe("Metro region, e.g. 'phoenix', 'dallas', 'chicago', 'se-connecticut', 'wichita', 'hartford'"),
+        tags: z.array(z.enum(TAG_VOCABULARY)).optional().describe('Restaurant must have ALL of these occasion/vibe tags'),
         min_rating: z.number().min(0).max(5).optional().describe('Minimum Google rating'),
         price_level: z.enum(Object.keys(PRICE_LEVELS)).optional(),
         open_now: z.boolean().optional().describe('Only restaurants open right now (Phoenix time). Places with unknown hours are excluded.'),
@@ -239,9 +252,11 @@ function buildServer(authed) {
       const data = readData();
       const byTier = Object.fromEntries(TIERS.map((t) => [t, 0]));
       const cuisineCounts = {};
+      const cityCounts = {};
       for (const r of data) {
         if (byTier[r.tier] !== undefined) byTier[r.tier] += 1;
         cuisineCounts[r.cuisine] = (cuisineCounts[r.cuisine] ?? 0) + 1;
+        if (r.city) cityCounts[r.city] = (cityCounts[r.city] ?? 0) + 1;
       }
       const topCuisines = Object.entries(cuisineCounts)
         .sort((a, b) => b[1] - a[1])
@@ -251,7 +266,7 @@ function buildServer(authed) {
         .sort((a, b) => (b.dateAdded ?? '').localeCompare(a.dateAdded ?? ''))
         .slice(0, 5)
         .map((r) => ({ id: r.id, name: r.name, tier: r.tier, cuisine: r.cuisine, dateAdded: r.dateAdded }));
-      return json({ total: data.length, by_tier: byTier, top_cuisines: topCuisines, newest_additions: newest });
+      return json({ total: data.length, by_tier: byTier, by_city: cityCounts, top_cuisines: topCuisines, newest_additions: newest });
     }
   );
 
@@ -264,6 +279,8 @@ function buildServer(authed) {
       inputSchema: {
         cuisine: z.string().optional(),
         tier: z.enum(TIERS).optional(),
+        city: z.string().optional().describe("Metro region, e.g. 'phoenix' (the default trip context)"),
+        tags: z.array(z.enum(TAG_VOCABULARY)).optional().describe('Restaurant must have ALL of these tags'),
         open_now: z.boolean().optional().describe('Only restaurants open right now (Phoenix time)'),
         ...locationInputs,
       },

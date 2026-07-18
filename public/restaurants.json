@@ -222,7 +222,12 @@
         "Saturday: 11:00 AM – 7:00 PM",
         "Sunday: 12:00 – 6:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "galbi ribs",
+      "garlic shrimp",
+      "malasadas"
+    ]
   },
   {
     "id": "thai-e-san",
@@ -329,7 +334,12 @@
         "Saturday: Closed",
         "Sunday: 12:00 – 9:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "pad thai",
+      "spicy basil dish",
+      "thai tea"
+    ]
   },
   {
     "id": "allora-gelato",
@@ -446,7 +456,14 @@
         "Saturday: 12:00 – 10:00 PM",
         "Sunday: 12:00 – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "croatian fig",
+      "mango sticky rice"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "quik-burrito",
@@ -563,7 +580,15 @@
         "Saturday: 8:00 AM – 9:00 PM",
         "Sunday: 8:00 AM – 4:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "breakfast burrito",
+      "special chipotle sauce",
+      "strawberry horchata"
+    ],
+    "tags": [
+      "breakfast"
+    ]
   },
   {
     "id": "aftermath-restaurant",
@@ -682,7 +707,14 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "aftermac",
+      "pasta"
+    ],
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "bellair-golf-park",
@@ -919,7 +951,13 @@
         "Saturday: 9:00 AM – 5:00 AM",
         "Sunday: 10:00 AM – 4:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "margarita pizza"
+    ],
+    "tags": [
+      "late night"
+    ]
   },
   {
     "id": "thai-coconut",
@@ -1073,7 +1111,15 @@
         "Saturday: 12:00 – 9:00 PM",
         "Sunday: 12:00 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "pad woon sen",
+      "papaya salad",
+      "yellow curry"
+    ],
+    "tags": [
+      "takeout"
+    ]
   },
   {
     "id": "jokers-ice-cream-and-italian-ice",
@@ -1167,7 +1213,14 @@
         "Saturday: 3:00 – 9:45 PM",
         "Sunday: 3:00 – 8:45 PM"
       ]
-    }
+    },
+    "dishes": [
+      "bourbon caramel",
+      "cherry jubilee"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "green-corner-restaurant",
@@ -1286,7 +1339,12 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 7:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "al sham beef sandwich",
+      "chicken shawarma sandwich",
+      "fries"
+    ]
   },
   {
     "id": "hush-public-house",
@@ -1405,7 +1463,11 @@
         "Saturday: 5:00 – 10:00 PM",
         "Sunday: 5:00 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "date cake",
+      "italian beef oxtail sandwich"
+    ]
   },
   {
     "id": "chantico-mexican-restaurant-phoenix",
@@ -1427,7 +1489,14 @@
     "address": "1051 E Camelback Rd, Phoenix, AZ 85014, USA",
     "website": "https://www.chanticophx.com/",
     "phone": "(602) 699-3015",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "crispy beef tacos",
+      "saguaro cooler"
+    ],
+    "tags": [
+      "patio"
+    ]
   },
   {
     "id": "angie-s-prime-grill",
@@ -1545,7 +1614,13 @@
         "Saturday: 6:30 AM – 9:00 PM",
         "Sunday: 6:30 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "surf and turf combo"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "the-perch-brewery",
@@ -1628,7 +1703,16 @@
         "Saturday: 10:00 AM – 1:00 AM",
         "Sunday: 10:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "beer flights",
+      "burgers",
+      "caesar salad",
+      "wings"
+    ],
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "spitz-desert-ridge-marketplace-restaurant-and-bar-mediterranean-food",
@@ -1650,7 +1734,12 @@
     "address": "21001 N Tatum Blvd Ste 34-1140, Phoenix, AZ 85050, USA",
     "website": "https://spitz-restaurant.com/restaurant-bar-at-desert-ridge-marketplace/",
     "phone": "(480) 687-1593",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "doner bowls",
+      "street cart fries",
+      "wraps"
+    ]
   },
   {
     "id": "dilla-libre-uno",
@@ -1769,7 +1858,10 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "quesadilla"
+    ]
   },
   {
     "id": "hyderabad-house-arizona-scottsdale",
@@ -1972,7 +2064,14 @@
         "Saturday: 11:00 AM – 3:00 PM, 5:00 – 10:30 PM",
         "Sunday: 11:00 AM – 3:00 PM, 5:00 – 9:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "gongura curry",
+      "vijayawada chicken biryani"
+    ],
+    "tags": [
+      "must-try"
+    ]
   },
   {
     "id": "crescent-ballroom",
@@ -1993,7 +2092,10 @@
     "googlePlaceId": "ChIJyxk3cSMSK4cRJmmi4bfRyZw",
     "address": "308 N 2nd Ave, Phoenix, AZ 85003, USA",
     "website": "https://www.crescentphx.com/",
-    "businessStatus": "OPERATIONAL"
+    "businessStatus": "OPERATIONAL",
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "si-se-or-restaurant-of-arizona",
@@ -2112,7 +2214,12 @@
         "Saturday: 10:30 AM – 8:00 PM",
         "Sunday: 10:30 AM – 3:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "gorditas plate",
+      "hatch valley combination plate",
+      "watermelon margarita"
+    ]
   },
   {
     "id": "biryani-and-bites",
@@ -2410,7 +2517,13 @@
         "Saturday: 5:30 PM – 2:00 AM",
         "Sunday: 5:30 PM – 1:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "bacon-wrapped sonoran hot dog"
+    ],
+    "tags": [
+      "late night"
+    ]
   },
   {
     "id": "tacos-calafia",
@@ -2529,7 +2642,11 @@
         "Saturday: 8:00 AM – 12:00 AM",
         "Sunday: 8:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "al pastor tacos",
+      "cabeza tacos"
+    ]
   },
   {
     "id": "jj-s-gyros",
@@ -2624,7 +2741,10 @@
         "Saturday: Closed",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "chicken shwarma plate"
+    ]
   },
   {
     "id": "glai-baan",
@@ -2719,7 +2839,10 @@
         "Saturday: 4:00 – 9:30 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "dumplings"
+    ]
   },
   {
     "id": "volanti-restaurant-lounge",
@@ -2826,7 +2949,14 @@
         "Saturday: 9:00 AM – 10:00 PM",
         "Sunday: 9:00 AM – 3:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "$100 burger",
+      "reuben"
+    ],
+    "tags": [
+      "patio"
+    ]
   },
   {
     "id": "chino-bandido",
@@ -2945,7 +3075,14 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "black beans",
+      "jade red quesadilla"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "carolina-s-mexican-food-cactus",
@@ -3052,7 +3189,10 @@
         "Saturday: 7:00 AM – 9:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "carolina's burrito"
+    ]
   },
   {
     "id": "casa-corazon-restaurant",
@@ -3171,7 +3311,11 @@
         "Saturday: 10:00 AM – 10:00 PM",
         "Sunday: 10:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chile nogada",
+      "shrimp culichi"
+    ]
   },
   {
     "id": "aioli-gourmet-burgers",
@@ -3193,7 +3337,12 @@
     "address": "10652 N 32nd St, Phoenix, AZ 85028, USA",
     "website": "https://www.aioliburger.com/",
     "phone": "(602) 971-5555",
-    "businessStatus": "CLOSED_TEMPORARILY"
+    "businessStatus": "CLOSED_TEMPORARILY",
+    "dishes": [
+      "aioli burger",
+      "milkshakes",
+      "sweet potato fries"
+    ]
   },
   {
     "id": "ramen-kagawa",
@@ -3372,7 +3521,10 @@
         "Saturday: 11:30 AM – 3:00 PM, 5:00 – 9:00 PM",
         "Sunday: 11:30 AM – 3:00 PM, 5:00 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "japanese curry"
+    ]
   },
   {
     "id": "born-bred-scottsdale",
@@ -3491,7 +3643,11 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chicken caesar wrap",
+      "ranch dressing"
+    ]
   },
   {
     "id": "guido-s-chicago-meats-deli",
@@ -3598,7 +3754,11 @@
         "Saturday: 9:30 AM – 10:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "chicken cutlet caprese sandwich",
+      "meatball sub"
+    ]
   },
   {
     "id": "salsitas-tacos-al-carbon",
@@ -3681,7 +3841,11 @@
         "Saturday: Open 24 hours",
         "Sunday: Open 24 hours"
       ]
-    }
+    },
+    "dishes": [
+      "birria tacos",
+      "horchata"
+    ]
   },
   {
     "id": "namaste-indian-restaurant",
@@ -3788,7 +3952,12 @@
         "Saturday: 11:00 AM – 9:30 PM",
         "Sunday: 11:00 AM – 9:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chicken makhani",
+      "chicken tikka masala",
+      "lamb vindaloo"
+    ]
   },
   {
     "id": "geordie-s-at-wrigley-mansion",
@@ -3887,7 +4056,13 @@
     "userRatingCount": 109,
     "photoRef": "places/ChIJC4XinO0RK4cRWJw537muL-g/photos/AU_ZVEHTHw7K2Ko66BNyk64VUO890CgwGF94lIOq-nhwHUniEsi9MUiTDguMhUx49SvrFkTehi8GA2hc8_zRg97sQ_XftxuW6dTxGZHjISYUKCzJVqvyyBkloeJd2OW-fvvEPIl7sEjnUByH-2fas-o2LfCTcWMN4RT-s7buoIBRlzsCnQCTf5d2V8QD9mqpeFdJYCnC-Dr9YZ4eZ8hm6aKAsZis1tr7ODyeCW9xLUbJfP9hEX8x77HpofzsOjla8i11obFWaRhKKoZe1eQBD87orq7eKxIjoDfJ1oYNLt8_7tTxOQVuUC7R9emgxZMuLQ5t5cVXOhtAmnG1BhqFNjuhMb_ptQFkTOxaOgZFD55bKuuQ_7uTl7VXbSDp-fj5wNvA9VIzUrzYTjFcGwlAB9h0St08BVCwXj75WnNcTazabROAjt_K-jvPEdXn0-iq4YZr",
     "enrichedAt": "2026-04-10",
-    "city": "phoenix"
+    "city": "phoenix",
+    "dishes": [
+      "french onion soup"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "aunt-chiladas-squaw-peak",
@@ -4006,7 +4181,14 @@
         "Saturday: 10:00 AM – 10:00 PM",
         "Sunday: 10:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "flour tortilla chips",
+      "mini chimis"
+    ],
+    "tags": [
+      "patio"
+    ]
   },
   {
     "id": "jalape-o-inferno-pinnacle-peak",
@@ -4125,7 +4307,10 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 8:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "flour tortilla chips"
+    ]
   },
   {
     "id": "el-encanto-dos",
@@ -4232,7 +4417,14 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "pollo fundido"
+    ],
+    "tags": [
+      "casual",
+      "patio"
+    ]
   },
   {
     "id": "four-peaks-brewing-company",
@@ -4350,7 +4542,11 @@
         "Saturday: 5:30 AM – 10:00 PM",
         "Sunday: 5:30 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "enchiladas",
+      "jalapeño cheeseburger"
+    ]
   },
   {
     "id": "hula-s-modern-tiki-uptown",
@@ -4469,7 +4665,10 @@
         "Saturday: 10:30 AM – 12:00 AM",
         "Sunday: 10:30 AM – 9:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "barrio-caf",
@@ -4486,7 +4685,11 @@
     "photoRef": "places/ChIJo4lT2HcSK4cRmm3B0lhTtds/photos/AU_ZVEFOBufgkiYYz-3jPzNNZkNQoedlKEeAz_wiWby9by7-SQid-KUB7U4fw170hVAP6Dl6D19puxEyfMgnxPmB-xHle-F2q9XIPhDcXZIQsz1cUQU86jw2-pOmIY61YQ0KLNuMkLpk3cQ5KqvgPN81G4Zfprzq2Q5yYO2Jg2Q0gS0acEkdBONzmWKd_ZUKWzyhTWTXxrPHfwA2M66iKcFH0-qAkSJP90bzzPrr_LAhf7i78pRA1Kd638DmDy8-FCO3mAC-hlc2dTws1HeBa3Pt8suIylICZ7Wwqv8bjRvElqwOYg",
     "enrichedAt": "2026-04-10",
     "notes": "Featured on Triple D and it earns it. Not typical Mexican — creative and bold. Guacamole is great. Halibut is a regular recommendation.",
-    "city": "phoenix"
+    "city": "phoenix",
+    "dishes": [
+      "guacamole",
+      "halibut"
+    ]
   },
   {
     "id": "nippon-curry-featuring-hinoya-curry",
@@ -4503,7 +4706,11 @@
     "priceLevel": "PRICE_LEVEL_MODERATE",
     "photoRef": "places/ChIJy9yewFKBhYARuMwIi9hy0z0/photos/AU_ZVEGjaDQMnHrpNvENNIZI0-3TnmScW--tKsa_f8dvJ8UHBolukVleLTyyUqTtERZ-gggfBdc0vUBjO-MiivxH-wa4ljxiFTFGcm-mH88XcsKHNriVzZozTAvKjfWOy2K9rI-1HvYGSmBRcp6QzDVnoxaMOThyQcDTdSOI0aQTj5mbaf0CEU9JTJx_ys7jiTl60mEfYmEChAzIxxEhD6gZuEZf2Zt8vwtmjUb4ZLdWeju4dGm7SC0OMwGaXCN3xKTREQrMuiCnu4RXQeIOahT_26w5IQbd6S1K2Zg6CeF-wvU",
     "enrichedAt": "2026-04-10",
-    "city": "phoenix"
+    "city": "phoenix",
+    "dishes": [
+      "curry",
+      "pork katsu"
+    ]
   },
   {
     "id": "mensho-tokyo-sf",
@@ -4519,7 +4726,10 @@
     "userRatingCount": 477,
     "photoRef": "places/ChIJgdshyg8TK4cROnzkZ8mUyi8/photos/AU_ZVEGw3c07XAil58MHJM645BLYMPdIA2yhYL2lhGrqnlqLQCyqTQFnTU6T_8Wpa7_Cq3ZRnSvlafEs0XUZV3hJwoYBXSGGoi5_A1JHjUFdXcAWtaWvj7ir5boHuakutrFCLgTzauDh9qVmzpvg53c41X7RQALShnFYrv2dcrXTuJHbGCt3M0ywtglj9q9BflWuBmvEjk3It3NusYfS2GQtJQOSZqAh7xgo5t6z7XG0q5pEEp75B6-4BZr-GVkOM3rGAZzV_IZx3RxI6DSSkKPMVeOkwBlKTa-si3xOgg3nELUKbmn9mONZMPZ86YPXrgQAi-A7GVXvRnyc7tkfxT3L5Ry9d6XhkhU64mwi4jnUiexdp1AwDWst5WWtTaVFIgNAXw3BLVIn41MVMRlHEgK2xstMvLMZ1mSJJRv5ujac30qyWw",
     "enrichedAt": "2026-04-10",
-    "city": "phoenix"
+    "city": "phoenix",
+    "dishes": [
+      "wagyu ramen"
+    ]
   },
   {
     "id": "la-taqueria",
@@ -4638,7 +4848,12 @@
         "Saturday: 8:30 AM – 12:00 AM",
         "Sunday: 8:30 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "carne asada burrito",
+      "horchata",
+      "salsa roja"
+    ]
   },
   {
     "id": "ajo-al-s-mexican-cafe",
@@ -4757,7 +4972,15 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chimichanga with grilled steak and chicken",
+      "fajitas",
+      "queso dip"
+    ],
+    "tags": [
+      "patio"
+    ]
   },
   {
     "id": "jacky-s-mexican-food",
@@ -4864,7 +5087,16 @@
         "Saturday: 7:00 AM – 3:00 PM",
         "Sunday: 7:00 AM – 3:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "horchata",
+      "menudo",
+      "pozole",
+      "salsa"
+    ],
+    "tags": [
+      "brunch"
+    ]
   },
   {
     "id": "lylo-swim-club",
@@ -4983,7 +5215,14 @@
         "Saturday: 10:00 AM – 10:00 PM",
         "Sunday: 10:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "adult dole whip",
+      "chips and salsa"
+    ],
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "fry-bread-house",
@@ -5209,7 +5448,10 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "burgers"
+    ]
   },
   {
     "id": "flaming-pig",
@@ -5248,7 +5490,13 @@
     "address": "888 N 1st Ave, Phoenix, AZ 85003, USA",
     "website": "https://www.hamburguesasycervezas.com/",
     "phone": "(602) 237-5146",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "al pastor wings"
+    ],
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "throne-brewing-pizza-kitchen",
@@ -5270,7 +5518,10 @@
     "address": "1326 N Central Ave, Phoenix, AZ 85004, USA",
     "website": "https://thronebrewing.com/",
     "phone": "(602) 795-7954",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "mac and cheese"
+    ]
   },
   {
     "id": "palma",
@@ -5389,7 +5640,11 @@
         "Saturday: 10:00 AM – 2:00 AM",
         "Sunday: 10:00 AM – 12:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "chili garlic noodles",
+      "potato scallion waffle"
+    ]
   },
   {
     "id": "otro-cafe",
@@ -5508,7 +5763,13 @@
         "Saturday: 8:00 AM – 9:00 PM",
         "Sunday: 8:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "cafe de olla"
+    ],
+    "tags": [
+      "coffee"
+    ]
   },
   {
     "id": "undertow",
@@ -5615,7 +5876,10 @@
         "Saturday: 2:30 PM – 12:00 AM",
         "Sunday: 2:30 PM – 12:00 AM"
       ]
-    }
+    },
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "paradise-valley-burger-company",
@@ -5734,7 +5998,11 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "booze burger",
+      "french toast fries"
+    ]
   },
   {
     "id": "kitsune-brewing-company",
@@ -5852,7 +6120,13 @@
         "Saturday: 12:00 – 9:00 PM",
         "Sunday: 12:00 – 6:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "tan tan beer"
+    ],
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "soul-cafe",
@@ -5959,7 +6233,15 @@
         "Saturday: 7:00 AM – 9:00 PM",
         "Sunday: 7:00 AM – 2:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "banana bread",
+      "steak and eggs"
+    ],
+    "tags": [
+      "breakfast",
+      "patio"
+    ]
   },
   {
     "id": "taco-chelo",
@@ -6078,7 +6360,13 @@
         "Saturday: 11:00 AM – 12:00 AM",
         "Sunday: 11:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "fish tacos"
+    ],
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "elmer-s-tacos",
@@ -6185,7 +6473,10 @@
         "Saturday: 7:00 AM – 9:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "bean and cheese burrito"
+    ]
   },
   {
     "id": "the-stand-arcadia-burger-shoppe",
@@ -6292,7 +6583,14 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "dipping sauce",
+      "fries"
+    ],
+    "tags": [
+      "takeout"
+    ]
   },
   {
     "id": "ziggys-magic-pizza-shop",
@@ -6428,7 +6726,13 @@
     "photoRef": "places/ChIJr2zObz0SK4cRSmcXIeesCuU/photos/AU_ZVEHZ-bjQj3t1WWabQDjQ2RgpM3TYTnihRE_s9tXUhCclCKenAVZMTCPJjfrX6okRZLMXp3PVHyIzg7ANC7PzaHiVFxz84Y5WjR-fYdlTCCsjEbF7IbofHGnv8OLAsqgrGNRZ6XeoTos99SjCZyYZX3wXsH0upCQVXwP6QiWFBbKcvYpUFWknJbOz58fNZPa81laX2kYomqEBkltwZVej69WvvtwjFaelZ29HKphdX3-0KOTEYydtcxhaIIPLPBXTMDly-EB8qZmGCD4eJ-ps-8purnI6chYbeDMVVSRMb1mMA5XoKMiIhVHsscIqiet4b1Y0soYiVSIo6Yy7iuoSTHPzFisHhXnt5-BX7SaZ3D-i0mktUy-hihOVumQ5FRFNuR3nHY2qS0f-XuWyPaq_OKstq0jUcQq9rQ7b8814DrESqde5",
     "enrichedAt": "2026-04-10",
     "notes": "Featured on DDD. Matt's Big Breakfast — great downtown Phoenix breakfast spot. Chicken sausage is good. Big team-service vibe, always friendly.",
-    "city": "phoenix"
+    "city": "phoenix",
+    "dishes": [
+      "chicken sausage"
+    ],
+    "tags": [
+      "breakfast"
+    ]
   },
   {
     "id": "call-her-martina",
@@ -6535,7 +6839,13 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "elote"
+    ],
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "liz-modern-asian",
@@ -6654,7 +6964,11 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 6:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "orange chicken",
+      "shrimp noodles"
+    ]
   },
   {
     "id": "az-kabob-house",
@@ -6773,7 +7087,12 @@
         "Saturday: 11:00 AM – 8:00 PM",
         "Sunday: 11:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "baghali polo with lamb",
+      "koobideh kebab",
+      "lamb gyro plate"
+    ]
   },
   {
     "id": "b-nh-m-bistro-vietnamese-eatery",
@@ -6879,7 +7198,10 @@
         "Saturday: 10:00 AM – 5:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "bahn mi sandwich"
+    ]
   },
   {
     "id": "little-miss-bbq-university",
@@ -6974,7 +7296,10 @@
         "Saturday: 11:00 AM – 7:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "brisket"
+    ]
   },
   {
     "id": "neighborly-public-house",
@@ -7093,7 +7418,13 @@
         "Saturday: 9:30 AM – 10:00 PM",
         "Sunday: 9:30 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "cornbread"
+    ],
+    "tags": [
+      "patio"
+    ]
   },
   {
     "id": "wong-s-restaurant",
@@ -7272,7 +7603,11 @@
         "Saturday: 11:00 AM – 3:00 PM, 4:00 – 8:30 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "fried rice with the bbq pork",
+      "orange chicken"
+    ]
   },
   {
     "id": "mystic-market-east",
@@ -7626,7 +7961,16 @@
         "Saturday: 11:00 AM – 8:00 PM",
         "Sunday: 11:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "fish and chips",
+      "fried scallops",
+      "lobster rolls"
+    ],
+    "tags": [
+      "casual",
+      "takeout"
+    ]
   },
   {
     "id": "yutaka-japanese-restaurant",
@@ -7745,7 +8089,11 @@
         "Saturday: 11:30 AM – 9:30 PM",
         "Sunday: 12:00 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "spicy miso ramen",
+      "tonkatsu ramen"
+    ]
   },
   {
     "id": "lake-pleasant-brewing-company",
@@ -7863,7 +8211,13 @@
         "Saturday: 12:00 – 10:00 PM",
         "Sunday: 12:00 – 6:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "german beers"
+    ],
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "tortas-cm",
@@ -7884,7 +8238,10 @@
     "googlePlaceId": "ChIJQ2OXxvNpK4cRteH54SWhERg",
     "address": "13971 N 59th Ave, Glendale, AZ 85306, USA",
     "phone": "(623) 600-8630",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "chicken torta"
+    ]
   },
   {
     "id": "dessert-in-desert",
@@ -7990,7 +8347,17 @@
         "Saturday: 1:00 – 9:00 PM",
         "Sunday: 12:00 – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "egg waffles with ice cream",
+      "fish cones with custard",
+      "taro ice cream",
+      "tornado potatoes"
+    ],
+    "tags": [
+      "dessert",
+      "must-try"
+    ]
   },
   {
     "id": "katy-s-dumplings-westmont",
@@ -8097,7 +8464,10 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "beef noodle soup"
+    ]
   },
   {
     "id": "el-g-ero-canelo-restaurant",
@@ -8191,7 +8561,13 @@
         "Saturday: 9:00 AM – 12:00 AM",
         "Sunday: 9:00 AM – 11:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "sonoran hot dogs"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "girl-the-goat",
@@ -8322,7 +8698,13 @@
         "Saturday: 4:30 – 11:00 PM",
         "Sunday: 10:00 AM – 2:00 PM, 4:30 – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "full goat experience"
+    ],
+    "tags": [
+      "team dinner"
+    ]
   },
   {
     "id": "gallo-blanco",
@@ -8440,7 +8822,13 @@
         "Saturday: 8:00 AM – 10:00 PM",
         "Sunday: 8:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "al pastor tacos",
+      "barbacoa tacos",
+      "chelada",
+      "key lime tart"
+    ]
   },
   {
     "id": "se-or-bob-s-hot-dogs",
@@ -8559,7 +8947,11 @@
         "Saturday: 11:00 AM – 8:00 PM",
         "Sunday: 11:00 AM – 6:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "fry's",
+      "honey mustard"
+    ]
   },
   {
     "id": "fat-olives",
@@ -8678,7 +9070,12 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "lasagna",
+      "neopolitin pizza",
+      "pizza with calibrian chiles"
+    ]
   },
   {
     "id": "richardson-s-restaurant",
@@ -8916,7 +9313,10 @@
         "Saturday: 10:00 AM – 1:00 AM",
         "Sunday: 10:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "barbacoa"
+    ]
   },
   {
     "id": "pemberton-phx",
@@ -8998,7 +9398,10 @@
         "Saturday: 2:00 PM – 12:00 AM",
         "Sunday: 2:00 – 10:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "slanted-rice-vietnamese-bistro",
@@ -9117,7 +9520,10 @@
         "Saturday: 11:30 AM – 9:30 PM",
         "Sunday: 11:30 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "sweet pork crispy wonton spring roll"
+    ]
   },
   {
     "id": "rep-blica-empanada-restaurant",
@@ -9224,7 +9630,10 @@
         "Saturday: 10:00 AM – 10:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "margarita"
+    ]
   },
   {
     "id": "chelsea-s-kitchen",
@@ -9343,7 +9752,15 @@
         "Saturday: 10:30 AM – 10:00 PM",
         "Sunday: 9:30 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "cornbread",
+      "grilled steak",
+      "tacos"
+    ],
+    "tags": [
+      "patio"
+    ]
   },
   {
     "id": "steak-44",
@@ -9699,7 +10116,11 @@
         "Saturday: 9:00 AM – 12:00 AM",
         "Sunday: 9:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "drinks",
+      "patio"
+    ]
   },
   {
     "id": "my-slice-of-the-pie-pizzeria",
@@ -9806,7 +10227,11 @@
         "Saturday: 11:45 AM – 9:30 PM",
         "Sunday: 12:30 – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "al pastor pizza",
+      "carne asada pizza"
+    ]
   },
   {
     "id": "chula-seafood-uptown",
@@ -9925,7 +10350,14 @@
         "Saturday: 10:00 AM – 9:00 PM",
         "Sunday: 10:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "fish tacos",
+      "salmon"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "rewined-beer-and-wine-bar",
@@ -10019,7 +10451,10 @@
         "Saturday: 3:00 PM – 2:00 AM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "flo-s",
@@ -10257,7 +10692,10 @@
         "Saturday: 10:00 AM – 12:00 AM",
         "Sunday: 10:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "mozzarella sticks"
+    ]
   },
   {
     "id": "harvey-s-wineburger",
@@ -10376,7 +10814,14 @@
         "Saturday: 10:00 AM – 2:00 AM",
         "Sunday: 10:00 AM – 2:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "french fries"
+    ],
+    "tags": [
+      "casual",
+      "drinks"
+    ]
   },
   {
     "id": "ted-s-hot-dogs",
@@ -10495,7 +10940,10 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "shakes"
+    ]
   },
   {
     "id": "monroe-s-hot-chicken",
@@ -10614,7 +11062,11 @@
         "Saturday: 11:00 AM – 7:00 PM",
         "Sunday: 11:00 AM – 4:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chicken sandwich",
+      "craft sodas"
+    ]
   },
   {
     "id": "gadzooks-enchiladas-and-soup",
@@ -10733,7 +11185,13 @@
         "Saturday: 10:00 AM – 10:00 PM",
         "Sunday: 10:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "festival tacos"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "uncle-biff-s-california-killer-cookies",
@@ -10840,7 +11298,13 @@
         "Saturday: 10:30 AM – 8:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "chocolate chip cookies"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "le-relais-de-l-entrec-te",
@@ -11043,7 +11507,11 @@
         "Saturday: 12:00 – 3:00 PM, 6:30 – 11:00 PM",
         "Sunday: 12:00 – 3:00 PM, 6:30 – 11:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "green pepper sauce",
+      "steak frites"
+    ]
   },
   {
     "id": "valley-wings",
@@ -11150,7 +11618,15 @@
         "Saturday: 12:00 – 9:00 PM",
         "Sunday: 12:00 – 5:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "buffalo loaded fries",
+      "kool-aid",
+      "mango habanero wings"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "tacos-chiwas-chandler",
@@ -11172,7 +11648,10 @@
     "address": "2160 N Alma School Rd, Chandler, AZ 85224, USA",
     "website": "http://www.tacoschiwas.com/",
     "phone": "(480) 590-2891",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "gorditas"
+    ]
   },
   {
     "id": "los-taquitos",
@@ -11290,7 +11769,16 @@
         "Saturday: 6:00 AM – 9:00 PM",
         "Sunday: 6:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "breakfast burritos",
+      "chicken fajitas",
+      "pozole",
+      "vegetarian taco meal"
+    ],
+    "tags": [
+      "breakfast"
+    ]
   },
   {
     "id": "two-hands-seoul-fresh-corn-dogs",
@@ -11409,7 +11897,10 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "tater tots"
+    ]
   },
   {
     "id": "convenient-corner-market-deli",
@@ -11527,7 +12018,14 @@
         "Saturday: 7:30 AM – 10:00 PM",
         "Sunday: 8:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "pastrami sandwich",
+      "ruben"
+    ],
+    "tags": [
+      "late night"
+    ]
   },
   {
     "id": "grocery-station",
@@ -11544,7 +12042,10 @@
     "priceLevel": "PRICE_LEVEL_MODERATE",
     "photoRef": "places/ChIJefdCzxQSK4cRiRDvlLVDPG4/photos/AU_ZVEFCbP0pKW6kHQ85gIeH-MBzYVuVFomkJiz0yoaXdb2h4yzo7BTQkYYrSKnjnCFWZPXYn3dPbtPleqECxsFdSgkNzjp5VO32jn1r0D7qUFkrIdL9a8WPAwRIb7w3lj9soX6ZfDxqws8PVhYvRP031zeBnTRV-mtX5BdgnJ1jpor18hffmZCA9cedduBZYiUD81-psUZj2WF63vN0DOks8mXTrJP9wsdtodg8bXpsJTFW2-rlZHsGzF4da_VNFaDARGKyDWc3ah84MVRZinGgI8RkeRxUqyRv_12kYPM1eQnjaugF008nkY-blbc8dJtAjfR6jUbcQpcS7TeDj--UHN-cWS_dkuSVlL5M9HgLWdcGsIBhMujPQqkEwCweLZwxek0w9DlOtnCa_ASZFh3zA0eArfpA8qyjaO2Yo4tAMUCUbw",
     "enrichedAt": "2026-04-10",
-    "city": "phoenix"
+    "city": "phoenix",
+    "dishes": [
+      "fried chicken"
+    ]
   },
   {
     "id": "my-spot-mediterranean-grill",
@@ -11639,7 +12140,12 @@
         "Saturday: Closed",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "falafel",
+      "fries",
+      "shawarma"
+    ]
   },
   {
     "id": "pepper-lunch",
@@ -11757,7 +12263,10 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "quick lunch"
+    ]
   },
   {
     "id": "il-forno-bello-pizzeria",
@@ -11982,7 +12491,11 @@
         "Saturday: 9:00 AM – 10:00 PM",
         "Sunday: 9:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "lomo saltado",
+      "pisco sour"
+    ]
   },
   {
     "id": "the-ends",
@@ -12101,7 +12614,10 @@
         "Saturday: 4:00 – 11:00 PM",
         "Sunday: 4:00 – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "bison rib eye"
+    ]
   },
   {
     "id": "taco-guild",
@@ -12220,7 +12736,13 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "habanero salsa"
+    ],
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "incamex",
@@ -12433,7 +12955,10 @@
         "Saturday: 11:30 AM – 9:00 PM",
         "Sunday: 11:30 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "fish and chips"
+    ]
   },
   {
     "id": "lumsum-thai-cuisine",
@@ -12539,7 +13064,14 @@
         "Saturday: 12:00 – 8:00 PM",
         "Sunday: 3:00 – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "boat noodles",
+      "crispy pork"
+    ],
+    "tags": [
+      "must-try"
+    ]
   },
   {
     "id": "shaghf-cafe",
@@ -12658,7 +13190,10 @@
         "Saturday: 8:00 AM – 1:00 AM",
         "Sunday: 8:00 AM – 12:00 AM"
       ]
-    }
+    },
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "california-burger-breakfast-company",
@@ -12775,7 +13310,11 @@
         "Saturday: 6:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 6:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "hot wings",
+      "zucchini fries"
+    ]
   },
   {
     "id": "t-swirl-crepe",
@@ -12791,7 +13330,14 @@
     "photoRef": "places/ChIJEy4CUwABK4cRMUxh1tnlvI8/photos/AU_ZVEFo_WlTK472dvYVg1UGsUYM3lkEpkP6-DCIpAc48h6uwO9cT_PzXGGde1JduVKu1kAbJTBoCatysRh9q6xwlQNyiX931SWVyVIsj_7CWkTUyDtFcbnHhKDJI5UdCCJTMGqU4LKGj0my7_kbJlnHFXmXm7g3VRsUDVUNbDlb7aYbP-K_7XpYl8ofpW2SUVMF6u4yBi2pljSJM3k8SW773uWyQ7ZGo7UHESD91_6ziYaEWnfo4kGn9i3f4R6SGgms2vKcDXXOV2R2zK0XiWf0iJGIlewk9OgCGRAovqBVJlbqtAMN9et1JQEnbR03Fl8hgKhLGmpvvaseAZVDupl_iT25c_h7OvHSPSL-mYCJFAJPxFqLlA-yeSvfnqSZHo_BHp9jssDKrAo1QMvxGPJjzUDggGc0FAX3L-jWWSIUwNoN5or_AL2_S_dNA3Gnew",
     "enrichedAt": "2026-04-10",
     "notes": "Japanese-style crepes. Self-serve ordering kiosks inside. The Angus short rib crepe is one of the more interesting options. Mango crepe is huge and stuffed.",
-    "city": "phoenix"
+    "city": "phoenix",
+    "dishes": [
+      "angus short rib crepe",
+      "mango crepe"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "mendocino-farms",
@@ -12909,7 +13455,10 @@
         "Saturday: 10:30 AM – 9:00 PM",
         "Sunday: 10:30 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chicken pesto caprese"
+    ]
   },
   {
     "id": "el-super-taco",
@@ -13028,7 +13577,11 @@
         "Saturday: 9:00 AM – 10:00 PM",
         "Sunday: 9:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "asada burrito",
+      "shrimp taco"
+    ]
   },
   {
     "id": "baragi",
@@ -13325,7 +13878,10 @@
         "Saturday: 6:00 AM – 2:00 PM",
         "Sunday: 6:00 AM – 2:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "santa fe chicken"
+    ]
   },
   {
     "id": "pinnacle-brewing-company",
@@ -13443,7 +13999,15 @@
         "Saturday: 12:00 – 9:00 PM",
         "Sunday: 12:00 – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "czech amber lager",
+      "dark lager"
+    ],
+    "tags": [
+      "drinks",
+      "patio"
+    ]
   },
   {
     "id": "kh-i-ho-n-restaurant",
@@ -13550,7 +14114,12 @@
         "Saturday: 10:00 AM – 9:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "crisp rice noodle #45",
+      "egg rolls",
+      "pho #2"
+    ]
   },
   {
     "id": "nami-korean-kitchen-sushi",
@@ -13931,7 +14500,12 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "butter chicken",
+      "malai kofta",
+      "tarka dal"
+    ]
   },
   {
     "id": "suspiros-glendale",
@@ -14050,7 +14624,15 @@
         "Saturday: 10:00 AM – 7:00 PM",
         "Sunday: 10:00 AM – 6:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "carrot cake",
+      "piña colada slice",
+      "tres leches"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "tabla-indian-restaurant-phoenix-az",
@@ -14216,7 +14798,11 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "gongura chicken curry",
+      "kadai chicken"
+    ]
   },
   {
     "id": "sushino-mexican-roll",
@@ -14322,7 +14908,12 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "carnívoro roll",
+      "cielo mar y tierra roll",
+      "waffle fries"
+    ]
   },
   {
     "id": "onyx-ice-cream",
@@ -14427,7 +15018,13 @@
         "Saturday: 12:00 – 10:00 PM",
         "Sunday: 12:00 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "ube soft serve"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "gracie-s-tax-bar",
@@ -14653,7 +15250,11 @@
         "Saturday: 8:30 AM – 7:00 PM",
         "Sunday: 8:30 AM – 7:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "pho",
+      "spring rolls"
+    ]
   },
   {
     "id": "well-seasoned",
@@ -14879,7 +15480,15 @@
         "Saturday: 10:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 8:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "french dip",
+      "sonoran philly",
+      "sweet potato fries"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "mideast-eats",
@@ -14998,7 +15607,11 @@
         "Saturday: 10:00 AM – 7:00 PM",
         "Sunday: 10:00 AM – 2:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "kefta",
+      "shakshuka"
+    ]
   },
   {
     "id": "aja-catering",
@@ -15188,7 +15801,12 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 7:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chicken ranch wrap",
+      "fries",
+      "vegan smash burgers"
+    ]
   },
   {
     "id": "laco-smashburgers-tacos",
@@ -15306,7 +15924,13 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "smash burgers"
+    ],
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "pizza-to-the-rescue",
@@ -15425,7 +16049,10 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chicken parm with pasta"
+    ]
   },
   {
     "id": "kris-fresh-frybread",
@@ -15531,7 +16158,12 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 12:00 – 6:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "green chili wamich",
+      "o'odham taco",
+      "red chili wamich"
+    ]
   },
   {
     "id": "tea-light-caf",
@@ -15638,7 +16270,11 @@
         "Saturday: 11:00 AM – 8:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "banh mi chicken sandwich",
+      "pork chops"
+    ]
   },
   {
     "id": "brick-barley-a-neighborhood-bar-grill",
@@ -15757,7 +16393,10 @@
         "Saturday: 11:00 AM – 2:00 AM",
         "Sunday: 11:00 AM – 2:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "whitney wings"
+    ]
   },
   {
     "id": "jalape-os-sonora-grill",
@@ -15876,7 +16515,11 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "aqua fresca",
+      "sonoran taco"
+    ]
   },
   {
     "id": "tikka-n-taco",
@@ -15983,7 +16626,16 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "paneer biryani",
+      "shrimp coconut curry",
+      "shrimp tacos",
+      "tamarind sauce with samosas"
+    ],
+    "tags": [
+      "must-try"
+    ]
   },
   {
     "id": "the-taco-spot-north-phoenix",
@@ -16102,7 +16754,11 @@
         "Saturday: 9:00 AM – 11:00 PM",
         "Sunday: 9:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "birria burritos",
+      "carne asada burritos"
+    ]
   },
   {
     "id": "revoluci-n-tacos-cantina",
@@ -16183,7 +16839,14 @@
         "Saturday: 4:00 PM – 12:00 AM",
         "Sunday: 10:00 AM – 4:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "quesadilla"
+    ],
+    "tags": [
+      "drinks",
+      "patio"
+    ]
   },
   {
     "id": "los-cuatro-nietos-az",
@@ -16205,7 +16868,12 @@
     "address": "1820 S 7th St, Phoenix, AZ 85034, USA",
     "website": "https://online.skytab.com/705ce1096d69e0c1bcb652b2e8990db3",
     "phone": "(602) 754-9300",
-    "businessStatus": "OPERATIONAL"
+    "businessStatus": "OPERATIONAL",
+    "dishes": [
+      "birria tacos",
+      "homemade salsa verde",
+      "menudo"
+    ]
   },
   {
     "id": "xolo",
@@ -16312,7 +16980,12 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 4:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chile relleno",
+      "chipotle chicken enchiladas",
+      "chips and souiza"
+    ]
   },
   {
     "id": "la-bamba-mexican-grill-restaurant",
@@ -16418,7 +17091,16 @@
         "Saturday: 12:00 – 9:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "aguas frescas",
+      "chips and guacamole",
+      "six taco combo"
+    ],
+    "tags": [
+      "casual",
+      "takeout"
+    ]
   },
   {
     "id": "la-purisima-bakery-3",
@@ -16524,7 +17206,16 @@
         "Saturday: 7:00 AM – 7:00 PM",
         "Sunday: 7:00 AM – 3:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "conchas",
+      "cream horn",
+      "green pork tamales",
+      "tortillas"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "wally-burger",
@@ -16631,7 +17322,14 @@
         "Saturday: 11:00 AM – 8:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "chili cheese fries"
+    ],
+    "tags": [
+      "casual",
+      "kid friendly"
+    ]
   },
   {
     "id": "de-babel",
@@ -16738,7 +17436,15 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "fries",
+      "shawarma",
+      "tractor lemonade"
+    ],
+    "tags": [
+      "team dinner"
+    ]
   },
   {
     "id": "achiote",
@@ -17055,7 +17761,15 @@
         "Saturday: 10:00 AM – 4:00 PM",
         "Sunday: 10:00 AM – 4:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "americano with raspberry and rose syrup",
+      "espresso lemonade",
+      "salted maple latte"
+    ],
+    "tags": [
+      "coffee"
+    ]
   },
   {
     "id": "chin-up-donuts",
@@ -17174,7 +17888,13 @@
         "Saturday: 7:00 AM – 3:00 PM",
         "Sunday: 8:00 AM – 12:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "deep fried cinnamon roll"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "tell-your-friends",
@@ -17268,7 +17988,14 @@
         "Saturday: 5:00 PM – 1:00 AM",
         "Sunday: 5:00 – 11:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "oysters",
+      "steak"
+    ],
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "george-yang-s-chinese-cuisine",
@@ -17387,7 +18114,15 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 9:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "crab puffs",
+      "hot and sour soup",
+      "kung pao steak"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "suss-pastries",
@@ -17408,7 +18143,15 @@
     "address": "5341 N 7th Ave, Phoenix, AZ 85013, USA",
     "website": "https://www.susspastries.com/",
     "phone": "(602) 702-9485",
-    "businessStatus": "CLOSED_TEMPORARILY"
+    "businessStatus": "CLOSED_TEMPORARILY",
+    "dishes": [
+      "cheesecake",
+      "honey pecan cookie",
+      "pop tarts"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "malegria-latin-cafe",
@@ -17514,7 +18257,17 @@
         "Saturday: 8:00 AM – 6:00 PM",
         "Sunday: 8:00 AM – 5:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "abuelita mocha",
+      "chilaquiles",
+      "fish tacos",
+      "pastelitos"
+    ],
+    "tags": [
+      "coffee",
+      "patio"
+    ]
   },
   {
     "id": "the-stetson-social",
@@ -17621,7 +18374,16 @@
         "Saturday: 10:00 AM – 10:00 PM",
         "Sunday: 10:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "barramundi",
+      "burgers",
+      "pastrami burger"
+    ],
+    "tags": [
+      "brunch",
+      "casual"
+    ]
   },
   {
     "id": "bitz-ee-mama-s",
@@ -17728,7 +18490,14 @@
         "Saturday: 7:00 AM – 2:00 PM",
         "Sunday: 8:00 AM – 12:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chorizo skillet",
+      "red chili con carne"
+    ],
+    "tags": [
+      "breakfast"
+    ]
   },
   {
     "id": "tarbell-s",
@@ -17847,7 +18616,15 @@
         "Saturday: 5:00 – 10:00 PM",
         "Sunday: 5:00 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "beef carpaccio",
+      "hamachi crudo",
+      "mr. fish"
+    ],
+    "tags": [
+      "special occasion"
+    ]
   },
   {
     "id": "detroit-coney-grill",
@@ -17864,7 +18641,15 @@
     "photoRef": "places/ChIJxceGLCISK4cRZ-cgRq_dO3s/photos/AU_ZVEHOHLvNB5zG4C_8WnBPF2TjkpqUtFuqfIahW23m44zWHdBxMBKRzy82lyX_soWgiVkuGSE2PqU-VlW8McJb0sDwuzZMCO2yRGqA0FBxHuAd8kMNUnl-2bWut4utdtiDncPlHs-qX0KAcCItMIF8f4624iuH-_oewNV4bMQ17qapABR_ZM8D-LsaUg7cx9oEyKQ_b6Y9Ywg4APEBrvo6fGaOb8UDUjozLvTi3o_AkINQmgmgVoaPrTEgNYyUBybfgPAxnubxxnW4zsqVr7up0KSCDj4-gHoOy2xAYVvM2iSg8kwKhyCXfpsM6a2IlLkjNyJDnQGVO-Epz4GuocodTld9ZoEIP5CV8iK9GZ4eHh2JNHzVCQxTsKfiwAV2V1F-3wY9R7wHfqlrohuxHHewjHzdgzrkm4sMYbVaXlEJIxeL8A9o",
     "enrichedAt": "2026-04-10",
     "notes": "Downtown Phoenix cheap eats institution. Triple burger is $5.45. Coneys with chili are the classic move — eat fast or the chili makes them soggy. Cheesy chili tots are also great.",
-    "city": "phoenix"
+    "city": "phoenix",
+    "dishes": [
+      "cheesy chili tots",
+      "coneys with chili",
+      "triple burger"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "full-moon-izakaya",
@@ -17982,7 +18767,16 @@
         "Saturday: 11:00 AM – 11:00 PM",
         "Sunday: 11:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "baby octopus",
+      "crispy rice",
+      "ramen",
+      "sushi"
+    ],
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "lutong-bahay-filipino-asian-restaurant-mini-mart",
@@ -18101,7 +18895,11 @@
         "Saturday: 9:00 AM – 7:00 PM",
         "Sunday: 9:00 AM – 4:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "lechon",
+      "lumpia"
+    ]
   },
   {
     "id": "china-chili",
@@ -18208,7 +19006,11 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 4:30 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "peking duck with rolls",
+      "wonton soup"
+    ]
   },
   {
     "id": "indibar",
@@ -18314,7 +19116,15 @@
         "Saturday: 4:00 – 10:00 PM",
         "Sunday: 4:00 – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "raji papdi chaat",
+      "vegetarian chef's tasting menu"
+    ],
+    "tags": [
+      "drinks",
+      "special occasion"
+    ]
   },
   {
     "id": "mercado-y-carniceria-el-rancho",
@@ -18432,7 +19242,10 @@
         "Saturday: 8:00 AM – 8:00 PM",
         "Sunday: 8:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "burritos"
+    ]
   },
   {
     "id": "bad-jimmy-s-uptown",
@@ -18550,7 +19363,11 @@
         "Saturday: 11:00 AM – 11:00 PM",
         "Sunday: 11:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "smash burgers",
+      "waffle fries"
+    ]
   },
   {
     "id": "persepshen",
@@ -18751,7 +19568,10 @@
         "Saturday: 10:00 AM – 9:00 PM",
         "Sunday: 10:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "pad kee mao"
+    ]
   },
   {
     "id": "ben-brothers-market",
@@ -18858,7 +19678,12 @@
         "Saturday: 10:00 AM – 6:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "buffalo chicken wings",
+      "egg rolls",
+      "shrimp fried rice"
+    ]
   },
   {
     "id": "chispa-s-fast-fresh",
@@ -18977,7 +19802,15 @@
         "Saturday: 8:00 AM – 9:00 PM",
         "Sunday: 8:00 AM – 2:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "birria tacos",
+      "breakfast burritos"
+    ],
+    "tags": [
+      "breakfast",
+      "takeout"
+    ]
   },
   {
     "id": "popo-s-fiesta-del-sol",
@@ -19096,7 +19929,15 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "machaca taco",
+      "margaritas",
+      "rolled quesadillas"
+    ],
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "taco-papi",
@@ -19215,7 +20056,14 @@
         "Saturday: 9:30 AM – 9:00 PM",
         "Sunday: 10:30 AM – 8:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "carne asada tacos",
+      "quesaburria tacos"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "seven-brothers-burgers",
@@ -19322,7 +20170,10 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "hawaiian burgers"
+    ]
   },
   {
     "id": "knock-kneed-lobster",
@@ -19429,7 +20280,15 @@
         "Saturday: 10:30 AM – 9:00 PM",
         "Sunday: 10:30 AM – 6:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "broiled cod",
+      "fish and chips",
+      "fried shrimp"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "hachi-ramen",
@@ -19548,7 +20407,11 @@
         "Saturday: 11:00 AM – 8:30 PM",
         "Sunday: 11:00 AM – 3:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "extra chashu pork",
+      "spicy miso ramen"
+    ]
   },
   {
     "id": "el-chapo-hot-dogs",
@@ -19654,7 +20517,11 @@
         "Saturday: 4:00 PM – 1:00 AM",
         "Sunday: 4:00 – 11:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "mexican burger",
+      "sonoran hot dogs"
+    ]
   },
   {
     "id": "walter-where-house",
@@ -19675,7 +20542,10 @@
     "address": "702 N 21st Ave, Phoenix, AZ 85009, USA",
     "website": "https://www.walterwherehouse.com/",
     "phone": "(602) 586-5906",
-    "businessStatus": "OPERATIONAL"
+    "businessStatus": "OPERATIONAL",
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "glaze-donuts-az",
@@ -19782,7 +20652,13 @@
         "Saturday: 5:00 AM – 3:00 PM",
         "Sunday: 5:00 AM – 3:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "cronuts"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "phxnqra-wings",
@@ -19798,7 +20674,15 @@
     "userRatingCount": 27,
     "photoRef": "places/ChIJUVLh9DhBK4cRuYsItt7TNIo/photos/AU_ZVEEFrhSVEFOvFBBj2yV6qzhkRlOjSC42Y1TH6j2Zpsp68V0DaspwbYZAiInCz0OT19JVTvTsaJbtbXdDpVPZLDvUDt1VVXf3W1QcR50u3h7hKe_UxhvtqgSwUPAdY3hnwbxWLoFZPrsnAyldG0UM2TJom7IILvYkJSqvkUk_La_VF1lImcs0Xr1PjtEpM4OpHnA-zZv_kiB7tASt71s51lXD6G1Mh6EQbnQ9kkNTW2orRIY5tX5UafyWoDxwtpIlZJ7K68EKXUbaKMMP5Y942pH-6z2y6xmUCvTpvn3CQRwQFlJpjHYPC6bGeZ4zy2YGCVC-U8b4zzxu7NGTvNEw6JurQAxJFm_e279F7zG-mv0yxxIm0FkcAmiu-B-YA1px7-9WEEAn9HueVUpW-EI11TQiipBeLrTkwzanxS7W6npyVws8rIBF28K62647nsK8",
     "enrichedAt": "2026-04-10",
-    "city": "phoenix"
+    "city": "phoenix",
+    "dishes": [
+      "lemon garlic with pineapple",
+      "mac and cheese",
+      "parmesan fries"
+    ],
+    "tags": [
+      "takeout"
+    ]
   },
   {
     "id": "rinaldi-s-italian-deli",
@@ -19917,7 +20801,11 @@
         "Saturday: 7:00 AM – 5:00 PM",
         "Sunday: 8:00 AM – 3:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "italian combo sandwich",
+      "meatball sub"
+    ]
   },
   {
     "id": "novel-ice-cream",
@@ -20035,7 +20923,13 @@
         "Saturday: 12:00 PM – 1:00 AM",
         "Sunday: 12:00 PM – 12:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "donut ice cream"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "indian-village",
@@ -20154,7 +21048,15 @@
         "Saturday: 9:30 AM – 5:00 PM",
         "Sunday: 9:30 AM – 5:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "frybread taco",
+      "guacamole",
+      "navajo taco"
+    ],
+    "tags": [
+      "must-try"
+    ]
   },
   {
     "id": "random-af-taqueria",
@@ -20271,7 +21173,16 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "birria egg rolls",
+      "birria grilled cheese",
+      "birria tacos with consomé",
+      "horchata"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "thai-rama",
@@ -20390,7 +21301,11 @@
         "Saturday: 12:00 – 9:00 PM",
         "Sunday: 12:00 – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "mango sticky rice",
+      "spicy garlic chicken"
+    ]
   },
   {
     "id": "cinnabon-swirl",
@@ -20411,7 +21326,13 @@
     "address": "24759 N Lake Pleasant Pkwy, Peoria, AZ 85383, USA",
     "website": "https://locations.cinnabonswirl.com/az/peoria/24737-north-lake-pleasant-parkway?utm_source=google&utm_medium=organic&utm_campaign=locations_partner",
     "phone": "(480) 664-4334",
-    "businessStatus": "OPERATIONAL"
+    "businessStatus": "OPERATIONAL",
+    "dishes": [
+      "bonini"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "presidio-cocina-mexicana",
@@ -20518,7 +21439,10 @@
         "Saturday: 9:00 AM – 9:00 PM",
         "Sunday: 9:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "brunch"
+    ]
   },
   {
     "id": "bad-jimmy-s",
@@ -20636,7 +21560,12 @@
         "Saturday: 11:00 AM – 11:00 PM",
         "Sunday: 11:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "dry rub wings",
+      "la burg",
+      "smash burgers"
+    ]
   },
   {
     "id": "theos-kitchen-to-go",
@@ -20754,7 +21683,14 @@
         "Saturday: 11:00 AM – 12:00 AM",
         "Sunday: 11:00 AM – 10:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "chicken sandwich",
+      "chicken wings"
+    ],
+    "tags": [
+      "takeout"
+    ]
   },
   {
     "id": "shio-ramen-crudo",
@@ -20908,7 +21844,13 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "ramen"
+    ],
+    "tags": [
+      "quick lunch"
+    ]
   },
   {
     "id": "arreburro-burritos-quesadillas",
@@ -21015,7 +21957,12 @@
         "Saturday: 8:00 AM – 3:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "asado rojo quesadilla",
+      "barbacoa burrito",
+      "homemade tortillas"
+    ]
   },
   {
     "id": "sourdough-co",
@@ -21133,7 +22080,12 @@
         "Saturday: 10:30 AM – 9:00 PM",
         "Sunday: 10:30 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "brisket sandwich",
+      "clam chowder in a bread bowl",
+      "garlic pesto turkey"
+    ]
   },
   {
     "id": "campbell-s",
@@ -21252,7 +22204,13 @@
         "Saturday: 7:00 AM – 3:00 PM",
         "Sunday: 7:00 AM – 3:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "green chili eggs"
+    ],
+    "tags": [
+      "breakfast"
+    ]
   },
   {
     "id": "sushi-sen-scottsdale",
@@ -21455,7 +22413,12 @@
         "Saturday: 11:30 AM – 2:30 PM, 4:30 – 9:00 PM",
         "Sunday: 11:30 AM – 2:30 PM, 4:30 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "eel",
+      "katsu don",
+      "okonomiyaki"
+    ]
   },
   {
     "id": "apsara-asian-restaurant",
@@ -21692,7 +22655,10 @@
         "Saturday: 10:00 AM – 9:00 PM",
         "Sunday: 10:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "ph-tan-thanh",
@@ -21709,7 +22675,10 @@
     "photoRef": "places/ChIJ3-T3ovFpK4cRceEwce-I3Z4/photos/AU_ZVEG5yrHJjSLyypawNxHnL5_Vxo_mmhmRJqLkipGmIHzZHloTQFpj6yZZLYmgfL_gVGELbu_gj7TFhOs3Koxx1QqkuHUfgmEpbt5thc2aIfyX62WzhPl7lRTAn7wYhGR_bQvHV3E_m8b3PsPZsJr03pWyYc1568_epRgglrsX1ItG6Pu4PmbBd-nA_dvSWcWHGrXH5mHDWUU_hmIlikUN_PmsSs7xbquSE8N5OZ5jXEDLWcMEViZxkMAzhWSxrbxAsHbVSokIxZwU1ES1Udb8n_XLyIhxcTbwYlwUe8yGvw_3zR9qOtQKWGQf0Oc5CLfp757gYvSQR922WoFQHAOPPb6-bDE0mcjGadzHCrHiKI8HJeCRoKrizDLjorzrkn50zLzznEZ3i5N_Cl0M5hXgkfZG4astvvyIVusPn1oaWmHldyQ",
     "enrichedAt": "2026-04-10",
     "notes": "Vietnamese spot doing all the classics — pho, bun, com tam, chao. The Pho Bo Vien gets called out specifically. Family has been going for 7+ years.",
-    "city": "phoenix"
+    "city": "phoenix",
+    "dishes": [
+      "pho bo vien"
+    ]
   },
   {
     "id": "choon-burritos",
@@ -21828,7 +22797,10 @@
         "Saturday: 6:30 AM – 9:00 PM",
         "Sunday: 8:30 AM – 4:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "burritos"
+    ]
   },
   {
     "id": "nyc-bagels",
@@ -21845,7 +22817,14 @@
     "photoRef": "places/ChIJG1LCwgxzK4cRxGaG_FSmkjg/photos/AU_ZVEHIf6VEUBOer1BbeAuze97Wrq4tcmjmaZTWv1Ddl1xhwqy-zDTo73i2vrz9QC90CKqbECi9R15NFUt5F6DOTWageSyPCvpQRkNVxzkjpErVn41t-FnkEcY55loNJ1bixB5K7ZgwW50Ga2duwaWCfcoZ9S0spE9lVu9jx22gIrad-JCIrhzwb2yx960SOmbKy2Nr8twmNeczfM6uHx5kj2s6-kk5PTj1-6LIKlNxmKEWgBHdBsVHnvYNw_Ii6EkK_CjIJ2HJ0bvt4mJpnCJlbOEq424S13mIgo9886gJF6fn3A",
     "enrichedAt": "2026-04-10",
     "notes": "Bagels and bialys. People mention the eggs Benedict and corned beef hash for a full breakfast situation.",
-    "city": "phoenix"
+    "city": "phoenix",
+    "dishes": [
+      "corned beef hash",
+      "eggs benedict"
+    ],
+    "tags": [
+      "breakfast"
+    ]
   },
   {
     "id": "osteria-mia",
@@ -21952,7 +22931,13 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "orecchiette"
+    ],
+    "tags": [
+      "patio"
+    ]
   },
   {
     "id": "dodo-bird-kitchen-and-cocktails",
@@ -22071,7 +23056,10 @@
         "Saturday: 10:00 AM – 10:00 PM",
         "Sunday: 10:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "steak fries"
+    ]
   },
   {
     "id": "new-penny-cafe",
@@ -22190,7 +23178,13 @@
         "Saturday: 6:00 AM – 3:00 PM",
         "Sunday: 6:00 AM – 3:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "breakfast burrito"
+    ],
+    "tags": [
+      "breakfast"
+    ]
   },
   {
     "id": "maya-s-kitchen-indian-cuisine",
@@ -22297,7 +23291,11 @@
         "Saturday: 5:00 – 9:00 PM",
         "Sunday: 5:00 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "coconut curry chicken",
+      "daal makhani"
+    ]
   },
   {
     "id": "mi-pueblo-mexican-food",
@@ -22416,7 +23414,11 @@
         "Saturday: 8:00 AM – 9:00 PM",
         "Sunday: 8:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "carne asada fries",
+      "zombie salsa"
+    ]
   },
   {
     "id": "vicinos-local-italian",
@@ -22535,7 +23537,10 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "tavern-style round pizza"
+    ]
   },
   {
     "id": "humble-bistro",
@@ -22653,7 +23658,11 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chicken parmigiana",
+      "pizza"
+    ]
   },
   {
     "id": "burger-more",
@@ -22772,7 +23781,10 @@
         "Saturday: 6:00 AM – 10:00 PM",
         "Sunday: 7:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "pastrami sandwich"
+    ]
   },
   {
     "id": "la-chona-burger-restaurant",
@@ -22878,7 +23890,10 @@
         "Saturday: 8:00 AM – 9:00 PM",
         "Sunday: 8:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chona burger"
+    ]
   },
   {
     "id": "knuckle-sandwiches",
@@ -22997,7 +24012,12 @@
         "Saturday: 8:00 AM – 9:00 PM",
         "Sunday: 9:00 AM – 5:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "cuban sandwich",
+      "german potato salad",
+      "turkey cranberry sandwich"
+    ]
   },
   {
     "id": "taqueria-mi-casita",
@@ -23116,7 +24136,10 @@
         "Saturday: 8:00 AM – 11:00 PM",
         "Sunday: 8:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "street tacos"
+    ]
   },
   {
     "id": "paradise-lounge",
@@ -23235,7 +24258,15 @@
         "Saturday: 2:00 PM – 2:00 AM",
         "Sunday: 12:00 PM – 12:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "tetris tots"
+    ],
+    "tags": [
+      "casual",
+      "drinks",
+      "patio"
+    ]
   },
   {
     "id": "taco-viva",
@@ -23353,7 +24384,13 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "al pastor"
+    ],
+    "tags": [
+      "takeout"
+    ]
   },
   {
     "id": "curries-indian-cuisine-and-bar",
@@ -23567,7 +24604,11 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "chicken shawarma",
+      "spinach pie"
+    ]
   },
   {
     "id": "okay-maguey",
@@ -23685,7 +24726,11 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "enchiladas suizas",
+      "enchiladas verdes"
+    ]
   },
   {
     "id": "unos-tacos-y-birria",
@@ -23804,7 +24849,10 @@
         "Saturday: 9:00 AM – 10:00 PM",
         "Sunday: 9:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "birria taco special with consomé"
+    ]
   },
   {
     "id": "la-fonda-del-sol",
@@ -23821,7 +24869,12 @@
     "photoRef": "places/ChIJmYEOo-t0K4cRlN5TLe0rS58/photos/AU_ZVEGm_i0-v53fuOXqRpJfZha0nThrTAhKb0KFVRA3WmYqnUy7bUgMj0P_wXinLNPMkWfFQu3zKkmgJsF5WMAX93AJ4YsUQDI8bEKajbZ6jKTxt6aI6PWB8dl-lCDu3coVmEqK4rWu8vj4VcxbQ5nfzkwnzmR5z1SL2tLYCAf2OffBwMBsvE6hAmv4mSuoGhpgxKGawU_bnxuW6z3Q7yLfslu2vNSGEhSvr6yKJFSHD4AGpPRgVK_tmzcGcaE8sm2-pTSYkblvOuPfXISwcen8nR-V_5P_5lgO2uyAcW0PzPSRow",
     "enrichedAt": "2026-04-10",
     "notes": "The queso with beef appetizer gets called best ever. Asada plate and green chile tamales are solid. Weekday lunch buffet.",
-    "city": "phoenix"
+    "city": "phoenix",
+    "dishes": [
+      "asada plate",
+      "green chile tamales",
+      "queso with beef"
+    ]
   },
   {
     "id": "miel-de-agave",
@@ -24059,7 +25112,10 @@
         "Saturday: 3:00 – 10:00 PM",
         "Sunday: 3:00 – 9:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "hao-hao-chinese-restaurant",
@@ -24165,7 +25221,10 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "hot garlic chicken"
+    ]
   },
   {
     "id": "tacos-el-rojo-phx",
@@ -24181,7 +25240,11 @@
     "photoRef": "places/ChIJGcXMKwBrK4cRII2XWEXDsGc/photos/AU_ZVEEvcceLMRMOwcXV4QsTgpN16SQwcekEUjOCR3yjohZ2ZJvbDBdB97JEaHUTLzRScMNnZGLqovj0JV9Abn5s4n-J8K9ZCms0ok0qAHnkgm56oGoV8GlOVAkGftNvBE1Kz7TGc5F-0FvqTbsdH5-QR5dWCwi1wWHR7EcbERlyceafXhOaBN6ycdkn8zF897x5brfrwPyY5EQeCXOCBb8J89X3XOVn_EdLJiiPSbhNQHGnzLGwuPGrR_Yo8lbO5bFhAc1hOPXr2u2ubQ5muAkhUMEuHeWnyjklhOFnWG8zUrk7LQ",
     "enrichedAt": "2026-04-10",
     "notes": "Hidden gem taco spot. The papa loca and al pastor are the standouts. Handmade tortillas.",
-    "city": "phoenix"
+    "city": "phoenix",
+    "dishes": [
+      "al pastor",
+      "papa loca"
+    ]
   },
   {
     "id": "carb-n-salt-taco-shop",
@@ -24300,7 +25363,11 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 8:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "al pastor",
+      "asada sincronizada"
+    ]
   },
   {
     "id": "pinches-tacos-al-carbon-az",
@@ -24418,7 +25485,10 @@
         "Saturday: 10:00 AM – 9:00 PM",
         "Sunday: 10:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "taco tijuana style"
+    ]
   },
   {
     "id": "cornish-pasty-co",
@@ -24537,7 +25607,14 @@
         "Saturday: 11:00 AM – 2:00 AM",
         "Sunday: 11:00 AM – 2:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "lamb and mint pasty",
+      "tandoori curry wings"
+    ],
+    "tags": [
+      "late night"
+    ]
   },
   {
     "id": "halo-halo-kitchen",
@@ -24775,7 +25852,14 @@
         "Saturday: 8:00 AM – 10:00 PM",
         "Sunday: 8:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "al pastor tacos",
+      "breakfast molcajete"
+    ],
+    "tags": [
+      "breakfast"
+    ]
   },
   {
     "id": "main-burger",
@@ -24892,7 +25976,10 @@
         "Saturday: 11:00 AM – 11:00 PM",
         "Sunday: 11:00 AM – 4:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "green chile burger"
+    ]
   },
   {
     "id": "the-pizza-shack",
@@ -24999,7 +26086,13 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 3:00 – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "white out pizza"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "tatemados-tacos-al-carbon",
@@ -25105,7 +26198,10 @@
         "Saturday: 10:30 AM – 4:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "tacos"
+    ]
   },
   {
     "id": "the-dirty-drummer",
@@ -25224,7 +26320,10 @@
         "Saturday: 11:00 AM – 2:00 AM",
         "Sunday: 11:00 AM – 2:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "wings"
+    ]
   },
   {
     "id": "fire-at-will",
@@ -25449,7 +26548,10 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "chorizo stuffed chicken"
+    ]
   },
   {
     "id": "origami-ramen-bar",
@@ -25604,7 +26706,11 @@
         "Saturday: 12:00 – 9:00 PM",
         "Sunday: 12:00 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chicken ramen",
+      "pork katsu"
+    ]
   },
   {
     "id": "phila-deli-az",
@@ -25626,7 +26732,14 @@
     "address": "20219 N 59th Ave Ste a-3, Glendale, AZ 85308, USA",
     "website": "https://www.philadeliaz.com/",
     "phone": "(623) 376-9333",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "italian sub",
+      "philly cheesesteak"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "el-zaguan-bistro",
@@ -25733,7 +26846,12 @@
         "Saturday: 8:00 AM – 8:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "al pastor taco",
+      "jackfruit taco",
+      "nopalito taco"
+    ]
   },
   {
     "id": "being-bar",
@@ -25754,7 +26872,15 @@
     "address": "13802 N 32nd St #12, Phoenix, AZ 85032, USA",
     "website": "https://www.beingbar.site/",
     "phone": "(602) 812-1836",
-    "businessStatus": "CLOSED_TEMPORARILY"
+    "businessStatus": "CLOSED_TEMPORARILY",
+    "dishes": [
+      "cacao-based cocktails",
+      "mushroom chai coffee"
+    ],
+    "tags": [
+      "coffee",
+      "drinks"
+    ]
   },
   {
     "id": "tasty-pot",
@@ -25873,7 +26999,10 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "sa cha flavor"
+    ]
   },
   {
     "id": "burger-rush",
@@ -25889,7 +27018,11 @@
     "photoRef": "places/ChIJkcDIlvQSK4cRnFQ7nfQuHNs/photos/AU_ZVEH-rclnFvx76306h_N2GhSSmqRE8okvR6EreEUbjaFmWlJDi45Xi-GutXEVeIWXPZNHnQhxx3Hz4Q07Ww95rW1T4vAmCDb46Ad3mxmEx-rvZFbzolnJpDma0TgITDN4UL5DILYC5rjdhHk954Vw0niqxi8kvueEIMhh41CMq7OuTpidEx6uYh5iF8EWrlkS_nJJYePvEn-u_6pyCACjCVirBdeAInV1RUixI__-0GTYxVOXXIYZxClS0MNJLY2S7P3BTQa15Q3b2q3UyLpGAQg7LGE_1p-9ziBABpGHwyNE5Mc3WInDeNP6pNaq31isuEfv4l8flSAkwo7wcmTT4dm4t7LOtpTOcLiizLoJXtfx6NMg_A-w3Fsr3k_rGV-D446MUnKsnBy8WUSzIy2tOhThpZs-uI9o6O37t0CJydBo4ilm",
     "enrichedAt": "2026-04-10",
     "notes": "The Ortega burger is the one. Also a steak sandwich that reviewers keep coming back for. Solid value.",
-    "city": "phoenix"
+    "city": "phoenix",
+    "dishes": [
+      "ortega burger",
+      "steak sandwich"
+    ]
   },
   {
     "id": "dosa-place-kerala-kitchen",
@@ -26068,7 +27201,13 @@
         "Saturday: 12:00 AM – 3:00 PM, 5:30 – 11:00 PM",
         "Sunday: 12:00 AM – 3:00 PM, 5:30 – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "garlic naan",
+      "gobi manchurian",
+      "mysore dosa",
+      "wheat chapati"
+    ]
   },
   {
     "id": "american-way-pasta",
@@ -26173,7 +27312,10 @@
         "Saturday: 4:00 – 9:00 PM",
         "Sunday: 4:00 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "cacio e pepe in the cheese wheel"
+    ]
   },
   {
     "id": "shawarma-factory",
@@ -26231,7 +27373,10 @@
         "Saturday: 6:00 PM – 4:00 AM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "chicken shawarma wraps"
+    ]
   },
   {
     "id": "chilaquiles-modern-kitchen",
@@ -26350,7 +27495,13 @@
         "Saturday: 7:00 AM – 4:00 PM",
         "Sunday: 7:00 AM – 4:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "build your own chilaquiles"
+    ],
+    "tags": [
+      "brunch"
+    ]
   },
   {
     "id": "leo-s-tacos-burritos",
@@ -26372,7 +27523,10 @@
     "address": "10277 W McDowell Rd Ste 100, Avondale, AZ 85392, USA",
     "website": "http://leostacosandburritos.com/",
     "phone": "(623) 248-0219",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "birria burger"
+    ]
   },
   {
     "id": "caribbean-cuisine",
@@ -26478,7 +27632,10 @@
         "Saturday: 11:00 AM – 8:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "ox tail"
+    ]
   },
   {
     "id": "azhanna-hibachi",
@@ -26585,7 +27742,10 @@
         "Saturday: 12:00 – 11:00 PM",
         "Sunday: 12:00 – 11:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "fried rice"
+    ]
   },
   {
     "id": "taqueria-chicali-mexican-grill",
@@ -26704,7 +27864,11 @@
         "Saturday: 10:00 AM – 11:00 PM",
         "Sunday: 10:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "angus beef cooked with just salt",
+      "corn tortillas"
+    ]
   },
   {
     "id": "saint-pasta",
@@ -26797,7 +27961,11 @@
         "Saturday: 5:00 – 10:00 PM",
         "Sunday: 5:00 – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "homemade pasta",
+      "ny style cutlet"
+    ]
   },
   {
     "id": "el-norte-o",
@@ -26904,7 +28072,14 @@
         "Saturday: 7:30 AM – 10:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "breakfast burrito",
+      "mexican pizza"
+    ],
+    "tags": [
+      "breakfast"
+    ]
   },
   {
     "id": "schreiner-s-fine-sausage",
@@ -26987,7 +28162,10 @@
         "Saturday: 9:00 AM – 2:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "chorizo"
+    ]
   },
   {
     "id": "hatch-it-green-chile-burgers-tacos",
@@ -27082,7 +28260,15 @@
         "Saturday: 7:30 AM – 7:00 PM",
         "Sunday: 8:00 AM – 2:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "green chile santa fe burger",
+      "pork burrito",
+      "red posole"
+    ],
+    "tags": [
+      "must-try"
+    ]
   },
   {
     "id": "cajun-breakfast-joint",
@@ -27103,7 +28289,11 @@
     "address": "2800 N Central Ave A100, Phoenix, AZ 85004, USA",
     "website": "https://www.cajunbreakfastjoint.com/",
     "phone": "(480) 240-8608",
-    "businessStatus": "CLOSED_TEMPORARILY"
+    "businessStatus": "CLOSED_TEMPORARILY",
+    "dishes": [
+      "bone-in chicken and waffles",
+      "shrimp and grits"
+    ]
   },
   {
     "id": "bongiorno-bagels",
@@ -27185,7 +28375,13 @@
         "Saturday: 6:00 AM – 2:00 PM",
         "Sunday: 7:00 AM – 2:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "morning medic"
+    ],
+    "tags": [
+      "breakfast"
+    ]
   },
   {
     "id": "sushi-sonora",
@@ -27304,7 +28500,10 @@
         "Saturday: 11:00 AM – 12:00 AM",
         "Sunday: 11:00 AM – 12:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "burger"
+    ]
   },
   {
     "id": "sosoba-phoenix",
@@ -27423,7 +28622,15 @@
         "Saturday: 11:00 AM – 12:00 AM",
         "Sunday: 11:00 AM – 12:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "bbq pork buns",
+      "ramen"
+    ],
+    "tags": [
+      "drinks",
+      "late night"
+    ]
   },
   {
     "id": "ledu-thai",
@@ -27518,7 +28725,11 @@
         "Saturday: 12:00 – 10:00 PM",
         "Sunday: 12:00 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "hat-yai fried chicken",
+      "pad thai"
+    ]
   },
   {
     "id": "cerreta-candy-company",
@@ -27624,7 +28835,10 @@
         "Saturday: 8:00 AM – 6:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "alma-scottsdale",
@@ -27827,7 +29041,15 @@
         "Saturday: 11:30 AM – 2:30 PM, 4:30 – 9:00 PM",
         "Sunday: 11:30 AM – 2:30 PM, 4:30 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "christmas margaritas",
+      "lobster quesadilla",
+      "plantain chips"
+    ],
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "dragon-bowl",
@@ -27934,7 +29156,12 @@
         "Saturday: 11:00 AM – 9:30 PM",
         "Sunday: 12:00 – 9:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "cashew chicken",
+      "general tso's",
+      "kung pao beef with fried rice"
+    ]
   },
   {
     "id": "hornbill-sushi-asian-fusion",
@@ -28100,7 +29327,10 @@
         "Saturday: 11:00 AM – 3:00 PM, 4:00 – 9:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "chicken katsu curry"
+    ]
   },
   {
     "id": "creampuff",
@@ -28218,7 +29448,13 @@
         "Saturday: 7:00 AM – 3:00 PM",
         "Sunday: 7:00 AM – 3:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "creme brulee donut"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "hoosier-cafe",
@@ -28337,7 +29573,10 @@
         "Saturday: 6:30 AM – 2:00 PM",
         "Sunday: 6:30 AM – 2:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "pork tenderloin"
+    ]
   },
   {
     "id": "berdena-s",
@@ -28453,7 +29692,13 @@
         "Saturday: 8:00 AM – 2:00 PM",
         "Sunday: 9:00 AM – 1:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "breakfast burrito"
+    ],
+    "tags": [
+      "breakfast"
+    ]
   },
   {
     "id": "aflourshop",
@@ -28559,7 +29804,13 @@
         "Saturday: 7:00 AM – 3:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "pistachio crookie"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "pyro",
@@ -28678,7 +29929,12 @@
         "Saturday: 10:00 AM – 11:00 PM",
         "Sunday: 10:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "fried rice",
+      "garlic noodles",
+      "gyoza"
+    ]
   },
   {
     "id": "silverlake-ramen",
@@ -28797,7 +30053,10 @@
         "Saturday: 11:30 AM – 10:00 PM",
         "Sunday: 11:30 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "tsukumen ramen"
+    ]
   },
   {
     "id": "mister-pio",
@@ -28891,7 +30150,10 @@
         "Saturday: 12:00 – 8:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "peruvian roast chicken"
+    ]
   },
   {
     "id": "new-garden-restaurant",
@@ -29117,7 +30379,11 @@
         "Saturday: 10:00 AM – 11:00 PM",
         "Sunday: 10:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "lemongrass wings",
+      "thai tea"
+    ]
   },
   {
     "id": "mamma-lucy",
@@ -29236,7 +30502,10 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "pasta"
+    ]
   },
   {
     "id": "el-caprichoso-sonoran-hotdogs",
@@ -29343,7 +30612,11 @@
         "Saturday: 6:00 PM – 3:00 AM",
         "Sunday: 6:00 PM – 2:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "ruffles hotdog",
+      "titanic hot dog"
+    ]
   },
   {
     "id": "azusa-ramen-sushi",
@@ -29462,7 +30735,11 @@
         "Saturday: 11:00 AM – 8:45 PM",
         "Sunday: 11:00 AM – 8:15 PM"
       ]
-    }
+    },
+    "dishes": [
+      "gyoza",
+      "veggie rolls"
+    ]
   },
   {
     "id": "thai-on-demand",
@@ -29641,7 +30918,11 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "crispy curry chicken noodle",
+      "pork belly"
+    ]
   },
   {
     "id": "the-mick-brasserie-bar",
@@ -29748,7 +31029,13 @@
         "Saturday: 4:00 – 10:00 PM",
         "Sunday: 4:00 – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "pate melt"
+    ],
+    "tags": [
+      "date night"
+    ]
   },
   {
     "id": "chicago-hamburger-co",
@@ -29855,7 +31142,15 @@
         "Saturday: 10:30 AM – 7:30 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "garlic fries",
+      "milkshakes",
+      "sliders"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "taqueria-los-norte-os",
@@ -29974,7 +31269,14 @@
         "Saturday: 3:00 PM – 12:00 AM",
         "Sunday: 3:00 PM – 12:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "machaca chimichanga",
+      "tacos"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "angel-s-trumpet-ale-house",
@@ -29996,7 +31298,10 @@
     "address": "810 N 2nd St, Phoenix, AZ 85004, USA",
     "website": "https://angelstrumpetalehouse.com/",
     "phone": "(602) 252-2630",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "wings"
+    ]
   },
   {
     "id": "50-shades-of-ros",
@@ -30090,7 +31395,10 @@
         "Saturday: 11:00 AM – 2:00 AM",
         "Sunday: 11:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "first-last",
@@ -30268,7 +31576,10 @@
         "Saturday: 11:00 AM – 3:00 PM, 5:00 – 10:00 PM",
         "Sunday: 11:00 AM – 3:00 PM, 4:00 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "focaccia sandwiches"
+    ]
   },
   {
     "id": "gus-s-world-famous-fried-chicken",
@@ -30387,7 +31698,11 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "catfish",
+      "fried chicken"
+    ]
   },
   {
     "id": "frank-s-deli",
@@ -30493,7 +31808,10 @@
         "Saturday: 9:00 AM – 6:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "the tony"
+    ]
   },
   {
     "id": "joe-s-tacos",
@@ -30510,7 +31828,14 @@
     "photoRef": "places/ChIJ675UuG1vK4cR-visOWc98PI/photos/AU_ZVEF0NJ76jhlL1y2VmvfettuhnORIw6lw_ZfEMCDZ82lCSyAHbrrddWpck0yS029--izfYAOPFRfYeUbYYDyaqmG_R7w0_tYrtaFO-bnLIOV-v4T3j6Sw741dlDP-PafPu29pItBAKCCfkGqvWeWbew8VkhDV0Lwf1sPFeouHUzWQzEnm0tKu_LYumgeRKsUwH2WdT3AqC_LZt1bmaCO_l5bs9ZBGz5_oBnse0wdOLdgCNYcWjqaNd4d7sNoAmuG42OjIDUJ_fgbeaMoxIkCWnRPZnz88FdqTR3nLZJV2IuNOs4jgwRZ-vxPmZ8VKFgE6MZjUxbAZY3mAJFS4SQ9J56OxopR_okz4qGasoeVTYbmr4e4L8eeZtYLCmatLM1WmZzax6514YjfxgYVHSzHEmkhPq1vx6l6blqB_C-D0uaW6Rw",
     "enrichedAt": "2026-04-10",
     "notes": "Toasted shell tacos are the move — al pastor and carne asada. Also a cactus taco. Melon fresca is worth getting.",
-    "city": "phoenix"
+    "city": "phoenix",
+    "dishes": [
+      "al pastor",
+      "cactus taco",
+      "carne asada",
+      "melon fresca",
+      "toasted shell tacos"
+    ]
   },
   {
     "id": "funky-jacks-burros-percherones",
@@ -30603,7 +31928,13 @@
         "Saturday: 6:00 PM – 12:00 AM",
         "Sunday: 6:00 PM – 12:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "sonoran-style burritos"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "mary-s-mountain-cookies",
@@ -30710,7 +32041,14 @@
         "Saturday: 10:00 AM – 9:00 PM",
         "Sunday: 12:00 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "peanut butter cookie"
+    ],
+    "tags": [
+      "dessert",
+      "takeout"
+    ]
   },
   {
     "id": "la-pasadita-hot-dogs",
@@ -30829,7 +32167,14 @@
         "Saturday: 8:30 AM – 2:00 AM",
         "Sunday: 8:30 AM – 12:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "quesabirria",
+      "sonoran hot dogs"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "agourmet-fine-sandwiches",
@@ -30947,7 +32292,10 @@
         "Saturday: 10:30 AM – 3:30 PM",
         "Sunday: 10:30 AM – 2:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "italian sandwich"
+    ]
   },
   {
     "id": "holsum-bakery-inc",
@@ -31107,7 +32455,11 @@
         "Saturday: 11:00 AM – 12:00 AM",
         "Sunday: 11:00 AM – 12:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "beef tikkah",
+      "iraqi chicken shawarma"
+    ]
   },
   {
     "id": "roro-dogs",
@@ -31190,7 +32542,11 @@
         "Saturday: 11:00 AM – 8:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "chicago style dog",
+      "chili cheese dog"
+    ]
   },
   {
     "id": "sonson-s-pasty-co",
@@ -31309,7 +32665,14 @@
         "Saturday: 7:00 AM – 2:00 PM",
         "Sunday: 7:00 AM – 2:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "lamb and mint pasty",
+      "tandoori curry wings"
+    ],
+    "tags": [
+      "late night"
+    ]
   },
   {
     "id": "captain-bill-s-submarine",
@@ -31428,7 +32791,14 @@
         "Saturday: 10:00 AM – 8:00 PM",
         "Sunday: 11:00 AM – 7:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "italian sub on sourdough",
+      "roast beef with cheese sauce"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "hunnie-butter",
@@ -31498,7 +32868,13 @@
         "Saturday: 9:00 AM – 1:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "cheesecake"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "taiwan-mama-flagship-store",
@@ -31605,7 +32981,16 @@
         "Saturday: 11:00 AM – 9:30 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "braised beef noodles",
+      "braised pork belly",
+      "popcorn chicken",
+      "tomato fried eggs"
+    ],
+    "tags": [
+      "must-try"
+    ]
   },
   {
     "id": "el-jacal-mexican-restaurant",
@@ -31724,7 +33109,16 @@
         "Saturday: 8:00 AM – 4:00 PM",
         "Sunday: 8:00 AM – 4:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chilaquiles rojos",
+      "chorizo burro",
+      "goat birria",
+      "quesa birria de res"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "sidewinder",
@@ -31841,7 +33235,16 @@
         "Saturday: 5:00 PM – 2:00 AM",
         "Sunday: 5:00 PM – 2:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "not so sonoran hotdog",
+      "rodeo burger"
+    ],
+    "tags": [
+      "casual",
+      "drinks",
+      "patio"
+    ]
   },
   {
     "id": "curry-n-crust",
@@ -31960,7 +33363,14 @@
         "Saturday: 9:30 AM – 12:00 AM",
         "Sunday: 9:30 AM – 12:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "curry tacos",
+      "paneer with jalapeños"
+    ],
+    "tags": [
+      "must-try"
+    ]
   },
   {
     "id": "estilo-azteca",
@@ -32078,7 +33488,15 @@
         "Saturday: 7:30 AM – 9:00 PM",
         "Sunday: 7:30 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "horchata",
+      "pambazo"
+    ],
+    "tags": [
+      "breakfast",
+      "brunch"
+    ]
   },
   {
     "id": "bowl-of-greens-healthy-kitchen",
@@ -32173,7 +33591,10 @@
         "Saturday: Closed",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "caesar salad"
+    ]
   },
   {
     "id": "uncle-panda-dumpling-noodle-house",
@@ -32339,7 +33760,13 @@
         "Saturday: 11:00 AM – 9:30 PM",
         "Sunday: 11:00 AM – 9:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "beef noodle soup",
+      "pork with chives dumplings",
+      "shrimp dumplings",
+      "xiao long bao"
+    ]
   },
   {
     "id": "brody-s-italian-formerly-nick-s-italian",
@@ -32458,7 +33885,10 @@
         "Saturday: 4:00 – 9:00 PM",
         "Sunday: 4:00 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "calamari"
+    ]
   },
   {
     "id": "mensho-ramen",
@@ -32600,7 +34030,13 @@
         "Saturday: 12:00 – 10:00 PM",
         "Sunday: 12:00 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "classic toripaitan",
+      "enoki chips",
+      "gko",
+      "matcha pudding"
+    ]
   },
   {
     "id": "arizona-sandwich-co-catering-52nd-university",
@@ -32707,7 +34143,15 @@
         "Saturday: 8:00 AM – 3:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "breakfast sandwiches",
+      "the sparky"
+    ],
+    "tags": [
+      "breakfast",
+      "quick lunch"
+    ]
   },
   {
     "id": "arizona-sandwich-co-catering-24th-st",
@@ -32802,7 +34246,10 @@
         "Saturday: Closed",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "blended horchata with oat milk"
+    ]
   },
   {
     "id": "arizona-sandwich-co-catering-1221-w-warner-rd",
@@ -32909,7 +34356,11 @@
         "Saturday: 9:00 AM – 2:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "the atc",
+      "the sparky"
+    ]
   },
   {
     "id": "analilia-s-riquezas",
@@ -33016,7 +34467,12 @@
         "Saturday: 10:00 AM – 9:00 PM",
         "Sunday: 10:00 AM – 5:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "consome",
+      "loaded nachos",
+      "quesabirria tacos"
+    ]
   },
   {
     "id": "culture-clash-greek-yogurt",
@@ -33135,7 +34591,10 @@
         "Saturday: 8:00 AM – 7:00 PM",
         "Sunday: 8:00 AM – 7:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "taste-my-city",
@@ -33361,7 +34820,14 @@
         "Saturday: 5:30 AM – 3:00 PM",
         "Sunday: 5:30 AM – 3:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "breakfast burritos",
+      "everything bagel with jalapeño cream cheese"
+    ],
+    "tags": [
+      "breakfast"
+    ]
   },
   {
     "id": "michelina-s-italian-restaurant",
@@ -33456,7 +34922,12 @@
         "Saturday: 5:00 – 9:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "napoli salad",
+      "swordfish",
+      "veal piccata"
+    ]
   },
   {
     "id": "fabio-on-fire-pizzeria-italiana",
@@ -33587,7 +35058,10 @@
         "Saturday: 11:30 AM – 2:00 PM, 4:00 – 9:00 PM",
         "Sunday: 11:30 AM – 2:00 PM, 4:00 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "bread"
+    ]
   },
   {
     "id": "stellar-66-chinese-restaurant-and-bar",
@@ -33609,7 +35083,10 @@
     "address": "1817 E Baseline Rd #103, Gilbert, AZ 85233, USA",
     "website": "http://stellar66.com/",
     "phone": "(480) 892-5318",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "peking duck"
+    ]
   },
   {
     "id": "oliver-s-modern-american",
@@ -33728,7 +35205,15 @@
         "Saturday: 4:00 – 11:00 PM",
         "Sunday: 4:00 – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "rigatoni",
+      "short ribs"
+    ],
+    "tags": [
+      "drinks",
+      "patio"
+    ]
   },
   {
     "id": "the-starving-artist",
@@ -33847,7 +35332,10 @@
         "Saturday: 12:00 PM – 1:00 AM",
         "Sunday: 12:00 PM – 12:00 AM"
       ]
-    }
+    },
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "iced-out-ice-cream",
@@ -33954,7 +35442,10 @@
         "Saturday: 3:00 – 9:00 PM",
         "Sunday: 3:00 – 9:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "kabob-grill-n-go",
@@ -34048,7 +35539,10 @@
         "Saturday: 12:00 – 6:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "pork ribs with rice"
+    ]
   },
   {
     "id": "randy-s-donuts",
@@ -34167,7 +35661,10 @@
         "Saturday: 6:00 AM – 6:00 PM",
         "Sunday: 6:00 AM – 6:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "tacos-el-paisa",
@@ -34286,7 +35783,16 @@
         "Saturday: 8:00 AM – 10:00 PM",
         "Sunday: 8:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "birria ramen",
+      "breakfast burritos",
+      "chorizo",
+      "gordita"
+    ],
+    "tags": [
+      "breakfast"
+    ]
   },
   {
     "id": "tacos-el-paisa-chandler",
@@ -34405,7 +35911,13 @@
         "Saturday: 9:00 AM – 10:00 PM",
         "Sunday: 9:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "carne asada torta",
+      "flautas",
+      "huarache de carne asada",
+      "tripas taco"
+    ]
   },
   {
     "id": "salt-cellar-restaurant",
@@ -34642,7 +36154,11 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "brisket burrito",
+      "elote bowl"
+    ]
   },
   {
     "id": "la-locanda-ristorante-italiano",
@@ -34761,7 +36277,10 @@
         "Saturday: 4:30 – 10:00 PM",
         "Sunday: 4:30 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "pasta ala vodka"
+    ]
   },
   {
     "id": "lamp-pizzeria",
@@ -34856,7 +36375,10 @@
         "Saturday: 4:00 – 9:00 PM",
         "Sunday: 4:00 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "wood fired pizza"
+    ]
   },
   {
     "id": "board-brew-tempe",
@@ -34975,7 +36497,14 @@
         "Saturday: 10:30 AM – 8:00 PM",
         "Sunday: 10:30 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "turkey club on sourdough"
+    ],
+    "tags": [
+      "casual",
+      "drinks"
+    ]
   },
   {
     "id": "sophia-s-kitchen",
@@ -35093,7 +36622,14 @@
         "Saturday: 7:00 AM – 3:00 PM",
         "Sunday: 7:00 AM – 3:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "espresso martini"
+    ],
+    "tags": [
+      "brunch",
+      "drinks"
+    ]
   },
   {
     "id": "trevor-s-liquor-2",
@@ -35211,7 +36747,10 @@
         "Saturday: 9:00 AM – 12:00 AM",
         "Sunday: 9:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "pizza"
+    ]
   },
   {
     "id": "the-eleanor",
@@ -35330,7 +36869,15 @@
         "Saturday: 7:00 AM – 2:00 PM",
         "Sunday: 7:00 AM – 2:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "eggs benedict",
+      "reuben patty melt",
+      "short rib hash"
+    ],
+    "tags": [
+      "brunch"
+    ]
   },
   {
     "id": "shamrock-foodservice-warehouse",
@@ -35555,7 +37102,12 @@
         "Saturday: 9:00 AM – 8:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "gyro burger",
+      "mushroom burger",
+      "pb&j hamburger"
+    ]
   },
   {
     "id": "killer-whale-sex-club",
@@ -35673,7 +37225,10 @@
         "Saturday: 6:00 PM – 2:00 AM",
         "Sunday: 7:00 PM – 2:00 AM"
       ]
-    }
+    },
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "santo-arcadia",
@@ -35694,7 +37249,11 @@
     "address": "4418 E Osborn Rd, Phoenix, AZ 85018, USA",
     "website": "http://santoarcadia.com/",
     "phone": "(480) 272-6799",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "birria dumplings",
+      "short rib"
+    ]
   },
   {
     "id": "phat-turtle-kc-bbq-billiards",
@@ -35716,7 +37275,14 @@
     "address": "30845 N Cave Creek Rd Ste 107, Cave Creek, AZ 85331, USA",
     "website": "http://www.phatturtlebbq.com/",
     "phone": "(602) 527-3257",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "brisket sandwich",
+      "pulled pork"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "the-house-brasserie",
@@ -35738,7 +37304,15 @@
     "address": "6936 E Main St, Scottsdale, AZ 85251, USA",
     "website": "https://thehousebrasserie.com/",
     "phone": "(480) 634-1600",
-    "businessStatus": "CLOSED_TEMPORARILY"
+    "businessStatus": "CLOSED_TEMPORARILY",
+    "dishes": [
+      "filet",
+      "scallops"
+    ],
+    "tags": [
+      "date night",
+      "drinks"
+    ]
   },
   {
     "id": "mercer-s-restaurant",
@@ -35832,7 +37406,10 @@
         "Saturday: 4:00 – 10:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "corn beef hash"
+    ]
   },
   {
     "id": "cc-s-on-central",
@@ -35852,7 +37429,12 @@
     "city": "phoenix",
     "googlePlaceId": "ChIJWd4pra8TK4cR1p4gV55Cnu4",
     "address": "2800 N Central Ave A100, Phoenix, AZ 85004, USA",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "chicken wings",
+      "praline french toast",
+      "shrimp etouffe"
+    ]
   },
   {
     "id": "cafe-mollie",
@@ -35970,7 +37552,15 @@
         "Saturday: 8:00 AM – 5:00 PM",
         "Sunday: 8:00 AM – 5:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "bahn mi burritos",
+      "pho coffee",
+      "ube latte"
+    ],
+    "tags": [
+      "coffee"
+    ]
   },
   {
     "id": "ny-slicers-deli",
@@ -36065,7 +37655,10 @@
         "Saturday: Closed",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "ny hot rachel sandwich"
+    ]
   },
   {
     "id": "tortas-paquime",
@@ -36184,7 +37777,11 @@
         "Saturday: 8:00 AM – 10:00 PM",
         "Sunday: 8:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "carne asada torta",
+      "homemade chips"
+    ]
   },
   {
     "id": "mis-raices-cafe",
@@ -36303,7 +37900,15 @@
         "Saturday: 7:30 AM – 5:00 PM",
         "Sunday: 7:30 AM – 5:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "cafe de olla",
+      "gansito latte",
+      "maria latte"
+    ],
+    "tags": [
+      "coffee"
+    ]
   },
   {
     "id": "el-rinconcito-del-d-f",
@@ -36422,7 +38027,15 @@
         "Saturday: 8:00 AM – 11:00 PM",
         "Sunday: 7:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "green chilaquiles",
+      "tinga tostadas",
+      "two taco combo"
+    ],
+    "tags": [
+      "quick lunch"
+    ]
   },
   {
     "id": "rosita-s-place",
@@ -36529,7 +38142,12 @@
         "Saturday: 9:00 AM – 10:00 PM",
         "Sunday: 8:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chile relleno",
+      "chimichangas",
+      "plato mixto"
+    ]
   },
   {
     "id": "las-glorias-grill",
@@ -36648,7 +38266,10 @@
         "Saturday: 9:00 AM – 9:00 PM",
         "Sunday: 9:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "shrimp enchiladas"
+    ]
   },
   {
     "id": "duck-donuts",
@@ -36665,7 +38286,16 @@
     "photoRef": "places/ChIJL5aQIwAFK4cRF_k9nrbvl90/photos/AU_ZVEEc5YZ-ODqcm29chAy_t12vmAQPH2iPg2m7XG-G3ZFWGInFK0QYb8Px4xVC4yJASg2TMBths1FVlp53rBRpOlclCB1j_yPDVA_xEni-JyVvGk0jGsoV5OtyiUswH3cc1XNY3KObNUIchXRVQe-4kupR6K47lHZP_EOaYZe34p_B98yqQGwmYIcFT_RNxRora_dOFsHUVFAZhTu7v0PbgSUd3QkdqjKsmxPGexCgXRFAZ_9DdPxm3a61wWIV50BAM97s96PhDL2SWrfosO7K1AuS4zgv0dMoCgJGYVGvwzq7bSl6Exhv-d-UwPT0VE2-Vce9k0nP7Xz3j6ijs6YdY4zoP-IFPr9ReaORPBuSEMYr8bSEDnlU5pzbj_m7xXaj8OC_tGaHhPaCgjjUlWtp9WKaz-2C9-VlM9iFa6H5KZofoA",
     "enrichedAt": "2026-04-10",
     "notes": "Fresh-made donuts with tons of flavor combinations. French Toast and Turtle get the most love. Iced mocha is good if you want coffee too.",
-    "city": "phoenix"
+    "city": "phoenix",
+    "dishes": [
+      "french toast",
+      "iced mocha",
+      "turtle"
+    ],
+    "tags": [
+      "coffee",
+      "dessert"
+    ]
   },
   {
     "id": "banham-s-cheesecake",
@@ -36784,7 +38414,13 @@
         "Saturday: 11:00 AM – 11:00 PM",
         "Sunday: 11:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "cookie butter cheesecake"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "julio-s-too",
@@ -36903,7 +38539,13 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "carne asada tacos"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "dominick-s-steakhouse",
@@ -37022,7 +38664,14 @@
         "Saturday: 4:00 – 10:30 PM",
         "Sunday: 4:00 – 9:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "45-day dry aged rib eye"
+    ],
+    "tags": [
+      "patio",
+      "special occasion"
+    ]
   },
   {
     "id": "pomo-pizzeria-napoletana",
@@ -37141,7 +38790,14 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "gelato",
+      "neapolitan pizza"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "kodo-sushi-sake",
@@ -37320,7 +38976,11 @@
         "Saturday: 4:00 – 10:00 PM",
         "Sunday: 12:00 – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "salmon nigiri",
+      "spicy edamame"
+    ]
   },
   {
     "id": "k-o-donnell-s-sports-bar-grill",
@@ -37439,7 +39099,16 @@
         "Saturday: 10:00 AM – 1:00 AM",
         "Sunday: 10:00 AM – 5:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "breakfast sausage",
+      "homestyle potatoes",
+      "wedge salad with salmon",
+      "wings"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "doda-s-pizza",
@@ -37461,7 +39130,10 @@
     "address": "7260 W Bell Rd #2, Glendale, AZ 85308, USA",
     "website": "http://www.dodaspizza.com/",
     "phone": "(623) 412-7789",
-    "businessStatus": "CLOSED_TEMPORARILY"
+    "businessStatus": "CLOSED_TEMPORARILY",
+    "dishes": [
+      "ny style pizza"
+    ]
   },
   {
     "id": "the-rosticceria",
@@ -37493,7 +39165,10 @@
     "photoRef": "places/ChIJ-TLBlQsSK4cRBdaSmiBF7HE/photos/AU_ZVEHD8M_oNJsebKilfmuR473jt1BEYrrRwsFimA9IF8IoWlaweBtcUcUK6JvLNHAgtxDminCLfKZNlrhtsL-qtqAtrpfMYCj_kWA5fBjJ8rHqJp2ZZ-EjvddfdncyvmwP39Hej17F9Oq4vQm_HhAiaB3UA-gpRWXKHMqazyg8Ho82JcyI4obWfU3iTWrbH44k-sG1Fxi5eTyWllT4w1yafkvm7tTad_OxginwOOgxUEKaubxymLVCjRKQUanZh3YR3Zy3ENGrPL11KG5huWn-Iyzt93ebqr6Hb0X-tRTQ_trgZGipghR1P_YQHNS6uEz8_vhZgqVud8g6-iT_5JgSvEQuqVlfJeJnwtxI4icHbApgbGZDTpgk14DtLOCXgBki53RFgNsPVD6FSKu0b0KWKeyIpUQbC-uNWdETmuonSsPNVEGN",
     "enrichedAt": "2026-04-10",
     "notes": "Fresh donuts daily. Large portions compared to other spots. Rainbow Donuts branding at this location.",
-    "city": "phoenix"
+    "city": "phoenix",
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "oscar-s-taco-shop",
@@ -37611,7 +39286,13 @@
         "Saturday: 6:00 AM – 12:00 AM",
         "Sunday: 8:00 AM – 11:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "breakfast burrito"
+    ],
+    "tags": [
+      "breakfast"
+    ]
   },
   {
     "id": "goldie-s-sports-cafe",
@@ -37730,7 +39411,10 @@
         "Saturday: 11:00 AM – 12:00 AM",
         "Sunday: 11:00 AM – 11:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chicken tenders and ranch"
+    ]
   },
   {
     "id": "mr-fries-man-peoria",
@@ -37849,7 +39533,13 @@
         "Saturday: 11:00 AM – 1:00 AM",
         "Sunday: 11:00 AM – 7:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "breakfast fries"
+    ],
+    "tags": [
+      "takeout"
+    ]
   },
   {
     "id": "the-sandwich-spot-phoenix",
@@ -37968,7 +39658,14 @@
         "Saturday: 11:00 AM – 7:00 PM",
         "Sunday: 11:00 AM – 4:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "#16 on sourdough",
+      "sourdough bread"
+    ],
+    "tags": [
+      "quick lunch"
+    ]
   },
   {
     "id": "teg-torta-shop-tortas-el-g-ero",
@@ -38204,7 +39901,13 @@
         "Saturday: 7:00 PM – 1:00 AM",
         "Sunday: 7:00 PM – 12:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "sonoran hot dogs"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "pita-valley",
@@ -38323,7 +40026,10 @@
         "Saturday: 10:00 AM – 9:30 PM",
         "Sunday: 10:00 AM – 9:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "zatar wrap"
+    ]
   },
   {
     "id": "fez",
@@ -38442,7 +40148,17 @@
         "Saturday: 11:00 AM – 11:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "curry chicken",
+      "curry scrambled eggs",
+      "feta fries",
+      "fez burger"
+    ],
+    "tags": [
+      "brunch",
+      "must-try"
+    ]
   },
   {
     "id": "l-a-milk-depot",
@@ -38559,7 +40275,10 @@
         "Saturday: 8:00 AM – 12:00 AM",
         "Sunday: 10:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "bobbettes salsa"
+    ]
   },
   {
     "id": "dave-s-hot-chicken",
@@ -38796,7 +40515,14 @@
         "Saturday: 9:00 AM – 10:00 PM",
         "Sunday: 9:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "biscoff milkshake",
+      "ice cream stuffed donuts"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "fuego-at-the-clarendon",
@@ -38817,7 +40543,14 @@
     "googlePlaceId": "ChIJ78xBz7ASK4cRzHm2Uj98eu8",
     "address": "401 W Clarendon Ave, Phoenix, AZ 85013, USA",
     "phone": "(602) 469-1730",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "chile relleno"
+    ],
+    "tags": [
+      "drinks",
+      "patio"
+    ]
   },
   {
     "id": "que-suave-taco-shop",
@@ -38839,7 +40572,13 @@
     "address": "1855 W Corona Ave #2, Phoenix, AZ 85041, USA",
     "website": "http://www.instagram.com/quesuavetacos",
     "phone": "(602) 626-7778",
-    "businessStatus": "CLOSED_TEMPORARILY"
+    "businessStatus": "CLOSED_TEMPORARILY",
+    "dishes": [
+      "breakfast burrito"
+    ],
+    "tags": [
+      "breakfast"
+    ]
   },
   {
     "id": "la-grande-orange-grocery-pizzeria",
@@ -38958,7 +40697,10 @@
         "Saturday: 7:00 AM – 10:00 PM",
         "Sunday: 7:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "tuna melt"
+    ]
   },
   {
     "id": "pork-on-a-fork-bbq-and-catering-deer-valley",
@@ -39065,7 +40807,13 @@
         "Saturday: 11:00 AM – 8:00 PM",
         "Sunday: 11:00 AM – 3:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "brisket",
+      "mac and cheese",
+      "pulled chicken bowls",
+      "pulled pork"
+    ]
   },
   {
     "id": "corridors-cafe",
@@ -39160,7 +40908,14 @@
         "Saturday: Closed",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "breakfast sandwich",
+      "lemon chicken and rice soup"
+    ],
+    "tags": [
+      "breakfast"
+    ]
   },
   {
     "id": "lychee-kitchen",
@@ -39279,7 +41034,13 @@
         "Saturday: 12:00 – 10:00 PM",
         "Sunday: 12:00 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "hot and sour soup"
+    ],
+    "tags": [
+      "quick lunch"
+    ]
   },
   {
     "id": "persian-room-fine-dining",
@@ -39398,7 +41159,11 @@
         "Saturday: 11:00 AM – 10:30 PM",
         "Sunday: 11:00 AM – 9:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "house-made bread",
+      "soltani"
+    ]
   },
   {
     "id": "stumpy-s-pizza-subs",
@@ -39493,7 +41258,12 @@
         "Saturday: 9:00 AM – 4:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "lasagna",
+      "meat lovers",
+      "pepperoni slice"
+    ]
   },
   {
     "id": "middle-eastern-bakery-and-deli",
@@ -39599,7 +41369,15 @@
         "Saturday: 9:00 AM – 6:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "baklava",
+      "grape leaves",
+      "house bread",
+      "hummus",
+      "kebabs",
+      "kibbee balls"
+    ]
   },
   {
     "id": "joe-s-diner",
@@ -39718,7 +41496,13 @@
         "Saturday: 7:00 AM – 2:00 PM",
         "Sunday: 7:00 AM – 2:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "pancakes"
+    ],
+    "tags": [
+      "breakfast"
+    ]
   },
   {
     "id": "six-byrd-cider-taproom-kitchen",
@@ -39836,7 +41620,10 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 7:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "thai-recipe-bistro",
@@ -40039,7 +41826,13 @@
         "Saturday: 12:00 – 3:00 PM, 4:00 – 9:30 PM",
         "Sunday: 12:00 – 3:00 PM, 4:00 – 9:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "fresh shrimp rolls",
+      "orange chicken",
+      "pot stickers",
+      "seafood pad thai"
+    ]
   },
   {
     "id": "la-tiendita-colombian-restaurant",
@@ -40158,7 +41951,10 @@
         "Saturday: 10:00 AM – 7:00 PM",
         "Sunday: 10:00 AM – 6:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "bandeja paisa"
+    ]
   },
   {
     "id": "city-of-spice",
@@ -40586,7 +42382,11 @@
         "Saturday: 8:00 AM – 12:00 AM",
         "Sunday: 8:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "coffee",
+      "drinks"
+    ]
   },
   {
     "id": "princess-pita-mediterranean-restaurant-and-market-mesa",
@@ -40705,7 +42505,15 @@
         "Saturday: 10:00 AM – 9:00 PM",
         "Sunday: 10:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "baklava",
+      "turkish coffee"
+    ],
+    "tags": [
+      "coffee",
+      "dessert"
+    ]
   },
   {
     "id": "sweeties-candy-of-arizona",
@@ -40799,7 +42607,10 @@
         "Saturday: 9:00 AM – 5:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "isabella-s-kitchen",
@@ -40918,7 +42729,14 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "butchers pizza",
+      "lasagna"
+    ],
+    "tags": [
+      "patio"
+    ]
   },
   {
     "id": "ace-of-wingz",
@@ -41037,7 +42855,13 @@
         "Saturday: 10:00 AM – 2:00 AM",
         "Sunday: 10:00 AM – 12:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "funnel cake fries"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "sunny-s-lounge-say-less",
@@ -41155,7 +42979,14 @@
         "Saturday: 2:00 PM – 2:00 AM",
         "Sunday: 2:00 PM – 1:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "guac & roll cocktail"
+    ],
+    "tags": [
+      "drinks",
+      "patio"
+    ]
   },
   {
     "id": "leo-s-island-bbq",
@@ -41262,7 +43093,16 @@
         "Saturday: 10:30 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "kahlua pork plate",
+      "mac salad",
+      "manapua",
+      "spam musubi"
+    ],
+    "tags": [
+      "quick lunch"
+    ]
   },
   {
     "id": "the-parlor-pizzeria",
@@ -41369,7 +43209,12 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "bone marrow appetizer",
+      "heirloom margherita",
+      "roasted olives"
+    ]
   },
   {
     "id": "great-wall-cuisine",
@@ -41488,7 +43333,10 @@
         "Saturday: 10:00 AM – 9:00 PM",
         "Sunday: 10:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "dim sum"
+    ]
   },
   {
     "id": "miracle-mile-deli",
@@ -41595,7 +43443,11 @@
         "Saturday: 11:00 AM – 7:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "straw sandwich",
+      "the combo sandwich"
+    ]
   },
   {
     "id": "haji-baba",
@@ -41714,7 +43566,10 @@
         "Saturday: 11:00 AM – 7:30 PM",
         "Sunday: 11:30 AM – 4:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chicken sharma plate"
+    ]
   },
   {
     "id": "pueblo",
@@ -41832,7 +43687,10 @@
         "Saturday: 9:00 AM – 7:00 PM",
         "Sunday: 9:00 AM – 7:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "coffee"
+    ]
   },
   {
     "id": "la-pi-ata-mexican-food-restaurant",
@@ -41939,7 +43797,11 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "enchiladas",
+      "refried beans"
+    ]
   },
   {
     "id": "phx-burrito-house",
@@ -42046,7 +43908,11 @@
         "Saturday: 8:30 AM – 8:00 PM",
         "Sunday: 8:30 AM – 3:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "carne asada burrito",
+      "green chile pork burrito"
+    ]
   },
   {
     "id": "level-1-arcade-bar",
@@ -42164,7 +44030,10 @@
         "Saturday: 11:00 AM – 2:00 AM",
         "Sunday: 11:00 AM – 12:00 AM"
       ]
-    }
+    },
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "larry-s-cocktails",
@@ -42283,7 +44152,12 @@
         "Saturday: 9:00 AM – 2:00 AM",
         "Sunday: 9:00 AM – 2:00 AM"
       ]
-    }
+    },
+    "tags": [
+      "casual",
+      "drinks",
+      "patio"
+    ]
   },
   {
     "id": "valley-ice-cream-shop-llc",
@@ -42402,7 +44276,10 @@
         "Saturday: 12:00 – 10:00 PM",
         "Sunday: 12:00 – 10:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "juanderful-tacos",
@@ -42424,7 +44301,11 @@
     "address": "3650 W Camelback Rd, Phoenix, AZ 85019, USA",
     "website": "https://juanderfultacosaz.com/",
     "phone": "(602) 661-0338",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "homemade tortillas",
+      "quesadillas"
+    ]
   },
   {
     "id": "eat-up-drive-in",
@@ -42543,7 +44424,14 @@
         "Saturday: 8:00 AM – 9:00 PM",
         "Sunday: 8:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chicken tenders",
+      "shakes"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "mochidot-donuts",
@@ -42650,7 +44538,13 @@
         "Saturday: 9:00 AM – 6:00 PM",
         "Sunday: 9:00 AM – 6:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "strawberry"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "zookz-sandwiches",
@@ -42769,7 +44663,10 @@
         "Saturday: 8:00 AM – 4:00 PM",
         "Sunday: 8:00 AM – 4:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "#22"
+    ]
   },
   {
     "id": "sidelines-grill",
@@ -42887,7 +44784,10 @@
         "Saturday: 11:00 AM – 12:00 AM",
         "Sunday: 11:00 AM – 11:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chicken wings"
+    ]
   },
   {
     "id": "soi-4-bangkok-eatery",
@@ -43054,7 +44954,13 @@
         "Saturday: 5:00 – 10:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "chicken wings",
+      "coconut soup",
+      "papaya salad",
+      "pineapple rice"
+    ]
   },
   {
     "id": "ocotillo",
@@ -43173,7 +45079,12 @@
         "Saturday: 10:00 AM – 10:00 PM",
         "Sunday: 10:00 AM – 3:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "grilled chicken wings",
+      "ribeye",
+      "ribs"
+    ]
   },
   {
     "id": "highland-food-hub",
@@ -43397,7 +45308,10 @@
         "Saturday: 9:00 AM – 5:00 PM",
         "Sunday: 9:00 AM – 5:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "pho"
+    ]
   },
   {
     "id": "lovecraft-ale-house-bottle-shop-new-mexican-smoke-kitchen",
@@ -43503,7 +45417,15 @@
         "Saturday: 12:00 – 10:00 PM",
         "Sunday: 12:00 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "meatloaf",
+      "shepherd's pie"
+    ],
+    "tags": [
+      "drinks",
+      "patio"
+    ]
   },
   {
     "id": "plaza-bonita-mexican-restaurant",
@@ -43622,7 +45544,10 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 7:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "shredded chicken tinga burrito"
+    ]
   },
   {
     "id": "nogales-hot-dogs",
@@ -43739,7 +45664,10 @@
         "Saturday: 8:00 AM – 2:00 AM",
         "Sunday: 8:00 AM – 11:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "sonoran hot dogs"
+    ]
   },
   {
     "id": "topnotch-island-flavor-kitchen",
@@ -43868,7 +45796,13 @@
     "address": "1055 N Dobson Rd #104, Mesa, AZ 85201, USA",
     "website": "http://azchimneycakes.com/",
     "phone": "(480) 687-7515",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "cinnamon sugar cone with bavarian cream"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "green-new-american-vegetarian",
@@ -43975,7 +45909,12 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "buffalo wings and ranch",
+      "cheesesteak sandwich",
+      "po boy"
+    ]
   },
   {
     "id": "pocha-54-korean-tapas",
@@ -44116,7 +46055,10 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "wings"
+    ]
   },
   {
     "id": "tres-leches-caf",
@@ -44234,7 +46176,13 @@
         "Saturday: 7:00 AM – 7:00 PM",
         "Sunday: 7:00 AM – 7:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "stuffed conchas"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "happy-bao-s",
@@ -44353,7 +46301,10 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "beef noodle soup"
+    ]
   },
   {
     "id": "tacos-jalisco",
@@ -44460,7 +46411,10 @@
         "Saturday: 9:00 AM – 7:00 PM",
         "Sunday: 9:00 AM – 3:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "birria, asada, and lengua taco platter"
+    ]
   },
   {
     "id": "houston-tx-hot-chicken",
@@ -44767,7 +46721,14 @@
         "Saturday: 10:00 AM – 10:00 PM",
         "Sunday: 10:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "bavarian platter"
+    ],
+    "tags": [
+      "drinks",
+      "patio"
+    ]
   },
   {
     "id": "tia-carmen",
@@ -44969,7 +46930,20 @@
         "Saturday: 6:30 AM – 12:00 PM, 5:00 – 9:00 PM",
         "Sunday: 6:30 AM – 12:00 PM, 5:00 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "baja striped bass",
+      "chicken guisado",
+      "ember-roasted purple yam",
+      "hibiscus desert balloon",
+      "mi tia",
+      "native grain fried rice",
+      "yucca brulee",
+      "yuzu and bergamot paloma"
+    ],
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "los-reyes-de-la-torta",
@@ -45088,7 +47062,12 @@
         "Saturday: 10:00 AM – 9:00 PM",
         "Sunday: 10:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "agua cremosa",
+      "bomba",
+      "torta del rey"
+    ]
   },
   {
     "id": "emilio-s-tacos-hotdogs",
@@ -45108,7 +47087,18 @@
     "googlePlaceId": "ChIJbQIWXy0TK4cR-KMOfvvREo4",
     "address": "2526 W Van Buren St, Phoenix, AZ 85009, USA",
     "phone": "(602) 487-1269",
-    "businessStatus": "OPERATIONAL"
+    "businessStatus": "OPERATIONAL",
+    "dishes": [
+      "carne asada fries",
+      "sonoran hot dog",
+      "strawberry horchata",
+      "tacos"
+    ],
+    "tags": [
+      "must-try",
+      "patio",
+      "takeout"
+    ]
   },
   {
     "id": "welcome-diner",
@@ -45227,7 +47217,15 @@
         "Saturday: 9:00 AM – 12:00 AM",
         "Sunday: 9:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "pancakes",
+      "welcome burger"
+    ],
+    "tags": [
+      "breakfast",
+      "casual"
+    ]
   },
   {
     "id": "soup-sausage-bistro",
@@ -45465,7 +47463,10 @@
         "Saturday: 10:00 AM – 6:00 PM",
         "Sunday: 10:00 AM – 6:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "papusas"
+    ]
   },
   {
     "id": "at-my-place-cafe",
@@ -45572,7 +47573,14 @@
         "Saturday: 9:00 AM – 6:00 PM",
         "Sunday: 9:00 AM – 6:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "longsilog",
+      "sisig"
+    ],
+    "tags": [
+      "breakfast"
+    ]
   },
   {
     "id": "little-pickle",
@@ -45688,7 +47696,10 @@
     "address": "7111 E 5th Ave F, Scottsdale, AZ 85251, USA",
     "website": "https://crisp-pizza.com/",
     "phone": "(480) 874-2747",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "square pizza"
+    ]
   },
   {
     "id": "lom-wong",
@@ -45783,7 +47794,13 @@
         "Saturday: 5:00 – 11:00 PM",
         "Sunday: 5:00 – 9:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "arai kodai"
+    ],
+    "tags": [
+      "special occasion"
+    ]
   },
   {
     "id": "crust-brothers-pizza",
@@ -45890,7 +47907,11 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chicken wings",
+      "thin crispy pizza"
+    ]
   },
   {
     "id": "yopaulys-new-york-pizza-co",
@@ -46009,7 +48030,10 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "ny-style thin crust slices"
+    ]
   },
   {
     "id": "trevor-s-liquor-3",
@@ -46127,7 +48151,14 @@
         "Saturday: 9:00 AM – 12:00 AM",
         "Sunday: 9:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "summer daze",
+      "trevor's combo"
+    ],
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "the-beach-house",
@@ -46222,7 +48253,10 @@
         "Saturday: 10:00 AM – 9:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "shrimp burrito"
+    ]
   },
   {
     "id": "dick-s-hideaway",
@@ -46341,7 +48375,11 @@
         "Saturday: 7:00 AM – 12:00 AM",
         "Sunday: 7:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "carne adovado",
+      "carne asada fries"
+    ]
   },
   {
     "id": "then-burger",
@@ -46361,7 +48399,11 @@
     "city": "phoenix",
     "googlePlaceId": "ChIJ14XcOOpBK4cRT2M3qfi26PI",
     "address": "9220 W Glendale Ave, Glendale, AZ 85305, USA",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "birria burger",
+      "elote"
+    ]
   },
   {
     "id": "the-green-woodpecker",
@@ -46479,7 +48521,15 @@
         "Saturday: 3:00 – 11:00 PM",
         "Sunday: 3:00 – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "al pastor burrito",
+      "potato tacos"
+    ],
+    "tags": [
+      "casual",
+      "drinks"
+    ]
   },
   {
     "id": "andreoli-italian-grocer",
@@ -46574,7 +48624,12 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "air-dried beef salad",
+      "grilled calamari",
+      "pancetta sandwich"
+    ]
   },
   {
     "id": "anzio-s-italian-restaurant",
@@ -46812,7 +48867,13 @@
         "Saturday: 6:00 AM – 2:00 PM",
         "Sunday: 6:00 AM – 2:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "pancakes"
+    ],
+    "tags": [
+      "breakfast"
+    ]
   },
   {
     "id": "luci-s-at-the-orchard",
@@ -46931,7 +48992,10 @@
         "Saturday: 7:00 AM – 4:00 PM",
         "Sunday: 7:00 AM – 4:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "patio"
+    ]
   },
   {
     "id": "prep-pastry",
@@ -47050,7 +49114,13 @@
         "Saturday: 7:00 AM – 3:00 PM",
         "Sunday: 7:00 AM – 3:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "rose chai latte"
+    ],
+    "tags": [
+      "brunch"
+    ]
   },
   {
     "id": "cocina-adamex",
@@ -47169,7 +49239,10 @@
         "Saturday: 6:00 AM – 6:00 PM",
         "Sunday: 7:00 AM – 2:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "hand made tortilla"
+    ]
   },
   {
     "id": "mr-pickle-s-sandwich-shop",
@@ -47288,7 +49361,10 @@
         "Saturday: 10:00 AM – 8:00 PM",
         "Sunday: 10:00 AM – 6:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "italian on sourdough"
+    ]
   },
   {
     "id": "sottise",
@@ -47394,7 +49470,10 @@
         "Saturday: 5:00 – 10:00 PM",
         "Sunday: 5:00 – 9:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "jl-patisserie",
@@ -47500,7 +49579,10 @@
         "Saturday: 7:00 AM – 2:00 PM",
         "Sunday: 7:00 AM – 2:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "proof-bread",
@@ -47639,7 +49721,10 @@
     "address": "2940 E Thomas Rd, Phoenix, AZ 85016, USA",
     "website": "http://bagelfeld.com/",
     "phone": "(602) 772-6229",
-    "businessStatus": "CLOSED_TEMPORARILY"
+    "businessStatus": "CLOSED_TEMPORARILY",
+    "dishes": [
+      "az style bagels"
+    ]
   },
   {
     "id": "hope-s-artisan-bread",
@@ -47757,7 +49842,10 @@
         "Saturday: 7:00 AM – 4:00 PM",
         "Sunday: 7:00 AM – 4:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "sour dough"
+    ]
   },
   {
     "id": "feringhee-modern-indian-cuisine",
@@ -48018,7 +50106,13 @@
         "Saturday: 6:00 AM – 5:00 PM",
         "Sunday: 6:00 AM – 5:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "cake donuts"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "different-pointe-of-view",
@@ -48137,7 +50231,10 @@
         "Saturday: 5:00 – 9:00 PM",
         "Sunday: 5:00 – 9:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "caffio-espresso-bar",
@@ -48255,7 +50352,13 @@
         "Saturday: 9:00 AM – 5:00 PM",
         "Sunday: 9:00 AM – 5:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "onyx iced latte"
+    ],
+    "tags": [
+      "coffee"
+    ]
   },
   {
     "id": "valentine",
@@ -48350,7 +50453,10 @@
         "Saturday: 8:00 AM – 11:00 PM",
         "Sunday: 8:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "sonoran pretzel"
+    ]
   },
   {
     "id": "espiritu-mesa",
@@ -48444,7 +50550,10 @@
         "Saturday: 5:00 PM – 12:00 AM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "el-fog-n-taqueria",
@@ -48551,7 +50660,13 @@
         "Saturday: 10:00 AM – 8:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "street tacos"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "elbows-mac-n-cheese",
@@ -48571,7 +50686,15 @@
     "city": "phoenix",
     "googlePlaceId": "ChIJl9GBi5GrK4cR9qQ0IZk_Is8",
     "address": "3757 S Gilbert Rd #106, Gilbert, AZ 85297, USA",
-    "businessStatus": "CLOSED_TEMPORARILY"
+    "businessStatus": "CLOSED_TEMPORARILY",
+    "dishes": [
+      "buffalo mac",
+      "mac and cheese pizza",
+      "truffle fries"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "vecina",
@@ -48666,7 +50789,10 @@
         "Saturday: 4:00 – 9:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "pork belly tacos"
+    ]
   },
   {
     "id": "the-farm-at-south-mountain",
@@ -48688,7 +50814,15 @@
     "address": "6106 S 32nd St, Phoenix, AZ 85042, USA",
     "website": "https://www.thefarmatsouthmountain.com/",
     "phone": "(602) 276-6360",
-    "businessStatus": "CLOSED_TEMPORARILY"
+    "businessStatus": "CLOSED_TEMPORARILY",
+    "dishes": [
+      "french toast",
+      "japanese sweet potato"
+    ],
+    "tags": [
+      "must-try",
+      "patio"
+    ]
   },
   {
     "id": "ballpark-pizza-subs",
@@ -48783,7 +50917,16 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "philly cheese steak sub",
+      "thin crust pizza",
+      "wings"
+    ],
+    "tags": [
+      "casual",
+      "must-try"
+    ]
   },
   {
     "id": "cubanitas-kitchen",
@@ -49009,7 +51152,11 @@
         "Saturday: 6:00 PM – 3:00 AM",
         "Sunday: 6:00 PM – 2:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "ruffles hot dog",
+      "titanic hot dog"
+    ]
   },
   {
     "id": "rough-rider",
@@ -49128,7 +51275,10 @@
         "Saturday: 3:00 PM – 12:00 AM",
         "Sunday: 3:00 – 10:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "date night"
+    ]
   },
   {
     "id": "tony-s-cafe",
@@ -49235,7 +51385,14 @@
         "Saturday: 8:00 AM – 4:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "cheese crisp",
+      "red chile burrito"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "reathrey-sekong",
@@ -49278,7 +51435,10 @@
     "address": "3225 E Camelback Rd, Phoenix, AZ 85018, USA",
     "website": "https://www.tomasos.com/",
     "phone": "(602) 956-0836",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "meatballs"
+    ]
   },
   {
     "id": "the-farish-house",
@@ -49372,7 +51532,15 @@
         "Saturday: 5:00 – 10:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "bouillabaisse",
+      "filet",
+      "gin cocktails"
+    ],
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "romanelli-s-italian-deli",
@@ -49479,7 +51647,10 @@
         "Saturday: 9:00 AM – 6:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "italian sub"
+    ]
   },
   {
     "id": "ph-th-nh-restaurant",
@@ -49574,7 +51745,10 @@
         "Saturday: 8:30 AM – 8:00 PM",
         "Sunday: 8:30 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "pho"
+    ]
   },
   {
     "id": "ollie-vaughn-s",
@@ -49693,7 +51867,11 @@
         "Saturday: 7:00 AM – 2:00 PM",
         "Sunday: 7:00 AM – 2:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "breakfast",
+      "dessert"
+    ]
   },
   {
     "id": "h-nai-coffee-cocktails",
@@ -49715,7 +51893,10 @@
     "address": "3648 W Southern Ave #150, Phoenix, AZ 85041, USA",
     "website": "http://hanaiaz.com/",
     "phone": "(602) 675-4329",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "tags": [
+      "coffee"
+    ]
   },
   {
     "id": "trapp-haus-bbq",
@@ -49737,7 +51918,10 @@
     "address": "511 E Roosevelt St, Phoenix, AZ 85004, USA",
     "website": "https://trapphausbbq.com/",
     "phone": "(602) 466-5462",
-    "businessStatus": "CLOSED_TEMPORARILY"
+    "businessStatus": "CLOSED_TEMPORARILY",
+    "tags": [
+      "patio"
+    ]
   },
   {
     "id": "el-chullo-peruvian-restaurant-bar-2",
@@ -49856,7 +52040,14 @@
         "Saturday: 9:00 AM – 10:00 PM",
         "Sunday: 9:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "lomo saltado",
+      "pisco sour"
+    ],
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "haven-burgers",
@@ -49962,7 +52153,10 @@
         "Saturday: 10:00 AM – 7:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "pastrami"
+    ]
   },
   {
     "id": "the-hidden-house",
@@ -50068,7 +52262,12 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "date night",
+      "drinks",
+      "special occasion"
+    ]
   },
   {
     "id": "chick-a-dee",
@@ -50197,7 +52396,10 @@
         "Saturday: 5:00 PM – 2:00 AM",
         "Sunday: 2:00 – 8:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "taqueria-el-fundador",
@@ -50304,7 +52506,11 @@
         "Saturday: 8:00 AM – 9:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "birria tacos",
+      "quesobirria"
+    ]
   },
   {
     "id": "j-t-s-bar-grill",
@@ -50423,7 +52629,11 @@
         "Saturday: 11:00 AM – 12:00 AM",
         "Sunday: 11:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "the works",
+      "wings"
+    ]
   },
   {
     "id": "asi-es-la-vida-restaurant",
@@ -50661,7 +52871,11 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "catfish",
+      "spicy fried chicken"
+    ]
   },
   {
     "id": "the-yori-hot-dogs",
@@ -50680,7 +52894,10 @@
     "city": "phoenix",
     "googlePlaceId": "ChIJY8gR2YGoK4cRCSMuLRvBVws",
     "address": "753 S Alma School Rd Suite 5, Mesa, AZ 85210, USA",
-    "businessStatus": "CLOSED_TEMPORARILY"
+    "businessStatus": "CLOSED_TEMPORARILY",
+    "dishes": [
+      "sonoran hot dogs"
+    ]
   },
   {
     "id": "garden-bar-phx",
@@ -50702,7 +52919,10 @@
     "address": "822 N 6th Ave, Phoenix, AZ 85003, USA",
     "website": "http://www.gardenbarphx.com/?utm_source=google&utm_medium=wix_google_business_profile&utm_campaign=11072460152223738442",
     "phone": "(602) 824-2385",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "luxe-bar",
@@ -50719,7 +52939,13 @@
     "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
     "photoRef": "places/ChIJrW8lWZATK4cRWVFT1FseReU/photos/AU_ZVEEbp2oZ5qhcwcN_BjGTwuputYsokc2zaGQ1mgoQ9cqVFY73JfcSkQkSMcRsyHjwmRydlsDtf1wLkrUgTtdQzrEvq7lwviI7EUYnVvA3m-SVM2CiBC2UoULzWYV32rId56Eb_iKlKMOgg5uOqK_yocR1bQ6v33JrKKskKDo8cHoP8PNSVuUhB_MKiLKH_A08iyFRON3GaZ2mZaZkvjbWulO34jCf27w3tT9Out6uJJv0u-UzpuHnNYC582UXq8z7zJPmCto-hbjGEtX6_q12YCvuMOIuVLd7FfPAoUShj8GYqA",
     "enrichedAt": "2026-04-10",
-    "city": "phoenix"
+    "city": "phoenix",
+    "dishes": [
+      "hand dipped ice cream"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "novel-ice-cream-2",
@@ -50837,7 +53063,10 @@
         "Saturday: 12:00 PM – 1:00 AM",
         "Sunday: 12:00 PM – 12:00 AM"
       ]
-    }
+    },
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "loco-style-grindz",
@@ -50941,7 +53170,14 @@
     "address": "6015 N 16th St, Phoenix, AZ 85016, USA",
     "website": "https://www.thegenuineaz.com/",
     "phone": "(602) 633-1187",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "wood fire pizza"
+    ],
+    "tags": [
+      "brunch",
+      "drinks"
+    ]
   },
   {
     "id": "red-devil-italian-restaurant-pizzeria",
@@ -51060,7 +53296,11 @@
         "Saturday: 11:00 AM – 11:00 PM",
         "Sunday: 11:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "ny-style pizza",
+      "wings"
+    ]
   },
   {
     "id": "casey-jones-grill",
@@ -51195,7 +53435,15 @@
     "photoRef": "places/ChIJgU0d7aMNK4cRSfh6lGmFcv4/photos/AU_ZVEGpY8EaAZz03vYSrT761QTjm0UMjAnddWDwwX9LRV0FESpVonGKJpHlzPiA7hXix7ZfhC8dnspcjUAuubqK3kUxU8ZvZRCxTsG4DH7flJaFkWF3sWZ2aPDi3P4OqaPWgOrcH_LbYuEJUyiE_ynbd_z27VcgUleKitsd-4iSiVT4PPIJCCt1vDBsSNBjVn-wELFDSQpSccvEDbOMZT9W7azyGaedVYA77bU06Bl73RE6FhcuO3RsTWFMsR-5-mlkYIxkGeUHUe8Mulc1x8rcvRXUMoOI-vAo0xVkqpK-v6wuy6--29InTJYmDzt2gOrZvryp1YmTok7g6TW9LfIN4eK_SUrDG6_McMXp-OZ7MgdVqXvqG73R-3eEgl-_j_3A2s0pcgULsmTIhIjnsDCiSunxYhaagt_sVby8DaVP_Ur7-VUynVP-KK0cs_tqiu5w",
     "enrichedAt": "2026-04-10",
     "notes": "Shakshuka is a standout — people keep coming back for it. Seasonal soup is excellent. Good brunch spot with indoor/outdoor seating.",
-    "city": "phoenix"
+    "city": "phoenix",
+    "dishes": [
+      "seasonal soup",
+      "shakshuka"
+    ],
+    "tags": [
+      "brunch",
+      "patio"
+    ]
   },
   {
     "id": "mamma-toledo-s-the-pie-hole",
@@ -51302,7 +53550,13 @@
         "Saturday: 8:00 AM – 6:00 PM",
         "Sunday: 8:00 AM – 4:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chicken pot pie",
+      "hand pies",
+      "loaded burritos",
+      "quiche"
+    ]
   },
   {
     "id": "gil-s-taste-of-taos",
@@ -51418,7 +53672,13 @@
     "address": "1609 E Bell Rd Ste B4, Phoenix, AZ 85022, USA",
     "website": "http://aimeesswinehouse.com/",
     "phone": "(623) 715-2734",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "johnny cakes"
+    ],
+    "tags": [
+      "breakfast"
+    ]
   },
   {
     "id": "seydi-s-pupuseria-grill",
@@ -51524,7 +53784,12 @@
         "Saturday: 11:00 AM – 8:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "horchata",
+      "pupusas",
+      "tamales"
+    ]
   },
   {
     "id": "edelweiss-biergarten",
@@ -51546,7 +53811,16 @@
     "address": "2625 E Bell Rd, Phoenix, AZ 85032, USA",
     "website": "https://edelweissbiergarten.com/",
     "phone": "(602) 404-5919",
-    "businessStatus": "CLOSED_TEMPORARILY"
+    "businessStatus": "CLOSED_TEMPORARILY",
+    "dishes": [
+      "apple strudel",
+      "original brat dinner",
+      "pretzel bites"
+    ],
+    "tags": [
+      "drinks",
+      "patio"
+    ]
   },
   {
     "id": "dragon-flame-chinese-grill",
@@ -51759,7 +54033,13 @@
         "Saturday: 11:00 AM – 8:00 PM",
         "Sunday: 11:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "achiote-seasoned roasted chicken"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "caps-sports-grill",
@@ -51854,7 +54134,15 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "hot honey house wings",
+      "thin crust pizza"
+    ],
+    "tags": [
+      "casual",
+      "drinks"
+    ]
   },
   {
     "id": "the-other-q-bar-and-grill",
@@ -51973,7 +54261,15 @@
         "Saturday: 9:00 AM – 12:00 AM",
         "Sunday: 7:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "cobb salad",
+      "fish fry"
+    ],
+    "tags": [
+      "casual",
+      "drinks"
+    ]
   },
   {
     "id": "alebrijes-cafe-grill",
@@ -52078,7 +54374,13 @@
         "Saturday: 8:00 AM – 9:00 PM",
         "Sunday: 8:00 AM – 3:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "dulce de leches french toast"
+    ],
+    "tags": [
+      "breakfast"
+    ]
   },
   {
     "id": "the-garfield-phoenix",
@@ -52098,7 +54400,11 @@
     "googlePlaceId": "ChIJmW3TDmQTK4cRlajqhrChvpI",
     "address": "924 E Roosevelt St, Phoenix, AZ 85006, USA",
     "phone": "(602) 552-3074",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "burrito",
+      "horchatta"
+    ]
   },
   {
     "id": "bro-bro-s-bbq",
@@ -52115,7 +54421,11 @@
     "priceLevel": "PRICE_LEVEL_MODERATE",
     "photoRef": "places/ChIJd43OGKMNK4cRHPC64bJuMBY/photos/AU_ZVEHVTgq0iJC-CVyHgElGh1dt2GyPhUfXaRJ9HhdElSCj9kiUKvyINU8tzUYmiJWkH6VmoxnGNrsUjxUGfWWumFcAddEeHb3THQgvAHsmjDJ_ZGYx9ACcmoEXWhHJdIY5TgS-nE_W4GDybSTrR-b3k4_aHUNmdhbkSdtreLm5Bar9uhb7xg_H--hEwzn8Ze1XqNGrcivD_VaXLL-QnXQShENMbHENxCM5pQxV374_AuvnZIzkOe2uFsOTJlDd99dAyYiZpi2XQDXwn8A3Xs6JTCidy-LQ6U3kyb7lOSGc2JVpIPSs_Eofqfh351ges863HNTG1w7FcdXxI7MsONDJTmLathalLmbLLSlScBxeRRSaxc4DvwXxKebOuXjonebhBD2HpeE4eLfJbaE1LBrpGsoKG1uiRjgAILVmxwI2kq-VflJOVTVbk7VQljRY_wr-",
     "enrichedAt": "2026-04-10",
-    "city": "phoenix"
+    "city": "phoenix",
+    "tags": [
+      "casual",
+      "drinks"
+    ]
   },
   {
     "id": "guru-palace",
@@ -52234,7 +54544,10 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "mutton biryani"
+    ]
   },
   {
     "id": "se-or-muertos-mexican-pizza",
@@ -52254,7 +54567,11 @@
     "googlePlaceId": "ChIJx41ozcJtK4cRKwzktQ2qRh0",
     "address": "2316 W Bethany Home Rd Ste 115, Phoenix, AZ 85015, USA",
     "phone": "(602) 825-1519",
-    "businessStatus": "CLOSED_TEMPORARILY"
+    "businessStatus": "CLOSED_TEMPORARILY",
+    "dishes": [
+      "al pastor with pineapple",
+      "elote pizza"
+    ]
   },
   {
     "id": "don-cafe",
@@ -52372,7 +54689,15 @@
         "Saturday: 8:00 AM – 3:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "orange coffee",
+      "perth",
+      "the cairo"
+    ],
+    "tags": [
+      "coffee"
+    ]
   },
   {
     "id": "casa-reynoso",
@@ -52394,7 +54719,10 @@
     "address": "3138 S Mill Ave, Tempe, AZ 85282, USA",
     "website": "http://www.casareynoso.com/",
     "phone": "(480) 966-0776",
-    "businessStatus": "CLOSED_TEMPORARILY"
+    "businessStatus": "CLOSED_TEMPORARILY",
+    "dishes": [
+      "bean and cheese burrito enchilada style"
+    ]
   },
   {
     "id": "lon-s-at-the-hermosa-inn",
@@ -52513,7 +54841,10 @@
         "Saturday: 7:00 AM – 9:00 PM",
         "Sunday: 7:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "special occasion"
+    ]
   },
   {
     "id": "moku-hawaiian-grill",
@@ -52620,7 +54951,13 @@
         "Saturday: 10:30 AM – 9:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "dole whip ice cream"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "hapa-food-company-2",
@@ -52726,7 +55063,13 @@
         "Saturday: 11:00 AM – 7:00 PM",
         "Sunday: 12:00 – 6:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "malasadas"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "desert-drinks-exotics",
@@ -52853,7 +55196,10 @@
         "Saturday: 8:00 AM – 4:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "green chile burrito enchilada style"
+    ]
   },
   {
     "id": "rito-s-burritos-glendale",
@@ -52947,7 +55293,10 @@
         "Saturday: 10:00 AM – 5:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "green chile burrito"
+    ]
   },
   {
     "id": "the-bar-gilbert",
@@ -52969,7 +55318,16 @@
     "address": "366 N Gilbert Rd, Gilbert, AZ 85234, USA",
     "website": "http://thebarphx.com/",
     "phone": "(480) 584-4760",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "chicken satay",
+      "royale with cheese burger",
+      "wings"
+    ],
+    "tags": [
+      "casual",
+      "drinks"
+    ]
   },
   {
     "id": "miss-dessert-mesa",
@@ -52986,7 +55344,13 @@
     "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
     "photoRef": "places/ChIJ75j0tL8TK4cRYueBfbZoFzg/photos/AU_ZVEFdp4tJPbAQprarI3goMPVV16lPUss7F3SdqzbbHCYqpYtMe_e3j7LlLvoMVWgdEweZIYodauwqOGunjXy3-65m-cD_fuDJ4fq8ezitp5sNJHFfxjTrp_-oD-VS_qkDaj6gzG43x3B_7Mcw1xzzs9oMyem46YOnl6SVCHlFyI1un9AX4uvPm0TkeNY3rMQRTvMpXUzny7aX7avc-sY6miamvOdMFOt1mFreaYarpOZVI_yrrUTotboUKblBfSk-Ghp7GHdIRC6XQe31Yna2BPw57ACUPiBZrjvcLJJS8yjXKF4CWGS1PaNQjT-Ta-oebbTfKRzCQGC7oqdmondPMMJKfuM0qICM2uI-Dix-vBCiwJDfIh7Y-sC9i0EXrnbJacvIZbpaOpTdr5hQfPf3VUIqzTB6O15-o06Jl0hkSruATSQ",
     "enrichedAt": "2026-04-10",
-    "city": "phoenix"
+    "city": "phoenix",
+    "dishes": [
+      "mega fruit tea"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "island-sensation-cuisine",
@@ -53105,7 +55469,12 @@
         "Saturday: 11:00 AM – 8:00 PM",
         "Sunday: 12:00 – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "ackee and saltfish",
+      "curry goat",
+      "oxtails with peas and rice"
+    ]
   },
   {
     "id": "asadero-norte-de-sonora",
@@ -53212,7 +55581,12 @@
         "Saturday: 8:00 AM – 8:00 PM",
         "Sunday: 8:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "charro frijoles",
+      "horchata",
+      "tortas"
+    ]
   },
   {
     "id": "pizza-by-napoli",
@@ -53234,7 +55608,11 @@
     "address": "3425 W Thunderbird Rd, Phoenix, AZ 85053, USA",
     "website": "https://pizzabynapoliphoenix.com/?utm_source=gbp",
     "phone": "(602) 863-1881",
-    "businessStatus": "CLOSED_TEMPORARILY"
+    "businessStatus": "CLOSED_TEMPORARILY",
+    "dishes": [
+      "calzones",
+      "crispy wings"
+    ]
   },
   {
     "id": "40th-street-cafe",
@@ -53341,7 +55719,15 @@
         "Saturday: 5:00 AM – 2:00 PM",
         "Sunday: 5:00 AM – 2:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "short stack pancakes",
+      "turkey sandwich"
+    ],
+    "tags": [
+      "breakfast",
+      "casual"
+    ]
   },
   {
     "id": "twist-hot-chicken",
@@ -53357,7 +55743,10 @@
     "userRatingCount": 64,
     "photoRef": "places/ChIJF7Lo9UcFK4cRuoWsOwlOBEE/photos/AU_ZVEE8JTBAXbzgFudGqQDsih5lzhDfxhIRjgGoLOP8fE3TuOgsCI3dHynFjWjBkEuLDYE7HJ_jjUWokKusGdeiJKqEjDo_BD6DkAsmZ1aqosudsy1kmqyJOJshQl8RcpzM90AVJ23YrWPI-SrnmiE8zCPrHhvA1q4kjDRxy87L0eBj6220v-Ki43FejFC3XB0e3s6YaqEZqJrxHwCneCTttyTDIhcyT5sg6UO8wJvD7n4gCW7PwxWb0SuWr8ve_Zp1CQGKPO_Vq2Nr1t4bLFYPQ7qznBU2VTlQkvLT5XyZE1pKVA",
     "enrichedAt": "2026-04-10",
-    "city": "phoenix"
+    "city": "phoenix",
+    "dishes": [
+      "twisted hot chicken sandwich"
+    ]
   },
   {
     "id": "tacos-huicho",
@@ -53476,7 +55865,11 @@
         "Saturday: 8:00 AM – 12:00 AM",
         "Sunday: 8:00 AM – 11:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "el pastor tacos",
+      "jamaica"
+    ]
   },
   {
     "id": "recreo",
@@ -53595,7 +55988,13 @@
         "Saturday: 11:00 AM – 11:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "dole whip"
+    ],
+    "tags": [
+      "patio"
+    ]
   },
   {
     "id": "the-hermosa-inn",
@@ -53713,7 +56112,12 @@
         "Saturday: 7:00 AM – 10:00 PM",
         "Sunday: 7:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "brunch",
+      "patio",
+      "special occasion"
+    ]
   },
   {
     "id": "scoopwell-s-dough-bar",
@@ -53730,7 +56134,13 @@
     "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
     "photoRef": "places/ChIJmWN-BDESK4cRfVwhzs1p0Q0/photos/AU_ZVEGPXujzKW53jm0ErQJhHWuH1G8mPG8s-23k3eh-icpUErhcYxObm0szwt2bdQmnii4K8rS5xN4hMfAu4XKxSt2OlZsOkEXchvYSq0f1HaxHRuNfw55GNRI_FHNeykXDL6wsGf3v_4fHdftsEe3pgcVGhLKLRV2BVUnx2JmxpnlR6nJ_QT3mXxzMzgjS6VJ6JbpT7M4fJUbeMHTtgXhHxE3NAovQETS9vF1-SyDV4-nhPhBV99sODsBF4TOWzCvkh1rNCa2_aBcHsIwhjXaTv_kuh-G1IFaL75W9SubbZGUuvQ",
     "enrichedAt": "2026-04-10",
-    "city": "phoenix"
+    "city": "phoenix",
+    "dishes": [
+      "toffee bourbon"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "barcoa-agaveria",
@@ -53837,7 +56247,13 @@
         "Saturday: 1:00 PM – 1:00 AM",
         "Sunday: 4:00 – 11:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "tacos"
+    ],
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "clever-ramen",
@@ -53973,7 +56389,14 @@
         "Saturday: 7:00 AM – 9:00 PM",
         "Sunday: 7:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "haymaker benedict"
+    ],
+    "tags": [
+      "breakfast",
+      "brunch"
+    ]
   },
   {
     "id": "the-golden-pineapple-craft-lounge",
@@ -53994,7 +56417,14 @@
     "googlePlaceId": "ChIJoeO45cgJK4cRLAZI2aGSOe8",
     "address": "2700 S Mill Ave, Tempe, AZ 85282, USA",
     "phone": "(480) 590-5703",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "bloody mary",
+      "navajo fry bread tostada"
+    ],
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "maritza-s-pupusas",
@@ -54015,7 +56445,10 @@
     "address": "1532 W Ocotillo Rd, Queen Creek, AZ 85140, USA",
     "website": "https://ordermaritzaspupusas.com/menu",
     "phone": "(480) 758-4532",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "pupusas"
+    ]
   },
   {
     "id": "duck-and-decanter",
@@ -54122,7 +56555,10 @@
         "Saturday: 9:00 AM – 6:00 PM",
         "Sunday: 9:00 AM – 6:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "rita-s-mexican-food-mariscos",
@@ -54241,7 +56677,10 @@
         "Saturday: 9:00 AM – 8:00 PM",
         "Sunday: 9:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "shrimp quesadilla"
+    ]
   },
   {
     "id": "rice-paper-vietnamese-restaurant",
@@ -54360,7 +56799,13 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "banh mi",
+      "buddha spring rolls",
+      "pho tai",
+      "saigon salad"
+    ]
   },
   {
     "id": "mariscos-playa-hermosa",
@@ -54716,7 +57161,10 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chicago deep dish"
+    ]
   },
   {
     "id": "comedor-guadalajara",
@@ -54811,7 +57259,11 @@
         "Saturday: 10:00 AM – 7:00 PM",
         "Sunday: 10:00 AM – 5:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "albondigas soup",
+      "chilaquiles"
+    ]
   },
   {
     "id": "angelina-s-fry-bread",
@@ -54917,7 +57369,10 @@
         "Saturday: 10:30 AM – 8:30 PM",
         "Sunday: 10:00 AM – 2:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "half green pork, half green shredded beef"
+    ]
   },
   {
     "id": "cava",
@@ -55036,7 +57491,14 @@
         "Saturday: 10:30 AM – 10:30 PM",
         "Sunday: 10:30 AM – 10:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chicken",
+      "pita chips"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "by-the-bucket-gilbert",
@@ -55143,7 +57605,10 @@
         "Saturday: 11:30 AM – 7:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "garlic bread"
+    ]
   },
   {
     "id": "balkan-bakery",
@@ -55250,7 +57715,16 @@
         "Saturday: 8:00 AM – 1:00 PM",
         "Sunday: 8:00 AM – 1:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "beef burek",
+      "cevapi",
+      "keks torta",
+      "tiramisu"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "the-wandering-tortoise",
@@ -55369,7 +57843,10 @@
         "Saturday: 11:00 AM – 12:00 AM",
         "Sunday: 11:00 AM – 11:00 PM"
       ]
-    }
+    },
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "caffe-boa",
@@ -55488,7 +57965,16 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chianti braised beef",
+      "chicago tavern-style thin crust",
+      "lobster bisque",
+      "voodoo penne"
+    ],
+    "tags": [
+      "patio"
+    ]
   },
   {
     "id": "susie-s-mexican-cafe-and-lounge",
@@ -55607,7 +58093,15 @@
         "Saturday: 7:00 AM – 9:00 PM",
         "Sunday: 7:00 AM – 7:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "#7 with green sauce",
+      "house margaritas",
+      "menudo"
+    ],
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "wingz-and-thingz",
@@ -55628,7 +58122,11 @@
     "googlePlaceId": "ChIJiyhTIdc-K4cRysBECaPX3xw",
     "address": "12301 W Buckeye Rd, Avondale, AZ 85323, USA",
     "phone": "(602) 405-0715",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "collard greens",
+      "wings"
+    ]
   },
   {
     "id": "my-mother-s-restaurant",
@@ -55735,7 +58233,12 @@
         "Saturday: 2:00 – 9:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "grilled pork chop",
+      "pasta with garlic bread",
+      "pies"
+    ]
   },
   {
     "id": "lenny-s-burger-shop",
@@ -55854,7 +58357,14 @@
         "Saturday: 8:00 AM – 11:00 PM",
         "Sunday: 8:00 AM – 11:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "burgers",
+      "malts"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "mora-italian",
@@ -55874,7 +58384,13 @@
     "city": "phoenix",
     "googlePlaceId": "ChIJTR7TCLoSK4cRQZaqbqrf9V0",
     "address": "5651 N 7th St, Phoenix, AZ 85014, USA",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "chef's tasting menu"
+    ],
+    "tags": [
+      "special occasion"
+    ]
   },
   {
     "id": "the-stand",
@@ -55981,7 +58497,16 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chocolate milkshake",
+      "standard burger",
+      "the arcadia"
+    ],
+    "tags": [
+      "casual",
+      "takeout"
+    ]
   },
   {
     "id": "original-golden-skone",
@@ -56003,7 +58528,14 @@
     "address": "40975 N Ironwood Dr #104, San Tan Valley, AZ 85140, USA",
     "website": "http://www.originalgoldenskone.com/",
     "phone": "(480) 597-5357",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "beef and bean skone",
+      "cherry and nutella"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "laura-s-burgers-and-more",
@@ -56025,7 +58557,10 @@
     "address": "60 E Western Ave, Avondale, AZ 85323, USA",
     "website": "http://www.facebook.com/Laurasburgersandmore/",
     "phone": "(623) 932-2016",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "chorizo burger"
+    ]
   },
   {
     "id": "sugarjam-the-southern-kitchen",
@@ -56120,7 +58655,14 @@
         "Saturday: 9:00 AM – 4:00 PM",
         "Sunday: 9:00 AM – 4:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chicken and french toast combo",
+      "lobster with creole shrimp"
+    ],
+    "tags": [
+      "brunch"
+    ]
   },
   {
     "id": "cocina-madrigal-tacos-tequila",
@@ -56239,7 +58781,10 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "homemade tortillas"
+    ]
   },
   {
     "id": "papi-gordo-s",
@@ -56346,7 +58891,15 @@
         "Saturday: 9:00 AM – 12:00 AM",
         "Sunday: 9:00 AM – 6:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "birria tacos",
+      "house margaritas",
+      "korean taco"
+    ],
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "tratto",
@@ -56560,7 +59113,14 @@
         "Saturday: 9:00 AM – 9:00 PM",
         "Sunday: 9:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "fries with ranch",
+      "orange dream eegee slushie"
+    ],
+    "tags": [
+      "must-try"
+    ]
   },
   {
     "id": "rocket-burger-subs",
@@ -56667,7 +59227,10 @@
         "Saturday: 10:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 6:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chicken burger"
+    ]
   },
   {
     "id": "via-della-slice-shop",
@@ -56762,7 +59325,16 @@
         "Saturday: 11:00 AM – 11:00 PM",
         "Sunday: 11:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "pepperoni",
+      "smoky potato",
+      "the phoenix",
+      "vodka slice"
+    ],
+    "tags": [
+      "must-try"
+    ]
   },
   {
     "id": "brunch-sip",
@@ -56881,7 +59453,14 @@
         "Saturday: 8:00 AM – 4:00 PM",
         "Sunday: 8:00 AM – 4:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "lobster with creole shrimp",
+      "pancakes"
+    ],
+    "tags": [
+      "brunch"
+    ]
   },
   {
     "id": "az-lemonade-stand",
@@ -56976,7 +59555,11 @@
         "Saturday: Closed",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "mango",
+      "prickly pear"
+    ]
   },
   {
     "id": "the-meat-market",
@@ -57114,7 +59697,14 @@
         "Saturday: 7:00 AM – 1:00 PM",
         "Sunday: 7:00 AM – 1:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "breakfast burritos"
+    ],
+    "tags": [
+      "breakfast",
+      "kid friendly"
+    ]
   },
   {
     "id": "chou-s-kitchen",
@@ -57221,7 +59811,12 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "handmade dumplings",
+      "noodles",
+      "soup dumplings"
+    ]
   },
   {
     "id": "texaz-grill",
@@ -57340,7 +59935,11 @@
         "Saturday: 11:00 AM – 9:30 PM",
         "Sunday: 11:00 AM – 8:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "brisket sandwich",
+      "prime rib"
+    ]
   },
   {
     "id": "corleone-s-philly-steaks-pizza",
@@ -57541,7 +60140,17 @@
         "Saturday: 10:00 AM – 6:00 PM",
         "Sunday: 10:00 AM – 6:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "banoffee pie",
+      "english sausage roll",
+      "green apple lattice croissant",
+      "pain au chocolat",
+      "salted caramel brownie"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "lukes-of-chicago",
@@ -57648,7 +60257,10 @@
         "Saturday: 10:00 AM – 7:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "italian beef"
+    ]
   },
   {
     "id": "macalpine-s-diner-soda-fountain",
@@ -57767,7 +60379,13 @@
         "Saturday: 11:00 AM – 8:00 PM",
         "Sunday: 11:00 AM – 3:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "phosphate soda"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "vovomeena",
@@ -57886,7 +60504,14 @@
         "Saturday: 7:30 AM – 2:00 PM",
         "Sunday: 7:30 AM – 2:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "blueberry pancakes",
+      "mexican benedict"
+    ],
+    "tags": [
+      "brunch"
+    ]
   },
   {
     "id": "raspa2-jalisco",
@@ -58004,7 +60629,16 @@
         "Saturday: 10:00 AM – 9:00 PM",
         "Sunday: 10:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "aguas frescas",
+      "elotes",
+      "flans",
+      "mangonada"
+    ],
+    "tags": [
+      "dessert"
+    ]
   },
   {
     "id": "tacos-tijuana",
@@ -58123,7 +60757,14 @@
         "Saturday: 10:00 AM – 10:00 PM",
         "Sunday: 10:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "quesabirria tacos"
+    ],
+    "tags": [
+      "casual",
+      "patio"
+    ]
   },
   {
     "id": "tacos-chiwas",
@@ -58242,7 +60883,12 @@
         "Saturday: 10:00 AM – 9:00 PM",
         "Sunday: 10:00 AM – 4:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "al pastor",
+      "chiwas beef taco",
+      "pollo"
+    ]
   },
   {
     "id": "liyuen",
@@ -58456,7 +61102,11 @@
         "Saturday: 5:00 – 10:00 PM",
         "Sunday: 5:00 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "pizza polpettine",
+      "potato and sausage pizza"
+    ]
   },
   {
     "id": "ta-carbon-mexican-grill",
@@ -58575,7 +61225,14 @@
         "Saturday: 10:00 AM – 11:00 PM",
         "Sunday: 11:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "carne asada taco",
+      "taco hazz"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "seoul-bbq-sushi",
@@ -58694,7 +61351,13 @@
         "Saturday: 11:00 AM – 11:00 PM",
         "Sunday: 11:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "cold noodles"
+    ],
+    "tags": [
+      "team dinner"
+    ]
   },
   {
     "id": "pappadeaux-seafood-kitchen",
@@ -58813,7 +61476,16 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "etouffee",
+      "key lime pie",
+      "oysters",
+      "tagliatelle pasta"
+    ],
+    "tags": [
+      "drinks"
+    ]
   },
   {
     "id": "aloha-kitchen",
@@ -58920,7 +61592,12 @@
         "Saturday: 11:00 AM – 8:00 PM",
         "Sunday: 11:00 AM – 4:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "jr special",
+      "kalbi plate",
+      "poke"
+    ]
   },
   {
     "id": "tampopo-ramen",
@@ -59063,7 +61740,10 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "tonkotsu"
+    ]
   },
   {
     "id": "mark-s-cafe",
@@ -59181,7 +61861,15 @@
         "Saturday: 7:00 AM – 2:00 PM",
         "Sunday: 7:00 AM – 2:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "bloody mary"
+    ],
+    "tags": [
+      "breakfast",
+      "brunch",
+      "drinks"
+    ]
   },
   {
     "id": "mrs-white-s-golden-rule-cafe",
@@ -59300,7 +61988,13 @@
         "Saturday: 10:30 AM – 7:00 PM",
         "Sunday: 10:30 AM – 7:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "fried catfish",
+      "fried chicken",
+      "kool-aid",
+      "mac and cheese"
+    ]
   },
   {
     "id": "essence-bakery-cafe",
@@ -59395,7 +62089,17 @@
         "Saturday: 6:30 AM – 2:00 PM",
         "Sunday: 6:30 AM – 2:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "gruyère croissants",
+      "macarons",
+      "pot pies",
+      "quiche"
+    ],
+    "tags": [
+      "dessert",
+      "must-try"
+    ]
   },
   {
     "id": "ramen-dozo",
@@ -59526,7 +62230,12 @@
         "Saturday: 12:00 – 2:00 PM, 4:30 – 8:30 PM",
         "Sunday: 4:30 – 8:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "gyoza",
+      "miso",
+      "tonkotsu"
+    ]
   },
   {
     "id": "johnny-s-burgers-dogs",
@@ -59645,7 +62354,15 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chicken sandwich",
+      "double cheeseburger",
+      "fry sauce"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "lucky-boy",
@@ -59751,7 +62468,13 @@
         "Saturday: 10:00 AM – 6:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "3/4 lb fire-grilled burger"
+    ],
+    "tags": [
+      "casual"
+    ]
   },
   {
     "id": "bobby-d-s-restaurant-lounge",
@@ -59869,7 +62592,14 @@
         "Saturday: 9:00 AM – 2:00 AM",
         "Sunday: 9:00 AM – 2:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "grilled wings"
+    ],
+    "tags": [
+      "casual",
+      "drinks"
+    ]
   },
   {
     "id": "los-taquitos-2",
@@ -59987,7 +62717,13 @@
         "Saturday: 6:00 AM – 9:00 PM",
         "Sunday: 6:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "carne asada quesadilla",
+      "chicken fajitas",
+      "chile relleno",
+      "pozole"
+    ]
   },
   {
     "id": "tacos-sahuaro",
@@ -60094,7 +62830,11 @@
         "Saturday: 9:00 AM – 10:00 PM",
         "Sunday: 9:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "carne asada",
+      "quesabirria tacos"
+    ]
   },
   {
     "id": "pecan-lodge-dallas",
@@ -60218,7 +62958,11 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "beef rib",
+      "brisket"
+    ]
   },
   {
     "id": "terry-blacks-dallas",
@@ -60342,7 +63086,12 @@
         "Saturday: 10:30 AM – 10:00 PM",
         "Sunday: 10:30 AM – 9:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "brisket",
+      "creamed corn",
+      "pork and beef ribs"
+    ]
   },
   {
     "id": "cattleack-barbeque-dallas",
@@ -60417,7 +63166,10 @@
         "Saturday: Closed",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "brisket"
+    ]
   },
   {
     "id": "lockhart-smokehouse-dallas",
@@ -60551,8 +63303,9 @@
     "googleMapsUrl": "https://maps.google.com/?cid=16069765583927893674&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "notes": "Modern, chef-driven BBQ with a full bar and spacious patio. Feels more restaurant than smokehouse.",
     "tags": [
-      "team dinner",
-      "patio"
+      "drinks",
+      "patio",
+      "team dinner"
     ],
     "tier": "on_my_radar",
     "dateAdded": "2026-06-22",
@@ -60775,7 +63528,10 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 5:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "ribs"
+    ]
   },
   {
     "id": "mias-tex-mex-dallas",
@@ -60899,7 +63655,10 @@
         "Saturday: 11:00 AM – 10:30 PM",
         "Sunday: 11:00 AM – 9:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "brisket tacos"
+    ]
   },
   {
     "id": "mi-cocina-dallas",
@@ -60910,6 +63669,7 @@
     "googleMapsUrl": "https://maps.google.com/?cid=5240355105353846405&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "notes": "Dallas Tex-Mex institution since 1991. Known for the Mambo Taxi margarita and brisket tacos.",
     "tags": [
+      "drinks",
       "team dinner"
     ],
     "tier": "on_my_radar",
@@ -61022,7 +63782,11 @@
         "Saturday: 11:00 AM – 11:00 PM",
         "Sunday: 10:30 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "brisket tacos",
+      "mambo taxi margarita"
+    ]
   },
   {
     "id": "mesero-victory-park-dallas",
@@ -61146,7 +63910,11 @@
         "Saturday: 10:00 AM – 10:30 PM",
         "Sunday: 10:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "brisket tacos",
+      "queso mesero"
+    ]
   },
   {
     "id": "avilas-dallas",
@@ -61269,7 +64037,11 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chile rellenos",
+      "enchiladas"
+    ]
   },
   {
     "id": "marianos-hacienda-dallas",
@@ -61280,6 +64052,7 @@
     "googleMapsUrl": "https://maps.google.com/?cid=10342866119479369665&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "notes": "Where the frozen margarita was invented in 1971. A Slurpee machine was the secret.",
     "tags": [
+      "drinks",
       "team dinner"
     ],
     "tier": "on_my_radar",
@@ -61380,7 +64153,10 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "frozen margarita"
+    ]
   },
   {
     "id": "revolver-taco-lounge-dallas",
@@ -61480,7 +64256,10 @@
         "Saturday: 11:00 AM – 11:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "pulpo al pastor"
+    ]
   },
   {
     "id": "la-salsa-verde-taqueria-dallas",
@@ -61603,7 +64382,11 @@
         "Saturday: 7:00 AM – 2:00 AM",
         "Sunday: 7:00 AM – 12:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "birria",
+      "tacos de cabeza"
+    ]
   },
   {
     "id": "dragon-casa-dallas",
@@ -61785,7 +64568,11 @@
         "Saturday: 11:00 AM – 9:30 PM",
         "Sunday: 11:00 AM – 9:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "birria xiao long bao",
+      "peking duck tacos"
+    ]
   },
   {
     "id": "taco-king-plano",
@@ -61895,7 +64682,10 @@
         "Saturday: 9:00 AM – 9:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "king taco"
+    ]
   },
   {
     "id": "sushi-kozy-dallas",
@@ -62006,7 +64796,10 @@
         "Saturday: 5:00 – 9:00 PM",
         "Sunday: 5:00 – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "omakase"
+    ]
   },
   {
     "id": "nobu-dallas",
@@ -62141,7 +64934,11 @@
         "Saturday: 5:00 – 10:30 PM",
         "Sunday: 11:00 AM – 2:30 PM, 5:00 – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "black cod with miso",
+      "sashimi"
+    ]
   },
   {
     "id": "ka-tip-dallas",
@@ -62288,7 +65085,11 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "dumplings",
+      "matcha tea"
+    ]
   },
   {
     "id": "royal-thai-dallas",
@@ -62472,7 +65273,11 @@
         "Saturday: 12:00 – 9:30 PM",
         "Sunday: 12:00 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "pad thai",
+      "thai teas"
+    ]
   },
   {
     "id": "ngon-vietnamese-dallas",
@@ -62595,7 +65400,12 @@
         "Saturday: 12:00 – 10:00 PM",
         "Sunday: 12:00 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "bun bo hue",
+      "pho",
+      "spring rolls"
+    ]
   },
   {
     "id": "malai-kitchen-dallas",
@@ -62606,6 +65416,7 @@
     "googleMapsUrl": "https://maps.google.com/?cid=15937975867403386225&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "notes": "Uptown. Thai-Vietnamese fusion with a lively bar scene. Three DFW locations.",
     "tags": [
+      "drinks",
       "team dinner"
     ],
     "tier": "on_my_radar",
@@ -62964,7 +65775,10 @@
         "Saturday: 11:00 AM – 12:00 AM",
         "Sunday: 11:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "burger"
+    ]
   },
   {
     "id": "kellers-drive-in-dallas",
@@ -62975,6 +65789,7 @@
     "googleMapsUrl": "https://maps.google.com/?cid=7336803413767593773&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "notes": "Classic Dallas drive-in. Same burger prep for generations. Cash only.",
     "tags": [
+      "casual",
       "quick lunch"
     ],
     "tier": "on_my_radar",
@@ -63087,7 +65902,10 @@
         "Saturday: 11:00 AM – 7:00 PM",
         "Sunday: 11:00 AM – 7:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "burger"
+    ]
   },
   {
     "id": "hopdoddy-dallas",
@@ -63098,6 +65916,7 @@
     "googleMapsUrl": "https://maps.google.com/?cid=12897480488278866006&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "notes": "Uptown. Premium ingredients, Goodnight Good Cause burger. Craft beer selection.",
     "tags": [
+      "drinks",
       "quick lunch",
       "team dinner"
     ],
@@ -63211,7 +66030,10 @@
         "Saturday: 11:00 AM – 11:00 PM",
         "Sunday: 11:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "goodnight good cause burger"
+    ]
   },
   {
     "id": "la-burger-carrollton",
@@ -63322,7 +66144,11 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "bulgogi beef burger",
+      "korean fried chicken burger"
+    ]
   },
   {
     "id": "roots-southern-table-dallas",
@@ -63434,7 +66260,10 @@
         "Saturday: 5:00 – 10:00 PM",
         "Sunday: 5:00 – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "duck-fat fried chicken"
+    ]
   },
   {
     "id": "hatties-hot-chicken-dallas",
@@ -63557,7 +66386,12 @@
         "Saturday: 10:45 AM – 11:00 PM",
         "Sunday: 10:45 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "collard greens",
+      "mac and cheese",
+      "nashville hot chicken"
+    ]
   },
   {
     "id": "sweet-georgia-brown-dallas",
@@ -63680,7 +66514,13 @@
         "Saturday: 11:30 AM – 7:00 PM",
         "Sunday: 10:30 AM – 7:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "black-eyed peas",
+      "cabbage",
+      "fried chicken",
+      "meatloaf"
+    ]
   },
   {
     "id": "streets-fine-chicken-dallas",
@@ -63803,7 +66643,10 @@
         "Saturday: 10:00 AM – 9:00 PM",
         "Sunday: 10:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "fried chicken"
+    ]
   },
   {
     "id": "cane-rosso-dallas",
@@ -63926,7 +66769,10 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "honey bastard pizza"
+    ]
   },
   {
     "id": "enos-pizza-tavern-dallas",
@@ -64173,7 +67019,10 @@
         "Saturday: 11:00 AM – 11:00 PM",
         "Sunday: 11:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "cacio e pepe pizza"
+    ]
   },
   {
     "id": "yo-ranch-steakhouse-dallas",
@@ -64308,7 +67157,8 @@
     "googleMapsUrl": "https://maps.google.com/?cid=4138725378276612714&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "notes": "World's 101 Best Steak Restaurants list. WSJ 'Steakhouses Worth the Splurge.'",
     "tags": [
-      "date night"
+      "date night",
+      "special occasion"
     ],
     "tier": "on_my_radar",
     "dateAdded": "2026-06-22",
@@ -64899,7 +67749,10 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "smoked brisket tacos"
+    ]
   },
   {
     "id": "uncle-bubs-bbq-westmont",
@@ -65011,7 +67864,11 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "pulled pork",
+      "ribs"
+    ]
   },
   {
     "id": "q-bbq-la-grange",
@@ -65134,7 +67991,12 @@
         "Saturday: 11:00 AM – 8:00 PM",
         "Sunday: 11:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "brisket",
+      "pulled pork",
+      "smoked wings"
+    ]
   },
   {
     "id": "gia-mia-lombard",
@@ -65874,7 +68736,10 @@
         "Saturday: 4:00 – 10:00 PM",
         "Sunday: 4:00 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "pork chop"
+    ]
   },
   {
     "id": "kitakata-ramen-lombard",
@@ -66415,7 +69280,12 @@
         "Saturday: 11:00 AM – 8:30 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "curries",
+      "pad thai",
+      "thai iced tea"
+    ]
   },
   {
     "id": "ancho-agave-lombard",
@@ -66426,8 +69296,9 @@
     "googleMapsUrl": "https://maps.google.com/?cid=5678873667180907554&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "notes": "Lombard. Modern Mexican with a great tequila and mezcal bar.",
     "tags": [
-      "team dinner",
-      "date night"
+      "date night",
+      "drinks",
+      "team dinner"
     ],
     "tier": "on_my_radar",
     "dateAdded": "2026-06-22",
@@ -66661,7 +69532,12 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "burritos",
+      "street tacos",
+      "tortas"
+    ]
   },
   {
     "id": "weber-grill-lombard",
@@ -66908,7 +69784,10 @@
         "Saturday: 10:30 AM – 12:00 AM",
         "Sunday: 10:30 AM – 11:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "deep dish stuffed pizza"
+    ]
   },
   {
     "id": "fry-the-coop-elmhurst",
@@ -67031,7 +69910,10 @@
         "Saturday: 10:30 AM – 10:00 PM",
         "Sunday: 11:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "nashville hot chicken"
+    ]
   },
   {
     "id": "rude-rooster-lombard",
@@ -67042,6 +69924,7 @@
     "googleMapsUrl": "https://maps.google.com/?cid=8247833881790331878&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "notes": "Lombard. Fried chicken sandwiches and tenders. Casual counter-service.",
     "tags": [
+      "casual",
       "quick lunch"
     ],
     "tier": "on_my_radar",
@@ -67164,6 +70047,7 @@
     "googleMapsUrl": "https://maps.google.com/?cid=1201921035947239426&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "notes": "Bloomfield gastropub. Inventive American — bacon-wrapped dates, miso-maple salmon, craft beer.",
     "tags": [
+      "drinks",
       "team dinner"
     ],
     "tier": "on_my_radar",
@@ -67276,7 +70160,11 @@
         "Saturday: 11:30 AM – 10:00 PM",
         "Sunday: 11:30 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "bacon-wrapped dates",
+      "miso-maple salmon"
+    ]
   },
   {
     "id": "taste-778-bloomfield-ct",
@@ -67287,6 +70175,7 @@
     "googleMapsUrl": "https://maps.google.com/?cid=13922886804263236486&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "notes": "Bloomfield. Cozy spot for a laid-back dinner or quick bite.",
     "tags": [
+      "casual",
       "quick lunch"
     ],
     "tier": "on_my_radar",
@@ -67581,7 +70470,11 @@
         "Saturday: 12:00 – 3:30 PM, 5:00 – 10:00 PM",
         "Sunday: 12:00 – 3:30 PM, 5:00 – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chutneys",
+      "masala dosas"
+    ]
   },
   {
     "id": "pasticceria-italia-bloomfield-ct",
@@ -67592,6 +70485,7 @@
     "googleMapsUrl": "https://maps.google.com/?cid=14526269667639644117&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "notes": "Bloomfield. Authentic Italian bakery. Creamy cannoli and flaky pastries.",
     "tags": [
+      "dessert",
       "quick lunch"
     ],
     "tier": "on_my_radar",
@@ -67690,7 +70584,10 @@
         "Saturday: 7:00 AM – 6:00 PM",
         "Sunday: 9:00 AM – 3:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "cannoli"
+    ]
   },
   {
     "id": "flemings-west-hartford-ct",
@@ -67701,6 +70598,7 @@
     "googleMapsUrl": "https://maps.google.com/?cid=1352198370082041886&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "notes": "West Hartford. Prime steaks, exceptional wine list, handcrafted cocktails.",
     "tags": [
+      "drinks",
       "team dinner"
     ],
     "tier": "on_my_radar",
@@ -67937,7 +70835,10 @@
         "Saturday: 11:30 AM – 10:00 PM",
         "Sunday: 11:30 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "oysters"
+    ]
   },
   {
     "id": "j-gilberts-glastonbury-ct",
@@ -68060,7 +70961,10 @@
         "Saturday: 4:00 – 10:00 PM",
         "Sunday: 4:00 – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "crab cakes"
+    ]
   },
   {
     "id": "feng-chophouse-hartford-ct",
@@ -68295,7 +71199,12 @@
         "Saturday: 11:15 AM – 9:45 PM",
         "Sunday: 12:15 – 8:45 PM"
       ]
-    }
+    },
+    "dishes": [
+      "chili chicken",
+      "mapo tofu",
+      "pork dumplings"
+    ]
   },
   {
     "id": "tangiers-west-hartford-ct",
@@ -68315,7 +71224,11 @@
     "enrichedAt": "2026-07-18",
     "city": "hartford",
     "googlePlaceId": "ChIJLRNM8FyHCw0ReuG0v3HFv3Y",
-    "address": "Tangier, Morocco"
+    "address": "Tangier, Morocco",
+    "dishes": [
+      "chicken curry over rice pilaf",
+      "kebabs"
+    ]
   },
   {
     "id": "pond-house-cafe-hartford-ct",
@@ -68426,6 +71339,7 @@
     "googleMapsUrl": "https://maps.google.com/?cid=11349661031841922529&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "notes": "Hartford. Global 'Top 100' coffee shop. Great cortados and smoked salmon toast.",
     "tags": [
+      "coffee",
       "quick lunch"
     ],
     "tier": "on_my_radar",
@@ -68538,7 +71452,11 @@
         "Saturday: 8:00 AM – 4:00 PM",
         "Sunday: 8:00 AM – 4:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "cortados",
+      "smoked salmon toast"
+    ]
   },
   {
     "id": "spicy-green-bean-hartford-ct",
@@ -68549,6 +71467,7 @@
     "googleMapsUrl": "https://maps.google.com/?cid=13688770735985398148&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "notes": "Hartford. Breakfast that expanded to dinner. Korean steak sandwich is a sleeper hit.",
     "tags": [
+      "breakfast",
       "quick lunch"
     ],
     "tier": "on_my_radar",
@@ -68637,7 +71556,10 @@
         "Saturday: 9:00 AM – 2:00 PM",
         "Sunday: 9:00 AM – 2:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "korean steak sandwich"
+    ]
   },
   {
     "id": "max-burger-west-hartford-ct",
@@ -68760,7 +71682,11 @@
         "Saturday: 11:30 AM – 10:00 PM",
         "Sunday: 11:30 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "korean bbq burger",
+      "seasoned fries"
+    ]
   },
   {
     "id": "tavern-in-the-square-west-hartford-ct",
@@ -68883,7 +71809,11 @@
         "Saturday: 10:00 AM – 12:00 AM",
         "Sunday: 10:00 AM – 11:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "nashville hot chicken sandwiches",
+      "picante burgers"
+    ]
   },
   {
     "id": "joeys-pizza-pie-west-hartford-ct",
@@ -69006,7 +71936,12 @@
         "Saturday: 11:30 AM – 9:00 PM",
         "Sunday: 11:30 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "buffalo chicken calzone",
+      "cheesesteak grinders",
+      "pepperoni"
+    ]
   },
   {
     "id": "dhaba-wala-hartford-ct",
@@ -69572,7 +72507,10 @@
         "Saturday: 11:00 AM – 2:00 PM",
         "Sunday: Closed"
       ]
-    }
+    },
+    "dishes": [
+      "burgers"
+    ]
   },
   {
     "id": "dempseys-burger-pub-wichita",
@@ -69583,6 +72521,8 @@
     "googleMapsUrl": "https://maps.google.com/?cid=11547774145969675853&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "notes": "Craft beer and smash burgers. Good pub vibe.",
     "tags": [
+      "casual",
+      "drinks",
       "quick lunch",
       "team dinner"
     ],
@@ -69696,7 +72636,10 @@
         "Saturday: 11:00 AM – 2:00 AM",
         "Sunday: 11:00 AM – 2:00 AM"
       ]
-    }
+    },
+    "dishes": [
+      "smash burgers"
+    ]
   },
   {
     "id": "public-wichita",
@@ -69820,8 +72763,9 @@
     "googleMapsUrl": "https://maps.google.com/?cid=651543369714553815&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "notes": "Fine dining with live music. Top-quality steaks in a classy setting.",
     "tags": [
-      "team dinner",
-      "date night"
+      "date night",
+      "special occasion",
+      "team dinner"
     ],
     "tier": "on_my_radar",
     "dateAdded": "2026-06-22",
@@ -69968,6 +72912,7 @@
     "googleMapsUrl": "https://maps.google.com/?cid=535426898171280609&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "notes": "Tuscan flavors meet American steakhouse. Great wine list.",
     "tags": [
+      "drinks",
       "team dinner"
     ],
     "tier": "on_my_radar",
@@ -70201,8 +73146,9 @@
     "googleMapsUrl": "https://maps.google.com/?cid=10634252004935429153&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "notes": "Top-rated on Yelp. Latin fusion with great cocktails.",
     "tags": [
-      "team dinner",
-      "date night"
+      "date night",
+      "drinks",
+      "team dinner"
     ],
     "tier": "on_my_radar",
     "dateAdded": "2026-06-22",
@@ -70325,6 +73271,7 @@
     "googleMapsUrl": "https://maps.google.com/?cid=16006128561042482932&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "notes": "Festive atmosphere. Made-from-scratch Mexican with good margaritas.",
     "tags": [
+      "drinks",
       "team dinner"
     ],
     "tier": "on_my_radar",
@@ -70437,7 +73384,10 @@
         "Saturday: 11:00 AM – 11:00 PM",
         "Sunday: 11:00 AM – 10:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "margaritas"
+    ]
   },
   {
     "id": "little-vietnam-kitchen-wichita",
@@ -70464,7 +73414,12 @@
     "address": "6157 E Harry St, Wichita, KS 67218, USA",
     "website": "https://chowlocal.com/little-vietnam-kitchen",
     "phone": "(316) 358-7522",
-    "businessStatus": "CLOSED_TEMPORARILY"
+    "businessStatus": "CLOSED_TEMPORARILY",
+    "dishes": [
+      "baguette combos",
+      "dumplings",
+      "skillets"
+    ]
   },
   {
     "id": "yokohama-ramen-wichita",
@@ -70587,7 +73542,10 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "ramen"
+    ]
   },
   {
     "id": "lemongrass-taste-vietnam-wichita",
@@ -70613,7 +73571,11 @@
     "address": "300 N Mead St #108, Wichita, KS 67202, USA",
     "website": "https://www.lemongrasswichita.com/#/",
     "phone": "(316) 226-9128",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "pho",
+      "vermicelli bowls"
+    ]
   },
   {
     "id": "piatto-neapolitan-wichita",
@@ -70748,6 +73710,8 @@
     "googleMapsUrl": "https://maps.google.com/?cid=6570689483732279798&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "notes": "Pizza and craft beer. Perfect combo for a casual team outing.",
     "tags": [
+      "casual",
+      "drinks",
       "team dinner"
     ],
     "tier": "on_my_radar",
@@ -70872,6 +73836,7 @@
     "notes": "One of Wichita's best. Seasonal menu, craft cocktails, great atmosphere.",
     "tags": [
       "date night",
+      "drinks",
       "must-try"
     ],
     "tier": "on_my_radar",
@@ -70996,6 +73961,7 @@
     "notes": "Top-rated on Yelp. Upscale American with a strong cocktail program.",
     "tags": [
       "date night",
+      "drinks",
       "team dinner"
     ],
     "tier": "on_my_radar",
@@ -71439,7 +74405,11 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 9:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "fisherman's platter",
+      "lobster nachos"
+    ]
   },
   {
     "id": "mystic-pizza-ct",
@@ -71563,7 +74533,10 @@
         "Saturday: 10:00 AM – 11:00 PM",
         "Sunday: 10:00 AM – 11:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "pizza"
+    ]
   },
   {
     "id": "sea-swirl-mystic-ct",
@@ -71573,8 +74546,9 @@
     "lng": -71.9586111,
     "notes": "Seasonal clam shack, 50+ years family-owned. Famous fried clams and sunset views over Mystic River.",
     "tags": [
-      "quick lunch",
-      "must-try"
+      "casual",
+      "must-try",
+      "quick lunch"
     ],
     "googleMapsUrl": "https://maps.google.com/?cid=10824336369728828031&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "tier": "on_my_radar",
@@ -71687,7 +74661,10 @@
         "Saturday: 11:00 AM – 9:00 PM",
         "Sunday: 11:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "fried clams"
+    ]
   },
   {
     "id": "seaview-snack-bar-mystic-ct",
@@ -71697,6 +74674,7 @@
     "lng": -71.962762,
     "notes": "Classic sea shack. Fried clam platters and lobster rolls with sweet mayo and claw meat.",
     "tags": [
+      "casual",
       "quick lunch"
     ],
     "googleMapsUrl": "https://maps.google.com/?cid=11909875661478630458&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
@@ -71810,7 +74788,11 @@
         "Saturday: 10:00 AM – 9:00 PM",
         "Sunday: 10:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "fried clam platters",
+      "lobster rolls"
+    ]
   },
   {
     "id": "mystic-fish-camp-ct",
@@ -72055,7 +75037,10 @@
         "Saturday: 12:00 – 9:30 PM",
         "Sunday: 12:00 – 8:30 PM"
       ]
-    }
+    },
+    "dishes": [
+      "ct-style lobster rolls"
+    ]
   },
   {
     "id": "la-luna-ristorante-new-london-ct",
@@ -72065,8 +75050,9 @@
     "lng": -72.0978964,
     "notes": "Downtown. Italian-American with creative cooking. Great happy hour Mon-Fri with free appetizer.",
     "tags": [
-      "team dinner",
-      "date night"
+      "date night",
+      "drinks",
+      "team dinner"
     ],
     "googleMapsUrl": "https://maps.google.com/?cid=10362771025501932071&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "tier": "on_my_radar",
@@ -72189,8 +75175,8 @@
     "lng": -72.0976184,
     "notes": "Family-run. Thames River views from every seat. Outdoor patio in summer.",
     "tags": [
-      "team dinner",
-      "patio"
+      "patio",
+      "team dinner"
     ],
     "googleMapsUrl": "https://maps.google.com/?cid=6307660674243943324&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "tier": "on_my_radar",
@@ -72301,8 +75287,9 @@
     "lng": -72.09634,
     "notes": "50 craft beers on draft — largest selection in SE Connecticut. Handcrafted burgers and cocktails.",
     "tags": [
-      "team dinner",
-      "quick lunch"
+      "drinks",
+      "quick lunch",
+      "team dinner"
     ],
     "googleMapsUrl": "https://maps.google.com/?cid=9718825597085213190&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "tier": "on_my_radar",
@@ -72415,7 +75402,10 @@
         "Saturday: 11:00 AM – 10:00 PM",
         "Sunday: 11:00 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "burgers"
+    ]
   },
   {
     "id": "thames-landing-oyster-bar-new-london-ct",
@@ -72441,7 +75431,10 @@
     "address": "2 State St, New London, CT 06320, USA",
     "website": "https://thameslandingoysterhouse.eatzy.com/order",
     "phone": "(860) 574-9232",
-    "businessStatus": "CLOSED_PERMANENTLY"
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "dishes": [
+      "oysters"
+    ]
   },
   {
     "id": "fisherman-restaurant-groton-ct",
@@ -72564,7 +75557,10 @@
         "Saturday: 11:30 AM – 9:30 PM",
         "Sunday: 11:30 AM – 8:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "fish and chips"
+    ]
   },
   {
     "id": "canggio-norwich-ct",
@@ -72799,7 +75795,12 @@
         "Saturday: 9:00 AM – 9:00 PM",
         "Sunday: 9:00 AM – 9:00 PM"
       ]
-    }
+    },
+    "dishes": [
+      "bbq burger",
+      "chicken parm",
+      "lobster alfredo"
+    ]
   },
   {
     "id": "these-guys-brewing-norwich-ct",
@@ -72809,6 +75810,8 @@
     "lng": -72.0804419,
     "notes": "Norwich brewpub. House-brewed beers with solid pub food.",
     "tags": [
+      "casual",
+      "drinks",
       "team dinner"
     ],
     "googleMapsUrl": "https://maps.google.com/?cid=8694404957114914135&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
