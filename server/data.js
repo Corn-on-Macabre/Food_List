@@ -86,9 +86,27 @@ export function generateUniqueSlugId(name, existingIds) {
 // --- Enrichment (Google Places) ---
 const DEFAULT_CENTER = { latitude: 33.4484, longitude: -112.0740 };
 const ENRICH_RADIUS_M = 50000;
-const ENRICH_FIELD_MASK = 'places.rating,places.userRatingCount,places.priceLevel,places.photos';
+const ENRICH_FIELD_MASK = [
+  'places.id',
+  'places.location',
+  'places.rating',
+  'places.userRatingCount',
+  'places.priceLevel',
+  'places.photos',
+  'places.formattedAddress',
+  'places.regularOpeningHours',
+  'places.websiteUri',
+  'places.nationalPhoneNumber',
+  'places.businessStatus',
+].join(',');
 
-export async function enrichRestaurant(name, lat, lng) {
+/**
+ * Look up a restaurant on Google Places (Text Search, biased to its coords).
+ * Returns { fields, matchLocation } — `fields` is what gets merged into the
+ * record; `matchLocation` is the matched place's lat/lng so callers can
+ * sanity-check the match distance before applying. Null on miss/error.
+ */
+export async function enrichRestaurant(name, lat, lng, radiusM = ENRICH_RADIUS_M) {
   if (!GOOGLE_API_KEY) return null;
   const center = (typeof lat === 'number' && typeof lng === 'number')
     ? { latitude: lat, longitude: lng }
@@ -105,7 +123,7 @@ export async function enrichRestaurant(name, lat, lng) {
         textQuery: name,
         maxResultCount: 1,
         locationBias: {
-          circle: { center, radius: ENRICH_RADIUS_M },
+          circle: { center, radius: radiusM },
         },
       }),
     });
@@ -114,15 +132,25 @@ export async function enrichRestaurant(name, lat, lng) {
     const place = data.places?.[0];
     if (!place) return null;
 
-    const result = {};
-    if (typeof place.rating === 'number') result.rating = place.rating;
-    if (typeof place.userRatingCount === 'number') result.userRatingCount = place.userRatingCount;
-    if (place.priceLevel && place.priceLevel !== 'PRICE_LEVEL_UNSPECIFIED') result.priceLevel = place.priceLevel;
-    if (place.photos?.[0]?.name) result.photoRef = place.photos[0].name;
-    if (Object.keys(result).length > 0) {
-      result.enrichedAt = new Date().toISOString().slice(0, 10);
+    const fields = {};
+    if (typeof place.rating === 'number') fields.rating = place.rating;
+    if (typeof place.userRatingCount === 'number') fields.userRatingCount = place.userRatingCount;
+    if (place.priceLevel && place.priceLevel !== 'PRICE_LEVEL_UNSPECIFIED') fields.priceLevel = place.priceLevel;
+    if (place.photos?.[0]?.name) fields.photoRef = place.photos[0].name;
+    if (place.id) fields.googlePlaceId = place.id;
+    if (place.formattedAddress) fields.address = place.formattedAddress;
+    if (place.websiteUri) fields.website = place.websiteUri;
+    if (place.nationalPhoneNumber) fields.phone = place.nationalPhoneNumber;
+    if (place.businessStatus) fields.businessStatus = place.businessStatus;
+    if (place.regularOpeningHours?.periods) {
+      fields.openingHours = {
+        periods: place.regularOpeningHours.periods,
+        weekdayDescriptions: place.regularOpeningHours.weekdayDescriptions ?? [],
+      };
     }
-    return Object.keys(result).length > 0 ? result : null;
+    if (Object.keys(fields).length === 0) return null;
+    fields.enrichedAt = new Date().toISOString().slice(0, 10);
+    return { fields, matchLocation: place.location ?? null };
   } catch {
     return null;
   }
@@ -134,15 +162,29 @@ export async function enrichRestaurant(name, lat, lng) {
  * tool — never blocks the caller.
  */
 export function enrichInBackground(restaurant) {
-  enrichRestaurant(restaurant.name, restaurant.lat, restaurant.lng).then((fields) => {
-    if (fields) {
+  enrichRestaurant(restaurant.name, restaurant.lat, restaurant.lng).then((result) => {
+    if (result) {
       const fresh = readData();
       const idx = fresh.findIndex((r) => r.id === restaurant.id);
       if (idx !== -1) {
-        Object.assign(fresh[idx], fields);
+        Object.assign(fresh[idx], result.fields);
         writeData(fresh);
-        console.log(`Enriched "${restaurant.name}": ${Object.keys(fields).join(', ')}`);
+        console.log(`Enriched "${restaurant.name}": ${Object.keys(result.fields).join(', ')}`);
       }
     }
   }).catch(() => {});
+}
+
+// --- Geometry (ported from src/utils/distance.ts) ---
+const toRad = (deg) => (deg * Math.PI) / 180;
+
+export function haversineDistance(lat1, lng1, lat2, lng2) {
+  const R = 3958.8; // Earth mean radius in miles
+  const dLat = toRad(lat2 - lat1);
+  const dLng = toRad(lng2 - lng1);
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
 }

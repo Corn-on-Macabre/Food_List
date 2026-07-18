@@ -8,21 +8,8 @@ import {
   validateRestaurant,
   generateUniqueSlugId,
   enrichInBackground,
+  haversineDistance,
 } from './data.js';
-
-// Ported from src/utils/distance.ts (server is plain JS; can't import the TS util)
-const toRad = (deg) => (deg * Math.PI) / 180;
-
-function haversineDistance(lat1, lng1, lat2, lng2) {
-  const R = 3958.8; // Earth mean radius in miles
-  const dLat = toRad(lat2 - lat1);
-  const dLng = toRad(lng2 - lng1);
-  const a =
-    Math.sin(dLat / 2) ** 2 +
-    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return R * c;
-}
 
 const TIERS = VALID_TIERS;
 
@@ -33,9 +20,59 @@ const PRICE_LEVELS = {
   very_expensive: 'PRICE_LEVEL_VERY_EXPENSIVE',
 };
 
-// photoRef is a ~500-char Google Places photo reference — useless to an LLM
-function stripPhotoRef(restaurant) {
-  const { photoRef: _photoRef, ...rest } = restaurant;
+// The map is Phoenix-metro only; Arizona doesn't observe DST
+const TZ = 'America/Phoenix';
+const WEEKDAYS = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+
+function phoenixNowMinutes() {
+  const parts = Object.fromEntries(
+    new Intl.DateTimeFormat('en-US', {
+      timeZone: TZ,
+      weekday: 'short',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: false,
+    })
+      .formatToParts(new Date())
+      .map((p) => [p.type, p.value])
+  );
+  // minutes since Sunday 00:00, Phoenix time
+  return WEEKDAYS[parts.weekday] * 1440 + (parseInt(parts.hour, 10) % 24) * 60 + parseInt(parts.minute, 10);
+}
+
+const WEEK_MINUTES = 7 * 1440;
+
+export function isOpenNow(openingHours, nowMinutes = phoenixNowMinutes()) {
+  const periods = openingHours?.periods;
+  if (!periods?.length) return false;
+  for (const p of periods) {
+    if (!p.open) continue;
+    if (!p.close) return true; // open 24/7 (single close-less period)
+    const start = p.open.day * 1440 + (p.open.hour ?? 0) * 60 + (p.open.minute ?? 0);
+    let end = p.close.day * 1440 + (p.close.hour ?? 0) * 60 + (p.close.minute ?? 0);
+    if (end <= start) end += WEEK_MINUTES; // spans the Sat→Sun wrap
+    if ((nowMinutes >= start && nowMinutes < end) || (nowMinutes + WEEK_MINUTES >= start && nowMinutes + WEEK_MINUTES < end)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+// photoRef is a huge Google Places blob and raw hours periods are noise —
+// search results carry a computed open_now instead
+function compactResult(restaurant) {
+  const { photoRef: _photoRef, openingHours, ...rest } = restaurant;
+  if (openingHours) rest.open_now = isOpenNow(openingHours);
+  return rest;
+}
+
+// Full detail view: readable weekly hours instead of raw periods
+function fullResult(restaurant) {
+  const { photoRef: _photoRef, openingHours, ...rest } = restaurant;
+  if (openingHours) {
+    rest.open_now = isOpenNow(openingHours);
+    rest.hours = openingHours.weekdayDescriptions;
+  }
   return rest;
 }
 
@@ -43,7 +80,7 @@ function json(data) {
   return { content: [{ type: 'text', text: JSON.stringify(data, null, 2) }] };
 }
 
-function applyFilters(data, { query, cuisine, tier, near_lat, near_lng, max_distance_miles, min_rating, price_level }) {
+function applyFilters(data, { query, cuisine, tier, near_lat, near_lng, max_distance_miles, min_rating, price_level, open_now }) {
   let results = data;
 
   if (query) {
@@ -66,6 +103,10 @@ function applyFilters(data, { query, cuisine, tier, near_lat, near_lng, max_dist
   }
   if (price_level) {
     results = results.filter((r) => r.priceLevel === PRICE_LEVELS[price_level]);
+  }
+  if (open_now) {
+    const now = phoenixNowMinutes();
+    results = results.filter((r) => r.openingHours && isOpenNow(r.openingHours, now));
   }
 
   const hasLocation = typeof near_lat === 'number' && typeof near_lng === 'number';
@@ -103,7 +144,8 @@ function buildServer(authed) {
         "Bobby's personal curated list of Phoenix-metro restaurants. Every restaurant has a tier: " +
         "'loved' (personal favorites), 'recommended' (solid picks), or 'on_my_radar' (want to try, not yet vetted). " +
         'Ratings and price levels come from Google Places. Use search_restaurants for filtered lookups, ' +
-        'pick_random for "what should I eat tonight", and list_cuisines to see what cuisines exist before filtering.' +
+        'pick_random for "what should I eat tonight" (both support open_now for "open right now", using Phoenix time), ' +
+        'and list_cuisines to see what cuisines exist before filtering.' +
         writeToolNote,
     }
   );
@@ -122,6 +164,7 @@ function buildServer(authed) {
         tier: z.enum(TIERS).optional(),
         min_rating: z.number().min(0).max(5).optional().describe('Minimum Google rating'),
         price_level: z.enum(Object.keys(PRICE_LEVELS)).optional(),
+        open_now: z.boolean().optional().describe('Only restaurants open right now (Phoenix time). Places with unknown hours are excluded.'),
         limit: z.number().int().positive().max(100).optional().describe('Max results to return (default 20)'),
         ...locationInputs,
       },
@@ -132,7 +175,7 @@ function buildServer(authed) {
       return json({
         total_matches: results.length,
         returned: Math.min(limit, results.length),
-        restaurants: results.slice(0, limit).map(stripPhotoRef),
+        restaurants: results.slice(0, limit).map(compactResult),
       });
     }
   );
@@ -151,14 +194,14 @@ function buildServer(authed) {
       const data = readData();
       if (id) {
         const match = data.find((r) => r.id === id);
-        return match ? json(stripPhotoRef(match)) : json({ error: `No restaurant with id '${id}'` });
+        return match ? json(fullResult(match)) : json({ error: `No restaurant with id '${id}'` });
       }
       if (name) {
         const n = name.toLowerCase();
         const matches = data.filter((r) => r.name.toLowerCase().includes(n));
         if (matches.length === 0) return json({ error: `No restaurant matching '${name}'` });
         return json({
-          match: stripPhotoRef(matches[0]),
+          match: fullResult(matches[0]),
           other_matches: matches.slice(1, 6).map((r) => ({ id: r.id, name: r.name })),
         });
       }
@@ -221,6 +264,7 @@ function buildServer(authed) {
       inputSchema: {
         cuisine: z.string().optional(),
         tier: z.enum(TIERS).optional(),
+        open_now: z.boolean().optional().describe('Only restaurants open right now (Phoenix time)'),
         ...locationInputs,
       },
     },
@@ -228,7 +272,7 @@ function buildServer(authed) {
       const results = applyFilters(readData(), args);
       if (results.length === 0) return json({ error: 'No restaurants match those filters' });
       const pick = results[Math.floor(Math.random() * results.length)];
-      return json({ pool_size: results.length, pick: stripPhotoRef(pick) });
+      return json({ pool_size: results.length, pick: compactResult(pick) });
     }
   );
 
@@ -274,7 +318,7 @@ function registerWriteTools(server) {
       if (tags_add?.length) r.tags = mergeUnique(r.tags, tags_add);
       r.lastVisited = today();
       writeData(data);
-      return json({ updated: stripPhotoRef(r) });
+      return json({ updated: fullResult(r) });
     }
   );
 
@@ -303,7 +347,7 @@ function registerWriteTools(server) {
         if (v !== undefined) r[k] = v;
       }
       writeData(data);
-      return json({ updated: stripPhotoRef(r) });
+      return json({ updated: fullResult(r) });
     }
   );
 
