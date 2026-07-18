@@ -1,6 +1,14 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import { z } from 'zod';
+import {
+  readData,
+  writeData,
+  VALID_TIERS,
+  validateRestaurant,
+  generateUniqueSlugId,
+  enrichInBackground,
+} from './data.js';
 
 // Ported from src/utils/distance.ts (server is plain JS; can't import the TS util)
 const toRad = (deg) => (deg * Math.PI) / 180;
@@ -16,7 +24,7 @@ function haversineDistance(lat1, lng1, lat2, lng2) {
   return R * c;
 }
 
-const TIERS = ['loved', 'recommended', 'on_my_radar'];
+const TIERS = VALID_TIERS;
 
 const PRICE_LEVELS = {
   inexpensive: 'PRICE_LEVEL_INEXPENSIVE',
@@ -83,7 +91,11 @@ const locationInputs = {
   max_distance_miles: z.number().positive().optional().describe('Only include restaurants within this many miles of near_lat/near_lng'),
 };
 
-function buildServer(readData) {
+function buildServer(authed) {
+  const writeToolNote = authed
+    ? ' Write tools are available: use log_visit after eating somewhere (promote the tier, note what was good), ' +
+      'update_restaurant for direct edits, and add_restaurant for new finds.'
+    : '';
   const server = new McpServer(
     { name: 'Bobby.Menu', version: '1.0.0' },
     {
@@ -91,7 +103,8 @@ function buildServer(readData) {
         "Bobby's personal curated list of Phoenix-metro restaurants. Every restaurant has a tier: " +
         "'loved' (personal favorites), 'recommended' (solid picks), or 'on_my_radar' (want to try, not yet vetted). " +
         'Ratings and price levels come from Google Places. Use search_restaurants for filtered lookups, ' +
-        'pick_random for "what should I eat tonight", and list_cuisines to see what cuisines exist before filtering.',
+        'pick_random for "what should I eat tonight", and list_cuisines to see what cuisines exist before filtering.' +
+        writeToolNote,
     }
   );
 
@@ -219,18 +232,144 @@ function buildServer(readData) {
     }
   );
 
+  if (authed) {
+    registerWriteTools(server);
+  }
+
   return server;
+}
+
+const today = () => new Date().toISOString().slice(0, 10);
+
+function mergeUnique(existing, additions) {
+  return [...new Set([...(existing ?? []), ...additions])];
+}
+
+function registerWriteTools(server) {
+  server.registerTool(
+    'log_visit',
+    {
+      title: 'Log a visit',
+      description:
+        'Record that Bobby ate at a restaurant: optionally promote/demote its tier, append a dated note ' +
+        '(kept alongside the existing notes, not replacing them), record standout dishes, and add tags. ' +
+        'Sets lastVisited to today. This is the main curation tool — prefer it over update_restaurant after a meal.',
+      inputSchema: {
+        id: z.string().describe("Slug id, e.g. 'manna-bbq' (find it via search_restaurants)"),
+        new_tier: z.enum(TIERS).optional().describe('New tier after the visit, if it changed'),
+        note_append: z.string().optional().describe('Impressions from the visit — appended as a dated line'),
+        dishes: z.array(z.string()).optional().describe("Standout dishes, e.g. ['galbi ribs', 'garlic shrimp']"),
+        tags_add: z.array(z.string()).optional().describe("Tags to add, e.g. ['date night', 'patio']"),
+      },
+    },
+    async ({ id, new_tier, note_append, dishes, tags_add }) => {
+      const data = readData();
+      const r = data.find((x) => x.id === id);
+      if (!r) return json({ error: `No restaurant with id '${id}'` });
+      if (new_tier) r.tier = new_tier;
+      if (note_append) {
+        r.notes = r.notes ? `${r.notes}\n[visited ${today()}] ${note_append}` : `[visited ${today()}] ${note_append}`;
+      }
+      if (dishes?.length) r.dishes = mergeUnique(r.dishes, dishes);
+      if (tags_add?.length) r.tags = mergeUnique(r.tags, tags_add);
+      r.lastVisited = today();
+      writeData(data);
+      return json({ updated: stripPhotoRef(r) });
+    }
+  );
+
+  server.registerTool(
+    'update_restaurant',
+    {
+      title: 'Update a restaurant',
+      description:
+        'Directly edit fields on a restaurant. notes/tags/dishes REPLACE the existing values — ' +
+        'for after-a-meal updates that should accumulate, use log_visit instead.',
+      inputSchema: {
+        id: z.string().describe('Slug id of the restaurant to edit'),
+        tier: z.enum(TIERS).optional(),
+        cuisine: z.string().min(1).optional(),
+        notes: z.string().optional().describe('Replaces existing notes entirely'),
+        tags: z.array(z.string()).optional().describe('Replaces existing tags entirely'),
+        dishes: z.array(z.string()).optional().describe('Replaces existing dishes entirely'),
+      },
+    },
+    async ({ id, ...updates }) => {
+      const data = readData();
+      const r = data.find((x) => x.id === id);
+      if (!r) return json({ error: `No restaurant with id '${id}'` });
+      if (updates.cuisine !== undefined) updates.cuisine = updates.cuisine.trim();
+      for (const [k, v] of Object.entries(updates)) {
+        if (v !== undefined) r[k] = v;
+      }
+      writeData(data);
+      return json({ updated: stripPhotoRef(r) });
+    }
+  );
+
+  server.registerTool(
+    'add_restaurant',
+    {
+      title: 'Add a restaurant',
+      description:
+        'Add a new restaurant to the list. Requires coordinates — if you only have a name/address, ' +
+        'resolve lat/lng first. Rating, price level, and photo are enriched automatically from Google ' +
+        'Places in the background.',
+      inputSchema: {
+        name: z.string().min(1),
+        lat: z.number().min(-90).max(90),
+        lng: z.number().min(-180).max(180),
+        cuisine: z.string().min(1),
+        tier: z.enum(TIERS).describe("Usually 'on_my_radar' for a place Bobby hasn't tried yet"),
+        notes: z.string().optional(),
+        tags: z.array(z.string()).optional(),
+        googleMapsUrl: z.string().url().optional().describe('Defaults to a maps search link for the name + coords'),
+      },
+    },
+    async ({ name, lat, lng, cuisine, tier, notes, tags, googleMapsUrl }) => {
+      const data = readData();
+      const existing = data.find((x) => x.name.toLowerCase() === name.trim().toLowerCase());
+      if (existing) {
+        return json({
+          error: `'${existing.name}' already exists (id: ${existing.id}) — use log_visit or update_restaurant instead`,
+        });
+      }
+      const restaurant = {
+        id: generateUniqueSlugId(name, data.map((x) => x.id)),
+        name: name.trim(),
+        tier,
+        cuisine: cuisine.trim(),
+        lat,
+        lng,
+        googleMapsUrl:
+          googleMapsUrl ?? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name)}&center=${lat},${lng}`,
+        dateAdded: today(),
+      };
+      if (notes) restaurant.notes = notes;
+      if (tags?.length) restaurant.tags = tags;
+      const errors = validateRestaurant(restaurant);
+      if (errors.length > 0) return json({ error: 'Validation failed', details: errors });
+      data.push(restaurant);
+      writeData(data);
+      enrichInBackground(restaurant);
+      return json({ added: restaurant, note: 'Rating/price/photo enrichment runs in the background' });
+    }
+  );
 }
 
 /**
  * Express handler for POST /mcp — stateless Streamable HTTP transport.
  * A fresh server + transport per request: no session state, safe across
  * process restarts, and concurrent requests can't cross-talk.
+ *
+ * Requests carrying `Authorization: Bearer <ADMIN_PASSWORD>` get the write
+ * tools registered; everyone else silently gets the read-only set.
  */
-export function createMcpHandler(readData) {
+export function createMcpHandler(adminPassword) {
   return async (req, res) => {
     try {
-      const server = buildServer(readData);
+      const authed = req.headers.authorization === `Bearer ${adminPassword}`;
+      const server = buildServer(authed);
       const transport = new StreamableHTTPServerTransport({
         sessionIdGenerator: undefined,
         enableJsonResponse: true,

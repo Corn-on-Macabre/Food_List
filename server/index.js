@@ -1,14 +1,18 @@
 import express from 'express';
 import cors from 'cors';
-import fs from 'node:fs';
-import path from 'node:path';
 import { createMcpHandler, methodNotAllowed } from './mcp.js';
+import {
+  DATA_FILE,
+  readData,
+  writeData,
+  VALID_TIERS,
+  validateRestaurant,
+  enrichInBackground,
+} from './data.js';
 
 const app = express();
 const PORT = parseInt(process.env.PORT || '3001', 10);
-const DATA_FILE = process.env.DATA_FILE || '/var/www/food-list/restaurants.json';
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
-const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY || '';
 
 if (!ADMIN_PASSWORD) {
   console.error('ADMIN_PASSWORD environment variable is required');
@@ -29,108 +33,6 @@ function requireAuth(req, res, next) {
     return res.status(401).json({ error: 'Invalid password' });
   }
   next();
-}
-
-// --- File I/O helpers ---
-let writing = false;
-
-function readData() {
-  try {
-    return JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
-  } catch (err) {
-    if (err.code === 'ENOENT') {
-      return [];
-    }
-    throw err;
-  }
-}
-
-function writeData(data) {
-  if (writing) {
-    throw new Error('Concurrent write in progress');
-  }
-  writing = true;
-  try {
-    const tmp = DATA_FILE + '.tmp';
-    fs.writeFileSync(tmp, JSON.stringify(data, null, 2), 'utf-8');
-    fs.renameSync(tmp, DATA_FILE);
-  } finally {
-    writing = false;
-  }
-}
-
-// --- Validation ---
-const VALID_TIERS = ['loved', 'recommended', 'on_my_radar'];
-
-const REQUIRED_FIELDS = {
-  id: 'string',
-  name: 'string',
-  tier: 'string',
-  cuisine: 'string',
-  lat: 'number',
-  lng: 'number',
-  googleMapsUrl: 'string',
-  dateAdded: 'string',
-};
-
-function validateRestaurant(body) {
-  const errors = [];
-  for (const [field, type] of Object.entries(REQUIRED_FIELDS)) {
-    if (body[field] === undefined || body[field] === null) {
-      errors.push(`Missing required field: ${field}`);
-    } else if (typeof body[field] !== type) {
-      errors.push(`Field "${field}" must be a ${type}, got ${typeof body[field]}`);
-    }
-  }
-  if (body.tier !== undefined && !VALID_TIERS.includes(body.tier)) {
-    errors.push(`Field "tier" must be one of: ${VALID_TIERS.join(', ')}`);
-  }
-  return errors;
-}
-
-// --- Enrichment (Google Places) ---
-const DEFAULT_CENTER = { latitude: 33.4484, longitude: -112.0740 };
-const ENRICH_RADIUS_M = 50000;
-const ENRICH_FIELD_MASK = 'places.rating,places.userRatingCount,places.priceLevel,places.photos';
-
-async function enrichRestaurant(name, lat, lng) {
-  if (!GOOGLE_API_KEY) return null;
-  const center = (typeof lat === 'number' && typeof lng === 'number')
-    ? { latitude: lat, longitude: lng }
-    : DEFAULT_CENTER;
-  try {
-    const resp = await fetch('https://places.googleapis.com/v1/places:searchText', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Goog-Api-Key': GOOGLE_API_KEY,
-        'X-Goog-FieldMask': ENRICH_FIELD_MASK,
-      },
-      body: JSON.stringify({
-        textQuery: name,
-        maxResultCount: 1,
-        locationBias: {
-          circle: { center, radius: ENRICH_RADIUS_M },
-        },
-      }),
-    });
-    if (!resp.ok) return null;
-    const data = await resp.json();
-    const place = data.places?.[0];
-    if (!place) return null;
-
-    const result = {};
-    if (typeof place.rating === 'number') result.rating = place.rating;
-    if (typeof place.userRatingCount === 'number') result.userRatingCount = place.userRatingCount;
-    if (place.priceLevel && place.priceLevel !== 'PRICE_LEVEL_UNSPECIFIED') result.priceLevel = place.priceLevel;
-    if (place.photos?.[0]?.name) result.photoRef = place.photos[0].name;
-    if (Object.keys(result).length > 0) {
-      result.enrichedAt = new Date().toISOString().slice(0, 10);
-    }
-    return Object.keys(result).length > 0 ? result : null;
-  } catch {
-    return null;
-  }
 }
 
 // --- Routes ---
@@ -168,17 +70,7 @@ app.post('/api/restaurants', requireAuth, async (req, res) => {
     writeData(data);
 
     // Enrich asynchronously — don't block the response
-    enrichRestaurant(restaurant.name, restaurant.lat, restaurant.lng).then((fields) => {
-      if (fields) {
-        const fresh = readData();
-        const idx = fresh.findIndex((r) => r.id === restaurant.id);
-        if (idx !== -1) {
-          Object.assign(fresh[idx], fields);
-          writeData(fresh);
-          console.log(`Enriched "${restaurant.name}": ${Object.keys(fields).join(', ')}`);
-        }
-      }
-    }).catch(() => {});
+    enrichInBackground(restaurant);
 
     res.status(201).json(restaurant);
   } catch (err) {
@@ -241,8 +133,9 @@ app.delete('/api/restaurants/:id', requireAuth, (req, res) => {
   }
 });
 
-// --- MCP (read-only, no auth — same data as public /restaurants.json) ---
-app.post('/mcp', createMcpHandler(readData));
+// --- MCP — read tools are public (same data as /restaurants.json);
+// write tools appear only with a valid Bearer ADMIN_PASSWORD ---
+app.post('/mcp', createMcpHandler(ADMIN_PASSWORD));
 app.get('/mcp', methodNotAllowed);
 app.delete('/mcp', methodNotAllowed);
 

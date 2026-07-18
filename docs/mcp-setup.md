@@ -16,6 +16,41 @@ Query the restaurant list from any MCP-capable LLM client — no need to open th
 | `get_stats` | Totals by tier, top cuisines, newest additions. |
 | `pick_random` | "What should I eat tonight?" — random pick from a filtered pool. |
 
+### Write tools (curator only)
+
+Requests carrying `Authorization: Bearer <ADMIN_PASSWORD>` (the same password the admin
+dashboard uses) additionally get:
+
+| Tool | What it does |
+|------|--------------|
+| `log_visit` | The main curation tool — "just ate at X": promote/demote tier, append a dated note, record standout dishes, add tags, stamp `lastVisited`. |
+| `update_restaurant` | Direct field edits (tier, cuisine, notes/tags/dishes — these replace). |
+| `add_restaurant` | Add a new place (name + coords + cuisine + tier); rating/price/photo enrich automatically in the background. |
+
+Unauthenticated clients silently get the read-only set — so the same URL is safe to hand out.
+
+**Claude Code (with write access):**
+
+```sh
+claude mcp add --transport http --header "Authorization: Bearer <ADMIN_PASSWORD>" Bobby-Menu https://bobby.menu/mcp
+```
+
+**Cursor (with write access):** add a `headers` map to the server entry:
+
+```json
+{
+  "mcpServers": {
+    "Bobby.Menu": {
+      "url": "https://bobby.menu/mcp",
+      "headers": { "Authorization": "Bearer <ADMIN_PASSWORD>" }
+    }
+  }
+}
+```
+
+> The Claude app's custom connectors can't send a static bearer header, so mobile stays
+> read-only by design.
+
 ## Client setup
 
 ### Claude app (web + mobile — the on-the-go option)
