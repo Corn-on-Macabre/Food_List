@@ -48,8 +48,7 @@ claude mcp add --transport http --header "Authorization: Bearer <ADMIN_PASSWORD>
 }
 ```
 
-> The Claude app's custom connectors can't send a static bearer header, so mobile stays
-> read-only by design.
+> For phone/Claude-app write access, use the OAuth endpoint `/mcp/admin` — see below.
 
 ## Client setup
 
