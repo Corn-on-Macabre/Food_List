@@ -288,6 +288,27 @@ export async function enrichRestaurant(name, lat, lng, radiusM = ENRICH_RADIUS_M
   }
 }
 
+/** Top-N photo resource names for a place, in Google's order. */
+export async function fetchPlacePhotos(placeId, n = 4) {
+  if (!GOOGLE_API_KEY) return [];
+  const resp = await fetch(`https://places.googleapis.com/v1/places/${placeId}?fields=photos`, {
+    headers: { 'X-Goog-Api-Key': GOOGLE_API_KEY },
+  });
+  if (!resp.ok) return [];
+  const data = await resp.json();
+  return (data.photos ?? []).slice(0, n).map((p) => p.name);
+}
+
+/** Small JPEG thumbnail for a photo ref, base64-encoded (for MCP image content). */
+export async function fetchPhotoThumb(photoRef, maxWidthPx = 300) {
+  if (!GOOGLE_API_KEY) return null;
+  const resp = await fetch(
+    `https://places.googleapis.com/v1/${photoRef}/media?maxWidthPx=${maxWidthPx}&key=${GOOGLE_API_KEY}`
+  );
+  if (!resp.ok) return null;
+  return Buffer.from(await resp.arrayBuffer()).toString('base64');
+}
+
 /**
  * Enrich a restaurant in the background and merge the fields into the store
  * when done. Shared by the admin POST route and the MCP add_restaurant

@@ -14,6 +14,8 @@ import {
   METRO_CENTERS,
   TAG_VOCABULARY,
   CITY_TIMEZONES,
+  fetchPlacePhotos,
+  fetchPhotoThumb,
 } from './data.js';
 
 const TIERS = VALID_TIERS;
@@ -438,6 +440,64 @@ function registerWriteTools(server) {
       const inserted = await insertRow(restaurant);
       enrichInBackground(inserted);
       return json({ added: inserted, note: 'Rating/price/photo/hours enrichment runs in the background' });
+    }
+  );
+
+  server.registerTool(
+    'list_photo_options',
+    {
+      title: 'Show photo options',
+      description:
+        "Show the restaurant's available Google Places photos as numbered images so the curator " +
+        'can pick the card cover visually. Follow up with set_photo.',
+      inputSchema: {
+        id: z.string().describe('Slug id of the restaurant'),
+      },
+    },
+    async ({ id }) => {
+      const data = await getAll();
+      const r = data.find((x) => x.id === id);
+      if (!r) return json({ error: `No restaurant with id '${id}'` });
+      if (!r.googlePlaceId) return json({ error: `'${r.name}' has no Google Place ID (unenriched)` });
+      const refs = await fetchPlacePhotos(r.googlePlaceId, 4);
+      if (refs.length === 0) return json({ error: 'Google returned no photos for this place' });
+      const content = [];
+      for (const [i, ref] of refs.entries()) {
+        const current = ref === r.photoRef ? ' (current card photo)' : '';
+        content.push({ type: 'text', text: `Photo ${i}${current}:` });
+        const b64 = await fetchPhotoThumb(ref);
+        if (b64) content.push({ type: 'image', data: b64, mimeType: 'image/jpeg' });
+        else content.push({ type: 'text', text: '(thumbnail unavailable)' });
+      }
+      content.push({
+        type: 'text',
+        text: `Call set_photo with { id: "${id}", photo_index: <0-${refs.length - 1}> } to apply one.`,
+      });
+      return { content };
+    }
+  );
+
+  server.registerTool(
+    'set_photo',
+    {
+      title: 'Set the card photo',
+      description: "Set the restaurant's card photo to one of the numbered options from list_photo_options.",
+      inputSchema: {
+        id: z.string().describe('Slug id of the restaurant'),
+        photo_index: z.number().int().min(0).max(9).describe('Index from list_photo_options'),
+      },
+    },
+    async ({ id, photo_index }) => {
+      const data = await getAll();
+      const r = data.find((x) => x.id === id);
+      if (!r) return json({ error: `No restaurant with id '${id}'` });
+      if (!r.googlePlaceId) return json({ error: `'${r.name}' has no Google Place ID (unenriched)` });
+      const refs = await fetchPlacePhotos(r.googlePlaceId, 10);
+      if (photo_index >= refs.length) {
+        return json({ error: `Only ${refs.length} photos available (asked for index ${photo_index})` });
+      }
+      await updateRow(id, { photoRef: refs[photo_index] });
+      return json({ updated: id, photo_index, note: 'Card photo updated — live on the map immediately' });
     }
   );
 }

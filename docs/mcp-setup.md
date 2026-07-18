@@ -25,7 +25,9 @@ dashboard uses) additionally get:
 |------|--------------|
 | `log_visit` | The main curation tool — "just ate at X": promote/demote tier, append a dated note, record standout dishes, add tags, stamp `lastVisited`. |
 | `update_restaurant` | Direct field edits (tier, cuisine, notes/tags/dishes — these replace). |
-| `add_restaurant` | Add a new place (name + coords + cuisine + tier); rating/price/photo enrich automatically in the background. |
+| `add_restaurant` | Add a new place (name + coords + cuisine + tier); rating/price/photo/hours enrich automatically in the background. |
+| `list_photo_options` | Shows the place's Google photos as numbered inline images so you can pick the card cover visually. |
+| `set_photo` | Applies a numbered photo from list_photo_options as the card cover. |
 
 Unauthenticated clients silently get the read-only set — so the same URL is safe to hand out.
 
