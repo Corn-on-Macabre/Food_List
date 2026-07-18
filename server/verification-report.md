@@ -7,9 +7,8 @@ closed places archived, and the Manna BBQ note verified correct (pin = 6751 N Su
 
 ## Open items for curator review
 
-- **Mr. Pickle's Sandwich Shop** (`mr-pickle-s-sandwich-shop`) — it's a chain; the pin/enrichment point at
-  5885 W Baseline Rd, Laveen Village. The earlier fix-list said the pin is wrong, but only Bobby knows which
-  branch he means. Fix from chat: `update_restaurant` after confirming the intended location.
+- ~~Mr. Pickle's~~ RESOLVED 2026-07-18: re-pinned to 10701 N Scottsdale Rd (Scottsdale & Shea) per Bobby.
+  Manna BBQ likewise re-pinned to 1135 S Dobson Rd, Mesa — Bobby's branch — and the Westgate line removed from its note.
 - **Temporarily closed (20)** — kept in the app; re-check occasionally:
   - Aioli Gourmet Burgers (`aioli-gourmet-burgers`)
   - Suss Pastries (`suss-pastries`)

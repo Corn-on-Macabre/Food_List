@@ -4,29 +4,29 @@
     "name": "Manna BBQ",
     "tier": "loved",
     "cuisine": "Korean",
-    "lat": 33.5342274,
-    "lng": -112.2619962,
+    "lat": 33.3945605,
+    "lng": -111.8730829,
     "googleMapsUrl": "https://www.google.com/maps/place/Manna+BBQ/data=!4m2!3m1!1s0x872b07e26a4de2db:0x6f0767f4f692a5e9",
     "dateAdded": "2026-04-04",
-    "rating": 4.4,
-    "userRatingCount": 2239,
+    "rating": 4.5,
+    "userRatingCount": 1752,
     "priceLevel": "PRICE_LEVEL_MODERATE",
-    "photoRef": "places/ChIJz2qR3itBK4cRWBdpmYIVh_8/photos/AWCwydge_8tdjQG2N7rysjEbMK61ZuVJzEnkEylATC8VMwFYytTrYvI6ytck_XW8b-IHPOpuJ2a0phY7aSUpubXzvZJLJckV01tplDurH8oIEPhIHAzPiQwIJ1SdI88ZJHv7DDqhC4nI6-iTBxmXtJAlJb_f8qgk9uxAZCTcCP_NE2DipUb1kqTVj3YVxzm8omJPN--Fqj6XflQEti3ZwmRlmi7x1_Wyuw1dJYuqtW4ZxXr1amiyOzCAqM4X5aaH6pEdKBpTzTXnzzv0CMIGKlByUAq14dIY5MzrMefQ6YAPpu-s7j9nHOpr0h5unCzHxn6zYr7wsqDkLc4oZED2EpW29DhaZDeZYW3cHyzm-SL0TRAHvTfbVpoQqQ6z16iJ-lkryIf1MLBdZFIOoVlLq7V7Iyftd19f6RW6Gax4mSXAzcaqvRm4QezwtYsthJSJhORo",
+    "photoRef": "places/ChIJ2-JNauIHK4cR6aWS9vRnB28/photos/AWCwydjzzDpgz3ZmpLP8oRssTWHZyJhGTv9JR_UsA-InIckpJzJi6Z8qR3hg_Yuz8pGS8wN4ay0m3gQLJyo9WHC_sKv7LcPFSpU0ZtgGipyoNEOJergSTUzk28O_2M5_QizLdtyGhSlB2ru4WFGco-xSFzkVDoll0uDPn4O_A9iREGNcc4ACKKiRHdLxq1pRWTaP0Y3Zv-icsfNqNW_DN14GsG1gq0dDiZUYu33olccblrcu1rPAReNQ4Wdv8wfY-U_dAwMbSlkhdpjxArtCOjIk6D1pJGxDu2C3ibuECa2caqcZcx4W_-H5vL4RdJM5ijyabVcWCf3JlCo7LN05GEDkvSWxgRmWtWEJgjvLbVriqovV9qRSMKW8VM6QrkuElDahgU88QjZKbH0Eh_zldi-WFadVGDc2rqnDsrpvzpKgTGch6g",
     "enrichedAt": "2026-07-18",
-    "notes": "All-you-can-eat Korean BBQ with table grills and neon vibes. Can hit a 2-hour wait on weekends — they call your number so you can walk around Westgate.",
+    "notes": "All-you-can-eat Korean BBQ with table grills and neon vibes. Can hit a 2-hour wait on weekends.",
     "city": "phoenix",
-    "googlePlaceId": "ChIJz2qR3itBK4cRWBdpmYIVh_8",
-    "address": "6751 N Sunset Blvd Ste E100, Glendale, AZ 85305, USA",
+    "googlePlaceId": "ChIJ2-JNauIHK4cR6aWS9vRnB28",
+    "address": "1135 S Dobson Rd, Mesa, AZ 85202, USA",
     "website": "http://mannabbqaz.com/",
-    "phone": "(623) 877-5007",
+    "phone": "(480) 733-5000",
     "businessStatus": "OPERATIONAL",
     "openingHours": {
       "periods": [
         {
           "open": {
             "day": 0,
-            "hour": 12,
-            "minute": 0
+            "hour": 11,
+            "minute": 30
           },
           "close": {
             "day": 0,
@@ -37,84 +37,84 @@
         {
           "open": {
             "day": 1,
-            "hour": 12,
-            "minute": 0
+            "hour": 11,
+            "minute": 30
           },
           "close": {
             "day": 1,
-            "hour": 22,
-            "minute": 0
-          }
-        },
-        {
-          "open": {
-            "day": 2,
-            "hour": 12,
-            "minute": 0
-          },
-          "close": {
-            "day": 2,
-            "hour": 22,
-            "minute": 0
-          }
-        },
-        {
-          "open": {
-            "day": 3,
-            "hour": 12,
-            "minute": 0
-          },
-          "close": {
-            "day": 3,
-            "hour": 22,
-            "minute": 0
-          }
-        },
-        {
-          "open": {
-            "day": 4,
-            "hour": 12,
-            "minute": 0
-          },
-          "close": {
-            "day": 4,
-            "hour": 22,
-            "minute": 0
-          }
-        },
-        {
-          "open": {
-            "day": 5,
-            "hour": 12,
-            "minute": 0
-          },
-          "close": {
-            "day": 5,
-            "hour": 22,
+            "hour": 21,
             "minute": 30
           }
         },
         {
           "open": {
-            "day": 6,
-            "hour": 12,
+            "day": 2,
+            "hour": 11,
+            "minute": 30
+          },
+          "close": {
+            "day": 2,
+            "hour": 21,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 11,
+            "minute": 30
+          },
+          "close": {
+            "day": 3,
+            "hour": 21,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 11,
+            "minute": 30
+          },
+          "close": {
+            "day": 4,
+            "hour": 21,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 11,
+            "minute": 30
+          },
+          "close": {
+            "day": 5,
+            "hour": 22,
             "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 11,
+            "minute": 30
           },
           "close": {
             "day": 6,
             "hour": 22,
-            "minute": 30
+            "minute": 0
           }
         }
       ],
       "weekdayDescriptions": [
-        "Monday: 12:00 – 10:00 PM",
-        "Tuesday: 12:00 – 10:00 PM",
-        "Wednesday: 12:00 – 10:00 PM",
-        "Thursday: 12:00 – 10:00 PM",
-        "Friday: 12:00 – 10:30 PM",
-        "Saturday: 12:00 – 10:30 PM",
-        "Sunday: 12:00 – 9:30 PM"
+        "Monday: 11:30 AM – 9:30 PM",
+        "Tuesday: 11:30 AM – 9:30 PM",
+        "Wednesday: 11:30 AM – 9:30 PM",
+        "Thursday: 11:30 AM – 9:30 PM",
+        "Friday: 11:30 AM – 10:00 PM",
+        "Saturday: 11:30 AM – 10:00 PM",
+        "Sunday: 11:30 AM – 9:30 PM"
       ]
     }
   },
@@ -49516,21 +49516,21 @@
     "name": "Mr. Pickle's Sandwich Shop",
     "tier": "on_my_radar",
     "cuisine": "American",
-    "lat": 33.3769649,
-    "lng": -112.18431,
+    "lat": 33.5836196,
+    "lng": -111.9245273,
     "googleMapsUrl": "https://www.google.com/maps/place/Mr.+Pickle's+Sandwich+Shop/data=!4m2!3m1!1s0x872b756d73b900b7:0x858e780212cf3bf9",
     "dateAdded": "2026-04-04",
     "rating": 4.3,
-    "userRatingCount": 205,
+    "userRatingCount": 191,
     "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-    "photoRef": "places/ChIJcWNRoVAXK4cRHJbmYLdqD8k/photos/AWCwydj421soVxVYwtRwZ4_VzH613MtJUox0ScmDfWZ-1_vRBkt0qDmquL5k1Xe463mYo8rnc3Jkk4aN1l89EWZtT54UNaNvDnUHozIIScqX865J46waEqjRzMKLKWtOOrPVIQvkxwabKHX7WemO4swCT3I6heaa7z4eSIsc6ofC1Ipl-wsgHVfSzWKIpbfJoRnxHzXy7EK78_KXkG0SFDilQWTKFRaIL-cbSLYIinwg3RkQFdzER_qHBy6m0E_iVidn29JofPbsWDMJv0GZ49E1_LKWYRAW0xZgV2itvsFV4J6WvhrbQ8drBFUJlnrzfC6fKyijrlDjpplZZ6SIC6y9wvjExOPdhHBMbONldmEOH-BLLZQLHoO-l5_L7U8zX3CfrYz_MWGPE8yEYZJJrZ4gh6LfWP-NVt_-dJ_uFy9y_NILNby5",
+    "photoRef": "places/ChIJtwC5c211K4cR-TvPEgJ4joU/photos/AWCwydgDJBdLgrtDHv2pYAUFcWo80xmyrgXJ_6J08wAwKD1I5KTQmA9BkE2S7qHD9OOu3WQFOaUb8K-JIZ-ffBNf1UTdJQ0jzuv0CDeX6-htrcSRYBhcuuHsCZ6dftwcPPp1w7nM6rOvgkjF8B5xsJqxN9f5xdF6WXY9arEyB8WOq3_xShJO1UbqpfV0H3rqoSItEAEUOVFzJ2BsIQQxrwmNB2LC_xLLG9zfRjZLuP15eaLo977cqa2AbRc9CN60cagu8HKC42n5eQelEzTbdGWvy85-mj6sxMXiedtZlqWnFOlRLfN9z5QxStjU9NogzoQ7BdeaPIRQhfSqf-Q7jpnYwiyS46nmX02D68TeduIhRr_g2ZnifIZTlZnqc6xq2arGNPdW8V6bJ0Iv8mJU5UytT0QfzWBbnd-skrtqWuk0Bfmd33RnHVCWm9TM68JNd7UO",
     "enrichedAt": "2026-07-18",
     "notes": "Italian on sourdough is the move. Regional chain, multiple valley locations. Fresh bread and meat.",
     "city": "phoenix",
-    "googlePlaceId": "ChIJcWNRoVAXK4cRHJbmYLdqD8k",
-    "address": "5885 W Baseline Rd #140, Laveen Village, AZ 85339, USA",
-    "website": "https://www.mrpickles.com/location/mr-pickles-laveen-village-az-coming-soon/",
-    "phone": "(602) 856-0399",
+    "googlePlaceId": "ChIJtwC5c211K4cR-TvPEgJ4joU",
+    "address": "10701 N Scottsdale Rd Ste 101, Scottsdale, AZ 85254, USA",
+    "website": "https://www.mrpickles.com/location/mr-pickles-scottsdale-az-coming-soon/",
+    "phone": "(480) 534-7197",
     "businessStatus": "OPERATIONAL",
     "openingHours": {
       "periods": [
