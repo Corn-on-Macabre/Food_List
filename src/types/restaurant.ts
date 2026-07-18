@@ -47,4 +47,6 @@ export interface FilterState {
   tier: Tier | null;
   maxDistance: number | null;
   searchTerm: string | null;
+  openNow: boolean;
+  tags: string[];
 }

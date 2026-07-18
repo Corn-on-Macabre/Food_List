@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { Restaurant } from "../types";
 import { formatPriceLevel } from "../utils/priceLevel";
+import { isOpenNow, localNowMinutes, todayHours, metroTimezone } from "../utils/openNow";
 import { BobbyPickBadge } from "./BobbyPickBadge";
 import { TierBadge } from "./TierBadge";
 import { BTN_ICON, BTN_PRIMARY } from "./styles";
@@ -35,6 +36,12 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
     }
   }
   const formattedPrice = formatPriceLevel(restaurant.priceLevel);
+
+  const timezone = metroTimezone(restaurant.city);
+  const openNow = restaurant.openingHours
+    ? isOpenNow(restaurant.openingHours, localNowMinutes(timezone))
+    : null;
+  const hoursToday = todayHours(restaurant.openingHours, timezone);
 
   const photoUrl =
     restaurant.photoRef && !photoError
@@ -127,6 +134,53 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
         )}
 
         <p className="mt-2 text-sm text-stone-500">{restaurant.cuisine}</p>
+
+        {openNow !== null && (
+          <div className="mt-2 text-sm">
+            <span className={openNow ? "font-semibold text-emerald-600" : "font-semibold text-rose-600"}>
+              {openNow ? "Open now" : "Closed"}
+            </span>
+            {hoursToday && (
+              <span className="text-stone-500"> &middot; {hoursToday.replace(/^[A-Za-z]+: /, "")} today</span>
+            )}
+            {restaurant.openingHours && restaurant.openingHours.weekdayDescriptions.length === 7 && (
+              <details className="mt-1">
+                <summary className="cursor-pointer text-xs text-stone-400 hover:text-stone-600 select-none">
+                  All hours
+                </summary>
+                <ul className="mt-1 space-y-0.5 text-xs text-stone-500">
+                  {restaurant.openingHours.weekdayDescriptions.map((line) => (
+                    <li key={line}>{line}</li>
+                  ))}
+                </ul>
+              </details>
+            )}
+          </div>
+        )}
+
+        {restaurant.address && (
+          <p className="mt-2 text-xs text-stone-400">{restaurant.address}</p>
+        )}
+
+        {(restaurant.phone || restaurant.website) && (
+          <div className="mt-1 flex items-center gap-3 text-xs">
+            {restaurant.phone && (
+              <a href={`tel:${restaurant.phone.replace(/[^+\d]/g, "")}`} className="text-brand-accent hover:text-brand-accent-hover underline underline-offset-2">
+                {restaurant.phone}
+              </a>
+            )}
+            {restaurant.website && (
+              <a
+                href={getSafeHref(restaurant.website)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-brand-accent hover:text-brand-accent-hover underline underline-offset-2 truncate max-w-[180px]"
+              >
+                {restaurant.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}
+              </a>
+            )}
+          </div>
+        )}
 
         {restaurant.tags && restaurant.tags.length > 0 && (
           <div className="mt-2 flex flex-wrap gap-1.5">

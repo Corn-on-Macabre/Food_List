@@ -8,9 +8,10 @@ import { useAuth, AuthProvider } from './contexts/AuthContext';
 import { AdminAuthProvider } from './contexts/AdminAuthContext';
 import type { Restaurant } from './types';
 import type { FilterState } from './types/restaurant';
-import { haversineDistance } from './utils';
+import { haversineDistance, isOpenNow, localNowMinutes } from './utils';
 import { FROSTED_BAR, CARD_SURFACE } from './components/styles';
 import { METRO_REGIONS, DEFAULT_METRO_ID } from './constants/metros';
+import { TAG_VOCABULARY } from './constants/tags';
 import './index.css';
 
 function findNearestMetro(lat: number, lng: number): string {
@@ -101,7 +102,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
   // Resolve initial city: URL param > default (will be updated by geolocation)
   const initialCity = (urlCityId && getMetro(urlCityId)) ? urlCityId : DEFAULT_METRO_ID;
   const [selectedRestaurant, setSelectedRestaurant] = useState<Restaurant | null>(null);
-  const [filters, setFilters] = useState<FilterState>({ city: initialCity, cuisine: null, tier: null, maxDistance: null, searchTerm: null });
+  const [filters, setFilters] = useState<FilterState>({ city: initialCity, cuisine: null, tier: null, maxDistance: null, searchTerm: null, openNow: false, tags: [] });
 
   // Resolve city from geolocation once (only if no URL city was specified)
   const geoResolved = useRef(false);
@@ -190,10 +191,14 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
   const filteredRestaurants = useMemo(
     () => {
       const searchLower = filters.searchTerm?.toLowerCase() ?? null;
+      // Opening hours are stored in each place's local time
+      const nowMinutes = filters.openNow ? localNowMinutes(activeMetro.timezone) : 0;
       return cityRestaurants.filter((r) => {
         if (searchLower && !r.name.toLowerCase().includes(searchLower)) return false;
         if (filters.cuisine && r.cuisine !== filters.cuisine) return false;
         if (filters.tier && r.tier !== filters.tier) return false;
+        if (filters.openNow && !isOpenNow(r.openingHours, nowMinutes)) return false;
+        if (filters.tags.length > 0 && !filters.tags.every((t) => r.tags?.includes(t))) return false;
         if (effectiveMaxDistance !== null && coords !== null) {
           const dist = haversineDistance(coords.lat, coords.lng, r.lat, r.lng);
           if (dist > effectiveMaxDistance) return false;
@@ -201,7 +206,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
         return true;
       });
     },
-    [cityRestaurants, filters.searchTerm, filters.cuisine, filters.tier, effectiveMaxDistance, coords],
+    [cityRestaurants, filters.searchTerm, filters.cuisine, filters.tier, filters.openNow, filters.tags, effectiveMaxDistance, coords, activeMetro.timezone],
   );
 
   // Cuisines scoped to selected city
@@ -209,6 +214,13 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
     () => Array.from(new Set(cityRestaurants.map(r => r.cuisine))).sort(),
     [cityRestaurants],
   );
+
+  // Tags present in the selected city, in vocabulary order; hours availability gates the Open Now chip
+  const availableTags = useMemo(() => {
+    const present = new Set(cityRestaurants.flatMap((r) => r.tags ?? []));
+    return TAG_VOCABULARY.filter((t) => present.has(t));
+  }, [cityRestaurants]);
+  const hasHours = useMemo(() => cityRestaurants.some((r) => r.openingHours), [cityRestaurants]);
 
   // Dynamically measure the filter bar height so the map container can offset below it.
   // ResizeObserver keeps the padding in sync when the bar resizes (e.g., distance row appearing).
@@ -227,10 +239,10 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
     return () => observer.disconnect();
   }, []);
 
-  const hasActiveFilters = filters.searchTerm !== null || filters.cuisine !== null || filters.tier !== null || filters.maxDistance !== null;
+  const hasActiveFilters = filters.searchTerm !== null || filters.cuisine !== null || filters.tier !== null || filters.maxDistance !== null || filters.openNow || filters.tags.length > 0;
 
   function handleClearFilters() {
-    setFilters((f) => ({ ...f, cuisine: null, tier: null, maxDistance: null, searchTerm: null }));
+    setFilters((f) => ({ ...f, cuisine: null, tier: null, maxDistance: null, searchTerm: null, openNow: false, tags: [] }));
   }
 
   const handleCityChange = useCallback((cityId: string) => {
@@ -273,6 +285,12 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           activeCity={filters.city ?? DEFAULT_METRO_ID}
           onCityChange={handleCityChange}
           showDistance={showDistance}
+          openNow={filters.openNow}
+          onOpenNowChange={(openNow) => setFilters(f => ({ ...f, openNow }))}
+          activeTags={filters.tags}
+          onTagToggle={(tag) => setFilters(f => ({ ...f, tags: f.tags.includes(tag) ? f.tags.filter(t => t !== tag) : [...f.tags, tag] }))}
+          availableTags={availableTags}
+          hasHours={hasHours}
         />
       </div>
       <APIProvider apiKey={apiKey}>

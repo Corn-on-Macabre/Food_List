@@ -33,6 +33,12 @@ const baseProps = {
   activeCity: 'phoenix',
   onCityChange: vi.fn(),
   showDistance: false,
+  openNow: false,
+  onOpenNowChange: vi.fn(),
+  activeTags: [] as string[],
+  onTagToggle: vi.fn(),
+  availableTags: [] as string[],
+  hasHours: false,
 };
 
 describe('FilterBar', () => {

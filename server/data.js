@@ -34,6 +34,19 @@ export function writeData(data) {
 // --- Validation ---
 export const VALID_TIERS = ['loved', 'recommended', 'on_my_radar'];
 
+// Opening hours are stored in each place's local time. Keep in sync with
+// src/constants/metros.ts.
+export const CITY_TIMEZONES = {
+  phoenix: 'America/Phoenix',
+  dallas: 'America/Chicago',
+  chicago: 'America/Chicago',
+  'se-connecticut': 'America/New_York',
+  wichita: 'America/Chicago',
+  hartford: 'America/New_York',
+  nyc: 'America/New_York',
+  paris: 'Europe/Paris',
+};
+
 // Keep in sync with src/constants/tags.ts
 export const TAG_VOCABULARY = [
   'must-try',

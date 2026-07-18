@@ -24,6 +24,12 @@ interface FilterBarProps {
   activeCity: string;
   onCityChange: (cityId: string) => void;
   showDistance: boolean;
+  openNow: boolean;
+  onOpenNowChange: (openNow: boolean) => void;
+  activeTags: string[];
+  onTagToggle: (tag: string) => void;
+  availableTags: readonly string[];
+  hasHours: boolean;
 }
 
 const TIER_OPTIONS: { value: Tier; label: string }[] = [
@@ -49,6 +55,12 @@ export function FilterBar({
   activeCity,
   onCityChange,
   showDistance,
+  openNow,
+  onOpenNowChange,
+  activeTags,
+  onTagToggle,
+  availableTags,
+  hasHours,
 }: FilterBarProps) {
   const { isAuthenticated } = useAdminAuth();
 
@@ -167,6 +179,33 @@ export function FilterBar({
             );
           })}
         </div>
+        {/* Open Now + vibe tags row — hidden until the city has hours/tag data */}
+        {(hasHours || availableTags.length > 0) && (
+          <div role="group" aria-label="Filter by availability and vibe" className="flex gap-2 overflow-x-auto px-4 pb-2 scrollbar-hide">
+            {hasHours && (
+              <button
+                className={`${chipBase} ${openNow ? chipActive : chipInactive}`}
+                aria-pressed={openNow}
+                onClick={() => onOpenNowChange(!openNow)}
+              >
+                Open Now
+              </button>
+            )}
+            {availableTags.map((tag) => {
+              const isActive = activeTags.includes(tag);
+              return (
+                <button
+                  key={tag}
+                  className={`${chipBase} ${isActive ? chipActive : chipInactive}`}
+                  aria-pressed={isActive}
+                  onClick={() => onTagToggle(tag)}
+                >
+                  {tag}
+                </button>
+              );
+            })}
+          </div>
+        )}
         {/* Distance row — only when coords available, not denied, and viewing nearest city */}
         {showDistance && (
           <div

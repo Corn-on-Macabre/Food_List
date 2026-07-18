@@ -10,6 +10,7 @@ import {
   enrichInBackground,
   haversineDistance,
   TAG_VOCABULARY,
+  CITY_TIMEZONES,
 } from './data.js';
 
 const TIERS = VALID_TIERS;
@@ -21,14 +22,17 @@ const PRICE_LEVELS = {
   very_expensive: 'PRICE_LEVEL_VERY_EXPENSIVE',
 };
 
-// The map is Phoenix-metro only; Arizona doesn't observe DST
-const TZ = 'America/Phoenix';
 const WEEKDAYS = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+const DEFAULT_TZ = 'America/Phoenix';
 
-function phoenixNowMinutes() {
+// minutes since Sunday 00:00 in the given IANA timezone (hours are stored in
+// each place's local time — the list spans multiple metros)
+const nowCache = new Map();
+function localNowMinutes(timeZone) {
+  if (nowCache.has(timeZone)) return nowCache.get(timeZone);
   const parts = Object.fromEntries(
     new Intl.DateTimeFormat('en-US', {
-      timeZone: TZ,
+      timeZone,
       weekday: 'short',
       hour: 'numeric',
       minute: 'numeric',
@@ -37,13 +41,19 @@ function phoenixNowMinutes() {
       .formatToParts(new Date())
       .map((p) => [p.type, p.value])
   );
-  // minutes since Sunday 00:00, Phoenix time
-  return WEEKDAYS[parts.weekday] * 1440 + (parseInt(parts.hour, 10) % 24) * 60 + parseInt(parts.minute, 10);
+  const minutes = WEEKDAYS[parts.weekday] * 1440 + (parseInt(parts.hour, 10) % 24) * 60 + parseInt(parts.minute, 10);
+  nowCache.set(timeZone, minutes);
+  setTimeout(() => nowCache.delete(timeZone), 30_000).unref?.();
+  return minutes;
+}
+
+function restaurantNowMinutes(r) {
+  return localNowMinutes(CITY_TIMEZONES[r.city] ?? DEFAULT_TZ);
 }
 
 const WEEK_MINUTES = 7 * 1440;
 
-export function isOpenNow(openingHours, nowMinutes = phoenixNowMinutes()) {
+export function isOpenNow(openingHours, nowMinutes) {
   const periods = openingHours?.periods;
   if (!periods?.length) return false;
   for (const p of periods) {
@@ -63,7 +73,7 @@ export function isOpenNow(openingHours, nowMinutes = phoenixNowMinutes()) {
 // search results carry a computed open_now instead
 function compactResult(restaurant) {
   const { photoRef: _photoRef, openingHours, ...rest } = restaurant;
-  if (openingHours) rest.open_now = isOpenNow(openingHours);
+  if (openingHours) rest.open_now = isOpenNow(openingHours, restaurantNowMinutes(restaurant));
   return rest;
 }
 
@@ -71,7 +81,7 @@ function compactResult(restaurant) {
 function fullResult(restaurant) {
   const { photoRef: _photoRef, openingHours, ...rest } = restaurant;
   if (openingHours) {
-    rest.open_now = isOpenNow(openingHours);
+    rest.open_now = isOpenNow(openingHours, restaurantNowMinutes(restaurant));
     rest.hours = openingHours.weekdayDescriptions;
   }
   return rest;
@@ -115,8 +125,7 @@ function applyFilters(data, { query, cuisine, tier, city, tags, near_lat, near_l
     results = results.filter((r) => r.priceLevel === PRICE_LEVELS[price_level]);
   }
   if (open_now) {
-    const now = phoenixNowMinutes();
-    results = results.filter((r) => r.openingHours && isOpenNow(r.openingHours, now));
+    results = results.filter((r) => r.openingHours && isOpenNow(r.openingHours, restaurantNowMinutes(r)));
   }
 
   const hasLocation = typeof near_lat === 'number' && typeof near_lng === 'number';
@@ -155,7 +164,7 @@ function buildServer(authed) {
         "se-connecticut, wichita, hartford — filter with city). Every restaurant has a tier: " +
         "'loved' (personal favorites), 'recommended' (solid picks), or 'on_my_radar' (want to try, not yet vetted). " +
         'Ratings and price levels come from Google Places. Use search_restaurants for filtered lookups, ' +
-        'pick_random for "what should I eat tonight" (both support open_now for "open right now", using Phoenix time), ' +
+        'pick_random for "what should I eat tonight" (both support open_now, computed in each place\'s local time), ' +
         'and list_cuisines to see what cuisines exist before filtering.' +
         writeToolNote,
     }
@@ -177,7 +186,7 @@ function buildServer(authed) {
         tags: z.array(z.enum(TAG_VOCABULARY)).optional().describe('Restaurant must have ALL of these occasion/vibe tags'),
         min_rating: z.number().min(0).max(5).optional().describe('Minimum Google rating'),
         price_level: z.enum(Object.keys(PRICE_LEVELS)).optional(),
-        open_now: z.boolean().optional().describe('Only restaurants open right now (Phoenix time). Places with unknown hours are excluded.'),
+        open_now: z.boolean().optional().describe("Only restaurants open right now (each place's local time). Places with unknown hours are excluded."),
         limit: z.number().int().positive().max(100).optional().describe('Max results to return (default 20)'),
         ...locationInputs,
       },
@@ -281,7 +290,7 @@ function buildServer(authed) {
         tier: z.enum(TIERS).optional(),
         city: z.string().optional().describe("Metro region, e.g. 'phoenix' (the default trip context)"),
         tags: z.array(z.enum(TAG_VOCABULARY)).optional().describe('Restaurant must have ALL of these tags'),
-        open_now: z.boolean().optional().describe('Only restaurants open right now (Phoenix time)'),
+        open_now: z.boolean().optional().describe("Only restaurants open right now (each place's local time)"),
         ...locationInputs,
       },
     },
