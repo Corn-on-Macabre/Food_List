@@ -3987,28 +3987,6 @@
     }
   },
   {
-    "id": "toulouse-petit-kitchen-lounge",
-    "name": "Toulouse Petit Kitchen & Lounge",
-    "tier": "recommended",
-    "cuisine": "American",
-    "lat": 33.440560399999995,
-    "lng": -112.0733117,
-    "googleMapsUrl": "https://www.google.com/maps/place/Toulouse+Petit+Kitchen+%26+Lounge/data=!4m2!3m1!1s0x54901543c9ec41fd:0x41edb00f1ffbc2b9",
-    "dateAdded": "2026-04-04",
-    "notes": "Delicious. French onion soup. Desserts were amazing",
-    "rating": 4.3,
-    "userRatingCount": 109,
-    "photoRef": "places/ChIJC4XinO0RK4cRWJw537muL-g/photos/AU_ZVEHTHw7K2Ko66BNyk64VUO890CgwGF94lIOq-nhwHUniEsi9MUiTDguMhUx49SvrFkTehi8GA2hc8_zRg97sQ_XftxuW6dTxGZHjISYUKCzJVqvyyBkloeJd2OW-fvvEPIl7sEjnUByH-2fas-o2LfCTcWMN4RT-s7buoIBRlzsCnQCTf5d2V8QD9mqpeFdJYCnC-Dr9YZ4eZ8hm6aKAsZis1tr7ODyeCW9xLUbJfP9hEX8x77HpofzsOjla8i11obFWaRhKKoZe1eQBD87orq7eKxIjoDfJ1oYNLt8_7tTxOQVuUC7R9emgxZMuLQ5t5cVXOhtAmnG1BhqFNjuhMb_ptQFkTOxaOgZFD55bKuuQ_7uTl7VXbSDp-fj5wNvA9VIzUrzYTjFcGwlAB9h0St08BVCwXj75WnNcTazabROAjt_K-jvPEdXn0-iq4YZr",
-    "enrichedAt": "2026-04-10",
-    "city": "phoenix",
-    "dishes": [
-      "french onion soup"
-    ],
-    "tags": [
-      "dessert"
-    ]
-  },
-  {
     "id": "aunt-chiladas-squaw-peak",
     "name": "Aunt Chiladas Squaw Peak",
     "tier": "recommended",
@@ -4619,61 +4597,123 @@
     "name": "Barrio Café",
     "tier": "recommended",
     "cuisine": "Other",
-    "lat": 33.4787827,
-    "lng": -112.0478646,
+    "lat": 33.4344246,
+    "lng": -111.9993774,
     "googleMapsUrl": "https://www.google.com/maps/place/Barrio+Caf%C3%A9/data=!4m2!3m1!1s0x872b1277d85389a3:0xdbb55358d2c16d9a",
     "dateAdded": "2026-04-04",
-    "rating": 4.5,
-    "userRatingCount": 2659,
+    "rating": 2.9,
+    "userRatingCount": 640,
     "priceLevel": "PRICE_LEVEL_MODERATE",
-    "photoRef": "places/ChIJo4lT2HcSK4cRmm3B0lhTtds/photos/AU_ZVEFOBufgkiYYz-3jPzNNZkNQoedlKEeAz_wiWby9by7-SQid-KUB7U4fw170hVAP6Dl6D19puxEyfMgnxPmB-xHle-F2q9XIPhDcXZIQsz1cUQU86jw2-pOmIY61YQ0KLNuMkLpk3cQ5KqvgPN81G4Zfprzq2Q5yYO2Jg2Q0gS0acEkdBONzmWKd_ZUKWzyhTWTXxrPHfwA2M66iKcFH0-qAkSJP90bzzPrr_LAhf7i78pRA1Kd638DmDy8-FCO3mAC-hlc2dTws1HeBa3Pt8suIylICZ7Wwqv8bjRvElqwOYg",
-    "enrichedAt": "2026-04-10",
+    "photoRef": "places/ChIJT4F4W2cOK4cRxsv08COXCHQ/photos/AWCwydgHyNFFJe9wzA5CtSc5u4PgnGJqgqGCexK1gbYxkqU0ZNifAEG3g2c7GCcyES3qx7P7SoHb74FPCijKayJ4tE3bUeq7-XH7BnExdZ1pHA8Cs0ag4Z9nG90psbnkaOe6MwxlPTlDz1kNxzVifFZi8Pcmk1waeP4ttRpzLRmctygHZTBoj0J1AZMDuBdOgDtp5CfwWD99u0Ok9piMvTk1ygdXOqlkWnH_xZ78VC9E2JYDdJhVEJFKJYiWxEXntgycnMyawNAXZpY1HRiOXdNt-D6-Ys6ACuU68j9OK1VRi7vB8ib37mVNljNp7ld6uj0pUwEmpFAjkAII2HSxA1NB3p_Sqz9eWxEXEmXJudPE5TMQY5I-ONn7lb0naUujr0D5jqQN_cbcwR0GjMnLyAdyseO-l8HihHK-YonJ5zQEIbPnrwba8itKvSbzm9WG1Dyr",
+    "enrichedAt": "2026-07-18",
     "notes": "Featured on Triple D and it earns it. Not typical Mexican — creative and bold. Guacamole is great. Halibut is a regular recommendation.",
     "city": "phoenix",
     "dishes": [
       "guacamole",
       "halibut"
-    ]
-  },
-  {
-    "id": "nippon-curry-featuring-hinoya-curry",
-    "name": "Nippon Curry featuring Hinoya Curry",
-    "tier": "recommended",
-    "cuisine": "Japanese",
-    "lat": 33.5213007,
-    "lng": -112.07056229999999,
-    "googleMapsUrl": "https://www.google.com/maps/place/Nippon+Curry+featuring+Hinoya+Curry/data=!4m2!3m1!1s0x80858152c09edccb:0x3dd372d88b08ccb8",
-    "dateAdded": "2026-04-04",
-    "notes": "Great Curry. Pork Katsu",
-    "rating": 4.7,
-    "userRatingCount": 437,
-    "priceLevel": "PRICE_LEVEL_MODERATE",
-    "photoRef": "places/ChIJy9yewFKBhYARuMwIi9hy0z0/photos/AU_ZVEGjaDQMnHrpNvENNIZI0-3TnmScW--tKsa_f8dvJ8UHBolukVleLTyyUqTtERZ-gggfBdc0vUBjO-MiivxH-wa4ljxiFTFGcm-mH88XcsKHNriVzZozTAvKjfWOy2K9rI-1HvYGSmBRcp6QzDVnoxaMOThyQcDTdSOI0aQTj5mbaf0CEU9JTJx_ys7jiTl60mEfYmEChAzIxxEhD6gZuEZf2Zt8vwtmjUb4ZLdWeju4dGm7SC0OMwGaXCN3xKTREQrMuiCnu4RXQeIOahT_26w5IQbd6S1K2Zg6CeF-wvU",
-    "enrichedAt": "2026-04-10",
-    "city": "phoenix",
-    "dishes": [
-      "curry",
-      "pork katsu"
-    ]
-  },
-  {
-    "id": "mensho-tokyo-sf",
-    "name": "Mensho Tokyo SF",
-    "tier": "recommended",
-    "cuisine": "Japanese",
-    "lat": 33.522165099999995,
-    "lng": -112.0642247,
-    "googleMapsUrl": "https://www.google.com/maps/place/Mensho+Tokyo+SF/data=!4m2!3m1!1s0x80858091bfcba4f3:0xef6d15db707c1776",
-    "dateAdded": "2026-04-04",
-    "notes": "Wagyu Ramen",
-    "rating": 4.7,
-    "userRatingCount": 477,
-    "photoRef": "places/ChIJgdshyg8TK4cROnzkZ8mUyi8/photos/AU_ZVEGw3c07XAil58MHJM645BLYMPdIA2yhYL2lhGrqnlqLQCyqTQFnTU6T_8Wpa7_Cq3ZRnSvlafEs0XUZV3hJwoYBXSGGoi5_A1JHjUFdXcAWtaWvj7ir5boHuakutrFCLgTzauDh9qVmzpvg53c41X7RQALShnFYrv2dcrXTuJHbGCt3M0ywtglj9q9BflWuBmvEjk3It3NusYfS2GQtJQOSZqAh7xgo5t6z7XG0q5pEEp75B6-4BZr-GVkOM3rGAZzV_IZx3RxI6DSSkKPMVeOkwBlKTa-si3xOgg3nELUKbmn9mONZMPZ86YPXrgQAi-A7GVXvRnyc7tkfxT3L5Ry9d6XhkhU64mwi4jnUiexdp1AwDWst5WWtTaVFIgNAXw3BLVIn41MVMRlHEgK2xstMvLMZ1mSJJRv5ujac30qyWw",
-    "enrichedAt": "2026-04-10",
-    "city": "phoenix",
-    "dishes": [
-      "wagyu ramen"
-    ]
+    ],
+    "googlePlaceId": "ChIJT4F4W2cOK4cRxsv08COXCHQ",
+    "address": "Terminal 4, 3400 Sky Hbr Blvd, Phoenix, AZ 85034, USA",
+    "website": "https://www.hmshost.com/brands/barrio-cafe",
+    "phone": "(602) 273-3300",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 4,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 22,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 1,
+            "hour": 4,
+            "minute": 0
+          },
+          "close": {
+            "day": 1,
+            "hour": 22,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 4,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 22,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 4,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 22,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 4,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 22,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 4,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 22,
+            "minute": 30
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 4,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 22,
+            "minute": 30
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: 4:00 AM – 10:30 PM",
+        "Tuesday: 4:00 AM – 10:30 PM",
+        "Wednesday: 4:00 AM – 10:30 PM",
+        "Thursday: 4:00 AM – 10:30 PM",
+        "Friday: 4:00 AM – 10:30 PM",
+        "Saturday: 4:00 AM – 10:30 PM",
+        "Sunday: 4:00 AM – 10:30 PM"
+      ]
+    }
   },
   {
     "id": "la-taqueria",
@@ -5396,23 +5436,6 @@
     "dishes": [
       "burgers"
     ]
-  },
-  {
-    "id": "flaming-pig",
-    "name": "Flaming Pig",
-    "tier": "recommended",
-    "cuisine": "BBQ",
-    "lat": 33.4766088,
-    "lng": -112.2230548,
-    "googleMapsUrl": "https://www.google.com/maps/place/Flaming+Pig/data=!4m2!3m1!1s0x872b13efec6ce78b:0x4c3982e2650641c7",
-    "dateAdded": "2026-04-04",
-    "notes": "Solid filipino food",
-    "rating": 4.2,
-    "userRatingCount": 700,
-    "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-    "photoRef": "places/ChIJpbz782gVK4cRDN0cqJGNYiY/photos/AU_ZVEHtNOP4OjAkepcCCfIw94rR8_Mo-lZlT3WPJos57DI8pY1p_2v49hl1AEbqH9L9lZcDRKnaw8s_zSeKlqrZVOqjo57_MJfn5OivujCG29UJiQTF4yl0lqWu8_zfx_1RTyNTTSFkzmGHvZM8k6RixJASjdqgbUDdnK0CxkMJKd3Li_uOrxknCKQggD_za03YC9G7sAZhxfn31QS96NIUXepadMQgB4puIHakd7kZLiSrQKbPa9t2GvfMLoylojuwpUil00LwbAJoOsWewzqrkwDUCsk8yTlDxp9qp-Ip-YZYJ_CtyeAJUguChXcC_zQAjn3RX7iKmzWknvSWKSV6BZECCqKrzvFvkhi1veufZVD1kBhMJ1iHcGQE-kkyjku37ZrsNs3aUfbuP0PHgCr_ovUeiU-DLsUYqTNoCnVxHHEY2vCE",
-    "enrichedAt": "2026-04-10",
-    "city": "phoenix"
   },
   {
     "id": "palma",
@@ -6601,29 +6624,6 @@
         "Sunday: 12:00 PM – 12:00 AM"
       ]
     }
-  },
-  {
-    "id": "matt-s-bar-and-grill",
-    "name": "Matt's Bar and Grill",
-    "tier": "recommended",
-    "cuisine": "American",
-    "lat": 33.4573307,
-    "lng": -112.07215880000001,
-    "googleMapsUrl": "https://www.google.com/maps/place/Matt's+Bar+and+Grill/data=!4m2!3m1!1s0x87f628121aa93683:0x7cfd097d34a7aed6",
-    "dateAdded": "2026-04-04",
-    "rating": 4.5,
-    "userRatingCount": 5516,
-    "priceLevel": "PRICE_LEVEL_MODERATE",
-    "photoRef": "places/ChIJr2zObz0SK4cRSmcXIeesCuU/photos/AU_ZVEHZ-bjQj3t1WWabQDjQ2RgpM3TYTnihRE_s9tXUhCclCKenAVZMTCPJjfrX6okRZLMXp3PVHyIzg7ANC7PzaHiVFxz84Y5WjR-fYdlTCCsjEbF7IbofHGnv8OLAsqgrGNRZ6XeoTos99SjCZyYZX3wXsH0upCQVXwP6QiWFBbKcvYpUFWknJbOz58fNZPa81laX2kYomqEBkltwZVej69WvvtwjFaelZ29HKphdX3-0KOTEYydtcxhaIIPLPBXTMDly-EB8qZmGCD4eJ-ps-8purnI6chYbeDMVVSRMb1mMA5XoKMiIhVHsscIqiet4b1Y0soYiVSIo6Yy7iuoSTHPzFisHhXnt5-BX7SaZ3D-i0mktUy-hihOVumQ5FRFNuR3nHY2qS0f-XuWyPaq_OKstq0jUcQq9rQ7b8814DrESqde5",
-    "enrichedAt": "2026-04-10",
-    "notes": "Featured on DDD. Matt's Big Breakfast — great downtown Phoenix breakfast spot. Chicken sausage is good. Big team-service vibe, always friendly.",
-    "city": "phoenix",
-    "dishes": [
-      "chicken sausage"
-    ],
-    "tags": [
-      "breakfast"
-    ]
   },
   {
     "id": "call-her-martina",
@@ -11874,20 +11874,121 @@
     "name": "Grocery Station",
     "tier": "on_my_radar",
     "cuisine": "Other",
-    "lat": 33.4661839,
-    "lng": -112.0674737,
+    "lat": 33.5864224,
+    "lng": -111.8472925,
     "googleMapsUrl": "https://www.google.com/maps/place/Grocery+Station/data=!4m2!3m1!1s0x872b9fe5d1794123:0x6e887f2932edca8f",
     "dateAdded": "2026-04-04",
     "notes": "Safeway deli. Known for the fried chicken being fresh in the morning. Basic grocery store deli situation.",
-    "rating": 4.2,
-    "userRatingCount": 3730,
+    "rating": 4.9,
+    "userRatingCount": 82,
     "priceLevel": "PRICE_LEVEL_MODERATE",
-    "photoRef": "places/ChIJefdCzxQSK4cRiRDvlLVDPG4/photos/AU_ZVEFCbP0pKW6kHQ85gIeH-MBzYVuVFomkJiz0yoaXdb2h4yzo7BTQkYYrSKnjnCFWZPXYn3dPbtPleqECxsFdSgkNzjp5VO32jn1r0D7qUFkrIdL9a8WPAwRIb7w3lj9soX6ZfDxqws8PVhYvRP031zeBnTRV-mtX5BdgnJ1jpor18hffmZCA9cedduBZYiUD81-psUZj2WF63vN0DOks8mXTrJP9wsdtodg8bXpsJTFW2-rlZHsGzF4da_VNFaDARGKyDWc3ah84MVRZinGgI8RkeRxUqyRv_12kYPM1eQnjaugF008nkY-blbc8dJtAjfR6jUbcQpcS7TeDj--UHN-cWS_dkuSVlL5M9HgLWdcGsIBhMujPQqkEwCweLZwxek0w9DlOtnCa_ASZFh3zA0eArfpA8qyjaO2Yo4tAMUCUbw",
-    "enrichedAt": "2026-04-10",
+    "photoRef": "places/ChIJI0F50eWfK4cRj8rtMil_iG4/photos/AWCwydh-q7JtsXzKpM93-R4rOxO-6uzLava5gkG4fK-R9Z1uvww_bpBAWh48sxtEG-oOJMUeN-9X7o-e9LCjl5l9GBxI-4sy8HnpVzHpjSqx9K3TBN-AbvIbeo04_PQo3gShRna0MmCyiUSQiLEHgyssHXbEWIkJnWmAVLLUa5nOFyKsFkUTkZ2vvwN5Gs2XkwGfUYWngf2HmHFkFzYxyT08UueXcte3EVFflrynkqfBYATTaE7o4O-0zTrJc_2NcrOnMS1o4eVsyc_y8qwsB4HohEbC6DdQSxqiNz17eaksaBa_Wf12p3fAkr0SccjLhrkWdZqXUwKWo65amdnekQ39CBJQxl--O38tNuxIyOl5eoHHWL3Qsa6y_SXNl2oUcgJuQ6vEbsljpHP-NwZ6eDYnaH_9zszNzLUWTHaYe2UjPBAnWhas",
+    "enrichedAt": "2026-07-18",
     "city": "phoenix",
     "dishes": [
       "fried chicken"
-    ]
+    ],
+    "googlePlaceId": "ChIJI0F50eWfK4cRj8rtMil_iG4",
+    "address": "10810 E Vía Linda, Scottsdale, AZ 85259, USA",
+    "phone": "(480) 860-6838",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 8,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 20,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 1,
+            "hour": 7,
+            "minute": 0
+          },
+          "close": {
+            "day": 1,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 7,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 7,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 7,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 7,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 7,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 21,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: 7:00 AM – 9:00 PM",
+        "Tuesday: 7:00 AM – 9:00 PM",
+        "Wednesday: 7:00 AM – 9:00 PM",
+        "Thursday: 7:00 AM – 9:00 PM",
+        "Friday: 7:00 AM – 9:00 PM",
+        "Saturday: 7:00 AM – 9:00 PM",
+        "Sunday: 8:00 AM – 8:00 PM"
+      ]
+    }
   },
   {
     "id": "my-spot-mediterranean-grill",
@@ -13163,14 +13264,14 @@
     "name": "T Swirl Crepe",
     "tier": "on_my_radar",
     "cuisine": "Japanese",
-    "lat": 33.4652945,
-    "lng": -112.00764819999999,
+    "lat": 33.3072689,
+    "lng": -111.8738953,
     "googleMapsUrl": "https://www.google.com/maps/place/T+Swirl+Crepe/data=!4m2!3m1!1s0x872b010053022e13:0x8fbce5d9d6614c31",
     "dateAdded": "2026-04-04",
-    "rating": 4.3,
-    "userRatingCount": 68,
-    "photoRef": "places/ChIJEy4CUwABK4cRMUxh1tnlvI8/photos/AU_ZVEFo_WlTK472dvYVg1UGsUYM3lkEpkP6-DCIpAc48h6uwO9cT_PzXGGde1JduVKu1kAbJTBoCatysRh9q6xwlQNyiX931SWVyVIsj_7CWkTUyDtFcbnHhKDJI5UdCCJTMGqU4LKGj0my7_kbJlnHFXmXm7g3VRsUDVUNbDlb7aYbP-K_7XpYl8ofpW2SUVMF6u4yBi2pljSJM3k8SW773uWyQ7ZGo7UHESD91_6ziYaEWnfo4kGn9i3f4R6SGgms2vKcDXXOV2R2zK0XiWf0iJGIlewk9OgCGRAovqBVJlbqtAMN9et1JQEnbR03Fl8hgKhLGmpvvaseAZVDupl_iT25c_h7OvHSPSL-mYCJFAJPxFqLlA-yeSvfnqSZHo_BHp9jssDKrAo1QMvxGPJjzUDggGc0FAX3L-jWWSIUwNoN5or_AL2_S_dNA3Gnew",
-    "enrichedAt": "2026-04-10",
+    "rating": 4.2,
+    "userRatingCount": 92,
+    "photoRef": "places/ChIJEy4CUwABK4cRMUxh1tnlvI8/photos/AWCwydhbFbD2B9r3PmCXRzT17ElukACQ46O07FEeYci-uc4R1_1-vF3EpeCEuskafVezGFB4dhg2-uV4OQlKO01Wcjii_89lFa1hhm5YIZ-sBkIniBJZ6Aqj6s32lOSOlJvU0As3TsyEoW_1mHcUavkmKHb6oV_Z61VBjRLXCm9DqB0nXl0pA6Ptr6e2lD7DRAzfX0WM6FN-hH_MbGwk9DAAEtovMVut_HLHoS7695WF6tGgpBWh82zNSSMRIF-r47_wsNkk-yXLBpdDSQOU5GS6wjh_cso7q530hNcUBuP69YADkuuT2CEMMudZZRK5gb6lyMU0GCkF_OaHmSC33qC5pR4K-15LJr005bVvLoauimD_rOMNgu1comr6M2H4oks3o_JM7CaBrr9aqL9fpTu0zHcq6tUgXaCp-KTSZlDQLT1ozvEtY3tcWf8byshrUg",
+    "enrichedAt": "2026-07-18",
     "notes": "Japanese-style crepes. Self-serve ordering kiosks inside. The Angus short rib crepe is one of the more interesting options. Mango crepe is huge and stuffed.",
     "city": "phoenix",
     "dishes": [
@@ -13179,7 +13280,109 @@
     ],
     "tags": [
       "dessert"
-    ]
+    ],
+    "googlePlaceId": "ChIJEy4CUwABK4cRMUxh1tnlvI8",
+    "address": "1900 W Chandler Blvd Unit 22, Chandler, AZ 85224, USA",
+    "website": "https://t-swirlcrepe.com/",
+    "phone": "(480) 572-1077",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 1,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 1,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 22,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: 11:00 AM – 9:00 PM",
+        "Tuesday: 11:00 AM – 9:00 PM",
+        "Wednesday: 11:00 AM – 9:00 PM",
+        "Thursday: 11:00 AM – 9:00 PM",
+        "Friday: 11:00 AM – 10:00 PM",
+        "Saturday: 11:00 AM – 10:00 PM",
+        "Sunday: 11:00 AM – 9:00 PM"
+      ]
+    }
   },
   {
     "id": "mendocino-farms",
@@ -18473,15 +18676,15 @@
     "name": "Detroit Coney Grill",
     "tier": "on_my_radar",
     "cuisine": "American",
-    "lat": 33.449487,
-    "lng": -112.07425699999999,
+    "lat": 33.5375608,
+    "lng": -111.9080211,
     "googleMapsUrl": "https://www.google.com/maps/place/Detroit+Coney+Grill/data=!4m2!3m1!1s0x872b0b47fb28673b:0xd00ff9befa818c52",
     "dateAdded": "2026-04-04",
     "rating": 4.4,
-    "userRatingCount": 175,
+    "userRatingCount": 1255,
     "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-    "photoRef": "places/ChIJxceGLCISK4cRZ-cgRq_dO3s/photos/AU_ZVEHOHLvNB5zG4C_8WnBPF2TjkpqUtFuqfIahW23m44zWHdBxMBKRzy82lyX_soWgiVkuGSE2PqU-VlW8McJb0sDwuzZMCO2yRGqA0FBxHuAd8kMNUnl-2bWut4utdtiDncPlHs-qX0KAcCItMIF8f4624iuH-_oewNV4bMQ17qapABR_ZM8D-LsaUg7cx9oEyKQ_b6Y9Ywg4APEBrvo6fGaOb8UDUjozLvTi3o_AkINQmgmgVoaPrTEgNYyUBybfgPAxnubxxnW4zsqVr7up0KSCDj4-gHoOy2xAYVvM2iSg8kwKhyCXfpsM6a2IlLkjNyJDnQGVO-Epz4GuocodTld9ZoEIP5CV8iK9GZ4eHh2JNHzVCQxTsKfiwAV2V1F-3wY9R7wHfqlrohuxHHewjHzdgzrkm4sMYbVaXlEJIxeL8A9o",
-    "enrichedAt": "2026-04-10",
+    "photoRef": "places/ChIJO2co-0cLK4cRUoyB-r75D9A/photos/AWCwydjPmWjfwA7xI3DB6ORrHBnUV2T6_Roct6ClwHtrtKcEoRDRrxPy1PF_fxWLE2mbg85zLu-nrsTXg-R1tSMrjPIXuZFCLFxR6-Ffis5hqz6TjFA03DajeP0yHKraWRQqbvvchicUf07b_7ZfdbMDkeK62_lReEN7V9zrOwOfE3iiL0H70vOmJ9WeQDub08mGPUBCUKkNMr3swci_vRCNd_mNLaqOktlKah8WAtzN2lExTsHBLl0B5pb3b9f6ywGP5NsuSphxKbwWp3klYfSP8ASdbVZ6Yni0e3Yp0Vvg_apXrp9LVKAnnL-LuCp5wwWh97yvgRx5PsOFtWq9e_G2mDcQO9gu1Ptb7JqD8Y7tcVxyPb1s0jzfTpZXI4mq0n5BZFtnXj0guWRjC179O_Tl2dtUqq8cRm2p_6gbqqBaKIKbkFxMD_QBQHuAAW2Hjomv",
+    "enrichedAt": "2026-07-18",
     "notes": "Downtown Phoenix cheap eats institution. Triple burger is $5.45. Coneys with chili are the classic move — eat fast or the chili makes them soggy. Cheesy chili tots are also great.",
     "city": "phoenix",
     "dishes": [
@@ -18491,7 +18694,109 @@
     ],
     "tags": [
       "casual"
-    ]
+    ],
+    "googlePlaceId": "ChIJO2co-0cLK4cRUoyB-r75D9A",
+    "address": "6953 Hayden Rd, Scottsdale, AZ 85250, USA",
+    "website": "https://detroitconeygrill.com/",
+    "phone": "(480) 597-4300",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 10,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 1,
+            "hour": 10,
+            "minute": 0
+          },
+          "close": {
+            "day": 1,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 10,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 10,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 10,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 10,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 10,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 21,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: 10:00 AM – 9:00 PM",
+        "Tuesday: 10:00 AM – 9:00 PM",
+        "Wednesday: 10:00 AM – 9:00 PM",
+        "Thursday: 10:00 AM – 9:00 PM",
+        "Friday: 10:00 AM – 9:00 PM",
+        "Saturday: 10:00 AM – 9:00 PM",
+        "Sunday: 10:00 AM – 9:00 PM"
+      ]
+    }
   },
   {
     "id": "full-moon-izakaya",
@@ -20507,15 +20812,15 @@
     "name": "PHXNQRA WINGS",
     "tier": "on_my_radar",
     "cuisine": "Other",
-    "lat": 33.5826883,
-    "lng": -112.05101339999999,
+    "lat": 33.4650202,
+    "lng": -112.2425807,
     "googleMapsUrl": "https://www.google.com/maps/place/PHXNQRA+WINGS/data=!4m2!3m1!1s0x872b4138f4e15251:0x8a34d3deb6088bb9",
     "dateAdded": "2026-04-04",
     "notes": "Order ahead online — 45 minute wait is normal and worth it. Lemon garlic with pineapple is the sleeper sauce. Mac and cheese has insane flavor. Parmesan fries are also solid.",
     "rating": 4.6,
-    "userRatingCount": 27,
-    "photoRef": "places/ChIJUVLh9DhBK4cRuYsItt7TNIo/photos/AU_ZVEEFrhSVEFOvFBBj2yV6qzhkRlOjSC42Y1TH6j2Zpsp68V0DaspwbYZAiInCz0OT19JVTvTsaJbtbXdDpVPZLDvUDt1VVXf3W1QcR50u3h7hKe_UxhvtqgSwUPAdY3hnwbxWLoFZPrsnAyldG0UM2TJom7IILvYkJSqvkUk_La_VF1lImcs0Xr1PjtEpM4OpHnA-zZv_kiB7tASt71s51lXD6G1Mh6EQbnQ9kkNTW2orRIY5tX5UafyWoDxwtpIlZJ7K68EKXUbaKMMP5Y942pH-6z2y6xmUCvTpvn3CQRwQFlJpjHYPC6bGeZ4zy2YGCVC-U8b4zzxu7NGTvNEw6JurQAxJFm_e279F7zG-mv0yxxIm0FkcAmiu-B-YA1px7-9WEEAn9HueVUpW-EI11TQiipBeLrTkwzanxS7W6npyVws8rIBF28K62647nsK8",
-    "enrichedAt": "2026-04-10",
+    "userRatingCount": 30,
+    "photoRef": "places/ChIJUVLh9DhBK4cRuYsItt7TNIo/photos/AWCwydg0YoHGJ_dv71xwR396b4t1kMCu3TPDTrcOURzovNZjCFt6hZBWrw2fldMsXUhclR60vH3lgyFlzyu3GMfE_FcV6e2Dns8dQxPvKYjhWgdGME3kRv28njBvW-VoLFbCbABvXnVoPbZGk_1lceeAQjEOohLXxM5gm130Spjl3uyxWElltuZWLXfcTa1_WNjBqEoUsH_yUwQ_Pa5K4nEft6svvz8Q28XXrf-11kNM9xVQ99sBNzcuIFw-o2yq7pOvo6Q12kwVkrQVGH_BXESQf6XMl3S7PEd2nNgWIupc1koH_7xOvJArnhVKpUbSYQoEJY0bnc-Lr7ejG6XQdxOyVkr2GQWDUkJTVuZyeRhTuM32F_-ksrWBH21LqwQMEKouTKSFlkKpZdVCBpTAmiGoi3mJ-OiHEh7CHBaQSTCKcgUFarXJMyzaZ2SqRkWEZDm5",
+    "enrichedAt": "2026-07-18",
     "city": "phoenix",
     "dishes": [
       "lemon garlic with pineapple",
@@ -20524,7 +20829,73 @@
     ],
     "tags": [
       "takeout"
-    ]
+    ],
+    "googlePlaceId": "ChIJUVLh9DhBK4cRuYsItt7TNIo",
+    "address": "8475 W McDowell Rd, Phoenix, AZ 85037, USA",
+    "website": "https://phxnqra-wings.square.site/",
+    "phone": "(623) 336-3912",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 3,
+            "hour": 14,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 14,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 15,
+            "minute": 30
+          },
+          "close": {
+            "day": 5,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 14,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 22,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: Closed",
+        "Tuesday: Closed",
+        "Wednesday: 2:00 – 10:00 PM",
+        "Thursday: 2:00 – 10:00 PM",
+        "Friday: 3:30 – 10:00 PM",
+        "Saturday: 2:00 – 10:00 PM",
+        "Sunday: Closed"
+      ]
+    }
   },
   {
     "id": "rinaldi-s-italian-deli",
@@ -22507,20 +22878,109 @@
     "name": "Phở Tan Thanh",
     "tier": "on_my_radar",
     "cuisine": "Vietnamese",
-    "lat": 33.5102145,
-    "lng": -112.09582309999999,
+    "lat": 33.5946534,
+    "lng": -112.2223055,
     "googleMapsUrl": "https://www.google.com/maps/place/Ph%E1%BB%9F+Tan+Thanh/data=!4m2!3m1!1s0x872b69f1a2f7e4df:0x9edd88ef7130e171",
     "dateAdded": "2026-04-04",
     "rating": 4.5,
-    "userRatingCount": 217,
+    "userRatingCount": 219,
     "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-    "photoRef": "places/ChIJ3-T3ovFpK4cRceEwce-I3Z4/photos/AU_ZVEG5yrHJjSLyypawNxHnL5_Vxo_mmhmRJqLkipGmIHzZHloTQFpj6yZZLYmgfL_gVGELbu_gj7TFhOs3Koxx1QqkuHUfgmEpbt5thc2aIfyX62WzhPl7lRTAn7wYhGR_bQvHV3E_m8b3PsPZsJr03pWyYc1568_epRgglrsX1ItG6Pu4PmbBd-nA_dvSWcWHGrXH5mHDWUU_hmIlikUN_PmsSs7xbquSE8N5OZ5jXEDLWcMEViZxkMAzhWSxrbxAsHbVSokIxZwU1ES1Udb8n_XLyIhxcTbwYlwUe8yGvw_3zR9qOtQKWGQf0Oc5CLfp757gYvSQR922WoFQHAOPPb6-bDE0mcjGadzHCrHiKI8HJeCRoKrizDLjorzrkn50zLzznEZ3i5N_Cl0M5hXgkfZG4astvvyIVusPn1oaWmHldyQ",
-    "enrichedAt": "2026-04-10",
+    "photoRef": "places/ChIJ3-T3ovFpK4cRceEwce-I3Z4/photos/AWCwydhw6TT7OM6STuP9K9xd_cF7LE9oX0OG66dtMPPvZq1chMPaukLrxAiHyjchelIp1VL3hffwecF-FYK7Whth5GZad_IzMpWsW0kYPIbG3TPXu4S5aOmJB918Jc-Kh75Mm9JsK76zd27ouHMCpD3aSUPTsT08KIyRKfNS2CnT-gE3KLJw5EYTSem4WD4bHQzKUOuaeYQb4VlxUTHR_rmEd5wqNHG2225JiPKxKIAtXhiSphu1oMjgt9g4Y_Czag1cM4GQeCuSjImytEIt1_r_sdAMxvwsw24E3vhRV5hvp_DFLoQt7CXdLMFO-l2al4JNt0k0Mii2waZHvKS3fB3M1gk_OKxcnlObhba5t52IFFiw4Hhq3Vnd9Fvtw3_aKlmniDgfDDmn9YAD9Jgtx8kaIVzoKwJNNX5y_W4WxKlw97lYTP0",
+    "enrichedAt": "2026-07-18",
     "notes": "Vietnamese spot doing all the classics — pho, bun, com tam, chao. The Pho Bo Vien gets called out specifically. Family has been going for 7+ years.",
     "city": "phoenix",
     "dishes": [
       "pho bo vien"
-    ]
+    ],
+    "googlePlaceId": "ChIJ3-T3ovFpK4cRceEwce-I3Z4",
+    "address": "7575 W Cactus Rd, Peoria, AZ 85381, USA",
+    "phone": "(623) 878-2635",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 9,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 20,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 1,
+            "hour": 9,
+            "minute": 0
+          },
+          "close": {
+            "day": 1,
+            "hour": 20,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 9,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 20,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 9,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 20,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 9,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 20,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 9,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 20,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: 9:00 AM – 8:00 PM",
+        "Tuesday: Closed",
+        "Wednesday: 9:00 AM – 8:00 PM",
+        "Thursday: 9:00 AM – 8:00 PM",
+        "Friday: 9:00 AM – 8:00 PM",
+        "Saturday: 9:00 AM – 8:00 PM",
+        "Sunday: 9:00 AM – 8:00 PM"
+      ]
+    }
   },
   {
     "id": "choon-burritos",
@@ -22649,15 +23109,15 @@
     "name": "NYC Bagels",
     "tier": "on_my_radar",
     "cuisine": "American",
-    "lat": 33.4809578,
-    "lng": -112.0177713,
+    "lat": 33.5436665,
+    "lng": -111.9043207,
     "googleMapsUrl": "https://www.google.com/maps/place/NYC+Bagels/data=!4m2!3m1!1s0x872b0b95a57f2517:0xd87bb990f1b50afd",
     "dateAdded": "2026-04-04",
-    "rating": 4.1,
-    "userRatingCount": 135,
-    "priceLevel": "PRICE_LEVEL_MODERATE",
-    "photoRef": "places/ChIJG1LCwgxzK4cRxGaG_FSmkjg/photos/AU_ZVEHIf6VEUBOer1BbeAuze97Wrq4tcmjmaZTWv1Ddl1xhwqy-zDTo73i2vrz9QC90CKqbECi9R15NFUt5F6DOTWageSyPCvpQRkNVxzkjpErVn41t-FnkEcY55loNJ1bixB5K7ZgwW50Ga2duwaWCfcoZ9S0spE9lVu9jx22gIrad-JCIrhzwb2yx960SOmbKy2Nr8twmNeczfM6uHx5kj2s6-kk5PTj1-6LIKlNxmKEWgBHdBsVHnvYNw_Ii6EkK_CjIJ2HJ0bvt4mJpnCJlbOEq424S13mIgo9886gJF6fn3A",
-    "enrichedAt": "2026-04-10",
+    "rating": 4.6,
+    "userRatingCount": 286,
+    "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+    "photoRef": "places/ChIJFyV_pZULK4cR_Qq18ZC5e9g/photos/AWCwydjef-tJ8jLjK8NI0cL7-MKk8CWHCP9ZcFpwLRXmgma48hazfUSWHyUu-kOuiSGv080HNJt7-44NScV1oGmH59Jn9BTejzBJ0EZ4N-EreK7LkbFSwVhBfpabYcAmLsOCcNCPjwrSWvhv1gY3fuOL_v-Xl83P2gUMfd4-NE2LuL75ufHwTpaS5qI6BPOOy8xa24G9R31ePvMKTAPv6CkDOwVaW0fLYFUyRaTnX6fm-InatZ2BY-XZqFNr8xODwWko1TvfEWwrgyVysROVTblzqc6RopvHiNWKAcKSSCS3MXMa-git0q_eWa0jYoQzM6r29iolZ4RT1U2PZyKS7prdLjvuj6yIdHdbUj8VCAcDevRCjREECJdsu4UI_W9X4WawYyDHC3mzrVt0yy-eW-8vNx8XEN1IDvKQTn-1P4-ZbqMIwvln",
+    "enrichedAt": "2026-07-18",
     "notes": "Bagels and bialys. People mention the eggs Benedict and corned beef hash for a full breakfast situation.",
     "city": "phoenix",
     "dishes": [
@@ -22666,7 +23126,97 @@
     ],
     "tags": [
       "breakfast"
-    ]
+    ],
+    "googlePlaceId": "ChIJFyV_pZULK4cR_Qq18ZC5e9g",
+    "address": "7353 N Vía Paseo Del Sur #450A, Scottsdale, AZ 85258, USA",
+    "website": "https://nyc-cafe-bagels.square.site/",
+    "phone": "(480) 590-3742",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 7,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 13,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 7,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 14,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 7,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 14,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 7,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 14,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 7,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 14,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 7,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 14,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: Closed",
+        "Tuesday: 7:00 AM – 2:00 PM",
+        "Wednesday: 7:00 AM – 2:00 PM",
+        "Thursday: 7:00 AM – 2:00 PM",
+        "Friday: 7:00 AM – 2:00 PM",
+        "Saturday: 7:00 AM – 2:00 PM",
+        "Sunday: 7:00 AM – 1:00 PM"
+      ]
+    }
   },
   {
     "id": "osteria-mia",
@@ -24697,28 +25247,6 @@
     ]
   },
   {
-    "id": "la-fonda-del-sol",
-    "name": "La Fonda Del Sol",
-    "tier": "on_my_radar",
-    "cuisine": "Mexican",
-    "lat": 33.574340400000004,
-    "lng": -111.8621965,
-    "googleMapsUrl": "https://www.google.com/maps/place/La+Fonda+Del+Sol/data=!4m2!3m1!1s0x872b74eba30e8199:0x9f4b2bed2d53de94",
-    "dateAdded": "2026-04-04",
-    "rating": 4.3,
-    "userRatingCount": 1112,
-    "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-    "photoRef": "places/ChIJmYEOo-t0K4cRlN5TLe0rS58/photos/AU_ZVEGm_i0-v53fuOXqRpJfZha0nThrTAhKb0KFVRA3WmYqnUy7bUgMj0P_wXinLNPMkWfFQu3zKkmgJsF5WMAX93AJ4YsUQDI8bEKajbZ6jKTxt6aI6PWB8dl-lCDu3coVmEqK4rWu8vj4VcxbQ5nfzkwnzmR5z1SL2tLYCAf2OffBwMBsvE6hAmv4mSuoGhpgxKGawU_bnxuW6z3Q7yLfslu2vNSGEhSvr6yKJFSHD4AGpPRgVK_tmzcGcaE8sm2-pTSYkblvOuPfXISwcen8nR-V_5P_5lgO2uyAcW0PzPSRow",
-    "enrichedAt": "2026-04-10",
-    "notes": "The queso with beef appetizer gets called best ever. Asada plate and green chile tamales are solid. Weekday lunch buffet.",
-    "city": "phoenix",
-    "dishes": [
-      "asada plate",
-      "green chile tamales",
-      "queso with beef"
-    ]
-  },
-  {
     "id": "miel-de-agave",
     "name": "Miel De Agave",
     "tier": "on_my_radar",
@@ -25073,20 +25601,121 @@
     "name": "Tacos El Rojo PHX",
     "tier": "on_my_radar",
     "cuisine": "Mexican",
-    "lat": 33.5246029,
-    "lng": -112.1792038,
+    "lat": 33.5822273,
+    "lng": -112.16805459999999,
     "googleMapsUrl": "https://www.google.com/maps/place/Tacos+El+Rojo+PHX/data=!4m2!3m1!1s0x872b6bf5c0c8f73b:0xf9ee51c4b39c27e",
     "dateAdded": "2026-04-04",
-    "rating": 4.6,
-    "userRatingCount": 52,
-    "photoRef": "places/ChIJGcXMKwBrK4cRII2XWEXDsGc/photos/AU_ZVEEvcceLMRMOwcXV4QsTgpN16SQwcekEUjOCR3yjohZ2ZJvbDBdB97JEaHUTLzRScMNnZGLqovj0JV9Abn5s4n-J8K9ZCms0ok0qAHnkgm56oGoV8GlOVAkGftNvBE1Kz7TGc5F-0FvqTbsdH5-QR5dWCwi1wWHR7EcbERlyceafXhOaBN6ycdkn8zF897x5brfrwPyY5EQeCXOCBb8J89X3XOVn_EdLJiiPSbhNQHGnzLGwuPGrR_Yo8lbO5bFhAc1hOPXr2u2ubQ5muAkhUMEuHeWnyjklhOFnWG8zUrk7LQ",
-    "enrichedAt": "2026-04-10",
+    "rating": 4.4,
+    "userRatingCount": 90,
+    "photoRef": "places/ChIJGcXMKwBrK4cRII2XWEXDsGc/photos/AWCwydjiCGVoJFzF4q0xbXf6PILMueGrZPzX9qFijEwjpvZBNKHrlSJUr1tgc2JtPTLAFrSZjdtxzw_ck97AUEWAVLLGGUFVjkjwJwE72Uofduoy_SFQnUVz2SAyXak8CeV4uPWOhvsW0eQ4x8idKKsui3VT_OgAZZLA2ucWvxf4TtOrS7vbELsff5TfIEFs-pRKPkSB1FI-Hcafa7puYb6bUeVOEaawBKF_NOjVTe1mrX8oyWTl5aWS4BBwHWkgOrt8r7ver-w07E-kLihzhy-Z7y-KG2oun7yM8oVsYdxhDzomiTGG5ptHvNtSGPZ39jZBkiTfXkbS2QjqAZJGkpE59u_9Q8_NUIdL1QwqcYRJm6Xmdc856STBA_Tr49eItqMMen5n7lF-JVf3ogI_c_TRV3fRH4-UAyn_RutghNPOxZTHq3xIW1sAuVnpwmMC3w",
+    "enrichedAt": "2026-07-18",
     "notes": "Hidden gem taco spot. The papa loca and al pastor are the standouts. Handmade tortillas.",
     "city": "phoenix",
     "dishes": [
       "al pastor",
       "papa loca"
-    ]
+    ],
+    "googlePlaceId": "ChIJGcXMKwBrK4cRII2XWEXDsGc",
+    "address": "5044 W Peoria Ave, Glendale, AZ 85304, USA",
+    "phone": "(480) 510-3239",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 9,
+            "minute": 0
+          },
+          "close": {
+            "day": 1,
+            "hour": 0,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 1,
+            "hour": 9,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 0,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 9,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 0,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 9,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 0,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 9,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 0,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 9,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 0,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 9,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 0,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: 9:00 AM – 12:00 AM",
+        "Tuesday: 9:00 AM – 12:00 AM",
+        "Wednesday: 9:00 AM – 12:00 AM",
+        "Thursday: 9:00 AM – 12:00 AM",
+        "Friday: 9:00 AM – 12:00 AM",
+        "Saturday: 9:00 AM – 12:00 AM",
+        "Sunday: 9:00 AM – 12:00 AM"
+      ]
+    }
   },
   {
     "id": "carb-n-salt-taco-shop",
@@ -26822,20 +27451,123 @@
     "name": "Burger Rush",
     "tier": "on_my_radar",
     "cuisine": "American",
-    "lat": 33.4910122,
-    "lng": -112.0733575,
+    "lat": 33.4076555,
+    "lng": -111.9496489,
     "googleMapsUrl": "https://www.google.com/maps/place/Burger+Rush/data=!4m2!3m1!1s0x872b08cb70a53def:0xaa8a53fff5864fa9",
     "dateAdded": "2026-04-04",
-    "rating": 3.7,
-    "userRatingCount": 42,
-    "photoRef": "places/ChIJkcDIlvQSK4cRnFQ7nfQuHNs/photos/AU_ZVEH-rclnFvx76306h_N2GhSSmqRE8okvR6EreEUbjaFmWlJDi45Xi-GutXEVeIWXPZNHnQhxx3Hz4Q07Ww95rW1T4vAmCDb46Ad3mxmEx-rvZFbzolnJpDma0TgITDN4UL5DILYC5rjdhHk954Vw0niqxi8kvueEIMhh41CMq7OuTpidEx6uYh5iF8EWrlkS_nJJYePvEn-u_6pyCACjCVirBdeAInV1RUixI__-0GTYxVOXXIYZxClS0MNJLY2S7P3BTQa15Q3b2q3UyLpGAQg7LGE_1p-9ziBABpGHwyNE5Mc3WInDeNP6pNaq31isuEfv4l8flSAkwo7wcmTT4dm4t7LOtpTOcLiizLoJXtfx6NMg_A-w3Fsr3k_rGV-D446MUnKsnBy8WUSzIy2tOhThpZs-uI9o6O37t0CJydBo4ilm",
-    "enrichedAt": "2026-04-10",
+    "rating": 4.3,
+    "userRatingCount": 1731,
+    "photoRef": "places/ChIJ7z2lcMsIK4cRqU-G9f9Tiqo/photos/AWCwydijo3GsJMns_CSrvEU4smp-zUFv9EB0mSLoqarPR2z40HArMOUwuNajUxyUNvnJlSkBCtPK9dFCsbUFAHsKHxWmC9m5dJ2DHGC8NrJeletQzEJ_E4DAZVMiWK9TaIOr6hzsaOaI0fQ6wgGS31Hp9KKRPyqnYhrk-yTrCZgpp3IODKDlg3XUDHs5sqm144RtL4hIbQCn3Ybos-Vd5rDjbQk3w7NqNTmxQy0lS3yArEEHR2YT5qAtEcGKFJd4O0SnYstWUzQPyHem-hJ-nar2p9jrJ7Ez5viGePuwqn2lpFIKE1YBHbK1_agaLrDXs1cKo84rNCbOrHSsTy6SHG0AILxt0BkeoGjsXKoja0wCKBTb6fzFgVXhiRiG2VwTH9lG20PiH_tASsblqsMsZ_OXGhjWQ83RgS8wf0RAEHSezmAnUv15BY0wuP1qujZfQw",
+    "enrichedAt": "2026-07-18",
     "notes": "The Ortega burger is the one. Also a steak sandwich that reviewers keep coming back for. Solid value.",
     "city": "phoenix",
     "dishes": [
       "ortega burger",
       "steak sandwich"
-    ]
+    ],
+    "googlePlaceId": "ChIJ7z2lcMsIK4cRqU-G9f9Tiqo",
+    "address": "790 W Broadway Rd, Tempe, AZ 85282, USA",
+    "website": "http://www.burgerrushaz.com/",
+    "phone": "(480) 966-4000",
+    "businessStatus": "OPERATIONAL",
+    "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 1,
+            "hour": 10,
+            "minute": 30
+          },
+          "close": {
+            "day": 1,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 10,
+            "minute": 30
+          },
+          "close": {
+            "day": 2,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 10,
+            "minute": 30
+          },
+          "close": {
+            "day": 3,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 10,
+            "minute": 30
+          },
+          "close": {
+            "day": 4,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 10,
+            "minute": 30
+          },
+          "close": {
+            "day": 5,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 10,
+            "minute": 30
+          },
+          "close": {
+            "day": 6,
+            "hour": 22,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: 10:30 AM – 9:00 PM",
+        "Tuesday: 10:30 AM – 9:00 PM",
+        "Wednesday: 10:30 AM – 9:00 PM",
+        "Thursday: 10:30 AM – 9:00 PM",
+        "Friday: 10:30 AM – 10:00 PM",
+        "Saturday: 10:30 AM – 10:00 PM",
+        "Sunday: 11:00 AM – 9:00 PM"
+      ]
+    }
   },
   {
     "id": "dosa-place-kerala-kitchen",
@@ -31581,15 +32313,15 @@
     "name": "Joe's Tacos",
     "tier": "on_my_radar",
     "cuisine": "American",
-    "lat": 33.639780900000005,
-    "lng": -112.0722081,
+    "lat": 33.5106676,
+    "lng": -112.3414607,
     "googleMapsUrl": "https://www.google.com/maps/place/Joe's+Tacos/data=!4m2!3m1!1s0x872b6f6db854beeb:0xf2f03d6739acf8fa",
     "dateAdded": "2026-04-04",
     "rating": 4.4,
-    "userRatingCount": 130,
+    "userRatingCount": 452,
     "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-    "photoRef": "places/ChIJ675UuG1vK4cR-visOWc98PI/photos/AU_ZVEF0NJ76jhlL1y2VmvfettuhnORIw6lw_ZfEMCDZ82lCSyAHbrrddWpck0yS029--izfYAOPFRfYeUbYYDyaqmG_R7w0_tYrtaFO-bnLIOV-v4T3j6Sw741dlDP-PafPu29pItBAKCCfkGqvWeWbew8VkhDV0Lwf1sPFeouHUzWQzEnm0tKu_LYumgeRKsUwH2WdT3AqC_LZt1bmaCO_l5bs9ZBGz5_oBnse0wdOLdgCNYcWjqaNd4d7sNoAmuG42OjIDUJ_fgbeaMoxIkCWnRPZnz88FdqTR3nLZJV2IuNOs4jgwRZ-vxPmZ8VKFgE6MZjUxbAZY3mAJFS4SQ9J56OxopR_okz4qGasoeVTYbmr4e4L8eeZtYLCmatLM1WmZzax6514YjfxgYVHSzHEmkhPq1vx6l6blqB_C-D0uaW6Rw",
-    "enrichedAt": "2026-04-10",
+    "photoRef": "places/ChIJ_Vru8hFHK4cRfSKXH2vKw_s/photos/AWCwydglMxKBlfHiNGFOCAtdn7B071dae2879ulXyeVRzfvgKKajm8GpRRaLWb2zqyDTP5BqZ-OdMgx9gTdMQhZerUw5Bi2_ILpFap3m8UmVF2TY6575zQ5zlR8rMuRvhnLeS3w6pCphFodcz4TykqUXcPTyG9wG_VKIEDzLVkBQAoxzcS7uNXHaXCKgNPmYOSxh-PZJkMEGVd81VCvbNRIaJMWUPcjCI71PQk0Mho_lAzgFsR-E08L4nQviQO-MyGk6HfAIjm5TTY4xHqrQO86_Y6w6XyD3A_Dx3XjcxO5kQRZXWRoCx7NgHJl-TqJOBmYfVj6WxwjsvOUq4_GcK68sCJDXlKU6WRF4KZIgvmt006uJh1vGn9Welahbt5bxnYNzehQwsaUzU-0L0IpwHTNlUnjYlT7A1nq5P2BZrJHjvYfSKO8",
+    "enrichedAt": "2026-07-18",
     "notes": "Toasted shell tacos are the move — al pastor and carne asada. Also a cactus taco. Melon fresca is worth getting.",
     "city": "phoenix",
     "dishes": [
@@ -31598,7 +32330,97 @@
       "carne asada",
       "melon fresca",
       "toasted shell tacos"
-    ]
+    ],
+    "googlePlaceId": "ChIJ_Vru8hFHK4cRfSKXH2vKw_s",
+    "address": "5122 N Dysart Rd Ste 105, Litchfield Park, AZ 85340, USA",
+    "website": "http://joestacosaz.com/",
+    "phone": "(623) 213-7155",
+    "businessStatus": "OPERATIONAL",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 1,
+            "hour": 10,
+            "minute": 0
+          },
+          "close": {
+            "day": 1,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 10,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 10,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 10,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 10,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 10,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 22,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: 10:00 AM – 10:00 PM",
+        "Tuesday: 10:00 AM – 10:00 PM",
+        "Wednesday: 10:00 AM – 10:00 PM",
+        "Thursday: 10:00 AM – 10:00 PM",
+        "Friday: 10:00 AM – 10:00 PM",
+        "Saturday: 10:00 AM – 10:00 PM",
+        "Sunday: Closed"
+      ]
+    }
   },
   {
     "id": "funky-jacks-burros-percherones",
@@ -32576,7 +33398,7 @@
     "userRatingCount": 354,
     "photoRef": "places/ChIJB2oq5-ITK4cR6Vfbm9sRpwY/photos/AWCwydgRccX9ngJcsOmfxqt2C7McYGkhtxaeh7BjGcxME4lF-odhel3BOT9PVP8Y6TkKDamfFOVlHo1wP_AkvNwDb4YKzq5HcSUnB0aORyLQ-xfpGioAlHFvzxkkkbwUJkhr_-jlZuOo_vw7jDK2N3_KqI89-YoGP49XzdYgibhPj5xtw-QkyvOyn4SbXbF7H7i_5qXYn_Y3I5qlvTgVPlGhvCJ1waxT5en3OXaN8UQ2wmkmCMzbcdzeeWYJaeMQXfz25NVt73qqQTihNi8obCEliF15qNtUIxR84kTKtBW-23p7Q9IOIEdy6Qi6Uid3Ti_mEHsTZKfvqBllqKEUan13jP5OYRW0spHQsTVGRQnkBA1-Nt8NdvmtM5Sym6DV5FPi9r5P0Rb5Vc8_YRdU7YesBSwpJRAmgjlC8fiNuwXK-50IbQ",
     "enrichedAt": "2026-07-18",
-    "notes": "Bakery in the East Valley. The cheesecake something gets highlighted. Custom cakes too. Often has a line.",
+    "notes": "Bakery in central Phoenix, on N 12th St. The cheesecake something gets highlighted. Custom cakes too. Often has a line.",
     "city": "phoenix",
     "googlePlaceId": "ChIJB2oq5-ITK4cR6Vfbm9sRpwY",
     "address": "4700 N 12th St Ste 122, Phoenix, AZ 85014, USA",
@@ -34028,7 +34850,7 @@
     "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
     "photoRef": "places/ChIJe5w_lUoEK4cRFiTr6AG6mPk/photos/AWCwydiDKvvGAgZDXQXiac_A5pyBblNozy9XSF6yHTRD-kRRtaHGWP8D-ntdd6WNo3aC1nyLV6eqAo3k8KJzokPMaaSqKpCw_2Mb6IOZgutjxhJ1UrOk92v2Bc2_ol3_kO2JvP9pT5nnqiPWYzgO6NCjdzWN12mf255kAi156I0zgRSrLHi0TgNsB6PPwdXpbxY86Yso4waK_RGHuBnpBiBh1GQMwjkaBOI0T2qORRyINmFl3avSkLrDFeJwbopkRLJ8rWmUDfDNAJtgWMrXNhYsXRZywEYk4-VurTMbnYjhKSTy9tYzWKdAWaN8H9bZsDOZC-IPGU0xFsrG3E-eJR_72pk5DfDb8rKasc5WDfC79rNDaytSomlwDE7vcD2GDhU_Y18t5u-RVa_oAGkDgCzsmBdX1bjJCtYCcLH4k-2Rec2y-A",
     "enrichedAt": "2026-07-18",
-    "notes": "Arizona Sandwich Co. location in Gilbert. The Sparky and the ATC are the standouts. Mixed reviews on this specific location.",
+    "notes": "Arizona Sandwich Co. location on Warner Rd in Tempe. The Sparky and the ATC are the standouts. Mixed reviews on this specific location.",
     "city": "phoenix",
     "googlePlaceId": "ChIJe5w_lUoEK4cRFiTr6AG6mPk",
     "address": "1221 W Warner Rd Ste 105, Tempe, AZ 85284, USA",
@@ -36257,7 +37079,7 @@
     "userRatingCount": 252,
     "photoRef": "places/ChIJlQPs9GkTK4cRMJlHmxHLTAc/photos/AWCwydhcls0Vz5mOBuycZQbHViP_wTQHKgXYAoKZOfxrpc0tAHOGcW-GdMdDkctyKfYovQQ6X4kLGt21NAX6MTgSGJCqjfK36GP4pxZArABr0nC2l6MdEH37mnureDPOmERGzhAP2CE7kkjYppMIIcw3lQ39qTRNnV5mZzF0s_k3_rr3oFYwk4r5Cnmns-A0uIYSJEK2nzD_4XfBA4zbviZfqKyduXIRbCvuro6sBUlSQk9BKZ4Zxw5MxHMCuGN-a3TFC9B9L59vh6iTm47PpriFimTYKpOjxPaMeZ9tblDeIp0TI02oGKX0NvHHe2Xv3Au46UN58L5EK1drdFdINGqcq1OMdKyrccwSlzpLOwL9ndzWHZSqbVj9qCsYleGANzQ79ucitdV9zU1moY-zyupvLelTxMipIHFes39E4Od3-F0E1xOgt2BAHW0HUCcM6P2J",
     "enrichedAt": "2026-07-18",
-    "notes": "Downtown Phoenix brunch counter. Espresso martini is supposedly one of the best. Get here before 9am on weekends or expect a wait.",
+    "notes": "Midtown Phoenix brunch counter. Espresso martini is supposedly one of the best. Get here before 9am on weekends or expect a wait.",
     "city": "phoenix",
     "googlePlaceId": "ChIJlQPs9GkTK4cRMJlHmxHLTAc",
     "address": "336 E Thomas Rd, Phoenix, AZ 85012, USA",
@@ -37931,32 +38753,6 @@
     ]
   },
   {
-    "id": "duck-donuts",
-    "name": "Duck Donuts",
-    "tier": "on_my_radar",
-    "cuisine": "Cafe",
-    "lat": 33.4429085,
-    "lng": -112.07213550000002,
-    "googleMapsUrl": "https://www.google.com/maps/place/Duck+Donuts/data=!4m2!3m1!1s0x872b753a4fb7695b:0x51e631517ef604a4",
-    "dateAdded": "2026-04-04",
-    "rating": 4.6,
-    "userRatingCount": 171,
-    "priceLevel": "PRICE_LEVEL_MODERATE",
-    "photoRef": "places/ChIJL5aQIwAFK4cRF_k9nrbvl90/photos/AU_ZVEEc5YZ-ODqcm29chAy_t12vmAQPH2iPg2m7XG-G3ZFWGInFK0QYb8Px4xVC4yJASg2TMBths1FVlp53rBRpOlclCB1j_yPDVA_xEni-JyVvGk0jGsoV5OtyiUswH3cc1XNY3KObNUIchXRVQe-4kupR6K47lHZP_EOaYZe34p_B98yqQGwmYIcFT_RNxRora_dOFsHUVFAZhTu7v0PbgSUd3QkdqjKsmxPGexCgXRFAZ_9DdPxm3a61wWIV50BAM97s96PhDL2SWrfosO7K1AuS4zgv0dMoCgJGYVGvwzq7bSl6Exhv-d-UwPT0VE2-Vce9k0nP7Xz3j6ijs6YdY4zoP-IFPr9ReaORPBuSEMYr8bSEDnlU5pzbj_m7xXaj8OC_tGaHhPaCgjjUlWtp9WKaz-2C9-VlM9iFa6H5KZofoA",
-    "enrichedAt": "2026-04-10",
-    "notes": "Fresh-made donuts with tons of flavor combinations. French Toast and Turtle get the most love. Iced mocha is good if you want coffee too.",
-    "city": "phoenix",
-    "dishes": [
-      "french toast",
-      "iced mocha",
-      "turtle"
-    ],
-    "tags": [
-      "coffee",
-      "dessert"
-    ]
-  },
-  {
     "id": "banham-s-cheesecake",
     "name": "Banham's Cheesecake",
     "tier": "on_my_radar",
@@ -38792,26 +39588,6 @@
     "businessStatus": "CLOSED_TEMPORARILY",
     "dishes": [
       "ny style pizza"
-    ]
-  },
-  {
-    "id": "lamar-s-donuts-and-coffee",
-    "name": "LaMar's Donuts and Coffee",
-    "tier": "on_my_radar",
-    "cuisine": "American",
-    "lat": 33.4654684,
-    "lng": -112.05237659999999,
-    "googleMapsUrl": "https://www.google.com/maps/place/LaMar's+Donuts+and+Coffee/data=!4m2!3m1!1s0x872b6ee591602691:0xe2d8db607f53a454",
-    "dateAdded": "2026-04-04",
-    "rating": 4.6,
-    "userRatingCount": 844,
-    "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-    "photoRef": "places/ChIJ-TLBlQsSK4cRBdaSmiBF7HE/photos/AU_ZVEHD8M_oNJsebKilfmuR473jt1BEYrrRwsFimA9IF8IoWlaweBtcUcUK6JvLNHAgtxDminCLfKZNlrhtsL-qtqAtrpfMYCj_kWA5fBjJ8rHqJp2ZZ-EjvddfdncyvmwP39Hej17F9Oq4vQm_HhAiaB3UA-gpRWXKHMqazyg8Ho82JcyI4obWfU3iTWrbH44k-sG1Fxi5eTyWllT4w1yafkvm7tTad_OxginwOOgxUEKaubxymLVCjRKQUanZh3YR3Zy3ENGrPL11KG5huWn-Iyzt93ebqr6Hb0X-tRTQ_trgZGipghR1P_YQHNS6uEz8_vhZgqVud8g6-iT_5JgSvEQuqVlfJeJnwtxI4icHbApgbGZDTpgk14DtLOCXgBki53RFgNsPVD6FSKu0b0KWKeyIpUQbC-uNWdETmuonSsPNVEGN",
-    "enrichedAt": "2026-04-10",
-    "notes": "Fresh donuts daily. Large portions compared to other spots. Rainbow Donuts branding at this location.",
-    "city": "phoenix",
-    "tags": [
-      "dessert"
     ]
   },
   {
@@ -46618,7 +47394,7 @@
     "lng": -112.1144377,
     "googleMapsUrl": "https://www.google.com/maps/place/Emilio%E2%80%99s+Tacos+%26+Hotdogs/data=!4m2!3m1!1s0x872b6e81a713ffff:0x228e33f782766bb1",
     "dateAdded": "2026-04-04",
-    "notes": "A sunny yellow-and-hot pink exterior, a flashing neon open sign and glowing window frames, and bright Loteria-inspired artwork hint at the explosion of flavors on deck at Emilio's Tacos & Hotdogs on 19th Avenue. Customers on the go can pick up their order at the drive-thru, but we recommend grabbing a table either inside or on the small patio to soak in the full experience. The Sonoran Hot Dog is the best we've found in Phoenix and comes with all the requisite ingredients, including beans, tomatoes, and mayo piled high on top of a bacon-wrapped hot dog. The tacos are great, the carne asada fries are a must, and the thick bright pink strawberry horchata is an unusual treat that straddles the line between drink and dessert. ($)",
+    "notes": "A sunny yellow-and-hot pink exterior, a flashing neon open sign and glowing window frames, and bright Loteria-inspired artwork hint at the explosion of flavors on deck at Emilio's Tacos & Hotdogs on West Van Buren. Customers on the go can pick up their order at the drive-thru, but we recommend grabbing a table either inside or on the small patio to soak in the full experience. The Sonoran Hot Dog is the best we've found in Phoenix and comes with all the requisite ingredients, including beans, tomatoes, and mayo piled high on top of a bacon-wrapped hot dog. The tacos are great, the carne asada fries are a must, and the thick bright pink strawberry horchata is an unusual treat that straddles the line between drink and dessert. ($)",
     "rating": 2.7,
     "userRatingCount": 7,
     "photoRef": "places/ChIJbQIWXy0TK4cR-KMOfvvREo4/photos/AWCwydirnc4-x-k_b4tQWlzgJQUtrPAwOm-GwugNLukLIK535FxooIvG8i0oLzdkoYuftppMEkG8Laaz6FdH9FNhKPrU2Lu0ngWMzR8vWPMCK1fK28euHethDiOu9WYz19hvTII36gQB0JbItETjLJfYgyI8b7_jCiVdosILz5mY1GcGQxp8pubHTX3YpkngSvIZKagZ_4OevObTxU58ndolkWS2NhF__IPLPeL2BiDpipqrZAM1bUe44ynKIJxLJ4zlGbcQhv09UmwiJGbMI84Tho5UsQT_33Z8XspYWWgKba5kKzW77Fn6ZktflXd0f0ilx_y8gnelEzdgHS1UXcNjcoSFE8Cpaz_pVb2RaULdCNz2f2nuXs-Mv_D7c9i0haS-p58YszVf46yqeB9w4dFm7tPZULBf-MPEh3LJBDPWbm4rNG0",
@@ -50060,7 +50836,7 @@
     "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
     "photoRef": "places/ChIJU5s-Q-QBK4cRHjajHMy23js/photos/AWCwydivwSplPsd7i2dSiwATCFqlWkoNTOIs6eOdIZWP0Ge0vB_rSj91IglmKaJVxmaP_zZuRay01eNUROyZz6XOXCBa2YaUquv-K9qfAUfQzZYi1Ol6N7qLDuj-OUY9gxoXDLPLmMlaJM0kcC0xBp86-F0NCi6tMHkeEE_WxTm8EZzIYo4OjsrpkIQ1XY4c4-rFlqQ1HQU6mL8L2tE13ERNUWaCKkFcF1ieYqYCn6hj-n1BRaZvjudM-U4d_wD3TOCLbkETcuaa4a7dBmRsF0Kt0bVf_OJVX6K8yYurO4fVeiehSDRAsyv-gKHPdBJyu6BHkV3mFIIZ7CSt8UpjGY6dGL4l_obR50mcn9LY-hn_qHsrfwRdhpopfvjTlOF3iQ2oZj4WNftP5OTB0KFZB89dUMxlWcODVs6PqIGLNzK1zvmTYnC2",
     "enrichedAt": "2026-07-18",
-    "notes": "Good variety of street tacos — pastor, carne asada, barbacoa, al carbon. Food court location in Chandler Fashion Center.",
+    "notes": "Good variety of street tacos — pastor, carne asada, barbacoa, al carbon. Ahwatukee storefront on E Chandler Blvd.",
     "city": "phoenix",
     "googlePlaceId": "ChIJU5s-Q-QBK4cRHjajHMy23js",
     "address": "1327 E Chandler Blvd Ste 108, Phoenix, AZ 85048, USA",
@@ -52319,29 +53095,6 @@
     ]
   },
   {
-    "id": "luxe-bar",
-    "name": "Luxe Bar",
-    "tier": "on_my_radar",
-    "cuisine": "Bar",
-    "lat": 33.5008222,
-    "lng": -111.92195079999999,
-    "googleMapsUrl": "https://www.google.com/maps/place/Luxe+Bar/data=!4m2!3m1!1s0x872b0bd670d801f5:0xc6a8dfef120e66da",
-    "dateAdded": "2026-04-04",
-    "notes": "Hand dipped ice cream",
-    "rating": 3.8,
-    "userRatingCount": 623,
-    "priceLevel": "PRICE_LEVEL_VERY_EXPENSIVE",
-    "photoRef": "places/ChIJrW8lWZATK4cRWVFT1FseReU/photos/AU_ZVEEbp2oZ5qhcwcN_BjGTwuputYsokc2zaGQ1mgoQ9cqVFY73JfcSkQkSMcRsyHjwmRydlsDtf1wLkrUgTtdQzrEvq7lwviI7EUYnVvA3m-SVM2CiBC2UoULzWYV32rId56Eb_iKlKMOgg5uOqK_yocR1bQ6v33JrKKskKDo8cHoP8PNSVuUhB_MKiLKH_A08iyFRON3GaZ2mZaZkvjbWulO34jCf27w3tT9Out6uJJv0u-UzpuHnNYC582UXq8z7zJPmCto-hbjGEtX6_q12YCvuMOIuVLd7FfPAoUShj8GYqA",
-    "enrichedAt": "2026-04-10",
-    "city": "phoenix",
-    "dishes": [
-      "hand dipped ice cream"
-    ],
-    "tags": [
-      "dessert"
-    ]
-  },
-  {
     "id": "novel-ice-cream-2",
     "name": "Novel Ice Cream",
     "tier": "on_my_radar",
@@ -52785,30 +53538,6 @@
         "Sunday: 10:00 AM – 2:00 AM"
       ]
     }
-  },
-  {
-    "id": "dingle-berries-coffee-tea-juice",
-    "name": "Dingle Berries Coffee, Tea & Juice",
-    "tier": "on_my_radar",
-    "cuisine": "Other",
-    "lat": 33.6987401,
-    "lng": -112.1004519,
-    "googleMapsUrl": "https://www.google.com/maps/place/Dingle+Berries+Coffee,+Tea+%26+Juice/data=!4m2!3m1!1s0x872b717f9a1b31f3:0x31b484b89f3a9090",
-    "dateAdded": "2026-04-04",
-    "rating": 4.9,
-    "userRatingCount": 74,
-    "photoRef": "places/ChIJgU0d7aMNK4cRSfh6lGmFcv4/photos/AU_ZVEGpY8EaAZz03vYSrT761QTjm0UMjAnddWDwwX9LRV0FESpVonGKJpHlzPiA7hXix7ZfhC8dnspcjUAuubqK3kUxU8ZvZRCxTsG4DH7flJaFkWF3sWZ2aPDi3P4OqaPWgOrcH_LbYuEJUyiE_ynbd_z27VcgUleKitsd-4iSiVT4PPIJCCt1vDBsSNBjVn-wELFDSQpSccvEDbOMZT9W7azyGaedVYA77bU06Bl73RE6FhcuO3RsTWFMsR-5-mlkYIxkGeUHUe8Mulc1x8rcvRXUMoOI-vAo0xVkqpK-v6wuy6--29InTJYmDzt2gOrZvryp1YmTok7g6TW9LfIN4eK_SUrDG6_McMXp-OZ7MgdVqXvqG73R-3eEgl-_j_3A2s0pcgULsmTIhIjnsDCiSunxYhaagt_sVby8DaVP_Ur7-VUynVP-KK0cs_tqiu5w",
-    "enrichedAt": "2026-04-10",
-    "notes": "Shakshuka is a standout — people keep coming back for it. Seasonal soup is excellent. Good brunch spot with indoor/outdoor seating.",
-    "city": "phoenix",
-    "dishes": [
-      "seasonal soup",
-      "shakshuka"
-    ],
-    "tags": [
-      "brunch",
-      "patio"
-    ]
   },
   {
     "id": "mamma-toledo-s-the-pie-hole",
@@ -53721,27 +54450,6 @@
     ]
   },
   {
-    "id": "bro-bro-s-bbq",
-    "name": "Bro Bro's BBQ",
-    "tier": "on_my_radar",
-    "cuisine": "Other",
-    "lat": 33.600111399999996,
-    "lng": -111.98423799999999,
-    "googleMapsUrl": "https://www.google.com/maps/place/Bro+Bro's+BBQ/data=!4m2!3m1!1s0x872b6b6d5790b7af:0x9e65348f83140a42",
-    "dateAdded": "2026-04-04",
-    "notes": "BBQ in a dive bar. Owner used to work at little miss bbq",
-    "rating": 4.9,
-    "userRatingCount": 5147,
-    "priceLevel": "PRICE_LEVEL_MODERATE",
-    "photoRef": "places/ChIJd43OGKMNK4cRHPC64bJuMBY/photos/AU_ZVEHVTgq0iJC-CVyHgElGh1dt2GyPhUfXaRJ9HhdElSCj9kiUKvyINU8tzUYmiJWkH6VmoxnGNrsUjxUGfWWumFcAddEeHb3THQgvAHsmjDJ_ZGYx9ACcmoEXWhHJdIY5TgS-nE_W4GDybSTrR-b3k4_aHUNmdhbkSdtreLm5Bar9uhb7xg_H--hEwzn8Ze1XqNGrcivD_VaXLL-QnXQShENMbHENxCM5pQxV374_AuvnZIzkOe2uFsOTJlDd99dAyYiZpi2XQDXwn8A3Xs6JTCidy-LQ6U3kyb7lOSGc2JVpIPSs_Eofqfh351ges863HNTG1w7FcdXxI7MsONDJTmLathalLmbLLSlScBxeRRSaxc4DvwXxKebOuXjonebhBD2HpeE4eLfJbaE1LBrpGsoKG1uiRjgAILVmxwI2kq-VflJOVTVbk7VQljRY_wr-",
-    "enrichedAt": "2026-04-10",
-    "city": "phoenix",
-    "tags": [
-      "casual",
-      "drinks"
-    ]
-  },
-  {
     "id": "guru-palace",
     "name": "Guru Palace",
     "tier": "on_my_radar",
@@ -54593,29 +55301,6 @@
     ]
   },
   {
-    "id": "miss-dessert-mesa",
-    "name": "Miss Dessert | Mesa",
-    "tier": "on_my_radar",
-    "cuisine": "Other",
-    "lat": 33.4802751,
-    "lng": -112.09069219999999,
-    "googleMapsUrl": "https://www.google.com/maps/place/Miss+Dessert+%7C+Mesa/data=!4m2!3m1!1s0x872b081049bcc269:0xc194cb165786879c",
-    "dateAdded": "2026-04-04",
-    "notes": "Hong Kong style dessert and boba. The Mega Fruit Tea is the move. Ask for half sweet level.",
-    "rating": 4.3,
-    "userRatingCount": 153,
-    "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-    "photoRef": "places/ChIJ75j0tL8TK4cRYueBfbZoFzg/photos/AU_ZVEFdp4tJPbAQprarI3goMPVV16lPUss7F3SdqzbbHCYqpYtMe_e3j7LlLvoMVWgdEweZIYodauwqOGunjXy3-65m-cD_fuDJ4fq8ezitp5sNJHFfxjTrp_-oD-VS_qkDaj6gzG43x3B_7Mcw1xzzs9oMyem46YOnl6SVCHlFyI1un9AX4uvPm0TkeNY3rMQRTvMpXUzny7aX7avc-sY6miamvOdMFOt1mFreaYarpOZVI_yrrUTotboUKblBfSk-Ghp7GHdIRC6XQe31Yna2BPw57ACUPiBZrjvcLJJS8yjXKF4CWGS1PaNQjT-Ta-oebbTfKRzCQGC7oqdmondPMMJKfuM0qICM2uI-Dix-vBCiwJDfIh7Y-sC9i0EXrnbJacvIZbpaOpTdr5hQfPf3VUIqzTB6O15-o06Jl0hkSruATSQ",
-    "enrichedAt": "2026-04-10",
-    "city": "phoenix",
-    "dishes": [
-      "mega fruit tea"
-    ],
-    "tags": [
-      "dessert"
-    ]
-  },
-  {
     "id": "island-sensation-cuisine",
     "name": "Island Sensation Cuisine",
     "tier": "on_my_radar",
@@ -54997,19 +55682,122 @@
     "name": "Twist Hot Chicken",
     "tier": "on_my_radar",
     "cuisine": "American",
-    "lat": 33.3486884,
-    "lng": -111.95779499999999,
+    "lat": 33.610512,
+    "lng": -112.2394884,
     "googleMapsUrl": "https://www.google.com/maps/place/Twist+Hot+Chicken/data=!4m2!3m1!1s0x872b43eea613e4c1:0xba837df24b289819",
     "dateAdded": "2026-04-04",
     "notes": "From scratch hot chicken. The twisted hot chicken sandwich at hot level is the one to get. Multiple heat levels available.",
-    "rating": 4.3,
-    "userRatingCount": 64,
-    "photoRef": "places/ChIJF7Lo9UcFK4cRuoWsOwlOBEE/photos/AU_ZVEE8JTBAXbzgFudGqQDsih5lzhDfxhIRjgGoLOP8fE3TuOgsCI3dHynFjWjBkEuLDYE7HJ_jjUWokKusGdeiJKqEjDo_BD6DkAsmZ1aqosudsy1kmqyJOJshQl8RcpzM90AVJ23YrWPI-SrnmiE8zCPrHhvA1q4kjDRxy87L0eBj6220v-Ki43FejFC3XB0e3s6YaqEZqJrxHwCneCTttyTDIhcyT5sg6UO8wJvD7n4gCW7PwxWb0SuWr8ve_Zp1CQGKPO_Vq2Nr1t4bLFYPQ7qznBU2VTlQkvLT5XyZE1pKVA",
-    "enrichedAt": "2026-04-10",
+    "rating": 4.4,
+    "userRatingCount": 840,
+    "photoRef": "places/ChIJweQTpu5DK4cRGZgoS_J9g7o/photos/AWCwydjUabkntRq3nsuW6Sf31ue-uOqGJHZ6a11ZwhmZmP-_yOUYYMi-FbfpCQS6P0DGb5UTMJhG-FvTi4U7AzGiTPaf8f2fkRmg-qkRv2OxCqNP9VDkNQO1KQTuyy6FAU5hkcudbwnx0DnXOZ3m32CIDk0hQmxVp1PvgNBx2YpBnJNRV3aKbqUZOV7Jt7bv2CtFHTZIadVxnbGst8mTnPyBbO0Zyh1MJidfM-QhY0kiWcXl65mAm8KqLNCXNoeLXHtHPaW4sk3aIqAF3o8lT0rLEhdnB_UGvxY9YLb2wsDznIRce_Kb6nrkfz4DwTNJK0eX9YaMaDiD8B9dzulscrdZf9azlFNa2-SwpEi68zdKsGVQSdm56kcpYQrNwhtfVCH4qkqMdEXvD9d0yfv9rGvLtN3V8R2309nBerxOzRQmBDe15E_g17pMrBgiZHSmQ5Ek",
+    "enrichedAt": "2026-07-18",
     "city": "phoenix",
     "dishes": [
       "twisted hot chicken sandwich"
-    ]
+    ],
+    "googlePlaceId": "ChIJweQTpu5DK4cRGZgoS_J9g7o",
+    "address": "8386 W Thunderbird Rd Ste 103, Peoria, AZ 85381, USA",
+    "website": "https://order.toasttab.com/online/twist-hot-chicken-8386-w-thunderbird-rd",
+    "phone": "(623) 217-2714",
+    "businessStatus": "OPERATIONAL",
+    "priceLevel": "PRICE_LEVEL_MODERATE",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 1,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 1,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 21,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 21,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: 11:00 AM – 9:00 PM",
+        "Tuesday: 11:00 AM – 9:00 PM",
+        "Wednesday: 11:00 AM – 9:00 PM",
+        "Thursday: 11:00 AM – 9:00 PM",
+        "Friday: 11:00 AM – 9:00 PM",
+        "Saturday: 11:00 AM – 9:00 PM",
+        "Sunday: 11:00 AM – 9:00 PM"
+      ]
+    }
   },
   {
     "id": "tacos-huicho",
@@ -55383,29 +56171,6 @@
     ]
   },
   {
-    "id": "scoopwell-s-dough-bar",
-    "name": "Scoopwell's Dough Bar",
-    "tier": "on_my_radar",
-    "cuisine": "Other",
-    "lat": 33.457871,
-    "lng": -112.0722035,
-    "googleMapsUrl": "https://www.google.com/maps/place/Scoopwell's+Dough+Bar/data=!4m2!3m1!1s0x872b13982082c229:0x9d7c2941ef94edc",
-    "dateAdded": "2026-04-04",
-    "notes": "Cookie dough ice cream bar. Get the toffee bourbon flavor in a donut. Usually a line but they move fast.",
-    "rating": 4.9,
-    "userRatingCount": 2331,
-    "priceLevel": "PRICE_LEVEL_INEXPENSIVE",
-    "photoRef": "places/ChIJmWN-BDESK4cRfVwhzs1p0Q0/photos/AU_ZVEGPXujzKW53jm0ErQJhHWuH1G8mPG8s-23k3eh-icpUErhcYxObm0szwt2bdQmnii4K8rS5xN4hMfAu4XKxSt2OlZsOkEXchvYSq0f1HaxHRuNfw55GNRI_FHNeykXDL6wsGf3v_4fHdftsEe3pgcVGhLKLRV2BVUnx2JmxpnlR6nJ_QT3mXxzMzgjS6VJ6JbpT7M4fJUbeMHTtgXhHxE3NAovQETS9vF1-SyDV4-nhPhBV99sODsBF4TOWzCvkh1rNCa2_aBcHsIwhjXaTv_kuh-G1IFaL75W9SubbZGUuvQ",
-    "enrichedAt": "2026-04-10",
-    "city": "phoenix",
-    "dishes": [
-      "toffee bourbon"
-    ],
-    "tags": [
-      "dessert"
-    ]
-  },
-  {
     "id": "barcoa-agaveria",
     "name": "BARCOA Agaveria",
     "tier": "on_my_radar",
@@ -55523,17 +56288,22 @@
     "name": "Clever Ramen",
     "tier": "on_my_radar",
     "cuisine": "Japanese",
-    "lat": 33.4975038,
-    "lng": -112.0740295,
+    "lat": 33.4643036,
+    "lng": -111.92584,
     "googleMapsUrl": "https://www.google.com/maps/place/Clever+Ramen/data=!4m2!3m1!1s0x872b091d31aa35df:0x90c347127c0892e5",
     "dateAdded": "2026-04-04",
     "notes": "Quick ramen shop. By the people who did Clever Koi",
     "rating": 4,
     "userRatingCount": 171,
     "priceLevel": "PRICE_LEVEL_MODERATE",
-    "photoRef": "places/ChIJ3zWqMR0JK4cR5ZIIfBJHw5A/photos/AU_ZVEGgtLhl78GqbWJnbSjOKsI5IZyCaJEiYga8xIbqUYLT1T6AFLsHEcCLuj9TGFOzhphB3o0a5K7JBUtINXaST8vp8cOa7oMLt5SmyT-kydCM0BmQy1_o6zVBWS4Q75mOFKFbBuhsNwsyybMZwRkDG_SqJxGGpqKtQPNy_oXns5MROLeCIgjtnkzkKpBJdcP3_vCWtHXh-YEEyakX-6vsfWwsril2vPYak_kCJpYGUhiw3vQTGzHI4j7Jtdyt736ocoTaFZtOMrFkQvYq5GL8Q8NUM0lrxaovgMo-rl9odubGO64XBGbSph8wfEHK8uJPNReX3Pvap2oprHfgdbWT0AQqzNaD1xxb9--B_pmUN674_Mx6rc9jUnqvJB_s3JnITYAeWjnwiO83NS1Zw8OBKvaS8AUW7kND99h3zpT8qRsqVg",
-    "enrichedAt": "2026-04-10",
-    "city": "phoenix"
+    "photoRef": "places/ChIJ3zWqMR0JK4cR5ZIIfBJHw5A/photos/AWCwydiAWf7eGw9xbG_ax2DPbXN-ByICKWVSrw7AyL8WexHxZLRsi2M6-Gn1aXpvY6aLivSA_Em3d1ruV7gk_yqkMpgyZpeDTl9gheJ7XwmLeAX7sE8PanM0OhVNVExrzSo3FqcopszeBbOV_ymAJTz8L7_IOivdSYFSuUKPPykz-vLIBYoOX1e7dOLe6NcDlJ9ZmTAp8m3SVEAsBLQOP4s3UkQYRGgUT4HqYnljt3eBqMNXfh5_nCTfy0G8IYle4GY6_EFunEUnxZOOr18IOnWStpT6alJ6HcEwE7FClY8gg3H6GRgWtpapYPJjm4e79Wid2CfFqpxBNGATtKUj7__SEOptUu24RIDPARUi8nPmFqjdII5Vba2FR7h15T9h_AkSpwuat1HUf0YRZd39eGKBZfwJMKEDw-Ar8bpASxtu17_kMA",
+    "enrichedAt": "2026-07-18",
+    "city": "phoenix",
+    "googlePlaceId": "ChIJ3zWqMR0JK4cR5ZIIfBJHw5A",
+    "address": "1455 N Scottsdale Rd Ste 105, Scottsdale, AZ 85257, USA",
+    "website": "https://www.cleverramen.com/?utm_source=GMB&utm_medium=local&utm_campaign=scottsdale",
+    "phone": "(480) 350-7830",
+    "businessStatus": "CLOSED_TEMPORARILY"
   },
   {
     "id": "haymaker-thunderbird",
@@ -63687,7 +64457,7 @@
     "lat": 32.6743731,
     "lng": -96.82352979999999,
     "googleMapsUrl": "https://maps.google.com/?cid=15802664800993157069&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-    "notes": "Halal tacos blending Mexican and Levantine spices. Signature King Taco with asiago costra. Plano.",
+    "notes": "Halal tacos blending Mexican and Levantine spices. Signature King Taco with asiago costra. South Dallas.",
     "tags": [
       "quick lunch"
     ],
@@ -64644,7 +65414,7 @@
     "lat": 32.7696037,
     "lng": -96.83549699999999,
     "googleMapsUrl": "https://maps.google.com/?cid=17688429392878914279&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-    "notes": "Hidden gem on Lemmon Ave. Contender for best ramen in Dallas.",
+    "notes": "Hidden gem on Sylvan Ave. Contender for best ramen in Dallas.",
     "tags": [
       "quick lunch"
     ],
@@ -65378,7 +66148,7 @@
     "lat": 32.8124257,
     "lng": -96.80672770000001,
     "googleMapsUrl": "https://maps.google.com/?cid=9977797708687645000&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-    "notes": "Deep Ellum. Nashville hot chicken with great sides — mac and cheese, collard greens.",
+    "notes": "Oak Lawn, on Lemmon Ave. Nashville hot chicken with great sides — mac and cheese, collard greens.",
     "tags": [
       "quick lunch"
     ],
@@ -67108,8 +67878,8 @@
     "id": "gia-mia-lombard",
     "name": "Gia Mia",
     "cuisine": "Italian",
-    "lat": 41.7736739,
-    "lng": -88.1473338,
+    "lat": 41.8376331,
+    "lng": -88.00844450000001,
     "googleMapsUrl": "https://maps.google.com/?cid=12342707035421763480&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "notes": "Lombard. Neapolitan-style pizza and handmade pasta. Cozy spot.",
     "tags": [
@@ -67119,16 +67889,16 @@
     "tier": "on_my_radar",
     "dateAdded": "2026-06-22",
     "source": "web research",
-    "rating": 4.6,
-    "userRatingCount": 942,
+    "rating": 4.5,
+    "userRatingCount": 123,
     "priceLevel": "PRICE_LEVEL_MODERATE",
-    "photoRef": "places/ChIJJy9LSLhXDogRmGcHfacaSqs/photos/AWCwydhvq7RSn0wLCmulg6afHYlk_VWjVhvwiQU1vUfSGuA7pQcZ0yhmw0k8hJ3qb_GP0UQsJbvKuKLSp6gYa4uu2VhkBx4u4zYnrmVe5zneWEtoSZ4tk1UE6MwaRnjh1WDicGiHSZo1I8uCHojyh_eeejM0WpI2HArjmEGRW5x8PQGJ2tqMBsucuKYM_rHRMjPZ9HJN4CRk4ydF9UwAjVbEdQliWfm2VX__WLU1aVNk3TkrN4ajjrHnAeHgYFGCUfMsC9MA2dWzYLdeWPBlDUHCuacL-bXPA6wt-NLpm1gVqVGsfE-hZrsW2jmrxybS942IOjc1MUmhmOpQloWvNyC8pqJimMCS4NapZhPVNZ89SxramEc6J24HHoR4owB0TPhwZlZ6K-TFfOOC9a3BE8wFYTpBTJ1zMuACWXOz2dELlHckd6PU",
+    "photoRef": "places/ChIJJ3usRpVNDogRicViJfbXW_c/photos/AWCwydjO8jKIm-jJTKPnETpvfUkzqKiDNtX67foK6aQfoBay-3PxP8qfz9ZxN-jU5EbFhx8boe9nVz8z96tI4_7ESUdWamJiDrafUnthmHiiz-bOLBG2PH32RjGqKNFa3bexENBo-WMHmW3RogXXHJSrKDKoey8c_DcaCSMIOQWA2kdKnmjsM43fYcqBJFWrslGzJezoAzWtUmwNEke3fAGemOEVpHJR95nJvqFvjJ0zB7X-lH-XwguYgLhU7cLrtIaFPPcgm7gFrPC5vNYmgQA54ASAJeA_vAuMySqZeUYIHeplN18bZM3SIoWDN5YsaTqMTKpEW8JlGBcM2PTJQm-pvQRfJN47vGt40Dk1Rrm2micOCfHp7ePhIbgpkcx98-DxXDGax-NF4txN0eHrMQ4381Kgzlxxv5jkYc0e8ppeqfRUXldtpH17jDtjMO7-rGDz",
     "enrichedAt": "2026-07-18",
     "city": "chicago",
-    "googlePlaceId": "ChIJJy9LSLhXDogRmGcHfacaSqs",
-    "address": "110 S Washington St, Naperville, IL 60540, USA",
-    "website": "http://www.giamiapizzabar.com/",
-    "phone": "(331) 204-7222",
+    "googlePlaceId": "ChIJJ3usRpVNDogRicViJfbXW_c",
+    "address": "310 Yorktown Shopping Center, Lombard, IL 60148, USA",
+    "website": "https://giamiapizzabar.com/",
+    "phone": "(331) 322-2300",
     "businessStatus": "OPERATIONAL",
     "openingHours": {
       "periods": [
@@ -68772,8 +69542,8 @@
     "id": "giordanos-lombard",
     "name": "Giordano's",
     "cuisine": "Pizza",
-    "lat": 41.8851301,
-    "lng": -87.62376119999999,
+    "lat": 41.84701080000001,
+    "lng": -87.9650027,
     "googleMapsUrl": "https://maps.google.com/?cid=16471007048779442923&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "notes": "Lombard. Chicago deep dish stuffed pizza. Tourist or not, it's the real deal.",
     "tags": [
@@ -68784,15 +69554,15 @@
     "dateAdded": "2026-06-22",
     "source": "web research",
     "rating": 4.5,
-    "userRatingCount": 26097,
+    "userRatingCount": 2811,
     "priceLevel": "PRICE_LEVEL_MODERATE",
-    "photoRef": "places/ChIJh3i0BqYsDogR6yp0y6TFlOQ/photos/AWCwydhjt8jUsDZ_W5FZeuGYf_l2_xfOhW8GhqBgTFFAJgOQdnrcQa_pgnIbrivysVcInH7Tfot0pJ2XUaxnoZGln0779OM9nh7dTojDDJf2Mgcvd0bU5EJ1R59ezlB3h5QlyNMx-es9Rf1Y5xVR5T2HuGwwRQQkJKgR6M31sTKRYcKp69hTH9gnniHiMEKwsaR4Rmfqv9WoQbpSF-4b9FQBODJ2Y7FXj1lMGxpPOQ03R_hyojzmOTgKSBjjCREBjBfjSgnSA7mrRP21sOR8FHuQx_K9js6OluAKlWgFf-HzXz6zFMdAjwnZKREOcrSntN2e1kvjXHVBX1fXQd1Hqzs1gXaTVXsKxqyCL_tSsaCxDlvoEPGDjmLf52sh0pg5jZLHEjfE8svRhCEN2-NF3V4-5HFXNJcAabAo02qVXLpLL0YoXJ1nJanLPtF5BxqeNr8O",
+    "photoRef": "places/ChIJXe-_1EhMDogRN1D9wsAgQXA/photos/AWCwydhdywiNPTb1c2ZdoRI2hYnkjLuZH-LT3pE_DUaihZWhATMo-tAhQpfn0RSUO59BsiTmw188n8FShoQTMUmGpW4rTJ-eTW0CUHgpwxfypLDslXbX7a1OuedmH96t8R9-joQX0lIVAwd4FPdxh7g83yayLtL5Zsf1FA9P35gPVQpRIP2EVNpYzYVHHdLCAMFIggMf1umIDE9Oxs5KQSXQMJhc5LiDBqAyT9bzJ_AouCjTr4A4fdUbOGQydwfqaXNpF6tAyqp2esFRDmqxzNdat16AW01GVsvpPeFu5_iRnN6HfbwYOoYggvomP4_jBDesAKv-a8kSqDSbTrxKQIB-fB8GE7slgXZ_9oo56j8WwrtlhGQHpa_es8ayJBcfbbUDHw9znlvhVMXooMcc5lYkFjd68MItJXjEbOR0Ul9EZFnBlw",
     "enrichedAt": "2026-07-18",
     "city": "chicago",
-    "googlePlaceId": "ChIJh3i0BqYsDogR6yp0y6TFlOQ",
-    "address": "130 E Randolph St, Chicago, IL 60601, USA",
-    "website": "https://giordanos.com/locations/prudential-plaza-millennium-park/",
-    "phone": "(312) 616-1200",
+    "googlePlaceId": "ChIJXe-_1EhMDogRN1D9wsAgQXA",
+    "address": "17W280 W 22nd St, Oakbrook Terrace, IL 60181, USA",
+    "website": "https://giordanos.com/locations/oakbrook-terrace/",
+    "phone": "(630) 530-7799",
     "businessStatus": "OPERATIONAL",
     "openingHours": {
       "periods": [
@@ -68804,7 +69574,7 @@
           },
           "close": {
             "day": 0,
-            "hour": 23,
+            "hour": 22,
             "minute": 0
           }
         },
@@ -68815,8 +69585,8 @@
             "minute": 30
           },
           "close": {
-            "day": 2,
-            "hour": 0,
+            "day": 1,
+            "hour": 22,
             "minute": 0
           }
         },
@@ -68827,8 +69597,8 @@
             "minute": 30
           },
           "close": {
-            "day": 3,
-            "hour": 0,
+            "day": 2,
+            "hour": 22,
             "minute": 0
           }
         },
@@ -68839,8 +69609,8 @@
             "minute": 30
           },
           "close": {
-            "day": 4,
-            "hour": 0,
+            "day": 3,
+            "hour": 22,
             "minute": 0
           }
         },
@@ -68851,8 +69621,8 @@
             "minute": 30
           },
           "close": {
-            "day": 5,
-            "hour": 0,
+            "day": 4,
+            "hour": 22,
             "minute": 0
           }
         },
@@ -68863,8 +69633,8 @@
             "minute": 30
           },
           "close": {
-            "day": 6,
-            "hour": 0,
+            "day": 5,
+            "hour": 22,
             "minute": 0
           }
         },
@@ -68875,20 +69645,20 @@
             "minute": 30
           },
           "close": {
-            "day": 0,
-            "hour": 0,
+            "day": 6,
+            "hour": 22,
             "minute": 0
           }
         }
       ],
       "weekdayDescriptions": [
-        "Monday: 10:30 AM – 12:00 AM",
-        "Tuesday: 10:30 AM – 12:00 AM",
-        "Wednesday: 10:30 AM – 12:00 AM",
-        "Thursday: 10:30 AM – 12:00 AM",
-        "Friday: 10:30 AM – 12:00 AM",
-        "Saturday: 10:30 AM – 12:00 AM",
-        "Sunday: 10:30 AM – 11:00 PM"
+        "Monday: 10:30 AM – 10:00 PM",
+        "Tuesday: 10:30 AM – 10:00 PM",
+        "Wednesday: 10:30 AM – 10:00 PM",
+        "Thursday: 10:30 AM – 10:00 PM",
+        "Friday: 10:30 AM – 10:00 PM",
+        "Saturday: 10:30 AM – 10:00 PM",
+        "Sunday: 10:30 AM – 10:00 PM"
       ]
     },
     "dishes": [
@@ -69583,119 +70353,6 @@
     ]
   },
   {
-    "id": "pasticceria-italia-bloomfield-ct",
-    "name": "Pasticceria Italia",
-    "cuisine": "Italian",
-    "lat": 42.0630052,
-    "lng": -72.7640421,
-    "googleMapsUrl": "https://maps.google.com/?cid=14526269667639644117&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-    "notes": "Bloomfield. Authentic Italian bakery. Creamy cannoli and flaky pastries.",
-    "tags": [
-      "dessert",
-      "quick lunch"
-    ],
-    "tier": "on_my_radar",
-    "dateAdded": "2026-06-22",
-    "source": "web research",
-    "rating": 4.2,
-    "userRatingCount": 131,
-    "photoRef": "places/ChIJoV5VoFEc54kR1U8xm0ytl8k/photos/AWCwydj39kC77u7JOm3xdjF7UP79awjEsHaVlIb_N6KJnQwOCp8rQXBxRf_OH8H2-G-rkg8MwyPIceAJqd9oFcv7dDBtc4MTX-DtxBiRHTptWwkT8MNsNqcSp2z9PBd3NgzyRwf8FwZx45o4zGAENETo6F5NRBsOVtHXf0W1diBVU5NiJBX2k6WWiMMtghxeeD6BDlQYoMiQSe8ZTTwGIBqZ3VQoQOuuYwvBvPYIoMrYZRYf5yrBy_FfPCW5O8jvqlKpiMyrs8xmdLM21d7uPcbWJm-ksA78jJYj_AJpgqF732hCp25iKTt1YIdHiyyGM4ANM-F-N45KzBcZkQefRYkntznUZBYgPqxWqenKNXHIj0j6u5iSmisO0A27Eu5H8TXB_dLZCmrWk7-BDFCeUnHo5fIQqw19bUB7KReWal3YO0mr1xhk",
-    "enrichedAt": "2026-07-18",
-    "city": "hartford",
-    "googlePlaceId": "ChIJoV5VoFEc54kR1U8xm0ytl8k",
-    "address": "610 College Hwy, Southwick, MA 01077, USA",
-    "phone": "(413) 569-2250",
-    "businessStatus": "OPERATIONAL",
-    "openingHours": {
-      "periods": [
-        {
-          "open": {
-            "day": 0,
-            "hour": 9,
-            "minute": 0
-          },
-          "close": {
-            "day": 0,
-            "hour": 15,
-            "minute": 0
-          }
-        },
-        {
-          "open": {
-            "day": 2,
-            "hour": 7,
-            "minute": 0
-          },
-          "close": {
-            "day": 2,
-            "hour": 18,
-            "minute": 0
-          }
-        },
-        {
-          "open": {
-            "day": 3,
-            "hour": 7,
-            "minute": 0
-          },
-          "close": {
-            "day": 3,
-            "hour": 18,
-            "minute": 0
-          }
-        },
-        {
-          "open": {
-            "day": 4,
-            "hour": 7,
-            "minute": 0
-          },
-          "close": {
-            "day": 4,
-            "hour": 18,
-            "minute": 0
-          }
-        },
-        {
-          "open": {
-            "day": 5,
-            "hour": 7,
-            "minute": 0
-          },
-          "close": {
-            "day": 5,
-            "hour": 18,
-            "minute": 0
-          }
-        },
-        {
-          "open": {
-            "day": 6,
-            "hour": 7,
-            "minute": 0
-          },
-          "close": {
-            "day": 6,
-            "hour": 18,
-            "minute": 0
-          }
-        }
-      ],
-      "weekdayDescriptions": [
-        "Monday: Closed",
-        "Tuesday: 7:00 AM – 6:00 PM",
-        "Wednesday: 7:00 AM – 6:00 PM",
-        "Thursday: 7:00 AM – 6:00 PM",
-        "Friday: 7:00 AM – 6:00 PM",
-        "Saturday: 7:00 AM – 6:00 PM",
-        "Sunday: 9:00 AM – 3:00 PM"
-      ]
-    },
-    "dishes": [
-      "cannoli"
-    ]
-  },
-  {
     "id": "flemings-west-hartford-ct",
     "name": "Fleming's Prime Steakhouse",
     "cuisine": "Steakhouse",
@@ -70316,8 +70973,8 @@
     "id": "tangiers-west-hartford-ct",
     "name": "Tangiers",
     "cuisine": "Middle Eastern",
-    "lat": 35.7594651,
-    "lng": -5.833954299999999,
+    "lat": 41.7668058,
+    "lng": -72.7104244,
     "googleMapsUrl": "https://maps.google.com/?cid=8556774909365510522&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "notes": "Hartford/West Hartford line. Market and grill. Kebabs and chicken curry over rice pilaf.",
     "tags": [
@@ -70326,15 +70983,105 @@
     "tier": "on_my_radar",
     "dateAdded": "2026-06-22",
     "source": "web research",
-    "photoRef": "places/ChIJLRNM8FyHCw0ReuG0v3HFv3Y/photos/AWCwydgT5PGf-dFmlpHaCvcTS3JEAXd5qxrDBfzO143G7-yvC-cekG46fAyoc-imMSuCi3DcQEp_GYbpE8BFMw65xSqMC7SvydPhtpvrd5rEsuocCZzpdc2kVg20rYx0-kXbtqAVSfhjr7sYWt7RD3YlRZ_GWyTtrf9bdfDlFkZ0daaD7-_KGv2DRvO2nrjxSnOEPpwFZ7hK2S_MF-Mmnqh04ho-vfVgkL8kpcCIOuVnp7ZSVdBDEDfr08hhHalsNDFIx9qFlsrgt0zZ2-sUpAI6YejrpHltMBA-4rCjzS-eDtuImE2yGhCReUdetC8-j8HXqmnpB8vSJDAZDC_fCi9uak-8kLbok55pF_BJos3X1cfQAGb_S477FDs2I-I1quSNBqeY621GVrPwZ8P5s2O-JqpHCIt9ouwQZT4PBiHG_9U",
+    "photoRef": "places/ChIJuW6DaLGs54kRbQ69SGKUTkQ/photos/AWCwydii5BDr7vzVhNAVq0PTt96oa6e_oclS70kYwl-gWBdLCYGS8z3KQZAAechPqDg2g2x1PQIuqLuM2NwW1D3ggPKaMoBpApl5so42md5PPaSfDu5D-0-GGxwBDppZUNdgybIHotrePKUmb2yzPEvicYc8EtfuVQf3KyDgdB8X67DvBbA7JkQrlTCvTjH-hly4bj-ukIqpKK8OlpHLa4E7wwz1e0D9wkF9_0xrV86EARotefnofmgkq577o1x4FSgHM2lyjGdvdRyCEIQtcjhGECGfTP01lmRgnyEKbxz_k5_g5J7vUQ-qBeDUtPTCJqSfgVR5UkAxGhj-ohE0MO3XokgOvAIc_Tx58TCm4SPXoOORWvD6c24WM5CPikrmC0GxtnGYYNlXms7ErDY2gYA9JCp-8FHXcklwyfElpDvjWxoSO2Y",
     "enrichedAt": "2026-07-18",
     "city": "hartford",
-    "googlePlaceId": "ChIJLRNM8FyHCw0ReuG0v3HFv3Y",
-    "address": "Tangier, Morocco",
+    "googlePlaceId": "ChIJuW6DaLGs54kRbQ69SGKUTkQ",
+    "address": "550 Farmington Ave A, Hartford, CT 06105, USA",
     "dishes": [
       "chicken curry over rice pilaf",
       "kebabs"
-    ]
+    ],
+    "website": "http://www.tangiersmarket.com/",
+    "phone": "(860) 233-8168",
+    "businessStatus": "OPERATIONAL",
+    "rating": 4.8,
+    "userRatingCount": 433,
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 1,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 1,
+            "hour": 20,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 20,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 20,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 20,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 20,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 11,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 20,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: 11:00 AM – 8:00 PM",
+        "Tuesday: 11:00 AM – 8:00 PM",
+        "Wednesday: 11:00 AM – 8:00 PM",
+        "Thursday: 11:00 AM – 8:00 PM",
+        "Friday: 11:00 AM – 8:00 PM",
+        "Saturday: 11:00 AM – 8:00 PM",
+        "Sunday: Closed"
+      ]
+    }
   },
   {
     "id": "pond-house-cafe-hartford-ct",
@@ -70343,7 +71090,7 @@
     "lat": 41.776286,
     "lng": -72.7183001,
     "googleMapsUrl": "https://maps.google.com/?cid=5014634402846166550&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-    "notes": "Hartford. On the pond in Elizabeth Park. Eclectic comfort food, seasonal menu.",
+    "notes": "West Hartford. On the pond in Elizabeth Park. Eclectic comfort food, seasonal menu.",
     "tags": [
       "date night",
       "patio"
@@ -70571,7 +71318,7 @@
     "lat": 41.7139491,
     "lng": -72.6048753,
     "googleMapsUrl": "https://maps.google.com/?cid=13688770735985398148&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-    "notes": "Hartford. Breakfast that expanded to dinner. Korean steak sandwich is a sleeper hit.",
+    "notes": "Glastonbury. Breakfast that expanded to dinner. Korean steak sandwich is a sleeper hit.",
     "tags": [
       "breakfast",
       "quick lunch"
@@ -75091,7 +75838,7 @@
     "cuisine": "Pizza",
     "lat": 41.3454605,
     "lng": -72.1073871,
-    "notes": "Waterford. Many options, consistently delicious pizza.",
+    "notes": "New London. Many options, consistently delicious pizza.",
     "tags": [
       "quick lunch"
     ],
@@ -75212,8 +75959,8 @@
     "id": "farm-italy-mohegan-sun-ct",
     "name": "The Farm Italy Restaurant & Bar",
     "cuisine": "Italian",
-    "lat": 40.872131,
-    "lng": -73.4253438,
+    "lat": 41.492137199999995,
+    "lng": -72.091713,
     "notes": "Inside Mohegan Sun. Nominated Best Italian in CT. Handcrafted pasta, premium steaks, vibrant vibe.",
     "tags": [
       "team dinner",
@@ -75223,15 +75970,15 @@
     "tier": "on_my_radar",
     "dateAdded": "2026-06-23",
     "source": "web research",
-    "rating": 4.3,
-    "userRatingCount": 725,
-    "photoRef": "places/ChIJ65K03w0n6IkRJ8A6wTuHmcA/photos/AWCwydhydaQErKRz5czTQU-0cfl8Blca8fAKDYPHNwWvUVjBe050yDtZ17xKh_MbVnwFUbT8jVZyrhD44LEhK5lnz3o1nxUfXIUn8Ys-1zkFEhZQh7iKBZWpkiLlWgzpvn72izOiqdO-NMjqEBbAUldx9Tf7SgQwDVchxcn8kjlLJkFoWgkMlCu3sVT44AIhkIB2ZkghAy16sEsnPBmr7-kCCkTiCVDkWvnDlXwp4HnM-6qEN5RrV5rccPHA5pXDSWa44fR1Kuw02iamE0gvO5EenuxYyPVRMgFRikLiG6Dbw75rbEk0ACpBChSrLGJoGDBlxfBSmhwKGoyHt-U6eBCHdK2O1-9GDj-OyFXVXxRakhrmR68-LdxGI0Abh7DOIDKaA_rrE_gnqs-EBtMpnvM_S6wSPm1j7W2SN1zVCHZijqIeUQ",
+    "rating": 4,
+    "userRatingCount": 674,
+    "photoRef": "places/ChIJNe_8fqtz5okRxCZYZM8K8SM/photos/AWCwydhLiklrAC8yEK7XzfvJX6GeSaPyxE5Ag-9DOWJ9c5Cgmiv1X8OXtUte6g4o2XKxQuLgJgiepjwUcG4LAYbEFcD3aLYcqxFNhDwoZtT7uvHiiNPEwtKFkmLJwefzpeAD3rVkkx_6sS76052E0qjEQ3npiNH1X-XjV2RCxRN44rr3Lr80-aY4NtYhQyztL1vd6cZU6a2vA7vZy0CyJbvbkNH6MslduIxCpKAOBFh2II1YhclUSzfHwJnBrzL3e_gefthfh6fqWaokX9ENM0mWnHr2dkWhr2Ad62IwiByI0wf-PX05KmUqVAsqlXXoZuBoMSaUDwfUN13_dUCoSLDchyS8oPlxciBQF-bTxfqSazGskuexiws4LR5zsYeY-HKlRRGhXBVCwUe2KFkn2bXceTNeJSQH6HtrX5godwPNoWZz8YrIkSlI6s2L5mg8wA",
     "enrichedAt": "2026-07-18",
     "city": "se-connecticut",
-    "googlePlaceId": "ChIJ65K03w0n6IkRJ8A6wTuHmcA",
-    "address": "12 Gerard St, Huntington, NY 11743, USA",
-    "website": "https://www.thefarmitaly.com/",
-    "phone": "(631) 824-6000",
+    "googlePlaceId": "ChIJNe_8fqtz5okRxCZYZM8K8SM",
+    "address": "1 Mohegan Sun Blvd, Uncasville, CT 06382, USA",
+    "website": "https://www.thefarmitaly.com/mohegansun",
+    "phone": "(860) 862-1100",
     "businessStatus": "OPERATIONAL",
     "openingHours": {
       "periods": [
@@ -75249,8 +75996,20 @@
         },
         {
           "open": {
+            "day": 1,
+            "hour": 16,
+            "minute": 0
+          },
+          "close": {
+            "day": 1,
+            "hour": 22,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
             "day": 2,
-            "hour": 12,
+            "hour": 16,
             "minute": 0
           },
           "close": {
@@ -75262,7 +76021,7 @@
         {
           "open": {
             "day": 3,
-            "hour": 12,
+            "hour": 16,
             "minute": 0
           },
           "close": {
@@ -75274,7 +76033,7 @@
         {
           "open": {
             "day": 4,
-            "hour": 12,
+            "hour": 16,
             "minute": 0
           },
           "close": {
@@ -75286,7 +76045,7 @@
         {
           "open": {
             "day": 5,
-            "hour": 12,
+            "hour": 16,
             "minute": 0
           },
           "close": {
@@ -75309,11 +76068,11 @@
         }
       ],
       "weekdayDescriptions": [
-        "Monday: Closed",
-        "Tuesday: 12:00 – 10:00 PM",
-        "Wednesday: 12:00 – 10:00 PM",
-        "Thursday: 12:00 – 10:00 PM",
-        "Friday: 12:00 – 11:00 PM",
+        "Monday: 4:00 – 10:00 PM",
+        "Tuesday: 4:00 – 10:00 PM",
+        "Wednesday: 4:00 – 10:00 PM",
+        "Thursday: 4:00 – 10:00 PM",
+        "Friday: 4:00 – 11:00 PM",
         "Saturday: 12:00 – 11:00 PM",
         "Sunday: 12:00 – 9:00 PM"
       ]

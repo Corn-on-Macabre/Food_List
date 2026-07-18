@@ -1,108 +1,35 @@
-# Verification report — 2026-07-18
+# Verification report — 2026-07-18 (post-fix)
 
-## Known fixes (from curator review — memory: Restaurant Data Fixes)
-- **Mr. Pickles** — pin location is wrong; move to the correct spot.
-- **Manna BBQ** — note references the West Gate location; confirm the note matches the pinned location. (Enrichment matched the pin exactly at 6751 N Sunset Blvd, Glendale — the Westgate area — so the note may actually be right; verify which location Bobby means.)
+All issues from the original report were fixed on 2026-07-18: 12 suspect records re-pinned to their
+verified metro locations, 13 unverifiable ghosts archived (`data-archive/unresolved-2026-07-18.json`),
+16 note/location inconsistencies corrected (11 note edits + 5 wrong-branch re-pins), 38 permanently
+closed places archived, and the Manna BBQ note verified correct (pin = 6751 N Sunset Blvd, Glendale = Westgate).
 
-## Possibly closed (56) — businessStatus from Google Places
-- **Chantico Mexican Restaurant Phoenix** (`chantico-mexican-restaurant-phoenix`) — CLOSED_PERMANENTLY
-- **Spitz - Desert Ridge Marketplace - Restaurant and Bar - Mediterranean Food,** (`spitz-desert-ridge-marketplace-restaurant-and-bar-mediterranean-food`) — CLOSED_PERMANENTLY
-- **Aioli Gourmet Burgers** (`aioli-gourmet-burgers`) — CLOSED_TEMPORARILY
-- **Hamburguesas Y Cervezas** (`hamburguesas-y-cervezas`) — CLOSED_PERMANENTLY
-- **Throne Brewing & Pizza Kitchen** (`throne-brewing-pizza-kitchen`) — CLOSED_PERMANENTLY
-- **Tortas CM** (`tortas-cm`) — CLOSED_PERMANENTLY
-- **Tacos Chiwas Chandler** (`tacos-chiwas-chandler`) — CLOSED_PERMANENTLY
-- **Suss Pastries** (`suss-pastries`) — CLOSED_TEMPORARILY
-- **Phila Deli AZ** (`phila-deli-az`) — CLOSED_PERMANENTLY
-- **Being Bar** (`being-bar`) — CLOSED_TEMPORARILY
-- **Leo’s Tacos & Burritos** (`leo-s-tacos-burritos`) — CLOSED_PERMANENTLY
-- **Cajun Breakfast Joint** (`cajun-breakfast-joint`) — CLOSED_TEMPORARILY
-- **Angel's Trumpet Ale House** (`angel-s-trumpet-ale-house`) — CLOSED_PERMANENTLY
-- **Stellar 66 Chinese restaurant and bar** (`stellar-66-chinese-restaurant-and-bar`) — CLOSED_PERMANENTLY
-- **Santo Arcadia** (`santo-arcadia`) — CLOSED_PERMANENTLY
-- **Phat Turtle KC BBQ & Billiards** (`phat-turtle-kc-bbq-billiards`) — CLOSED_PERMANENTLY
-- **The House Brasserie** (`the-house-brasserie`) — CLOSED_TEMPORARILY
-- **CC's on Central** (`cc-s-on-central`) — CLOSED_PERMANENTLY
-- **Doda's Pizza** (`doda-s-pizza`) — CLOSED_TEMPORARILY
-- **The Rosticceria** (`the-rosticceria`) — CLOSED_PERMANENTLY
-- **Fuego at The Clarendon** (`fuego-at-the-clarendon`) — CLOSED_PERMANENTLY
-- **Que Suave Taco Shop** (`que-suave-taco-shop`) — CLOSED_TEMPORARILY
-- **Juanderful Tacos** (`juanderful-tacos`) — CLOSED_PERMANENTLY
-- **AZ Chimney Cakes** (`az-chimney-cakes`) — CLOSED_PERMANENTLY
-- **Pocha 54 Korean Tapas** (`pocha-54-korean-tapas`) — CLOSED_PERMANENTLY
-- **Crisp Premium Pizza** (`crisp-premium-pizza`) — CLOSED_PERMANENTLY
-- **Then Burger** (`then-burger`) — CLOSED_PERMANENTLY
-- **Bagelfeld** (`bagelfeld`) — CLOSED_TEMPORARILY
-- **Elbows Mac N' Cheese** (`elbows-mac-n-cheese`) — CLOSED_TEMPORARILY
-- **The Farm at South Mountain** (`the-farm-at-south-mountain`) — CLOSED_TEMPORARILY
-- **Reathrey Sekong** (`reathrey-sekong`) — CLOSED_TEMPORARILY
-- **Tomaso's on Camelback** (`tomaso-s-on-camelback`) — CLOSED_PERMANENTLY
-- **Hānai Coffee + Cocktails** (`h-nai-coffee-cocktails`) — CLOSED_PERMANENTLY
-- **Trapp Haus BBQ** (`trapp-haus-bbq`) — CLOSED_TEMPORARILY
-- **Chick-A-Dee** (`chick-a-dee`) — CLOSED_PERMANENTLY
-- **The Yori Hot Dogs** (`the-yori-hot-dogs`) — CLOSED_TEMPORARILY
-- **Garden Bar Phx** (`garden-bar-phx`) — CLOSED_PERMANENTLY
-- **The Genuine** (`the-genuine`) — CLOSED_PERMANENTLY
-- **Aimee's Swine House** (`aimee-s-swine-house`) — CLOSED_PERMANENTLY
-- **Edelweiss Biergarten** (`edelweiss-biergarten`) — CLOSED_TEMPORARILY
-- **The Garfield Phoenix** (`the-garfield-phoenix`) — CLOSED_PERMANENTLY
-- **Señor Muertos Mexican Pizza** (`se-or-muertos-mexican-pizza`) — CLOSED_TEMPORARILY
-- **Casa Reynoso** (`casa-reynoso`) — CLOSED_TEMPORARILY
-- **Desert Drinks & Exotics** (`desert-drinks-exotics`) — CLOSED_PERMANENTLY
-- **The Bar (Gilbert)** (`the-bar-gilbert`) — CLOSED_PERMANENTLY
-- **Pizza By Napoli** (`pizza-by-napoli`) — CLOSED_TEMPORARILY
-- **The Golden Pineapple Craft Lounge** (`the-golden-pineapple-craft-lounge`) — CLOSED_PERMANENTLY
-- **Maritza's Pupusas** (`maritza-s-pupusas`) — CLOSED_PERMANENTLY
-- **Wingz And Thingz** (`wingz-and-thingz`) — CLOSED_PERMANENTLY
-- **Mora Italian** (`mora-italian`) — CLOSED_PERMANENTLY
-- **Original Golden Skone** (`original-golden-skone`) — CLOSED_PERMANENTLY
-- **Laura's Burgers and More** (`laura-s-burgers-and-more`) — CLOSED_PERMANENTLY
-- **Sweet Willy's BBQ** (`sweet-willys-bbq-wichita`) — CLOSED_TEMPORARILY
-- **Little Vietnam Kitchen** (`little-vietnam-kitchen-wichita`) — CLOSED_TEMPORARILY
-- **New Lemongrass Taste of Vietnam** (`lemongrass-taste-vietnam-wichita`) — CLOSED_PERMANENTLY
-- **Thames Landing Oyster Bar** (`thames-landing-oyster-bar-new-london-ct`) — CLOSED_PERMANENTLY
+## Open items for curator review
 
-## Unenriched / suspect matches (25) — no Places match near the pin; name, pin, or city is likely wrong (details in server/backfill-report.md)
-- **Toulouse Petit Kitchen & Lounge** (`toulouse-petit-kitchen-lounge`) — city=phoenix, pin=33.440560399999995,-112.0733117
-- **Barrio Café** (`barrio-caf`) — city=phoenix, pin=33.4787827,-112.0478646
-- **Nippon Curry featuring Hinoya Curry** (`nippon-curry-featuring-hinoya-curry`) — city=phoenix, pin=33.5213007,-112.07056229999999
-- **Mensho Tokyo SF** (`mensho-tokyo-sf`) — city=phoenix, pin=33.522165099999995,-112.0642247
-- **Flaming Pig** (`flaming-pig`) — city=phoenix, pin=33.4766088,-112.2230548
-- **Matt's Bar and Grill** (`matt-s-bar-and-grill`) — city=phoenix, pin=33.4573307,-112.07215880000001
-- **Grocery Station** (`grocery-station`) — city=phoenix, pin=33.4661839,-112.0674737
-- **T Swirl Crepe** (`t-swirl-crepe`) — city=phoenix, pin=33.4652945,-112.00764819999999
-- **Detroit Coney Grill** (`detroit-coney-grill`) — city=phoenix, pin=33.449487,-112.07425699999999
-- **PHXNQRA WINGS** (`phxnqra-wings`) — city=phoenix, pin=33.5826883,-112.05101339999999
-- **Phở Tan Thanh** (`ph-tan-thanh`) — city=phoenix, pin=33.5102145,-112.09582309999999
-- **NYC Bagels** (`nyc-bagels`) — city=phoenix, pin=33.4809578,-112.0177713
-- **La Fonda Del Sol** (`la-fonda-del-sol`) — city=phoenix, pin=33.574340400000004,-111.8621965
-- **Tacos El Rojo PHX** (`tacos-el-rojo-phx`) — city=phoenix, pin=33.5246029,-112.1792038
-- **Burger Rush** (`burger-rush`) — city=phoenix, pin=33.4910122,-112.0733575
-- **Joe's Tacos** (`joe-s-tacos`) — city=phoenix, pin=33.639780900000005,-112.0722081
-- **Duck Donuts** (`duck-donuts`) — city=phoenix, pin=33.4429085,-112.07213550000002
-- **LaMar's Donuts and Coffee** (`lamar-s-donuts-and-coffee`) — city=phoenix, pin=33.4654684,-112.05237659999999
-- **Luxe Bar** (`luxe-bar`) — city=phoenix, pin=33.5008222,-111.92195079999999
-- **Dingle Berries Coffee, Tea & Juice** (`dingle-berries-coffee-tea-juice`) — city=phoenix, pin=33.6987401,-112.1004519
-- **Bro Bro's BBQ** (`bro-bro-s-bbq`) — city=phoenix, pin=33.600111399999996,-111.98423799999999
-- **Miss Dessert | Mesa** (`miss-dessert-mesa`) — city=phoenix, pin=33.4802751,-112.09069219999999
-- **Twist Hot Chicken** (`twist-hot-chicken`) — city=phoenix, pin=33.3486884,-111.95779499999999
-- **Scoopwell's Dough Bar** (`scoopwell-s-dough-bar`) — city=phoenix, pin=33.457871,-112.0722035
-- **Clever Ramen** (`clever-ramen`) — city=phoenix, pin=33.4975038,-112.0740295
-
-## Note/location inconsistencies (16) — note text vs verified address
-- **Hunnie Butter** (`hunnie-butter`) — Note says the bakery is in the East Valley but the address is 4700 N 12th St in central Phoenix.
-- **Arizona Sandwich Co. & Catering - 1221 W. Warner Rd.** (`arizona-sandwich-co-catering-1221-w-warner-rd`) — Note says this location is in Gilbert but the address is 1221 W Warner Rd in Tempe.
-- **Sophia's Kitchen** (`sophia-s-kitchen`) — Note says downtown Phoenix but the address is 336 E Thomas Rd (85012), which is midtown Phoenix.
-- **Emilio’s Tacos & Hotdogs** (`emilio-s-tacos-hotdogs`) — Note places it on 19th Avenue but the address is 2526 W Van Buren St (near 25th Ave), Phoenix.
-- **El Fogón Taqueria** (`el-fog-n-taqueria`) — Note says food court location in Chandler Fashion Center, but the address is 1327 E Chandler Blvd, Phoenix, AZ 85048 (Ahwatukee), not the Chandler mall.
-- **Taco King** (`taco-king-plano`) — Note says Plano but address is 6005 S R L Thornton Fwy in south Dallas (75232), not Plano.
-- **TEN Ramen** (`ten-ramen-dallas`) — Note says the spot is on Lemmon Ave but the address is 1888 Sylvan Ave, Dallas (75208).
-- **Hattie B's Hot Chicken** (`hatties-hot-chicken-dallas`) — Note says Deep Ellum but the address is 3827 Lemmon Ave (75219), which is the Oak Lawn area, not Deep Ellum.
-- **Gia Mia** (`gia-mia-lombard`) — Note says Lombard but the address is 110 S Washington St, Naperville, IL.
-- **Giordano's** (`giordanos-lombard`) — Note says Lombard but the address is 130 E Randolph St in downtown Chicago.
-- **Pasticceria Italia** (`pasticceria-italia-bloomfield-ct`) — Note says Bloomfield but the address is in Southwick, MA.
-- **Tangiers** (`tangiers-west-hartford-ct`) — Note places it on the Hartford/West Hartford line but the address is Tangier, Morocco.
-- **Pond House Cafe** (`pond-house-cafe-hartford-ct`) — Note says Hartford but the address is in West Hartford.
-- **The Spicy Green Bean** (`spicy-green-bean-hartford-ct`) — Note says Hartford but the address is in Glastonbury, CT.
-- **Ocean Pizza** (`ocean-pizza-waterford-ct`) — Note says Waterford but the address is in New London, CT.
-- **The Farm Italy Restaurant & Bar** (`farm-italy-mohegan-sun-ct`) — Note says inside Mohegan Sun (Connecticut) but the address is in Huntington, NY.
+- **Mr. Pickle's Sandwich Shop** (`mr-pickle-s-sandwich-shop`) — it's a chain; the pin/enrichment point at
+  5885 W Baseline Rd, Laveen Village. The earlier fix-list said the pin is wrong, but only Bobby knows which
+  branch he means. Fix from chat: `update_restaurant` after confirming the intended location.
+- **Temporarily closed (20)** — kept in the app; re-check occasionally:
+  - Aioli Gourmet Burgers (`aioli-gourmet-burgers`)
+  - Suss Pastries (`suss-pastries`)
+  - Being Bar (`being-bar`)
+  - Cajun Breakfast Joint (`cajun-breakfast-joint`)
+  - The House Brasserie (`the-house-brasserie`)
+  - Doda's Pizza (`doda-s-pizza`)
+  - Que Suave Taco Shop (`que-suave-taco-shop`)
+  - Bagelfeld (`bagelfeld`)
+  - Elbows Mac N' Cheese (`elbows-mac-n-cheese`)
+  - The Farm at South Mountain (`the-farm-at-south-mountain`)
+  - Reathrey Sekong (`reathrey-sekong`)
+  - Trapp Haus BBQ (`trapp-haus-bbq`)
+  - The Yori Hot Dogs (`the-yori-hot-dogs`)
+  - Edelweiss Biergarten (`edelweiss-biergarten`)
+  - Señor Muertos Mexican Pizza (`se-or-muertos-mexican-pizza`)
+  - Casa Reynoso (`casa-reynoso`)
+  - Pizza By Napoli (`pizza-by-napoli`)
+  - Clever Ramen (`clever-ramen`)
+  - Sweet Willy's BBQ (`sweet-willys-bbq-wichita`)
+  - Little Vietnam Kitchen (`little-vietnam-kitchen-wichita`)
+- Permanently closed still in data: 0 (should be 0)
+- Unenriched records: 0 (should be 0)

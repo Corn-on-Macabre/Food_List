@@ -951,5 +951,120 @@
     "dishes": [
       "oysters"
     ]
+  },
+  {
+    "id": "pasticceria-italia-bloomfield-ct",
+    "name": "Pasticceria Italia",
+    "cuisine": "Italian",
+    "lat": 41.8311206,
+    "lng": -72.73635999999999,
+    "googleMapsUrl": "https://maps.google.com/?cid=14526269667639644117&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "notes": "Bloomfield. Authentic Italian bakery. Creamy cannoli and flaky pastries.",
+    "tags": [
+      "dessert",
+      "quick lunch"
+    ],
+    "tier": "on_my_radar",
+    "dateAdded": "2026-06-22",
+    "source": "web research",
+    "rating": 4.2,
+    "userRatingCount": 386,
+    "photoRef": "places/ChIJdWGDY-iq54kROuDod1oSfZA/photos/AWCwydjPwoSjQZn2p6adzi2HuZFaXTFc6D3mmHg5tfRj81hxW8AHTISvj3BK5NxqzaMnzpm1txdRNfNtBjO44W_UabK757j1jxv_ziusxBRS1KN3GQ7o5G2vJiV1sm_rs9jXgiYocQsQa26_OZyZLeJoIR_Mi-eIqdeMNuuEadbNxsO5zyxc5h3g8SxAt0hUw-iZCpPVNwjAYIniuCtmxyB6ty1CnZvkChXrIlj-2U8-FpGYV3Xiqv9VKn9Awa4Nijc02gq9iOmTy4OPPJiIdGeNSE0hknwkDUPHa5qZziGIPsztW32Hrk9kFGJSuOLSQFuKJYCgkdKKr1w6MM1zGUDMHLntZpzdxn4OJrxrzE_851F1ig8jO8UaCET5SrFuqJQtpXmoTAgdelZ4cy_gltHghAr1Fac-7Pjsmi3SND9u-gWiGmBv",
+    "enrichedAt": "2026-07-18",
+    "city": "hartford",
+    "googlePlaceId": "ChIJdWGDY-iq54kROuDod1oSfZA",
+    "address": "10 Wintonbury Mall, Bloomfield, CT 06002, USA",
+    "phone": "(860) 242-3440",
+    "businessStatus": "CLOSED_PERMANENTLY",
+    "openingHours": {
+      "periods": [
+        {
+          "open": {
+            "day": 0,
+            "hour": 9,
+            "minute": 0
+          },
+          "close": {
+            "day": 0,
+            "hour": 15,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 2,
+            "hour": 7,
+            "minute": 0
+          },
+          "close": {
+            "day": 2,
+            "hour": 18,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 3,
+            "hour": 7,
+            "minute": 0
+          },
+          "close": {
+            "day": 3,
+            "hour": 18,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 4,
+            "hour": 7,
+            "minute": 0
+          },
+          "close": {
+            "day": 4,
+            "hour": 18,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 5,
+            "hour": 7,
+            "minute": 0
+          },
+          "close": {
+            "day": 5,
+            "hour": 18,
+            "minute": 0
+          }
+        },
+        {
+          "open": {
+            "day": 6,
+            "hour": 7,
+            "minute": 0
+          },
+          "close": {
+            "day": 6,
+            "hour": 18,
+            "minute": 0
+          }
+        }
+      ],
+      "weekdayDescriptions": [
+        "Monday: Closed",
+        "Tuesday: 7:00 AM – 6:00 PM",
+        "Wednesday: 7:00 AM – 6:00 PM",
+        "Thursday: 7:00 AM – 6:00 PM",
+        "Friday: 7:00 AM – 6:00 PM",
+        "Saturday: 7:00 AM – 6:00 PM",
+        "Sunday: 9:00 AM – 3:00 PM"
+      ]
+    },
+    "dishes": [
+      "cannoli"
+    ],
+    "archiveReason": "CLOSED_PERMANENTLY (verified at correct Bloomfield location)",
+    "archivedAt": "2026-07-18"
   }
 ]
