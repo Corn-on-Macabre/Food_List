@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { Restaurant } from "../types";
 import { formatPriceLevel } from "../utils/priceLevel";
 import { isOpenNow, localNowMinutes, todayHours, metroTimezone } from "../utils/openNow";
+import { splitNotes, formatVisitDate } from "../utils/visitNotes";
 import { BobbyPickBadge } from "./BobbyPickBadge";
 import { TierBadge } from "./TierBadge";
 import { BTN_ICON, BTN_PRIMARY } from "./styles";
@@ -42,6 +43,7 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
     ? isOpenNow(restaurant.openingHours, localNowMinutes(timezone))
     : null;
   const hoursToday = todayHours(restaurant.openingHours, timezone);
+  const { note, visits } = splitNotes(restaurant.notes);
 
   const photoUrl =
     restaurant.photoRef && !photoError
@@ -192,6 +194,24 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
           </div>
         )}
 
+        {restaurant.dishes && restaurant.dishes.length > 0 && (
+          <div className="mt-2.5">
+            <p className="font-sans text-[11px] font-bold uppercase tracking-[0.1em] text-stone-400">
+              Get the
+            </p>
+            <div className="mt-1 flex flex-wrap gap-1.5">
+              {restaurant.dishes.map((dish) => (
+                <span
+                  key={dish}
+                  className="inline-block rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-xs text-amber-800"
+                >
+                  {dish}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
         {restaurant.suggested_by && (
           <div className="mt-2 flex items-center gap-1.5">
             {restaurant.suggested_by_avatar ? (
@@ -212,20 +232,36 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
           </div>
         )}
 
-        {restaurant.notes && (
+        {(note || visits.length > 0) && (
           <div className="mt-3 pt-3 border-t border-brand-border-light">
-            <p className="text-sm text-stone-500 italic leading-relaxed">
-              <span
-                aria-hidden="true"
-                className="font-display text-2xl text-brand-chip/50 leading-none align-[-0.3em] mr-1"
-              >
-                &ldquo;
-              </span>
-              {restaurant.notes}
-            </p>
-            <p className="mt-1 font-sans text-[11px] font-bold uppercase tracking-[0.1em] text-stone-400">
-              &mdash; Bobby
-            </p>
+            {note && (
+              <>
+                <p className="text-sm text-stone-500 italic leading-relaxed">
+                  <span
+                    aria-hidden="true"
+                    className="font-display text-2xl text-brand-chip/50 leading-none align-[-0.3em] mr-1"
+                  >
+                    &ldquo;
+                  </span>
+                  {note}
+                </p>
+                <p className="mt-1 font-sans text-[11px] font-bold uppercase tracking-[0.1em] text-stone-400">
+                  &mdash; Bobby
+                </p>
+              </>
+            )}
+            {visits.length > 0 && (
+              <div className={note ? "mt-3 space-y-2.5" : "space-y-2.5"}>
+                {visits.map((visit) => (
+                  <div key={`${visit.date}-${visit.text.slice(0, 20)}`} className="flex items-baseline gap-2">
+                    <span className="shrink-0 font-sans text-[11px] font-bold uppercase tracking-wide text-amber-700">
+                      {formatVisitDate(visit.date)}
+                    </span>
+                    <p className="text-sm text-stone-500 leading-relaxed">{visit.text}</p>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         )}
 
