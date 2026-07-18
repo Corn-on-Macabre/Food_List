@@ -1,4 +1,4 @@
-# Food List MCP Server
+# Bobby.Menu MCP Server
 
 Query the restaurant list from any MCP-capable LLM client — no need to open the map.
 
@@ -26,7 +26,7 @@ Once added on claude.ai it's available in the Claude mobile app too.
 ### Claude Code
 
 ```sh
-claude mcp add --transport http food-list https://bobby.menu/mcp
+claude mcp add --transport http Bobby-Menu https://bobby.menu/mcp
 ```
 
 ### Cursor
@@ -36,7 +36,7 @@ Add to `~/.cursor/mcp.json` (or the project's `.cursor/mcp.json`):
 ```json
 {
   "mcpServers": {
-    "food-list": { "url": "https://bobby.menu/mcp" }
+    "Bobby.Menu": { "url": "https://bobby.menu/mcp" }
   }
 }
 ```
@@ -48,7 +48,7 @@ Add to `~/.gemini/settings.json`:
 ```json
 {
   "mcpServers": {
-    "food-list": { "httpUrl": "https://bobby.menu/mcp" }
+    "Bobby.Menu": { "httpUrl": "https://bobby.menu/mcp" }
   }
 }
 ```

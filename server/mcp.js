@@ -85,7 +85,7 @@ const locationInputs = {
 
 function buildServer(readData) {
   const server = new McpServer(
-    { name: 'food-list', version: '1.0.0' },
+    { name: 'Bobby.Menu', version: '1.0.0' },
     {
       instructions:
         "Bobby's personal curated list of Phoenix-metro restaurants. Every restaurant has a tier: " +
