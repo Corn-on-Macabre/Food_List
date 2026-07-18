@@ -55,8 +55,12 @@ claude mcp add --transport http --header "Authorization: Bearer <ADMIN_PASSWORD>
 
 ### Claude app (web + mobile — the on-the-go option)
 
-Settings → Connectors → **Add custom connector** → paste the endpoint URL, no auth.
-Once added on claude.ai it's available in the Claude mobile app too.
+**Read-only:** Settings → Connectors → **Add custom connector** → `https://bobby.menu/mcp`, no auth.
+
+**Curator (write) access from your phone:** add `https://bobby.menu/mcp/admin` instead.
+The app will open a bobby.menu login page in the browser — enter the admin password
+once and the connector gets a long-lived token (OAuth under the hood; tokens survive
+server restarts and refresh automatically). All 8 tools, including log_visit.
 
 ### Claude Code
 
@@ -92,7 +96,15 @@ Add to `~/.gemini/settings.json`:
 
 ## Server notes
 
-- Implementation: `server/mcp.js`, mounted at `POST /mcp` in `server/index.js`.
+- **Single data store:** the server reads/writes the Supabase `restaurants` table (same
+  one the map and admin dashboard use) via `server/data.js`. Without `SUPABASE_URL` +
+  `SUPABASE_SERVICE_KEY` env vars it falls back to a JSON file — that's the local-dev mode.
+  Nightly table dumps land in `/var/backups/food-list/` on the VPS (14-day retention).
+- **OAuth:** `server/auth.js` is a single-user OAuth provider (dynamic client registration,
+  PKCE, refresh tokens; state in `/state/mcp-auth.json` outside the web root). `/mcp/admin`
+  401-challenges anonymous requests, which triggers the flow in MCP clients.
+- Implementation: `server/mcp.js`, mounted at `POST /mcp` (public) and `POST /mcp/admin`
+  (auth-required) in `server/index.js`.
 - **Production routing is Traefik, not Nginx**: the VPS runs Docker Compose (`/root/docker-compose.yml`) with a Traefik reverse proxy; the `food-list-api` service's router rule matches `PathPrefix(/api) || PathPrefix(/mcp)` on `bobby.menu`, `www.bobby.menu`, and `food.srv1099441.hstgr.cloud`. The `/mcp` block in `deploy/nginx.conf` is only for the (unused) standalone-Nginx template.
 - **Deploying API changes**: the container is plain `node:20-alpine` bind-mounting `/opt/food-list-api` read-only. Copy `server/{index.js,mcp.js,package.json,package-lock.json}` there, run `npm install --omit=dev` on the host, then `sudo docker compose -f /root/docker-compose.yml --project-directory /root up -d food-list-api`.
 - Stateless transport: a fresh MCP server instance per request, no session store. GET/DELETE on `/mcp` return 405 by design.

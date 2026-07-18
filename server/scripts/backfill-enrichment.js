@@ -11,7 +11,7 @@
  * - A match whose location is > 3 miles from the record's pin is NOT applied;
  *   it's logged to backfill-report.md for manual review (wrong pin or wrong match).
  */
-import { readData, writeData, enrichRestaurant, haversineDistance } from '../data.js';
+import { getAll, updateRow, enrichRestaurant, haversineDistance } from '../data.js';
 import fs from 'node:fs';
 
 const args = process.argv.slice(2);
@@ -25,7 +25,7 @@ const REPORT = 'backfill-report.md';
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-const data = readData();
+const data = await getAll();
 if (data.length === 0) {
   console.error('No data — check DATA_FILE');
   process.exit(1);
@@ -51,17 +51,15 @@ for (const [i, r] of pending.entries()) {
       suspects.push({ r, dist, address: result.fields.address });
       console.log(`[${i + 1}/${pending.length}] SUSPECT ${r.name} — match ${dist.toFixed(1)} mi from pin, skipped`);
     } else {
+      await updateRow(r.id, result.fields);
       Object.assign(r, result.fields);
       applied++;
       console.log(`[${i + 1}/${pending.length}] ok     ${r.name}${dist !== null ? ` (${dist.toFixed(2)} mi)` : ''}`);
     }
   }
 
-  if ((i + 1) % 20 === 0) writeData(data);
   await sleep(THROTTLE_MS);
 }
-
-writeData(data);
 
 const lines = [
   `# Backfill report — ${new Date().toISOString().slice(0, 10)}`,

@@ -14,7 +14,7 @@
  */
 import Anthropic from '@anthropic-ai/sdk';
 import fs from 'node:fs';
-import { readData, writeData, TAG_VOCABULARY } from '../data.js';
+import { getAll, updateRow, TAG_VOCABULARY } from '../data.js';
 
 const args = process.argv.slice(2);
 const limitIdx = args.indexOf('--limit');
@@ -92,7 +92,7 @@ function writeReport(data, locationIssues) {
   fs.writeFileSync(REPORT, lines.join('\n'));
 }
 
-const data = readData();
+const data = await getAll();
 const locationIssues = [];
 
 if (VERIFY_ONLY) {
@@ -113,24 +113,25 @@ async function worker(queue) {
     try {
       const out = await extract(client, r);
       if (out) {
-        if (out.dishes.length) r.dishes = [...new Set([...(r.dishes ?? []), ...out.dishes])];
+        const fields = {};
+        if (out.dishes.length) fields.dishes = [...new Set([...(r.dishes ?? []), ...out.dishes])];
         const validTags = out.tags.filter((t) => TAG_VOCABULARY.includes(t));
-        if (validTags.length) r.tags = [...new Set([...(r.tags ?? []), ...validTags])];
+        if (validTags.length) fields.tags = [...new Set([...(r.tags ?? []), ...validTags])];
+        if (Object.keys(fields).length) {
+          await updateRow(r.id, fields);
+          Object.assign(r, fields);
+        }
         if (out.location_issue) locationIssues.push({ r, issue: out.location_issue });
       }
     } catch (err) {
       console.error(`FAILED ${r.id}: ${err.message}`);
     }
     done++;
-    if (done % 25 === 0) {
-      writeData(data);
-      console.log(`${done}/${pending.length}`);
-    }
+    if (done % 25 === 0) console.log(`${done}/${pending.length}`);
   }
 }
 
 const queue = [...pending];
 await Promise.all(Array.from({ length: CONCURRENCY }, () => worker(queue)));
-writeData(data);
 writeReport(data, locationIssues);
 console.log(`Done: ${done} processed, ${locationIssues.length} location issues → ${REPORT}`);

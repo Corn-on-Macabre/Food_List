@@ -2,8 +2,9 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import { z } from 'zod';
 import {
-  readData,
-  writeData,
+  getAll,
+  insertRow,
+  updateRow,
   VALID_TIERS,
   validateRestaurant,
   generateUniqueSlugId,
@@ -91,7 +92,9 @@ function json(data) {
   return { content: [{ type: 'text', text: JSON.stringify(data, null, 2) }] };
 }
 
-function applyFilters(data, { query, cuisine, tier, city, tags, near_lat, near_lng, max_distance_miles, min_rating, price_level, open_now }) {
+const TIER_WEIGHT = { loved: 2, recommended: 1, on_my_radar: 0 };
+
+function applyFilters(data, { query, cuisine, tier, tiers, city, tags, near_lat, near_lng, max_distance_miles, min_rating, price_level, open_now }) {
   let results = data;
 
   if (query) {
@@ -108,8 +111,9 @@ function applyFilters(data, { query, cuisine, tier, city, tags, near_lat, near_l
     const c = cuisine.toLowerCase();
     results = results.filter((r) => r.cuisine.toLowerCase() === c);
   }
-  if (tier) {
-    results = results.filter((r) => r.tier === tier);
+  const allowedTiers = tiers?.length ? tiers : (tier ? [tier] : null);
+  if (allowedTiers) {
+    results = results.filter((r) => allowedTiers.includes(r.tier));
   }
   if (city) {
     const ct = city.toLowerCase();
@@ -139,7 +143,10 @@ function applyFilters(data, { query, cuisine, tier, city, tags, near_lat, near_l
     }
     results = [...results].sort((a, b) => a.distance_miles - b.distance_miles);
   } else {
-    results = [...results].sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
+    // Bobby's opinion outranks Google's: loved > recommended > radar, then rating
+    results = [...results].sort(
+      (a, b) => (TIER_WEIGHT[b.tier] ?? 0) - (TIER_WEIGHT[a.tier] ?? 0) || (b.rating ?? 0) - (a.rating ?? 0)
+    );
   }
 
   return results;
@@ -163,7 +170,9 @@ function buildServer(authed) {
         "Bobby's personal curated restaurant list — mostly Phoenix metro, plus trips (dallas, chicago, "  +
         "se-connecticut, wichita, hartford — filter with city). Every restaurant has a tier: " +
         "'loved' (personal favorites), 'recommended' (solid picks), or 'on_my_radar' (want to try, not yet vetted). " +
-        'Ratings and price levels come from Google Places. Use search_restaurants for filtered lookups, ' +
+        'Ratings, hours, and price levels come from Google Places. For "give me recommendations" style asks, ' +
+        "call search_restaurants with tiers:['loved','recommended'] and the city — results are already sorted " +
+        'tier-first. Use search_restaurants for filtered lookups, ' +
         'pick_random for "what should I eat tonight" (both support open_now, computed in each place\'s local time), ' +
         'and list_cuisines to see what cuisines exist before filtering.' +
         writeToolNote,
@@ -177,11 +186,12 @@ function buildServer(authed) {
       description:
         'Search and filter the curated restaurant list. All filters are optional and combine (AND). ' +
         'If near_lat/near_lng are given, results are sorted nearest-first and include distance_miles; ' +
-        'otherwise they are sorted by Google rating.',
+        "otherwise they are sorted by Bobby's tier (loved > recommended > on_my_radar) then Google rating.",
       inputSchema: {
         query: z.string().optional().describe('Free-text match against name, cuisine, and notes'),
         cuisine: z.string().optional().describe("Exact cuisine, e.g. 'Korean' (see list_cuisines)"),
-        tier: z.enum(TIERS).optional(),
+        tier: z.enum(TIERS).optional().describe('Single tier (see also tiers)'),
+        tiers: z.array(z.enum(TIERS)).optional().describe("Any-of tier filter — for \"recommendations\" use ['loved','recommended']"),
         city: z.string().optional().describe("Metro region, e.g. 'phoenix', 'dallas', 'chicago', 'se-connecticut', 'wichita', 'hartford'"),
         tags: z.array(z.enum(TAG_VOCABULARY)).optional().describe('Restaurant must have ALL of these occasion/vibe tags'),
         min_rating: z.number().min(0).max(5).optional().describe('Minimum Google rating'),
@@ -192,7 +202,7 @@ function buildServer(authed) {
       },
     },
     async (args) => {
-      const results = applyFilters(readData(), args);
+      const results = applyFilters(await getAll(), args);
       const limit = args.limit ?? 20;
       return json({
         total_matches: results.length,
@@ -213,7 +223,7 @@ function buildServer(authed) {
       },
     },
     async ({ id, name }) => {
-      const data = readData();
+      const data = await getAll();
       if (id) {
         const match = data.find((r) => r.id === id);
         return match ? json(fullResult(match)) : json({ error: `No restaurant with id '${id}'` });
@@ -235,12 +245,16 @@ function buildServer(authed) {
     'list_cuisines',
     {
       title: 'List cuisines',
-      description: 'All cuisines in the collection with restaurant counts. Use these values for the cuisine filter.',
-      inputSchema: {},
+      description: 'Cuisines with restaurant counts, optionally scoped to a city. Use these values for the cuisine filter.',
+      inputSchema: {
+        city: z.string().optional().describe("Metro region to scope to, e.g. 'phoenix'"),
+      },
     },
-    async () => {
+    async ({ city }) => {
       const counts = {};
-      for (const r of readData()) {
+      const ct = city?.toLowerCase();
+      for (const r of await getAll()) {
+        if (ct && (r.city ?? '').toLowerCase() !== ct) continue;
         counts[r.cuisine] = (counts[r.cuisine] ?? 0) + 1;
       }
       const cuisines = Object.entries(counts)
@@ -258,7 +272,7 @@ function buildServer(authed) {
       inputSchema: {},
     },
     async () => {
-      const data = readData();
+      const data = await getAll();
       const byTier = Object.fromEntries(TIERS.map((t) => [t, 0]));
       const cuisineCounts = {};
       const cityCounts = {};
@@ -295,7 +309,7 @@ function buildServer(authed) {
       },
     },
     async (args) => {
-      const results = applyFilters(readData(), args);
+      const results = applyFilters(await getAll(), args);
       if (results.length === 0) return json({ error: 'No restaurants match those filters' });
       const pick = results[Math.floor(Math.random() * results.length)];
       return json({ pool_size: results.length, pick: compactResult(pick) });
@@ -333,18 +347,18 @@ function registerWriteTools(server) {
       },
     },
     async ({ id, new_tier, note_append, dishes, tags_add }) => {
-      const data = readData();
+      const data = await getAll();
       const r = data.find((x) => x.id === id);
       if (!r) return json({ error: `No restaurant with id '${id}'` });
-      if (new_tier) r.tier = new_tier;
+      const fields = { lastVisited: today() };
+      if (new_tier) fields.tier = new_tier;
       if (note_append) {
-        r.notes = r.notes ? `${r.notes}\n[visited ${today()}] ${note_append}` : `[visited ${today()}] ${note_append}`;
+        fields.notes = r.notes ? `${r.notes}\n[visited ${today()}] ${note_append}` : `[visited ${today()}] ${note_append}`;
       }
-      if (dishes?.length) r.dishes = mergeUnique(r.dishes, dishes);
-      if (tags_add?.length) r.tags = mergeUnique(r.tags, tags_add);
-      r.lastVisited = today();
-      writeData(data);
-      return json({ updated: fullResult(r) });
+      if (dishes?.length) fields.dishes = mergeUnique(r.dishes, dishes);
+      if (tags_add?.length) fields.tags = mergeUnique(r.tags, tags_add);
+      const updated = await updateRow(id, fields);
+      return json({ updated: fullResult(updated) });
     }
   );
 
@@ -365,15 +379,12 @@ function registerWriteTools(server) {
       },
     },
     async ({ id, ...updates }) => {
-      const data = readData();
-      const r = data.find((x) => x.id === id);
-      if (!r) return json({ error: `No restaurant with id '${id}'` });
       if (updates.cuisine !== undefined) updates.cuisine = updates.cuisine.trim();
-      for (const [k, v] of Object.entries(updates)) {
-        if (v !== undefined) r[k] = v;
-      }
-      writeData(data);
-      return json({ updated: fullResult(r) });
+      const fields = Object.fromEntries(Object.entries(updates).filter(([, v]) => v !== undefined));
+      if (Object.keys(fields).length === 0) return json({ error: 'No fields to update' });
+      const updated = await updateRow(id, fields);
+      if (!updated) return json({ error: `No restaurant with id '${id}'` });
+      return json({ updated: fullResult(updated) });
     }
   );
 
@@ -397,7 +408,7 @@ function registerWriteTools(server) {
       },
     },
     async ({ name, lat, lng, cuisine, tier, notes, tags, googleMapsUrl }) => {
-      const data = readData();
+      const data = await getAll();
       const existing = data.find((x) => x.name.toLowerCase() === name.trim().toLowerCase());
       if (existing) {
         return json({
@@ -419,10 +430,9 @@ function registerWriteTools(server) {
       if (tags?.length) restaurant.tags = tags;
       const errors = validateRestaurant(restaurant);
       if (errors.length > 0) return json({ error: 'Validation failed', details: errors });
-      data.push(restaurant);
-      writeData(data);
-      enrichInBackground(restaurant);
-      return json({ added: restaurant, note: 'Rating/price/photo enrichment runs in the background' });
+      const inserted = await insertRow(restaurant);
+      enrichInBackground(inserted);
+      return json({ added: inserted, note: 'Rating/price/photo/hours enrichment runs in the background' });
     }
   );
 }
@@ -432,13 +442,26 @@ function registerWriteTools(server) {
  * A fresh server + transport per request: no session state, safe across
  * process restarts, and concurrent requests can't cross-talk.
  *
- * Requests carrying `Authorization: Bearer <ADMIN_PASSWORD>` get the write
- * tools registered; everyone else silently gets the read-only set.
+ * `isAuthed(req)` decides whether write tools are registered (static admin
+ * bearer or a valid OAuth token). With `requireAuth`, unauthenticated
+ * requests get a 401 + WWW-Authenticate challenge pointing at the protected
+ * resource metadata — that 401 is what triggers the OAuth flow in MCP
+ * clients like the Claude app.
  */
-export function createMcpHandler(adminPassword) {
+export function createMcpHandler({ isAuthed, requireAuth = false, resourceMetadataUrl }) {
   return async (req, res) => {
     try {
-      const authed = req.headers.authorization === `Bearer ${adminPassword}`;
+      const authed = await isAuthed(req);
+      if (requireAuth && !authed) {
+        res.status(401)
+          .set('WWW-Authenticate', `Bearer resource_metadata="${resourceMetadataUrl}"`)
+          .json({
+            jsonrpc: '2.0',
+            error: { code: -32001, message: 'Unauthorized: valid curator credentials required' },
+            id: null,
+          });
+        return;
+      }
       const server = buildServer(authed);
       const transport = new StreamableHTTPServerTransport({
         sessionIdGenerator: undefined,

@@ -1,26 +1,57 @@
 import fs from 'node:fs';
 
+// --- Store selection ---
+// With SUPABASE_URL + SUPABASE_SERVICE_KEY set, the Supabase `restaurants`
+// table is the single store (same one the frontend reads/writes). Without
+// them (local dev, tests), falls back to a JSON file at DATA_FILE.
+const SUPABASE_URL = process.env.SUPABASE_URL || '';
+const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY || '';
+export const SUPABASE_MODE = Boolean(SUPABASE_URL && SUPABASE_SERVICE_KEY);
+
 export const DATA_FILE = process.env.DATA_FILE || '/var/www/food-list/restaurants.json';
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY || '';
 
-// --- File I/O ---
+// --- Supabase (PostgREST) helpers ---
+const REST = `${SUPABASE_URL}/rest/v1/restaurants`;
+
+async function rest(method, query, body, prefer) {
+  const headers = {
+    apikey: SUPABASE_SERVICE_KEY,
+    Authorization: `Bearer ${SUPABASE_SERVICE_KEY}`,
+    'Content-Type': 'application/json',
+  };
+  if (prefer) headers.Prefer = prefer;
+  if (method === 'GET') headers.Range = '0-9999';
+  const resp = await fetch(`${REST}${query}`, {
+    method,
+    headers,
+    body: body === undefined ? undefined : JSON.stringify(body),
+  });
+  if (!resp.ok) {
+    const detail = await resp.text().catch(() => '');
+    throw new Error(`Supabase ${method} ${resp.status}: ${detail.slice(0, 200)}`);
+  }
+  if (resp.status === 204) return null;
+  return resp.json();
+}
+
+// URL-encode filter values — PostgREST eq. treats quotes as literal chars
+const q = (id) => encodeURIComponent(String(id));
+
+// --- File-mode helpers ---
 let writing = false;
 
-export function readData() {
+function fileRead() {
   try {
     return JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
   } catch (err) {
-    if (err.code === 'ENOENT') {
-      return [];
-    }
+    if (err.code === 'ENOENT') return [];
     throw err;
   }
 }
 
-export function writeData(data) {
-  if (writing) {
-    throw new Error('Concurrent write in progress');
-  }
+function fileWrite(data) {
+  if (writing) throw new Error('Concurrent write in progress');
   writing = true;
   try {
     const tmp = DATA_FILE + '.tmp';
@@ -29,6 +60,52 @@ export function writeData(data) {
   } finally {
     writing = false;
   }
+}
+
+// --- Row-level store API (async in both modes) ---
+
+export async function getAll() {
+  if (SUPABASE_MODE) return rest('GET', '?select=*&order=id');
+  return fileRead();
+}
+
+export async function insertRow(row) {
+  if (SUPABASE_MODE) {
+    const rows = await rest('POST', '', [row], 'return=representation');
+    return rows[0];
+  }
+  const data = fileRead();
+  data.push(row);
+  fileWrite(data);
+  return row;
+}
+
+/** Merge fields into the row; returns the updated row or null if not found. */
+export async function updateRow(id, fields) {
+  if (SUPABASE_MODE) {
+    const rows = await rest('PATCH', `?id=eq.${q(id)}`, fields, 'return=representation');
+    return rows.length ? rows[0] : null;
+  }
+  const data = fileRead();
+  const row = data.find((r) => r.id === id);
+  if (!row) return null;
+  Object.assign(row, fields);
+  fileWrite(data);
+  return row;
+}
+
+/** Returns true if a row was deleted. */
+export async function deleteRow(id) {
+  if (SUPABASE_MODE) {
+    const rows = await rest('DELETE', `?id=eq.${q(id)}`, undefined, 'return=representation');
+    return rows.length > 0;
+  }
+  const data = fileRead();
+  const idx = data.findIndex((r) => r.id === id);
+  if (idx === -1) return false;
+  data.splice(idx, 1);
+  fileWrite(data);
+  return true;
 }
 
 // --- Validation ---
@@ -189,20 +266,15 @@ export async function enrichRestaurant(name, lat, lng, radiusM = ENRICH_RADIUS_M
 }
 
 /**
- * Enrich a restaurant in the background and merge the fields into the data
- * file when done. Shared by the admin POST route and the MCP add_restaurant
+ * Enrich a restaurant in the background and merge the fields into the store
+ * when done. Shared by the admin POST route and the MCP add_restaurant
  * tool — never blocks the caller.
  */
 export function enrichInBackground(restaurant) {
-  enrichRestaurant(restaurant.name, restaurant.lat, restaurant.lng).then((result) => {
+  enrichRestaurant(restaurant.name, restaurant.lat, restaurant.lng).then(async (result) => {
     if (result) {
-      const fresh = readData();
-      const idx = fresh.findIndex((r) => r.id === restaurant.id);
-      if (idx !== -1) {
-        Object.assign(fresh[idx], result.fields);
-        writeData(fresh);
-        console.log(`Enriched "${restaurant.name}": ${Object.keys(result.fields).join(', ')}`);
-      }
+      await updateRow(restaurant.id, result.fields);
+      console.log(`Enriched "${restaurant.name}": ${Object.keys(result.fields).join(', ')}`);
     }
   }).catch(() => {});
 }
