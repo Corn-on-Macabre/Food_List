@@ -10,6 +10,8 @@ import {
   generateUniqueSlugId,
   enrichInBackground,
   haversineDistance,
+  nearestCity,
+  METRO_CENTERS,
   TAG_VOCABULARY,
   CITY_TIMEZONES,
 } from './data.js';
@@ -402,12 +404,13 @@ function registerWriteTools(server) {
         lng: z.number().min(-180).max(180),
         cuisine: z.string().min(1),
         tier: z.enum(TIERS).describe("Usually 'on_my_radar' for a place Bobby hasn't tried yet"),
+        city: z.enum(Object.keys(METRO_CENTERS)).optional().describe('Metro region — defaults to the nearest one to the coordinates'),
         notes: z.string().optional(),
         tags: z.array(z.string()).optional(),
         googleMapsUrl: z.string().url().optional().describe('Defaults to a maps search link for the name + coords'),
       },
     },
-    async ({ name, lat, lng, cuisine, tier, notes, tags, googleMapsUrl }) => {
+    async ({ name, lat, lng, cuisine, tier, city, notes, tags, googleMapsUrl }) => {
       const data = await getAll();
       const existing = data.find((x) => x.name.toLowerCase() === name.trim().toLowerCase());
       if (existing) {
@@ -420,6 +423,8 @@ function registerWriteTools(server) {
         name: name.trim(),
         tier,
         cuisine: cuisine.trim(),
+        // The map is city-scoped — a record without a city is invisible on it
+        city: city ?? nearestCity(lat, lng),
         lat,
         lng,
         googleMapsUrl:

@@ -111,6 +111,29 @@ export async function deleteRow(id) {
 // --- Validation ---
 export const VALID_TIERS = ['loved', 'recommended', 'on_my_radar'];
 
+// Metro centers — keep in sync with src/constants/metros.ts. The map only
+// shows records whose city matches a metro, so every record MUST have one.
+export const METRO_CENTERS = {
+  phoenix: { lat: 33.4484, lng: -112.0740 },
+  dallas: { lat: 32.7767, lng: -96.7970 },
+  chicago: { lat: 41.8781, lng: -87.6298 },
+  'se-connecticut': { lat: 41.3556, lng: -72.0995 },
+  wichita: { lat: 37.6872, lng: -97.3301 },
+  hartford: { lat: 41.7658, lng: -72.6734 },
+  nyc: { lat: 40.7128, lng: -74.0060 },
+  paris: { lat: 48.8566, lng: 2.3522 },
+};
+
+export function nearestCity(lat, lng) {
+  let best = 'phoenix';
+  let bestDist = Infinity;
+  for (const [id, c] of Object.entries(METRO_CENTERS)) {
+    const d = haversineDistance(lat, lng, c.lat, c.lng);
+    if (d < bestDist) { best = id; bestDist = d; }
+  }
+  return best;
+}
+
 // Opening hours are stored in each place's local time. Keep in sync with
 // src/constants/metros.ts.
 export const CITY_TIMEZONES = {
