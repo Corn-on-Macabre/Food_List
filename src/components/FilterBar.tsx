@@ -30,6 +30,9 @@ interface FilterBarProps {
   onTagToggle: (tag: string) => void;
   availableTags: readonly string[];
   hasHours: boolean;
+  recognized: boolean;
+  onRecognizedChange: (recognized: boolean) => void;
+  hasAccolades: boolean;
 }
 
 const TIER_OPTIONS: { value: Tier; label: string }[] = [
@@ -61,6 +64,9 @@ export function FilterBar({
   onTagToggle,
   availableTags,
   hasHours,
+  recognized,
+  onRecognizedChange,
+  hasAccolades,
 }: FilterBarProps) {
   const { isAuthenticated } = useAdminAuth();
 
@@ -180,8 +186,17 @@ export function FilterBar({
           })}
         </div>
         {/* Open Now + vibe tags row — hidden until the city has hours/tag data */}
-        {(hasHours || availableTags.length > 0) && (
+        {(hasHours || availableTags.length > 0 || hasAccolades) && (
           <div role="group" aria-label="Filter by availability and vibe" className="flex gap-2 overflow-x-auto px-4 pb-2 scrollbar-hide">
+            {hasAccolades && (
+              <button
+                className={`${chipBase} ${recognized ? chipActive : chipInactive}`}
+                aria-pressed={recognized}
+                onClick={() => onRecognizedChange(!recognized)}
+              >
+                &#127942; Recognized
+              </button>
+            )}
             {hasHours && (
               <button
                 className={`${chipBase} ${openNow ? chipActive : chipInactive}`}

@@ -29,6 +29,15 @@ export interface Restaurant {
   openingHours?: OpeningHours;
   lastVisited?: string;        // ISO date — set by the MCP log_visit tool
   dishes?: string[];           // Standout dishes recorded via log_visit
+  accolades?: Accolade[];      // Press/community recognition (badges + filter)
+}
+
+export interface Accolade {
+  source: string;    // e.g. "Phoenix New Times"
+  list?: string;     // e.g. "50 Best"
+  year?: number;
+  category?: string; // e.g. "Neighborhood Favorites"
+  url?: string;
 }
 
 export interface OpeningHours {
@@ -49,4 +58,5 @@ export interface FilterState {
   searchTerm: string | null;
   openNow: boolean;
   tags: string[];
+  recognized: boolean;
 }

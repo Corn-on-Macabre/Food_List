@@ -100,7 +100,7 @@ function json(data) {
 
 const TIER_WEIGHT = { loved: 2, recommended: 1, on_my_radar: 0 };
 
-function applyFilters(data, { query, cuisine, tier, tiers, city, tags, near_lat, near_lng, max_distance_miles, min_rating, price_level, open_now }) {
+function applyFilters(data, { query, cuisine, tier, tiers, city, tags, near_lat, near_lng, max_distance_miles, min_rating, price_level, open_now, has_accolade, accolade_source }) {
   let results = data;
 
   if (query) {
@@ -136,6 +136,13 @@ function applyFilters(data, { query, cuisine, tier, tiers, city, tags, near_lat,
   }
   if (open_now) {
     results = results.filter((r) => r.openingHours && isOpenNow(r.openingHours, restaurantNowMinutes(r)));
+  }
+  if (has_accolade) {
+    results = results.filter((r) => Array.isArray(r.accolades) && r.accolades.length > 0);
+  }
+  if (accolade_source) {
+    const src = accolade_source.toLowerCase();
+    results = results.filter((r) => (r.accolades ?? []).some((a) => (a.source ?? '').toLowerCase().includes(src)));
   }
 
   const hasLocation = typeof near_lat === 'number' && typeof near_lng === 'number';
@@ -205,6 +212,8 @@ function buildServer(authed) {
         min_rating: z.number().min(0).max(5).optional().describe('Minimum Google rating'),
         price_level: z.enum(Object.keys(PRICE_LEVELS)).optional(),
         open_now: z.boolean().optional().describe("Only restaurants open right now (each place's local time). Places with unknown hours are excluded."),
+        has_accolade: z.boolean().optional().describe('Only places with press/community recognition (e.g. Phoenix New Times 50 Best)'),
+        accolade_source: z.string().optional().describe("Filter to a recognition source, e.g. 'New Times'"),
         limit: z.number().int().positive().max(100).optional().describe('Max results to return (default 20)'),
         ...locationInputs,
       },
@@ -557,6 +566,62 @@ function registerWriteTools(server) {
       const result = await enrichRestaurant(r.name, r.lat, r.lng, 2000);
       if (!result) return json({ error: 'Google Places returned no match near the pin' });
       const updated = await updateRow(id, result.fields);
+      return json({ updated: fullResult(updated) });
+    }
+  );
+
+  server.registerTool(
+    'add_accolade',
+    {
+      title: 'Add recognition',
+      description:
+        'Record press or community recognition for a restaurant (e.g. a Phoenix New Times list, a ' +
+        'James Beard nod, an r/phoenix favorite). Shown as a badge on the card and filterable.',
+      inputSchema: {
+        id: z.string().describe('Slug id of the restaurant'),
+        source: z.string().min(1).describe("Who recognized it, e.g. 'Phoenix New Times', 'r/phoenix'"),
+        list: z.string().optional().describe("Which list/award, e.g. '50 Best'"),
+        year: z.number().int().min(2000).max(2100).optional(),
+        category: z.string().optional().describe("List category, e.g. 'Neighborhood Favorites'"),
+        url: z.string().url().optional().describe('Link to the article/thread'),
+      },
+    },
+    async ({ id, ...accolade }) => {
+      const data = await getAll();
+      const r = data.find((x) => x.id === id);
+      if (!r) return json({ error: `No restaurant with id '${id}'` });
+      const accolades = Array.isArray(r.accolades) ? [...r.accolades] : [];
+      const dup = accolades.some(
+        (a) => a.source === accolade.source && a.list === accolade.list && a.year === accolade.year
+      );
+      if (dup) return json({ error: 'That accolade already exists on this restaurant' });
+      accolades.push(accolade);
+      const updated = await updateRow(id, { accolades });
+      return json({ updated: fullResult(updated) });
+    }
+  );
+
+  server.registerTool(
+    'remove_accolade',
+    {
+      title: 'Remove recognition',
+      description: 'Remove an accolade from a restaurant by source (and optionally year).',
+      inputSchema: {
+        id: z.string().describe('Slug id of the restaurant'),
+        source: z.string().min(1),
+        year: z.number().int().optional().describe('Only remove the entry for this year'),
+      },
+    },
+    async ({ id, source, year }) => {
+      const data = await getAll();
+      const r = data.find((x) => x.id === id);
+      if (!r) return json({ error: `No restaurant with id '${id}'` });
+      const before = Array.isArray(r.accolades) ? r.accolades : [];
+      const after = before.filter(
+        (a) => !((a.source ?? '').toLowerCase() === source.toLowerCase() && (year === undefined || a.year === year))
+      );
+      if (after.length === before.length) return json({ error: 'No matching accolade found' });
+      const updated = await updateRow(id, { accolades: after.length ? after : null });
       return json({ updated: fullResult(updated) });
     }
   );

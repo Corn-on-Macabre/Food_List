@@ -39,6 +39,9 @@ const baseProps = {
   onTagToggle: vi.fn(),
   availableTags: [] as string[],
   hasHours: false,
+  recognized: false,
+  onRecognizedChange: vi.fn(),
+  hasAccolades: false,
 };
 
 describe('FilterBar', () => {

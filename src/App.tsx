@@ -102,7 +102,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
   // Resolve initial city: URL param > default (will be updated by geolocation)
   const initialCity = (urlCityId && getMetro(urlCityId)) ? urlCityId : DEFAULT_METRO_ID;
   const [selectedRestaurant, setSelectedRestaurant] = useState<Restaurant | null>(null);
-  const [filters, setFilters] = useState<FilterState>({ city: initialCity, cuisine: null, tier: null, maxDistance: null, searchTerm: null, openNow: false, tags: [] });
+  const [filters, setFilters] = useState<FilterState>({ city: initialCity, cuisine: null, tier: null, maxDistance: null, searchTerm: null, openNow: false, tags: [], recognized: false });
 
   // Resolve city from geolocation once (only if no URL city was specified)
   const geoResolved = useRef(false);
@@ -198,6 +198,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
         if (filters.cuisine && r.cuisine !== filters.cuisine) return false;
         if (filters.tier && r.tier !== filters.tier) return false;
         if (filters.openNow && !isOpenNow(r.openingHours, nowMinutes)) return false;
+        if (filters.recognized && !(r.accolades && r.accolades.length > 0)) return false;
         if (filters.tags.length > 0 && !filters.tags.every((t) => r.tags?.includes(t))) return false;
         if (effectiveMaxDistance !== null && coords !== null) {
           const dist = haversineDistance(coords.lat, coords.lng, r.lat, r.lng);
@@ -206,7 +207,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
         return true;
       });
     },
-    [cityRestaurants, filters.searchTerm, filters.cuisine, filters.tier, filters.openNow, filters.tags, effectiveMaxDistance, coords, activeMetro.timezone],
+    [cityRestaurants, filters.searchTerm, filters.cuisine, filters.tier, filters.openNow, filters.recognized, filters.tags, effectiveMaxDistance, coords, activeMetro.timezone],
   );
 
   // Cuisines scoped to selected city
@@ -221,6 +222,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
     return TAG_VOCABULARY.filter((t) => present.has(t));
   }, [cityRestaurants]);
   const hasHours = useMemo(() => cityRestaurants.some((r) => r.openingHours), [cityRestaurants]);
+  const hasAccolades = useMemo(() => cityRestaurants.some((r) => r.accolades && r.accolades.length > 0), [cityRestaurants]);
 
   // Dynamically measure the filter bar height so the map container can offset below it.
   // ResizeObserver keeps the padding in sync when the bar resizes (e.g., distance row appearing).
@@ -239,10 +241,10 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
     return () => observer.disconnect();
   }, []);
 
-  const hasActiveFilters = filters.searchTerm !== null || filters.cuisine !== null || filters.tier !== null || filters.maxDistance !== null || filters.openNow || filters.tags.length > 0;
+  const hasActiveFilters = filters.searchTerm !== null || filters.cuisine !== null || filters.tier !== null || filters.maxDistance !== null || filters.openNow || filters.recognized || filters.tags.length > 0;
 
   function handleClearFilters() {
-    setFilters((f) => ({ ...f, cuisine: null, tier: null, maxDistance: null, searchTerm: null, openNow: false, tags: [] }));
+    setFilters((f) => ({ ...f, cuisine: null, tier: null, maxDistance: null, searchTerm: null, openNow: false, tags: [], recognized: false }));
   }
 
   const handleCityChange = useCallback((cityId: string) => {
@@ -291,6 +293,9 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           onTagToggle={(tag) => setFilters(f => ({ ...f, tags: f.tags.includes(tag) ? f.tags.filter(t => t !== tag) : [...f.tags, tag] }))}
           availableTags={availableTags}
           hasHours={hasHours}
+          recognized={filters.recognized}
+          onRecognizedChange={(recognized) => setFilters(f => ({ ...f, recognized }))}
+          hasAccolades={hasAccolades}
         />
       </div>
       <APIProvider apiKey={apiKey}>

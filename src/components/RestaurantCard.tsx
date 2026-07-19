@@ -140,6 +140,30 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
 
         {restaurant.featured && <div className="mt-1"><BobbyPickBadge /></div>}
 
+        {restaurant.accolades && restaurant.accolades.length > 0 && (
+          <div className="mt-1.5 flex flex-wrap gap-1.5">
+            {restaurant.accolades.map((a) => {
+              const label = [a.source, a.list, a.year ? `'${String(a.year).slice(2)}` : null]
+                .filter(Boolean)
+                .join(" ");
+              const badge = (
+                <span className="inline-flex items-center gap-1 rounded-full border border-amber-300 bg-amber-50 px-2 py-0.5 text-[11px] font-semibold text-amber-800">
+                  <span aria-hidden="true">&#127942;</span>
+                  {label}
+                </span>
+              );
+              const key = `${a.source}-${a.list ?? ""}-${a.year ?? ""}`;
+              return a.url ? (
+                <a key={key} href={getSafeHref(a.url)} target="_blank" rel="noopener noreferrer" className="hover:opacity-80">
+                  {badge}
+                </a>
+              ) : (
+                <span key={key}>{badge}</span>
+              );
+            })}
+          </div>
+        )}
+
         {(restaurant.rating != null || formattedPrice) && (
           <div className="mt-2 flex items-center gap-2 text-sm">
             {restaurant.rating != null && (
