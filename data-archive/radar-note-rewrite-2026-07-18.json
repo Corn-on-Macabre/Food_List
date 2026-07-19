@@ -1,0 +1,672 @@
+[
+ {
+  "id": "the-eleanor",
+  "before": "Eggs Benedict and the Reuben Patty Melt are standouts. Short rib hash worth ordering. Good Scottsdale brunch.",
+  "after": "Heard the Eggs Benedict and the Reuben Patty Melt are the standouts, and the short rib hash gets a shout too. Supposed to be a good Scottsdale brunch."
+ },
+ {
+  "id": "abuelos-wichita",
+  "before": "Festive atmosphere. Made-from-scratch Mexican with good margaritas.",
+  "after": "Festive atmosphere. Made-from-scratch Mexican — the margaritas get good word of mouth."
+ },
+ {
+  "id": "6s-steakhouse-wichita",
+  "before": "Fine dining with live music. Top-quality steaks in a classy setting.",
+  "after": "Fine dining with live music. Steaks are billed as top quality in a classy setting."
+ },
+ {
+  "id": "asi-es-la-vida-restaurant",
+  "before": "Regional Mexican specialties in a bright pink building. Feels like eating at grandma's. Menu is pricey and portions are small — go for the experience.",
+  "after": "Regional Mexican specialties in a bright pink building. Reviews say it feels like eating at grandma's. Menu is pricey and portions run small — go for the experience, they say."
+ },
+ {
+  "id": "ballpark-pizza-subs",
+  "before": "Philly cheese steak sub is a must try. Wings and thin crust pizza also great. Baseball-themed neighborhood spot.",
+  "after": "Word is the Philly cheese steak sub is the must-try, with the wings and thin crust pizza right behind. Baseball-themed neighborhood spot."
+ },
+ {
+  "id": "barcoa-agaveria",
+  "before": "Tequila and mezcal bar downtown PHX. Massive agave selection — even their well stuff is good. Food truck out front with solid tacos. $7 beer and shot at happy hour.",
+  "after": "Tequila and mezcal bar downtown PHX. Massive agave selection — supposedly even their well stuff is good. Food truck out front with tacos people vouch for. $7 beer and shot at happy hour."
+ },
+ {
+  "id": "sweet-willys-bbq-wichita",
+  "before": "More creative than most Wichita BBQ. Tasty and different.",
+  "after": "Supposed to be more creative than most Wichita BBQ — tasty and different, per the word around town."
+ },
+ {
+  "id": "american-way-pasta",
+  "before": "Cacio e pepe in the cheese wheel. Housemade pasta. Looks unassuming from the outside, turns out to be elegant inside.",
+  "after": "Cacio e pepe in the cheese wheel. Housemade pasta. Looks unassuming from the outside — word is it's elegant inside."
+ },
+ {
+  "id": "banham-s-cheesecake",
+  "before": "Cookie butter cheesecake is the move. Supposed to rival New York-level cheesecake. Worth the drive from anywhere in the valley.",
+  "after": "People swear by the cookie butter cheesecake — supposed to rival New York-level cheesecake and worth the drive from anywhere in the valley."
+ },
+ {
+  "id": "bitz-ee-mama-s",
+  "before": "Classic Mexican-American breakfast spot. Chorizo skillet is big and delicious — ask for refried beans added. Red chili con carne is fresh, not from a can.",
+  "after": "Classic Mexican-American breakfast spot. The chorizo skillet is supposedly big and delicious — tip is to ask for refried beans added. Red chili con carne is said to be fresh, not from a can."
+ },
+ {
+  "id": "bad-jimmy-s-uptown",
+  "before": "Retro vibe smash burgers — red neon, 80s music, skylight. Waffle fries are great. Lettuce wrap instead of a bun is available. One of the better burger spots in Uptown.",
+  "after": "Retro vibe smash burgers — red neon, 80s music, skylight. Reviews rave about the waffle fries. Lettuce wrap instead of a bun is available. Heard it's one of the better burger spots in Uptown."
+ },
+ {
+  "id": "ben-brothers-market",
+  "before": "Corner store with a Chinese kitchen inside. Buffalo chicken wings and the egg rolls are better than most actual Chinese restaurants. Been around since 1988. Shrimp fried rice is the classic order.",
+  "after": "Corner store with a Chinese kitchen inside. Word of mouth says the buffalo chicken wings and egg rolls are better than most actual Chinese restaurants. Been around since 1988. Shrimp fried rice is the classic order."
+ },
+ {
+  "id": "aloha-kitchen",
+  "before": "Hawaiian plate lunch spot that's been around since the 90s. Kalbi plate and the poke are the highlights. Jr Special is the go-to order.",
+  "after": "Hawaiian plate lunch spot that's been around since the 90s. Heard the kalbi plate and the poke are the highlights, and the Jr Special is the go-to order."
+ },
+ {
+  "id": "knuckle-sandwiches",
+  "before": "The Cuban sandwich hits. Also get the German potato salad — cold. Turkey cranberry sandwich is solid too.",
+  "after": "Reviews rave about the Cuban sandwich. The German potato salad — served cold — gets called out too, and the turkey cranberry sandwich is supposed to be solid."
+ },
+ {
+  "id": "taco-guild",
+  "before": "Set inside a restored old church with stained glass windows and vaulted ceilings — the space is wild. Sustainable Mexican fare, great habanero salsa. Strong drinks. Craft beer and tequila program.",
+  "after": "Set inside a restored old church with stained glass windows and vaulted ceilings — the space looks wild. Sustainable Mexican fare; people rave about the habanero salsa. Supposedly strong drinks. Craft beer and tequila program."
+ },
+ {
+  "id": "el-super-taco",
+  "before": "Shrimp taco is the standout when they have it. Asada burrito is solid and filling. Salsa bar is the move. Quality has fluctuated but on a good day it hits.",
+  "after": "Heard the shrimp taco is the standout when they have it. Asada burrito supposedly solid and filling, and regulars say the salsa bar is the move. Reviews say quality has fluctuated but on a good day it hits."
+ },
+ {
+  "id": "mendocino-farms",
+  "before": "Creative gourmet sandwiches with seasonal ingredients. The chicken pesto caprese is a winner. Busy at dinner — online order might run long.",
+  "after": "Creative gourmet sandwiches with seasonal ingredients. Word is the chicken pesto caprese is a winner. Supposedly busy at dinner — online order might run long."
+ },
+ {
+  "id": "t-swirl-crepe",
+  "before": "Japanese-style crepes. Self-serve ordering kiosks inside. The Angus short rib crepe is one of the more interesting options. Mango crepe is huge and stuffed.",
+  "after": "Japanese-style crepes. Self-serve ordering kiosks inside. The Angus short rib crepe looks like one of the more interesting options. Mango crepe is reportedly huge and stuffed."
+ },
+ {
+  "id": "pinnacle-brewing-company",
+  "before": "Scottsdale brewery doing more traditional styles — Czech Amber Lager and Dark Lager are the sleepers. Beerded Barbecue food truck on-site daily. Big patio.",
+  "after": "Scottsdale brewery doing more traditional styles — beer people say the Czech Amber Lager and Dark Lager are the sleepers. Beerded Barbecue food truck on-site daily. Big patio."
+ },
+ {
+  "id": "raj-rani-s-indian-kitchen",
+  "before": "Home-style Punjabi. Tarka dal and butter chicken are solid. Malai kofta is apparently the best version around here. Order medium spice — it runs hot.",
+  "after": "Home-style Punjabi. Reviews rave about the tarka dal and butter chicken, and the malai kofta is apparently the best version around here. Heard to order medium spice — it runs hot."
+ },
+ {
+  "id": "tabla-indian-restaurant-phoenix-az",
+  "before": "South Indian style — different from the typical valley Indian spots. Gongura Chicken Curry is the standout. Kadai Chicken is good too.",
+  "after": "South Indian style — different from the typical valley Indian spots. The Gongura Chicken Curry gets called the standout. Kadai Chicken supposedly good too."
+ },
+ {
+  "id": "da-v-ng-restaurant",
+  "before": "Best pho in Arizona according to a lot of people. Huge portions, no upcharge to substitute. Spring rolls are legit — rice paper doesn't fall apart. Small parking lot.",
+  "after": "Best pho in Arizona according to a lot of people. Huge portions, no upcharge to substitute. Reviewers swear the spring rolls are legit — rice paper doesn't fall apart. Small parking lot."
+ },
+ {
+  "id": "philly-steaks-burgers-co",
+  "before": "The Sonoran Philly is the order. Sweet potato fries are great. French Dip is also solid. Local spot that doesn't try to be anything it's not.",
+  "after": "Everyone says the Sonoran Philly is the order. Sweet potato fries supposedly great, French Dip solid too per reviews. Local spot that doesn't try to be anything it's not."
+ },
+ {
+  "id": "uniq-burger",
+  "before": "100% vegan smash burgers that fool meat eaters. Chicken ranch wrap might be better than the burgers. Fries are impossible to resist. A little pricey but quality is obvious.",
+  "after": "100% vegan smash burgers that supposedly fool meat eaters. Heard the chicken ranch wrap might be better than the burgers, and people say the fries are impossible to resist. A little pricey but reviews say the quality is obvious."
+ },
+ {
+  "id": "jalape-os-sonora-grill",
+  "before": "Yelp's #6 taco spot in the US. The Sonoran taco is the one to get. Solid salsa bar with pico, cabbage, carrots, lime, and atolía. Aqua fresca is also good.",
+  "after": "Yelp's #6 taco spot in the US. The Sonoran taco is supposedly the one to get. Salsa bar with pico, cabbage, carrots, lime, and atolía sounds solid. Aqua fresca gets mentions too."
+ },
+ {
+  "id": "revoluci-n-tacos-cantina",
+  "before": "Speakeasy taco spot tucked in an alley off Central, easy access from the light rail. Quesadilla is the move — better than the tacos. $5 beers, big outdoor seating area.",
+  "after": "Speakeasy taco spot tucked in an alley off Central, easy access from the light rail. Heard the quesadilla is the move — better than the tacos. $5 beers, big outdoor seating area."
+ },
+ {
+  "id": "tikka-n-taco",
+  "before": "Mexican-Indian fusion. Shrimp coconut curry and the paneer biryani are the standouts. Tamarind sauce with samosas is a must. The shrimp tacos use fresh ingredients and it shows.",
+  "after": "Mexican-Indian fusion. The shrimp coconut curry and paneer biryani are supposedly the standouts, and word is the tamarind sauce with samosas is a must. People say the shrimp tacos use fresh ingredients and it shows."
+ },
+ {
+  "id": "la-purisima-bakery-3",
+  "before": "Best tortillas in town according to regulars. Green pork tamales are full of flavor. Conchas are solid. The cream horn is a sleeper hit.",
+  "after": "Best tortillas in town according to regulars. People say the green pork tamales are full of flavor and the conchas are solid. The cream horn is supposedly a sleeper hit."
+ },
+ {
+  "id": "wally-burger",
+  "before": "Superhero-themed burger spot with arcade games playing Marvel and DC movies. Chili cheese fries are a solid value. Fun for kids, food is decent.",
+  "after": "Superhero-themed burger spot with arcade games playing Marvel and DC movies. Chili cheese fries are reportedly a solid value. Sounds fun for kids; reviews call the food decent."
+ },
+ {
+  "id": "xolo",
+  "before": "Chips and souiza to start. Chipotle chicken enchiladas with the house sauce are over the top. Chile relleno is cooked right. Local spot that feels like you're eating somewhere only locals know.",
+  "after": "Heard you start with chips and souiza. Reviews rave about the chipotle chicken enchiladas with the house sauce — over the top, apparently — and word is the chile relleno is cooked right. Sounds like the kind of local spot only locals know about."
+ },
+ {
+  "id": "de-babel",
+  "before": "Ranked third in the nation for Mediterranean in 2024. Shawarma is the main event — juicy, well-seasoned. Get the fries extra crispy. Huge portions, bring people. The Tractor lemonade is also good.",
+  "after": "Ranked third in the nation for Mediterranean in 2024. The shawarma is the main event by all accounts — juicy, well-seasoned. Heard to get the fries extra crispy. Supposedly huge portions, bring people. The Tractor lemonade gets shoutouts too."
+ },
+ {
+  "id": "malegria-latin-cafe",
+  "before": "Latin cafe with a walk-up patio. Fish tacos are the thing people come back for. Abuelita mocha is solid. Pastelitos and chilaquiles are also crowd favorites.",
+  "after": "Latin cafe with a walk-up patio. Fish tacos are the thing people come back for. The Abuelita mocha gets solid marks. Pastelitos and chilaquiles are also crowd favorites."
+ },
+ {
+  "id": "tell-your-friends",
+  "before": "Upscale cocktail bar with live entertainment. Oysters and steak for dinner if you want to commit. Happy hour is great — reportedly $15 on a $40 scotch drink. Glam vibe that actually delivers in person.",
+  "after": "Upscale cocktail bar with live entertainment. Oysters and steak for dinner if you want to commit. Happy hour sounds great — reportedly $15 on a $40 scotch drink. People swear the glam vibe actually delivers in person."
+ },
+ {
+  "id": "the-stetson-social",
+  "before": "Neighborhood bar with solid burgers and a good Saturday brunch 10am-2pm. Fish specials rotate — barramundi when they have it. Pastrami burger is the main draw.",
+  "after": "Neighborhood bar known for solid burgers and a good Saturday brunch 10am-2pm. Fish specials rotate — barramundi when they have it. Word is the pastrami burger is the main draw."
+ },
+ {
+  "id": "detroit-coney-grill",
+  "before": "Downtown Phoenix cheap eats institution. Triple burger is $5.45. Coneys with chili are the classic move — eat fast or the chili makes them soggy. Cheesy chili tots are also great.",
+  "after": "Downtown Phoenix cheap eats institution. Triple burger is $5.45. Coneys with chili are the classic move — people say eat fast or the chili makes them soggy. Cheesy chili tots supposedly great too."
+ },
+ {
+  "id": "full-moon-izakaya",
+  "before": "Happy hour and reverse happy hour. Ramen is solid, sushi is good too. Crispy rice is legitimately crispy. Sapporo on tap. Baby octopus is fried perfectly.",
+  "after": "Happy hour and reverse happy hour. Reviews say the ramen is solid and the sushi is good too — crispy rice that's legitimately crispy. Sapporo on tap. Heard the baby octopus is fried perfectly."
+ },
+ {
+  "id": "lutong-bahay-filipino-asian-restaurant-mini-mart",
+  "before": "Filipino restaurant and mini mart. The lumpia is apparently worth going back for the next day — someone bought 50 more. Lechon is also on point. Small and clean.",
+  "after": "Filipino restaurant and mini mart. The lumpia is apparently worth going back for the next day — someone bought 50 more. Word is the lechon is also on point. Small and clean."
+ },
+ {
+  "id": "tarbell-s",
+  "before": "Upscale Mark Tarbell spot. Mr. Fish (usually sea bass) and the Hamachi Crudo are the signatures. Beef carpaccio is excellent. Be prepared to pay — and they will charge you for extra toast.",
+  "after": "Upscale Mark Tarbell spot. Mr. Fish (usually sea bass) and the Hamachi Crudo are the signatures. Reviews rave about the beef carpaccio. Be prepared to pay — apparently they will charge you for extra toast."
+ },
+ {
+  "id": "china-chili",
+  "before": "Chinese food. Peking duck with rolls looks great. Get the wonton soup",
+  "after": "Chinese food. Peking duck with rolls looks great. Heard the wonton soup is the one to get."
+ },
+ {
+  "id": "indibar",
+  "before": "Upscale Indian with Michelin-level ambition. Vegetarian chef's tasting menu is a thing. Raji papdi chaat is incredible. Full wine list. Beautiful space, on the expensive side.",
+  "after": "Upscale Indian with Michelin-level ambition. Vegetarian chef's tasting menu is a thing. Reviews rave about the raji papdi chaat. Full wine list. Space looks beautiful, on the expensive side."
+ },
+ {
+  "id": "chispa-s-fast-fresh",
+  "before": "Drive-through Mexican. Birria tacos on Tuesday and Wednesday are the move. Breakfast burritos are solid any time of day — chorizo and egg hits. Drive-thru is convenient.",
+  "after": "Drive-through Mexican. Word is the birria tacos on Tuesday and Wednesday are the move. People swear by the breakfast burritos any time of day — chorizo and egg especially. Drive-thru is convenient."
+ },
+ {
+  "id": "popo-s-fiesta-del-sol",
+  "before": "Happy hour margaritas are $7 from 3-6pm. Rolled quesadillas are a standout. Chips come out of the fryer hot. Machaca taco is good. Classic Tex-Mex cantina that does the basics right.",
+  "after": "Happy hour margaritas are $7 from 3-6pm. Rolled quesadillas get called a standout. Supposedly the chips come out of the fryer hot and the machaca taco is good. Classic Tex-Mex cantina known for doing the basics right."
+ },
+ {
+  "id": "taco-papi",
+  "before": "Carne asada tacos and the quesaburria tacos are the ones to get. Salsa bar available. Tiny walk-up spot with authentic decor. Margaritas took a few reminders to arrive.",
+  "after": "Heard the carne asada tacos and quesaburria tacos are the ones to get. Salsa bar available. Tiny walk-up spot with authentic decor. One review said margaritas took a few reminders to arrive."
+ },
+ {
+  "id": "hachi-ramen",
+  "before": "People drive from Casa Grande for this. Spicy miso ramen is the go-to. Ask for extra chashu pork. Can be a wait on weekend nights. Presentation is impressive.",
+  "after": "People drive from Casa Grande for this. Spicy miso ramen is supposedly the go-to — word is to ask for extra chashu pork. Can be a wait on weekend nights. Presentation looks impressive."
+ },
+ {
+  "id": "walter-where-house",
+  "before": "Art gallery and music venue with a bar. Sound system is on point. Cool place to catch a show — A-Trak has played here. Multiple spots to hang out throughout the space.",
+  "after": "Art gallery and music venue with a bar. Sound system is supposedly on point. Looks like a cool place to catch a show — A-Trak has played here. Multiple spots to hang out throughout the space."
+ },
+ {
+  "id": "indian-village",
+  "before": "Frybread taco is a must — light and fluffy fry bread with great toppings. Navajo taco is the signature. Guacamole is some of the best around. Gift shop attached with native jewelry.",
+  "after": "Reviews rave about the frybread taco — light and fluffy fry bread with great toppings. Navajo taco is the signature. People say the guacamole is some of the best around. Gift shop attached with native jewelry."
+ },
+ {
+  "id": "rinaldi-s-italian-deli",
+  "before": "Meatball sub is the move — perfectly seasoned, great sauce, fresh bread. Italian combo sandwich has been a staple for 30+ years. Classic deli spot in Scottsdale.",
+  "after": "Word is the meatball sub is the move — perfectly seasoned, great sauce, fresh bread. Italian combo sandwich has been a staple for 30+ years. Classic deli spot in Scottsdale."
+ },
+ {
+  "id": "random-af-taqueria",
+  "before": "Birria grilled cheese and birria egg rolls are the standout orders. Food truck situation — located inside a party store. Birria tacos with consomé are solid. Horchata is great.",
+  "after": "Birria grilled cheese and birria egg rolls are supposedly the standout orders. Food truck situation — located inside a party store. Heard the birria tacos with consomé are solid and the horchata is great."
+ },
+ {
+  "id": "thai-rama",
+  "before": "Been open 30+ years and people have been coming for decades. Spicy garlic chicken is the signature dish. Mango sticky rice for dessert. Consistently good, reasonable prices.",
+  "after": "Been open 30+ years and people have been coming for decades. Spicy garlic chicken is the signature dish. Mango sticky rice for dessert. Known for being consistently good at reasonable prices."
+ },
+ {
+  "id": "sourdough-co",
+  "before": "Bread is made in-house, which makes a difference. Brisket sandwich and garlic pesto turkey are solid. Clam chowder in a bread bowl is the move if you want soup. Fresh and consistently good.",
+  "after": "Bread is made in-house, which supposedly makes a difference. People swear by the brisket sandwich and garlic pesto turkey. Heard the clam chowder in a bread bowl is the move if you want soup. Reviews call it fresh and consistently good."
+ },
+ {
+  "id": "theos-kitchen-to-go",
+  "before": "Food truck with some of the best chicken wings in Arizona — the BBQ sauce is the thing. Chicken sandwich is also well seasoned. Generous portions.",
+  "after": "Food truck with what people call some of the best chicken wings in Arizona — the BBQ sauce is the thing. Chicken sandwich is supposedly well seasoned too. Reviews mention generous portions."
+ },
+ {
+  "id": "choon-burritos",
+  "before": "Burritos on handmade flour tortillas. Also has gorditas. The spot for Mexicans and Californians who know what they're looking for.",
+  "after": "Burritos on handmade flour tortillas. Also has gorditas. Known as the spot for Mexicans and Californians who know what they're looking for."
+ },
+ {
+  "id": "tacos-el-rojo-phx",
+  "before": "Hidden gem taco spot. The papa loca and al pastor are the standouts. Handmade tortillas.",
+  "after": "Hidden gem taco spot. Heard the papa loca and al pastor are the standouts. Handmade tortillas."
+ },
+ {
+  "id": "taco-night-tequila",
+  "before": "Al pastor tacos and breakfast molcajete both get mentioned. Friendly service, solid value.",
+  "after": "Al pastor tacos and breakfast molcajete both get mentioned. Reviews note friendly service and solid value."
+ },
+ {
+  "id": "the-dirty-drummer",
+  "before": "Great wings",
+  "after": "Word is the wings are great."
+ },
+ {
+  "id": "the-pizza-shack",
+  "before": "Neighborhood pizza joint. White out pizza is the one to get. Small local vibe.",
+  "after": "Neighborhood pizza joint. The White out pizza is supposedly the one to get. Small local vibe."
+ },
+ {
+  "id": "being-bar",
+  "before": "Functional drinks spot — mushroom chai coffee, cacao-based cocktails, non-alcoholic creative drinks. Cool concept, run by a guy named Josh who actually explains everything.",
+  "after": "Functional drinks spot — mushroom chai coffee, cacao-based cocktails, non-alcoholic creative drinks. Cool concept, run by a guy named Josh who apparently explains everything."
+ },
+ {
+  "id": "origami-ramen-bar",
+  "before": "Manga-themed ramen spot. Chicken ramen gets called outstanding. Tablet ordering keeps things moving. Pork katsu also on point.",
+  "after": "Manga-themed ramen spot. Chicken ramen gets called outstanding. Tablet ordering supposedly keeps things moving. Pork katsu also gets praise."
+ },
+ {
+  "id": "shawarma-factory",
+  "before": "Chicken shawarma wraps near ASU. Been around a while. Solid shawarma, though portions have apparently shrunk recently.",
+  "after": "Chicken shawarma wraps near ASU. Been around a while. Shawarma is supposed to be solid, though portions have apparently shrunk recently."
+ },
+ {
+  "id": "hatch-it-green-chile-burgers-tacos",
+  "before": "Green chile Santa Fe Burger is the must-order. Also the pork burrito and red posole. Hatch green chile is the theme throughout.",
+  "after": "The green chile Santa Fe Burger is the must-order per reviews. Also the pork burrito and red posole. Hatch green chile is the theme throughout."
+ },
+ {
+  "id": "taqueria-chicali-mexican-grill",
+  "before": "What used to be a gas station. Angus beef cooked with just salt — simple and delicious. Great corn tortillas that don't fall apart. Good salsa bar.",
+  "after": "What used to be a gas station. Angus beef cooked with just salt — supposedly simple and delicious. Reviews praise corn tortillas that don't fall apart, plus a good salsa bar."
+ },
+ {
+  "id": "cajun-breakfast-joint",
+  "before": "Cajun and Creole spot. Bone-in chicken and waffles, and the shrimp and grits are the standouts. People with Southern and Haitian backgrounds are calling it legit.",
+  "after": "Cajun and Creole spot. Word is the bone-in chicken and waffles and the shrimp and grits are the standouts. People with Southern and Haitian backgrounds are calling it legit."
+ },
+ {
+  "id": "hornbill-sushi-asian-fusion",
+  "before": "The chicken katsu curry is what to get — crispy chicken, rich curry sauce. Sushi and Asian fusion in a cozy setting.",
+  "after": "Heard the chicken katsu curry is what to get — crispy chicken, rich curry sauce. Sushi and Asian fusion in a cozy setting."
+ },
+ {
+  "id": "chicago-hamburger-co",
+  "before": "Chicago-style comfort food. The sliders and garlic fries are the move. Counter service, no frills, all Chicago decor. Old school milkshakes.",
+  "after": "Chicago-style comfort food. People swear by the sliders and garlic fries. Counter service, no frills, all Chicago decor. Old school milkshakes."
+ },
+ {
+  "id": "the-mick-brasserie-bar",
+  "before": "French brasserie. The pate melt is getting called the highlight. Great for a date night — beautifully presented food.",
+  "after": "French brasserie. The pate melt is getting called the highlight. Reviews rave about the beautifully presented food — date night material."
+ },
+ {
+  "id": "frank-s-deli",
+  "before": "Get 'The Tony'",
+  "after": "Everyone says get 'The Tony'"
+ },
+ {
+  "id": "joe-s-tacos",
+  "before": "Toasted shell tacos are the move — al pastor and carne asada. Also a cactus taco. Melon fresca is worth getting.",
+  "after": "Toasted shell tacos are supposedly the move — al pastor and carne asada. Also a cactus taco. People say the melon fresca is worth getting."
+ },
+ {
+  "id": "mary-s-mountain-cookies",
+  "before": "Cookie shop where you can try before you commit. Peanut butter is a safe call. 8-pack to go.",
+  "after": "Cookie shop where you can try before you commit. Peanut butter is the safe call, by all accounts. 8-pack to go."
+ },
+ {
+  "id": "sonson-s-pasty-co",
+  "before": "Cornish pasties — savory thick pastry pockets. The lamb and mint pasty and Tandoori curry wings are both worth trying. Late night, pool and darts.",
+  "after": "Cornish pasties — savory thick pastry pockets. The lamb and mint pasty and Tandoori curry wings both come recommended. Late night, pool and darts."
+ },
+ {
+  "id": "taiwan-mama-flagship-store",
+  "before": "Taiwanese spot. Popcorn chicken and braised pork belly are the must-orders. The braised beef noodles also get love. Tomato fried eggs is a classic Taiwanese dish they do well.",
+  "after": "Taiwanese spot. Popcorn chicken and braised pork belly sound like the must-orders. The braised beef noodles also get love. Tomato fried eggs is a classic Taiwanese dish people say they do well."
+ },
+ {
+  "id": "uncle-panda-dumpling-noodle-house",
+  "before": "Handmade dumplings and noodles in Ahwatukee. The Xiao Long Bao and beef noodle soup get the most love. Pork with chives and shrimp dumplings are standout.",
+  "after": "Handmade dumplings and noodles in Ahwatukee. The Xiao Long Bao and beef noodle soup get the most love. Pork with chives and shrimp dumplings also get called standouts."
+ },
+ {
+  "id": "arizona-sandwich-co-catering-52nd-university",
+  "before": "The Sparky is the signature move. Breakfast sandwiches are also solid. Kiosk ordering, easy lunch spot near ASU.",
+  "after": "The Sparky is apparently the signature move. Breakfast sandwiches get good marks too. Kiosk ordering, easy lunch spot near ASU."
+ },
+ {
+  "id": "arizona-sandwich-co-catering-1221-w-warner-rd",
+  "before": "Arizona Sandwich Co. location on Warner Rd in Tempe. The Sparky and the ATC are the standouts. Mixed reviews on this specific location.",
+  "after": "Arizona Sandwich Co. location on Warner Rd in Tempe. The Sparky and the ATC come up as the standouts. Mixed reviews on this specific location."
+ },
+ {
+  "id": "mensho-ramen",
+  "before": "GKO or Classic Toripaitan are the go-to bowls. Rich, deeply layered broth. Get the enoki chips and matcha pudding on the side.",
+  "after": "Reviews rave about the GKO and Classic Toripaitan as the go-to bowls — rich, deeply layered broth. Word is to get the enoki chips and matcha pudding on the side."
+ },
+ {
+  "id": "analilia-s-riquezas",
+  "before": "Quesabirria tacos with consome are the reason to come. Consomé is reportedly the best in the valley — flavorful without needing lime or cilantro. Loaded nachos also solid.",
+  "after": "Quesabirria tacos with consome are the draw, they say. Consomé is reportedly the best in the valley — flavorful without needing lime or cilantro. Loaded nachos also get props."
+ },
+ {
+  "id": "hot-bagels-deli",
+  "before": "Legit NY-style bagels. Everything bagel with jalapeño cream cheese is a solid order. Also known for breakfast burritos.",
+  "after": "Rep is legit NY-style bagels. Everything bagel with jalapeño cream cheese comes up as a solid order. Also known for breakfast burritos."
+ },
+ {
+  "id": "oliver-s-modern-american",
+  "before": "Rigatoni and short ribs are both solid. Good happy hour, patio seating available. Worth the stop in Scottsdale.",
+  "after": "Rigatoni and short ribs both get called solid. Supposedly a good happy hour, patio seating available. Sounds worth the stop in Scottsdale."
+ },
+ {
+  "id": "angelina-s-fry-bread",
+  "before": "Native fry bread spot. Half green pork, half green shredded beef is the move. Everything hand made to order.",
+  "after": "Native fry bread spot. Heard half green pork, half green shredded beef is the move. Everything hand made to order."
+ },
+ {
+  "id": "arreburro-burritos-quesadillas",
+  "before": "Stretchy homemade tortillas are the main thing here. Barbacoa burrito is a 10/10 according to regulars. Asado rojo quesadilla is the standout — rich and flavorful. Everything runs spicy.",
+  "after": "Stretchy homemade tortillas are the main thing here. Barbacoa burrito is a 10/10 according to regulars. Asado rojo quesadilla gets called the standout — rich and flavorful, they say. Word is everything runs spicy."
+ },
+ {
+  "id": "killer-whale-sex-club",
+  "before": "Don't let the name scare you. Creative cocktails, great bartenders, cool aesthetic. Industry night on Mondays with discounted drinks.",
+  "after": "Don't let the name scare you. Reviews rave about the creative cocktails, great bartenders, cool aesthetic. Industry night on Mondays with discounted drinks."
+ },
+ {
+  "id": "the-house-brasserie",
+  "before": "Old Town Scottsdale cottage vibes. Scallops and filet get the highest marks. Cocktails are well-made. Great for a date night.",
+  "after": "Old Town Scottsdale cottage vibes. Scallops and filet get the highest marks. Cocktails supposedly well-made. On the list for a date night."
+ },
+ {
+  "id": "mis-raices-cafe",
+  "before": "Latino-owned coffee shop. Cafe de olla is excellent. The Gansito Latte and Maria Latte (cookie-inspired with cajeta cold foam) are the drinks to get.",
+  "after": "Latino-owned coffee shop. People swear by the cafe de olla. The Gansito Latte and Maria Latte (cookie-inspired with cajeta cold foam) sound like the drinks to get."
+ },
+ {
+  "id": "tortas-paquime",
+  "before": "Tortas are the move — carne asada torta is an 8/10. Homemade chips are excellent. Fresh, not frozen fries.",
+  "after": "Heard the tortas are the move — carne asada torta gets an 8/10 from reviews. Homemade chips supposedly excellent. Fresh, not frozen fries."
+ },
+ {
+  "id": "el-rinconcito-del-d-f",
+  "before": "Tinga tostadas with the house salsa are the standout. Green chilaquiles also get major love. Two taco combo is a solid quick lunch.",
+  "after": "Tinga tostadas with the house salsa are supposedly the standout. Green chilaquiles also get major love. Two taco combo sounds like a solid quick lunch."
+ },
+ {
+  "id": "las-glorias-grill",
+  "before": "Strip mall spot that's nicer inside than it looks. Shrimp enchiladas are a highlight. They bring hot bean dip with the chips and salsa.",
+  "after": "Strip mall spot that's supposedly nicer inside than it looks. Shrimp enchiladas get called a highlight. Word is they bring hot bean dip with the chips and salsa."
+ },
+ {
+  "id": "rosita-s-place",
+  "before": "Old school Phoenix Mexican since the 80s. Plato mixto is the classic order. Chile relleno and chimichangas are solid.",
+  "after": "Old school Phoenix Mexican since the 80s. Plato mixto is apparently the classic order. Chile relleno and chimichangas are supposed to be solid."
+ },
+ {
+  "id": "julio-s-too",
+  "before": "Carne asada tacos are the safe bet. Warm chips and fresh salsa with every order. Solid quick bite, nothing fancy.",
+  "after": "Carne asada tacos sound like the safe bet. Warm chips and fresh salsa with every order. Supposed to be a solid quick bite, nothing fancy."
+ },
+ {
+  "id": "pomo-pizzeria-napoletana",
+  "before": "Real Neapolitan pizza, as close to Napoli as you'll find in Arizona. Gelato is reportedly among the best in the state. Small inside, can get busy.",
+  "after": "Real Neapolitan pizza — people say it's as close to Napoli as you'll find in Arizona. Gelato is reportedly among the best in the state. Small inside, can get busy."
+ },
+ {
+  "id": "k-o-donnell-s-sports-bar-grill",
+  "before": "Wedge salad with salmon is the go-to. Wings, breakfast sausage, and homestyle potatoes also solid. Good sports bar vibe.",
+  "after": "Wedge salad with salmon is supposedly the go-to. Wings, breakfast sausage, and homestyle potatoes also get props. Good sports bar vibe, from what I hear."
+ },
+ {
+  "id": "az-lemonade-stand",
+  "before": "Local lemonade brand. Prickly pear and mango are the flavors to grab. Sold in jars — people take home a case.",
+  "after": "Local lemonade brand. Prickly pear and mango sound like the flavors to grab. Sold in jars — people take home a case."
+ },
+ {
+  "id": "persian-room-fine-dining",
+  "before": "Authentic Persian in Scottsdale. House-made bread is a standout touch. The Soltani dish gets mentioned. Huge portions.",
+  "after": "Authentic Persian in Scottsdale. House-made bread is supposedly a standout touch. The Soltani dish gets mentioned. Huge portions, by all accounts."
+ },
+ {
+  "id": "lychee-kitchen",
+  "before": "Hot and sour soup might be the best in the valley. Chinese spot in a strip mall. Solid lunch.",
+  "after": "Hot and sour soup is rumored to be the best in the valley. Chinese spot in a strip mall. Solid lunch option, supposedly."
+ },
+ {
+  "id": "pork-on-a-fork-bbq-and-catering-deer-valley",
+  "before": "Pulled pork, brisket, and pulled chicken bowls. Mac and cheese is a solid side. Friendly staff, good portion sizes.",
+  "after": "Pulled pork, brisket, and pulled chicken bowls. Mac and cheese gets called a solid side. Reviews mention friendly staff, good portion sizes."
+ },
+ {
+  "id": "middle-eastern-bakery-and-deli",
+  "before": "Hummus, house bread, and various kebabs are the move. Kibbee balls and grape leaves made with pine nuts. Good baklava too.",
+  "after": "Word is hummus, house bread, and various kebabs are the move. Kibbee balls and grape leaves made with pine nuts. Baklava gets props too."
+ },
+ {
+  "id": "stumpy-s-pizza-subs",
+  "before": "Slice of New York-style pizza in Phoenix, family-run for 25+ years. Pepperoni slice is the classic order. Meat lovers and lasagna also solid.",
+  "after": "Slice of New York-style pizza in Phoenix, family-run for 25+ years. Pepperoni slice is apparently the classic order. Meat lovers and lasagna also come recommended."
+ },
+ {
+  "id": "ms-martha-s-caribbean-kitchen",
+  "before": "Best carribean food",
+  "after": "Supposedly the best Caribbean food."
+ },
+ {
+  "id": "thai-recipe-bistro",
+  "before": "Fresh shrimp rolls and pot stickers are solid starters. Seafood Pad Thai and orange chicken are the main event. Generous portions.",
+  "after": "Word is the fresh shrimp rolls and pot stickers are solid starters, with the Seafood Pad Thai and orange chicken as the main event. Generous portions."
+ },
+ {
+  "id": "isabella-s-kitchen",
+  "before": "Italian restaurant with a view of a golf course. Butchers pizza and lasagna are the standouts. Garage doors open up for patio dining.",
+  "after": "Italian restaurant with a view of a golf course. Heard the Butchers pizza and lasagna are the standouts. Garage doors open up for patio dining."
+ },
+ {
+  "id": "leo-s-island-bbq",
+  "before": "Hawaiian BBQ plate lunch spot. Spam Musubi, Kahlua pork plate, and manapua are the things to get. Good mac salad, big portions.",
+  "after": "Hawaiian BBQ plate lunch spot. People swear by the Spam Musubi, Kahlua pork plate, and manapua. Mac salad gets good marks too, big portions."
+ },
+ {
+  "id": "the-parlor-pizzeria",
+  "before": "Wood-fired pizza with a perfectly charred crust. Bone marrow appetizer is excellent. Heirloom Margherita and roasted olives are standouts.",
+  "after": "Wood-fired pizza — reviews rave about the perfectly charred crust and call the bone marrow appetizer excellent. Heirloom Margherita and roasted olives are the reported standouts."
+ },
+ {
+  "id": "bobby-d-s-restaurant-lounge",
+  "before": "Neighborhood bar and grill. Grilled wings for 25 cents during NFL games. Been open 20+ years. Friendly spot.",
+  "after": "Neighborhood bar and grill. Grilled wings for 25 cents during NFL games. Been open 20+ years. Known as a friendly spot."
+ },
+ {
+  "id": "la-pi-ata-mexican-food-restaurant",
+  "before": "Old school Mexican food. Enchiladas with a lovely sauce are the move. Refried beans are the perfect side. Cheap and generous portions.",
+  "after": "Old school Mexican food. Regulars say the enchiladas with a lovely sauce are the move, with refried beans as the perfect side. Cheap and generous portions."
+ },
+ {
+  "id": "larry-s-cocktails",
+  "before": "Dive bar with pool tables inside and on the patio. Low beer prices at happy hour. Good stop on the way to Cave Creek.",
+  "after": "Dive bar with pool tables inside and on the patio. Low beer prices at happy hour. Looks like a good stop on the way to Cave Creek."
+ },
+ {
+  "id": "phx-burrito-house",
+  "before": "Green chile pork burrito is the signature. Carne asada burrito with rice and beans also excellent. Melrose District staple.",
+  "after": "Green chile pork burrito is the signature. The carne asada burrito with rice and beans also gets big praise. Melrose District staple."
+ },
+ {
+  "id": "sidelines-grill",
+  "before": "Good chicken wings",
+  "after": "Known for good chicken wings."
+ },
+ {
+  "id": "lovecraft-ale-house-bottle-shop-new-mexican-smoke-kitchen",
+  "before": "Speakeasy-style spot with New Mexican smoked meats and a rooftop patio. The meatloaf and shepherd's pie are standouts. Good craft beer selection.",
+  "after": "Speakeasy-style spot with New Mexican smoked meats and a rooftop patio. The meatloaf and shepherd's pie are the reported standouts. Craft beer selection is supposed to be good."
+ },
+ {
+  "id": "ocotillo",
+  "before": "Locally sourced American fare in a big industrial space. Grilled chicken wings to start, ribeye and ribs for the table.",
+  "after": "Locally sourced American fare in a big industrial space. On the list for grilled chicken wings to start, ribeye and ribs for the table."
+ },
+ {
+  "id": "green-new-american-vegetarian",
+  "before": "All vegan comfort food. The buffalo wings and ranch are the standout. Po boy and cheesesteak sandwich also popular.",
+  "after": "All vegan comfort food. The buffalo wings and ranch get called the standout. Po boy and cheesesteak sandwich also popular."
+ },
+ {
+  "id": "plaza-bonita-mexican-restaurant",
+  "before": "Classic local Mexican chain. Shredded chicken tinga burrito and good thin chips. Nothing groundbreaking but solid and consistent.",
+  "after": "Classic local Mexican chain. Shredded chicken tinga burrito and reportedly good thin chips. Rep is nothing groundbreaking but solid and consistent."
+ },
+ {
+  "id": "los-reyes-de-la-torta",
+  "before": "This thriving enterprise produces those giant Mexican sammies known as tortas. These are the Godzillas of the sandwich world, and could easily kick any ciabatta's butt, then go on to feed a family of six. The Torta del Rey is like a Mexican Dagwood, with fried beef, ham, egg, chorizo, avocado, and about a half-dozen more items, grilled and stacked high in a soft Mexican bread known as a telera. Los Reyes de la Torta also boasts a juice bar with all types of fresh-squeezed aguas frescas - lime, pineapple, mango, and so on. Or you can have six or more juices together in a colossal drink called a bomba, or add to the decadence level with a fruit and condensed milk creation called an agua cremosa. All of the fruit drinks come topped with little paper umbrellas, rounding out this colorful experience. ($)",
+  "after": "Known for giant Mexican sammies called tortas — reviews call them the Godzillas of the sandwich world, supposedly able to kick any ciabatta's butt and still feed a family of six. The Torta del Rey is described as a Mexican Dagwood: fried beef, ham, egg, chorizo, avocado, and about a half-dozen more items, grilled and stacked high in a soft Mexican bread known as a telera. Also boasts a juice bar with all types of fresh-squeezed aguas frescas — lime, pineapple, mango, and so on. You can get six or more juices together in a colossal drink called a bomba, or add to the decadence with a fruit and condensed milk creation called an agua cremosa. All the fruit drinks come topped with little paper umbrellas. ($)"
+ },
+ {
+  "id": "tia-carmen",
+  "before": "The ambiance of Tia Carmen is intentional in its efforts to honor the Southwest region and Mexico. As you walk through the large wooden doors, you're greeted by a down-to-earth vibe and quiet elegance. Chef Angelo Sosa wanted to recreate a reminder of his experience with his Aunt Carmen when he first learned food was his love language. The menu is not only a homage to his roots and to indigenous people but also a festival of culinary delights. Highlights include ember-roasted purple yam, chicken guisado, Baja striped bass, yucca brulee, and native grain fried rice. Ingredients are sourced locally, which reflects Sosa's desire to support the community. The entrees are complemented with craft cocktails, including the gin-based Hibiscus Desert Balloon, a yuzu and bergamot Paloma, and Mi Tia, a tropical drink that honors Sosa's family. ($$$)",
+  "after": "Supposed to honor the Southwest and Mexico in everything down to the ambiance — reviews describe a down-to-earth vibe and quiet elegance once you're through the large wooden doors. Chef Angelo Sosa built it as a reminder of his experience with his Aunt Carmen, when he first learned food was his love language, and the menu is a homage to his roots and to indigenous people. Highlights people point to: ember-roasted purple yam, chicken guisado, Baja striped bass, yucca brulee, and native grain fried rice. Ingredients are sourced locally, reflecting Sosa's desire to support the community. Craft cocktails too, including the gin-based Hibiscus Desert Balloon, a yuzu and bergamot Paloma, and Mi Tia, a tropical drink that honors Sosa's family. ($$$)"
+ },
+ {
+  "id": "welcome-diner",
+  "before": "Tiny 1945 diner with counter seating. Welcome burger and pancakes are the go-tos. Street parking only.",
+  "after": "Tiny 1945 diner with counter seating. Welcome burger and pancakes are supposedly the go-tos. Street parking only."
+ },
+ {
+  "id": "yopaulys-new-york-pizza-co",
+  "before": "Legit NY-style thin crust slices. Good sauce and cheese ratio. Foldable. Add garlic if you're into it.",
+  "after": "By all accounts legit NY-style thin crust slices with a good sauce and cheese ratio. Foldable, they say. Add garlic if you're into it."
+ },
+ {
+  "id": "the-green-woodpecker",
+  "before": "Potato tacos are perfectly spicy. Al pastor burrito is also a standout. Pool table, good beer selection.",
+  "after": "People say the potato tacos are perfectly spicy and the al pastor burrito is a standout too. Pool table, good beer selection."
+ },
+ {
+  "id": "prep-pastry",
+  "before": "Rose chai latte is excellent. Brunch spot with a Yelp waitlist — expect a wait on weekends.",
+  "after": "The rose chai latte gets rave reviews. Brunch spot with a Yelp waitlist — expect a wait on weekends."
+ },
+ {
+  "id": "different-pointe-of-view",
+  "before": "Best view in Phoenix. Food is OK, better for drinks",
+  "after": "Supposedly the best view in Phoenix. Word is the food is OK, better for drinks"
+ },
+ {
+  "id": "hope-s-artisan-bread",
+  "before": "Really good sour dough",
+  "after": "People swear by the sour dough"
+ },
+ {
+  "id": "elbows-mac-n-cheese",
+  "before": "Mac and cheese pizza and truffle fries are the standouts. Buffalo mac is also excellent. Counter order, they bring it to you.",
+  "after": "Heard the mac and cheese pizza and truffle fries are the standouts, and the buffalo mac gets raves too. Counter order, they bring it to you."
+ },
+ {
+  "id": "el-caprichoso-hot-dogs",
+  "before": "The Titanic hot dog is the one to get. Also known for the Ruffles hot dog with chips on top. Loaded fries and nachos available.",
+  "after": "Word is the Titanic hot dog is the one to get. Also known for the Ruffles hot dog with chips on top. Loaded fries and nachos available."
+ },
+ {
+  "id": "the-farm-at-south-mountain",
+  "before": "Farm setting with tree-shaded picnic tables. Japanese sweet potato is a must. French toast is also a good pick.",
+  "after": "Farm setting with tree-shaded picnic tables. Reviews say the Japanese sweet potato is a must and the French toast a good pick too."
+ },
+ {
+  "id": "ph-th-nh-restaurant",
+  "before": "Best pho in phx has a dessert place next door",
+  "after": "Supposed to be the best pho in phx, has a dessert place next door"
+ },
+ {
+  "id": "bite-me-bbq-wichita",
+  "before": "Great name, great BBQ. Competition-style smoked meats.",
+  "after": "Great name, and people say the BBQ lives up to it. Competition-style smoked meats."
+ },
+ {
+  "id": "the-farish-house",
+  "before": "French and Mediterranean in a historic redbrick cottage. The bouillabaisse and filet are both excellent. Gin cocktails are standouts.",
+  "after": "French and Mediterranean in a historic redbrick cottage. Reviews rave about the bouillabaisse and filet, and the gin cocktails get called standouts."
+ },
+ {
+  "id": "bongiorno-bagels",
+  "before": "NY-style bagels. The morning medic (Taylor ham, egg, cheese on a kaiser roll) is the move. Proper cream cheese amounts, bagels sliced the right way.",
+  "after": "NY-style bagels. Heard the morning medic (Taylor ham, egg, cheese on a kaiser roll) is the move — proper cream cheese amounts, bagels sliced the right way."
+ },
+ {
+  "id": "taqueria-el-fundador",
+  "before": "People claim it's the best birria tacos in Phoenix. Been around 20 years. Quesobirria is the move, beans and rice taste homemade.",
+  "after": "People claim it's the best birria tacos in Phoenix. Been around 20 years. Word is the quesobirria is the move and the beans and rice taste homemade."
+ },
+ {
+  "id": "azhanna-hibachi",
+  "before": "Food truck hibachi. Huge portions, fresh, spicy — the fried rice alone is worth it. Great value.",
+  "after": "Food truck hibachi. Reviews rave about huge portions, fresh and spicy — the fried rice alone supposedly worth it. Great value by all accounts."
+ },
+ {
+  "id": "the-hidden-house",
+  "before": "Fine dining in a secluded house with cocktails. The cocktail list is serious — about 40 options. Good date spot.",
+  "after": "Fine dining in a secluded house with cocktails. The cocktail list runs about 40 options. Supposed to be a good date spot."
+ },
+ {
+  "id": "brody-s-italian-formerly-nick-s-italian",
+  "before": "Homemade pasta and pizza dough. Calamari to start, then anything on the pasta menu. Big portions, worth the drive.",
+  "after": "Homemade pasta and pizza dough. Word is calamari to start, then anything on the pasta menu. Big portions, supposedly worth the drive."
+ },
+ {
+  "id": "comedor-guadalajara",
+  "before": "Chilaquiles and albondigas soup are both solid. Long-running family spot — been around decades. Entrance is kind of hidden.",
+  "after": "Heard the chilaquiles and albondigas soup are both solid. Long-running family spot — been around decades. Entrance is kind of hidden."
+ },
+ {
+  "id": "brunch-sip",
+  "before": "From the owners of Los chicken and waffles, and Monroe's hot chicken. Pancakes are fluffy and legit. Lobster with creole shrimp. Expect a long wait on weekends.",
+  "after": "From the owners of Los chicken and waffles, and Monroe's hot chicken. People swear the pancakes are fluffy and legit. Lobster with creole shrimp. Expect a long wait on weekends."
+ },
+ {
+  "id": "curry-n-crust",
+  "before": "Indian-style pizza in Tempe. Curry tacos are the move. Paneer with jalapeños is a must-try. Genuinely creative menu.",
+  "after": "Indian-style pizza in Tempe. The curry tacos are supposedly the move, paneer with jalapeños a must-try. Genuinely creative menu."
+ },
+ {
+  "id": "fat-cat-grill-norwich-ct",
+  "before": "Best burgers and BBQ in Norwich. Famous BBQ Burger plus lobster alfredo and chicken parm.",
+  "after": "Locals call it the best burgers and BBQ in Norwich. Famous BBQ Burger plus lobster alfredo and chicken parm."
+ },
+ {
+  "id": "by-the-bucket-gilbert",
+  "before": "Pasta in a bucket. Tuesday special is $7 and feeds two people easily. Garlic bread is huge.",
+  "after": "Pasta in a bucket. Tuesday special is $7 and supposedly feeds two people easily. Heard the garlic bread is huge."
+ },
+ {
+  "id": "cane-rosso-dallas",
+  "before": "Started the Dallas craft pizza craze. Naples-certified. Try the Honey Bastard pizza.",
+  "after": "Started the Dallas craft pizza craze. Naples-certified. The Honey Bastard pizza is the one people say to try."
+ }
+]
