@@ -67,6 +67,10 @@ function restaurantNowMinutes(r) {
   return localNowMinutes(CITY_TIMEZONES[r.city] ?? DEFAULT_TZ);
 }
 
+// 'elsewhere' records have no metro timezone — open_now would be computed in
+// the wrong local time, so it's omitted for them instead of being wrong.
+const hasKnownTz = (r) => Boolean(CITY_TIMEZONES[r.city]);
+
 const WEEK_MINUTES = 7 * 1440;
 
 export function isOpenNow(openingHours, nowMinutes) {
@@ -89,7 +93,7 @@ export function isOpenNow(openingHours, nowMinutes) {
 // search results carry a computed open_now instead
 function compactResult(restaurant) {
   const { photoRef: _photoRef, openingHours, ...rest } = restaurant;
-  if (openingHours) rest.open_now = isOpenNow(openingHours, restaurantNowMinutes(restaurant));
+  if (openingHours && hasKnownTz(restaurant)) rest.open_now = isOpenNow(openingHours, restaurantNowMinutes(restaurant));
   return rest;
 }
 
@@ -97,7 +101,7 @@ function compactResult(restaurant) {
 function fullResult(restaurant) {
   const { photoRef: _photoRef, openingHours, ...rest } = restaurant;
   if (openingHours) {
-    rest.open_now = isOpenNow(openingHours, restaurantNowMinutes(restaurant));
+    if (hasKnownTz(restaurant)) rest.open_now = isOpenNow(openingHours, restaurantNowMinutes(restaurant));
     rest.hours = openingHours.weekdayDescriptions;
   }
   return rest;
@@ -144,7 +148,7 @@ function applyFilters(data, { query, cuisine, tier, tiers, city, tags, near_lat,
     results = results.filter((r) => r.priceLevel === PRICE_LEVELS[price_level]);
   }
   if (open_now) {
-    results = results.filter((r) => r.openingHours && isOpenNow(r.openingHours, restaurantNowMinutes(r)));
+    results = results.filter((r) => r.openingHours && hasKnownTz(r) && isOpenNow(r.openingHours, restaurantNowMinutes(r)));
   }
   if (has_accolade) {
     results = results.filter((r) => Array.isArray(r.accolades) && r.accolades.length > 0);
@@ -525,7 +529,7 @@ function registerWriteTools(server) {
         name: z.string().min(1).optional(),
         tier: z.enum(TIERS).optional(),
         cuisine: z.string().min(1).optional(),
-        city: z.enum(Object.keys(METRO_CENTERS)).optional(),
+        city: z.enum([...Object.keys(METRO_CENTERS), 'elsewhere']).optional(),
         lat: z.number().min(-90).max(90).optional(),
         lng: z.number().min(-180).max(180).optional(),
         featured: z.boolean().optional().describe("Bobby's Pick badge on the map"),
@@ -565,7 +569,7 @@ function registerWriteTools(server) {
         lng: z.number().min(-180).max(180),
         cuisine: z.string().min(1),
         tier: z.enum(TIERS).describe("Usually 'on_my_radar' for a place Bobby hasn't tried yet"),
-        city: z.enum(Object.keys(METRO_CENTERS)).optional().describe('Metro region — defaults to the nearest one to the coordinates'),
+        city: z.enum([...Object.keys(METRO_CENTERS), 'elsewhere']).optional().describe("Metro region — defaults to the nearest one within 75 miles of the coordinates, else 'elsewhere' (one-off finds, shown in the map's Everywhere view)"),
         notes: z.string().optional(),
         tags: z.array(z.string()).optional(),
         googleMapsUrl: z.string().url().optional().describe('Defaults to a maps search link for the name + coords'),

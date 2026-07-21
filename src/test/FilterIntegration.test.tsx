@@ -461,3 +461,73 @@ describe("App — Search by restaurant name (Story 6.2)", () => {
     expect(screen.queryAllByTestId("mock-pin")).toHaveLength(0);
   });
 });
+
+describe("App — Everywhere view", () => {
+  const multiCityRestaurants: Restaurant[] = [
+    ...mockRestaurants, // two phoenix records
+    {
+      id: "r-dallas",
+      name: "Dallas BBQ Joint",
+      tier: "loved",
+      cuisine: "BBQ",
+      lat: 32.78,
+      lng: -96.8,
+      googleMapsUrl: "https://maps.google.com/?q=dallas-bbq",
+      city: "dallas",
+      dateAdded: "2024-03-01",
+    },
+    {
+      id: "r-airport",
+      name: "Denver Airport Gyros",
+      tier: "recommended",
+      cuisine: "Mediterranean",
+      lat: 39.86,
+      lng: -104.67,
+      googleMapsUrl: "https://maps.google.com/?q=den-gyros",
+      city: "elsewhere",
+      dateAdded: "2024-04-01",
+    },
+  ];
+
+  beforeEach(async () => {
+    const { useRestaurants, useGeolocation } = await import("../hooks");
+    vi.mocked(useRestaurants).mockReturnValue({
+      restaurants: multiCityRestaurants,
+      loading: false,
+      error: null,
+    });
+    vi.mocked(useGeolocation).mockReturnValue({
+      coords: null,
+      loading: false,
+      denied: false,
+    });
+  });
+
+  const getCitySelect = () => screen.getByLabelText("Select city");
+
+  it("default city view shows only that city's pins — elsewhere records hidden", () => {
+    render(<MemoryRouter><App /></MemoryRouter>);
+    expect(screen.getAllByTestId("mock-pin")).toHaveLength(2); // phoenix only
+  });
+
+  it("selecting Everywhere shows all pins, including the elsewhere bucket", () => {
+    render(<MemoryRouter><App /></MemoryRouter>);
+    fireEvent.change(getCitySelect(), { target: { value: "everywhere" } });
+    expect(screen.getAllByTestId("mock-pin")).toHaveLength(4);
+  });
+
+  it("Everywhere exposes cuisines from all cities in the filter row", () => {
+    render(<MemoryRouter><App /></MemoryRouter>);
+    expect(screen.queryByRole("button", { name: "BBQ" })).not.toBeInTheDocument();
+    fireEvent.change(getCitySelect(), { target: { value: "everywhere" } });
+    expect(screen.getByRole("button", { name: "BBQ" })).toBeInTheDocument();
+  });
+
+  it("switching back to a metro re-scopes the pins", () => {
+    render(<MemoryRouter><App /></MemoryRouter>);
+    fireEvent.change(getCitySelect(), { target: { value: "everywhere" } });
+    expect(screen.getAllByTestId("mock-pin")).toHaveLength(4);
+    fireEvent.change(getCitySelect(), { target: { value: "dallas" } });
+    expect(screen.getAllByTestId("mock-pin")).toHaveLength(1);
+  });
+});

@@ -19,3 +19,11 @@ export const METRO_REGIONS: MetroRegion[] = [
 ];
 
 export const DEFAULT_METRO_ID = 'phoenix';
+
+// Virtual city-selector option: shows every pin regardless of city, with the
+// viewport fit around them. Not a MetroRegion — it has no center/timezone.
+export const EVERYWHERE_ID = 'everywhere';
+
+// Server-assigned bucket for one-off finds > 75 mi from any registered metro
+// (airport meals, road trips). Only visible in the Everywhere view.
+export const ELSEWHERE_CITY_ID = 'elsewhere';

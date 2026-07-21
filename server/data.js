@@ -203,14 +203,20 @@ export const METRO_CENTERS = {
   paris: { lat: 48.8566, lng: 2.3522 },
 };
 
+// One-off finds far from any registered metro (airport meals, road trips)
+// get this bucket instead of silently snapping to the nearest metro.
+// They only appear in the map's Everywhere view.
+export const ELSEWHERE_CITY = 'elsewhere';
+const NEAREST_CITY_CAP_MILES = 75;
+
 export function nearestCity(lat, lng) {
-  let best = 'phoenix';
+  let best = ELSEWHERE_CITY;
   let bestDist = Infinity;
   for (const [id, c] of Object.entries(METRO_CENTERS)) {
     const d = haversineDistance(lat, lng, c.lat, c.lng);
     if (d < bestDist) { best = id; bestDist = d; }
   }
-  return best;
+  return bestDist <= NEAREST_CITY_CAP_MILES ? best : ELSEWHERE_CITY;
 }
 
 // Opening hours are stored in each place's local time. Keep in sync with

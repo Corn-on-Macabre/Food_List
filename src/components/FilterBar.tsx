@@ -3,7 +3,7 @@ import { DISTANCE_OPTIONS } from '../utils';
 import { useAdminAuth } from '../hooks';
 import { UserMenu } from './UserMenu';
 import { SearchAutocomplete } from './SearchAutocomplete';
-import { METRO_REGIONS } from '../constants/metros';
+import { METRO_REGIONS, EVERYWHERE_ID } from '../constants/metros';
 import { CHIP_BASE as chipBase, CHIP_ACTIVE as chipActive, CHIP_INACTIVE as chipInactive } from './styles';
 import type { Restaurant, Tier } from '../types/restaurant';
 
@@ -142,6 +142,7 @@ export function FilterBar({
                 {metro.label}
               </option>
             ))}
+            <option value={EVERYWHERE_ID}>&#127758; Everywhere</option>
           </select>
           )}
           <div className="flex-1 min-w-0">

@@ -8,9 +8,9 @@ import { useAuth, AuthProvider } from './contexts/AuthContext';
 import { AdminAuthProvider } from './contexts/AdminAuthContext';
 import type { Restaurant } from './types';
 import type { FilterState } from './types/restaurant';
-import { haversineDistance, isOpenNow, localNowMinutes, filtersToSearchParams, filtersFromSearchParams, shareUrl } from './utils';
+import { haversineDistance, isOpenNow, localNowMinutes, metroTimezone, filtersToSearchParams, filtersFromSearchParams, shareUrl } from './utils';
 import { FROSTED_BAR, CARD_SURFACE } from './components/styles';
-import { METRO_REGIONS, DEFAULT_METRO_ID } from './constants/metros';
+import { METRO_REGIONS, DEFAULT_METRO_ID, EVERYWHERE_ID } from './constants/metros';
 import { TAG_VOCABULARY } from './constants/tags';
 import './index.css';
 
@@ -131,7 +131,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
   const { coords, loading: geoLoading, denied: geoDenied } = useGeolocation();
 
   // Resolve initial city: URL param > default (will be updated by geolocation)
-  const initialCity = (urlCityId && getMetro(urlCityId)) ? urlCityId : DEFAULT_METRO_ID;
+  const initialCity = (urlCityId && (getMetro(urlCityId) || urlCityId === EVERYWHERE_ID)) ? urlCityId : DEFAULT_METRO_ID;
   const [selectedRestaurant, setSelectedRestaurant] = useState<Restaurant | null>(null);
   // Lazy initializer: shareable filters arrive as query params (?tier=loved&tags=patio)
   const [filters, setFilters] = useState<FilterState>(() =>
@@ -235,10 +235,12 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
   const showDistance = !collection && !geoDenied && coords !== null && userNearestMetro === filters.city;
   const effectiveMaxDistance = showDistance ? filters.maxDistance : null;
 
-  // Restaurants in the selected city
+  // Restaurants in the selected city; Everywhere shows all pins (including
+  // the 'elsewhere' bucket, which belongs to no metro)
+  const isEverywhere = filters.city === EVERYWHERE_ID;
   const cityRestaurants = useMemo(
-    () => restaurants.filter((r) => r.city === filters.city),
-    [restaurants, filters.city],
+    () => (isEverywhere ? restaurants : restaurants.filter((r) => r.city === filters.city)),
+    [restaurants, filters.city, isEverywhere],
   );
 
   // Collection mode: membership replaces the city scope entirely (a collection can span metros)
@@ -254,17 +256,28 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
     () => (collection ? baseRestaurants.map((r) => ({ lat: r.lat, lng: r.lng })) : []),
     [collection, baseRestaurants],
   );
+  const everywherePoints = useMemo(
+    () => (isEverywhere && !collection ? restaurants.map((r) => ({ lat: r.lat, lng: r.lng })) : []),
+    [isEverywhere, collection, restaurants],
+  );
 
   const filteredRestaurants = useMemo(
     () => {
       const searchLower = filters.searchTerm?.toLowerCase() ?? null;
-      // Opening hours are stored in each place's local time
-      const nowMinutes = filters.openNow ? localNowMinutes(activeMetro.timezone) : 0;
+      // Opening hours are stored in each place's local time. Everywhere view
+      // (and collections) mix timezones, so resolve per restaurant, cached per
+      // tz. (Plain object — `Map` here is the @vis.gl map component import.)
+      const nowMinutesByTz: Record<string, number> = {};
+      const nowFor = (city: string | undefined): number => {
+        const tz = metroTimezone(city);
+        nowMinutesByTz[tz] ??= localNowMinutes(tz);
+        return nowMinutesByTz[tz];
+      };
       return baseRestaurants.filter((r) => {
         if (searchLower && !r.name.toLowerCase().includes(searchLower)) return false;
         if (filters.cuisine && r.cuisine !== filters.cuisine) return false;
         if (filters.tier && r.tier !== filters.tier) return false;
-        if (filters.openNow && !isOpenNow(r.openingHours, nowMinutes)) return false;
+        if (filters.openNow && !isOpenNow(r.openingHours, nowFor(r.city))) return false;
         if (filters.recognized && !(r.accolades && r.accolades.length > 0)) return false;
         if (filters.tags.length > 0 && !filters.tags.every((t) => r.tags?.includes(t))) return false;
         if (effectiveMaxDistance !== null && coords !== null) {
@@ -274,7 +287,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
         return true;
       });
     },
-    [baseRestaurants, filters.searchTerm, filters.cuisine, filters.tier, filters.openNow, filters.recognized, filters.tags, effectiveMaxDistance, coords, activeMetro.timezone],
+    [baseRestaurants, filters.searchTerm, filters.cuisine, filters.tier, filters.openNow, filters.recognized, filters.tags, effectiveMaxDistance, coords],
   );
 
   // Cuisines scoped to the current view (selected city, or collection members)
@@ -316,8 +329,9 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
 
   const handleCityChange = useCallback((cityId: string) => {
     setFilters((f) => {
-      // Auto-clear cuisine if it doesn't exist in the new city
-      const newCityCuisines = new Set(restaurants.filter((r) => r.city === cityId).map((r) => r.cuisine));
+      // Auto-clear cuisine if it doesn't exist in the new city (Everywhere has them all)
+      const inNewCity = cityId === EVERYWHERE_ID ? restaurants : restaurants.filter((r) => r.city === cityId);
+      const newCityCuisines = new Set(inNewCity.map((r) => r.cuisine));
       const cuisine = f.cuisine && newCityCuisines.has(f.cuisine) ? f.cuisine : null;
       return { ...f, city: cityId, cuisine, maxDistance: null, searchTerm: null };
     });
@@ -396,11 +410,15 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
             selectedRestaurantId={selectedRestaurant?.id ?? null}
             deepLinkedId={slug ?? null}
           />
-          {/* Jump to selected city center (collection mode fits bounds instead) */}
-          {!collection && <MapCenterer coords={activeMetro.center} zoom={activeMetro.zoom} />}
+          {/* Jump to selected city center (collections and Everywhere fit bounds instead) */}
+          {!collection && !isEverywhere && <MapCenterer coords={activeMetro.center} zoom={activeMetro.zoom} />}
           {/* Fit the viewport around all collection members once resolved */}
           {collection && !deepLinkCenter && collectionPoints.length > 0 && (
             <MapBoundsFitter points={collectionPoints} />
+          )}
+          {/* Everywhere: fit around every pin (key remounts the once-guard on re-entry) */}
+          {!collection && isEverywhere && !deepLinkCenter && everywherePoints.length > 0 && (
+            <MapBoundsFitter key="everywhere-fit" points={everywherePoints} />
           )}
           {/* Pan to deep-linked restaurant once resolved */}
           {deepLinkCenter && <MapCenterer coords={deepLinkCenter} zoom={15} />}
