@@ -405,7 +405,16 @@ function buildServer(authed) {
   return server;
 }
 
-const today = () => new Date().toISOString().slice(0, 10);
+// "Today" in a specific city's local time — NOT UTC. The container runs UTC,
+// so toISOString() would stamp an evening visit in Phoenix/Hartford with
+// tomorrow's date. en-CA locale formats as YYYY-MM-DD.
+const localToday = (city) =>
+  new Intl.DateTimeFormat('en-CA', {
+    timeZone: CITY_TIMEZONES[city] ?? DEFAULT_TZ,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(new Date());
 
 function mergeUnique(existing, additions) {
   return [...new Set([...(existing ?? []), ...additions])];
@@ -436,7 +445,7 @@ function registerWriteTools(server) {
       const data = await getAll();
       const r = data.find((x) => x.id === id);
       if (!r) return json({ error: `No restaurant with id '${id}'` });
-      const visitDate = visited_on ?? today();
+      const visitDate = visited_on ?? localToday(r.city);
       const fields = { lastVisited: visitDate };
       if (new_tier) fields.tier = new_tier;
       if (note_append) {
@@ -581,7 +590,7 @@ function registerWriteTools(server) {
         lng,
         googleMapsUrl:
           googleMapsUrl ?? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name)}&center=${lat},${lng}`,
-        dateAdded: today(),
+        dateAdded: localToday(city ?? nearestCity(lat, lng)),
       };
       if (notes) restaurant.notes = notes;
       if (tags?.length) restaurant.tags = tags;
