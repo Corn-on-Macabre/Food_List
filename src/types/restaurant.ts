@@ -50,6 +50,31 @@ export interface OpeningPeriod {
   close?: { day: number; hour: number; minute: number }; // absent = open 24/7
 }
 
+// Structured visit row from the private `visits` table (admin-only read via
+// RLS — spend never reaches the public map). snake_case matches PostgREST.
+export interface Visit {
+  id: string;
+  restaurant_id: string;         // restaurant slug; may be orphaned after deletes
+  restaurant_name: string | null; // snapshot taken at log time
+  visited_on: string;            // YYYY-MM-DD
+  note: string | null;
+  dishes: string[] | null;
+  spend_cents: number | null;
+  party_size: number | null;
+  created_at: string;
+}
+
+// Named shareable collection (public `collections` table, anon read).
+// snake_case matches PostgREST.
+export interface Collection {
+  slug: string;
+  title: string;
+  blurb: string | null;
+  restaurant_ids: string[]; // ordered restaurant slugs
+  created_at: string;
+  updated_at: string;
+}
+
 export interface FilterState {
   city: string | null;
   cuisine: string | null;

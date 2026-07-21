@@ -12,51 +12,56 @@ export const DATA_FILE = process.env.DATA_FILE || '/var/www/food-list/restaurant
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY || '';
 
 // --- Supabase (PostgREST) helpers ---
-const REST = `${SUPABASE_URL}/rest/v1/restaurants`;
 
-async function rest(method, query, body, prefer) {
+async function restTable(table, method, query, body, prefer) {
   const headers = {
     apikey: SUPABASE_SERVICE_KEY,
     Authorization: `Bearer ${SUPABASE_SERVICE_KEY}`,
     'Content-Type': 'application/json',
   };
   if (prefer) headers.Prefer = prefer;
-  if (method === 'GET') headers.Range = '0-9999';
-  const resp = await fetch(`${REST}${query}`, {
+  if (method === 'GET') headers.Range = '0-9999'; // reads capped at 10000 rows
+  const resp = await fetch(`${SUPABASE_URL}/rest/v1/${table}${query}`, {
     method,
     headers,
     body: body === undefined ? undefined : JSON.stringify(body),
   });
   if (!resp.ok) {
     const detail = await resp.text().catch(() => '');
-    throw new Error(`Supabase ${method} ${resp.status}: ${detail.slice(0, 200)}`);
+    throw new Error(`Supabase ${method} ${table} ${resp.status}: ${detail.slice(0, 200)}`);
   }
   if (resp.status === 204) return null;
   return resp.json();
 }
 
+const rest = (method, query, body, prefer) => restTable('restaurants', method, query, body, prefer);
+
 // URL-encode filter values — PostgREST eq. treats quotes as literal chars
 const q = (id) => encodeURIComponent(String(id));
 
 // --- File-mode helpers ---
+// Sibling stores (visits, collections) live next to DATA_FILE in file mode.
+export const VISITS_FILE = process.env.VISITS_FILE || DATA_FILE.replace(/[^/]*$/, 'visits.json');
+export const COLLECTIONS_FILE = process.env.COLLECTIONS_FILE || DATA_FILE.replace(/[^/]*$/, 'collections.json');
+
 let writing = false;
 
-function fileRead() {
+function fileRead(path = DATA_FILE) {
   try {
-    return JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
+    return JSON.parse(fs.readFileSync(path, 'utf-8'));
   } catch (err) {
     if (err.code === 'ENOENT') return [];
     throw err;
   }
 }
 
-function fileWrite(data) {
+function fileWrite(data, path = DATA_FILE) {
   if (writing) throw new Error('Concurrent write in progress');
   writing = true;
   try {
-    const tmp = DATA_FILE + '.tmp';
+    const tmp = path + '.tmp';
     fs.writeFileSync(tmp, JSON.stringify(data, null, 2), 'utf-8');
-    fs.renameSync(tmp, DATA_FILE);
+    fs.renameSync(tmp, path);
   } finally {
     writing = false;
   }
@@ -92,6 +97,80 @@ export async function updateRow(id, fields) {
   Object.assign(row, fields);
   fileWrite(data);
   return row;
+}
+
+// --- Visits store (private — RLS-locked table, no anon read) ---
+
+export async function getVisits(query = '?select=*&order=visited_on.desc') {
+  if (SUPABASE_MODE) return restTable('visits', 'GET', query);
+  return fileRead(VISITS_FILE);
+}
+
+export async function insertVisit(row) {
+  if (SUPABASE_MODE) {
+    const rows = await restTable('visits', 'POST', '', [row], 'return=representation');
+    return rows[0];
+  }
+  const data = fileRead(VISITS_FILE);
+  const withId = { id: crypto.randomUUID(), created_at: new Date().toISOString(), ...row };
+  data.push(withId);
+  fileWrite(data, VISITS_FILE);
+  return withId;
+}
+
+// --- Collections store (public read via anon RLS; writes via MCP only) ---
+
+export async function getCollections() {
+  if (SUPABASE_MODE) return restTable('collections', 'GET', '?select=*&order=updated_at.desc');
+  return fileRead(COLLECTIONS_FILE);
+}
+
+export async function getCollection(slug) {
+  if (SUPABASE_MODE) {
+    const rows = await restTable('collections', 'GET', `?slug=eq.${q(slug)}&select=*`);
+    return rows.length ? rows[0] : null;
+  }
+  return fileRead(COLLECTIONS_FILE).find((c) => c.slug === slug) ?? null;
+}
+
+export async function insertCollection(row) {
+  if (SUPABASE_MODE) {
+    const rows = await restTable('collections', 'POST', '', [row], 'return=representation');
+    return rows[0];
+  }
+  const data = fileRead(COLLECTIONS_FILE);
+  const now = new Date().toISOString();
+  const withMeta = { created_at: now, updated_at: now, ...row };
+  data.push(withMeta);
+  fileWrite(data, COLLECTIONS_FILE);
+  return withMeta;
+}
+
+export async function updateCollectionRow(slug, fields) {
+  const stamped = { ...fields, updated_at: new Date().toISOString() };
+  if (SUPABASE_MODE) {
+    const rows = await restTable('collections', 'PATCH', `?slug=eq.${q(slug)}`, stamped, 'return=representation');
+    return rows.length ? rows[0] : null;
+  }
+  const data = fileRead(COLLECTIONS_FILE);
+  const row = data.find((c) => c.slug === slug);
+  if (!row) return null;
+  Object.assign(row, stamped);
+  fileWrite(data, COLLECTIONS_FILE);
+  return row;
+}
+
+export async function deleteCollectionRow(slug) {
+  if (SUPABASE_MODE) {
+    const rows = await restTable('collections', 'DELETE', `?slug=eq.${q(slug)}`, undefined, 'return=representation');
+    return rows.length > 0;
+  }
+  const data = fileRead(COLLECTIONS_FILE);
+  const idx = data.findIndex((c) => c.slug === slug);
+  if (idx === -1) return false;
+  data.splice(idx, 1);
+  fileWrite(data, COLLECTIONS_FILE);
+  return true;
 }
 
 /** Returns true if a row was deleted. */

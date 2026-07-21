@@ -1,14 +1,14 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Routes, Route, Navigate, useParams, useNavigate } from 'react-router-dom';
 import { APIProvider, Map, useMap, type MapMouseEvent } from '@vis.gl/react-google-maps';
-import { useRestaurants, useGeolocation } from './hooks';
+import { useRestaurants, useGeolocation, useCollection } from './hooks';
 
-import { ClusteredPins, PinLegend, RestaurantCard, FilterBar, ProtectedRoute, AdminDashboard, Toast, SuggestButton, SubmissionForm } from './components';
+import { ClusteredPins, PinLegend, RestaurantCard, FilterBar, ProtectedRoute, AdminDashboard, Toast, SuggestButton, SubmissionForm, StatsPage, CollectionBanner } from './components';
 import { useAuth, AuthProvider } from './contexts/AuthContext';
 import { AdminAuthProvider } from './contexts/AdminAuthContext';
 import type { Restaurant } from './types';
 import type { FilterState } from './types/restaurant';
-import { haversineDistance, isOpenNow, localNowMinutes } from './utils';
+import { haversineDistance, isOpenNow, localNowMinutes, filtersToSearchParams, filtersFromSearchParams, shareUrl } from './utils';
 import { FROSTED_BAR, CARD_SURFACE } from './components/styles';
 import { METRO_REGIONS, DEFAULT_METRO_ID } from './constants/metros';
 import { TAG_VOCABULARY } from './constants/tags';
@@ -51,6 +51,27 @@ function MapCenterer({ coords, zoom }: { coords: { lat: number; lng: number }; z
   return null;
 }
 
+// Fits the map viewport around all collection member pins, once, when the
+// collection resolves. Single-pin collections get a sane fixed zoom instead
+// of fitBounds' max zoom-in.
+function MapBoundsFitter({ points }: { points: { lat: number; lng: number }[] }) {
+  const map = useMap();
+  const fitted = useRef(false);
+  useEffect(() => {
+    if (!map || fitted.current || points.length === 0) return;
+    fitted.current = true;
+    if (points.length === 1) {
+      map.setCenter(points[0]);
+      map.setZoom(15);
+      return;
+    }
+    const bounds = new google.maps.LatLngBounds();
+    for (const p of points) bounds.extend(p);
+    map.fitBounds(bounds, 48);
+  }, [map, points]);
+  return null;
+}
+
 function App() {
   const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
@@ -86,6 +107,15 @@ function App() {
           }
         />
         <Route path="/r/:slug" element={<AppWithMap apiKey={apiKey} />} />
+        <Route path="/c/:collectionSlug" element={<AppWithMap apiKey={apiKey} />} />
+        <Route
+          path="/stats"
+          element={
+            <ProtectedRoute>
+              <StatsPage />
+            </ProtectedRoute>
+          }
+        />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </AdminAuthProvider>
@@ -94,15 +124,20 @@ function App() {
 }
 
 function AppWithMap({ apiKey }: { apiKey: string }) {
-  const { slug, cityId: urlCityId } = useParams<{ slug?: string; cityId?: string }>();
+  const { slug, cityId: urlCityId, collectionSlug } = useParams<{ slug?: string; cityId?: string; collectionSlug?: string }>();
   const navigate = useNavigate();
+  const { collection, notFound: collectionNotFound } = useCollection(collectionSlug);
   const { restaurants, loading, error } = useRestaurants();
   const { coords, loading: geoLoading, denied: geoDenied } = useGeolocation();
 
   // Resolve initial city: URL param > default (will be updated by geolocation)
   const initialCity = (urlCityId && getMetro(urlCityId)) ? urlCityId : DEFAULT_METRO_ID;
   const [selectedRestaurant, setSelectedRestaurant] = useState<Restaurant | null>(null);
-  const [filters, setFilters] = useState<FilterState>({ city: initialCity, cuisine: null, tier: null, maxDistance: null, searchTerm: null, openNow: false, tags: [], recognized: false });
+  // Lazy initializer: shareable filters arrive as query params (?tier=loved&tags=patio)
+  const [filters, setFilters] = useState<FilterState>(() =>
+    filtersFromSearchParams(window.location.search, {
+      city: initialCity, cuisine: null, tier: null, maxDistance: null, searchTerm: null, openNow: false, tags: [], recognized: false,
+    }));
 
   // Resolve city from geolocation once (only if no URL city was specified)
   const geoResolved = useRef(false);
@@ -146,6 +181,15 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
     setFilters(f => ({ ...f, searchTerm: null }));
   }, []);
 
+  // Collection not-found: toast and fall back to the default map (mirrors the /r/ deep-link miss)
+  const collectionMissProcessed = useRef(false);
+  useEffect(() => {
+    if (!collectionNotFound || collectionMissProcessed.current) return;
+    collectionMissProcessed.current = true;
+    showToast('Collection not found');
+    navigate('/', { replace: true });
+  }, [collectionNotFound, showToast, navigate]);
+
   // Deep link resolution: when restaurants finish loading and a slug is present, select that restaurant
   useEffect(() => {
     if (!slug || restaurants.length === 0 || deepLinkProcessed.current) return;
@@ -163,23 +207,32 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
     }
   }, [slug, restaurants, showToast]);
 
-  // URL sync: update browser URL when selectedRestaurant or city changes
+  // URL sync: update browser URL when selectedRestaurant or filters change.
+  // Precedence: /r/:id (clean, canonical) > /c/:slug + params > /city/:city + params > / + params.
+  // Filters survive in state; their query params reappear when the card is dismissed.
+  // replaceState doesn't touch router state, so useParams keeps collectionSlug
+  // while a card is open inside a collection — dismissing restores /c/:slug.
   useEffect(() => {
     let path: string;
+    let search = '';
     if (selectedRestaurant) {
       path = `/r/${selectedRestaurant.id}`;
-    } else if (filters.city && filters.city !== DEFAULT_METRO_ID) {
-      path = `/city/${filters.city}`;
+    } else if (collectionSlug && !collectionNotFound) {
+      path = `/c/${collectionSlug}`;
+      search = filtersToSearchParams(filters);
     } else {
-      path = '/';
+      path = filters.city && filters.city !== DEFAULT_METRO_ID ? `/city/${filters.city}` : '/';
+      search = filtersToSearchParams(filters);
     }
-    if (window.location.pathname !== path) {
-      window.history.replaceState(null, '', path);
+    if (window.location.pathname + window.location.search !== path + search) {
+      window.history.replaceState(null, '', path + search);
     }
-  }, [selectedRestaurant, filters.city]);
+  }, [selectedRestaurant, filters, collectionSlug, collectionNotFound]);
 
-  // Distance filter: only active when viewing user's nearest city and coords available
-  const showDistance = !geoDenied && coords !== null && userNearestMetro === filters.city;
+  // Distance filter: only active when viewing user's nearest city and coords
+  // available. Collections span metros, so "nearest metro === city" is
+  // meaningless there — force it off.
+  const showDistance = !collection && !geoDenied && coords !== null && userNearestMetro === filters.city;
   const effectiveMaxDistance = showDistance ? filters.maxDistance : null;
 
   // Restaurants in the selected city
@@ -188,12 +241,26 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
     [restaurants, filters.city],
   );
 
+  // Collection mode: membership replaces the city scope entirely (a collection can span metros)
+  const collectionIds = useMemo(
+    () => (collection ? new Set(collection.restaurant_ids) : null),
+    [collection],
+  );
+  const baseRestaurants = useMemo(
+    () => (collectionIds ? restaurants.filter((r) => collectionIds.has(r.id)) : cityRestaurants),
+    [collectionIds, restaurants, cityRestaurants],
+  );
+  const collectionPoints = useMemo(
+    () => (collection ? baseRestaurants.map((r) => ({ lat: r.lat, lng: r.lng })) : []),
+    [collection, baseRestaurants],
+  );
+
   const filteredRestaurants = useMemo(
     () => {
       const searchLower = filters.searchTerm?.toLowerCase() ?? null;
       // Opening hours are stored in each place's local time
       const nowMinutes = filters.openNow ? localNowMinutes(activeMetro.timezone) : 0;
-      return cityRestaurants.filter((r) => {
+      return baseRestaurants.filter((r) => {
         if (searchLower && !r.name.toLowerCase().includes(searchLower)) return false;
         if (filters.cuisine && r.cuisine !== filters.cuisine) return false;
         if (filters.tier && r.tier !== filters.tier) return false;
@@ -207,22 +274,22 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
         return true;
       });
     },
-    [cityRestaurants, filters.searchTerm, filters.cuisine, filters.tier, filters.openNow, filters.recognized, filters.tags, effectiveMaxDistance, coords, activeMetro.timezone],
+    [baseRestaurants, filters.searchTerm, filters.cuisine, filters.tier, filters.openNow, filters.recognized, filters.tags, effectiveMaxDistance, coords, activeMetro.timezone],
   );
 
-  // Cuisines scoped to selected city
+  // Cuisines scoped to the current view (selected city, or collection members)
   const cuisines = useMemo(
-    () => Array.from(new Set(cityRestaurants.map(r => r.cuisine))).sort(),
-    [cityRestaurants],
+    () => Array.from(new Set(baseRestaurants.map(r => r.cuisine))).sort(),
+    [baseRestaurants],
   );
 
-  // Tags present in the selected city, in vocabulary order; hours availability gates the Open Now chip
+  // Tags present in the current view, in vocabulary order; hours availability gates the Open Now chip
   const availableTags = useMemo(() => {
-    const present = new Set(cityRestaurants.flatMap((r) => r.tags ?? []));
+    const present = new Set(baseRestaurants.flatMap((r) => r.tags ?? []));
     return TAG_VOCABULARY.filter((t) => present.has(t));
-  }, [cityRestaurants]);
-  const hasHours = useMemo(() => cityRestaurants.some((r) => r.openingHours), [cityRestaurants]);
-  const hasAccolades = useMemo(() => cityRestaurants.some((r) => r.accolades && r.accolades.length > 0), [cityRestaurants]);
+  }, [baseRestaurants]);
+  const hasHours = useMemo(() => baseRestaurants.some((r) => r.openingHours), [baseRestaurants]);
+  const hasAccolades = useMemo(() => baseRestaurants.some((r) => r.accolades && r.accolades.length > 0), [baseRestaurants]);
 
   // Dynamically measure the filter bar height so the map container can offset below it.
   // ResizeObserver keeps the padding in sync when the bar resizes (e.g., distance row appearing).
@@ -258,6 +325,13 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
     navigate(cityId === DEFAULT_METRO_ID ? '/' : `/city/${cityId}`, { replace: true });
   }, [restaurants, navigate]);
 
+  const handleShareView = useCallback(() => {
+    // The URL-sync effect keeps window.location current, so the address bar IS the shareable link
+    void shareUrl('bobby.menu', window.location.href).then((ok) => {
+      if (ok) showToast('Link copied!');
+    });
+  }, [showToast]);
+
   function handleMapClick(event: MapMouseEvent) {
     // Only dismiss when clicking empty map space — not on a place/pin
     if (!selectedRestaurant) return;
@@ -280,10 +354,11 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           onDistanceChange={(miles) => setFilters(f => ({ ...f, maxDistance: miles }))}
           searchTerm={filters.searchTerm}
           onSearchChange={(term) => setFilters(f => ({ ...f, searchTerm: term }))}
-          restaurants={cityRestaurants}
+          restaurants={baseRestaurants}
           onRestaurantSelect={handleAutocompleteSelect}
           hasActiveFilters={hasActiveFilters}
           onClearFilters={handleClearFilters}
+          onShareView={handleShareView}
           activeCity={filters.city ?? DEFAULT_METRO_ID}
           onCityChange={handleCityChange}
           showDistance={showDistance}
@@ -296,7 +371,16 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           recognized={filters.recognized}
           onRecognizedChange={(recognized) => setFilters(f => ({ ...f, recognized }))}
           hasAccolades={hasAccolades}
+          hideCity={collection !== null}
         />
+        {collection && (
+          <CollectionBanner
+            title={collection.title}
+            blurb={collection.blurb}
+            count={baseRestaurants.length}
+            onShareSuccess={() => showToast('Link copied!')}
+          />
+        )}
       </div>
       <APIProvider apiKey={apiKey}>
         <Map
@@ -312,8 +396,12 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
             selectedRestaurantId={selectedRestaurant?.id ?? null}
             deepLinkedId={slug ?? null}
           />
-          {/* Jump to selected city center */}
-          <MapCenterer coords={activeMetro.center} zoom={activeMetro.zoom} />
+          {/* Jump to selected city center (collection mode fits bounds instead) */}
+          {!collection && <MapCenterer coords={activeMetro.center} zoom={activeMetro.zoom} />}
+          {/* Fit the viewport around all collection members once resolved */}
+          {collection && !deepLinkCenter && collectionPoints.length > 0 && (
+            <MapBoundsFitter points={collectionPoints} />
+          )}
           {/* Pan to deep-linked restaurant once resolved */}
           {deepLinkCenter && <MapCenterer coords={deepLinkCenter} zoom={15} />}
           {/* Pan to autocomplete-selected restaurant */}

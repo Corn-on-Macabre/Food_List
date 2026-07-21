@@ -21,3 +21,5 @@ export { UserMenu } from './UserMenu';
 export { SubmissionForm } from './SubmissionForm';
 export { SuggestButton } from './SuggestButton';
 export { SubmissionsPanel } from './SubmissionsPanel';
+export { StatsPage } from './StatsPage';
+export { CollectionBanner } from './CollectionBanner';

@@ -18,7 +18,16 @@ import {
   fetchPhotoThumb,
   deleteRow,
   enrichRestaurant,
+  getVisits,
+  insertVisit,
+  getCollections,
+  getCollection,
+  insertCollection,
+  updateCollectionRow,
+  deleteCollectionRow,
 } from './data.js';
+
+const PUBLIC_URL = process.env.PUBLIC_URL || 'https://bobby.menu';
 
 const TIERS = VALID_TIERS;
 
@@ -173,10 +182,12 @@ const locationInputs = {
 
 function buildServer(authed) {
   const writeToolNote = authed
-    ? ' Write tools are available: log_visit after eating somewhere (promote the tier, note what was good — appends a dated line), ' +
-      'update_restaurant for direct edits (its clear param removes fields like a mistaken lastVisited), add_restaurant for new finds, ' +
-      'list_photo_options/set_photo to choose the card photo visually, refresh_enrichment to re-pull Google data, ' +
-      'and delete_restaurant (permanent — confirm with the curator first).'
+    ? ' Write tools are available: log_visit after eating somewhere (promote the tier, note what was good, ' +
+      'record spend/party size from a receipt — the spend stays private), get_visits for private visit history ' +
+      'and spend questions, update_restaurant for direct edits (its clear param removes fields like a mistaken lastVisited), ' +
+      'add_restaurant for new finds, list_photo_options/set_photo to choose the card photo visually, ' +
+      'refresh_enrichment to re-pull Google data, delete_restaurant (permanent — confirm with the curator first), ' +
+      'and create_collection/update_collection/delete_collection for shareable curated lists.'
     : '';
   const server = new McpServer(
     { name: 'Bobby.Menu', version: '1.0.0' },
@@ -189,7 +200,8 @@ function buildServer(authed) {
         "call search_restaurants with tiers:['loved','recommended'] and the city — results are already sorted " +
         'tier-first. Use search_restaurants for filtered lookups, ' +
         'pick_random for "what should I eat tonight" (both support open_now, computed in each place\'s local time), ' +
-        'and list_cuisines to see what cuisines exist before filtering.' +
+        'and list_cuisines to see what cuisines exist before filtering. ' +
+        'list_collections/get_collection expose named shareable lists (each has a public URL at /c/<slug>).' +
         writeToolNote,
     }
   );
@@ -333,6 +345,59 @@ function buildServer(authed) {
     }
   );
 
+  server.registerTool(
+    'list_collections',
+    {
+      title: 'List collections',
+      description:
+        "Bobby's named restaurant collections — hand-picked, ordered, annotated lists " +
+        '(e.g. "Visiting Phoenix? Start here"). Each is shareable at its URL.',
+      inputSchema: {},
+    },
+    async () => {
+      const collections = await getCollections();
+      return json({
+        total: collections.length,
+        collections: collections.map((c) => ({
+          slug: c.slug,
+          title: c.title,
+          blurb: c.blurb ?? null,
+          count: (c.restaurant_ids ?? []).length,
+          updated_at: c.updated_at,
+          url: `${PUBLIC_URL}/c/${c.slug}`,
+        })),
+      });
+    }
+  );
+
+  server.registerTool(
+    'get_collection',
+    {
+      title: 'Get a collection',
+      description: 'A collection with its member restaurants resolved, in curated order.',
+      inputSchema: {
+        slug: z.string().describe("Collection slug, e.g. 'visiting-phoenix'"),
+      },
+    },
+    async ({ slug }) => {
+      const c = await getCollection(slug);
+      if (!c) return json({ error: `No collection with slug '${slug}'` });
+      const byId = new Map((await getAll()).map((r) => [r.id, r]));
+      const ids = c.restaurant_ids ?? [];
+      const restaurants = ids.filter((id) => byId.has(id)).map((id) => compactResult(byId.get(id)));
+      const missing = ids.filter((id) => !byId.has(id));
+      return json({
+        slug: c.slug,
+        title: c.title,
+        blurb: c.blurb ?? null,
+        url: `${PUBLIC_URL}/c/${c.slug}`,
+        updated_at: c.updated_at,
+        restaurants,
+        ...(missing.length && { missing_ids: missing }),
+      });
+    }
+  );
+
   if (authed) {
     registerWriteTools(server);
   }
@@ -353,29 +418,88 @@ function registerWriteTools(server) {
       title: 'Log a visit',
       description:
         'Record that Bobby ate at a restaurant: optionally promote/demote its tier, append a dated note ' +
-        '(kept alongside the existing notes, not replacing them), record standout dishes, and add tags. ' +
-        'Sets lastVisited to today. This is the main curation tool — prefer it over update_restaurant after a meal.',
+        '(kept alongside the existing notes, not replacing them), record standout dishes, spend, party size, and add tags. ' +
+        'Sets lastVisited to today and writes a private structured visit row (spend never appears publicly). ' +
+        'This is the main curation tool — prefer it over update_restaurant after a meal.',
       inputSchema: {
         id: z.string().describe("Slug id, e.g. 'manna-bbq' (find it via search_restaurants)"),
         new_tier: z.enum(TIERS).optional().describe('New tier after the visit, if it changed'),
         note_append: z.string().optional().describe('Impressions from the visit — appended as a dated line'),
         dishes: z.array(z.string()).optional().describe("Standout dishes, e.g. ['galbi ribs', 'garlic shrimp']"),
         tags_add: z.array(z.string()).optional().describe("Tags to add, e.g. ['date night', 'patio']"),
+        spend: z.number().nonnegative().optional().describe('Total spend in dollars, e.g. 84.50 (from a receipt) — stored privately, never shown on the public map'),
+        party_size: z.number().int().positive().optional().describe('How many people ate'),
+        visited_on: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional().describe('Visit date if not today (YYYY-MM-DD), e.g. when logging from an old receipt'),
       },
     },
-    async ({ id, new_tier, note_append, dishes, tags_add }) => {
+    async ({ id, new_tier, note_append, dishes, tags_add, spend, party_size, visited_on }) => {
       const data = await getAll();
       const r = data.find((x) => x.id === id);
       if (!r) return json({ error: `No restaurant with id '${id}'` });
-      const fields = { lastVisited: today() };
+      const visitDate = visited_on ?? today();
+      const fields = { lastVisited: visitDate };
       if (new_tier) fields.tier = new_tier;
       if (note_append) {
-        fields.notes = r.notes ? `${r.notes}\n[visited ${today()}] ${note_append}` : `[visited ${today()}] ${note_append}`;
+        fields.notes = r.notes ? `${r.notes}\n[visited ${visitDate}] ${note_append}` : `[visited ${visitDate}] ${note_append}`;
       }
       if (dishes?.length) fields.dishes = mergeUnique(r.dishes, dishes);
       if (tags_add?.length) fields.tags = mergeUnique(r.tags, tags_add);
       const updated = await updateRow(id, fields);
-      return json({ updated: fullResult(updated) });
+      // Dual-write: private structured row (the prose line above stays the public timeline)
+      let visitRowWarning;
+      try {
+        await insertVisit({
+          restaurant_id: id,
+          restaurant_name: r.name,
+          visited_on: visitDate,
+          note: note_append ?? null,
+          dishes: dishes?.length ? dishes : null,
+          spend_cents: spend != null ? Math.round(spend * 100) : null,
+          party_size: party_size ?? null,
+        });
+      } catch (err) {
+        // Prose write already landed; re-running backfill-visits.js heals the gap
+        visitRowWarning = err.message;
+      }
+      return json({ updated: fullResult(updated), ...(visitRowWarning && { visit_row_warning: visitRowWarning }) });
+    }
+  );
+
+  server.registerTool(
+    'get_visits',
+    {
+      title: 'Get visit history',
+      description:
+        "Bobby's private structured visit log — dates, notes, dishes, spend, party size. " +
+        'Filter by restaurant, city, or date range. Includes spend totals; use for ' +
+        '"how much did I spend on food this month" or "when did I last eat at X" questions.',
+      inputSchema: {
+        id: z.string().optional().describe('Limit to one restaurant (slug id)'),
+        city: z.string().optional().describe("Limit to a metro, e.g. 'phoenix'"),
+        since: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional().describe('Only visits on/after this date (YYYY-MM-DD)'),
+        until: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional().describe('Only visits on/before this date (YYYY-MM-DD)'),
+        limit: z.number().int().positive().max(500).optional().describe('Max rows returned (default 50, newest first)'),
+      },
+    },
+    async ({ id, city, since, until, limit }) => {
+      let visits = await getVisits();
+      if (id) visits = visits.filter((v) => v.restaurant_id === id);
+      if (city) {
+        const inCity = new Set((await getAll()).filter((r) => r.city === city).map((r) => r.id));
+        visits = visits.filter((v) => inCity.has(v.restaurant_id));
+      }
+      if (since) visits = visits.filter((v) => v.visited_on >= since);
+      if (until) visits = visits.filter((v) => v.visited_on <= until);
+      visits.sort((a, b) => (a.visited_on < b.visited_on ? 1 : -1));
+      const spends = visits.filter((v) => v.spend_cents != null);
+      const totalSpendCents = spends.reduce((sum, v) => sum + v.spend_cents, 0);
+      return json({
+        total: visits.length,
+        total_spend_dollars: totalSpendCents / 100,
+        avg_spend_dollars: spends.length ? Math.round(totalSpendCents / spends.length) / 100 : null,
+        visits_with_spend: spends.length,
+        visits: visits.slice(0, limit ?? 50),
+      });
     }
   );
 
@@ -544,7 +668,121 @@ function registerWriteTools(server) {
       const r = data.find((x) => x.id === id);
       if (!r) return json({ error: `No restaurant with id '${id}'` });
       await deleteRow(id);
-      return json({ deleted: id, name: r.name, note: 'Removed from the list and map immediately' });
+      // Warn about dangling collection membership (the frontend tolerates it,
+      // but the curator probably wants to prune the list)
+      const inCollections = (await getCollections())
+        .filter((c) => (c.restaurant_ids ?? []).includes(id))
+        .map((c) => c.slug);
+      return json({
+        deleted: id,
+        name: r.name,
+        note: 'Removed from the list and map immediately',
+        ...(inCollections.length && {
+          warning: `Still referenced by collection(s): ${inCollections.join(', ')} — use update_collection with remove to prune`,
+        }),
+      });
+    }
+  );
+
+  server.registerTool(
+    'create_collection',
+    {
+      title: 'Create a collection',
+      description:
+        'Create a named, ordered, shareable restaurant collection (e.g. "Visiting Phoenix? Start here"). ' +
+        'Returns the public URL to share. Order of restaurant_ids is the display order.',
+      inputSchema: {
+        title: z.string().min(1).describe('Display title, e.g. "Visiting Phoenix? Start here"'),
+        slug: z.string().regex(/^[a-z0-9-]+$/).optional().describe('URL slug (default: generated from title)'),
+        blurb: z.string().optional().describe("Short intro in Bobby's voice, shown at the top"),
+        restaurant_ids: z.array(z.string()).min(1).describe('Ordered restaurant slug ids'),
+      },
+    },
+    async ({ title, slug, blurb, restaurant_ids }) => {
+      const data = await getAll();
+      const known = new Set(data.map((r) => r.id));
+      const unknown = restaurant_ids.filter((id) => !known.has(id));
+      if (unknown.length) return json({ error: `Unknown restaurant ids: ${unknown.join(', ')}` });
+      const existing = await getCollections();
+      const finalSlug = slug ?? generateUniqueSlugId(title, existing.map((c) => c.slug));
+      if (existing.some((c) => c.slug === finalSlug)) {
+        return json({ error: `Collection '${finalSlug}' already exists — use update_collection or pick another slug` });
+      }
+      const deduped = [...new Set(restaurant_ids)];
+      const created = await insertCollection({
+        slug: finalSlug,
+        title,
+        blurb: blurb ?? null,
+        restaurant_ids: deduped,
+      });
+      return json({ created: { slug: created.slug, title: created.title, count: deduped.length }, url: `${PUBLIC_URL}/c/${created.slug}` });
+    }
+  );
+
+  server.registerTool(
+    'update_collection',
+    {
+      title: 'Update a collection',
+      description:
+        'Edit a collection: change title/blurb, add or remove restaurants, or pass restaurant_ids ' +
+        'to replace the whole list (that is also how you reorder).',
+      inputSchema: {
+        slug: z.string().describe('Collection slug'),
+        title: z.string().min(1).optional(),
+        blurb: z.string().optional(),
+        add: z.array(z.string()).optional().describe('Restaurant ids to append (deduped)'),
+        remove: z.array(z.string()).optional().describe('Restaurant ids to remove'),
+        restaurant_ids: z.array(z.string()).min(1).optional().describe('Full replacement list — wins over add/remove; use to reorder'),
+      },
+    },
+    async ({ slug, title, blurb, add, remove, restaurant_ids }) => {
+      const c = await getCollection(slug);
+      if (!c) return json({ error: `No collection with slug '${slug}'` });
+      const fields = {};
+      if (title !== undefined) fields.title = title;
+      if (blurb !== undefined) fields.blurb = blurb;
+      let ids;
+      if (restaurant_ids) {
+        ids = [...new Set(restaurant_ids)];
+      } else if (add?.length || remove?.length) {
+        ids = [...new Set([...(c.restaurant_ids ?? []), ...(add ?? [])])];
+        if (remove?.length) {
+          const gone = new Set(remove);
+          ids = ids.filter((id) => !gone.has(id));
+        }
+      }
+      if (ids) {
+        const known = new Set((await getAll()).map((r) => r.id));
+        const unknown = ids.filter((id) => !known.has(id));
+        if (unknown.length) return json({ error: `Unknown restaurant ids: ${unknown.join(', ')}` });
+        if (ids.length === 0) return json({ error: 'A collection cannot be emptied — use delete_collection instead' });
+        fields.restaurant_ids = ids;
+      }
+      if (Object.keys(fields).length === 0) return json({ error: 'No fields to update' });
+      const updated = await updateCollectionRow(slug, fields);
+      return json({
+        updated: { slug: updated.slug, title: updated.title, blurb: updated.blurb ?? null, count: (updated.restaurant_ids ?? []).length },
+        url: `${PUBLIC_URL}/c/${updated.slug}`,
+      });
+    }
+  );
+
+  server.registerTool(
+    'delete_collection',
+    {
+      title: 'Delete a collection',
+      description:
+        'PERMANENTLY delete a collection (the restaurants in it are untouched). ' +
+        'Shared links to it will stop working. Confirm with the curator first.',
+      inputSchema: {
+        slug: z.string().describe('Collection slug to delete'),
+        confirm: z.literal(true).describe('Must be true — acknowledges this is permanent'),
+      },
+    },
+    async ({ slug }) => {
+      const deleted = await deleteCollectionRow(slug);
+      if (!deleted) return json({ error: `No collection with slug '${slug}'` });
+      return json({ deleted: slug, note: `${PUBLIC_URL}/c/${slug} is no longer live` });
     }
   );
 

@@ -30,6 +30,7 @@ const baseProps = {
   onRestaurantSelect: vi.fn(),
   hasActiveFilters: false,
   onClearFilters: vi.fn(),
+  onShareView: vi.fn(),
   activeCity: 'phoenix',
   onCityChange: vi.fn(),
   showDistance: false,
@@ -333,6 +334,25 @@ describe('FilterBar', () => {
       render(<FilterBar {...baseProps} hasActiveFilters={true} />);
       const btn = screen.getByRole('button', { name: 'Clear all filters' });
       expect(btn).toHaveAttribute('aria-label', 'Clear all filters');
+    });
+  });
+
+  describe('Share View button', () => {
+    it('is not visible when no filters are active', () => {
+      render(<FilterBar {...baseProps} hasActiveFilters={false} />);
+      expect(screen.queryByRole('button', { name: 'Share this view' })).not.toBeInTheDocument();
+    });
+
+    it('is visible when hasActiveFilters is true', () => {
+      render(<FilterBar {...baseProps} hasActiveFilters={true} />);
+      expect(screen.getByRole('button', { name: 'Share this view' })).toBeInTheDocument();
+    });
+
+    it('clicking Share View calls onShareView once', () => {
+      const onShareView = vi.fn();
+      render(<FilterBar {...baseProps} hasActiveFilters={true} onShareView={onShareView} />);
+      fireEvent.click(screen.getByRole('button', { name: 'Share this view' }));
+      expect(onShareView).toHaveBeenCalledTimes(1);
     });
   });
 

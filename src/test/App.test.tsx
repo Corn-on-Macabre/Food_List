@@ -24,6 +24,7 @@ vi.mock("../hooks", () => ({
   useRestaurants: () => ({ restaurants: [], loading: false, error: null }),
   useGeolocation: () => ({ coords: null, loading: false, denied: false }),
   useAdminAuth: () => ({ isAuthenticated: false, isConfigured: false, isAdmin: false, userEmail: null, password: '', login: () => false, loginWithGoogle: () => Promise.resolve(), logout: () => {}, loading: false }),
+  useCollection: () => ({ collection: null, loading: false, notFound: false }),
 }));
 
 vi.stubEnv("VITE_GOOGLE_MAPS_API_KEY", "test-key");

@@ -21,6 +21,7 @@ interface FilterBarProps {
   onRestaurantSelect: (restaurant: Restaurant) => void;
   hasActiveFilters: boolean;
   onClearFilters: () => void;
+  onShareView: () => void;
   activeCity: string;
   onCityChange: (cityId: string) => void;
   showDistance: boolean;
@@ -33,6 +34,7 @@ interface FilterBarProps {
   recognized: boolean;
   onRecognizedChange: (recognized: boolean) => void;
   hasAccolades: boolean;
+  hideCity?: boolean; // collection mode: the collection spans cities, hide the selector
 }
 
 const TIER_OPTIONS: { value: Tier; label: string }[] = [
@@ -55,6 +57,7 @@ export function FilterBar({
   onRestaurantSelect,
   hasActiveFilters,
   onClearFilters,
+  onShareView,
   activeCity,
   onCityChange,
   showDistance,
@@ -67,6 +70,7 @@ export function FilterBar({
   recognized,
   onRecognizedChange,
   hasAccolades,
+  hideCity = false,
 }: FilterBarProps) {
   const { isAuthenticated } = useAdminAuth();
 
@@ -104,12 +108,20 @@ export function FilterBar({
         </div>
         <div className="flex items-center gap-3 shrink-0">
         {isAuthenticated && (
-          <Link
-            to="/admin"
-            className="font-sans text-xs font-semibold text-brand-accent hover:text-brand-accent-hover underline underline-offset-2 transition-colors duration-150"
-          >
-            Admin &rarr;
-          </Link>
+          <>
+            <Link
+              to="/stats"
+              className="font-sans text-xs font-semibold text-brand-accent hover:text-brand-accent-hover underline underline-offset-2 transition-colors duration-150"
+            >
+              Stats &rarr;
+            </Link>
+            <Link
+              to="/admin"
+              className="font-sans text-xs font-semibold text-brand-accent hover:text-brand-accent-hover underline underline-offset-2 transition-colors duration-150"
+            >
+              Admin &rarr;
+            </Link>
+          </>
         )}
         <UserMenu />
         </div>
@@ -118,6 +130,7 @@ export function FilterBar({
       <div role="group" aria-label="Filters" className="flex flex-col">
         {/* City selector + Search — inline row */}
         <div className="flex items-center gap-2 px-4 pt-2 pb-1">
+          {!hideCity && (
           <select
             value={activeCity}
             onChange={(e) => onCityChange(e.target.value)}
@@ -130,6 +143,7 @@ export function FilterBar({
               </option>
             ))}
           </select>
+          )}
           <div className="flex-1 min-w-0">
             <SearchAutocomplete
               searchTerm={searchTerm}
@@ -251,9 +265,16 @@ export function FilterBar({
           </div>
         )}
       </div>
-      {/* Clear Filters — outside filter controls group; sibling in accessibility tree */}
+      {/* Share view + Clear Filters — outside filter controls group; siblings in accessibility tree */}
       {hasActiveFilters && (
-        <div className="flex justify-end px-4 pb-2 pt-1 border-t border-brand-border-light">
+        <div className="flex justify-end gap-4 px-4 pb-2 pt-1 border-t border-brand-border-light">
+          <button
+            onClick={onShareView}
+            aria-label="Share this view"
+            className="text-xs font-sans font-semibold text-brand-accent hover:text-brand-accent-hover underline underline-offset-2 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta rounded"
+          >
+            Share View
+          </button>
           <button
             onClick={onClearFilters}
             aria-label="Clear all filters"
