@@ -50,9 +50,17 @@ vi.mock("../hooks", () => ({
   useRestaurants: vi.fn(() => ({ restaurants: [], loading: false, error: null })),
   useGeolocation: vi.fn(() => ({ coords: null, loading: false, denied: false })),
   useAdminAuth: () => ({ isAuthenticated: false, isConfigured: false, isAdmin: false, userEmail: null, password: '', login: () => false, loginWithGoogle: () => Promise.resolve(), logout: () => {}, loading: false }),
+  useCollection: () => ({ collection: null, loading: false, notFound: false }),
 }));
 
 vi.stubEnv("VITE_GOOGLE_MAPS_API_KEY", "test-key");
+
+// The URL-sync effect writes filter query params to window.location via
+// replaceState, and jsdom's window persists across tests in this file —
+// without a reset, one test's filters leak into the next test's initial state.
+beforeEach(() => {
+  window.history.replaceState(null, "", "/");
+});
 
 describe("App — FilterBar cuisine filtering (AC 2, 3, 4, 5, 6)", () => {
   beforeEach(async () => {

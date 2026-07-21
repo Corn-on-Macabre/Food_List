@@ -3,6 +3,7 @@ import type { Restaurant } from "../types";
 import { formatPriceLevel } from "../utils/priceLevel";
 import { isOpenNow, localNowMinutes, todayHours, metroTimezone } from "../utils/openNow";
 import { splitNotes, formatVisitDate } from "../utils/visitNotes";
+import { shareUrl } from "../utils/share";
 import { BobbyPickBadge } from "./BobbyPickBadge";
 import { TierBadge } from "./TierBadge";
 import { BTN_ICON, BTN_PRIMARY } from "./styles";
@@ -24,16 +25,8 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
 
   async function handleShare(): Promise<void> {
     const url = `${window.location.origin}/r/${restaurant.id}`;
-    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    try {
-      if (isMobile && navigator.share) {
-        await navigator.share({ title: restaurant.name, url });
-      } else {
-        await navigator.clipboard.writeText(url);
-      }
+    if (await shareUrl(restaurant.name, url)) {
       onShareSuccess();
-    } catch {
-      // User cancelled share sheet or clipboard failed — ignore
     }
   }
   const formattedPrice = formatPriceLevel(restaurant.priceLevel);

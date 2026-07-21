@@ -7,4 +7,5 @@ export { usePlaceDetails } from './usePlaceDetails';
 export type { PlaceDraft } from './usePlaceDetails';
 export { useAddressAutocomplete } from './useAddressAutocomplete';
 export { useAddressGeocode } from './useAddressGeocode';
+export { useCollection } from './useCollection';
 export type { AddressGeocodeResult } from './useAddressGeocode';
