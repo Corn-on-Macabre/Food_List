@@ -51,6 +51,7 @@ vi.mock("../hooks", () => ({
   useGeolocation: vi.fn(() => ({ coords: null, loading: false, denied: false })),
   useAdminAuth: () => ({ isAuthenticated: false, isConfigured: false, isAdmin: false, userEmail: null, password: '', login: () => false, loginWithGoogle: () => Promise.resolve(), logout: () => {}, loading: false }),
   useCollection: () => ({ collection: null, loading: false, notFound: false }),
+  useTheme: () => ({ theme: "light", toggleTheme: () => {} }),
 }));
 
 vi.stubEnv("VITE_GOOGLE_MAPS_API_KEY", "test-key");

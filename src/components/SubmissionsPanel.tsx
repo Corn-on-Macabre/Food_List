@@ -76,15 +76,15 @@ export function SubmissionsPanel({ onApprove, onCountChange }: Props) {
           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
         </svg>
-        <span className="ml-3 font-sans text-stone-500">Loading submissions...</span>
+        <span className="ml-3 font-sans text-brand-text-muted">Loading submissions...</span>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-center">
-        <p className="font-sans text-sm text-red-700 mb-3">{error}</p>
+      <div className="rounded-lg border border-state-error-border bg-state-error-tint p-4 text-center">
+        <p className="font-sans text-sm text-state-error mb-3">{error}</p>
         <button
           onClick={() => { void load(); }}
           className={`${BTN_PRIMARY} px-4 py-2`}
@@ -97,8 +97,8 @@ export function SubmissionsPanel({ onApprove, onCountChange }: Props) {
 
   if (submissions.length === 0) {
     return (
-      <div className="bg-white border border-brand-border rounded-xl p-6 text-center">
-        <p className="font-sans text-sm text-stone-500">No pending submissions</p>
+      <div className="bg-brand-surface border border-brand-border rounded-xl p-6 text-center">
+        <p className="font-sans text-sm text-brand-text-muted">No pending submissions</p>
       </div>
     );
   }
@@ -106,28 +106,28 @@ export function SubmissionsPanel({ onApprove, onCountChange }: Props) {
   return (
     <div className="space-y-3">
       {actionError && (
-        <div className="rounded-lg border border-red-200 bg-red-50 p-3">
-          <p className="font-sans text-sm text-red-700">{actionError}</p>
+        <div className="rounded-lg border border-state-error-border bg-state-error-tint p-3">
+          <p className="font-sans text-sm text-state-error">{actionError}</p>
         </div>
       )}
 
       {submissions.map((s) => (
         <div
           key={s.id}
-          className="bg-white border border-brand-border rounded-xl p-4"
+          className="bg-brand-surface border border-brand-border rounded-xl p-4"
         >
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0 flex-1">
-              <h3 className="font-display text-sm font-bold text-stone-900 truncate">
+              <h3 className="font-display text-sm font-bold text-brand-text truncate">
                 {s.restaurant_name}
               </h3>
-              <p className="font-sans text-xs text-stone-500 mt-0.5">{s.location}</p>
+              <p className="font-sans text-xs text-brand-text-muted mt-0.5">{s.location}</p>
               {s.user_note && (
-                <p className="font-sans text-xs text-stone-600 mt-2 italic">
+                <p className="font-sans text-xs text-brand-text mt-2 italic">
                   &ldquo;{s.user_note}&rdquo;
                 </p>
               )}
-              <p className="font-sans text-xs text-stone-400 mt-2">
+              <p className="font-sans text-xs text-brand-text-faint mt-2">
                 Submitted by {s.user_display_name ?? 'Unknown'} &middot;{' '}
                 {new Date(s.created_at).toLocaleDateString()}
               </p>
@@ -145,7 +145,7 @@ export function SubmissionsPanel({ onApprove, onCountChange }: Props) {
             <button
               type="button"
               onClick={() => { void handleDismiss(s.id); }}
-              className="border border-brand-border rounded-lg px-3 py-1.5 font-sans text-xs font-bold text-stone-500 hover:bg-stone-50 hover:text-stone-700 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-focus"
+              className="border border-brand-border rounded-lg px-3 py-1.5 font-sans text-xs font-bold text-brand-text-muted hover:bg-brand-hover hover:text-brand-text transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-focus"
             >
               Dismiss
             </button>

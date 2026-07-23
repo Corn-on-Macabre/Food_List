@@ -16,40 +16,66 @@ warmth create personality, not visual noise.
 
 ---
 
-## Color Palette
+## Color Palette — "Wine & Paper"
+
+Oxblood on cool greige paper. Reads like a wine list, not a chat window. Replaced the
+original cream-and-amber palette 2026-07-23. Every color is a runtime CSS variable defined
+on `:root` (light) and `.dark` (dark) in `src/index.css`, mapped to Tailwind utilities via
+`@theme inline`. Components use only the semantic `brand-*` / `tier-*` / `state-*` utilities —
+never raw Tailwind palette classes (the only exceptions are literals that sit on photos,
+e.g. the white overlay buttons on card photos).
 
 ### App Chrome
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `--color-bg` | `#FFFBF5` | Page / app background (warm off-white) |
-| `--color-surface` | `#FFFFFF` | Cards, panels, overlays |
-| `--color-surface-warm` | `#FFF8EE` | Highlighted surfaces, selected states |
-| `--color-border` | `#E8E0D5` | Dividers, card borders, inputs |
-| `--color-border-light` | `#F0EBE3` | Subtle separators within cards |
-| `--color-text-primary` | `#1C1917` | Headings, primary text (stone-900) |
-| `--color-text-secondary` | `#78716C` | Body, cuisine, meta (stone-500) |
-| `--color-text-tertiary` | `#A8A29E` | Placeholder, labels (stone-400) |
-| `--color-accent` | `#B45309` | Interactive text, links (amber-700) |
-| `--color-accent-hover` | `#92400E` | Hover state for accent text (amber-800) |
-| `--color-cta` | `#D97706` | Primary button background (amber-600) |
-| `--color-cta-hover` | `#B45309` | Primary button hover (amber-700) |
-| `--color-focus-ring` | `#FDE68A` | Keyboard focus ring (amber-200) |
-| `--color-text-on-cta` | `#FFFFFF` | Text on amber CTA buttons |
+| Token (utility suffix) | Light | Dark | Usage |
+|-------|-------|------|-------|
+| `brand-bg` | `#F4F2EE` | `#191316` | Page / app background (paper / wine-black) |
+| `brand-surface` | `#FFFFFF` | `#221B1F` | Cards, panels, overlays, inactive chips |
+| `brand-surface-warm` | `#EFEBE4` | `#281F24` | Highlighted surfaces, selected states |
+| `brand-hover` | `#F6F3EF` | `#2C2328` | Hover fills on buttons/rows, soft neutral chips |
+| `brand-border` | `#E0DBD5` | `#3B3136` | Dividers, card borders, inputs |
+| `brand-border-light` | `#EBE7E2` | `#2E262A` | Subtle separators within cards |
+| `brand-border-strong` | `#CBC3BD` | `#4E4148` | Hover borders on chips |
+| `brand-text` | `#241E20` | `#F1EAEC` | Headings, primary text |
+| `brand-text-muted` | `#6E6669` | `#ABA0A5` | Body, cuisine, meta |
+| `brand-text-faint` | `#9C9497` | `#7E7378` | Placeholder, labels, decorative text |
+| `brand-accent` / `brand-cta` / `brand-chip` | `#7D2A3C` | `#E38E9B` | Links, buttons, active chips (oxblood / rosé) |
+| `brand-accent-hover` / `brand-cta-hover` | `#5E1F2D` | `#ECA9B4` | Hover state for the accent |
+| `brand-on-accent` | `#FFF6F7` | `#2A1218` | Text on accent-filled buttons/chips |
+| `brand-focus` | `#E9C6CE` | `#5C2833` | Keyboard focus ring |
+| `brand-tint` | `#F6E9EC` | `#3A2229` | Soft wine chip/banner backgrounds |
+| `brand-tint-border` | `#E5C6CE` | `#55333C` | Border on tinted chips/banners |
+| `brand-tint-text` | `#82374A` | `#E4A0AC` | Text on tinted chips/banners |
 
-### Tier Colors — FIXED, never override
+### State Colors
 
-These colors are established in the data model and CLAUDE.md. They must never change.
+| Token | Light | Dark | Usage |
+|-------|-------|------|-------|
+| `state-open` | `#059669` | `#34D399` | "Open now" |
+| `state-closed` | `#E11D48` | `#FB7185` | "Closed" |
+| `state-error` | `#DC2626` | `#F87171` | Errors, destructive buttons |
+| `state-error-border` | `#FCA5A5` | `#9B3535` | Error borders |
+| `state-error-tint` | `#FEF2F2` | `#3B1A1E` | Error banner backgrounds |
 
-| Tier | Pin Color | Badge BG | Badge Text |
-|------|-----------|----------|------------|
-| Loved | `#F59E0B` (amber-400) | `#FEF3C7` | `#92400E` |
-| Recommended | `#3B82F6` (blue-500) | `#DBEAFE` | `#1E40AF` |
-| On My Radar | `#10B981` (emerald-500) | `#D1FAE5` | `#065F46` |
+### Tier Colors — FIXED in light mode, never override
 
-> **Why amber for CTA instead of blue?** Blue is claimed by the Recommended tier. Using
-> blue buttons would confuse the visual hierarchy. Amber harmonizes with gold (Loved) and
-> the overall warm palette.
+Light values are established in the data model and CLAUDE.md; dark mode brightens them so
+pins carry on the dark map. Pins and the legend read `var(--loved)` etc., so they flip
+automatically with the theme.
+
+| Tier | Pin (light) | Pin (dark) | Badge BG (light/dark) | Badge Text (light/dark) |
+|------|-----------|----------|----------|------------|
+| Loved | `#F59E0B` | `#FBBF24` | `#FEF3C7` / `#3E2E08` | `#92400E` / `#FCD34D` |
+| Recommended | `#3B82F6` | `#60A5FA` | `#DBEAFE` / `#1B3252` | `#1E40AF` / `#8FC0FA` |
+| On My Radar | `#10B981` | `#34D399` | `#D1FAE5` / `#0B3B2E` | `#065F46` / `#4ADE9F` |
+
+Accolade badges ("🏆 Recognized") intentionally stay gold (`tier-loved-*` tokens + a
+`tier-loved-border` of `#F3CF8B` / `#6B5210`) — they're awards. Dish chips and info banners
+use the wine `brand-tint` set instead.
+
+> **Why oxblood for CTA instead of blue or green?** Blue is claimed by the Recommended tier
+> and green by On My Radar. Oxblood clears all three tier hues, keeps the warm food-world
+> feel, and doesn't read as the default AI-product amber.
 
 ---
 
@@ -90,9 +116,9 @@ Add to `tailwind.config` (or Tailwind v4 CSS):
 | Section heading | Playfair Display SC | `text-base` | 400 | |
 | Body text | Karla | `text-sm` | 400 | Line-height 1.5 |
 | Curator notes | Karla | `text-sm` | 400 italic | Preceded by open-quote decoration |
-| Meta / cuisine | Karla | `text-sm` | 400 | `text-stone-500` |
+| Meta / cuisine | Karla | `text-sm` | 400 | `text-brand-text-muted` |
 | Badge text | Karla | `text-[11px]` | 700 uppercase | Letter-spacing 0.04em |
-| UI labels | Karla | `text-[11px]` | 700 uppercase | Letter-spacing 0.1em, `text-stone-400` |
+| UI labels | Karla | `text-[11px]` | 700 uppercase | Letter-spacing 0.1em, `text-brand-text-faint` |
 | CTA button text | Karla | `text-sm` | 700 | |
 
 > **Note on Playfair Display SC:** All letters render as small capitals. This looks excellent
@@ -137,11 +163,12 @@ Add to `tailwind.config` (or Tailwind v4 CSS):
 
 ```
 Height: 60px (h-[60px])
-Background: --color-bg (#FFFBF5)
-Border: border-b with --color-border
+Background: brand-bg/90 + backdrop-blur-sm (FROSTED_BAR)
+Border: border-b with brand-border
 Shadow: shadow-sm
 Padding: px-5
-Logo: Playfair Display SC, 20px, text-stone-900
+Logo: Playfair Display SC, 20px, text-brand-text
+Theme toggle: sun/moon icon button, right of admin links, left of UserMenu
 ```
 
 ### Map Pins
@@ -158,7 +185,7 @@ Selected: 18px diameter, 3px white border,
 ### Map Legend (overlay)
 
 ```
-Background: rgba(255,251,245,0.95) + backdrop-blur-sm
+Background: brand-bg/95 + backdrop-blur-sm
 Border-radius: rounded-xl
 Padding: p-3
 Shadow: shadow-md
@@ -176,69 +203,49 @@ Border-top: 1px solid --color-border-light
 Padding: p-5
 Drag handle: 36px × 4px, rounded-full, --color-border, mx-auto mb-4
 
-Restaurant name: Playfair Display SC, 22px, 700, text-stone-900
+Restaurant name: Playfair Display SC, 22px, 700, text-brand-text
 Tier badge: see tier colors table, rounded-full, 11px Karla 700 uppercase
-Cuisine: 13px Karla 400, text-stone-500
-Notes: 14px Karla 400 italic, text-stone-500, border-t, open-quote decorator
+Cuisine: 13px Karla 400, text-brand-text-muted
+Notes: 14px Karla 400 italic, text-brand-text-muted, border-t, open-quote decorator
 ```
 
 ### CTA Button ("Open in Google Maps")
 
-```css
-.cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 11px 20px;
-  margin-top: 16px;
-  border-radius: var(--radius-md); /* 10px */
-  background: #D97706;            /* amber-600 */
-  color: white;
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 700;
-  transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
-}
-.cta:hover {
-  background: #B45309;            /* amber-700 */
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
-}
-.cta:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px #FDE68A;  /* amber-200 focus ring */
-}
+`BTN_PRIMARY` in `src/components/styles.ts`:
+
+```
+Background: bg-brand-cta        (light #7D2A3C oxblood / dark #E38E9B rosé)
+Text: text-brand-on-accent      (light #FFF6F7 / dark #2A1218)
+Hover: bg-brand-cta-hover + translateY(-1px) + shadow-md
+Focus: ring-2 ring-brand-focus
+Radius: rounded-lg, Font: 14px Karla 700
 ```
 
-> **WCAG AA:** amber-600 (#D97706) on white = 3.2:1. Fails for normal text, but the button
-> text is 14px bold which meets AA large-text threshold. To be safe, use amber-700 (#B45309)
-> as the base — it passes at 4.6:1.
->
-> **Updated recommendation:** Use `#B45309` (amber-700) as the base button color for
-> unambiguous WCAG AA compliance.
+> **WCAG AA:** `#7D2A3C` on white = 8.9:1 and on `#F4F2EE` paper = 8.0:1 — passes for all
+> text sizes. Dark-mode rosé `#E38E9B` carries dark text (`#2A1218`, 7.6:1) instead of white.
 
 ### Filter Chips (Epic 3)
 
 ```
-Background (default): --color-surface
-Border: 1.5px solid --color-border
+Background (default): brand-surface
+Border: 1.5px solid brand-border (hover: brand-border-strong)
 Border-radius: rounded-full
 Padding: px-3 py-1
 Font: 12px Karla 600
-Color: --color-text-secondary
+Color: brand-text-muted
 
 Active state:
-  Background: #D97706 (amber-600)
-  Border: amber-600
-  Color: white
+  Background: brand-chip (oxblood / rosé)
+  Border: brand-chip
+  Color: brand-on-accent
 ```
 
 ### Secondary / Ghost Buttons
 
 ```
-Secondary: --color-surface-warm bg, --color-accent text, --color-border border
-Ghost: transparent bg, --color-text-secondary text, --color-border border
+Secondary: brand-surface bg, brand-text-muted text, brand-border border, hover brand-hover bg
+Ghost: transparent bg, brand-text-muted text, brand-border border
+Danger: state-error text + state-error-border border, hover state-error-tint bg
 Border-radius: rounded-lg (8px)
 Font: 13px Karla 700
 ```
@@ -256,6 +263,26 @@ Font: 13px Karla 700
 | Filter chip toggle | Background swap, 0.15s ease |
 
 All transitions: CSS only, no animation libraries.
+
+---
+
+## Dark Mode
+
+Follows the OS by default; the header sun/moon toggle persists an explicit override in
+`localStorage['food-list-theme']`.
+
+- **Mechanism:** `.dark` class on `<html>` swaps the runtime CSS variables — components need
+  no `dark:` variants because everything routes through the semantic tokens. A
+  `@custom-variant dark` is defined for the rare case that needs one.
+- **State:** `src/hooks/useTheme.ts` (`useSyncExternalStore`, module store, no provider).
+  Listens to `prefers-color-scheme` changes while no override is stored.
+- **No flash:** an inline script in `index.html` applies `.dark` before first paint, and
+  `theme-color` metas are media-scoped (collapsed to the chosen color on manual toggle).
+- **Map:** `colorScheme` is an init-only Maps API option, so `<Map key={theme} colorScheme=...>`
+  remounts on toggle. Pins, legend, and cluster bubbles read CSS variables and flip with the
+  theme (the selected-pin ambient ring uses `color-mix()` so it works with `var()` colors).
+- **Never** hard-code a literal color that must invert; the only allowed literals sit on
+  photos (white overlay buttons, scrims), which don't change with theme.
 
 ---
 
@@ -283,35 +310,31 @@ Detail card: right-side panel, 360px wide, full height minus header
 
 ## Tailwind v4 Setup
 
-Add font variables in `src/index.css`:
+The theme architecture in `src/index.css` (see that file for the full token list):
 
 ```css
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
+:root  { color-scheme: light; --bg: #F4F2EE; --accent: #7D2A3C; /* … light values */ }
+.dark  { color-scheme: dark;  --bg: #191316; --accent: #E38E9B; /* … dark values */ }
+
+@theme inline {
   --font-display: 'Playfair Display SC', Georgia, serif;
   --font-sans: 'Karla', system-ui, sans-serif;
-
-  --color-brand-bg: #FFFBF5;
-  --color-brand-surface: #FFFFFF;
-  --color-brand-surface-warm: #FFF8EE;
-  --color-brand-border: #E8E0D5;
-  --color-brand-border-light: #F0EBE3;
-  --color-brand-accent: #B45309;
-  --color-brand-cta: #D97706;
-  --color-brand-cta-hover: #B45309;
-
-  --color-tier-loved: #F59E0B;
-  --color-tier-loved-bg: #FEF3C7;
-  --color-tier-loved-text: #92400E;
-  --color-tier-recommended: #3B82F6;
-  --color-tier-recommended-bg: #DBEAFE;
-  --color-tier-recommended-text: #1E40AF;
-  --color-tier-radar: #10B981;
-  --color-tier-radar-bg: #D1FAE5;
-  --color-tier-radar-text: #065F46;
+  /* utilities point at the runtime vars, so they flip with .dark */
+  --color-brand-bg: var(--bg);
+  --color-brand-accent: var(--accent);
+  /* … one mapping per token in the palette tables above */
 }
 ```
+
+`@theme inline` (not plain `@theme`) is what makes the utilities reference the runtime
+variables instead of baking in static values.
+
+> ⚠️ Never write a `*/` sequence (e.g. `brand-*/tier-*`) inside a CSS comment — it
+> terminates the comment and the parser silently discards the next rule block. This once
+> swallowed the entire `:root` token block and killed every light-mode color.
 
 ---
 
@@ -320,8 +343,11 @@ Add font variables in `src/index.css`:
 | Decision | Status | Notes |
 |----------|--------|-------|
 | Playfair Display SC + Karla fonts | SAFE | Industry-standard for food brands |
-| Warm off-white background (#FFFBF5) | SAFE | Subtle — users won't notice, cohesion is better |
-| Amber CTA (#D97706 → use #B45309) | SAFE | Avoids blue collision with Recommended tier |
+| Greige paper background (#F4F2EE) | SAFE | Cooler than the old cream; still warm, not clinical |
+| Oxblood CTA/accent (#7D2A3C) | SAFE | Clears all three tier hues; 8.9:1 on white |
+| Rosé dark-mode accent (#E38E9B) + dark on-accent text | SAFE | Light accents need dark text, not white |
+| Dark mode via runtime CSS vars + `.dark` class | SAFE | No per-component `dark:` variants to maintain |
+| Map remount on theme toggle | WATCH | Resets camera to city center — acceptable for a rare action |
 | Bottom-sheet card pattern | SAFE | Established pattern, Beli uses it |
 | Micro-interactions (CSS only) | SAFE | No libraries, pure CSS transitions |
 | Playfair Display SC with restaurant names | WATCH | Small-caps — test with actual data |
@@ -338,9 +364,10 @@ Add font variables in `src/index.css`:
 
 ---
 
-*Last updated: 2026-07-13 — UI overhaul: system fully implemented. CTA base is #B45309
-(the WCAG "updated recommendation" above); active filter chips keep #D97706 per the chip
-spec. All tokens live in `src/index.css` `@theme`; shared component classes live in
-`src/components/styles.ts`. Map tile style instructions: `deploy/map-style-console-setup.md`.*
+*Last updated: 2026-07-23 — Rebrand to "Wine & Paper" (oxblood on greige paper) + full dark
+mode. All colors are runtime CSS variables on `:root`/`.dark` mapped via `@theme inline` in
+`src/index.css`; shared component classes live in `src/components/styles.ts`; theme state in
+`src/hooks/useTheme.ts`. Tier pin colors unchanged in light mode, brightened in dark.*
 
-*Previously: 2026-03-29 — /design-consultation (gstack)*
+*Previously: 2026-07-13 — UI overhaul: amber system fully implemented. 2026-03-29 —
+/design-consultation (gstack). Map tile style instructions: `deploy/map-style-console-setup.md`.*

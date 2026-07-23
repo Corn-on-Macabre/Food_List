@@ -52,7 +52,7 @@ export function NotesSection({ restaurant, onUpdate, open, onOpenChange, label }
       {!open ? (
         <>
           {restaurant.notes && (
-            <p className="font-sans text-xs text-stone-600 mt-1 leading-snug italic">
+            <p className="font-sans text-xs text-brand-text mt-1 leading-snug italic">
               {restaurant.notes}
             </p>
           )}
@@ -138,7 +138,7 @@ export function SourceSection({ restaurant, onUpdate, open, onOpenChange, label 
       {!open ? (
         <>
           {restaurant.source && (
-            <p className="font-sans text-xs text-stone-500 mt-1 leading-snug">
+            <p className="font-sans text-xs text-brand-text-muted mt-1 leading-snug">
               {!label && 'Source: '}<span className="italic">{restaurant.source}</span>
             </p>
           )}
@@ -288,7 +288,7 @@ export function TagsSection({ restaurant, onUpdate, label = 'Tags' }: TagsSectio
             }
           }}
           placeholder="Custom tag..."
-          className="flex-1 border border-brand-border rounded-lg p-2 font-sans text-xs text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-focus min-h-[44px]"
+          className="flex-1 border border-brand-border rounded-lg p-2 font-sans text-xs text-brand-text placeholder-brand-text-faint focus:outline-none focus:ring-2 focus:ring-brand-focus min-h-[44px]"
           aria-label="Custom tag input"
           data-testid="session-custom-tag-input"
         />
@@ -296,7 +296,7 @@ export function TagsSection({ restaurant, onUpdate, label = 'Tags' }: TagsSectio
           type="button"
           disabled={!customTagInput.trim()}
           onClick={handleAddCustomTag}
-          className="border border-brand-border rounded-lg px-3 py-1.5 font-sans text-xs font-bold text-stone-500 hover:bg-stone-50 disabled:opacity-40 disabled:cursor-not-allowed min-h-[44px]"
+          className="border border-brand-border rounded-lg px-3 py-1.5 font-sans text-xs font-bold text-brand-text-muted hover:bg-brand-hover disabled:opacity-40 disabled:cursor-not-allowed min-h-[44px]"
           data-testid="session-add-custom-tag-btn"
         >
           Add

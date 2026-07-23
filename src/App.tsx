@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Routes, Route, Navigate, useParams, useNavigate } from 'react-router-dom';
 import { APIProvider, Map, useMap, type MapMouseEvent } from '@vis.gl/react-google-maps';
-import { useRestaurants, useGeolocation, useCollection } from './hooks';
+import { useRestaurants, useGeolocation, useCollection, useTheme } from './hooks';
 
 import { ClusteredPins, PinLegend, RestaurantCard, FilterBar, ProtectedRoute, AdminDashboard, Toast, SuggestButton, SubmissionForm, StatsPage, CollectionBanner } from './components';
 import { useAuth, AuthProvider } from './contexts/AuthContext';
@@ -76,8 +76,8 @@ function App() {
     return (
       <div className="flex items-center justify-center w-screen h-screen bg-brand-bg">
         <div className={`${CARD_SURFACE} p-6 shadow-lg text-center max-w-md`}>
-          <h1 className="font-display text-xl font-bold text-stone-900 mb-2">Configuration Error</h1>
-          <p className="font-sans text-sm text-stone-500">
+          <h1 className="font-display text-xl font-bold text-brand-text mb-2">Configuration Error</h1>
+          <p className="font-sans text-sm text-brand-text-muted">
             Google Maps API key is not configured. Set{' '}
             <code className="bg-brand-surface-warm px-1 rounded text-sm">VITE_GOOGLE_MAPS_API_KEY</code>{' '}
             in your <code className="bg-brand-surface-warm px-1 rounded text-sm">.env</code> file and restart the dev server.
@@ -126,6 +126,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
   const { collection, notFound: collectionNotFound } = useCollection(collectionSlug);
   const { restaurants, loading, error } = useRestaurants();
   const { coords, loading: geoLoading, denied: geoDenied } = useGeolocation();
+  const { theme } = useTheme();
 
   // Resolve initial city: URL param > default (will be updated by geolocation)
   const initialCity = (urlCityId && (getMetro(urlCityId) || urlCityId === EVERYWHERE_ID)) ? urlCityId : DEFAULT_METRO_ID;
@@ -392,11 +393,14 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
         )}
       </div>
       <APIProvider apiKey={apiKey}>
+        {/* key remounts the map on theme change — colorScheme is init-only in the Maps API */}
         <Map
+          key={theme}
           style={{ width: '100%', height: '100%' }}
           defaultCenter={activeMetro.center}
           defaultZoom={activeMetro.zoom}
           mapId="f1de4e716bd1afb992c78c8e"
+          colorScheme={theme === 'dark' ? 'DARK' : 'LIGHT'}
           onClick={handleMapClick}
         >
           <ClusteredPins
@@ -433,7 +437,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
           className={`${CARD_SURFACE} absolute left-1/2 -translate-x-1/2 z-10 shadow-md px-4 py-3 flex items-center gap-3 animate-fade-in motion-reduce:animate-none whitespace-nowrap`}
           style={{ top: filterBarHeight + 16 }}
         >
-          <p className="font-sans text-sm text-stone-500">No spots match &mdash; try clearing a filter.</p>
+          <p className="font-sans text-sm text-brand-text-muted">No spots match &mdash; try clearing a filter.</p>
           <button
             onClick={handleClearFilters}
             className="font-sans text-sm font-semibold text-brand-accent hover:text-brand-accent-hover underline underline-offset-2 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta rounded"
@@ -456,8 +460,8 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
       {loading && (
         <div className="absolute inset-0 z-20 flex items-center justify-center bg-brand-bg/70 backdrop-blur-[2px] pointer-events-none">
           <div className="text-center">
-            <p className="font-display text-2xl font-bold text-stone-900 animate-pulse">bobby.menu</p>
-            <p className="font-sans text-sm text-stone-500 mt-1">setting the table&hellip;</p>
+            <p className="font-display text-2xl font-bold text-brand-text animate-pulse">bobby.menu</p>
+            <p className="font-sans text-sm text-brand-text-muted mt-1">setting the table&hellip;</p>
           </div>
         </div>
       )}
@@ -465,8 +469,8 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
       {error !== null && (
         <div className="absolute inset-0 z-20 flex items-center justify-center bg-brand-bg/70 backdrop-blur-[2px]">
           <div className={`${CARD_SURFACE} p-6 shadow-lg text-center max-w-sm`}>
-            <h1 className="font-display text-xl font-bold text-stone-900 mb-2">Well, this is awkward</h1>
-            <p className="font-sans text-sm text-stone-500">Couldn't load the list. Give the page a refresh.</p>
+            <h1 className="font-display text-xl font-bold text-brand-text mb-2">Well, this is awkward</h1>
+            <p className="font-sans text-sm text-brand-text-muted">Couldn't load the list. Give the page a refresh.</p>
           </div>
         </div>
       )}

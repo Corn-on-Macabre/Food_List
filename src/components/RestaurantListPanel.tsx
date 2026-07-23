@@ -10,9 +10,9 @@ interface RestaurantListPanelProps {
 }
 
 const chipBase =
-  'rounded-full px-3 py-1 text-xs font-semibold font-sans whitespace-nowrap transition-colors duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 min-h-[44px] inline-flex items-center';
-const chipActive = 'bg-brand-chip text-white border border-brand-chip';
-const chipInactive = 'bg-white text-stone-500 border border-brand-border [border-width:1.5px]';
+  'rounded-full px-3 py-1 text-xs font-semibold font-sans whitespace-nowrap transition-colors duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta min-h-[44px] inline-flex items-center';
+const chipActive = 'bg-brand-chip text-brand-on-accent border border-brand-chip';
+const chipInactive = 'bg-brand-surface text-brand-text-muted border border-brand-border [border-width:1.5px]';
 
 export function RestaurantListPanel({
   restaurants,
@@ -52,7 +52,7 @@ export function RestaurantListPanel({
       {/* Search bar */}
       <div className="relative">
         <svg
-          className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-amber-600 pointer-events-none"
+          className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-accent pointer-events-none"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -73,14 +73,14 @@ export function RestaurantListPanel({
               e.currentTarget.blur();
             }
           }}
-          className="w-full pl-9 pr-8 py-2 text-xs font-sans bg-white border border-brand-border rounded-full focus:outline-none focus:ring-2 focus:ring-brand-focus placeholder:text-stone-400 [&::-webkit-search-cancel-button]:appearance-none"
+          className="w-full pl-9 pr-8 py-2 text-xs font-sans bg-brand-surface border border-brand-border rounded-full focus:outline-none focus:ring-2 focus:ring-brand-focus placeholder:text-brand-text-faint [&::-webkit-search-cancel-button]:appearance-none"
         />
         {searchTerm && (
           <button
             type="button"
             aria-label="Clear search"
             onClick={() => setSearchTerm('')}
-            className="absolute right-1 top-1/2 -translate-y-1/2 p-2 text-stone-400 hover:text-stone-600 min-h-[44px] min-w-[44px] inline-flex items-center justify-center"
+            className="absolute right-1 top-1/2 -translate-y-1/2 p-2 text-brand-text-faint hover:text-brand-text min-h-[44px] min-w-[44px] inline-flex items-center justify-center"
           >
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -114,13 +114,13 @@ export function RestaurantListPanel({
       </div>
 
       {/* Result count */}
-      <p className="text-xs font-sans text-stone-400">
+      <p className="text-xs font-sans text-brand-text-faint">
         Showing {filtered.length} of {restaurants.length}
       </p>
 
       {/* Restaurant list */}
       {filtered.length === 0 ? (
-        <p className="text-sm font-sans text-stone-400 text-center py-8">
+        <p className="text-sm font-sans text-brand-text-faint text-center py-8">
           No restaurants match your search
         </p>
       ) : (

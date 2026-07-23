@@ -111,8 +111,8 @@ export function AddRestaurantPanel({ onRestaurantAdded, prefill, onPrefillConsum
   }, [panelState, handleAddAnother]);
 
   return (
-    <section className="bg-white border border-brand-border rounded-xl p-5">
-      <h2 className="font-display text-base font-bold text-stone-900 mb-4">Add Restaurant</h2>
+    <section className="bg-brand-surface border border-brand-border rounded-xl p-5">
+      <h2 className="font-display text-base font-bold text-brand-text mb-4">Add Restaurant</h2>
 
       {/* Search state */}
       {panelState === 'search' && (
@@ -126,7 +126,7 @@ export function AddRestaurantPanel({ onRestaurantAdded, prefill, onPrefillConsum
       {panelState === 'loading-details' && (
         <div className="flex items-center gap-2 py-4">
           <svg
-            className="animate-spin h-5 w-5 text-amber-500"
+            className="animate-spin h-5 w-5 text-tier-loved"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -139,7 +139,7 @@ export function AddRestaurantPanel({ onRestaurantAdded, prefill, onPrefillConsum
               d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
             />
           </svg>
-          <p className="font-sans text-sm text-stone-500">Loading place details…</p>
+          <p className="font-sans text-sm text-brand-text-muted">Loading place details…</p>
         </div>
       )}
 
@@ -165,7 +165,7 @@ export function AddRestaurantPanel({ onRestaurantAdded, prefill, onPrefillConsum
 
       {/* Success state */}
       {panelState === 'success' && (
-        <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 flex flex-col items-center gap-3">
+        <div className="bg-brand-tint border border-brand-tint-border rounded-xl p-5 flex flex-col items-center gap-3">
           <div className="flex items-center gap-2">
             {/* Checkmark icon */}
             <svg

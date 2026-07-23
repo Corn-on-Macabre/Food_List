@@ -17,7 +17,7 @@ export function Toast({ message, visible, onHide }: ToastProps) {
     <div
       role="status"
       aria-live="polite"
-      className={`fixed z-50 px-4 py-2 rounded-lg bg-stone-800 text-white text-sm font-medium shadow-lg border border-stone-700 transition-[opacity,translate] duration-300 motion-reduce:transition-none bottom-[calc(70vh+1rem)] left-1/2 -translate-x-1/2 md:bottom-6 md:right-6 md:left-auto md:translate-x-0 ${
+      className={`fixed z-50 px-4 py-2 rounded-lg bg-brand-text text-brand-bg text-sm font-medium shadow-lg border border-black/10 transition-[opacity,translate] duration-300 motion-reduce:transition-none bottom-[calc(70vh+1rem)] left-1/2 -translate-x-1/2 md:bottom-6 md:right-6 md:left-auto md:translate-x-0 ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
       }`}
     >

@@ -6,23 +6,23 @@ export function AdminLogin() {
   if (loading) {
     return (
       <div className="min-h-screen bg-brand-bg flex items-center justify-center p-4">
-        <p className="text-stone-500 font-sans text-sm">Loading...</p>
+        <p className="text-brand-text-muted font-sans text-sm">Loading...</p>
       </div>
     );
   }
 
   return (
     <div className="min-h-screen bg-brand-bg flex items-center justify-center p-4">
-      <div className="w-full max-w-sm bg-white rounded-xl border border-brand-border shadow-lg p-8">
-        <h1 className="font-display text-2xl font-bold text-stone-900 text-center mb-1">
+      <div className="w-full max-w-sm bg-brand-surface rounded-xl border border-brand-border shadow-lg p-8">
+        <h1 className="font-display text-2xl font-bold text-brand-text text-center mb-1">
           bobby.menu
         </h1>
-        <p className="font-sans text-sm text-stone-500 text-center mb-6">
+        <p className="font-sans text-sm text-brand-text-muted text-center mb-6">
           Curator Dashboard
         </p>
 
         {!isConfigured && (
-          <div className="bg-red-50 border border-red-200 rounded-lg p-3 text-sm text-red-700 mb-4">
+          <div className="bg-state-error-tint border border-state-error-border rounded-lg p-3 text-sm text-state-error mb-4">
             Authentication not configured. Set <code>VITE_SUPABASE_URL</code> and{' '}
             <code>VITE_SUPABASE_ANON_KEY</code> in your <code>.env</code> file.
           </div>
@@ -32,7 +32,7 @@ export function AdminLogin() {
           <button
             type="button"
             onClick={loginWithGoogle}
-            className="w-full flex items-center justify-center gap-3 bg-white border border-brand-border hover:bg-stone-50 text-stone-700 font-sans text-sm font-medium rounded-lg py-2.5 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600"
+            className="w-full flex items-center justify-center gap-3 bg-brand-surface border border-brand-border hover:bg-brand-hover text-brand-text font-sans text-sm font-medium rounded-lg py-2.5 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta"
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24">
               <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />

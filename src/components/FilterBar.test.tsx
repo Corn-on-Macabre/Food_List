@@ -56,10 +56,10 @@ describe('FilterBar', () => {
 
     it('renders no cuisine-specific chips when cuisines is empty', () => {
       render(<FilterBar {...baseProps} />);
-      // 1 cuisine "All" + 4 tier chips (All, Loved It, Worth Recommending, Want to Go)
+      // 1 theme toggle + 1 cuisine "All" + 4 tier chips (All, Loved It, Worth Recommending, Want to Go)
       // distance row hidden because userCoords=null
       const buttons = screen.getAllByRole('button');
-      expect(buttons).toHaveLength(5);
+      expect(buttons).toHaveLength(6);
     });
   });
 
@@ -72,8 +72,8 @@ describe('FilterBar', () => {
         />,
       );
       const buttons = screen.getAllByRole('button');
-      // 1 cuisine All + 3 cuisine chips + 4 tier chips (distance row hidden — userCoords=null)
-      expect(buttons).toHaveLength(8);
+      // 1 theme toggle + 1 cuisine All + 3 cuisine chips + 4 tier chips (distance row hidden — userCoords=null)
+      expect(buttons).toHaveLength(9);
     });
 
     it('renders each cuisine label as a button', () => {
@@ -161,7 +161,7 @@ describe('FilterBar', () => {
         />,
       );
       const inactiveChip = screen.getByRole('button', { name: 'Mexican' });
-      expect(inactiveChip.className).toContain('bg-white');
+      expect(inactiveChip.className).toContain('bg-brand-surface');
     });
 
     it('All chip is active (amber) when activeCuisine is null', () => {
@@ -181,7 +181,7 @@ describe('FilterBar', () => {
       );
       // First "All" button is the cuisine row chip
       const allChip = screen.getAllByRole('button', { name: 'All' })[0];
-      expect(allChip.className).toContain('bg-white');
+      expect(allChip.className).toContain('bg-brand-surface');
     });
 
     it('active chip has aria-pressed="true"', () => {

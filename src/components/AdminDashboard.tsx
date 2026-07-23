@@ -81,8 +81,8 @@ export function AdminDashboard() {
       {/* Fixed header */}
       <header className="fixed top-0 left-0 right-0 h-[60px] bg-brand-bg border-b border-brand-border shadow-sm flex items-center justify-between px-5 z-50">
         <span className="flex items-baseline gap-2 min-w-0">
-          <span className="font-display text-xl font-bold text-stone-900 whitespace-nowrap">bobby.menu</span>
-          <span className="hidden sm:inline font-sans text-[11px] font-bold uppercase tracking-[0.1em] text-stone-400 truncate">
+          <span className="font-display text-xl font-bold text-brand-text whitespace-nowrap">bobby.menu</span>
+          <span className="hidden sm:inline font-sans text-[11px] font-bold uppercase tracking-[0.1em] text-brand-text-faint truncate">
             Curator Dashboard
           </span>
         </span>
@@ -116,8 +116,8 @@ export function AdminDashboard() {
               onClick={() => setActiveTab(key)}
               className={`font-sans text-sm pb-1 transition-colors duration-150 ${
                 activeTab === key
-                  ? 'border-b-2 border-brand-cta text-stone-900 font-bold'
-                  : 'text-stone-400 hover:text-stone-600'
+                  ? 'border-b-2 border-brand-cta text-brand-text font-bold'
+                  : 'text-brand-text-faint hover:text-brand-text'
               }`}
             >
               {label}
@@ -151,7 +151,7 @@ export function AdminDashboard() {
                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
               />
             </svg>
-            <span className="ml-3 font-sans text-stone-500">
+            <span className="ml-3 font-sans text-brand-text-muted">
               Loading restaurants...
             </span>
           </div>
@@ -159,8 +159,8 @@ export function AdminDashboard() {
 
         {/* Error state */}
         {!loading && error && (
-          <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-center">
-            <p className="font-sans text-sm text-red-700 mb-3">{error}</p>
+          <div className="rounded-lg border border-state-error-border bg-state-error-tint p-4 text-center">
+            <p className="font-sans text-sm text-state-error mb-3">{error}</p>
             <button
               onClick={() => void loadRestaurants()}
               className={`${BTN_PRIMARY} px-4 py-2`}
@@ -186,7 +186,7 @@ export function AdminDashboard() {
 
             {sessionRestaurants.length > 0 && (
               <section className="mt-8">
-                <h2 className="font-display text-base text-stone-900 mb-3">
+                <h2 className="font-display text-base text-brand-text mb-3">
                   Added this session ({sessionRestaurants.length})
                 </h2>
                 <ul className="space-y-2">

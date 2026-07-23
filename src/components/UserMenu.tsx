@@ -28,7 +28,7 @@ export function UserMenu() {
       <button
         type="button"
         onClick={() => { signInWithGoogle(); }}
-        className="font-sans text-xs font-semibold text-stone-500 hover:text-amber-700 transition-colors duration-150 whitespace-nowrap"
+        className="font-sans text-xs font-semibold text-brand-text-muted hover:text-brand-accent transition-colors duration-150 whitespace-nowrap"
       >
         Sign in
       </button>
@@ -52,30 +52,30 @@ export function UserMenu() {
           <img
             src={avatarUrl}
             alt=""
-            className="w-8 h-8 rounded-full object-cover border border-stone-200"
+            className="w-8 h-8 rounded-full object-cover border border-brand-border-light"
             referrerPolicy="no-referrer"
           />
         ) : (
-          <div className="w-8 h-8 rounded-full bg-amber-100 border border-stone-200 flex items-center justify-center">
-            <span className="font-sans text-xs font-bold text-amber-700">
+          <div className="w-8 h-8 rounded-full bg-brand-tint border border-brand-border-light flex items-center justify-center">
+            <span className="font-sans text-xs font-bold text-brand-accent">
               {displayName.charAt(0).toUpperCase()}
             </span>
           </div>
         )}
-        <span className="font-sans text-xs font-medium text-stone-700 hidden sm:inline max-w-[120px] truncate">
+        <span className="font-sans text-xs font-medium text-brand-text hidden sm:inline max-w-[120px] truncate">
           {displayName}
         </span>
       </button>
 
       {dropdownOpen && (
-        <div className="absolute right-0 top-full mt-1 w-40 bg-white rounded-lg border border-brand-border shadow-lg py-1 z-50 animate-fade-in motion-reduce:animate-none">
+        <div className="absolute right-0 top-full mt-1 w-40 bg-brand-surface rounded-lg border border-brand-border shadow-lg py-1 z-50 animate-fade-in motion-reduce:animate-none">
           <button
             type="button"
             onClick={() => {
               setDropdownOpen(false);
               signOut();
             }}
-            className="w-full text-left px-4 py-2 font-sans text-xs text-stone-700 hover:bg-stone-50 transition-colors duration-150"
+            className="w-full text-left px-4 py-2 font-sans text-xs text-brand-text hover:bg-brand-hover transition-colors duration-150"
           >
             Sign out
           </button>

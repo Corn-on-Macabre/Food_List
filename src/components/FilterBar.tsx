@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { DISTANCE_OPTIONS } from '../utils';
 import { useAdminAuth } from '../hooks';
 import { UserMenu } from './UserMenu';
+import { ThemeToggle } from './ThemeToggle';
 import { SearchAutocomplete } from './SearchAutocomplete';
 import { METRO_REGIONS, EVERYWHERE_ID } from '../constants/metros';
 import { TIER_FILTER_OPTIONS } from '../constants/tiers';
@@ -94,10 +95,10 @@ export function FilterBar({
       {/* Top bar: wordmark + Admin link (when admin-authenticated) + User menu (always) */}
       <div className="flex items-center justify-between gap-3 px-4 pt-2">
         <div className="flex items-baseline gap-2 min-w-0">
-          <span className="font-display text-xl font-bold text-stone-900 tracking-[-0.01em] whitespace-nowrap">
+          <span className="font-display text-xl font-bold text-brand-text tracking-[-0.01em] whitespace-nowrap">
             bobby.menu
           </span>
-          <span className="hidden sm:inline font-sans text-xs italic text-stone-400 truncate">
+          <span className="hidden sm:inline font-sans text-xs italic text-brand-text-faint truncate">
             a friend's list of places worth eating
           </span>
         </div>
@@ -118,6 +119,7 @@ export function FilterBar({
             </Link>
           </>
         )}
+        <ThemeToggle />
         <UserMenu />
         </div>
       </div>
@@ -130,7 +132,7 @@ export function FilterBar({
             value={activeCity}
             onChange={(e) => onCityChange(e.target.value)}
             aria-label="Select city"
-            className="rounded-full border-[1.5px] border-brand-border bg-white px-3 py-1 font-sans text-xs font-semibold text-stone-800 focus:outline-none focus:ring-2 focus:ring-brand-focus focus:border-amber-400 transition-colors duration-150 cursor-pointer shrink-0 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2378716c%22%20stroke-width%3D%222.5%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_0.5rem_center] pr-6"
+            className="rounded-full border-[1.5px] border-brand-border bg-brand-surface px-3 py-1 font-sans text-xs font-semibold text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-focus focus:border-brand-accent transition-colors duration-150 cursor-pointer shrink-0 appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2378716c%22%20stroke-width%3D%222.5%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_0.5rem_center] pr-6"
           >
             {METRO_REGIONS.slice().sort((a, b) => a.label.localeCompare(b.label)).map((metro) => (
               <option key={metro.id} value={metro.id}>

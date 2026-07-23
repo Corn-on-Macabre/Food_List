@@ -194,7 +194,7 @@ export function SubmissionForm({ onClose }: Props) {
           type="button"
           onClick={onClose}
           aria-label="Close suggestion form"
-          className="absolute top-3 right-3 text-stone-400 hover:text-stone-700 transition-colors duration-150"
+          className="absolute top-3 right-3 text-brand-text-faint hover:text-brand-text transition-colors duration-150"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
             <path
@@ -205,19 +205,19 @@ export function SubmissionForm({ onClose }: Props) {
           </svg>
         </button>
 
-        <h2 className="font-display text-lg font-bold text-stone-900 mb-4">
+        <h2 className="font-display text-lg font-bold text-brand-text mb-4">
           Suggest a Restaurant
         </h2>
 
         {/* Loading rate-limit check */}
         {checkingLimit && (
-          <p className="font-sans text-sm text-stone-500">Checking...</p>
+          <p className="font-sans text-sm text-brand-text-muted">Checking...</p>
         )}
 
         {/* Rate limited */}
         {!checkingLimit && rateLimited && (
-          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 text-center">
-            <p className="font-sans text-sm text-amber-800 font-medium">
+          <div className="bg-brand-tint border border-brand-tint-border rounded-lg p-4 text-center">
+            <p className="font-sans text-sm text-brand-tint-text font-medium">
               You've reached today's limit. Try again tomorrow.
             </p>
           </div>
@@ -225,7 +225,7 @@ export function SubmissionForm({ onClose }: Props) {
 
         {/* Success */}
         {!checkingLimit && success && (
-          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 text-center">
+          <div className="bg-brand-tint border border-brand-tint-border rounded-lg p-4 text-center">
             <div className="flex items-center justify-center gap-2 mb-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -251,8 +251,8 @@ export function SubmissionForm({ onClose }: Props) {
         {!checkingLimit && !rateLimited && !success && (
           <form onSubmit={(e) => { void handleSubmit(e); }} className="space-y-4">
             <div className="relative">
-              <label htmlFor="sub-search" className="block font-sans text-sm font-medium text-stone-700 mb-1">
-                Restaurant name <span className="text-red-500">*</span>
+              <label htmlFor="sub-search" className="block font-sans text-sm font-medium text-brand-text mb-1">
+                Restaurant name <span className="text-state-error">*</span>
               </label>
               <div className="relative">
                 <input
@@ -267,11 +267,11 @@ export function SubmissionForm({ onClose }: Props) {
                   onKeyDown={handleSearchKeyDown}
                   onPaste={handlePaste}
                   placeholder="Search or paste a Google Maps link..."
-                  className="w-full rounded-lg border border-brand-border bg-white px-3 py-2 font-sans text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-focus focus:border-amber-400 transition-colors duration-150 pr-9"
+                  className="w-full rounded-lg border border-brand-border bg-brand-surface px-3 py-2 font-sans text-sm text-brand-text placeholder:text-brand-text-faint focus:outline-none focus:ring-2 focus:ring-brand-focus focus:border-brand-accent transition-colors duration-150 pr-9"
                 />
                 {(autocompleteLoading || urlLookupLoading) && (
                   <div className="absolute right-3 top-1/2 -translate-y-1/2">
-                    <svg className="animate-spin h-4 w-4 text-amber-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                    <svg className="animate-spin h-4 w-4 text-tier-loved" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                     </svg>
@@ -285,7 +285,7 @@ export function SubmissionForm({ onClose }: Props) {
                   ref={dropdownRef}
                   role="listbox"
                   aria-label="Restaurant suggestions"
-                  className="absolute z-50 w-full mt-1 bg-white border border-brand-border rounded-xl shadow-lg overflow-hidden max-h-48 overflow-y-auto"
+                  className="absolute z-50 w-full mt-1 bg-brand-surface border border-brand-border rounded-xl shadow-lg overflow-hidden max-h-48 overflow-y-auto"
                 >
                   {predictions.map((p, i) => (
                     <div
@@ -295,12 +295,12 @@ export function SubmissionForm({ onClose }: Props) {
                       tabIndex={-1}
                       onClick={() => handlePlaceSelect(p.placeId)}
                       onMouseEnter={() => setActiveIndex(i)}
-                      className={`px-3 py-2.5 cursor-pointer font-sans text-sm text-stone-900 transition-colors ${
+                      className={`px-3 py-2.5 cursor-pointer font-sans text-sm text-brand-text transition-colors ${
                         i === activeIndex ? 'bg-brand-surface-warm' : 'hover:bg-brand-surface-warm'
                       }`}
                     >
                       <span className="font-bold">{p.mainText}</span>
-                      <span className="text-stone-400 ml-1 text-xs">{p.secondaryText}</span>
+                      <span className="text-brand-text-faint ml-1 text-xs">{p.secondaryText}</span>
                     </div>
                   ))}
                 </div>
@@ -308,21 +308,21 @@ export function SubmissionForm({ onClose }: Props) {
 
               {/* Show selected name below search if it differs from query */}
               {name && name !== searchQuery && (
-                <p className="mt-1 font-sans text-xs text-amber-700">
+                <p className="mt-1 font-sans text-xs text-brand-accent">
                   Selected: {name}
                 </p>
               )}
 
               {urlLookupFailed && (
-                <p className="mt-1 font-sans text-xs text-stone-500">
+                <p className="mt-1 font-sans text-xs text-brand-text-muted">
                   Couldn't extract details automatically. Please search or fill in manually.
                 </p>
               )}
             </div>
 
             <div>
-              <label htmlFor="sub-location" className="block font-sans text-sm font-medium text-stone-700 mb-1">
-                Location / Address <span className="text-red-500">*</span>
+              <label htmlFor="sub-location" className="block font-sans text-sm font-medium text-brand-text mb-1">
+                Location / Address <span className="text-state-error">*</span>
               </label>
               <input
                 id="sub-location"
@@ -331,12 +331,12 @@ export function SubmissionForm({ onClose }: Props) {
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
                 placeholder="Auto-filled from search, or enter manually"
-                className="w-full rounded-lg border border-brand-border bg-white px-3 py-2 font-sans text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-focus focus:border-amber-400 transition-colors duration-150"
+                className="w-full rounded-lg border border-brand-border bg-brand-surface px-3 py-2 font-sans text-sm text-brand-text placeholder:text-brand-text-faint focus:outline-none focus:ring-2 focus:ring-brand-focus focus:border-brand-accent transition-colors duration-150"
               />
             </div>
 
             <div>
-              <label htmlFor="sub-note" className="block font-sans text-sm font-medium text-stone-700 mb-1">
+              <label htmlFor="sub-note" className="block font-sans text-sm font-medium text-brand-text mb-1">
                 Why do you recommend it?
               </label>
               <textarea
@@ -345,12 +345,12 @@ export function SubmissionForm({ onClose }: Props) {
                 onChange={(e) => setNote(e.target.value)}
                 rows={3}
                 placeholder="What makes this place special?"
-                className="w-full rounded-lg border border-brand-border bg-white px-3 py-2 font-sans text-sm text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-focus focus:border-amber-400 transition-colors duration-150 resize-none"
+                className="w-full rounded-lg border border-brand-border bg-brand-surface px-3 py-2 font-sans text-sm text-brand-text placeholder:text-brand-text-faint focus:outline-none focus:ring-2 focus:ring-brand-focus focus:border-brand-accent transition-colors duration-150 resize-none"
               />
             </div>
 
             {error && (
-              <p className="font-sans text-sm text-red-600">{error}</p>
+              <p className="font-sans text-sm text-state-error">{error}</p>
             )}
 
             <button

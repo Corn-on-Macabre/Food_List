@@ -13,13 +13,13 @@ export function TierDot({ color, selected }: TierDotProps) {
   return (
     <div
       data-testid="tier-dot"
-      className={`rounded-full border-white transition-all duration-150 ease-out hover:scale-[1.2] motion-reduce:transition-none ${
+      className={`rounded-full border-brand-surface transition-all duration-150 ease-out hover:scale-[1.2] motion-reduce:transition-none ${
         selected ? 'w-[18px] h-[18px] border-[3px]' : 'w-3.5 h-3.5 border-[2.5px]'
       }`}
       style={{
         backgroundColor: color,
         boxShadow: selected
-          ? `0 2px 6px rgba(0,0,0,0.28), 0 0 0 3px ${color}4D`
+          ? `0 2px 6px rgba(0,0,0,0.28), 0 0 0 3px color-mix(in srgb, ${color} 30%, transparent)`
           : '0 2px 6px rgba(0,0,0,0.28)',
       }}
     />

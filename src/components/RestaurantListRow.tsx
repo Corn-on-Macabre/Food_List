@@ -47,7 +47,7 @@ export function RestaurantListRow({
   }
 
   return (
-    <div className="bg-white border border-brand-border rounded-lg font-sans text-sm text-stone-700">
+    <div className="bg-brand-surface border border-brand-border rounded-lg font-sans text-sm text-brand-text">
       {/* Compact row */}
       <button
         type="button"
@@ -58,10 +58,10 @@ export function RestaurantListRow({
       >
         <TierBadge tier={restaurant.tier} />
         <span className="font-bold truncate">{restaurant.name}</span>
-        <span className="text-stone-400 text-xs truncate">{restaurant.cuisine}</span>
+        <span className="text-brand-text-faint text-xs truncate">{restaurant.cuisine}</span>
         {restaurant.featured && <BobbyPickBadge />}
         <svg
-          className={`ml-auto w-4 h-4 text-stone-400 shrink-0 transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}
+          className={`ml-auto w-4 h-4 text-brand-text-faint shrink-0 transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -87,8 +87,8 @@ export function RestaurantListRow({
                     onClick={() => applyUpdate(restaurant.id, { tier: value })}
                     className={
                       isActive
-                        ? 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-brand-chip text-white border border-brand-chip transition-colors'
-                        : 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-white text-stone-500 border border-brand-border transition-colors hover:bg-stone-50'
+                        ? 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-brand-chip text-brand-on-accent border border-brand-chip transition-colors'
+                        : 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-brand-surface text-brand-text-muted border border-brand-border transition-colors hover:bg-brand-hover'
                     }
                     aria-pressed={isActive}
                     aria-label={`Set tier to ${label}`}
@@ -105,7 +105,7 @@ export function RestaurantListRow({
             <p className={LABEL_CLASS}>Cuisine</p>
             {!isEditingCuisine ? (
               <div>
-                <p className="font-sans text-xs text-stone-600 leading-snug mb-1">
+                <p className="font-sans text-xs text-brand-text leading-snug mb-1">
                   {restaurant.cuisine}
                 </p>
                 <button
@@ -185,25 +185,25 @@ export function RestaurantListRow({
           <BobbyPickToggle restaurant={restaurant} onUpdate={applyUpdate} />
 
           {/* Delete */}
-          <div className="pt-2 border-t border-stone-100">
+          <div className="pt-2 border-t border-brand-border-light">
             {!confirmDelete ? (
               <button
                 type="button"
                 onClick={() => setConfirmDelete(true)}
-                className="text-red-600 font-sans text-xs font-semibold hover:text-red-800 transition-colors min-h-[44px] px-2 inline-flex items-center"
+                className="text-state-error font-sans text-xs font-semibold hover:text-state-error transition-colors min-h-[44px] px-2 inline-flex items-center"
                 aria-label={`Delete ${restaurant.name}`}
               >
                 Delete Restaurant
               </button>
             ) : (
               <div className="flex items-center gap-3 flex-wrap">
-                <span className="font-sans text-xs text-red-600 font-semibold">
+                <span className="font-sans text-xs text-state-error font-semibold">
                   Are you sure? This cannot be undone.
                 </span>
                 <button
                   type="button"
                   onClick={() => void onDelete(restaurant.id)}
-                  className="bg-red-600 hover:bg-red-700 text-white font-sans text-xs font-bold rounded-lg py-2 px-3 transition-colors min-h-[44px]"
+                  className="bg-state-error hover:opacity-90 text-brand-surface font-sans text-xs font-bold rounded-lg py-2 px-3 transition-colors min-h-[44px]"
                   aria-label={`Confirm delete ${restaurant.name}`}
                 >
                   Yes, Delete

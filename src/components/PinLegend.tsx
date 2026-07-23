@@ -15,10 +15,10 @@ export function PinLegend() {
           <span
             aria-hidden="true"
             data-testid={`tier-swatch-${tier}`}
-            className="w-2.5 h-2.5 rounded-full inline-block flex-shrink-0 border border-white"
+            className="w-2.5 h-2.5 rounded-full inline-block flex-shrink-0 border border-brand-surface"
             style={{ backgroundColor: TIER_COLORS[tier] }}
           />
-          <span className="text-[11px] font-sans font-semibold text-stone-500">{TIER_LABELS[tier]}</span>
+          <span className="text-[11px] font-sans font-semibold text-brand-text-muted">{TIER_LABELS[tier]}</span>
         </div>
       ))}
     </div>

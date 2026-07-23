@@ -75,7 +75,7 @@ export function PlacesSearchInput({ onPlaceSelect, onManualAdd }: Props) {
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
           placeholder="Search restaurant name and location..."
-          className="w-full border border-brand-border rounded-lg p-3 font-sans text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-focus pr-10"
+          className="w-full border border-brand-border rounded-lg p-3 font-sans text-sm text-brand-text placeholder-brand-text-faint focus:outline-none focus:ring-2 focus:ring-brand-focus pr-10"
         />
 
         {/* Loading spinner */}
@@ -86,7 +86,7 @@ export function PlacesSearchInput({ onPlaceSelect, onManualAdd }: Props) {
             className="absolute right-3 top-1/2 -translate-y-1/2"
           >
             <svg
-              className="animate-spin h-4 w-4 text-amber-500"
+              className="animate-spin h-4 w-4 text-tier-loved"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -110,7 +110,7 @@ export function PlacesSearchInput({ onPlaceSelect, onManualAdd }: Props) {
           ref={listRef}
           role="listbox"
           aria-label="Restaurant suggestions"
-          className="absolute z-50 w-full mt-1 bg-white border border-brand-border rounded-xl shadow-lg overflow-hidden"
+          className="absolute z-50 w-full mt-1 bg-brand-surface border border-brand-border rounded-xl shadow-lg overflow-hidden"
         >
           {predictions.map((p, i) => (
             <div
@@ -120,14 +120,14 @@ export function PlacesSearchInput({ onPlaceSelect, onManualAdd }: Props) {
               tabIndex={-1}
               onClick={() => handleSelect(p.placeId)}
               onMouseEnter={() => setActiveIndex(i)}
-              className={`px-3 py-2.5 cursor-pointer font-sans text-sm text-stone-900 transition-colors ${
+              className={`px-3 py-2.5 cursor-pointer font-sans text-sm text-brand-text transition-colors ${
                 i === activeIndex ? 'bg-brand-surface-warm' : 'hover:bg-brand-surface-warm'
               }`}
             >
               <span className="font-bold">
                 {p.mainText}
               </span>
-              <span className="text-stone-400 ml-1 text-xs">
+              <span className="text-brand-text-faint ml-1 text-xs">
                 {p.secondaryText}
               </span>
             </div>
@@ -138,7 +138,7 @@ export function PlacesSearchInput({ onPlaceSelect, onManualAdd }: Props) {
       {/* Error state + manual add */}
       {showManualAdd && (
         <div className="mt-2 flex items-center gap-2">
-          <p className="font-sans text-xs text-stone-500">
+          <p className="font-sans text-xs text-brand-text-muted">
             Search unavailable — you can still add details manually
           </p>
           <button
@@ -159,7 +159,7 @@ export function PlacesSearchInput({ onPlaceSelect, onManualAdd }: Props) {
             type="button"
             onClick={onManualAdd}
             aria-label="Add manually"
-            className="font-sans text-xs text-stone-400 hover:text-stone-600"
+            className="font-sans text-xs text-brand-text-faint hover:text-brand-text"
           >
             Or add manually without search
           </button>

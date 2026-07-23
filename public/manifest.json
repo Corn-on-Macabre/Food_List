@@ -4,8 +4,8 @@
   "description": "Bobby's curated restaurant map",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#FFFBF5",
-  "theme_color": "#FFFBF5",
+  "background_color": "#F4F2EE",
+  "theme_color": "#F4F2EE",
   "orientation": "portrait-primary",
   "icons": [
     {

@@ -166,13 +166,13 @@ export function RestaurantDraftForm({ initialDraft, onSave, onCancel, existingId
         <div className="flex gap-3">
           <div className="flex-1">
             <label className={LABEL_CLASS}>Latitude</label>
-            <p className="font-sans text-sm text-stone-700 py-3 px-3 bg-stone-50 border border-brand-border rounded-lg" data-testid="lat-display">
+            <p className="font-sans text-sm text-brand-text py-3 px-3 bg-brand-hover border border-brand-border rounded-lg" data-testid="lat-display">
               {initialDraft.lat}
             </p>
           </div>
           <div className="flex-1">
             <label className={LABEL_CLASS}>Longitude</label>
-            <p className="font-sans text-sm text-stone-700 py-3 px-3 bg-stone-50 border border-brand-border rounded-lg" data-testid="lng-display">
+            <p className="font-sans text-sm text-brand-text py-3 px-3 bg-brand-hover border border-brand-border rounded-lg" data-testid="lng-display">
               {initialDraft.lng}
             </p>
           </div>
@@ -221,7 +221,7 @@ export function RestaurantDraftForm({ initialDraft, onSave, onCancel, existingId
           id="draft-tier"
           value={fields.tier}
           onChange={e => update('tier', e.target.value)}
-          className={`${errors.tier ? INPUT_ERROR_CLASS : INPUT_CLASS} bg-white`}
+          className={`${errors.tier ? INPUT_ERROR_CLASS : INPUT_CLASS} bg-brand-surface`}
           aria-label="Tier"
         >
           <option value="" disabled>— select tier —</option>
@@ -239,7 +239,7 @@ export function RestaurantDraftForm({ initialDraft, onSave, onCancel, existingId
           id="draft-city"
           value={fields.city}
           onChange={e => update('city', e.target.value)}
-          className={`${errors.city ? INPUT_ERROR_CLASS : INPUT_CLASS} bg-white`}
+          className={`${errors.city ? INPUT_ERROR_CLASS : INPUT_CLASS} bg-brand-surface`}
           aria-label="City"
         >
           {METRO_REGIONS.slice().sort((a, b) => a.label.localeCompare(b.label)).map(m => (
@@ -312,8 +312,8 @@ export function RestaurantDraftForm({ initialDraft, onSave, onCancel, existingId
                 }
                 className={
                   isActive
-                    ? 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-amber-100 text-amber-800 border border-amber-300 mr-2 mb-2 transition-colors'
-                    : 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-stone-100 text-stone-500 border border-brand-border mr-2 mb-2 transition-colors hover:bg-stone-200'
+                    ? 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-brand-tint text-brand-tint-text border border-brand-tint-border mr-2 mb-2 transition-colors'
+                    : 'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-brand-hover text-brand-text-muted border border-brand-border mr-2 mb-2 transition-colors hover:bg-brand-border'
                 }
                 aria-pressed={isActive}
                 aria-label={`${isActive ? 'Remove' : 'Add'} tag: ${tag}`}
@@ -333,7 +333,7 @@ export function RestaurantDraftForm({ initialDraft, onSave, onCancel, existingId
                 onClick={() =>
                   setFields(prev => ({ ...prev, tags: prev.tags.filter(t => t !== tag) }))
                 }
-                className="inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-amber-100 text-amber-800 border border-amber-300 mr-2 mb-2 transition-colors"
+                className="inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold bg-brand-tint text-brand-tint-text border border-brand-tint-border mr-2 mb-2 transition-colors"
                 aria-pressed={true}
                 aria-label={`Remove tag: ${tag}`}
                 data-testid={`draft-tag-chip-custom-${tag.replace(/\s+/g, '-')}`}

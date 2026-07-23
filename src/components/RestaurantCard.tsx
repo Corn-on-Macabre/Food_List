@@ -57,7 +57,7 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
   return (
     <div
       onClick={(e) => e.stopPropagation()}
-      className="fixed z-40 bg-white shadow-lg animate-card-in md:animate-panel-in motion-reduce:animate-none bottom-0 left-0 right-0 rounded-t-2xl border-t border-brand-border-light max-h-[70vh] overflow-y-auto md:max-h-none md:overflow-y-auto md:bottom-auto md:top-0 md:left-auto md:right-0 md:w-[360px] md:h-dvh md:rounded-none md:border-t-0 md:border-l md:border-brand-border-light"
+      className="fixed z-40 bg-brand-surface shadow-lg animate-card-in md:animate-panel-in motion-reduce:animate-none bottom-0 left-0 right-0 rounded-t-2xl border-t border-brand-border-light max-h-[70vh] overflow-y-auto md:max-h-none md:overflow-y-auto md:bottom-auto md:top-0 md:left-auto md:right-0 md:w-[360px] md:h-dvh md:rounded-none md:border-t-0 md:border-l md:border-brand-border-light"
     >
       {/* Spacer to push content below the fixed filter bar on desktop */}
       <div className="hidden md:block md:shrink-0" style={{ height: filterBarHeight }} />
@@ -77,7 +77,7 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
             <button
               onClick={handleShare}
               aria-label="Share restaurant"
-              className="flex items-center justify-center w-9 h-9 rounded-full bg-white/85 backdrop-blur-sm shadow-md text-stone-600 hover:text-brand-accent transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta"
+              className="flex items-center justify-center w-9 h-9 rounded-full bg-white/85 backdrop-blur-sm shadow-md text-stone-600 hover:text-stone-900 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta"
             >
               <ActionIcon path={SHARE_ICON_PATH} />
             </button>
@@ -95,7 +95,7 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
       {/* No photo: drag handle (mobile only) + action buttons in a header row */}
       {!photoUrl && (
       <div className="flex items-center px-5 pt-4 pb-2">
-        <div className="mx-auto w-9 h-1 rounded-full bg-stone-200 md:hidden" />
+        <div className="mx-auto w-9 h-1 rounded-full bg-brand-border md:hidden" />
         <div className="ml-auto flex items-center gap-1.5">
           <button
             onClick={handleShare}
@@ -116,7 +116,7 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
       )}
 
       <div className={photoUrl ? "px-5 pt-4 pb-5" : "px-5 pb-5"}>
-        <h2 className="font-display text-[22px] font-bold text-stone-900 leading-tight">
+        <h2 className="font-display text-[22px] font-bold text-brand-text leading-tight">
           {restaurant.name}
         </h2>
 
@@ -133,7 +133,7 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
                 .filter(Boolean)
                 .join(" ");
               const badge = (
-                <span className="inline-flex items-center gap-1 rounded-full border border-amber-300 bg-amber-50 px-2 py-0.5 text-[11px] font-semibold text-amber-800">
+                <span className="inline-flex items-center gap-1 rounded-full border border-tier-loved-border bg-tier-loved-bg px-2 py-0.5 text-[11px] font-semibold text-tier-loved-text">
                   <span aria-hidden="true">&#127942;</span>
                   {label}
                 </span>
@@ -153,41 +153,41 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
         {(restaurant.rating != null || formattedPrice) && (
           <div className="mt-2 flex items-center gap-2 text-sm">
             {restaurant.rating != null && (
-              <span className="text-stone-700">
+              <span className="text-brand-text">
                 {restaurant.rating.toFixed(1)}{" "}
-                <span className="text-amber-500">★</span>
+                <span className="text-tier-loved">★</span>
                 {restaurant.userRatingCount != null && (
-                  <span className="text-stone-400 ml-0.5">
+                  <span className="text-brand-text-faint ml-0.5">
                     ({restaurant.userRatingCount.toLocaleString()})
                   </span>
                 )}
               </span>
             )}
             {restaurant.rating != null && formattedPrice && (
-              <span className="text-stone-300">·</span>
+              <span className="text-brand-text-faint">·</span>
             )}
             {formattedPrice && (
-              <span className="text-stone-500 font-medium">{formattedPrice}</span>
+              <span className="text-brand-text-muted font-medium">{formattedPrice}</span>
             )}
           </div>
         )}
 
-        <p className="mt-2 text-sm text-stone-500">{restaurant.cuisine}</p>
+        <p className="mt-2 text-sm text-brand-text-muted">{restaurant.cuisine}</p>
 
         {openNow !== null && (
           <div className="mt-2 text-sm">
-            <span className={openNow ? "font-semibold text-emerald-600" : "font-semibold text-rose-600"}>
+            <span className={openNow ? "font-semibold text-state-open" : "font-semibold text-state-closed"}>
               {openNow ? "Open now" : "Closed"}
             </span>
             {hoursToday && (
-              <span className="text-stone-500"> &middot; {hoursToday.replace(/^[A-Za-z]+: /, "")} today</span>
+              <span className="text-brand-text-muted"> &middot; {hoursToday.replace(/^[A-Za-z]+: /, "")} today</span>
             )}
             {restaurant.openingHours && restaurant.openingHours.weekdayDescriptions.length === 7 && (
               <details className="mt-1">
-                <summary className="cursor-pointer text-xs text-stone-400 hover:text-stone-600 select-none">
+                <summary className="cursor-pointer text-xs text-brand-text-faint hover:text-brand-text select-none">
                   All hours
                 </summary>
-                <ul className="mt-1 space-y-0.5 text-xs text-stone-500">
+                <ul className="mt-1 space-y-0.5 text-xs text-brand-text-muted">
                   {restaurant.openingHours.weekdayDescriptions.map((line) => (
                     <li key={line}>{line}</li>
                   ))}
@@ -198,7 +198,7 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
         )}
 
         {restaurant.address && (
-          <p className="mt-2 text-xs text-stone-400">{restaurant.address}</p>
+          <p className="mt-2 text-xs text-brand-text-faint">{restaurant.address}</p>
         )}
 
         {(restaurant.phone || restaurant.website) && (
@@ -224,7 +224,7 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
         {restaurant.tags && restaurant.tags.length > 0 && (
           <div className="mt-2 flex flex-wrap gap-1.5">
             {restaurant.tags.map((tag) => (
-              <span key={tag} className="inline-block rounded-full bg-stone-100 px-2 py-0.5 text-xs text-stone-500">
+              <span key={tag} className="inline-block rounded-full bg-brand-hover px-2 py-0.5 text-xs text-brand-text-muted">
                 {tag}
               </span>
             ))}
@@ -233,14 +233,14 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
 
         {restaurant.dishes && restaurant.dishes.length > 0 && (
           <div className="mt-2.5">
-            <p className="font-sans text-[11px] font-bold uppercase tracking-[0.1em] text-stone-400">
+            <p className="font-sans text-[11px] font-bold uppercase tracking-[0.1em] text-brand-text-faint">
               Get the
             </p>
             <div className="mt-1 flex flex-wrap gap-1.5">
               {restaurant.dishes.map((dish) => (
                 <span
                   key={dish}
-                  className="inline-block rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-xs text-amber-800"
+                  className="inline-block rounded-full border border-brand-tint-border bg-brand-tint px-2 py-0.5 text-xs text-brand-tint-text"
                 >
                   {dish}
                 </span>
@@ -259,11 +259,11 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
                 className="w-6 h-6 rounded-full object-cover"
               />
             ) : (
-              <span className="flex items-center justify-center w-6 h-6 rounded-full bg-stone-200 text-stone-500 text-xs font-bold">
+              <span className="flex items-center justify-center w-6 h-6 rounded-full bg-brand-border text-brand-text-muted text-xs font-bold">
                 {restaurant.suggested_by.charAt(0).toUpperCase()}
               </span>
             )}
-            <span className="text-xs text-stone-400">
+            <span className="text-xs text-brand-text-faint">
               Suggested by {restaurant.suggested_by}
             </span>
           </div>
@@ -273,7 +273,7 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
           <div className="mt-3 pt-3 border-t border-brand-border-light">
             {note && (
               <>
-                <p className="text-sm text-stone-500 italic leading-relaxed">
+                <p className="text-sm text-brand-text-muted italic leading-relaxed">
                   <span
                     aria-hidden="true"
                     className="font-display text-2xl text-brand-chip/50 leading-none align-[-0.3em] mr-1"
@@ -282,7 +282,7 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
                   </span>
                   {note}
                 </p>
-                <p className="mt-1 font-sans text-[11px] font-bold uppercase tracking-[0.1em] text-stone-400">
+                <p className="mt-1 font-sans text-[11px] font-bold uppercase tracking-[0.1em] text-brand-text-faint">
                   &mdash; Bobby
                 </p>
               </>
@@ -291,10 +291,10 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
               <div className={note ? "mt-3 space-y-2.5" : "space-y-2.5"}>
                 {visits.map((visit) => (
                   <div key={`${visit.date}-${visit.text.slice(0, 20)}`} className="flex items-baseline gap-2">
-                    <span className="shrink-0 font-sans text-[11px] font-bold uppercase tracking-wide text-amber-700">
+                    <span className="shrink-0 font-sans text-[11px] font-bold uppercase tracking-wide text-brand-accent">
                       {formatVisitDate(visit.date)}
                     </span>
-                    <p className="text-sm text-stone-500 leading-relaxed">{visit.text}</p>
+                    <p className="text-sm text-brand-text-muted leading-relaxed">{visit.text}</p>
                   </div>
                 ))}
               </div>
@@ -303,12 +303,12 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
         )}
 
         {restaurant.source && !restaurant.suggested_by && (
-          <p className="mt-2 text-xs text-stone-400">
+          <p className="mt-2 text-xs text-brand-text-faint">
             Source: {restaurant.source}
           </p>
         )}
         {restaurant.source && restaurant.suggested_by && (
-          <p className="mt-1 text-xs text-stone-400">
+          <p className="mt-1 text-xs text-brand-text-faint">
             via {restaurant.source}
           </p>
         )}

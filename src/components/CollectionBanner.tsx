@@ -24,13 +24,13 @@ export function CollectionBanner({ title, blurb, count, onShareSuccess }: Collec
   return (
     <div className="flex items-start justify-between gap-3 px-4 py-2 border-t border-brand-border-light">
       <div className="min-w-0">
-        <p className="font-display text-sm font-bold text-stone-900">
+        <p className="font-display text-sm font-bold text-brand-text">
           {title}{' '}
-          <span className="font-sans text-xs font-normal text-stone-400">
+          <span className="font-sans text-xs font-normal text-brand-text-faint">
             &middot; {count} spot{count === 1 ? '' : 's'}
           </span>
         </p>
-        {blurb && <p className="font-sans text-xs italic text-stone-500">{blurb}</p>}
+        {blurb && <p className="font-sans text-xs italic text-brand-text-muted">{blurb}</p>}
       </div>
       <div className="flex items-center gap-3 shrink-0">
         <button
@@ -43,7 +43,7 @@ export function CollectionBanner({ title, blurb, count, onShareSuccess }: Collec
         <button
           onClick={() => navigate('/')}
           aria-label="Close collection"
-          className="text-sm font-sans font-semibold text-stone-400 hover:text-stone-600 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta rounded leading-none"
+          className="text-sm font-sans font-semibold text-brand-text-faint hover:text-brand-text transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta rounded leading-none"
         >
           &times;
         </button>

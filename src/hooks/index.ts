@@ -1,6 +1,7 @@
 export { useRestaurants } from './useRestaurants';
 export { useGeolocation } from './useGeolocation';
 export { useAdminAuth } from './useAdminAuth';
+export { useTheme } from './useTheme';
 export { usePlacesAutocomplete } from './usePlacesAutocomplete';
 export type { PlacePrediction } from './usePlacesAutocomplete';
 export { usePlaceDetails } from './usePlaceDetails';

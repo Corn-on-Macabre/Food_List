@@ -11,7 +11,7 @@ const clusterRenderer: Renderer = {
   render: ({ count, position }) => {
     const div = document.createElement('div');
     div.className =
-      'flex items-center justify-center rounded-full bg-brand-cta text-white font-sans font-bold border-[3px] border-brand-bg shadow-[0_2px_6px_rgba(0,0,0,0.28)] ' +
+      'flex items-center justify-center rounded-full bg-brand-cta text-brand-on-accent font-sans font-bold border-[3px] border-brand-bg shadow-[0_2px_6px_rgba(0,0,0,0.28)] ' +
       (count < 10 ? 'w-9 h-9 text-xs' : count < 50 ? 'w-10 h-10 text-sm' : 'w-11 h-11 text-sm');
     div.textContent = String(count);
     return new google.maps.marker.AdvancedMarkerElement({

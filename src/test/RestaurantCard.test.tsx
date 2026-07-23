@@ -275,7 +275,7 @@ describe("RestaurantCard", () => {
     it("star character is rendered with amber color class (AC 7)", () => {
       render(<RestaurantCard restaurant={mockEnrichedRestaurant} onDismiss={noop} onShareSuccess={noop} filterBarHeight={120} />);
       const star = screen.getByText("★");
-      expect(star.className).toContain("text-amber-500");
+      expect(star.className).toContain("text-tier-loved");
     });
   });
 

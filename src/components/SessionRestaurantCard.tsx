@@ -29,7 +29,7 @@ export function SessionRestaurantCard({ restaurant, onUpdate }: Props) {
   return (
     <div
       data-testid="session-restaurant-card"
-      className="bg-white border border-brand-border rounded-lg p-3 font-sans text-sm text-stone-700"
+      className="bg-brand-surface border border-brand-border rounded-lg p-3 font-sans text-sm text-brand-text"
     >
       {/* Tier row — always visible (tier edit or display) */}
       {!isEditingTier ? (
@@ -37,7 +37,7 @@ export function SessionRestaurantCard({ restaurant, onUpdate }: Props) {
           <TierBadge tier={restaurant.tier} />
           <span className="font-bold">{restaurant.name}</span>
           {restaurant.featured && <BobbyPickBadge />}
-          <span className="text-stone-400">{restaurant.cuisine}</span>
+          <span className="text-brand-text-faint">{restaurant.cuisine}</span>
           <button
             type="button"
             onClick={() => {
@@ -55,7 +55,7 @@ export function SessionRestaurantCard({ restaurant, onUpdate }: Props) {
           <select
             value={selectedTier}
             onChange={e => setSelectedTier(e.target.value as Tier)}
-            className="border border-brand-border rounded-lg px-2 font-sans text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-brand-focus min-h-[44px]"
+            className="border border-brand-border rounded-lg px-2 font-sans text-sm text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-focus min-h-[44px]"
             aria-label="Select tier"
           >
             {TIER_OPTIONS.map(opt => (

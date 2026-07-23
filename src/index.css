@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Manual theme override: .dark on <html> wins over the OS preference (set by useTheme) */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* Lock the document to the viewport — map page needs no body scroll.
    Admin page overrides this with overflow-auto on its own container. */
 html, body {
@@ -10,6 +13,10 @@ html, body {
 #root {
   height: 100dvh;
   overflow: auto;
+}
+
+body {
+  background-color: var(--bg);
 }
 
 .scrollbar-hide::-webkit-scrollbar { display: none; }
@@ -23,33 +30,130 @@ html, body {
   animation: deep-link-ping 1.8s ease-out infinite;
 }
 
-@theme {
+/* ---------------------------------------------------------------------------
+   Wine & Paper palette — runtime variables, flipped by the .dark class.
+   Components never use these directly; they use the brand/tier/state
+   utilities generated from the @theme inline block below.
+--------------------------------------------------------------------------- */
+:root {
+  color-scheme: light;
+
+  --bg: #F4F2EE;
+  --surface: #FFFFFF;
+  --surface-warm: #EFEBE4;
+  --hover: #F6F3EF;
+  --border: #E0DBD5;
+  --border-light: #EBE7E2;
+  --border-strong: #CBC3BD;
+  --text: #241E20;
+  --text-muted: #6E6669;
+  --text-faint: #9C9497;
+  --accent: #7D2A3C;
+  --accent-hover: #5E1F2D;
+  --on-accent: #FFF6F7;
+  --focus: #E9C6CE;
+  --tint: #F6E9EC;
+  --tint-border: #E5C6CE;
+  --tint-text: #82374A;
+
+  --loved: #F59E0B;
+  --loved-bg: #FEF3C7;
+  --loved-text: #92400E;
+  --loved-border: #F3CF8B;
+  --recommended: #3B82F6;
+  --recommended-bg: #DBEAFE;
+  --recommended-text: #1E40AF;
+  --radar: #10B981;
+  --radar-bg: #D1FAE5;
+  --radar-text: #065F46;
+
+  --open: #059669;
+  --closed: #E11D48;
+  --error: #DC2626;
+  --error-border: #F87171;
+  --error-tint: #FEF2F2;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --bg: #191316;
+  --surface: #221B1F;
+  --surface-warm: #281F24;
+  --hover: #2C2328;
+  --border: #3B3136;
+  --border-light: #2E262A;
+  --border-strong: #4E4148;
+  --text: #F1EAEC;
+  --text-muted: #ABA0A5;
+  --text-faint: #7E7378;
+  --accent: #E38E9B;
+  --accent-hover: #ECA9B4;
+  --on-accent: #2A1218;
+  --focus: #5C2833;
+  --tint: #3A2229;
+  --tint-border: #55333C;
+  --tint-text: #E4A0AC;
+
+  --loved: #FBBF24;
+  --loved-bg: #3E2E08;
+  --loved-text: #FCD34D;
+  --loved-border: #6B5210;
+  --recommended: #60A5FA;
+  --recommended-bg: #1B3252;
+  --recommended-text: #8FC0FA;
+  --radar: #34D399;
+  --radar-bg: #0B3B2E;
+  --radar-text: #4ADE9F;
+
+  --open: #34D399;
+  --closed: #FB7185;
+  --error: #F87171;
+  --error-border: #9B3535;
+  --error-tint: #3B1A1E;
+}
+
+@theme inline {
   --font-display: 'Playfair Display SC', Georgia, serif;
   --font-sans: 'Karla', system-ui, sans-serif;
 
-  --color-brand-bg: #FFFBF5;
-  --color-brand-surface: #FFFFFF;
-  --color-brand-surface-warm: #FFF8EE;
-  --color-brand-border: #E8E0D5;
-  --color-brand-border-light: #F0EBE3;
-  --color-brand-accent: #B45309;
-  --color-brand-accent-hover: #92400E;
-  /* WCAG AA: #B45309 on white = 4.6:1 (DESIGN.md updated recommendation) */
-  --color-brand-cta: #B45309;
-  --color-brand-cta-hover: #92400E;
-  /* Active filter chips keep amber-600 per DESIGN.md chip spec (12px bold) */
-  --color-brand-chip: #D97706;
-  --color-brand-focus: #FDE68A;
+  --color-brand-bg: var(--bg);
+  --color-brand-surface: var(--surface);
+  --color-brand-surface-warm: var(--surface-warm);
+  --color-brand-hover: var(--hover);
+  --color-brand-border: var(--border);
+  --color-brand-border-light: var(--border-light);
+  --color-brand-border-strong: var(--border-strong);
+  --color-brand-text: var(--text);
+  --color-brand-text-muted: var(--text-muted);
+  --color-brand-text-faint: var(--text-faint);
+  --color-brand-accent: var(--accent);
+  --color-brand-accent-hover: var(--accent-hover);
+  --color-brand-cta: var(--accent);
+  --color-brand-cta-hover: var(--accent-hover);
+  --color-brand-chip: var(--accent);
+  --color-brand-on-accent: var(--on-accent);
+  --color-brand-focus: var(--focus);
+  --color-brand-tint: var(--tint);
+  --color-brand-tint-border: var(--tint-border);
+  --color-brand-tint-text: var(--tint-text);
 
-  --color-tier-loved: #F59E0B;
-  --color-tier-loved-bg: #FEF3C7;
-  --color-tier-loved-text: #92400E;
-  --color-tier-recommended: #3B82F6;
-  --color-tier-recommended-bg: #DBEAFE;
-  --color-tier-recommended-text: #1E40AF;
-  --color-tier-radar: #10B981;
-  --color-tier-radar-bg: #D1FAE5;
-  --color-tier-radar-text: #065F46;
+  --color-tier-loved: var(--loved);
+  --color-tier-loved-bg: var(--loved-bg);
+  --color-tier-loved-text: var(--loved-text);
+  --color-tier-loved-border: var(--loved-border);
+  --color-tier-recommended: var(--recommended);
+  --color-tier-recommended-bg: var(--recommended-bg);
+  --color-tier-recommended-text: var(--recommended-text);
+  --color-tier-radar: var(--radar);
+  --color-tier-radar-bg: var(--radar-bg);
+  --color-tier-radar-text: var(--radar-text);
+
+  --color-state-open: var(--open);
+  --color-state-closed: var(--closed);
+  --color-state-error: var(--error);
+  --color-state-error-border: var(--error-border);
+  --color-state-error-tint: var(--error-tint);
 
   --animate-card-in: card-in 0.25s ease-out both;
   --animate-panel-in: panel-in 0.25s ease-out both;

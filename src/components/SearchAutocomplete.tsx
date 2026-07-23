@@ -20,7 +20,7 @@ function highlightMatch(name: string, term: string): React.JSX.Element {
   return (
     <>
       {before}
-      <mark className="bg-amber-100 text-amber-900 rounded-sm">{match}</mark>
+      <mark className="bg-brand-tint text-brand-tint-text rounded-sm">{match}</mark>
       {after}
     </>
   );
@@ -101,7 +101,7 @@ export function SearchAutocomplete({
   return (
     <div className="relative">
       <svg
-        className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-amber-600 pointer-events-none"
+        className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-accent pointer-events-none"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -131,7 +131,7 @@ export function SearchAutocomplete({
           blurTimeoutRef.current = setTimeout(() => setFocused(false), 200);
         }}
         onKeyDown={handleKeyDown}
-        className="w-full pl-9 pr-8 py-2 text-xs font-sans bg-white border border-brand-border rounded-full focus:outline-none focus:ring-2 focus:ring-brand-focus placeholder:text-stone-400 [&::-webkit-search-cancel-button]:appearance-none"
+        className="w-full pl-9 pr-8 py-2 text-xs font-sans bg-brand-surface border border-brand-border rounded-full focus:outline-none focus:ring-2 focus:ring-brand-focus placeholder:text-brand-text-faint [&::-webkit-search-cancel-button]:appearance-none"
       />
       {searchTerm !== null && (
         <button
@@ -142,7 +142,7 @@ export function SearchAutocomplete({
             setDismissed(true);
             setHighlightedIndex(-1);
           }}
-          className="absolute right-1 top-1/2 -translate-y-1/2 p-2 text-stone-400 hover:text-stone-600"
+          className="absolute right-1 top-1/2 -translate-y-1/2 p-2 text-brand-text-faint hover:text-brand-text"
         >
           <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -155,7 +155,7 @@ export function SearchAutocomplete({
           id="search-matches"
           role="listbox"
           aria-label="Matching restaurants"
-          className="absolute left-0 right-0 mt-1 z-[100] bg-white border border-brand-border rounded-xl shadow-lg max-h-[280px] overflow-y-auto"
+          className="absolute left-0 right-0 mt-1 z-[100] bg-brand-surface border border-brand-border rounded-xl shadow-lg max-h-[280px] overflow-y-auto"
         >
           {matches.map((restaurant, index) => (
             <li
@@ -169,13 +169,13 @@ export function SearchAutocomplete({
               }}
               onMouseEnter={() => setHighlightedIndex(index)}
               className={`px-3 py-2.5 cursor-pointer font-sans text-sm transition-colors ${
-                index === highlightedIndex ? 'bg-amber-50' : ''
+                index === highlightedIndex ? 'bg-brand-tint' : ''
               } ${index === 0 ? 'rounded-t-xl' : ''} ${index === matches.length - 1 ? 'rounded-b-xl' : ''}`}
             >
-              <span className="font-semibold text-stone-800">
+              <span className="font-semibold text-brand-text">
                 {highlightMatch(restaurant.name, searchTerm!)}
               </span>
-              <span className="text-xs text-stone-400 ml-2">{restaurant.cuisine}</span>
+              <span className="text-xs text-brand-text-faint ml-2">{restaurant.cuisine}</span>
             </li>
           ))}
         </ul>

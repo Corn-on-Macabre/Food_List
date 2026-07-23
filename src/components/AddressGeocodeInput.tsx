@@ -125,7 +125,7 @@ export function AddressGeocodeInput({
     return (
       <div>
         {autocompleteError && (
-          <p className="text-xs text-stone-500 mb-2">Address lookup unavailable</p>
+          <p className="text-xs text-brand-text-muted mb-2">Address lookup unavailable</p>
         )}
         <div className="flex gap-3">
           <div className="flex-1">
@@ -159,7 +159,7 @@ export function AddressGeocodeInput({
           <button
             type="button"
             onClick={() => setMode('autocomplete')}
-            className="text-xs text-stone-400 hover:text-stone-600 cursor-pointer mt-1"
+            className="text-xs text-brand-text-faint hover:text-brand-text cursor-pointer mt-1"
           >
             Use address lookup
           </button>
@@ -196,7 +196,7 @@ export function AddressGeocodeInput({
               className="absolute right-3 top-1/2 -translate-y-1/2"
             >
               <svg
-                className="animate-spin h-4 w-4 text-amber-500"
+                className="animate-spin h-4 w-4 text-tier-loved"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -220,7 +220,7 @@ export function AddressGeocodeInput({
             ref={listRef}
             role="listbox"
             aria-label="Address suggestions"
-            className="absolute z-50 w-full mt-1 bg-white border border-brand-border rounded-xl shadow-lg overflow-hidden"
+            className="absolute z-50 w-full mt-1 bg-brand-surface border border-brand-border rounded-xl shadow-lg overflow-hidden"
           >
             {predictions.map((p, i) => (
               <div
@@ -230,14 +230,14 @@ export function AddressGeocodeInput({
                 tabIndex={-1}
                 onClick={() => handleSelect(p.placeId, p.description)}
                 onMouseEnter={() => setActiveIndex(i)}
-                className={`px-3 py-2.5 cursor-pointer font-sans text-sm text-stone-900 transition-colors ${
+                className={`px-3 py-2.5 cursor-pointer font-sans text-sm text-brand-text transition-colors ${
                   i === activeIndex ? 'bg-brand-surface-warm' : 'hover:bg-brand-surface-warm'
                 }`}
               >
                 <span className="font-bold">
                   {p.mainText}
                 </span>
-                <span className="text-stone-400 ml-1 text-xs">
+                <span className="text-brand-text-faint ml-1 text-xs">
                   {p.secondaryText}
                 </span>
               </div>
@@ -249,11 +249,11 @@ export function AddressGeocodeInput({
       {/* Coordinate display */}
       <div className="mt-2">
         {hasCoords ? (
-          <p className="font-sans text-sm text-stone-700 py-3 px-3 bg-stone-50 border border-brand-border rounded-lg">
+          <p className="font-sans text-sm text-brand-text py-3 px-3 bg-brand-hover border border-brand-border rounded-lg">
             {lat}, {lng}
           </p>
         ) : (
-          <p className="font-sans text-sm text-stone-400 py-3 px-3 bg-stone-50 border border-brand-border rounded-lg">
+          <p className="font-sans text-sm text-brand-text-faint py-3 px-3 bg-brand-hover border border-brand-border rounded-lg">
             No address selected
           </p>
         )}
@@ -261,14 +261,14 @@ export function AddressGeocodeInput({
 
       {/* Geocode error display (F4 fix) */}
       {geocodeError && (
-        <p className="text-red-600 text-xs font-sans mt-1">{geocodeError}</p>
+        <p className="text-state-error text-xs font-sans mt-1">{geocodeError}</p>
       )}
 
       {/* Manual edit link */}
       <button
         type="button"
         onClick={() => setMode('manual')}
-        className="text-xs text-stone-400 hover:text-stone-600 cursor-pointer mt-1"
+        className="text-xs text-brand-text-faint hover:text-brand-text cursor-pointer mt-1"
       >
         Edit coordinates manually
       </button>
