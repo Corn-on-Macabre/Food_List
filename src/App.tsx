@@ -10,21 +10,12 @@ import type { Restaurant } from './types';
 import type { FilterState } from './types/restaurant';
 import { haversineDistance, isOpenNow, localNowMinutes, metroTimezone, filtersToSearchParams, filtersFromSearchParams, shareUrl } from './utils';
 import { FROSTED_BAR, CARD_SURFACE } from './components/styles';
-import { METRO_REGIONS, DEFAULT_METRO_ID, EVERYWHERE_ID } from './constants/metros';
+import { METRO_REGIONS, DEFAULT_METRO_ID, EVERYWHERE_ID, nearestMetroId } from './constants/metros';
 import { TAG_VOCABULARY } from './constants/tags';
 import './index.css';
 
 function findNearestMetro(lat: number, lng: number): string {
-  let bestId = DEFAULT_METRO_ID;
-  let bestDist = Infinity;
-  for (const metro of METRO_REGIONS) {
-    const dist = haversineDistance(lat, lng, metro.center.lat, metro.center.lng);
-    if (dist < bestDist) {
-      bestId = metro.id;
-      bestDist = dist;
-    }
-  }
-  return bestId;
+  return nearestMetroId(lat, lng, haversineDistance);
 }
 
 function getMetro(id: string) {
@@ -32,6 +23,12 @@ function getMetro(id: string) {
 }
 
 const DEFAULT_METRO = getMetro(DEFAULT_METRO_ID)!;
+
+// Every filter except city, in its cleared state — one literal so "initial"
+// and "clear filters" can never drift apart when a new filter field is added.
+const CLEARED_FILTERS: Omit<FilterState, 'city'> = {
+  cuisine: null, tier: null, maxDistance: null, searchTerm: null, openNow: false, tags: [], recognized: false,
+};
 
 // Smoothly pans the map to the given coords using the native animated panTo.
 // Must be rendered as a child of <Map> to access the map instance via useMap().
@@ -135,9 +132,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
   const [selectedRestaurant, setSelectedRestaurant] = useState<Restaurant | null>(null);
   // Lazy initializer: shareable filters arrive as query params (?tier=loved&tags=patio)
   const [filters, setFilters] = useState<FilterState>(() =>
-    filtersFromSearchParams(window.location.search, {
-      city: initialCity, cuisine: null, tier: null, maxDistance: null, searchTerm: null, openNow: false, tags: [], recognized: false,
-    }));
+    filtersFromSearchParams(window.location.search, { city: initialCity, ...CLEARED_FILTERS }));
 
   // Resolve city from geolocation once (only if no URL city was specified)
   const geoResolved = useRef(false);
@@ -324,7 +319,7 @@ function AppWithMap({ apiKey }: { apiKey: string }) {
   const hasActiveFilters = filters.searchTerm !== null || filters.cuisine !== null || filters.tier !== null || filters.maxDistance !== null || filters.openNow || filters.recognized || filters.tags.length > 0;
 
   function handleClearFilters() {
-    setFilters((f) => ({ ...f, cuisine: null, tier: null, maxDistance: null, searchTerm: null, openNow: false, tags: [], recognized: false }));
+    setFilters((f) => ({ ...f, ...CLEARED_FILTERS }));
   }
 
   const handleCityChange = useCallback((cityId: string) => {

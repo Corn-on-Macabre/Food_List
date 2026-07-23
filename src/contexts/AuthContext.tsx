@@ -24,8 +24,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (!supabaseConfigured) {
-      setLoading(false);
-      return;
+      return; // loading was initialized to false for the unconfigured case
     }
 
     supabase.auth.getSession().then(({ data: { session: s } }) => {

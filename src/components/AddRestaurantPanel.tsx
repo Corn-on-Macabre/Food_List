@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import type { Restaurant } from '../types';
 import type { PlaceDraft } from '../hooks/usePlaceDetails';
 import { usePlaceDetails } from '../hooks/usePlaceDetails';
@@ -26,8 +26,12 @@ export function AddRestaurantPanel({ onRestaurantAdded, prefill, onPrefillConsum
   const [selectedPlaceId, setSelectedPlaceId] = useState<string | null>(null);
   const [resolvedDraft, setResolvedDraft] = useState<PlaceDraft | null>(null);
 
-  // When prefill changes (from submission approval), jump to manual mode
-  useEffect(() => {
+  // When prefill changes (from submission approval), jump to manual mode.
+  // Adjusted during render (React's recommended pattern) instead of an effect
+  // so there is no extra commit with stale state.
+  const [lastPrefill, setLastPrefill] = useState(prefill ?? null);
+  if ((prefill ?? null) !== lastPrefill) {
+    setLastPrefill(prefill ?? null);
     if (prefill) {
       setPanelState('manual');
       setResolvedDraft({
@@ -41,7 +45,7 @@ export function AddRestaurantPanel({ onRestaurantAdded, prefill, onPrefillConsum
         placeId: '',
       });
     }
-  }, [prefill]);
+  }
 
   const { placeDetails, loading: detailsLoading, error: detailsError } = usePlaceDetails(selectedPlaceId);
 
@@ -90,12 +94,12 @@ export function AddRestaurantPanel({ onRestaurantAdded, prefill, onPrefillConsum
     setPanelState('search');
   }
 
-  function handleAddAnother() {
+  const handleAddAnother = useCallback(() => {
     setSelectedPlaceId(null);
     setResolvedDraft(null);
-    clearPrefill();
+    onPrefillConsumed?.();
     setPanelState('search');
-  }
+  }, [onPrefillConsumed]);
 
   // Auto-reset after 2 seconds in success state
   useEffect(() => {
@@ -104,7 +108,7 @@ export function AddRestaurantPanel({ onRestaurantAdded, prefill, onPrefillConsum
       handleAddAnother();
     }, 2000);
     return () => clearTimeout(timer);
-  }, [panelState]);
+  }, [panelState, handleAddAnother]);
 
   return (
     <section className="bg-white border border-brand-border rounded-xl p-5">

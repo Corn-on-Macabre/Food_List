@@ -4,6 +4,7 @@ import { useAdminAuth } from '../hooks';
 import { UserMenu } from './UserMenu';
 import { SearchAutocomplete } from './SearchAutocomplete';
 import { METRO_REGIONS, EVERYWHERE_ID } from '../constants/metros';
+import { TIER_FILTER_OPTIONS } from '../constants/tiers';
 import { CHIP_BASE as chipBase, CHIP_ACTIVE as chipActive, CHIP_INACTIVE as chipInactive } from './styles';
 import type { Restaurant, Tier } from '../types/restaurant';
 
@@ -36,12 +37,6 @@ interface FilterBarProps {
   hasAccolades: boolean;
   hideCity?: boolean; // collection mode: the collection spans cities, hide the selector
 }
-
-const TIER_OPTIONS: { value: Tier; label: string }[] = [
-  { value: 'loved',       label: 'Loved It' },
-  { value: 'recommended', label: 'Worth Recommending' },
-  { value: 'on_my_radar', label: 'Want to Go' },
-];
 
 export function FilterBar({
   cuisines,
@@ -186,7 +181,7 @@ export function FilterBar({
           >
             All
           </button>
-          {TIER_OPTIONS.map(({ value, label }) => {
+          {TIER_FILTER_OPTIONS.map(({ value, label }) => {
             const isActive = value === activeTier;
             return (
               <button

@@ -12,7 +12,7 @@ import {
 } from '../api/restaurants';
 import { SubmissionsPanel } from './SubmissionsPanel';
 import type { Submission } from '../api/submissions';
-import type { Restaurant, Tier } from '../types';
+import type { Restaurant } from '../types';
 import { BTN_PRIMARY, BTN_SECONDARY } from './styles';
 
 export function AdminDashboard() {
@@ -58,62 +58,13 @@ export function AdminDashboard() {
     }
   }
 
-  async function handleTierChange(id: string, newTier: Tier) {
-    await updateRestaurant(id, { tier: newTier });
-    setSessionRestaurants(prev =>
-      prev.map(r => (r.id === id ? { ...r, tier: newTier } : r))
-    );
-    setAllRestaurants(prev =>
-      prev.map(r => (r.id === id ? { ...r, tier: newTier } : r))
-    );
-  }
-
-  async function handleNotesChange(id: string, notes: string) {
-    const value = notes.trim() || undefined;
-    await updateRestaurant(id, { notes: value });
-    setSessionRestaurants(prev =>
-      prev.map(r => (r.id === id ? { ...r, notes: value } : r))
-    );
-    setAllRestaurants(prev =>
-      prev.map(r => (r.id === id ? { ...r, notes: value } : r))
-    );
-  }
-
-  async function handleSourceChange(id: string, source: string) {
-    const value = source.trim() || undefined;
-    await updateRestaurant(id, { source: value });
-    setSessionRestaurants(prev =>
-      prev.map(r => (r.id === id ? { ...r, source: value } : r))
-    );
-    setAllRestaurants(prev =>
-      prev.map(r => (r.id === id ? { ...r, source: value } : r))
-    );
-  }
-
-  async function handleTagsChange(id: string, tags: string[]) {
-    const value = tags.length > 0 ? tags : undefined;
-    await updateRestaurant(id, { tags: value });
-    setSessionRestaurants(prev =>
-      prev.map(r => (r.id === id ? { ...r, tags: value } : r))
-    );
-    setAllRestaurants(prev =>
-      prev.map(r => (r.id === id ? { ...r, tags: value } : r))
-    );
-  }
-
-  async function handleFeaturedChange(id: string, featured: boolean) {
-    const value = featured ? true : undefined;
-    await updateRestaurant(id, { featured: value });
-    setSessionRestaurants(prev =>
-      prev.map(r => (r.id === id ? { ...r, featured: value } : r))
-    );
-    setAllRestaurants(prev =>
-      prev.map(r => (r.id === id ? { ...r, featured: value } : r))
-    );
-  }
-
-  async function handleUpdate(id: string, changes: Partial<Restaurant>) {
+  // Single mutation path: persist, then mirror the change into both lists
+  // (session cards and the all-restaurants tab share rows).
+  async function applyChange(id: string, changes: Partial<Restaurant>) {
     await updateRestaurant(id, changes);
+    setSessionRestaurants(prev =>
+      prev.map(r => (r.id === id ? { ...r, ...changes } : r))
+    );
     setAllRestaurants(prev =>
       prev.map(r => (r.id === id ? { ...r, ...changes } : r))
     );
@@ -155,36 +106,23 @@ export function AdminDashboard() {
       {/* Tab bar */}
       <nav className="fixed top-[60px] left-0 right-0 bg-brand-bg z-40">
         <div className="max-w-2xl mx-auto flex gap-6 px-4 py-3 border-b border-brand-border">
-          <button
-            onClick={() => setActiveTab('add')}
-            className={`font-sans text-sm pb-1 transition-colors duration-150 ${
-              activeTab === 'add'
-                ? 'border-b-2 border-brand-cta text-stone-900 font-bold'
-                : 'text-stone-400 hover:text-stone-600'
-            }`}
-          >
-            Add Restaurant
-          </button>
-          <button
-            onClick={() => setActiveTab('list')}
-            className={`font-sans text-sm pb-1 transition-colors duration-150 ${
-              activeTab === 'list'
-                ? 'border-b-2 border-brand-cta text-stone-900 font-bold'
-                : 'text-stone-400 hover:text-stone-600'
-            }`}
-          >
-            All Restaurants ({allRestaurants.length})
-          </button>
-          <button
-            onClick={() => setActiveTab('submissions')}
-            className={`font-sans text-sm pb-1 transition-colors duration-150 ${
-              activeTab === 'submissions'
-                ? 'border-b-2 border-brand-cta text-stone-900 font-bold'
-                : 'text-stone-400 hover:text-stone-600'
-            }`}
-          >
-            Submissions{pendingCount > 0 ? ` (${pendingCount})` : ''}
-          </button>
+          {([
+            { key: 'add', label: 'Add Restaurant' },
+            { key: 'list', label: `All Restaurants (${allRestaurants.length})` },
+            { key: 'submissions', label: `Submissions${pendingCount > 0 ? ` (${pendingCount})` : ''}` },
+          ] as const).map(({ key, label }) => (
+            <button
+              key={key}
+              onClick={() => setActiveTab(key)}
+              className={`font-sans text-sm pb-1 transition-colors duration-150 ${
+                activeTab === key
+                  ? 'border-b-2 border-brand-cta text-stone-900 font-bold'
+                  : 'text-stone-400 hover:text-stone-600'
+              }`}
+            >
+              {label}
+            </button>
+          ))}
         </div>
       </nav>
 
@@ -256,11 +194,7 @@ export function AdminDashboard() {
                     <li key={r.id}>
                       <SessionRestaurantCard
                         restaurant={r}
-                        onTierChange={handleTierChange}
-                        onNotesChange={handleNotesChange}
-                        onSourceChange={handleSourceChange}
-                        onTagsChange={handleTagsChange}
-                        onFeaturedChange={handleFeaturedChange}
+                        onUpdate={(id, changes) => void applyChange(id, changes)}
                       />
                     </li>
                   ))}
@@ -273,7 +207,7 @@ export function AdminDashboard() {
         {!loading && !error && activeTab === 'list' && (
           <RestaurantListPanel
             restaurants={allRestaurants}
-            onUpdate={handleUpdate}
+            onUpdate={applyChange}
             onDelete={handleDelete}
           />
         )}

@@ -1,18 +1,13 @@
 import { useState, useMemo } from 'react';
 import { RestaurantListRow } from './RestaurantListRow';
 import type { Restaurant, Tier } from '../types/restaurant';
+import { TIER_FILTER_OPTIONS } from '../constants/tiers';
 
 interface RestaurantListPanelProps {
   restaurants: Restaurant[];
   onUpdate: (id: string, changes: Partial<Restaurant>) => Promise<void>;
   onDelete: (id: string) => Promise<void>;
 }
-
-const TIER_OPTIONS: { value: Tier; label: string }[] = [
-  { value: 'loved', label: 'Loved It' },
-  { value: 'recommended', label: 'Worth Recommending' },
-  { value: 'on_my_radar', label: 'Want to Go' },
-];
 
 const chipBase =
   'rounded-full px-3 py-1 text-xs font-semibold font-sans whitespace-nowrap transition-colors duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 min-h-[44px] inline-flex items-center';
@@ -103,7 +98,7 @@ export function RestaurantListPanel({
         >
           All
         </button>
-        {TIER_OPTIONS.map(({ value, label }) => {
+        {TIER_FILTER_OPTIONS.map(({ value, label }) => {
           const isActive = value === activeTier;
           return (
             <button

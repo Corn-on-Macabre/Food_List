@@ -1,3 +1,4 @@
+import { userDisplayFields } from './userMetadata';
 import { supabase, supabaseConfigured } from '../lib/supabase';
 import type { User } from '@supabase/supabase-js';
 
@@ -11,14 +12,15 @@ export async function upsertProfile(user: User): Promise<void> {
   if (!supabaseConfigured) return;
 
   const metadata = user.user_metadata as Record<string, unknown> | undefined;
+  const { displayName, avatarUrl } = userDisplayFields(user);
 
   await supabase.from('profiles').upsert(
     {
       id: user.id,
       google_id: (metadata?.sub as string) ?? null,
-      display_name: (metadata?.full_name as string) ?? (metadata?.name as string) ?? null,
+      display_name: displayName,
       email: user.email ?? null,
-      avatar_url: (metadata?.avatar_url as string) ?? (metadata?.picture as string) ?? null,
+      avatar_url: avatarUrl,
     },
     { onConflict: 'id' }
   );

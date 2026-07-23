@@ -20,6 +20,26 @@ export const METRO_REGIONS: MetroRegion[] = [
 
 export const DEFAULT_METRO_ID = 'phoenix';
 
+// Nearest registered metro by straight-line distance. (The server's variant in
+// server/data.js intentionally differs — it caps at 75 mi and falls back to
+// the 'elsewhere' bucket.)
+export function nearestMetroId(
+  lat: number,
+  lng: number,
+  distance: (aLat: number, aLng: number, bLat: number, bLng: number) => number,
+): string {
+  let bestId = DEFAULT_METRO_ID;
+  let bestDist = Infinity;
+  for (const metro of METRO_REGIONS) {
+    const dist = distance(lat, lng, metro.center.lat, metro.center.lng);
+    if (dist < bestDist) {
+      bestId = metro.id;
+      bestDist = dist;
+    }
+  }
+  return bestId;
+}
+
 // Virtual city-selector option: shows every pin regardless of city, with the
 // viewport fit around them. Not a MetroRegion — it has no center/timezone.
 export const EVERYWHERE_ID = 'everywhere';

@@ -21,11 +21,7 @@ describe('SessionRestaurantCard', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurant}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     expect(screen.getByTestId('session-restaurant-card')).toBeInTheDocument();
@@ -39,11 +35,7 @@ describe('SessionRestaurantCard', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurant}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     fireEvent.click(screen.getByRole('button', { name: /edit tier/i }));
@@ -60,11 +52,7 @@ describe('SessionRestaurantCard', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurant}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     fireEvent.click(screen.getByRole('button', { name: /edit tier/i }));
@@ -72,73 +60,57 @@ describe('SessionRestaurantCard', () => {
     expect(select.value).toBe('recommended');
   });
 
-  it('selecting a new tier and clicking Apply calls onTierChange with correct args', () => {
-    const onTierChange = vi.fn();
+  it('selecting a new tier and clicking Apply calls onUpdate with correct args', () => {
+    const onUpdate = vi.fn();
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurant}
-        onTierChange={onTierChange}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={onUpdate}
       />
     );
     fireEvent.click(screen.getByRole('button', { name: /edit tier/i }));
     const select = screen.getByRole('combobox', { name: /select tier/i });
     fireEvent.change(select, { target: { value: 'loved' } });
     fireEvent.click(screen.getByRole('button', { name: /apply tier change/i }));
-    expect(onTierChange).toHaveBeenCalledOnce();
-    expect(onTierChange).toHaveBeenCalledWith('test-resto', 'loved');
+    expect(onUpdate).toHaveBeenCalledOnce();
+    expect(onUpdate).toHaveBeenCalledWith('test-resto', { tier: 'loved' });
   });
 
-  it('clicking Cancel collapses back to display state without calling onTierChange', () => {
-    const onTierChange = vi.fn();
+  it('clicking Cancel collapses back to display state without calling onUpdate', () => {
+    const onUpdate = vi.fn();
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurant}
-        onTierChange={onTierChange}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={onUpdate}
       />
     );
     fireEvent.click(screen.getByRole('button', { name: /edit tier/i }));
     expect(screen.getByRole('combobox')).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: /cancel tier change/i }));
     expect(screen.queryByRole('combobox')).not.toBeInTheDocument();
-    expect(onTierChange).not.toHaveBeenCalled();
+    expect(onUpdate).not.toHaveBeenCalled();
   });
 
-  it('applying the same tier calls onTierChange idempotently', () => {
-    const onTierChange = vi.fn();
+  it('applying the same tier calls onUpdate idempotently', () => {
+    const onUpdate = vi.fn();
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurant}
-        onTierChange={onTierChange}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={onUpdate}
       />
     );
     fireEvent.click(screen.getByRole('button', { name: /edit tier/i }));
     // Do not change the select — keep same tier
     fireEvent.click(screen.getByRole('button', { name: /apply tier change/i }));
-    expect(onTierChange).toHaveBeenCalledOnce();
-    expect(onTierChange).toHaveBeenCalledWith('test-resto', 'recommended');
+    expect(onUpdate).toHaveBeenCalledOnce();
+    expect(onUpdate).toHaveBeenCalledWith('test-resto', { tier: 'recommended' });
   });
 
   it('collapses back to display state after applying', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurant}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     fireEvent.click(screen.getByRole('button', { name: /edit tier/i }));
@@ -150,11 +122,7 @@ describe('SessionRestaurantCard', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurant}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     const editBtn = screen.getByRole('button', { name: /edit tier/i });
@@ -187,11 +155,7 @@ describe('SessionRestaurantCard — notes display (AC 1, 4)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoNotes}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     expect(screen.getByRole('button', { name: /add note for test bistro/i })).toBeInTheDocument();
@@ -203,11 +167,7 @@ describe('SessionRestaurantCard — notes display (AC 1, 4)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantWithNotes}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     expect(screen.getByText('cash only')).toBeInTheDocument();
@@ -222,11 +182,7 @@ describe('SessionRestaurantCard — Add Note flow (AC 2, 3, 8, 11)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoNotes}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add note for test bistro/i }));
@@ -242,11 +198,7 @@ describe('SessionRestaurantCard — Add Note flow (AC 2, 3, 8, 11)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoNotes}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add note for test bistro/i }));
@@ -255,44 +207,36 @@ describe('SessionRestaurantCard — Add Note flow (AC 2, 3, 8, 11)', () => {
     expect(screen.getByTestId('save-note-btn')).not.toBeDisabled();
   });
 
-  it('clicking "Save Note" calls onNotesChange with trimmed text and collapses editor', async () => {
+  it('clicking "Save Note" calls onUpdate with trimmed text and collapses editor', async () => {
     const user = userEvent.setup();
-    const mockOnNotesChange = vi.fn();
+    const onUpdate = vi.fn();
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoNotes}
-        onTierChange={vi.fn()}
-        onNotesChange={mockOnNotesChange}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={onUpdate}
       />
     );
     await user.click(screen.getByRole('button', { name: /add note for test bistro/i }));
     const textarea = screen.getByTestId('note-textarea');
     await user.type(textarea, '  try the bone marrow pho  ');
     await user.click(screen.getByTestId('save-note-btn'));
-    expect(mockOnNotesChange).toHaveBeenCalledWith('test-resto', 'try the bone marrow pho');
+    expect(onUpdate).toHaveBeenCalledWith('test-resto', { notes: 'try the bone marrow pho' });
     expect(screen.queryByTestId('note-textarea')).not.toBeInTheDocument();
   });
 
-  it('clicking "Cancel" collapses editor without calling onNotesChange', async () => {
+  it('clicking "Cancel" collapses editor without calling onUpdate', async () => {
     const user = userEvent.setup();
-    const mockOnNotesChange = vi.fn();
+    const onUpdate = vi.fn();
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoNotes}
-        onTierChange={vi.fn()}
-        onNotesChange={mockOnNotesChange}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={onUpdate}
       />
     );
     await user.click(screen.getByRole('button', { name: /add note for test bistro/i }));
     await user.type(screen.getByTestId('note-textarea'), 'some draft text');
     await user.click(screen.getByTestId('cancel-note-btn'));
-    expect(mockOnNotesChange).not.toHaveBeenCalled();
+    expect(onUpdate).not.toHaveBeenCalled();
     expect(screen.queryByTestId('note-textarea')).not.toBeInTheDocument();
   });
 
@@ -301,11 +245,7 @@ describe('SessionRestaurantCard — Add Note flow (AC 2, 3, 8, 11)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoNotes}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add note for test bistro/i }));
@@ -317,11 +257,7 @@ describe('SessionRestaurantCard — Add Note flow (AC 2, 3, 8, 11)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoNotes}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add note for test bistro/i }));
@@ -333,11 +269,7 @@ describe('SessionRestaurantCard — Add Note flow (AC 2, 3, 8, 11)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoNotes}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add note for test bistro/i }));
@@ -352,11 +284,7 @@ describe('SessionRestaurantCard — Edit Note flow (AC 5, 6, 7)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantWithNotes}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /edit note for test bistro/i }));
@@ -366,22 +294,18 @@ describe('SessionRestaurantCard — Edit Note flow (AC 5, 6, 7)', () => {
     expect(screen.getByTestId('save-note-btn')).not.toBeDisabled();
   });
 
-  it('clicking "Delete Note" calls onNotesChange with empty string and collapses editor', async () => {
+  it('clicking "Delete Note" calls onUpdate with notes: undefined and collapses editor', async () => {
     const user = userEvent.setup();
-    const mockOnNotesChange = vi.fn();
+    const onUpdate = vi.fn();
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantWithNotes}
-        onTierChange={vi.fn()}
-        onNotesChange={mockOnNotesChange}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={onUpdate}
       />
     );
     await user.click(screen.getByRole('button', { name: /edit note for test bistro/i }));
     await user.click(screen.getByTestId('delete-note-btn'));
-    expect(mockOnNotesChange).toHaveBeenCalledWith('test-resto', '');
+    expect(onUpdate).toHaveBeenCalledWith('test-resto', { notes: undefined });
     expect(screen.queryByTestId('note-textarea')).not.toBeInTheDocument();
   });
 });
@@ -392,11 +316,7 @@ describe('SessionRestaurantCard — mutual exclusion (AC 2, 5)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoNotes}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     // Open tier edit
@@ -413,11 +333,7 @@ describe('SessionRestaurantCard — mutual exclusion (AC 2, 5)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoNotes}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     // Open note editor
@@ -454,11 +370,7 @@ describe('SessionRestaurantCard — source display (AC 3, 4)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoSource}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     expect(screen.getByRole('button', { name: /add source for test bistro/i })).toBeInTheDocument();
@@ -470,11 +382,7 @@ describe('SessionRestaurantCard — source display (AC 3, 4)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantWithSource}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     expect(screen.getByText('TikTok @phxfoodie')).toBeInTheDocument();
@@ -489,11 +397,7 @@ describe('SessionRestaurantCard — Add Source flow (AC 5, 6, 7, 16)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoSource}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add source for test bistro/i }));
@@ -508,11 +412,7 @@ describe('SessionRestaurantCard — Add Source flow (AC 5, 6, 7, 16)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoSource}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add source for test bistro/i }));
@@ -520,43 +420,35 @@ describe('SessionRestaurantCard — Add Source flow (AC 5, 6, 7, 16)', () => {
     expect(screen.getByTestId('save-source-btn')).not.toBeDisabled();
   });
 
-  it('clicking "Save" calls onSourceChange with trimmed text and collapses editor', async () => {
+  it('clicking "Save" calls onUpdate with trimmed text and collapses editor', async () => {
     const user = userEvent.setup();
-    const mockOnSourceChange = vi.fn();
+    const onUpdate = vi.fn();
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoSource}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={mockOnSourceChange}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={onUpdate}
       />
     );
     await user.click(screen.getByRole('button', { name: /add source for test bistro/i }));
     await user.type(screen.getByTestId('source-input'), '  TikTok @phxfoodie  ');
     await user.click(screen.getByTestId('save-source-btn'));
-    expect(mockOnSourceChange).toHaveBeenCalledWith('test-resto', 'TikTok @phxfoodie');
+    expect(onUpdate).toHaveBeenCalledWith('test-resto', { source: 'TikTok @phxfoodie' });
     expect(screen.queryByTestId('source-input')).not.toBeInTheDocument();
   });
 
-  it('clicking "Cancel" collapses editor without calling onSourceChange', async () => {
+  it('clicking "Cancel" collapses editor without calling onUpdate', async () => {
     const user = userEvent.setup();
-    const mockOnSourceChange = vi.fn();
+    const onUpdate = vi.fn();
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoSource}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={mockOnSourceChange}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={onUpdate}
       />
     );
     await user.click(screen.getByRole('button', { name: /add source for test bistro/i }));
     await user.type(screen.getByTestId('source-input'), 'some draft text');
     await user.click(screen.getByTestId('cancel-source-btn'));
-    expect(mockOnSourceChange).not.toHaveBeenCalled();
+    expect(onUpdate).not.toHaveBeenCalled();
     expect(screen.queryByTestId('source-input')).not.toBeInTheDocument();
   });
 
@@ -565,11 +457,7 @@ describe('SessionRestaurantCard — Add Source flow (AC 5, 6, 7, 16)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoSource}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add source for test bistro/i }));
@@ -581,11 +469,7 @@ describe('SessionRestaurantCard — Add Source flow (AC 5, 6, 7, 16)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoSource}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add source for test bistro/i }));
@@ -597,11 +481,7 @@ describe('SessionRestaurantCard — Add Source flow (AC 5, 6, 7, 16)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoSource}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add source for test bistro/i }));
@@ -614,11 +494,7 @@ describe('SessionRestaurantCard — Add Source flow (AC 5, 6, 7, 16)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantWithSource}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /edit source for test bistro/i }));
@@ -632,11 +508,7 @@ describe('SessionRestaurantCard — Edit Source flow (AC 5, 6, 7)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantWithSource}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /edit source for test bistro/i }));
@@ -646,22 +518,18 @@ describe('SessionRestaurantCard — Edit Source flow (AC 5, 6, 7)', () => {
     expect(screen.getByTestId('save-source-btn')).not.toBeDisabled();
   });
 
-  it('clicking "Remove Source" calls onSourceChange with empty string and collapses editor', async () => {
+  it('clicking "Remove Source" calls onUpdate with source: undefined and collapses editor', async () => {
     const user = userEvent.setup();
-    const mockOnSourceChange = vi.fn();
+    const onUpdate = vi.fn();
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantWithSource}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={mockOnSourceChange}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={onUpdate}
       />
     );
     await user.click(screen.getByRole('button', { name: /edit source for test bistro/i }));
     await user.click(screen.getByTestId('remove-source-btn'));
-    expect(mockOnSourceChange).toHaveBeenCalledWith('test-resto', '');
+    expect(onUpdate).toHaveBeenCalledWith('test-resto', { source: undefined });
     expect(screen.queryByTestId('source-input')).not.toBeInTheDocument();
   });
 });
@@ -672,11 +540,7 @@ describe('SessionRestaurantCard — source mutual exclusion (AC 17)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoSource}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /edit tier/i }));
@@ -691,11 +555,7 @@ describe('SessionRestaurantCard — source mutual exclusion (AC 17)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoSource}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add note for test bistro/i }));
@@ -710,11 +570,7 @@ describe('SessionRestaurantCard — source mutual exclusion (AC 17)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoSource}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add source for test bistro/i }));
@@ -729,11 +585,7 @@ describe('SessionRestaurantCard — source mutual exclusion (AC 17)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoSource}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     await user.click(screen.getByRole('button', { name: /add source for test bistro/i }));
@@ -768,11 +620,7 @@ describe('SessionRestaurantCard — tags display (AC 8, 9)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoTags}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     expect(screen.getByTestId('tag-chip-date-night')).toBeInTheDocument();
@@ -788,11 +636,7 @@ describe('SessionRestaurantCard — tags display (AC 8, 9)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantWithTags}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     expect(screen.getByTestId('tag-chip-patio')).toHaveAttribute('aria-pressed', 'true');
@@ -801,38 +645,30 @@ describe('SessionRestaurantCard — tags display (AC 8, 9)', () => {
 });
 
 describe('SessionRestaurantCard — tag toggle (AC 10, 11)', () => {
-  it('clicking an inactive suggested tag chip calls onTagsChange with updated array including that tag', async () => {
+  it('clicking an inactive suggested tag chip calls onUpdate with updated array including that tag', async () => {
     const user = userEvent.setup();
-    const mockOnTagsChange = vi.fn();
+    const onUpdate = vi.fn();
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoTags}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={mockOnTagsChange}
-        onFeaturedChange={vi.fn()}
+        onUpdate={onUpdate}
       />
     );
     await user.click(screen.getByTestId('tag-chip-patio'));
-    expect(mockOnTagsChange).toHaveBeenCalledWith('test-resto', ['patio']);
+    expect(onUpdate).toHaveBeenCalledWith('test-resto', { tags: ['patio'] });
   });
 
-  it('clicking an active suggested tag chip calls onTagsChange with updated array excluding that tag', async () => {
+  it('clicking an active suggested tag chip (last tag) calls onUpdate with tags: undefined', async () => {
     const user = userEvent.setup();
-    const mockOnTagsChange = vi.fn();
+    const onUpdate = vi.fn();
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantWithTags}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={mockOnTagsChange}
-        onFeaturedChange={vi.fn()}
+        onUpdate={onUpdate}
       />
     );
     await user.click(screen.getByTestId('tag-chip-patio'));
-    expect(mockOnTagsChange).toHaveBeenCalledWith('test-resto', []);
+    expect(onUpdate).toHaveBeenCalledWith('test-resto', { tags: undefined });
   });
 
   it('active tag chip returns to inactive after toggle', async () => {
@@ -840,11 +676,7 @@ describe('SessionRestaurantCard — tag toggle (AC 10, 11)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantWithTags}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     expect(screen.getByTestId('tag-chip-patio')).toHaveAttribute('aria-pressed', 'true');
@@ -854,39 +686,31 @@ describe('SessionRestaurantCard — tag toggle (AC 10, 11)', () => {
 });
 
 describe('SessionRestaurantCard — custom tag (AC 12)', () => {
-  it('typing custom tag and clicking "Add" calls onTagsChange with custom tag included', async () => {
+  it('typing custom tag and clicking "Add" calls onUpdate with custom tag included', async () => {
     const user = userEvent.setup();
-    const mockOnTagsChange = vi.fn();
+    const onUpdate = vi.fn();
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoTags}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={mockOnTagsChange}
-        onFeaturedChange={vi.fn()}
+        onUpdate={onUpdate}
       />
     );
     await user.type(screen.getByTestId('session-custom-tag-input'), 'brunch spot');
     await user.click(screen.getByTestId('session-add-custom-tag-btn'));
-    expect(mockOnTagsChange).toHaveBeenCalledWith('test-resto', ['brunch spot']);
+    expect(onUpdate).toHaveBeenCalledWith('test-resto', { tags: ['brunch spot'] });
   });
 
   it('pressing Enter in custom tag input adds the custom tag', async () => {
     const user = userEvent.setup();
-    const mockOnTagsChange = vi.fn();
+    const onUpdate = vi.fn();
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoTags}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={mockOnTagsChange}
-        onFeaturedChange={vi.fn()}
+        onUpdate={onUpdate}
       />
     );
     await user.type(screen.getByTestId('session-custom-tag-input'), 'brunch spot{Enter}');
-    expect(mockOnTagsChange).toHaveBeenCalledWith('test-resto', ['brunch spot']);
+    expect(onUpdate).toHaveBeenCalledWith('test-resto', { tags: ['brunch spot'] });
   });
 
   it('custom tag input clears after adding', async () => {
@@ -894,11 +718,7 @@ describe('SessionRestaurantCard — custom tag (AC 12)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoTags}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     const input = screen.getByTestId('session-custom-tag-input') as HTMLInputElement;
@@ -912,11 +732,7 @@ describe('SessionRestaurantCard — custom tag (AC 12)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoTags}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     await user.type(screen.getByTestId('session-custom-tag-input'), 'brunch spot');
@@ -929,11 +745,7 @@ describe('SessionRestaurantCard — custom tag (AC 12)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoTags}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     expect(screen.getByTestId('session-custom-tag-input')).toBeInTheDocument();
@@ -943,11 +755,7 @@ describe('SessionRestaurantCard — custom tag (AC 12)', () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurantNoTags}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     expect(screen.getByTestId('tag-chip-date-night')).toBeInTheDocument();
@@ -966,11 +774,7 @@ describe("SessionRestaurantCard — Bobby's Pick toggle", () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurant}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     expect(screen.getByTestId('bobby-pick-toggle')).toBeInTheDocument();
@@ -980,11 +784,7 @@ describe("SessionRestaurantCard — Bobby's Pick toggle", () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurant}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     expect(screen.getByTestId('bobby-pick-toggle')).toHaveAttribute('aria-pressed', 'false');
@@ -994,57 +794,41 @@ describe("SessionRestaurantCard — Bobby's Pick toggle", () => {
     render(
       <SessionRestaurantCard
         restaurant={mockFeaturedRestaurant}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     expect(screen.getByTestId('bobby-pick-toggle')).toHaveAttribute('aria-pressed', 'true');
   });
 
-  it("clicking toggle when inactive calls onFeaturedChange with (id, true)", () => {
-    const onFeaturedChange = vi.fn();
+  it("clicking toggle when inactive calls onUpdate with featured: true", () => {
+    const onUpdate = vi.fn();
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurant}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={onFeaturedChange}
+        onUpdate={onUpdate}
       />
     );
     fireEvent.click(screen.getByTestId('bobby-pick-toggle'));
-    expect(onFeaturedChange).toHaveBeenCalledWith('test-resto', true);
+    expect(onUpdate).toHaveBeenCalledWith('test-resto', { featured: true });
   });
 
-  it("clicking toggle when active calls onFeaturedChange with (id, false)", () => {
-    const onFeaturedChange = vi.fn();
+  it("clicking toggle when active calls onUpdate with featured: undefined", () => {
+    const onUpdate = vi.fn();
     render(
       <SessionRestaurantCard
         restaurant={mockFeaturedRestaurant}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={onFeaturedChange}
+        onUpdate={onUpdate}
       />
     );
     fireEvent.click(screen.getByTestId('bobby-pick-toggle'));
-    expect(onFeaturedChange).toHaveBeenCalledWith('test-resto', false);
+    expect(onUpdate).toHaveBeenCalledWith('test-resto', { featured: undefined });
   });
 
   it("BobbyPickBadge is NOT rendered when featured is undefined", () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurant}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     expect(screen.queryByTestId('bobby-pick-badge')).toBeNull();
@@ -1054,11 +838,7 @@ describe("SessionRestaurantCard — Bobby's Pick toggle", () => {
     render(
       <SessionRestaurantCard
         restaurant={mockFeaturedRestaurant}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     expect(screen.getByTestId('bobby-pick-badge')).toBeInTheDocument();
@@ -1068,11 +848,7 @@ describe("SessionRestaurantCard — Bobby's Pick toggle", () => {
     render(
       <SessionRestaurantCard
         restaurant={mockRestaurant}
-        onTierChange={vi.fn()}
-        onNotesChange={vi.fn()}
-        onSourceChange={vi.fn()}
-        onTagsChange={vi.fn()}
-        onFeaturedChange={vi.fn()}
+        onUpdate={vi.fn()}
       />
     );
     expect(screen.getByTestId('bobby-pick-toggle')).toHaveClass('min-h-[44px]');

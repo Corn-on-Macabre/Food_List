@@ -47,11 +47,14 @@ export function SearchAutocomplete({
       .slice(0, 7);
   }, [searchTerm, restaurants]);
 
-  // Reset highlight and un-dismiss when search term changes
-  useEffect(() => {
+  // Reset highlight and un-dismiss when search term changes — adjusted during
+  // render (React's recommended pattern) instead of a cascading effect.
+  const [lastSearchTerm, setLastSearchTerm] = useState(searchTerm);
+  if (searchTerm !== lastSearchTerm) {
+    setLastSearchTerm(searchTerm);
     setHighlightedIndex(-1);
     setDismissed(false);
-  }, [searchTerm]);
+  }
 
   // Scroll highlighted item into view
   useEffect(() => {

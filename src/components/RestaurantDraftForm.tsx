@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import type { PlaceDraft } from '../hooks/usePlaceDetails';
 import type { Restaurant, Tier } from '../types';
-import { generateSlugId } from '../utils/generateSlugId';
+import { generateUniqueSlugId } from '../utils/generateSlugId';
 import { haversineDistance } from '../utils/distance';
 import { AddressGeocodeInput } from './AddressGeocodeInput';
-import { METRO_REGIONS, DEFAULT_METRO_ID } from '../constants/metros';
+import { METRO_REGIONS, DEFAULT_METRO_ID, nearestMetroId } from '../constants/metros';
+import { TIER_OPTIONS } from '../constants/tiers';
+import { SUGGESTED_TAGS } from '../constants/tags';
 import { LABEL_CLASS, INPUT_CLASS, INPUT_ERROR_CLASS, ERROR_MSG_CLASS, BTN_PRIMARY, BTN_SECONDARY } from './styles';
-
-const SUGGESTED_TAGS = ['date night', 'quick lunch', 'patio', 'kid-friendly'];
 
 interface Props {
   initialDraft: PlaceDraft | null;
@@ -19,13 +19,7 @@ interface Props {
 }
 
 function detectCity(lat: number, lng: number): string {
-  let bestId = DEFAULT_METRO_ID;
-  let bestDist = Infinity;
-  for (const m of METRO_REGIONS) {
-    const d = haversineDistance(lat, lng, m.center.lat, m.center.lng);
-    if (d < bestDist) { bestId = m.id; bestDist = d; }
-  }
-  return bestId;
+  return nearestMetroId(lat, lng, haversineDistance);
 }
 
 interface FormFields {
@@ -51,12 +45,6 @@ interface FormErrors {
   lat?: string;
   lng?: string;
 }
-
-const TIER_OPTIONS: { value: Tier; label: string }[] = [
-  { value: 'loved', label: 'Loved' },
-  { value: 'recommended', label: 'Recommended' },
-  { value: 'on_my_radar', label: 'On My Radar' },
-];
 
 
 function getToday(): string {
@@ -118,13 +106,7 @@ export function RestaurantDraftForm({ initialDraft, onSave, onCancel, existingId
       return;
     }
 
-    // Generate unique slug
-    let id = generateSlugId(fields.name);
-    if (existingIds.includes(id)) {
-      let counter = 2;
-      while (existingIds.includes(`${id}-${counter}`)) counter++;
-      id = `${id}-${counter}`;
-    }
+    const id = generateUniqueSlugId(fields.name, existingIds);
 
     const restaurant: Restaurant = {
       id,

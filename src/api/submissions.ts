@@ -1,3 +1,4 @@
+import { userDisplayFields } from './userMetadata';
 import { supabase } from '../lib/supabase';
 
 export interface Submission {
@@ -24,16 +25,9 @@ export async function submitRestaurant(data: SubmitData): Promise<Submission> {
   const user = userData?.user;
   if (!user) throw new Error('You must be signed in to submit a restaurant.');
 
-  const metadata = user.user_metadata as Record<string, unknown> | undefined;
-  const displayName =
-    (metadata?.full_name as string) ??
-    (metadata?.name as string) ??
-    user.email ??
-    'Anonymous';
-  const avatarUrl =
-    (metadata?.avatar_url as string) ??
-    (metadata?.picture as string) ??
-    null;
+  const fields = userDisplayFields(user);
+  const displayName = fields.displayName ?? user.email ?? 'Anonymous';
+  const avatarUrl = fields.avatarUrl;
 
   const { data: row, error } = await supabase
     .from('submissions')

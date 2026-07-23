@@ -20,6 +20,17 @@ function getSafeHref(url: string): string {
   return url.startsWith("http://") || url.startsWith("https://") ? url : "#";
 }
 
+const SHARE_ICON_PATH = "M13 4.5a2.5 2.5 0 1 1 .702 1.737L6.97 9.604a2.518 2.518 0 0 1 0 .792l6.733 3.367a2.5 2.5 0 1 1-.671 1.341l-6.733-3.367a2.5 2.5 0 1 1 0-3.474l6.733-3.367A2.52 2.52 0 0 1 13 4.5Z";
+const CLOSE_ICON_PATH = "M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z";
+
+function ActionIcon({ path }: { path: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
+      <path d={path} />
+    </svg>
+  );
+}
+
 export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBarHeight }: RestaurantCardProps) {
   const [photoError, setPhotoError] = useState(false);
 
@@ -68,18 +79,14 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
               aria-label="Share restaurant"
               className="flex items-center justify-center w-9 h-9 rounded-full bg-white/85 backdrop-blur-sm shadow-md text-stone-600 hover:text-brand-accent transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
-                <path d="M13 4.5a2.5 2.5 0 1 1 .702 1.737L6.97 9.604a2.518 2.518 0 0 1 0 .792l6.733 3.367a2.5 2.5 0 1 1-.671 1.341l-6.733-3.367a2.5 2.5 0 1 1 0-3.474l6.733-3.367A2.52 2.52 0 0 1 13 4.5Z" />
-              </svg>
+              <ActionIcon path={SHARE_ICON_PATH} />
             </button>
             <button
               onClick={onDismiss}
               aria-label="Close restaurant card"
               className="flex items-center justify-center w-9 h-9 rounded-full bg-white/85 backdrop-blur-sm shadow-md text-stone-600 hover:text-stone-900 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cta"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
-                <path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
-              </svg>
+              <ActionIcon path={CLOSE_ICON_PATH} />
             </button>
           </div>
         </div>
@@ -95,28 +102,14 @@ export function RestaurantCard({ restaurant, onDismiss, onShareSuccess, filterBa
             aria-label="Share restaurant"
             className={`${BTN_ICON} hover:text-brand-accent`}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-4 h-4"
-            >
-              <path d="M13 4.5a2.5 2.5 0 1 1 .702 1.737L6.97 9.604a2.518 2.518 0 0 1 0 .792l6.733 3.367a2.5 2.5 0 1 1-.671 1.341l-6.733-3.367a2.5 2.5 0 1 1 0-3.474l6.733-3.367A2.52 2.52 0 0 1 13 4.5Z" />
-            </svg>
+            <ActionIcon path={SHARE_ICON_PATH} />
           </button>
           <button
             onClick={onDismiss}
             aria-label="Close restaurant card"
             className={BTN_ICON}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-4 h-4"
-            >
-              <path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
-            </svg>
+            <ActionIcon path={CLOSE_ICON_PATH} />
           </button>
         </div>
       </div>

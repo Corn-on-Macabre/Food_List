@@ -19,6 +19,21 @@ export const CHIP_BASE =
 export const CHIP_ACTIVE = 'bg-brand-chip text-white border-brand-chip';
 export const CHIP_INACTIVE = 'bg-white text-stone-500 border-brand-border hover:border-stone-300';
 
+// ---- Chips (admin tag/pick toggles — 44px touch targets) ----
+export const CHIP_TOGGLE_BASE =
+  'inline-flex items-center min-h-[44px] px-3 py-1.5 rounded-full text-xs font-sans font-bold transition-colors';
+export const CHIP_TOGGLE_ACTIVE = `${CHIP_TOGGLE_BASE} bg-amber-100 text-amber-800 border border-amber-300`;
+export const CHIP_TOGGLE_INACTIVE = `${CHIP_TOGGLE_BASE} bg-stone-100 text-stone-500 border border-brand-border hover:bg-stone-200`;
+export const CHIP_PICK_ACTIVE = `${CHIP_TOGGLE_BASE} bg-amber-400 text-amber-900 border border-amber-500`;
+
+// ---- Small editor buttons ----
+export const BTN_CANCEL =
+  `border border-brand-border rounded-lg px-3 py-2.5 font-sans text-sm font-bold text-stone-500 hover:bg-stone-50 min-h-[44px] ${FOCUS_RING}`;
+export const BTN_DANGER_OUTLINE =
+  'border border-red-300 text-red-600 hover:bg-red-50 font-sans text-sm font-bold rounded-lg py-2.5 px-3 transition-colors min-h-[44px]';
+export const BTN_INLINE_EDIT =
+  'font-sans text-xs text-stone-400 hover:text-stone-600 transition-colors min-h-[44px] px-2 inline-flex items-center';
+
 // ---- Surfaces ----
 export const CARD_SURFACE = 'bg-white border border-brand-border rounded-xl';
 export const FROSTED_BAR = 'bg-brand-bg/90 backdrop-blur-sm border-b border-brand-border';

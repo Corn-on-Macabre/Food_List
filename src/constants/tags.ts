@@ -19,3 +19,10 @@ export const TAG_VOCABULARY = [
 ] as const;
 
 export type Tag = (typeof TAG_VOCABULARY)[number];
+
+// Quick-pick chips shown in the admin editors — a curated subset of
+// TAG_VOCABULARY so admin-applied tags always match the public filter.
+// (satisfies keeps each entry checked against TAG_VOCABULARY while exposing
+// a plain string[] so .includes() accepts arbitrary user input)
+export const SUGGESTED_TAGS: readonly string[] =
+  ['date night', 'quick lunch', 'patio', 'kid friendly'] satisfies readonly Tag[];
