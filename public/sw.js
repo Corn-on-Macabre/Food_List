@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bobby-menu-v2';
+const CACHE_NAME = 'bobby-menu-v3';
 const PRECACHE_URLS = [
   '/',
   '/restaurants.json',
@@ -21,6 +21,13 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+  // Cache API only supports GET — a cache.put() on any other method throws.
+  // The Places API (New) SDK sends POSTs from the page, so let every
+  // non-GET request fall through to the network untouched.
+  if (event.request.method !== 'GET') {
+    return;
+  }
+
   // Never cache Supabase responses — the visits table is private (RLS,
   // admin-only) and its rows must not land in shared Cache Storage.
   if (new URL(event.request.url).hostname.endsWith('.supabase.co')) {

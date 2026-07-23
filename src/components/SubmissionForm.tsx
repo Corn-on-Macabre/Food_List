@@ -83,6 +83,9 @@ export function SubmissionForm({ onClose }: Props) {
 
   const isDropdownOpen = showDropdown && predictions.length > 0 && searchQuery.length >= 2 && !urlLookupLoading;
 
+  // A manually typed name is just as valid as an autocomplete selection.
+  const effectiveName = name.trim() || searchQuery.trim();
+
   async function handleUrlLookup(url: string) {
     const parsed = parseGoogleMapsUrl(url);
     if (!parsed) return false;
@@ -110,6 +113,9 @@ export function SubmissionForm({ onClose }: Props) {
   function handleSearchChange(e: React.ChangeEvent<HTMLInputElement>) {
     const value = e.target.value;
     setSearchQuery(value);
+    // Typing invalidates a previously selected place — the typed text
+    // becomes the restaurant name via effectiveName below.
+    setName('');
     setShowDropdown(true);
     setActiveIndex(-1);
     setUrlLookupFailed(false);
@@ -164,7 +170,7 @@ export function SubmissionForm({ onClose }: Props) {
     setSubmitting(true);
     try {
       await submitRestaurant({
-        restaurant_name: name.trim(),
+        restaurant_name: effectiveName,
         location: location.trim(),
         user_note: note.trim() || undefined,
       });
@@ -349,7 +355,7 @@ export function SubmissionForm({ onClose }: Props) {
 
             <button
               type="submit"
-              disabled={submitting || !name.trim() || !location.trim()}
+              disabled={submitting || !effectiveName || !location.trim()}
               className={`${BTN_PRIMARY} w-full px-4 py-2.5`}
             >
               {submitting ? 'Submitting...' : 'Submit Suggestion'}
