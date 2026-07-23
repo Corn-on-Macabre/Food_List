@@ -1,20 +1,33 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { AuthProvider } from '../../src/contexts/AuthContext';
-import { AdminAuthProvider } from '../../src/contexts/AdminAuthContext';
+
+// Override the global setup mock: these tests exercise the CONFIGURED state
+// (Google sign-in button) as well as the unconfigured banner.
+const signInWithOAuth = vi.fn();
+let configured = true;
+vi.mock('../lib/supabase', () => ({
+  get supabaseConfigured() { return configured; },
+  supabase: {
+    auth: {
+      getSession: vi.fn().mockResolvedValue({ data: { session: null } }),
+      onAuthStateChange: vi.fn().mockReturnValue({ data: { subscription: { unsubscribe: vi.fn() } } }),
+      signInWithOAuth: (...args: unknown[]) => signInWithOAuth(...args),
+      signOut: vi.fn(),
+    },
+    from: vi.fn().mockReturnValue({
+      select: vi.fn().mockReturnValue({ data: [], error: null }),
+      upsert: vi.fn().mockReturnValue({ error: null }),
+    }),
+  },
+}));
+
+import { AuthProvider } from '../contexts/AuthContext';
+import { AdminAuthProvider } from '../contexts/AdminAuthContext';
 import { AdminLogin } from '../components/AdminLogin';
 
-beforeEach(() => {
-  sessionStorage.clear();
-});
-
-afterEach(() => {
-  vi.unstubAllEnvs();
-});
-
-function renderAdminLogin() {
-  return render(
+async function renderAdminLogin() {
+  const result = render(
     <AuthProvider>
       <AdminAuthProvider>
         <MemoryRouter>
@@ -23,52 +36,39 @@ function renderAdminLogin() {
       </AdminAuthProvider>
     </AuthProvider>
   );
+  // AuthProvider resolves getSession asynchronously — wait for loading to clear
+  await screen.findByText(/Curator Dashboard/i);
+  return result;
 }
 
 describe('AdminLogin', () => {
-  it('renders password input and sign-in button when env var is set', () => {
-    vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
-    renderAdminLogin();
-    expect(screen.getByRole('button', { name: /sign in/i })).toBeInTheDocument();
-    expect(screen.getByPlaceholderText('Password')).toBeInTheDocument();
+  it('renders the Google sign-in button when Supabase is configured', async () => {
+    configured = true;
+    await renderAdminLogin();
+    expect(screen.getByRole('button', { name: /sign in with google/i })).toBeInTheDocument();
+    expect(screen.queryByText(/not configured/i)).not.toBeInTheDocument();
   });
 
-  it('shows config error banner when VITE_ADMIN_PASSWORD is empty', () => {
-    vi.stubEnv('VITE_ADMIN_PASSWORD', '');
-    renderAdminLogin();
+  it('clicking the Google button starts the OAuth flow with an /admin redirect', async () => {
+    configured = true;
+    signInWithOAuth.mockClear();
+    await renderAdminLogin();
+    fireEvent.click(screen.getByRole('button', { name: /sign in with google/i }));
+    expect(signInWithOAuth).toHaveBeenCalledOnce();
+    expect(signInWithOAuth).toHaveBeenCalledWith(
+      expect.objectContaining({
+        provider: 'google',
+        options: expect.objectContaining({
+          redirectTo: expect.stringContaining('/admin'),
+        }),
+      })
+    );
+  });
+
+  it('shows the config error banner when Supabase is not configured', async () => {
+    configured = false;
+    await renderAdminLogin();
     expect(screen.getByText(/not configured/i)).toBeInTheDocument();
-    expect(screen.queryByPlaceholderText('Password')).not.toBeInTheDocument();
-  });
-
-  it('does not render error message on initial render', () => {
-    vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
-    renderAdminLogin();
-    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
-  });
-
-  it('shows error message after failed login attempt', () => {
-    vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
-    renderAdminLogin();
-    const input = screen.getByPlaceholderText('Password');
-    fireEvent.change(input, { target: { value: 'wrongpass' } });
-    fireEvent.click(screen.getByRole('button', { name: /sign in/i }));
-    expect(screen.getByRole('alert')).toBeInTheDocument();
-    expect(screen.getByText(/Incorrect password/i)).toBeInTheDocument();
-  });
-
-  it('clears password field after failed login', () => {
-    vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
-    renderAdminLogin();
-    const input = screen.getByPlaceholderText('Password');
-    fireEvent.change(input, { target: { value: 'wrongpass' } });
-    fireEvent.click(screen.getByRole('button', { name: /sign in/i }));
-    expect(input).toHaveValue('');
-  });
-
-  it('password input has an associated label for accessibility', () => {
-    vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
-    renderAdminLogin();
-    const input = screen.getByLabelText('Password');
-    expect(input).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /sign in with google/i })).not.toBeInTheDocument();
   });
 });

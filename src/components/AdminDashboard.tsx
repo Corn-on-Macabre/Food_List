@@ -16,7 +16,7 @@ import type { Restaurant, Tier } from '../types';
 import { BTN_PRIMARY, BTN_SECONDARY } from './styles';
 
 export function AdminDashboard() {
-  const { logout, password } = useAdminAuth();
+  const { logout } = useAdminAuth();
 
   const [allRestaurants, setAllRestaurants] = useState<Restaurant[]>([]);
   const [loading, setLoading] = useState(true);
@@ -34,14 +34,14 @@ export function AdminDashboard() {
     setLoading(true);
     setError(null);
     try {
-      const data = await fetchAllRestaurants(password);
+      const data = await fetchAllRestaurants();
       setAllRestaurants(data);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load restaurants');
     } finally {
       setLoading(false);
     }
-  }, [password]);
+  }, []);
 
   useEffect(() => {
     void loadRestaurants();
@@ -49,8 +49,8 @@ export function AdminDashboard() {
 
   async function handleRestaurantAdded(restaurant: Restaurant) {
     try {
-      await addRestaurant(password, restaurant);
-      const updated = await fetchAllRestaurants(password);
+      await addRestaurant(restaurant);
+      const updated = await fetchAllRestaurants();
       setAllRestaurants(updated);
       setSessionRestaurants(prev => [restaurant, ...prev]);
     } catch (err) {
@@ -59,7 +59,7 @@ export function AdminDashboard() {
   }
 
   async function handleTierChange(id: string, newTier: Tier) {
-    await updateRestaurant(password, id, { tier: newTier });
+    await updateRestaurant(id, { tier: newTier });
     setSessionRestaurants(prev =>
       prev.map(r => (r.id === id ? { ...r, tier: newTier } : r))
     );
@@ -70,7 +70,7 @@ export function AdminDashboard() {
 
   async function handleNotesChange(id: string, notes: string) {
     const value = notes.trim() || undefined;
-    await updateRestaurant(password, id, { notes: value });
+    await updateRestaurant(id, { notes: value });
     setSessionRestaurants(prev =>
       prev.map(r => (r.id === id ? { ...r, notes: value } : r))
     );
@@ -81,7 +81,7 @@ export function AdminDashboard() {
 
   async function handleSourceChange(id: string, source: string) {
     const value = source.trim() || undefined;
-    await updateRestaurant(password, id, { source: value });
+    await updateRestaurant(id, { source: value });
     setSessionRestaurants(prev =>
       prev.map(r => (r.id === id ? { ...r, source: value } : r))
     );
@@ -92,7 +92,7 @@ export function AdminDashboard() {
 
   async function handleTagsChange(id: string, tags: string[]) {
     const value = tags.length > 0 ? tags : undefined;
-    await updateRestaurant(password, id, { tags: value });
+    await updateRestaurant(id, { tags: value });
     setSessionRestaurants(prev =>
       prev.map(r => (r.id === id ? { ...r, tags: value } : r))
     );
@@ -103,7 +103,7 @@ export function AdminDashboard() {
 
   async function handleFeaturedChange(id: string, featured: boolean) {
     const value = featured ? true : undefined;
-    await updateRestaurant(password, id, { featured: value });
+    await updateRestaurant(id, { featured: value });
     setSessionRestaurants(prev =>
       prev.map(r => (r.id === id ? { ...r, featured: value } : r))
     );
@@ -113,14 +113,14 @@ export function AdminDashboard() {
   }
 
   async function handleUpdate(id: string, changes: Partial<Restaurant>) {
-    await updateRestaurant(password, id, changes);
+    await updateRestaurant(id, changes);
     setAllRestaurants(prev =>
       prev.map(r => (r.id === id ? { ...r, ...changes } : r))
     );
   }
 
   async function handleDelete(id: string) {
-    await deleteRestaurant(password, id);
+    await deleteRestaurant(id);
     setAllRestaurants(prev => prev.filter(r => r.id !== id));
     setSessionRestaurants(prev => prev.filter(r => r.id !== id));
   }

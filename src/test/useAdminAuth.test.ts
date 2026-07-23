@@ -1,97 +1,49 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
 import React from 'react';
-import { AuthProvider } from '../../src/contexts/AuthContext';
-import { AdminAuthProvider, useAdminAuth } from '../../src/contexts/AdminAuthContext';
+import { AuthProvider } from '../contexts/AuthContext';
+import { AdminAuthProvider, useAdminAuth } from '../contexts/AdminAuthContext';
+import { supabase } from '../lib/supabase';
 
-const SESSION_KEY = 'food-list-admin-auth';
+// setup.ts mocks ../lib/supabase with supabaseConfigured: false and a stubbed
+// auth client — these tests cover the unconfigured (OAuth-unavailable) state.
 
 const wrapper = ({ children }: { children: React.ReactNode }) =>
   React.createElement(AuthProvider, null,
     React.createElement(AdminAuthProvider, null, children)
   );
 
-beforeEach(() => {
-  sessionStorage.clear();
-});
-
-afterEach(() => {
-  vi.unstubAllEnvs();
-});
-
 describe('useAdminAuth', () => {
-  it('login() returns false when VITE_ADMIN_PASSWORD is empty or missing', () => {
-    vi.stubEnv('VITE_ADMIN_PASSWORD', '');
+  it('throws when used outside AdminAuthProvider', () => {
+    const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    expect(() => renderHook(() => useAdminAuth())).toThrow(
+      'useAdminAuth must be used within AdminAuthProvider'
+    );
+    spy.mockRestore();
+  });
+
+  it('is unauthenticated and unconfigured when Supabase is not configured', () => {
     const { result } = renderHook(() => useAdminAuth(), { wrapper });
-    let success: boolean;
-    act(() => {
-      success = result.current.login('anything');
-    });
-    expect(success!).toBe(false);
+    expect(result.current.isConfigured).toBe(false);
     expect(result.current.isAuthenticated).toBe(false);
+    expect(result.current.isAdmin).toBe(false);
+    expect(result.current.userEmail).toBeNull();
   });
 
-  it('login() returns false when password does not match', () => {
-    vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
+  it('loginWithGoogle is a no-op when Supabase is not configured', async () => {
     const { result } = renderHook(() => useAdminAuth(), { wrapper });
-    let success: boolean;
-    act(() => {
-      success = result.current.login('wrong');
+    await act(async () => {
+      await result.current.loginWithGoogle();
     });
-    expect(success!).toBe(false);
-    expect(result.current.isAuthenticated).toBe(false);
-    expect(sessionStorage.getItem(SESSION_KEY)).toBeNull();
+    expect(supabase.auth.signInWithOAuth).not.toHaveBeenCalled();
   });
 
-  it('login() returns true and sets sessionStorage when password matches', () => {
-    vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
+  it('logout delegates to the Supabase session sign-out', () => {
     const { result } = renderHook(() => useAdminAuth(), { wrapper });
-    let success: boolean;
-    act(() => {
-      success = result.current.login('testpass');
-    });
-    expect(success!).toBe(true);
-    expect(result.current.isAuthenticated).toBe(true);
-    expect(sessionStorage.getItem(SESSION_KEY)).toBe('1');
-  });
-
-  it('logout() clears sessionStorage and sets isAuthenticated to false', () => {
-    vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
-    const { result } = renderHook(() => useAdminAuth(), { wrapper });
-    act(() => {
-      result.current.login('testpass');
-    });
-    expect(result.current.isAuthenticated).toBe(true);
     act(() => {
       result.current.logout();
     });
-    expect(result.current.isAuthenticated).toBe(false);
-    expect(sessionStorage.getItem(SESSION_KEY)).toBeNull();
-  });
-
-  it('initial state reads from sessionStorage — isAuthenticated true when key present and env var defined', () => {
-    vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
-    sessionStorage.setItem(SESSION_KEY, '1');
-    const { result } = renderHook(() => useAdminAuth(), { wrapper });
-    expect(result.current.isAuthenticated).toBe(true);
-  });
-
-  it('initial state is false when sessionStorage key present but env var is empty', () => {
-    vi.stubEnv('VITE_ADMIN_PASSWORD', '');
-    sessionStorage.setItem(SESSION_KEY, '1');
-    const { result } = renderHook(() => useAdminAuth(), { wrapper });
-    expect(result.current.isAuthenticated).toBe(false);
-  });
-
-  it('isConfigured is true when VITE_ADMIN_PASSWORD is set', () => {
-    vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
-    const { result } = renderHook(() => useAdminAuth(), { wrapper });
-    expect(result.current.isConfigured).toBe(true);
-  });
-
-  it('isConfigured is false when VITE_ADMIN_PASSWORD is empty', () => {
-    vi.stubEnv('VITE_ADMIN_PASSWORD', '');
-    const { result } = renderHook(() => useAdminAuth(), { wrapper });
-    expect(result.current.isConfigured).toBe(false);
+    // Unconfigured: signOut short-circuits before hitting the client
+    expect(supabase.auth.signOut).not.toHaveBeenCalled();
   });
 });

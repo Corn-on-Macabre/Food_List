@@ -1,53 +1,61 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { AuthProvider } from '../../src/contexts/AuthContext';
-import { AdminAuthProvider } from '../../src/contexts/AdminAuthContext';
+
+// Mock the admin auth hook directly — ProtectedRoute's job is routing on
+// auth state, not deriving it (that's covered by useAdminAuth.test.ts).
+const mockAuth = {
+  isAuthenticated: false,
+  isConfigured: true,
+  isAdmin: false,
+  userEmail: null as string | null,
+  loginWithGoogle: vi.fn(),
+  logout: vi.fn(),
+  loading: false,
+};
+vi.mock('../hooks', () => ({
+  useAdminAuth: () => mockAuth,
+}));
+
 import { ProtectedRoute } from '../components/ProtectedRoute';
 
-const SESSION_KEY = 'food-list-admin-auth';
-
-beforeEach(() => {
-  sessionStorage.clear();
-});
-
-afterEach(() => {
-  vi.unstubAllEnvs();
-});
+function renderProtected() {
+  return render(
+    <MemoryRouter>
+      <ProtectedRoute>
+        <div data-testid="protected-content">Dashboard Content</div>
+      </ProtectedRoute>
+    </MemoryRouter>
+  );
+}
 
 describe('ProtectedRoute', () => {
-  it('renders children when sessionStorage has auth token and env var is set', () => {
-    vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
-    sessionStorage.setItem(SESSION_KEY, '1');
-    render(
-      <AuthProvider>
-        <AdminAuthProvider>
-          <MemoryRouter>
-            <ProtectedRoute>
-              <div data-testid="protected-content">Dashboard Content</div>
-            </ProtectedRoute>
-          </MemoryRouter>
-        </AdminAuthProvider>
-      </AuthProvider>
-    );
+  it('renders children when authenticated as admin', () => {
+    Object.assign(mockAuth, { isAuthenticated: true, isAdmin: true, userEmail: 'bobbyhunnicutt@gmail.com' });
+    renderProtected();
     expect(screen.getByTestId('protected-content')).toBeInTheDocument();
-    expect(screen.queryByPlaceholderText('Password')).not.toBeInTheDocument();
   });
 
-  it('renders AdminLogin when not authenticated', () => {
-    vi.stubEnv('VITE_ADMIN_PASSWORD', 'testpass');
-    render(
-      <AuthProvider>
-        <AdminAuthProvider>
-          <MemoryRouter>
-            <ProtectedRoute>
-              <div data-testid="protected-content">Dashboard Content</div>
-            </ProtectedRoute>
-          </MemoryRouter>
-        </AdminAuthProvider>
-      </AuthProvider>
-    );
+  it('renders AdminLogin when not signed in', () => {
+    Object.assign(mockAuth, { isAuthenticated: false, isAdmin: false, userEmail: null });
+    renderProtected();
     expect(screen.queryByTestId('protected-content')).not.toBeInTheDocument();
-    expect(screen.getByPlaceholderText('Password')).toBeInTheDocument();
+    expect(screen.getByText(/Curator Dashboard/i)).toBeInTheDocument();
+  });
+
+  it('shows Access Denied for a signed-in non-admin Google account', () => {
+    Object.assign(mockAuth, { isAuthenticated: false, isAdmin: false, userEmail: 'someone@example.com' });
+    renderProtected();
+    expect(screen.queryByTestId('protected-content')).not.toBeInTheDocument();
+    expect(screen.getByText(/Access Denied/i)).toBeInTheDocument();
+    expect(screen.getByText(/someone@example\.com/)).toBeInTheDocument();
+  });
+
+  it('shows the loading state while auth resolves', () => {
+    Object.assign(mockAuth, { loading: true, isAuthenticated: false, userEmail: null });
+    renderProtected();
+    expect(screen.getByText(/Loading/i)).toBeInTheDocument();
+    expect(screen.queryByTestId('protected-content')).not.toBeInTheDocument();
+    mockAuth.loading = false;
   });
 });
