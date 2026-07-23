@@ -1,14 +1,15 @@
 # Food_List — Claude Code Instructions
 
 ## Project Overview
-Map-based restaurant curation SPA for the Phoenix metro area. Single curator (Rhunnicutt), public-facing map, no user auth for MVP.
+Map-based restaurant curation SPA (bobby.menu). Phoenix metro plus travel cities. Single curator (Rhunnicutt); public map with Google sign-in for suggestions; Google-OAuth-gated admin dashboard.
 
 ## Tech Stack
-- React 18 + Vite + TypeScript (strict mode)
+- React 19 + Vite + TypeScript (strict mode)
 - Tailwind CSS v4 (via `@tailwindcss/vite` plugin)
 - `@vis.gl/react-google-maps` — the ONLY Google Maps library (not `@react-google-maps/api`, not `google-maps-react`)
-- Static `public/restaurants.json` as data layer (no database for MVP)
-- Deployed via Nginx on VPS: `rsync -avz --delete dist/ food-list-vps:/var/www/food-list/` (target is the root, NOT a `dist/` subdirectory)
+- Supabase (Postgres + RLS + Google OAuth) is the data layer; `public/restaurants.json` is only a dev fallback, SW precache entry, and gem-export source
+- Express server in `server/` exists ONLY to serve the MCP endpoint (`/mcp`, `/mcp/admin`) and `/api/health` — the frontend never calls it
+- Frontend deploy: `./deploy.sh` (builds + rsyncs `dist/` to the VPS web root, excluding the live `restaurants.json`). Production serving is Traefik + Docker Compose on bobby.menu; the API container deploys via `/opt/food-list-api`. `deploy/nginx-container.conf` mirrors the live SPA container config.
 
 ## Project Root
 `/Users/rhunnicutt/Food_List` — this IS the project root. Do NOT create nested subdirectories for app code.
@@ -40,8 +41,7 @@ This project uses BMAD Method v6. All planning artifacts are in `_bmad-output/`.
 ## What NOT to Do
 - Do not use `@react-google-maps/api` or any other Maps library
 - Do not create a nested `food-list/` subfolder
-- Do not add a database or backend server (MVP is static files only)
-- Do not add user authentication to the public map
+- Do not put credentials in `VITE_*` env vars — they are baked into the public bundle. Admin auth is Supabase Google OAuth + RLS only; there is no admin password in the frontend
 - Do not use `git add -A` or `git add .` — stage files explicitly
 
 <!-- GSD:project-start source:PROJECT.md -->
@@ -303,13 +303,13 @@ A map-based restaurant curation SPA for the Phoenix metro area. Single curator (
 | Skill | Description | Path |
 |-------|-------------|------|
 | ui-ux-pro-max | "UI/UX design intelligence. 67 styles, 96 palettes, 57 font pairings, 25 charts, 13 stacks (React, Next.js, Vue, Svelte, SwiftUI, React Native, Flutter, Tailwind, shadcn/ui). Actions: plan, build, create, design, implement, review, fix, improve, optimize, enhance, refactor, check UI/UX code. Projects: website, landing page, dashboard, admin panel, e-commerce, SaaS, portfolio, blog, mobile app, .html, .tsx, .vue, .svelte. Elements: button, modal, navbar, sidebar, card, table, form, chart. Styles: glassmorphism, claymorphism, minimalism, brutalism, neumorphism, bento grid, dark mode, responsive, skeuomorphism, flat design. Topics: color palette, accessibility, animation, layout, typography, font pairing, spacing, hover, shadow, gradient. Integrations: shadcn/ui MCP for component search and examples." | `.claude/skills/ui-ux-pro-max/SKILL.md` |
-| domain-name-brainstormer | Generates creative domain name ideas for your project and checks availability across multiple TLDs (.com, .io, .dev, .ai, etc.). Saves hours of brainstorming and manual checking. | `.agents/skills/domain-name-brainstormer/SKILL.md` |
-| find-skills | Helps users discover and install agent skills when they ask questions like "how do I do X", "find a skill for X", "is there a skill that can...", or express interest in extending capabilities. This skill should be used when the user is looking for functionality that might exist as an installable skill. | `.agents/skills/find-skills/SKILL.md` |
-| frontend-design | Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics. | `.agents/skills/frontend-design/SKILL.md` |
-| vercel-composition-patterns | React composition patterns that scale. Use when refactoring components with boolean prop proliferation, building flexible component libraries, or designing reusable APIs. Triggers on tasks involving compound components, render props, context providers, or component architecture. Includes React 19 API changes. | `.agents/skills/vercel-composition-patterns/SKILL.md` |
-| vercel-react-best-practices | React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements. | `.agents/skills/vercel-react-best-practices/SKILL.md` |
-| web-design-guidelines | Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check accessibility", "audit design", "review UX", or "check my site against best practices". | `.agents/skills/web-design-guidelines/SKILL.md` |
-| webapp-testing | Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs. | `.agents/skills/webapp-testing/SKILL.md` |
+| domain-name-brainstormer | Generates creative domain name ideas for your project and checks availability across multiple TLDs (.com, .io, .dev, .ai, etc.). Saves hours of brainstorming and manual checking. | `.claude/skills/domain-name-brainstormer/SKILL.md` |
+| find-skills | Helps users discover and install agent skills when they ask questions like "how do I do X", "find a skill for X", "is there a skill that can...", or express interest in extending capabilities. This skill should be used when the user is looking for functionality that might exist as an installable skill. | `.claude/skills/find-skills/SKILL.md` |
+| frontend-design | Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics. | `.claude/skills/frontend-design/SKILL.md` |
+| vercel-composition-patterns | React composition patterns that scale. Use when refactoring components with boolean prop proliferation, building flexible component libraries, or designing reusable APIs. Triggers on tasks involving compound components, render props, context providers, or component architecture. Includes React 19 API changes. | `.claude/skills/vercel-composition-patterns/SKILL.md` |
+| vercel-react-best-practices | React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements. | `.claude/skills/vercel-react-best-practices/SKILL.md` |
+| web-design-guidelines | Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check accessibility", "audit design", "review UX", or "check my site against best practices". | `.claude/skills/web-design-guidelines/SKILL.md` |
+| webapp-testing | Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs. | `.claude/skills/webapp-testing/SKILL.md` |
 | bmad-advanced-elicitation | 'Push the LLM to reconsider, refine, and improve its recent output.' | `.cursor/skills/bmad-advanced-elicitation/SKILL.md` |
 | bmad-analyst | analyst agent | `.cursor/skills/bmad-analyst/SKILL.md` |
 | bmad-architect | architect agent | `.cursor/skills/bmad-architect/SKILL.md` |
