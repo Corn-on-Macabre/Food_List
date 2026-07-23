@@ -1,4 +1,5 @@
 import type { ParsedMapsUrl } from '../utils/parseGoogleMapsUrl';
+import { mapPlaceTypeToCuisine } from '../utils/mapPlaceType';
 
 export interface PlaceLookupResult {
   name: string;
@@ -96,40 +97,11 @@ function extractResult(place: google.maps.places.Place): PlaceLookupResult | nul
     priceLevel = String(place.priceLevel);
   }
 
-  // Map place types to a cuisine string
-  let cuisine: string | undefined;
-  if (place.types && place.types.length > 0) {
-    // Reuse the same mapping logic the codebase uses elsewhere
-    const typeMap: Record<string, string> = {
-      mexican_restaurant: 'Mexican',
-      japanese_restaurant: 'Japanese',
-      italian_restaurant: 'Italian',
-      chinese_restaurant: 'Chinese',
-      thai_restaurant: 'Thai',
-      indian_restaurant: 'Indian',
-      french_restaurant: 'French',
-      vietnamese_restaurant: 'Vietnamese',
-      korean_restaurant: 'Korean',
-      mediterranean_restaurant: 'Mediterranean',
-      american_restaurant: 'American',
-      burger_restaurant: 'Burgers',
-      pizza_restaurant: 'Pizza',
-      seafood_restaurant: 'Seafood',
-      steak_house: 'Steakhouse',
-      sushi_restaurant: 'Sushi',
-      ramen_restaurant: 'Japanese',
-      breakfast_restaurant: 'Breakfast',
-      cafe: 'Cafe',
-      bar: 'Bar',
-      bakery: 'Bakery',
-    };
-    for (const type of place.types) {
-      if (typeMap[type]) {
-        cuisine = typeMap[type];
-        break;
-      }
-    }
-  }
+  // Map place types to a cuisine string — same mapping usePlaceDetails uses
+  const cuisine: string | undefined =
+    place.types && place.types.length > 0
+      ? mapPlaceTypeToCuisine(place.types)
+      : undefined;
 
   return {
     name: place.displayName ?? '',

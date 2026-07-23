@@ -111,6 +111,17 @@ function json(data) {
   return { content: [{ type: 'text', text: JSON.stringify(data, null, 2) }] };
 }
 
+// Shared preamble of every per-restaurant write tool: fetch all rows, find by
+// id. r is undefined when the id doesn't match — reply with notFound(id).
+async function findRestaurant(id) {
+  const data = await getAll();
+  return { data, r: data.find((x) => x.id === id) };
+}
+
+function notFound(id) {
+  return json({ error: `No restaurant with id '${id}'` });
+}
+
 const TIER_WEIGHT = { loved: 2, recommended: 1, on_my_radar: 0 };
 
 function applyFilters(data, { query, cuisine, tier, tiers, city, tags, near_lat, near_lng, max_distance_miles, min_rating, price_level, open_now, has_accolade, accolade_source }) {
@@ -446,9 +457,8 @@ function registerWriteTools(server) {
       },
     },
     async ({ id, new_tier, note_append, dishes, tags_add, spend, party_size, visited_on }) => {
-      const data = await getAll();
-      const r = data.find((x) => x.id === id);
-      if (!r) return json({ error: `No restaurant with id '${id}'` });
+      const { r } = await findRestaurant(id);
+      if (!r) return notFound(id);
       const visitDate = visited_on ?? localToday(r.city);
       const fields = { lastVisited: visitDate };
       if (new_tier) fields.tier = new_tier;
@@ -618,9 +628,8 @@ function registerWriteTools(server) {
       },
     },
     async ({ id }) => {
-      const data = await getAll();
-      const r = data.find((x) => x.id === id);
-      if (!r) return json({ error: `No restaurant with id '${id}'` });
+      const { r } = await findRestaurant(id);
+      if (!r) return notFound(id);
       if (!r.googlePlaceId) return json({ error: `'${r.name}' has no Google Place ID (unenriched)` });
       const refs = await fetchPlacePhotos(r.googlePlaceId, 4);
       if (refs.length === 0) return json({ error: 'Google returned no photos for this place' });
@@ -651,9 +660,8 @@ function registerWriteTools(server) {
       },
     },
     async ({ id, photo_index }) => {
-      const data = await getAll();
-      const r = data.find((x) => x.id === id);
-      if (!r) return json({ error: `No restaurant with id '${id}'` });
+      const { r } = await findRestaurant(id);
+      if (!r) return notFound(id);
       if (!r.googlePlaceId) return json({ error: `'${r.name}' has no Google Place ID (unenriched)` });
       const refs = await fetchPlacePhotos(r.googlePlaceId, 10);
       if (photo_index >= refs.length) {
@@ -677,9 +685,8 @@ function registerWriteTools(server) {
       },
     },
     async ({ id }) => {
-      const data = await getAll();
-      const r = data.find((x) => x.id === id);
-      if (!r) return json({ error: `No restaurant with id '${id}'` });
+      const { r } = await findRestaurant(id);
+      if (!r) return notFound(id);
       await deleteRow(id);
       // Warn about dangling collection membership (the frontend tolerates it,
       // but the curator probably wants to prune the list)
@@ -811,9 +818,8 @@ function registerWriteTools(server) {
       },
     },
     async ({ id }) => {
-      const data = await getAll();
-      const r = data.find((x) => x.id === id);
-      if (!r) return json({ error: `No restaurant with id '${id}'` });
+      const { r } = await findRestaurant(id);
+      if (!r) return notFound(id);
       const result = await enrichRestaurant(r.name, r.lat, r.lng, 2000);
       if (!result) return json({ error: 'Google Places returned no match near the pin' });
       const updated = await updateRow(id, result.fields);
@@ -838,9 +844,8 @@ function registerWriteTools(server) {
       },
     },
     async ({ id, ...accolade }) => {
-      const data = await getAll();
-      const r = data.find((x) => x.id === id);
-      if (!r) return json({ error: `No restaurant with id '${id}'` });
+      const { r } = await findRestaurant(id);
+      if (!r) return notFound(id);
       const accolades = Array.isArray(r.accolades) ? [...r.accolades] : [];
       const dup = accolades.some(
         (a) => a.source === accolade.source && a.list === accolade.list && a.year === accolade.year
@@ -864,9 +869,8 @@ function registerWriteTools(server) {
       },
     },
     async ({ id, source, year }) => {
-      const data = await getAll();
-      const r = data.find((x) => x.id === id);
-      if (!r) return json({ error: `No restaurant with id '${id}'` });
+      const { r } = await findRestaurant(id);
+      if (!r) return notFound(id);
       const before = Array.isArray(r.accolades) ? r.accolades : [];
       const after = before.filter(
         (a) => !((a.source ?? '').toLowerCase() === source.toLowerCase() && (year === undefined || a.year === year))

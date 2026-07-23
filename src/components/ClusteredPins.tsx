@@ -34,25 +34,37 @@ export function ClusteredPins({ restaurants, onRestaurantClick, selectedRestaura
   const clustererRef = useRef<MarkerClusterer | null>(null);
   const markersRef = useRef<Map<string, google.maps.marker.AdvancedMarkerElement>>(new Map());
 
+  // Marker ref callbacks only fire on mount/unmount, so this counter changes
+  // exactly when the marker set changes — it gates the re-sync effect below.
+  const markersVersionRef = useRef(0);
+  const syncedVersionRef = useRef(-1);
+
   // Initialize clusterer once the map is ready
   useEffect(() => {
     if (!map) return;
     clustererRef.current = new MarkerClusterer({ map, renderer: clusterRenderer });
+    syncedVersionRef.current = -1; // fresh clusterer needs a full sync
     return () => {
       clustererRef.current?.clearMarkers();
       clustererRef.current = null;
     };
   }, [map]);
 
-  // Re-sync clusterer whenever the markers map changes
+  // Re-sync clusterer whenever the markers map changes. Deliberately no dep
+  // array (marker refs land after render), but the version guard makes it a
+  // no-op unless markers were actually added/removed — otherwise every
+  // unrelated App render would re-cluster all ~250 markers.
   useEffect(() => {
     if (!clustererRef.current) return;
+    if (markersVersionRef.current === syncedVersionRef.current) return;
+    syncedVersionRef.current = markersVersionRef.current;
     clustererRef.current.clearMarkers();
     clustererRef.current.addMarkers(Array.from(markersRef.current.values()));
   });
 
   const setMarkerRef = useCallback(
     (marker: google.maps.marker.AdvancedMarkerElement | null, id: string) => {
+      markersVersionRef.current++;
       if (marker) {
         markersRef.current.set(id, marker);
       } else {

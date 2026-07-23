@@ -34,10 +34,15 @@ self.addEventListener('fetch', (event) => {
     return; // fall through to the network
   }
 
-  // Network-first for navigation and API calls, cache-first for assets
+  // Network-first for navigation and API calls, cache-first for assets.
+  // Offline navigations to deep routes (/r/…, /c/…) have no cache entry of
+  // their own — fall back to the precached app shell at '/' so the SPA router
+  // can render the route.
   if (event.request.mode === 'navigate' || event.request.url.includes('/api/')) {
     event.respondWith(
-      fetch(event.request).catch(() => caches.match(event.request))
+      fetch(event.request).catch(() =>
+        caches.match(event.request).then((cached) => cached ?? caches.match('/'))
+      )
     );
     return;
   }

@@ -18,6 +18,14 @@ const ACCESS_TOKEN_TTL_MS = 30 * 24 * 60 * 60 * 1000;
 
 const randomToken = () => crypto.randomBytes(32).toString('base64url');
 
+/** Constant-time string comparison — never compare credentials with ===. */
+export function safeEqual(a, b) {
+  const bufA = Buffer.from(String(a ?? ''));
+  const bufB = Buffer.from(String(b ?? ''));
+  if (bufA.length !== bufB.length) return false;
+  return crypto.timingSafeEqual(bufA, bufB);
+}
+
 export class FoodListOAuthProvider {
   constructor(stateFile) {
     this.stateFile = stateFile;
@@ -85,7 +93,7 @@ export class FoodListOAuthProvider {
         return res.status(400).send('Unknown client or redirect URI');
       }
       const url = new URL(redirect_uri);
-      if (password !== adminPassword) {
+      if (!safeEqual(password, adminPassword)) {
         url.searchParams.set('error', 'access_denied');
         url.searchParams.set('error_description', 'Wrong password');
         if (state) url.searchParams.set('state', state);
